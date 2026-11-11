@@ -1,0 +1,903 @@
+<meta charset="utf-8">
+<title>Fuge &amp; Stein</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Fuge & Stein – Badsanierung aus einer Hand in Berlin und Potsdam. Komplettbad zum Festpreis in 14 Arbeitstagen.">
+<style>
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+
+/* Layout: a pinned 3D bathroom that builds itself as you scroll (a 14-day construction schedule),
+   followed by a calm stone-coloured site: promise, services, process, materials, FAQ, contact, legal.
+   Single light look by choice: cool stone, ink, bottle green, a touch of brass. */
+:root{
+  --stone:#e7e8e4;
+  --stone-2:#dfe1dc;
+  --paper:#f4f4f1;
+  --ink:#141a18;
+  --ink-2:#3d4643;
+  --muted:#6b7470;
+  --line:rgba(20,26,24,.14);
+  --green:#1d4a42;
+  --green-2:#2c6a5e;
+  --brass:#a87c39;
+  --f-display:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
+  --f-body:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gl:max(16px,env(safe-area-inset-left,0px));
+  --gr:max(16px,env(safe-area-inset-right,0px));
+  --gt:env(safe-area-inset-top,0px);
+  --gb:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--stone);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--gt);z-index:60;background:var(--stone)}
+body.lock{overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:.98;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(46px,6.4vw,92px)}
+h1 i,h2 i,h3 i{color:var(--green)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 20px;font-size:15px;font-weight:600;border:1px solid var(--ink);background:transparent;text-decoration:none;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--green);border-color:var(--green);color:#f3f6f4}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink)}
+.icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center}
+.icon svg{width:16px;height:16px}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:90;background:var(--stone);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px;transition:opacity .9s,visibility .9s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .name{font-family:var(--f-display);font-size:clamp(48px,7vw,88px)}
+#loader .bar{width:min(300px,70vw);height:1px;background:var(--line);position:relative;overflow:hidden}
+#loader .bar i{position:absolute;inset:0;background:var(--green);transform-origin:left;transform:scaleX(0);transition:transform .3s}
+
+/* header */
+.top{position:fixed;left:0;right:0;top:var(--gt);z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(231,232,228,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand svg{width:28px;height:28px}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:28px;line-height:1}
+.links{display:flex;gap:26px;font-size:14.5px;font-weight:500}
+.links a{text-decoration:none}
+.links a:hover{color:var(--green)}
+.top .actions{display:flex;gap:8px;align-items:center}
+#menuBtn{display:none;background:rgba(244,244,241,.7)}
+@media (max-width:960px){.links{display:none}#menuBtn{display:grid}}
+@media (max-width:520px){.brand b{font-size:24px}.top .btn{padding:10px 14px;font-size:13px}}
+.menu{position:fixed;inset:0;z-index:55;background:var(--stone);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 var(--gr) 0 var(--gl);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.menu.open{opacity:1;visibility:visible}
+.menu a{font-family:var(--f-display);font-size:46px;text-decoration:none}
+.menu .icon{position:absolute;top:calc(var(--gt) + 14px);right:var(--gr)}
+
+/* pinned build sequence */
+#bau{position:relative;height:720vh}
+.stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#cfd1cc}
+#c{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage{position:absolute;bottom:calc(var(--gb) + 92px);z-index:4;width:min(440px,calc(100vw - 32px));padding:24px 26px;border-radius:16px;background:rgba(244,244,241,.8);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);box-shadow:0 30px 70px -40px rgba(20,26,24,.5);opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;pointer-events:none}
+.stage.on{opacity:1;transform:none;pointer-events:auto}
+.stage.left{left:var(--gl)}
+.stage.right{right:var(--gr)}
+.stage .day{display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}
+.stage .day b{font-family:var(--f-mono);font-weight:500;font-size:12px;color:var(--green);letter-spacing:.06em}
+.stage h1,.stage h2{font-size:clamp(40px,4.4vw,62px);margin-bottom:12px}
+.stage p{color:var(--ink-2);font-size:15.5px}
+.stage .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.rail{position:absolute;left:50%;bottom:calc(var(--gb) + 22px);transform:translateX(-50%);z-index:5;display:flex;gap:4px;padding:6px;border-radius:999px;background:rgba(244,244,241,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.6)}
+.rail button{border:0;background:transparent;border-radius:999px;padding:8px 12px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:background .3s,color .3s}
+.rail button.on{background:var(--ink);color:var(--paper)}
+.meter{position:absolute;right:var(--gr);top:calc(var(--gt) + 86px);z-index:4;text-align:right;pointer-events:none}
+.meter .n{font-family:var(--f-display);font-size:clamp(64px,8vw,120px);line-height:.85;color:var(--paper);text-shadow:0 2px 30px rgba(20,26,24,.35);font-variant-numeric:tabular-nums}
+.meter .mono{color:var(--paper);opacity:.9;text-shadow:0 1px 12px rgba(20,26,24,.5)}
+.cue{position:absolute;left:var(--gl);top:calc(var(--gt) + 90px);z-index:4;display:flex;align-items:center;gap:10px;transition:opacity .5s}
+.cue i{display:block;width:1px;height:42px;background:var(--ink);transform-origin:top;animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media (max-width:760px){
+  .stage{left:var(--gl)!important;right:var(--gr)!important;width:auto;bottom:calc(var(--gb) + 70px);padding:18px 18px}
+  .stage h1,.stage h2{font-size:36px}
+  .stage p{font-size:14px}
+  .rail button{padding:7px 8px;font-size:9.5px}
+  .meter{top:calc(var(--gt) + 74px)}
+  .meter .n{font-size:58px}
+  .cue{display:none}
+}
+
+/* sections */
+section.block{padding-block:clamp(90px,12vw,160px)}
+section.block+section.block{border-top:1px solid var(--line)}
+.kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.kicker::before{content:"";width:28px;height:1px;background:var(--green)}
+.lead{font-size:clamp(18px,1.6vw,21px);max-width:54ch}
+.body{color:var(--ink-2);max-width:60ch}
+.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px}
+.promise div{padding:28px;border-radius:16px;background:var(--paper);display:grid;gap:10px;align-content:start}
+.promise b{font-family:var(--f-display);font-weight:400;font-size:52px;line-height:1;color:var(--green)}
+.promise span{color:var(--ink-2);font-size:15px}
+.promise small{color:var(--muted);font-size:12px}
+@media (max-width:860px){.promise{grid-template-columns:1fr}}
+
+.svc{margin-top:56px;border-top:1px solid var(--line)}
+.svc article{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) auto;gap:32px;align-items:baseline;padding-block:30px;border-bottom:1px solid var(--line)}
+.svc h3{font-size:clamp(32px,3.4vw,46px)}
+.svc p{color:var(--ink-2)}
+.svc .price{font-family:var(--f-mono);font-size:14px;white-space:nowrap;text-align:right}
+.svc .price small{display:block;color:var(--muted);font-size:11px}
+@media (max-width:860px){.svc article{grid-template-columns:1fr;gap:10px}.svc .price{text-align:left}}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:56px}
+.step{display:grid;gap:10px;align-content:start;padding-top:22px;border-top:2px solid var(--ink)}
+.step .n{font-family:var(--f-mono);font-size:12px;color:var(--green)}
+.step h3{font-size:30px}
+.step p{color:var(--ink-2);font-size:15px}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+.mats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:56px}
+.mat{display:grid;gap:12px}
+.mat canvas{width:100%;aspect-ratio:1;max-width:100%;display:block;border-radius:14px}
+.mat h3{font-size:28px}
+.mat p{color:var(--muted);font-size:14px}
+@media (max-width:960px){.mats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.faq{margin-top:48px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:var(--f-display);font-size:clamp(25px,2.5vw,34px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-body);font-size:24px;color:var(--green);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--ink-2);padding:0 0 24px;max-width:70ch}
+
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(40px,6vw,90px);align-items:start}
+.contact dl{margin:28px 0 0;display:grid;gap:18px;border-top:1px solid var(--line);padding-top:24px}
+.contact dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.contact dd{margin:0}
+.formbox{padding:32px;border-radius:18px;background:var(--paper)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green)}
+textarea{min-height:110px;resize:vertical}
+.form-foot{grid-column:1/-1;display:grid;gap:14px}
+.form-foot small{color:var(--muted);font-size:12px;line-height:1.5}
+.form-foot .btn{justify-self:start}
+.thanks{grid-column:1/-1;border:1px solid var(--green);background:rgba(29,74,66,.08);padding:18px;border-radius:12px}
+.err{grid-column:1/-1;color:#a3402a;font-size:13px}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}.formbox{padding:22px}}
+
+footer{background:var(--ink);color:#e9ece9;padding-block:64px calc(var(--gb) + 30px)}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.fgrid h4{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9aa49f;margin:0 0 14px}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.fgrid a{text-decoration:none}
+.fgrid a:hover{color:#9fd3c4}
+.fbrand b{font-family:var(--f-display);font-weight:400;font-size:38px;display:block;margin-bottom:10px}
+.fbrand p{color:#9aa49f;font-size:14px;max-width:36ch}
+.fbottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(233,236,233,.15);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#9aa49f;font-size:12px}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+
+.legal{position:fixed;inset:0;z-index:75;background:var(--paper);overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.legal.open{opacity:1;visibility:visible}
+.legal .bar{position:sticky;top:0;z-index:2;background:rgba(244,244,241,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.legal .bar .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:calc(var(--gt) + 12px) 12px}
+.legal article{max-width:760px;margin:0 auto;padding:56px var(--gr) 96px var(--gl)}
+.legal h2{font-size:clamp(46px,6vw,74px);margin-bottom:28px}
+.legal h3{font-family:var(--f-body);font-weight:600;font-size:17px;letter-spacing:0;margin:34px 0 10px}
+.legal p,.legal li{color:var(--ink-2);font-size:15px}
+.legal p+p{margin-top:10px}
+.legal ul{padding-left:20px;display:grid;gap:6px}
+.legal .demo{border:1px solid var(--green);background:rgba(29,74,66,.07);padding:16px 18px;border-radius:12px;color:var(--ink);font-size:14px}
+.legal address{font-style:normal;line-height:1.7}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cue i{animation:none}.stage,#loader,.legal{transition:none}}
+</style>
+
+<div id="loader" role="status" aria-live="polite">
+  <div class="mono">Baustelle wird eingerichtet</div>
+  <div class="name">Fuge &amp; Stein</div>
+  <div class="bar"><i id="lbar"></i></div>
+</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#bau"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="2" y="2" width="11" height="11" stroke="#141a18"/><rect x="15" y="2" width="11" height="11" fill="#1d4a42"/><rect x="2" y="15" width="11" height="11" fill="#a87c39"/><rect x="15" y="15" width="11" height="11" stroke="#141a18"/></svg><b>Fuge &amp; Stein</b></a>
+    <nav class="links" aria-label="Hauptnavigation"><a href="#versprechen">Versprechen</a><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#material">Material</a><a href="#kontakt">Kontakt</a></nav>
+    <div class="actions">
+      <a class="btn solid" href="#kontakt">Kostenloses Aufmaß</a>
+      <button class="icon" id="menuBtn" type="button" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none"><path d="M2.5 5h11M2.5 11h11" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menü">
+  <button class="icon" id="menuClose" type="button" aria-label="Menü schließen"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  <a href="#bau">Ihr Bad in 14 Tagen</a><a href="#versprechen">Versprechen</a><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#material">Material</a><a href="#kontakt">Kontakt</a>
+</nav>
+
+<main>
+  <section id="bau" aria-label="Ihr Bad entsteht in 14 Arbeitstagen">
+    <div class="stick">
+      <canvas id="c" aria-hidden="true"></canvas>
+      <div class="cue mono" id="cue"><i></i>Scrollen und zusehen</div>
+      <div class="meter" aria-hidden="true"><div class="mono">Arbeitstag</div><div class="n" id="dayN">01</div></div>
+
+      <div class="stage left on" data-a="0" data-b=".15">
+        <div class="day mono"><span>Rohbau</span><b>Tag 1 von 14</b></div>
+        <h1>Bäder, die <i>bleiben.</i></h1>
+        <p>Abbruch, Leitungen, Abdichtung, Fliesen, Möbel und Licht. Bei uns machen das ein Team und ein Bauleiter, zu einem Festpreis.</p>
+        <div class="row"><a class="btn solid" href="#kontakt">Kostenloses Aufmaß</a></div>
+      </div>
+      <div class="stage right" data-a=".17" data-b=".38">
+        <div class="day mono"><span>Abdichtung &amp; Platten</span><b>Tag 4 von 14</b></div>
+        <h2>Stein, wo das <i>Wasser</i> hinkommt.</h2>
+        <p>Erst die Abdichtung nach DIN 18534, dann großformatige Platten bis unter die Decke. Weniger Fugen heißt weniger putzen.</p>
+      </div>
+      <div class="stage right" data-a=".40" data-b=".53">
+        <div class="day mono"><span>Dusche</span><b>Tag 8 von 14</b></div>
+        <h2>Glas, das nichts <i>versteckt.</i></h2>
+        <p>Bodengleiche Dusche mit 8 mm Sicherheitsglas und Regenbrause. Ohne Stufe, auch wenn Sie später einmal schlechter zu Fuß sind.</p>
+      </div>
+      <div class="stage left" data-a=".55" data-b=".71">
+        <div class="day mono"><span>Möbel</span><b>Tag 10 von 14</b></div>
+        <h2>Warmes Holz, <i>eingebaut.</i></h2>
+        <p>Waschtisch und Lamellenwand aus geölter Eiche, auf Maß gefertigt von unserem Partnertischler in Neukölln.</p>
+      </div>
+      <div class="stage left" data-a=".73" data-b=".85">
+        <div class="day mono"><span>Licht</span><b>Tag 12 von 14</b></div>
+        <h2>Licht für den <i>Abend.</i></h2>
+        <p>Indirekte LED-Streifen, dimmbare Spots und ein Spiegel mit Hintergrundlicht. Die Elektrik macht unser Elektromeister.</p>
+      </div>
+      <div class="stage left" data-a=".87" data-b="1.01">
+        <div class="day mono"><span>Übergabe</span><b>Tag 14 von 14</b></div>
+        <h2>Fertig an dem Tag, den wir <i>genannt</i> haben.</h2>
+        <p>Endreinigung, Abnahme mit Ihnen, 5 Jahre Gewährleistung. Und ein Bauleiter, der auch danach ans Telefon geht.</p>
+        <div class="row"><a class="btn solid" href="#kontakt">Aufmaß vereinbaren</a><a class="btn" href="#leistungen">Preise ansehen</a></div>
+      </div>
+
+      <nav class="rail" id="rail" aria-label="Bauabschnitte">
+        <button type="button" data-p=".02">Rohbau</button><button type="button" data-p=".3">Stein</button><button type="button" data-p=".5">Glas</button><button type="button" data-p=".68">Holz</button><button type="button" data-p=".82">Licht</button><button type="button" data-p=".97">Fertig</button>
+      </nav>
+    </div>
+  </section>
+
+  <section class="block" id="versprechen">
+    <div class="wrap">
+      <div class="kicker mono">Unser Versprechen</div>
+      <h2>Ein Ansprechpartner. <i>Ein Festpreis.</i> Ein Termin.</h2>
+      <p class="lead" style="margin-top:28px">Seit 2011 sanieren wir Bäder in Berlin und Potsdam: in Altbauten mit krummen Wänden, in Plattenbauten mit engen Schächten und in Reihenhäusern.</p>
+      <div class="promise">
+        <div><b>14</b><span>Arbeitstage für ein Komplettbad bis 8 m²</span><small>nach Freigabe der Planung und Lieferung der Materialien</small></div>
+        <div><b>0 €</b><span>Nachträge, wenn Sie nichts ändern</span><small>Festpreis nach Aufmaß und Bestandsprüfung</small></div>
+        <div><b>5 Jahre</b><span>Gewährleistung auf alle Arbeiten</span><small>nach § 634a BGB für Arbeiten an Bauwerken</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="leistungen">
+    <div class="wrap">
+      <div class="kicker mono">Leistungen &amp; Preise</div>
+      <h2>Was wir <i>machen</i></h2>
+      <div class="svc">
+        <article><h3>Komplettbad</h3><p>Rückbau bis auf den Rohbau, neue Leitungen, Abdichtung, Platten, Sanitär, Möbel, Licht und Endreinigung.</p><div class="price">ab 14.900 €<small>Bad bis 6 m²</small></div></article>
+        <article><h3>Dusche statt Wanne</h3><p>Die alte Wanne kommt raus, eine bodengleiche Dusche kommt rein. Meist in vier Arbeitstagen.</p><div class="price">ab 5.900 €<small>inkl. Glaswand</small></div></article>
+        <article><h3>Barrierefreies Bad</h3><p>Bodengleiche Dusche, Haltegriffe, unterfahrbarer Waschtisch und mehr Bewegungsfläche. Wir helfen beim Antrag auf Zuschuss der Pflegekasse.</p><div class="price">ab 9.800 €<small>Zuschuss bis 4.180 € möglich*</small></div></article>
+        <article><h3>Gäste-WC</h3><p>Kleiner Raum, große Wirkung: Wand-WC, Handwaschbecken, Spiegel und Licht.</p><div class="price">ab 7.500 €<small>bis 2,5 m²</small></div></article>
+      </div>
+      <p class="mono" style="margin-top:22px;text-transform:none;letter-spacing:0;font-size:12.5px">Alle Preise inkl. 19 % MwSt. Der verbindliche Festpreis folgt nach dem kostenlosen Aufmaß. *Zuschuss der Pflegekasse für wohnumfeldverbessernde Maßnahmen nach § 40 Abs. 4 SGB XI bei anerkanntem Pflegegrad, Antrag vor Baubeginn.</p>
+    </div>
+  </section>
+
+  <section class="block" id="ablauf">
+    <div class="wrap">
+      <div class="kicker mono">Ablauf</div>
+      <h2>So kommen Sie zu <i>Ihrem Bad</i></h2>
+      <div class="steps">
+        <div class="step"><span class="n">Schritt 1</span><h3>Aufmaß vor Ort</h3><p>Ein Meister kommt zu Ihnen, misst aus und prüft Leitungen und Untergrund. Kostenlos.</p></div>
+        <div class="step"><span class="n">Schritt 2</span><h3>3D-Planung &amp; Festpreis</h3><p>Sie sehen Ihr neues Bad vorab in 3D und bekommen einen schriftlichen Festpreis.</p></div>
+        <div class="step"><span class="n">Schritt 3</span><h3>Umbau</h3><p>Ein festes Team mit Staubschutzwänden. Jeden Abend besenrein.</p></div>
+        <div class="step"><span class="n">Schritt 4</span><h3>Abnahme</h3><p>Gemeinsamer Rundgang, Protokoll, Pflegehinweise und 5 Jahre Gewährleistung.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="material">
+    <div class="wrap">
+      <div class="kicker mono">Material</div>
+      <h2>Was Sie <i>anfassen</i> werden</h2>
+      <div class="mats">
+        <div class="mat"><canvas id="m-marble" width="600" height="600"></canvas><h3>Marmoroptik</h3><p>Feinsteinzeug 60 × 120 cm, rektifiziert, Fugenbreite 2 mm.</p></div>
+        <div class="mat"><canvas id="m-concrete" width="600" height="600"></canvas><h3>Betonoptik</h3><p>Rutschhemmung R10 für den Boden, auch in der Dusche.</p></div>
+        <div class="mat"><canvas id="m-oak" width="600" height="600"></canvas><h3>Eiche geölt</h3><p>Massivholz, mit Hartwachsöl gegen Feuchtigkeit geschützt.</p></div>
+        <div class="mat"><canvas id="m-brass" width="600" height="600"></canvas><h3>Messing gebürstet</h3><p>Armaturen und Griffe mit PVD-Beschichtung, kratzfest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="fragen">
+    <div class="wrap">
+      <div class="kicker mono">Häufige Fragen</div>
+      <h2>Gut zu <i>wissen</i></h2>
+      <div class="faq">
+        <details><summary>Wie viel Dreck und Lärm gibt es?</summary><p>Laut wird es vor allem in den ersten zwei Tagen beim Abbruch. Wir stellen Staubschutzwände auf, decken Flur und Treppenhaus ab und hinterlassen die Wohnung jeden Abend besenrein.</p></details>
+        <details><summary>Ist der Festpreis wirklich fest?</summary><p>Ja, solange Sie die Planung nicht ändern. Wenn wir beim Abbruch etwas finden, das niemand vorher sehen konnte, zum Beispiel ein durchgerostetes Fallrohr, sprechen wir vor jeder Mehrarbeit mit Ihnen und Sie entscheiden.</p></details>
+        <details><summary>Kann ich während des Umbaus duschen?</summary><p>In der Regel nicht. Viele Kundinnen und Kunden duschen in dieser Zeit bei Nachbarn, Familie oder im Fitnessstudio. Ein Wand-WC ist meist ab dem dritten Tag provisorisch nutzbar.</p></details>
+        <details><summary>Wo arbeiten Sie?</summary><p>In ganz Berlin, in Potsdam und im Umland bis etwa 30 km. Fragen Sie gern, wenn Sie etwas weiter draußen wohnen.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="kontakt">
+    <div class="wrap contact">
+      <div>
+        <div class="kicker mono">Kontakt</div>
+        <h2>Erzählen Sie uns von <i>Ihrem Bad.</i></h2>
+        <p class="body" style="margin-top:22px">Wir melden uns innerhalb eines Werktags und vereinbaren einen Termin für das kostenlose Aufmaß.</p>
+        <dl>
+          <div><dt>Büro &amp; Ausstellung</dt><dd>Musterstraße 7, 10999 Berlin</dd></div>
+          <div><dt>Telefon &amp; E-Mail</dt><dd>030 000 00 00<br>hallo@fuge-und-stein.example</dd></div>
+          <div><dt>Erreichbar</dt><dd>Mo – Fr 7:30 – 17:00 Uhr</dd></div>
+        </dl>
+      </div>
+      <div class="formbox">
+        <form id="form" novalidate>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name" placeholder="Ihr Name"></div>
+          <div class="field"><label for="f-contact">Telefon oder E-Mail</label><input id="f-contact" placeholder="So erreichen wir Sie"></div>
+          <div class="field"><label for="f-plz">Postleitzahl</label><input id="f-plz" inputmode="numeric" autocomplete="postal-code" placeholder="z. B. 10999"></div>
+          <div class="field"><label for="f-size">Badgröße</label><select id="f-size"><option>bis 4 m²</option><option selected>4 – 8 m²</option><option>über 8 m²</option><option>weiß ich nicht</option></select></div>
+          <div class="field full"><label for="f-what">Vorhaben</label><select id="f-what"><option>Komplettbad</option><option>Dusche statt Wanne</option><option>Barrierefreies Bad</option><option>Gäste-WC</option></select></div>
+          <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" placeholder="Wunschtermin, Baujahr des Hauses, Besonderheiten …"></textarea></div>
+          <div class="form-foot"><small>Ihre Angaben verwenden wir nur, um Ihre Anfrage zu beantworten. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>.</small><button class="btn solid" type="submit">Aufmaß anfragen</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand"><b>Fuge &amp; Stein</b><p>Badsanierung aus einer Hand für Berlin und Potsdam. Meisterbetrieb, eingetragen bei der Handwerkskammer Berlin.</p></div>
+      <div><h4>Seite</h4><ul><li><a href="#bau">Ihr Bad in 14 Tagen</a></li><li><a href="#leistungen">Leistungen &amp; Preise</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#fragen">Häufige Fragen</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li>Musterstraße 7</li><li>10999 Berlin</li><li>030 000 00 00</li><li>hallo@fuge-und-stein.example</li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li><a href="#impressum">Impressum</a></li><li><a href="#datenschutz">Datenschutzerklärung</a></li><li><a href="#lizenzen">Lizenzen &amp; Bildnachweise</a></li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2026 Fuge &amp; Stein Badbau GmbH · Preise inkl. 19 % MwSt.</span><span>Demo-Entwurf · erfundenes Unternehmen · keine Cookies, kein Tracking</span></div>
+  </div>
+</footer>
+
+<div class="legal" id="impressum" aria-hidden="true" role="dialog" aria-label="Impressum">
+  <div class="bar"><div class="wrap"><span class="mono">Fuge &amp; Stein · Rechtliches</span><a class="btn" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Impressum</h2>
+    <p class="demo">Muster für den Demo-Entwurf: Fuge &amp; Stein ist ein erfundenes Unternehmen. Alle Angaben sind Platzhalter und werden vor der Veröffentlichung durch die echten Daten des Kunden ersetzt.</p>
+    <h3>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</h3>
+    <address>Fuge &amp; Stein Badbau GmbH<br>Musterstraße 7<br>10999 Berlin</address>
+    <h3>Vertreten durch</h3><p>Max Muster, Geschäftsführer</p>
+    <h3>Kontakt</h3><p>Telefon: 030 000 00 00<br>E-Mail: hallo@fuge-und-stein.example</p>
+    <h3>Registereintrag</h3><p>Registergericht: Amtsgericht Charlottenburg<br>Registernummer: HRB 000000 B</p>
+    <h3>Umsatzsteuer-ID</h3><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE 000 000 000</p>
+    <h3>Berufsrechtliche Angaben</h3>
+    <p>Eingetragen in die Handwerksrolle der Handwerkskammer Berlin.<br>Berufsbezeichnungen: Fliesen-, Platten- und Mosaikleger-Meister; Installateur- und Heizungsbauer-Meister (verliehen in der Bundesrepublik Deutschland)<br>Berufsrechtliche Regelung: Handwerksordnung (HwO), einsehbar unter gesetze-im-internet.de</p>
+    <h3>Angaben zur Berufshaftpflichtversicherung</h3><p>[Name und Sitz des Versicherers], Geltungsraum: Deutschland</p>
+    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3><p>Max Muster, Anschrift wie oben</p>
+    <h3>Verbraucherstreitbeilegung</h3><p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <h3>Haftung für Inhalte und Links</h3><p>Wir erstellen die Inhalte mit großer Sorgfalt, können aber keine Gewähr für Richtigkeit, Vollständigkeit und Aktualität übernehmen. Für Inhalte externer Links ist der jeweilige Anbieter verantwortlich.</p>
+  </article>
+</div>
+
+<div class="legal" id="datenschutz" aria-hidden="true" role="dialog" aria-label="Datenschutzerklärung">
+  <div class="bar"><div class="wrap"><span class="mono">Fuge &amp; Stein · Rechtliches</span><a class="btn" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Datenschutz&shy;erklärung</h2>
+    <p class="demo">Muster für den Demo-Entwurf. Vor der Veröffentlichung werden Hosting-Anbieter, Speicherfristen und Kontaktdaten an den tatsächlichen Betrieb angepasst und rechtlich geprüft.</p>
+    <h3>1. Verantwortlicher</h3>
+    <address>Fuge &amp; Stein Badbau GmbH, Musterstraße 7, 10999 Berlin<br>Telefon: 030 000 00 00 · E-Mail: hallo@fuge-und-stein.example</address>
+    <h3>2. Das Wichtigste in Kürze</h3>
+    <ul>
+      <li>Diese Website setzt keine Cookies und nutzt keine Analyse- oder Tracking-Dienste.</li>
+      <li>Schriften, Programmbibliotheken und 3D-Dateien kommen von unserem eigenen Server. Es werden keine Daten an Google, Content-Delivery-Netzwerke oder andere Drittanbieter übertragen.</li>
+      <li>Die 3D-Animation wird vollständig in Ihrem Browser berechnet.</li>
+      <li>Personenbezogene Daten verarbeiten wir nur, wenn Sie uns kontaktieren.</li>
+    </ul>
+    <h3>3. Hosting und Server-Logfiles</h3>
+    <p>Die Website wird bei [Hosting-Anbieter, Anschrift] betrieben. Beim Aufruf werden IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Referrer sowie Browser und Betriebssystem verarbeitet, um die Seite sicher auszuliefern (Art. 6 Abs. 1 lit. f DSGVO). Die Logfiles werden nach spätestens [14] Tagen gelöscht. Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
+    <h3>4. Kontaktformular, E-Mail und Telefon</h3>
+    <p>Wir verarbeiten Name, Kontaktdaten, Postleitzahl, Angaben zum Bad und Ihre Nachricht, um Ihre Anfrage zu beantworten und das Aufmaß zu planen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen), im Übrigen Art. 6 Abs. 1 lit. f DSGVO. Wir löschen die Daten nach Erledigung der Anfrage; bei Vertragsschluss gelten die gesetzlichen Aufbewahrungsfristen (bis zu 10 Jahre).</p>
+    <p>Hinweis zum Demo-Entwurf: Das Formular verschickt derzeit keine Daten.</p>
+    <h3>5. Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit (Art. 15–20 DSGVO) sowie auf Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO).</p>
+    <p>Sie können sich bei einer Aufsichtsbehörde beschweren (Art. 77 DSGVO). Zuständig ist die Berliner Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59–61, 10555 Berlin.</p>
+    <h3>6. Verschlüsselung</h3><p>Die Übertragung erfolgt verschlüsselt über SSL/TLS.</p>
+    <p style="margin-top:34px">Stand: November 2026</p>
+  </article>
+</div>
+
+<div class="legal" id="lizenzen" aria-hidden="true" role="dialog" aria-label="Lizenzen und Bildnachweise">
+  <div class="bar"><div class="wrap"><span class="mono">Fuge &amp; Stein · Rechtliches</span><a class="btn" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Lizenzen &amp; Bildnachweise</h2>
+    <p>Das Badezimmer, alle Platten- und Steinoberflächen, das Wasser und die Baustellen-Gegenstände werden im Browser erzeugt. Zusätzlich verwenden wir:</p>
+    <h3>3D-Modell</h3>
+    <ul><li><strong>Diffuse Transmission Plant</strong> – Eric Chadwick, © Darmstadt Graphics Group GmbH, 2024 (CC BY 4.0); Rico Cilliers (CC0 1.0). Quelle: github.com/KhronosGroup/glTF-Sample-Assets. Texturen auf 1024 px verkleinert und in WebP umgewandelt.</li></ul>
+    <h3>Texturen</h3>
+    <ul><li>Holztextur „hardwood2“ aus den Beispielen des three.js-Projekts (MIT-Lizenz)</li></ul>
+    <h3>Schriften</h3>
+    <ul><li>Instrument Serif, Inter Tight, IBM Plex Mono – SIL Open Font License 1.1, lokal eingebunden</li></ul>
+    <h3>Software</h3>
+    <ul><li>three.js r160 – MIT-Lizenz</li><li>postprocessing 6.33 – zlib-Lizenz</li><li>N8AO 1.8 – ISC-Lizenz</li></ul>
+  </article>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "./lib/three.module.js",
+  "three/addons/": "./lib/jsm/",
+  "three/examples/jsm/": "./lib/jsm/",
+  "postprocessing": "./lib/postprocessing.js",
+  "n8ao": "./lib/N8AO.js"
+} }
+</script>
+<script>
+/* Page UI without 3D: header, menu, legal panels, form, material swatches. */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var top = $('top');
+  function onScroll(){ top.classList.toggle('solid', scrollY > 30); }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var menu = $('menu');
+  function setMenu(o){ menu.classList.toggle('open', o); $('menuBtn').setAttribute('aria-expanded', String(o)); document.body.classList.toggle('lock', o); }
+  $('menuBtn').onclick = function(){ setMenu(true); }; $('menuClose').onclick = function(){ setMenu(false); };
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  var LEGAL = ['impressum','datenschutz','lizenzen'];
+  function route(){
+    var h = location.hash.slice(1), any = false;
+    LEGAL.forEach(function(id){ var el = $(id), on = h === id; any = any || on; el.classList.toggle('open', on); el.setAttribute('aria-hidden', String(!on)); if (on) el.scrollTop = 0; });
+    document.body.classList.toggle('lock', any); window.__legalOpen = any;
+  }
+  addEventListener('hashchange', route); route();
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && window.__legalOpen) location.hash = ''; });
+  var f = $('form');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = $('f-name'), c = $('f-contact'), old = f.querySelector('.err'); if (old) old.remove();
+    var miss = !n.value.trim() ? n : !c.value.trim() ? c : null;
+    if (miss){ var er = document.createElement('p'); er.className = 'err'; er.textContent = miss === n ? 'Bitte geben Sie Ihren Namen an.' : 'Bitte geben Sie eine Telefonnummer oder E-Mail-Adresse an, damit wir antworten können.'; f.insertBefore(er, f.querySelector('.form-foot')); miss.focus(); return; }
+    var box = document.createElement('div'); box.className = 'thanks'; box.setAttribute('role','status');
+    box.textContent = 'Danke, ' + n.value.trim().split(' ')[0] + '. Wir melden uns innerhalb eines Werktags für einen Aufmaß-Termin.';
+    f.innerHTML = ''; f.appendChild(box);
+  });
+})();
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { SMAAPass } from 'three/addons/postprocessing/SMAAPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+let N8AOPass = null;
+try { ({ N8AOPass } = await import('n8ao')); } catch (e) {}
+
+const $ = (id) => document.getElementById(id);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a)*t;
+const sstep = (a, b, v) => { const t = clamp((v - a)/(b - a), 0, 1); return t*t*(3 - 2*t); };
+const eout = (t) => 1 - Math.pow(1 - t, 3);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stick = document.querySelector('.stick'), bau = $('bau');
+
+/* ---------------- procedural textures (also used for the material swatches) ---------------- */
+function rng(seed){ let s = seed; return () => (s = (s*16807) % 2147483647) / 2147483647; }
+function valueNoise(seed){
+  const r = rng(seed), P = new Float32Array(256*256); for (let i = 0; i < P.length; i++) P[i] = r();
+  const at = (x, y) => P[((y & 255) << 8) | (x & 255)];
+  return (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf*xf*(3-2*xf), v = yf*yf*(3-2*yf);
+    return lerp(lerp(at(xi, yi), at(xi+1, yi), u), lerp(at(xi, yi+1), at(xi+1, yi+1), u), v); };
+}
+function marbleCanvas(size){
+  const c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d'), img = x.createImageData(size, size);
+  const n = valueNoise(11), fbm = (px, py) => { let a = .5, s = 0, f = 1; for (let o = 0; o < 5; o++){ s += a*n(px*f, py*f); f *= 2.03; a *= .5; } return s; };
+  for (let j = 0; j < size; j++) for (let i = 0; i < size; i++){
+    const u = i/size*6, v = j/size*6, t = fbm(u, v);
+    const vein = Math.pow(1 - Math.abs(Math.sin((u*.55 + v*.9 + t*5.2))), 14);
+    const fine = Math.pow(1 - Math.abs(Math.sin((u*1.7 - v*.4 + t*9.0))), 40)*.5;
+    const cloud = fbm(u*.6 + 7, v*.6 + 3);
+    const k = clamp(vein*.75 + fine + (cloud - .5)*.12, 0, 1);
+    const o = (j*size + i)*4;
+    img.data[o]   = lerp(240, 112, k) - (cloud*8);
+    img.data[o+1] = lerp(238, 106, k) - (cloud*9);
+    img.data[o+2] = lerp(234, 100, k) - (cloud*12);
+    img.data[o+3] = 255;
+  }
+  x.putImageData(img, 0, 0); return c;
+}
+function concreteCanvas(size, base = 168, seed = 5){
+  const c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d'), img = x.createImageData(size, size);
+  const n = valueNoise(seed), r = rng(seed + 1);
+  for (let j = 0; j < size; j++) for (let i = 0; i < size; i++){
+    const u = i/size*8, v = j/size*8; let s = 0, a = .5, f = 1; for (let o = 0; o < 4; o++){ s += a*n(u*f, v*f); f *= 2.1; a *= .5; }
+    const g = base + (s - .5)*38 + (r() - .5)*14, o = (j*size + i)*4;
+    img.data[o] = g; img.data[o+1] = g + 1; img.data[o+2] = g - 2; img.data[o+3] = 255;
+  }
+  x.putImageData(img, 0, 0);
+  x.globalAlpha = .35; for (let k = 0; k < size*1.5; k++){ x.fillStyle = r() > .5 ? '#fff' : '#555'; x.fillRect(r()*size, r()*size, 1 + r()*2, 1 + r()*2); }
+  return c;
+}
+function brassCanvas(size){
+  const c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d'), r = rng(9);
+  const g = x.createLinearGradient(0, 0, size, size); g.addColorStop(0, '#d8b06b'); g.addColorStop(.5, '#a87c39'); g.addColorStop(1, '#7c5a26');
+  x.fillStyle = g; x.fillRect(0, 0, size, size);
+  for (let i = 0; i < 2200; i++){ x.strokeStyle = `rgba(${r() > .5 ? '255,240,210' : '60,40,10'},${r()*.12})`; x.beginPath(); const y = r()*size; x.moveTo(0, y); x.lineTo(size, y + (r() - .5)*4); x.stroke(); }
+  return c;
+}
+const MARBLE = marbleCanvas(1024), CONC = concreteCanvas(512, 176, 5), SCREED = concreteCanvas(512, 140, 21), PLASTER = concreteCanvas(512, 158, 33);
+function drawInto(id, src){ const cv = $(id); if (cv) cv.getContext('2d').drawImage(src, 0, 0, cv.width, cv.height); }
+drawInto('m-marble', MARBLE); drawInto('m-concrete', CONC); drawInto('m-brass', brassCanvas(600));
+{ const img = new Image(); img.onload = () => { const cv = $('m-oak'), x = cv.getContext('2d'); x.save(); x.translate(600, 0); x.rotate(Math.PI/2); x.drawImage(img, 0, 0, 1024, 1024, 0, 0, 1800, 1800); x.restore(); x.fillStyle = 'rgba(120,80,40,.18)'; x.fillRect(0, 0, 600, 600); }; img.src = 'assets/hardwood2_diffuse.jpg'; }
+
+/* ---------------- renderer ---------------- */
+const canvas = $('c');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' }); }
+catch (e) { $('loader').classList.add('done'); throw e; }
+let VW = stick.clientWidth, VH = stick.clientHeight, mobile = VW < 760;
+const PR = Math.min(devicePixelRatio, mobile ? 1.5 : 2);
+renderer.setPixelRatio(PR); renderer.setSize(VW, VH, false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.AgXToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const ANISO = Math.min(16, renderer.capabilities.getMaxAnisotropy());
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1d1c);
+const pm = new THREE.PMREMGenerator(renderer);
+scene.environment = pm.fromScene(new RoomEnvironment(renderer), .04).texture;
+
+const camera = new THREE.PerspectiveCamera(50, VW/VH, .05, 50);
+
+const manager = new THREE.LoadingManager();
+manager.onProgress = (_u, l, t) => { $('lbar').style.transform = `scaleX(${l/t})`; };
+function tex(canvasEl, rx = 1, ry = 1, srgb = true){ const t = new THREE.CanvasTexture(canvasEl); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.anisotropy = ANISO; return t; }
+
+/* materials */
+const M = {
+  screed: new THREE.MeshStandardMaterial({ map: tex(SCREED, 3, 3), roughness: .95, envMapIntensity: .4 }),
+  plaster: new THREE.MeshStandardMaterial({ map: tex(PLASTER, 2, 2), roughness: .97, envMapIntensity: .35 }),
+  paint: new THREE.MeshStandardMaterial({ color: 0xe9e7e2, roughness: .9, envMapIntensity: .45, transparent: true, opacity: 0 }),
+  ceiling: new THREE.MeshStandardMaterial({ color: 0xeeeeea, roughness: .95, envMapIntensity: .4 }),
+  marble: new THREE.MeshPhysicalMaterial({ map: tex(MARBLE, 1, 1), color: 0xe4e1dc, roughness: .2, clearcoat: .4, clearcoatRoughness: .15, envMapIntensity: .55 }),
+  floorTile: new THREE.MeshStandardMaterial({ map: tex(CONC, 1, 1), roughness: .62, envMapIntensity: .55 }),
+  grout: new THREE.MeshStandardMaterial({ color: 0x8f918c, roughness: .95 }),
+  green: new THREE.MeshStandardMaterial({ color: 0x8fb39a, roughness: .9, envMapIntensity: .3 }),
+  copper: new THREE.MeshStandardMaterial({ color: 0xb87333, metalness: 1, roughness: .35 }),
+  steel: new THREE.MeshStandardMaterial({ color: 0x9aa0a3, metalness: .9, roughness: .45 }),
+  black: new THREE.MeshStandardMaterial({ color: 0x121313, metalness: .6, roughness: .38, envMapIntensity: .8 }),
+  brass: new THREE.MeshStandardMaterial({ color: 0xc69a55, metalness: 1, roughness: .28, envMapIntensity: 1.1 }),
+  ceramic: new THREE.MeshPhysicalMaterial({ color: 0xf6f6f3, roughness: .08, clearcoat: 1, clearcoatRoughness: .05, envMapIntensity: 1 }),
+  glass: new THREE.MeshPhysicalMaterial({ color: 0xdfeee9, metalness: 0, roughness: .02, transparent: true, opacity: .14, envMapIntensity: 1.6, depthWrite: false }),
+  mirror: new THREE.MeshStandardMaterial({ color: 0xdfe5e4, metalness: 1, roughness: .02, envMapIntensity: 1.3 }),
+  bucket: new THREE.MeshStandardMaterial({ color: 0xd8dad6, roughness: .6, side: THREE.DoubleSide }),
+  ladder: new THREE.MeshStandardMaterial({ color: 0xb7bcbd, metalness: .8, roughness: .45 }),
+  tarp: new THREE.MeshStandardMaterial({ color: 0x8a9aa3, roughness: .55, envMapIntensity: .5, side: THREE.DoubleSide }),
+  cable: new THREE.MeshStandardMaterial({ color: 0x202020, roughness: .6 }),
+  towel: new THREE.MeshStandardMaterial({ color: 0x9fae9f, roughness: 1 }),
+  ledWarm: new THREE.MeshBasicMaterial({ color: new THREE.Color(0, 0, 0), toneMapped: false }),
+  bulb: new THREE.MeshBasicMaterial({ color: new THREE.Color(4, 4.2, 4.6), toneMapped: false }),
+  spot: new THREE.MeshBasicMaterial({ color: new THREE.Color(0, 0, 0), toneMapped: false })
+};
+Object.values(M).forEach((m) => { if ('envMapIntensity' in m) m.envMapIntensity *= .55; });
+const tl = new THREE.TextureLoader(manager);
+const oakMap = tl.load('assets/hardwood2_diffuse.jpg'); oakMap.colorSpace = THREE.SRGBColorSpace; oakMap.wrapS = oakMap.wrapT = THREE.RepeatWrapping; oakMap.rotation = Math.PI/2; oakMap.repeat.set(.06, .5); oakMap.anisotropy = ANISO;
+M.oak = new THREE.MeshStandardMaterial({ map: oakMap, color: 0xd9b48a, roughness: .62, envMapIntensity: .55 });
+M.oakDark = new THREE.MeshStandardMaterial({ map: oakMap, color: 0xa7835e, roughness: .55, envMapIntensity: .6 });
+
+/* ---------------- room: 3.2 × 2.6 × 2.6 m, open towards the camera ---------------- */
+const W = 3.2, D = 2.6, H = 2.6, X0 = -W/2, X1 = W/2, ZB = -D/2;
+function mesh(geo, mat, x = 0, y = 0, z = 0, cast = true){ const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = cast; m.receiveShadow = true; scene.add(m); return m; }
+function plane(w, h, mat, x, y, z, ry = 0, rx = 0){ const m = mesh(new THREE.PlaneGeometry(w, h), mat, x, y, z, false); m.rotation.set(rx, ry, 0); return m; }
+plane(W, D + 5, M.screed, 0, 0, 2.5, 0, -Math.PI/2);
+mesh(new THREE.BoxGeometry(W + .4, .1, D + 5), M.ceiling, 0, H + .05, 2.5);
+mesh(new THREE.BoxGeometry(W + .4, H, .1), M.plaster, 0, H/2, ZB - .05);
+mesh(new THREE.BoxGeometry(.1, H, D + 5), M.plaster, X0 - .05, H/2, 2.5);
+mesh(new THREE.BoxGeometry(.1, H, D + 5), M.plaster, X1 + .05, H/2, 2.5);
+// fresh paint layers that fade in
+const paintBack = plane(W, H, M.paint, 0, H/2, ZB + .002);
+const paintRight = plane(D + 5, H, M.paint, X1 - .002, H/2, 2.5, -Math.PI/2);
+const paintLeft = plane(D + 5, H, M.paint, X0 + .002, H/2, 2.5, Math.PI/2);
+// greenboard panels on the right half of the back wall
+const greens = [];
+for (let i = 0; i < 3; i++){ const g = mesh(new THREE.BoxGeometry(.62, 2.5, .012), M.green, -.05 + i*.64, 1.25, ZB + .008); greens.push(g); }
+
+/* ---------------- construction props ---------------- */
+const props = [];
+function prop(obj){ obj.userData.base = obj.position.clone(); obj.userData.baseScale = obj.scale.clone(); props.push(obj); return obj; }
+{ // ladder
+  const g = new THREE.Group();
+  const rail = new THREE.BoxGeometry(.04, 1.7, .025);
+  const r1 = new THREE.Mesh(rail, M.ladder); r1.position.set(-.2, .85, 0);
+  const r2 = r1.clone(); r2.position.x = .2;
+  g.add(r1, r2);
+  for (let i = 0; i < 6; i++){ const s = new THREE.Mesh(new THREE.CylinderGeometry(.015, .015, .4, 10), M.ladder); s.rotation.z = Math.PI/2; s.position.set(0, .2 + i*.27, 0); g.add(s); }
+  g.traverse((o) => { if (o.isMesh){ o.castShadow = o.receiveShadow = true; } });
+  g.position.set(.95, 0, -.95); g.rotation.set(-.32, -.3, 0); scene.add(g); prop(g);
+}
+{ // bucket
+  const g = new THREE.Group();
+  const b = new THREE.Mesh(new THREE.CylinderGeometry(.16, .13, .34, 32, 1, true), M.bucket); b.position.y = .17;
+  const bottom = new THREE.Mesh(new THREE.CircleGeometry(.13, 32), M.bucket); bottom.rotation.x = -Math.PI/2; bottom.position.y = .005;
+  const paste = new THREE.Mesh(new THREE.CircleGeometry(.15, 32), new THREE.MeshStandardMaterial({ color: 0x9c9d98, roughness: .9 })); paste.rotation.x = -Math.PI/2; paste.position.y = .26;
+  g.add(b, bottom, paste); g.traverse((o) => { if (o.isMesh){ o.castShadow = o.receiveShadow = true; } });
+  g.position.set(1.18, 0, .25); scene.add(g); prop(g);
+}
+{ // tarp on the floor
+  const geo = new THREE.PlaneGeometry(1.7, 1.2, 40, 30), pos = geo.attributes.position, n = valueNoise(3);
+  for (let i = 0; i < pos.count; i++){ pos.setZ(i, (n(pos.getX(i)*3 + 5, pos.getY(i)*3 + 5) - .5)*.05 + .012); }
+  geo.computeVertexNormals();
+  const t = new THREE.Mesh(geo, M.tarp); t.rotation.x = -Math.PI/2; t.position.set(-.3, 0, .1); t.receiveShadow = true; scene.add(t); prop(t);
+}
+{ // pipes on the wall
+  const g = new THREE.Group();
+  const add = (len, x, y, z, rz = 0, rx = 0) => { const p = new THREE.Mesh(new THREE.CylinderGeometry(.012, .012, len, 12), M.copper); p.position.set(x, y, z); p.rotation.set(rx, 0, rz); p.castShadow = true; g.add(p); };
+  add(1.2, -1.15, .6, ZB + .03); add(1.2, -1.07, .6, ZB + .03);
+  add(.9, -.7, 1.2, ZB + .03, Math.PI/2); add(.5, .55, .65, ZB + .03); add(.5, .63, .65, ZB + .03);
+  add(.4, .35, .9, ZB + .03, Math.PI/2);
+  const drain = new THREE.Mesh(new THREE.CylinderGeometry(.05, .05, .3, 16), new THREE.MeshStandardMaterial({ color: 0xdedcd5, roughness: .7 })); drain.position.set(.6, .3, ZB + .06); drain.castShadow = true; g.add(drain);
+  scene.add(g); prop(g);
+}
+{ // hanging cables and the work lamp
+  const g = new THREE.Group();
+  const curve = (pts) => new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map((p) => new THREE.Vector3(...p))), 40, .006, 8), M.cable);
+  g.add(curve([[.2, H, -.3], [.18, 2.4, -.32], [.2, 2.15, -.3]]));
+  g.add(curve([[-.9, H, ZB + .1], [-.92, 2.2, ZB + .14], [-.85, 1.9, ZB + .1]]));
+  g.add(curve([[1.1, H, ZB + .1], [1.05, 2.3, ZB + .2], [1.12, 2.05, ZB + .12]]));
+  const bulb = new THREE.Mesh(new THREE.SphereGeometry(.045, 24, 16), M.bulb); bulb.position.set(.2, 2.11, -.3); g.add(bulb);
+  const socket = new THREE.Mesh(new THREE.CylinderGeometry(.022, .022, .05, 16), M.cable); socket.position.set(.2, 2.17, -.3); g.add(socket);
+  g.traverse((o) => { if (o.isMesh) o.castShadow = false; });
+  scene.add(g); prop(g);
+}
+
+/* ---------------- tiles ---------------- */
+const tiles = [];
+function tile(w, h, x, y, z, ry, rx, uv, mat, t0, t1, from){
+  const geo = new RoundedBoxGeometry(w - .004, h - .004, .012, 2, .003);
+  const a = geo.attributes.uv; // remap UVs to the tile's patch of the big texture
+  for (let i = 0; i < a.count; i++) a.setXY(i, uv[0] + a.getX(i)*uv[2], uv[1] + a.getY(i)*uv[3]);
+  const m = new THREE.Mesh(geo, mat); m.castShadow = true; m.receiveShadow = true;
+  m.position.set(x, y, z); m.rotation.set(rx, ry, 0);
+  m.userData = { target: m.position.clone(), from: new THREE.Vector3(...from), t0, t1, rot: m.rotation.clone() };
+  scene.add(m); tiles.push(m); return m;
+}
+// floor: 0.6 × 1.2 m tiles, laid from the back wall towards the camera
+{
+  const cols = 6, rows = 3, tw = W/cols, th = D/rows; let k = 0;
+  const order = [];
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) order.push([r, c]);
+  order.forEach(([r, c]) => {
+    const x = X0 + tw*(c + .5), z = ZB + th*(r + .5), t0 = .17 + k*.0085;
+    tile(tw, th, x, .007, z, 0, -Math.PI/2, [c/cols, r/rows, 1/cols, 1/rows], M.floorTile, t0, t0 + .05, [0, .35, 0]);
+    k++;
+  });
+}
+// shower walls: back wall x −1.6…−0.4 and left wall, 0.6 × 1.3 m slabs to the ceiling
+{
+  let k = 0;
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 2; c++){
+    const x = X0 + .3 + c*.6, y = .65 + r*1.3, t0 = .24 + k*.02;
+    tile(.6, 1.3, x, y, ZB + .008, 0, 0, [c*.25, r*.5, .25, .5], M.marble, t0, t0 + .06, [0, 0, .7]); k++;
+  }
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 2; c++){
+    const z = ZB + .3 + c*.6, y = .65 + r*1.3, t0 = .27 + k*.02;
+    tile(.6, 1.3, X0 + .008, y, z, Math.PI/2, 0, [.5 + c*.25, r*.5, .25, .5], M.marble, t0, t0 + .06, [.7, 0, 0]); k++;
+  }
+}
+// niche in the shower wall
+const niche = new THREE.Group();
+{
+  const back = new THREE.Mesh(new THREE.PlaneGeometry(.5, .28), M.marble); back.position.set(0, 0, -.004);
+  const led = new THREE.Mesh(new THREE.PlaneGeometry(.46, .012), M.ledWarm); led.position.set(0, .13, .0);
+  const shelf = new THREE.Mesh(new THREE.BoxGeometry(.5, .012, .06), M.marble); shelf.position.set(0, -.14, .03);
+  niche.add(back, led, shelf); niche.position.set(-1.0, 1.15, ZB + .022); scene.add(niche);
+}
+
+/* ---------------- shower: glass, rain head, drain ---------------- */
+const glassG = new THREE.Group();
+{
+  const pane = new THREE.Mesh(new THREE.BoxGeometry(.008, 2.05, 1.15), M.glass); pane.position.set(0, 1.04, 0);
+  const prof = new THREE.Mesh(new THREE.BoxGeometry(.03, 2.08, .025), M.black); prof.position.set(0, 1.04, -.585);
+  const bar = new THREE.Mesh(new THREE.CylinderGeometry(.009, .009, .62, 12), M.black); bar.rotation.x = Math.PI/2; bar.position.set(0, 2.06, -.86);
+  glassG.add(pane, prof, bar); glassG.traverse((o) => { if (o.isMesh){ o.castShadow = false; o.receiveShadow = true; } });
+  glassG.position.set(-.38, 0, ZB + .6); scene.add(glassG);
+}
+glassG.userData.target = glassG.position.clone();
+const rain = new THREE.Group();
+{
+  const arm = new THREE.Mesh(new THREE.CylinderGeometry(.012, .012, .42, 12), M.black); arm.rotation.x = Math.PI/2; arm.position.set(0, 0, .21);
+  const head = new THREE.Mesh(new THREE.CylinderGeometry(.15, .15, .012, 48), M.black); head.position.set(0, -.012, .42);
+  rain.add(arm, head); rain.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  rain.position.set(-1.0, 2.25, ZB + .02); scene.add(rain);
+}
+const drainLine = mesh(new THREE.BoxGeometry(.9, .004, .07), M.steel, -1.0, .015, ZB + .12, false);
+
+/* ---------------- wood slat wall ---------------- */
+const slats = [];
+{
+  const x0 = -.36, x1 = X1 - .01, sw = .042, gap = .014, n = Math.floor((x1 - x0)/(sw + gap));
+  for (let i = 0; i < n; i++){
+    const s = new THREE.Mesh(new RoundedBoxGeometry(sw, H - .02, .03, 2, .006), M.oak);
+    s.position.set(x0 + sw/2 + i*(sw + gap), (H - .02)/2, ZB + .04); s.castShadow = s.receiveShadow = true;
+    s.userData.t0 = .55 + i/n*.1; scene.add(s); slats.push(s);
+  }
+  // dark felt behind the slats
+  plane(x1 - x0, H, new THREE.MeshStandardMaterial({ color: 0x2a2623, roughness: 1 }), (x0 + x1)/2, H/2, ZB + .022).visible = false;
+}
+
+/* ---------------- vanity, basin, tap, mirror ---------------- */
+const vanity = new THREE.Group();
+{
+  const cab = new THREE.Mesh(new RoundedBoxGeometry(1.1, .42, .48, 3, .012), M.oakDark); cab.position.set(0, 0, .24);
+  const top = new THREE.Mesh(new RoundedBoxGeometry(1.12, .03, .5, 3, .008), M.marble); top.position.set(0, .225, .25);
+  const pts = []; // vessel basin profile
+  for (let i = 0; i <= 20; i++){ const t = i/20; pts.push(new THREE.Vector2(.02 + Math.sin(t*Math.PI*.5)*.2, t*.13)); }
+  for (let i = 20; i >= 0; i--){ const t = i/20; pts.push(new THREE.Vector2(.012 + Math.sin(t*Math.PI*.5)*.19, .012 + t*.118)); }
+  const basin = new THREE.Mesh(new THREE.LatheGeometry(pts, 72), M.ceramic); basin.scale.set(1.25, 1, .9); basin.position.set(0, .24, .26);
+  const ledStrip = new THREE.Mesh(new THREE.PlaneGeometry(1.04, .012), M.ledWarm); ledStrip.rotation.x = Math.PI/2; ledStrip.position.set(0, -.212, .4);
+  vanity.add(cab, top, basin, ledStrip);
+  const tapCurve = new THREE.CatmullRomCurve3([new THREE.Vector3(0, .58, 0), new THREE.Vector3(0, .58, .14), new THREE.Vector3(0, .55, .2)]);
+  const tap = new THREE.Mesh(new THREE.TubeGeometry(tapCurve, 24, .011, 12), M.brass); vanity.add(tap);
+  const h1 = new THREE.Mesh(new THREE.CylinderGeometry(.018, .018, .05, 20), M.brass); h1.rotation.x = Math.PI/2; h1.position.set(.12, .58, .025); vanity.add(h1);
+  vanity.traverse((o) => { if (o.isMesh){ o.castShadow = o.receiveShadow = true; } });
+  vanity.position.set(.62, .62, ZB + .055); scene.add(vanity);
+}
+vanity.userData.target = vanity.position.clone();
+const mirror = new THREE.Group();
+{
+  const halo = new THREE.Mesh(new THREE.CircleGeometry(.43, 72), M.ledWarm); halo.position.z = -.005;
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(.38, .38, .012, 96), M.mirror); m.rotation.x = Math.PI/2;
+  mirror.add(halo, m); mirror.position.set(.62, 1.6, ZB + .09); scene.add(mirror);
+}
+// towel rail + towel on the right wall
+const towel = new THREE.Group();
+{
+  const rail = new THREE.Mesh(new THREE.CylinderGeometry(.01, .01, .55, 12), M.brass); rail.rotation.x = Math.PI/2;
+  const t = new THREE.Mesh(new RoundedBoxGeometry(.03, .7, .42, 3, .012), M.towel); t.position.set(.01, -.3, 0);
+  towel.add(rail, t); towel.traverse((o) => { if (o.isMesh){ o.castShadow = o.receiveShadow = true; } });
+  towel.position.set(X1 - .06, 1.25, -.25); scene.add(towel);
+}
+// ceiling spots
+const spotDiscs = [];
+for (const [x, z] of [[-1.0, -.7], [.62, -.85], [.62, .2]]){ const d = new THREE.Mesh(new THREE.CircleGeometry(.045, 32), M.spot); d.rotation.x = Math.PI/2; d.position.set(x, H - .002, z); scene.add(d); spotDiscs.push(d); }
+
+/* plant (finished room) */
+let plant = null;
+fetch('assets/DiffuseTransmissionPlant.json').then((r) => r.json()).then((j) => {
+  const bin = atob(j.b64), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  return new GLTFLoader().parseAsync(u8.buffer, 'assets/');
+}).then((g) => {
+  plant = g.scene; plant.traverse((o) => { if (o.isLight) o.parent.remove(o); if (o.isMesh){ o.castShadow = o.receiveShadow = true; } });
+  plant.scale.setScalar(.85); plant.position.set(1.25, 0, .35); plant.userData.s = .85; scene.add(plant);
+}).catch(() => {}).finally(() => manager.itemEnd('plant'));
+manager.itemStart('plant');
+
+/* ---------------- lights ---------------- */
+scene.add(new THREE.HemisphereLight(0xe8ecef, 0x5a5650, .18));
+const work = new THREE.SpotLight(0xe6eeff, 0, 8, 1.15, .55, 1.6); work.position.set(.2, 2.08, -.3); work.target.position.set(.2, 0, -.3); work.castShadow = true; work.shadow.mapSize.set(2048, 2048); work.shadow.bias = -.0004; scene.add(work, work.target);
+const spots = [];
+spotDiscs.forEach((d, i) => { const s = new THREE.SpotLight(0xffd9a8, 0, 6, .6, .65, 1.5); s.position.copy(d.position).add(new THREE.Vector3(0, -.01, 0)); s.target.position.set(d.position.x, 0, d.position.z - .1); s.castShadow = i === 1; if (s.castShadow){ s.shadow.mapSize.set(2048, 2048); s.shadow.bias = -.0004; } scene.add(s, s.target); spots.push(s); });
+const fill = new THREE.PointLight(0xfff1df, 0, 6, 2); fill.position.set(0, 1.9, .6); scene.add(fill);
+const nicheL = new THREE.PointLight(0xffb873, 0, 1.2, 2); nicheL.position.set(-1.0, 1.25, ZB + .2); scene.add(nicheL);
+const underL = new THREE.PointLight(0xffb873, 0, 1.4, 2); underL.position.set(.62, .3, ZB + .35); scene.add(underL);
+const mirrorL = new THREE.PointLight(0xffc690, 0, 1.6, 2); mirrorL.position.set(.62, 1.6, ZB + .14); scene.add(mirrorL);
+const warmLED = new THREE.Color(5, 3.4, 1.8);
+
+/* ---------------- post ---------------- */
+const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(VW*PR, VH*PR, { type: THREE.HalfFloatType }));
+composer.addPass(new RenderPass(scene, camera));
+let ao = null;
+if (N8AOPass){ try { ao = new N8AOPass(scene, camera, VW, VH); Object.assign(ao.configuration, { aoRadius: .35, distanceFalloff: .5, intensity: 2.4, aoSamples: mobile ? 8 : 16, denoiseSamples: mobile ? 4 : 8, halfRes: mobile, gammaCorrection: false }); composer.addPass(ao); } catch (e) { ao = null; } }
+const bloom = new UnrealBloomPass(new THREE.Vector2(VW, VH), .55, .5, .92); composer.addPass(bloom);
+composer.addPass(new SMAAPass(VW*PR, VH*PR));
+composer.addPass(new OutputPass());
+function resize(){
+  VW = stick.clientWidth; VH = stick.clientHeight; mobile = VW < 760;
+  camera.aspect = VW/VH; camera.fov = mobile ? 70 : 50; camera.updateProjectionMatrix();
+  renderer.setSize(VW, VH, false); composer.setSize(VW, VH); if (ao && ao.setSize) ao.setSize(VW, VH);
+}
+addEventListener('resize', resize); resize();
+
+/* ---------------- scroll → build progress ---------------- */
+let pT = 0, pS = 0;
+function readP(){ const r = bau.getBoundingClientRect(); pT = clamp(-r.top/(r.height - innerHeight), 0, 1); }
+addEventListener('scroll', readP, { passive: true }); readP();
+const stages = [...document.querySelectorAll('.stage')], railBtns = [...document.querySelectorAll('#rail button')];
+railBtns.forEach((b) => b.addEventListener('click', () => {
+  const top = bau.offsetTop + parseFloat(b.dataset.p)*(bau.offsetHeight - innerHeight);
+  scrollTo({ top, behavior: reduce ? 'auto' : 'smooth' });
+}));
+const railStops = [0, .16, .395, .545, .725, .865];
+let lastDay = -1;
+function updateUI(p){
+  stages.forEach((s) => s.classList.toggle('on', p >= +s.dataset.a && p < +s.dataset.b));
+  let idx = 0; railStops.forEach((v, i) => { if (p >= v) idx = i; });
+  railBtns.forEach((b, i) => b.classList.toggle('on', i === idx));
+  const day = Math.max(1, Math.min(14, Math.round(1 + p*13.4)));
+  if (day !== lastDay){ $('dayN').textContent = String(day).padStart(2, '0'); lastDay = day; }
+  $('cue').style.opacity = p > .03 ? 0 : 1;
+}
+
+let visible = true;
+new IntersectionObserver((e) => { visible = e[0].isIntersecting; }).observe(stick);
+const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
+addEventListener('pointermove', (e) => { mouse.x = e.clientX/innerWidth*2 - 1; mouse.y = e.clientY/innerHeight*2 - 1; }, { passive: true });
+
+const tmpV = new THREE.Vector3(), clock = new THREE.Clock();
+function apply(p, t){
+  // 1 · construction clears out
+  const clear = sstep(.11, .2, p);
+  props.forEach((o, i) => { const k = sstep(.11 + i*.012, .19 + i*.012, p); o.visible = k < 1; o.position.copy(o.userData.base); o.position.y -= k*.4; o.scale.copy(o.userData.baseScale).multiplyScalar(1 - k*.9); });
+  greens.forEach((g, i) => { g.visible = p < .62 + i*.02; });
+  // 2 · paint and slabs
+  M.paint.opacity = sstep(.2, .34, p); M.paint.transparent = M.paint.opacity < 1;
+  tiles.forEach((m) => { const u = m.userData, k = eout(sstep(u.t0, u.t1, p)); m.visible = k > 0.001; m.position.copy(u.target).addScaledVector(u.from, 1 - k); m.rotation.set(u.rot.x + (1 - k)*.25, u.rot.y, u.rot.z); m.scale.setScalar(.6 + .4*k); });
+  niche.visible = p > .3; niche.scale.setScalar(eout(sstep(.3, .36, p)) || .0001);
+  // 3 · shower
+  const kr = eout(sstep(.4, .46, p)); rain.visible = kr > 0; rain.position.y = 2.25 + (1 - kr)*.5;
+  const kg = eout(sstep(.42, .52, p)); glassG.visible = kg > 0; glassG.position.y = glassG.userData.target.y + (1 - kg)*2.3;
+  drainLine.visible = p > .3;
+  // 4 · wood, vanity, mirror
+  slats.forEach((s) => { const k = eout(sstep(s.userData.t0, s.userData.t0 + .04, p)); s.visible = k > 0; s.rotation.y = (1 - k)*Math.PI/2; s.scale.y = Math.max(.001, k); });
+  const kv = eout(sstep(.62, .7, p)); vanity.visible = kv > 0; vanity.position.z = vanity.userData.target.z - (1 - kv)*.7;
+  const km = eout(sstep(.66, .72, p)); mirror.visible = km > 0; mirror.scale.setScalar(Math.max(.001, km));
+  // 5 · light
+  const kl = sstep(.74, .84, p);
+  work.intensity = (1 - sstep(.12, .22, p))*9;
+  M.bulb.color.setRGB(4, 4.2, 4.6).multiplyScalar(1 - sstep(.12, .2, p));
+  spots.forEach((s) => { s.intensity = lerp(0, 14, kl); });
+  M.spot.color.setRGB(3.2, 2.8, 2.2).multiplyScalar(kl);
+  M.ledWarm.color.copy(warmLED).multiplyScalar(kl*(.96 + Math.sin(t*2)*.04));
+  nicheL.intensity = kl*.8; underL.intensity = kl*1.1; mirrorL.intensity = kl*.9;
+  fill.intensity = lerp(.7, 1.3, sstep(.2, .4, p)) - kl*.5;
+  renderer.toneMappingExposure = lerp(.78, .9, kl);
+  // 6 · finishing touches
+  const kf = eout(sstep(.87, .94, p));
+  towel.visible = kf > 0; towel.scale.setScalar(Math.max(.001, kf));
+  if (plant){ plant.visible = kf > 0; plant.scale.setScalar(Math.max(.001, kf*plant.userData.s)); }
+  // camera: follow the work area
+  const focusX = lerp(lerp(lerp(0, -.75, sstep(.18, .3, p)), .55, sstep(.53, .62, p)), .1, sstep(.84, .95, p));
+  const dist = lerp(3.55, 3.1, sstep(0, .5, p)) + sstep(.84, 1, p)*.35;
+  mouse.sx += (mouse.x - mouse.sx)*.05; mouse.sy += (mouse.y - mouse.sy)*.05;
+  const sway = reduce ? 0 : 1;
+  const camX = mobile ? focusX*.9 : focusX*.55 + .35;
+  camera.position.set(camX + mouse.sx*.12*sway + Math.sin(t*.25)*.03*sway, (mobile ? 1.3 : 1.45) - mouse.sy*.06*sway, dist + (mobile ? .55 : 0));
+  camera.lookAt(focusX*(mobile ? .95 : .7), mobile ? .62 : 1.15, ZB + .3);
+}
+
+let started = false;
+manager.onLoad = () => { if (started) return; started = true; $('loader').classList.add('done'); };
+setTimeout(() => manager.onLoad(), 20000);
+function frame(){
+  requestAnimationFrame(frame);
+  const t = clock.getElapsedTime();
+  if (!visible || window.__legalOpen) return;
+  pS += (pT - pS)*(reduce ? 1 : .085);
+  apply(pS, t);
+  updateUI(pT);
+  composer.render();
+}
+requestAnimationFrame(frame);
+</script>
