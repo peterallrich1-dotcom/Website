@@ -1,21 +1,31 @@
 <meta charset="utf-8">
 <title>Atelier Havel</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Atelier Havel – Möbel, Interior und Maßanfertigung in Potsdam. Begehbarer 3D-Showroom.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<meta name="description" content="Atelier Havel – Möbel, Interior und Maßanfertigung in Potsdam. Begehbarer 3D-Showroom, eigene Tischlerei, Beratung bei Ihnen zu Hause.">
 <style>
-/* Layout: one-screen walkable 3D showroom. Glass UI floats over a sunlit loft:
-   intro copy left, hotspots on every piece, product drawer right (bottom sheet on phones), collection bar at the bottom.
-   Single look by choice: warm dark glass over a bright interior. */
+/* Fonts are self-hosted: no request to Google or any other third party. */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+
+/* Layout: full-bleed 3D showroom as the opening scene, then an editorial site on warm charcoal:
+   about, collection grid (cards rendered from the 3D scene), workshop process, services, FAQ, visit + contact, footer.
+   Legal pages open as full-screen panels via #impressum / #datenschutz / #lizenzen. Single dark look by choice. */
 :root{
-  --ink:#16120e;
+  --ink:#15110d;
+  --ink-2:#1d1813;
+  --ink-3:#26201a;
   --glass:rgba(22,18,14,.62);
-  --glass-2:rgba(22,18,14,.82);
-  --line:rgba(245,236,224,.16);
-  --fg:#f6efe5;
-  --muted:#c3b6a6;
+  --glass-2:rgba(22,18,14,.86);
+  --line:rgba(245,236,224,.14);
+  --fg:#f5eee4;
+  --muted:#b9ac9c;
   --accent:#e2b77f;
   --accent-ink:#1b140d;
   --f-display:"Cormorant Garamond","Iowan Old Style","Times New Roman",serif;
@@ -29,49 +39,72 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html,body{height:100%}
-body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.55;overflow:hidden;-webkit-font-smoothing:antialiased;padding-left:var(--gl);padding-right:var(--gr)}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--gt);z-index:60;background:var(--ink)}
+body.lock{overflow:hidden}
+a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-#c{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(44px,6vw,84px)}
+h2 i,h1 i{color:var(--accent)}
+p{margin:0}
 .glass{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3)}
-
-/* loader */
-#loader{position:fixed;inset:0;z-index:50;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity 1.2s ease,visibility 1.2s}
-#loader.done{opacity:0;visibility:hidden}
-#loader h1{font-family:var(--f-display);font-weight:500;font-size:clamp(44px,7vw,84px);margin:0;letter-spacing:.01em}
-#loader .bar{width:min(320px,70vw);height:1px;background:var(--line);position:relative;overflow:hidden}
-#loader .bar i{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform .3s}
-#loader .pct{font-variant-numeric:tabular-nums}
-
-/* top bar */
-.top{position:fixed;left:0;right:0;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(var(--gt) + 18px) var(--gr) 0 var(--gl);pointer-events:none}
-.top>*{pointer-events:auto}
-.brand{display:flex;align-items:baseline;gap:12px;white-space:nowrap;text-decoration:none;color:var(--fg);text-shadow:0 1px 18px rgba(0,0,0,.35)}
-.brand b{font-family:var(--f-display);font-weight:600;font-size:28px;letter-spacing:.01em}
-.brand span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg);opacity:.8}
-.top nav{display:flex;gap:8px}
-.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .25s,color .25s,border-color .25s}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);text-decoration:none;transition:background .25s,color .25s,border-color .25s}
 .pill:hover{background:var(--fg);color:var(--accent-ink)}
 .pill.solid{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.pill.solid:hover{background:var(--fg)}
+.pill.solid:hover{background:var(--fg);border-color:var(--fg)}
 .pill svg{width:14px;height:14px}
-@media (max-width:640px){.brand span{display:none}.brand b{font-size:24px}#tourBtn .lbl{display:none}#contactBtn .long{display:none}}
-@media (min-width:641px){#contactBtn .short{display:none}}
+.icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center;transition:background .2s}
+.icon:hover{background:rgba(246,239,229,.12)}
+.icon svg{width:16px;height:16px}
 
-/* intro */
-.intro{position:fixed;left:var(--gl);top:calc(var(--gt) + 110px);z-index:10;max-width:440px;transition:opacity .7s ease,transform .7s ease;pointer-events:none;text-shadow:0 2px 30px rgba(20,14,8,.45)}
+/* loader */
+#loader{position:fixed;inset:0;z-index:80;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity 1s ease,visibility 1s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .name{font-family:var(--f-display);font-weight:500;font-size:clamp(44px,7vw,84px)}
+#loader .bar{width:min(320px,70vw);height:1px;background:var(--line);position:relative;overflow:hidden}
+#loader .bar i{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(0);transition:transform .3s}
+
+/* header */
+.top{position:fixed;left:0;right:0;top:var(--gt);z-index:50;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(21,17,13,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:baseline;gap:12px;text-decoration:none;white-space:nowrap;text-shadow:0 1px 18px rgba(0,0,0,.35)}
+.brand b{font-family:var(--f-display);font-weight:600;font-size:28px}
+.brand span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.links{display:flex;gap:26px;font-size:14px;font-weight:500}
+.links a{text-decoration:none;opacity:.85;text-shadow:0 1px 14px rgba(0,0,0,.4)}
+.links a:hover{opacity:1;color:var(--accent)}
+.top .actions{display:flex;gap:8px;align-items:center}
+#menuBtn{display:none}
+@media (max-width:980px){.links{display:none}#menuBtn{display:grid}.brand span{display:none}}
+@media (max-width:520px){.brand b{font-size:24px}.top .actions .pill{padding:10px 14px;font-size:13px}}
+.menu{position:fixed;inset:0;z-index:55;background:rgba(21,17,13,.96);display:flex;flex-direction:column;justify-content:center;gap:8px;padding:0 var(--gr) 0 var(--gl);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.menu.open{opacity:1;visibility:visible}
+.menu a{font-family:var(--f-display);font-size:44px;text-decoration:none;padding:4px 0}
+.menu .icon{position:absolute;top:calc(var(--gt) + 16px);right:var(--gr)}
+
+/* showroom hero */
+#showroom{position:relative;height:100vh;height:100svh;min-height:580px;overflow:hidden;background:#2a241d}
+#c{position:absolute;inset:0;width:100%;height:100%;display:block;outline:none;touch-action:pan-y}
+#hotspots{position:absolute;inset:0;z-index:4;pointer-events:none}
+.scrim{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,rgba(18,13,9,.62) 0%,rgba(18,13,9,.35) 30%,rgba(18,13,9,0) 55%),linear-gradient(0deg,rgba(18,13,9,.5) 0%,rgba(18,13,9,0) 22%);transition:opacity .6s}
+.scrim.off{opacity:0}
+@media (max-width:640px){.scrim{background:linear-gradient(180deg,rgba(18,13,9,.66) 0%,rgba(18,13,9,.3) 42%,rgba(18,13,9,0) 60%),linear-gradient(0deg,rgba(18,13,9,.5) 0%,rgba(18,13,9,0) 20%)}}
+.intro{position:absolute;left:var(--gl);top:calc(var(--gt) + 118px);z-index:5;max-width:470px;transition:opacity .6s ease,transform .6s ease;pointer-events:none;text-shadow:0 2px 30px rgba(20,14,8,.5)}
 .intro.off{opacity:0;transform:translateX(-20px)}
-.intro h2{font-family:var(--f-display);font-weight:500;font-size:clamp(46px,5.6vw,82px);line-height:.95;margin:14px 0 18px;letter-spacing:-.01em;text-wrap:balance}
-.intro h2 i{color:var(--accent)}
-.intro p{color:var(--fg);opacity:.9;font-size:16px;max-width:36ch;margin:0}
-.hint{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:9px 14px;border-radius:999px;font-size:12px;pointer-events:auto}
+.intro h1{font-size:clamp(50px,6vw,88px);line-height:.95;margin:14px 0 18px}
+.intro p{font-size:17px;max-width:36ch;opacity:.92}
+.intro .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;pointer-events:auto}
+.hint{position:absolute;left:50%;bottom:calc(var(--gb) + 84px);transform:translateX(-50%);z-index:5;display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;font-size:12px;white-space:nowrap;pointer-events:none;transition:opacity .5s}
 .hint svg{width:16px;height:16px}
-@media (max-width:640px){.intro{top:calc(var(--gt) + 84px);max-width:86vw}.intro h2{font-size:42px;margin:8px 0 10px}.intro p{font-size:14px}}
+.hint.off{opacity:0}
+@media (max-width:640px){.intro{top:calc(var(--gt) + 84px);max-width:88vw}.intro h1{font-size:44px;margin:8px 0 10px}.intro p{font-size:14px}.intro .row .pill{padding:10px 14px;font-size:13px}}
 
-/* hotspots */
-#hotspots{position:fixed;inset:0;z-index:12;pointer-events:none}
 .hs{position:absolute;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:0;background:transparent;padding:0;pointer-events:auto;transition:opacity .35s}
 .hs .dot{position:absolute;inset:9px;border-radius:50%;background:var(--fg);box-shadow:0 2px 12px rgba(0,0,0,.35);transition:transform .3s,background .3s}
 .hs .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(246,239,229,.85);animation:ping 2.4s cubic-bezier(.2,.6,.3,1) infinite}
@@ -84,101 +117,351 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hs.active .dot{background:var(--accent)}
 @keyframes ping{0%{transform:scale(.55);opacity:1}80%,100%{transform:scale(1.35);opacity:0}}
 
-/* collection bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:15;padding:0 var(--gr) calc(var(--gb) + 16px) var(--gl);display:flex;align-items:flex-end;justify-content:space-between;gap:14px;pointer-events:none}
-.bar>*{pointer-events:auto}
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px;max-width:100%;border-radius:999px}
+.hbar{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:0 var(--gr) calc(var(--gb) + 16px) var(--gl);display:flex;align-items:flex-end;justify-content:space-between;gap:12px;pointer-events:none}
+.hbar>*{pointer-events:auto}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px;min-width:0;border-radius:999px}
 .chips::-webkit-scrollbar{display:none}
-.chip{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;border-radius:999px;font-size:13px;font-weight:600;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .25s,color .25s,border-color .25s}
+.chip{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;border-radius:999px;font-size:13px;font-weight:600;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .25s,color .25s}
 .chip .sw{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
 .chip em{font-style:normal;font-family:var(--f-mono);font-size:11px;color:var(--muted);font-weight:500}
-.chip:hover,.chip.active{background:var(--fg);color:var(--accent-ink);border-color:var(--fg)}
+.chip:hover,.chip.active{background:var(--fg);color:var(--accent-ink)}
 .chip:hover em,.chip.active em{color:#6b5a48}
-.credit{font-size:10px;color:var(--fg);opacity:.6;text-shadow:0 1px 8px rgba(0,0,0,.5);max-width:240px;text-align:right;line-height:1.4}
-@media (max-width:900px){.credit{display:none}}
+#tourBtn{flex:0 0 auto}
 
 /* product drawer */
-.drawer{position:fixed;z-index:30;top:calc(var(--gt) + 84px);right:var(--gr);bottom:calc(var(--gb) + 84px);width:min(400px,calc(100vw - 32px));border-radius:18px;display:flex;flex-direction:column;overflow:hidden;transform:translateX(calc(100% + 40px));transition:transform .7s cubic-bezier(.2,.8,.2,1);box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.drawer{position:fixed;z-index:45;top:calc(var(--gt) + 84px);right:var(--gr);bottom:calc(var(--gb) + 84px);width:min(400px,calc(100vw - 32px));border-radius:18px;display:flex;flex-direction:column;overflow:hidden;transform:translateX(calc(100% + 40px));transition:transform .7s cubic-bezier(.2,.8,.2,1);box-shadow:0 40px 90px -30px rgba(0,0,0,.6);background:var(--glass-2)}
 .drawer.open{transform:none}
-.drawer .scroll{overflow-y:auto;padding:26px 26px 22px;display:grid;gap:18px;align-content:start;flex:1}
+.drawer .scroll{overflow-y:auto;padding:24px 24px 20px;display:grid;gap:16px;align-content:start;flex:1}
 .drawer .head{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;display:grid;place-items:center;transition:background .2s}
-.icon:hover{background:rgba(246,239,229,.12)}
-.icon svg{width:16px;height:16px}
-.drawer h3{font-family:var(--f-display);font-weight:500;font-size:42px;line-height:1;margin:0}
-.drawer .price{font-family:var(--f-mono);font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums}
-.drawer .price small{font-size:11px;color:var(--muted);margin-left:8px;letter-spacing:.08em}
-.drawer p{margin:0;color:var(--muted)}
+.drawer h3{font-size:42px}
+.price{font-family:var(--f-mono);font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums}
+.price small{font-size:10px;color:var(--muted);margin-left:8px;letter-spacing:.06em}
+.drawer p{color:var(--muted)}
 .variants{display:grid;gap:10px}
 .sws{display:flex;flex-wrap:wrap;gap:10px}
 .sw-btn{width:40px;height:40px;border-radius:50%;border:2px solid transparent;padding:3px;background:transparent;transition:border-color .2s,transform .2s}
 .sw-btn span{display:block;width:100%;height:100%;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
 .sw-btn:hover{transform:scale(1.08)}
 .sw-btn.on{border-color:var(--accent)}
-.vname{font-size:13px;color:var(--fg)}
+.vname{font-size:13px}
 dl.specs{margin:0;display:grid;grid-template-columns:auto 1fr;gap:9px 18px;font-size:13px;border-top:1px solid var(--line);padding-top:16px}
 dl.specs dt{color:var(--muted)}
 dl.specs dd{margin:0;text-align:right;font-family:var(--f-mono);font-size:12px}
 .badge{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:rgba(226,183,127,.16);color:var(--accent)}
-.drawer .foot{display:flex;gap:10px;padding:16px 26px 22px;border-top:1px solid var(--line)}
-.drawer .foot .pill{flex:1;justify-content:center;padding:13px 16px}
+.drawer .foot{display:flex;gap:10px;padding:14px 24px 20px;border-top:1px solid var(--line)}
+.drawer .foot .pill{flex:1;padding:13px 16px}
 @media (max-width:640px){
   .drawer{top:auto;left:var(--gl);right:var(--gr);width:auto;bottom:calc(var(--gb) + 10px);max-height:58vh;transform:translateY(calc(100% + 30px))}
   .drawer h3{font-size:34px}
-  .drawer .scroll{padding:20px 20px 14px;gap:14px}
-  .drawer .foot{padding:12px 20px 16px}
+  .drawer .scroll{padding:18px 18px 12px;gap:12px}
+  .drawer .foot{padding:12px 18px 16px}
 }
 
-/* contact modal */
-.modal{position:fixed;inset:0;z-index:40;display:grid;place-items:center;padding:20px;background:rgba(10,8,6,.45);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
-.modal.open{opacity:1;visibility:visible}
-.modal .box{width:min(520px,100%);border-radius:18px;padding:28px;display:grid;gap:16px;background:var(--glass-2);transform:translateY(20px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.modal.open .box{transform:none}
-.modal h3{font-family:var(--f-display);font-weight:500;font-size:40px;margin:0;line-height:1}
-.modal form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+/* sections */
+section.block{padding-block:clamp(90px,12vw,160px);border-top:1px solid var(--line)}
+.kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.kicker::before{content:"";width:36px;height:1px;background:var(--accent)}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--fg);max-width:52ch}
+.body{color:var(--muted);max-width:60ch}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:56px;border-top:1px solid var(--line);padding-top:28px}
+.facts b{display:block;font-family:var(--f-display);font-weight:500;font-size:44px;line-height:1;margin-bottom:8px}
+.facts span{color:var(--muted);font-size:14px}
+@media (max-width:640px){.facts{grid-template-columns:1fr;gap:22px}}
+.stack{display:grid;gap:18px}
+
+/* collection */
+.grid-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.card{display:grid;gap:14px;align-content:start;text-align:left;background:transparent;border:0;padding:0}
+.card .img{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:12px;overflow:hidden;background:var(--ink-3)}
+.card canvas{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover canvas{transform:scale(1.05)}
+.card .own{position:absolute;left:12px;top:12px}
+.card .look{position:absolute;right:12px;bottom:12px;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;font-size:12px;padding:8px 12px}
+.card:hover .look,.card:focus-visible .look{opacity:1;transform:none}
+.card .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.card h3{font-size:28px}
+.card .price{font-size:14px;white-space:nowrap}
+.card p{color:var(--muted);font-size:14px}
+.note{margin-top:28px;color:var(--muted);font-size:13px}
+@media (max-width:1050px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cards{grid-template-columns:1fr}}
+
+/* workshop */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:64px;position:relative}
+.step{padding:28px 26px 0 0;border-top:1px solid var(--line);display:grid;gap:10px;align-content:start;position:relative}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.step .n{font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+.step h3{font-size:30px}
+.step p{color:var(--muted);font-size:15px}
+.step .dur{font-family:var(--f-mono);font-size:12px;opacity:.8}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.quote{margin:72px 0 0;padding:36px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:40px;align-items:end}
+.quote blockquote{margin:0;font-family:var(--f-display);font-size:clamp(28px,3.2vw,44px);line-height:1.15}
+.quote figcaption{color:var(--muted);font-size:14px}
+@media (max-width:800px){.quote{grid-template-columns:1fr}}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:56px}
+.svc{padding:30px;border-radius:16px;background:var(--ink-2);border:1px solid var(--line);display:grid;gap:12px;align-content:start}
+.svc h3{font-size:34px}
+.svc p{color:var(--muted)}
+.svc ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:14px}
+.svc li{display:flex;gap:10px}
+.svc li::before{content:"";flex:0 0 auto;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--accent)}
+.svc .price{font-size:15px;margin-top:6px}
+@media (max-width:800px){.services{grid-template-columns:1fr}}
+
+/* faq */
+.faq{margin-top:48px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font-family:var(--f-display);font-size:clamp(24px,2.4vw,32px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-body);font-size:24px;color:var(--accent);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 24px;max-width:70ch}
+
+/* visit + contact */
+.visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(40px,6vw,90px);align-items:start}
+.info{display:grid;gap:22px}
+.info dl{margin:0;display:grid;gap:18px;border-top:1px solid var(--line);padding-top:24px}
+.info dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.info dd{margin:0}
+.info .hours{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;font-variant-numeric:tabular-nums}
+.formbox{padding:32px;border-radius:18px;background:var(--ink-2);border:1px solid var(--line)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{display:grid;gap:6px}
 .field.full{grid-column:1/-1}
 label{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-input,textarea{font:inherit;font-size:16px;color:var(--fg);background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
-input:focus,textarea:focus{outline:none;border-color:var(--accent)}
-textarea{min-height:96px;resize:vertical}
-.modal .actions{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.modal small{color:var(--muted);font-size:12px}
-.thanks{grid-column:1/-1;border:1px solid var(--accent);background:rgba(226,183,127,.12);padding:16px;border-radius:10px}
-@media (max-width:520px){.modal form{grid-template-columns:1fr}}
+input,textarea,select{font:inherit;font-size:16px;color:var(--fg);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:120px;resize:vertical}
+.form-foot{grid-column:1/-1;display:grid;gap:14px}
+.form-foot small{color:var(--muted);font-size:12px;line-height:1.5}
+.form-foot small a{color:var(--fg)}
+.form-foot .pill{justify-self:start}
+.thanks{grid-column:1/-1;border:1px solid var(--accent);background:rgba(226,183,127,.12);padding:18px;border-radius:12px}
+.err{color:#f0a48a;font-size:13px;grid-column:1/-1}
+@media (max-width:900px){.visit{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}.formbox{padding:22px}}
 
-#err{position:fixed;inset:0;z-index:60;display:none;place-items:center;text-align:center;padding:24px;background:var(--ink)}
-#err.show{display:grid}
-@media (prefers-reduced-motion:reduce){.hs .ring{animation:none}.drawer,.intro,#loader{transition:none}}
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:64px calc(var(--gb) + 32px);background:var(--ink-2)}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px}
+.fgrid h4{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+.fgrid a{text-decoration:none}
+.fgrid a:hover{color:var(--accent)}
+.fbrand b{font-family:var(--f-display);font-weight:600;font-size:34px;display:block;margin-bottom:10px}
+.fbrand p{color:var(--muted);font-size:14px;max-width:36ch}
+.fbottom{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+
+/* modal + legal panels */
+.modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:20px;background:rgba(10,8,6,.5);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.modal.open{opacity:1;visibility:visible}
+.modal .box{width:min(540px,100%);max-height:calc(100svh - 40px);overflow-y:auto;border-radius:18px;padding:28px;display:grid;gap:16px;background:var(--glass-2);transform:translateY(20px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.modal.open .box{transform:none}
+.modal h3{font-size:40px}
+.legal{position:fixed;inset:0;z-index:75;background:var(--ink);overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.legal.open{opacity:1;visibility:visible}
+.legal .bar{position:sticky;top:0;z-index:2;background:rgba(21,17,13,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.legal .bar .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:calc(var(--gt) + 14px) 14px}
+.legal article{max-width:760px;margin:0 auto;padding:56px var(--gr) 96px var(--gl)}
+.legal h2{font-size:clamp(44px,6vw,72px);margin-bottom:28px}
+.legal h3{font-family:var(--f-body);font-weight:700;font-size:17px;letter-spacing:0;margin:36px 0 10px}
+.legal p,.legal li{color:var(--muted);font-size:15px}
+.legal p+p{margin-top:10px}
+.legal ul{padding-left:20px;display:grid;gap:6px}
+.legal strong{color:var(--fg);font-weight:600}
+.legal .demo{border:1px solid var(--accent);background:rgba(226,183,127,.1);padding:16px 18px;border-radius:12px;color:var(--fg);font-size:14px}
+.legal address{font-style:normal;color:var(--fg);line-height:1.7}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hs .ring{animation:none}.drawer,.intro,#loader,.legal,.modal{transition:none}}
 </style>
 
 <div id="loader" role="status" aria-live="polite">
   <div class="mono">Showroom wird eingerichtet</div>
-  <h1>Atelier Havel</h1>
+  <div class="name">Atelier Havel</div>
   <div class="bar"><i id="lbar"></i></div>
-  <div class="mono pct" id="lpct">0 %</div>
+  <div class="mono" id="lpct">0 %</div>
 </div>
 
-<canvas id="c" tabindex="0" aria-label="3D-Showroom. Ziehen zum Umsehen, Möbel antippen für Details."></canvas>
-<div id="hotspots"></div>
-
-<header class="top">
-  <a class="brand" href="#" id="home" aria-label="Atelier Havel, zur Raumansicht"><b>Atelier Havel</b><span>Möbel · Interior · Maßanfertigung</span></a>
-  <nav>
-    <button class="pill" id="tourBtn" type="button" aria-pressed="true">
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5v9l7-4.5-7-4.5z" fill="currentColor"/></svg><span class="lbl">Rundgang</span>
-    </button>
-    <button class="pill solid" id="contactBtn" type="button"><span class="long">Termin vereinbaren</span><span class="short">Termin</span></button>
-  </nav>
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#showroom"><b>Atelier Havel</b><span>Möbel · Interior · Maßanfertigung</span></a>
+    <nav class="links" aria-label="Hauptnavigation">
+      <a href="#atelier">Atelier</a>
+      <a href="#kollektion">Kollektion</a>
+      <a href="#werkstatt">Werkstatt</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#besuch">Besuch</a>
+    </nav>
+    <div class="actions">
+      <a class="pill solid" href="#besuch">Termin vereinbaren</a>
+      <button class="icon glass" id="menuBtn" type="button" aria-label="Menü öffnen" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none"><path d="M2.5 5h11M2.5 11h11" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </div>
+  </div>
 </header>
+<nav class="menu" id="menu" aria-label="Menü">
+  <button class="icon" id="menuClose" type="button" aria-label="Menü schließen"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.5"/></svg></button>
+  <a href="#showroom">Showroom</a><a href="#atelier">Atelier</a><a href="#kollektion">Kollektion</a><a href="#werkstatt">Werkstatt</a><a href="#leistungen">Leistungen</a><a href="#besuch">Besuch &amp; Kontakt</a>
+</nav>
 
-<section class="intro" id="intro">
-  <div class="mono" style="color:var(--fg);opacity:.85">Showroom · Potsdam, Holländisches Viertel</div>
-  <h2>Wohnen, das man <i>fühlen</i> kann.</h2>
-  <p>Gehen Sie durch unseren Showroom. Tippen Sie auf ein Möbelstück, um Stoffe, Hölzer und Preise zu sehen.</p>
-  <div class="hint glass"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="8" r="6.3" stroke="currentColor" stroke-opacity=".5"/></svg>Ziehen zum Umsehen · Punkte antippen</div>
-</section>
+<main>
+  <!-- 1 · 3D showroom -->
+  <section id="showroom" aria-label="3D-Showroom">
+    <canvas id="c" tabindex="0" aria-label="3D-Showroom. Ziehen zum Umsehen, Möbel antippen für Details."></canvas>
+    <div class="scrim" id="scrim"></div>
+    <div id="hotspots"></div>
+    <div class="intro" id="intro">
+      <div class="mono" style="color:var(--fg);opacity:.85">Showroom · Potsdam, Holländisches Viertel</div>
+      <h1>Wohnen, das man <i>fühlen</i> kann.</h1>
+      <p>Möbel, die wir aussuchen, und Möbel, die wir selbst bauen. Tippen Sie auf ein Stück, um Stoffe, Hölzer und Preise zu sehen.</p>
+      <div class="row"><a class="pill solid" href="#kollektion">Kollektion ansehen</a><a class="pill" href="#werkstatt">Unsere Werkstatt</a></div>
+    </div>
+    <div class="hint glass" id="hint"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M5 5L2 8l3 3M11 5l3 3-3 3" stroke="currentColor" stroke-width="1.3"/></svg><span id="hintText">Ziehen zum Umsehen · Punkte antippen</span></div>
+    <div class="hbar">
+      <div class="chips" id="chips" role="list" aria-label="Möbel im Raum"></div>
+      <button class="pill" id="tourBtn" type="button" aria-pressed="true"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4.5 3.5h2.5v9H4.5zM9 3.5h2.5v9H9z" fill="currentColor"/></svg><span>Rundgang</span></button>
+    </div>
+  </section>
 
+  <!-- 2 · about -->
+  <section class="block" id="atelier">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="kicker mono">Das Atelier</div>
+          <h2>Räume, die <i>bleiben</i>.</h2>
+        </div>
+        <div class="stack">
+          <p class="lead">Wir sind ein kleines Team aus Innenarchitektinnen, Polsterern und Tischlern. Seit 2009 richten wir Wohnungen, Häuser und Praxen in Potsdam und Berlin ein.</p>
+          <p class="body">Bei uns kaufen Sie keine Möbel von der Stange. Wir hören zu, messen Ihren Raum aus und stellen eine Auswahl zusammen, die zu Ihrem Alltag passt. Was es nicht zu kaufen gibt, bauen wir in unserer eigenen Werkstatt in Babelsberg.</p>
+          <p class="body">Jedes Stück in unserem Showroom können Sie anfassen, Probe sitzen und in Ihrem Wunschstoff bestellen.</p>
+        </div>
+      </div>
+      <div class="facts">
+        <div><b>2009</b><span>gegründet im Holländischen Viertel</span></div>
+        <div><b>1 Werkstatt</b><span>eigene Tischlerei in Potsdam-Babelsberg</span></div>
+        <div><b>40+ Stoffe</b><span>zur Auswahl, als Muster zum Mitnehmen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · collection -->
+  <section class="block" id="kollektion">
+    <div class="wrap">
+      <div class="grid-head">
+        <div><div class="kicker mono">Kollektion</div><h2>Im Showroom <i>zu sehen</i></h2></div>
+        <p class="body" style="max-width:40ch">Alle Stücke stehen bei uns zum Probesitzen bereit. Klicken Sie auf ein Möbel, um es im 3D-Raum anzusehen.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+      <p class="note">Alle Preise in Euro inkl. 19 % MwSt., zzgl. Lieferung. Maßanfertigungen nach individuellem Angebot. Farben können am Bildschirm vom Original abweichen.</p>
+    </div>
+  </section>
+
+  <!-- 4 · workshop -->
+  <section class="block" id="werkstatt">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <div class="kicker mono">Werkstatt · Maßanfertigung</div>
+          <h2>Was es nicht gibt, <i>bauen wir.</i></h2>
+        </div>
+        <div class="stack">
+          <p class="lead">Regale bis unter die Stuckdecke, Couchtische auf den Zentimeter, Einbauschränke für schiefe Altbauwände.</p>
+          <p class="body">Unsere Tischler arbeiten mit massiver Eiche, Nussbaum und Esche aus Brandenburg und Thüringen. Verbunden wird klassisch mit Schwalbenschwanz und Zapfen, geölt mit Naturölen. So halten unsere Möbel Generationen.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">Schritt 1</span><h3>Beratung</h3><p>Im Showroom oder bei Ihnen zu Hause. Wir bringen Stoff- und Holzmuster mit.</p><span class="dur">kostenlos · ca. 1 Std.</span></div>
+        <div class="step"><span class="n">Schritt 2</span><h3>Aufmaß &amp; 3D-Plan</h3><p>Laser-Aufmaß, Entwurf als 3D-Ansicht und ein verbindliches Festpreisangebot.</p><span class="dur">ca. 1 Woche</span></div>
+        <div class="step"><span class="n">Schritt 3</span><h3>Fertigung</h3><p>Zuschnitt, Verbindungen und Oberfläche in unserer Werkstatt in Babelsberg.</p><span class="dur">3–6 Wochen</span></div>
+        <div class="step"><span class="n">Schritt 4</span><h3>Lieferung &amp; Montage</h3><p>Zwei Monteure, ein fester Termin, Ihr Boden wird abgedeckt.</p><span class="dur">meist 1 Tag</span></div>
+      </div>
+      <figure class="quote">
+        <blockquote>„Ein gutes Möbel merkt man nicht am ersten Tag. Man merkt es nach zwanzig Jahren, wenn es immer noch nicht wackelt.“</blockquote>
+        <figcaption>Aus unserer Werkstatt in Babelsberg</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5 · services -->
+  <section class="block" id="leistungen">
+    <div class="wrap">
+      <div class="kicker mono">Leistungen</div>
+      <h2>Vom ersten Gespräch <i>bis zum fertigen Raum.</i></h2>
+      <div class="services">
+        <article class="svc"><h3>Einrichtungsberatung</h3><p>Wir planen Ihren Raum mit Grundriss, Farben, Stoffen und Licht.</p><ul><li>Termin im Showroom oder bei Ihnen</li><li>Moodboard und Einkaufsliste</li><li>Anrechnung beim Möbelkauf</li></ul><div class="price">ab 180 € pro Termin</div></article>
+        <article class="svc"><h3>Möbel nach Maß</h3><p>Regale, Einbauschränke, Tische und Sideboards aus massivem Holz.</p><ul><li>3D-Planung vor der Fertigung</li><li>Festpreis nach Aufmaß</li><li>Fertigung in Potsdam</li></ul><div class="price">nach Angebot</div></article>
+        <article class="svc"><h3>Polsterei &amp; Neubezug</h3><p>Wir beziehen Ihr Lieblingssofa neu oder polstern Erbstücke auf.</p><ul><li>über 40 Stoffe im Showroom</li><li>neue Schaumstoffe und Federkerne</li><li>Abholung und Rücklieferung</li></ul><div class="price">ab 390 € pro Sessel</div></article>
+        <article class="svc"><h3>Lieferung &amp; Montage</h3><p>Wir liefern in Potsdam, Berlin und im Umland und bauen alles auf.</p><ul><li>Potsdam: 49 €</li><li>Berlin und Umland bis 40 km: 89 €</li><li>Verpackung nehmen wir wieder mit</li></ul><div class="price">ab 49 €</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · faq -->
+  <section class="block" id="fragen">
+    <div class="wrap">
+      <div class="kicker mono">Häufige Fragen</div>
+      <h2>Gut zu <i>wissen</i></h2>
+      <div class="faq">
+        <details><summary>Wie lange dauert die Lieferung?</summary><p>Möbel aus dem Showroom liefern wir meist innerhalb von zwei Wochen. Polstermöbel in Ihrem Wunschstoff brauchen vier bis acht Wochen, Maßanfertigungen drei bis sechs Wochen nach Freigabe des Entwurfs. Den genauen Termin nennen wir Ihnen im Angebot.</p></details>
+        <details><summary>Kann ich Stoffmuster mit nach Hause nehmen?</summary><p>Ja. Sie können bis zu fünf Stoff- und Holzmuster kostenlos für eine Woche ausleihen, damit Sie sie bei Ihrem Licht ansehen können.</p></details>
+        <details><summary>Habe ich bei Maßanfertigungen ein Widerrufsrecht?</summary><p>Bei Möbeln, die nach Ihren persönlichen Maßen oder Wünschen angefertigt werden, besteht nach § 312g Abs. 2 Nr. 1 BGB kein Widerrufsrecht. Deshalb stimmen wir Entwurf, Holz und Maße vor der Fertigung schriftlich mit Ihnen ab. Für Standardmöbel, die Sie im Fernabsatz bestellen, gilt das gesetzliche Widerrufsrecht von 14 Tagen.</p></details>
+        <details><summary>Wie kann ich bezahlen?</summary><p>Per Überweisung oder im Showroom mit EC- und Kreditkarte. Bei Maßanfertigungen bitten wir um eine Anzahlung von 30 % nach Freigabe des Entwurfs, der Rest ist bei Lieferung fällig.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · visit + contact -->
+  <section class="block" id="besuch">
+    <div class="wrap visit">
+      <div class="info">
+        <div class="kicker mono">Besuch &amp; Kontakt</div>
+        <h2>Kommen Sie <i>vorbei.</i></h2>
+        <p class="body">Am besten mit Termin, dann nehmen wir uns Zeit nur für Sie. Spontan vorbeischauen geht natürlich auch.</p>
+        <dl>
+          <div><dt>Showroom</dt><dd>Musterstraße 12<br>14467 Potsdam</dd></div>
+          <div><dt>Öffnungszeiten</dt><dd class="hours"><span>Di – Fr</span><span>10:00 – 18:30 Uhr</span><span>Sa</span><span>10:00 – 16:00 Uhr</span><span>So, Mo</span><span>nach Vereinbarung</span></dd></div>
+          <div><dt>Telefon &amp; E-Mail</dt><dd>0331 000 00 00<br>kontakt@atelier-havel.example</dd></div>
+          <div><dt>Anfahrt</dt><dd>Tram bis Nauener Tor, dann 3 Minuten zu Fuß. Parkhaus in der Nähe.</dd></div>
+        </dl>
+      </div>
+      <div class="formbox">
+        <form id="form" novalidate>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name" placeholder="Ihr Name"></div>
+          <div class="field"><label for="f-contact">Telefon oder E-Mail</label><input id="f-contact" placeholder="So erreichen wir Sie"></div>
+          <div class="field full"><label for="f-topic">Anliegen</label>
+            <select id="f-topic"><option>Termin im Showroom</option><option>Beratung bei mir zu Hause</option><option>Maßanfertigung</option><option>Polsterei &amp; Neubezug</option><option>Etwas anderes</option></select></div>
+          <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" placeholder="Wunschtermin, Raum, Fragen …"></textarea></div>
+          <div class="form-foot">
+            <small>Ihre Angaben verwenden wir nur, um Ihre Anfrage zu beantworten. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>.</small>
+            <button class="pill solid" type="submit">Anfrage senden</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand"><b>Atelier Havel</b><p>Möbel, Interior und Maßanfertigung aus Potsdam. Showroom im Holländischen Viertel, Werkstatt in Babelsberg.</p></div>
+      <div><h4>Seite</h4><ul><li><a href="#showroom">3D-Showroom</a></li><li><a href="#kollektion">Kollektion</a></li><li><a href="#werkstatt">Werkstatt</a></li><li><a href="#leistungen">Leistungen</a></li><li><a href="#fragen">Häufige Fragen</a></li></ul></div>
+      <div><h4>Kontakt</h4><ul><li>Musterstraße 12</li><li>14467 Potsdam</li><li>0331 000 00 00</li><li>kontakt@atelier-havel.example</li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li><a href="#impressum">Impressum</a></li><li><a href="#datenschutz">Datenschutzerklärung</a></li><li><a href="#lizenzen">Lizenzen &amp; Bildnachweise</a></li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2026 Atelier Havel GmbH · Preise inkl. 19 % MwSt., zzgl. Lieferung</span><span>Demo-Entwurf · erfundenes Unternehmen · keine Cookies, kein Tracking</span></div>
+  </div>
+</footer>
+
+<!-- product drawer -->
 <aside class="drawer glass" id="drawer" aria-hidden="true" aria-labelledby="pName">
   <div class="scroll">
     <div class="head">
@@ -186,12 +469,12 @@ textarea{min-height:96px;resize:vertical}
       <div style="display:flex;gap:8px">
         <button class="icon" id="prevBtn" type="button" aria-label="Vorheriges Möbelstück"><svg viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5"/></svg></button>
         <button class="icon" id="nextBtn" type="button" aria-label="Nächstes Möbelstück"><svg viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></button>
-        <button class="icon" id="closeBtn" type="button" aria-label="Zurück zum Raum"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <button class="icon" id="closeBtn" type="button" aria-label="Schließen"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.5"/></svg></button>
       </div>
     </div>
     <span class="badge" id="pBadge" hidden>Aus unserer Werkstatt</span>
     <h3 id="pName">Name</h3>
-    <div class="price" id="pPrice">0 €</div>
+    <div class="price" id="pPrice"></div>
     <p id="pDesc"></p>
     <div class="variants" id="pVariants" hidden>
       <div class="mono" id="pVarLabel">Bezug</div>
@@ -206,38 +489,174 @@ textarea{min-height:96px;resize:vertical}
   </div>
 </aside>
 
-<div class="bar">
-  <div class="chips" id="chips" role="list" aria-label="Kollektion"></div>
-  <div class="credit">3D-Möbel: Wayfair via Khronos glTF Sample Assets (CC BY 4.0 / CC0) · Licht: Poly Haven (CC0) · Demo-Entwurf, erfundenes Unternehmen</div>
-</div>
-
+<!-- product enquiry -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="box glass" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
     <div style="display:flex;justify-content:space-between;align-items:start;gap:12px">
-      <div><div class="mono" id="mKicker">Persönliche Beratung</div><h3 id="mTitle">Termin im Showroom</h3></div>
+      <div><div class="mono">Anfrage zu</div><h3 id="mTitle">Produkt</h3></div>
       <button class="icon" id="mClose" type="button" aria-label="Schließen"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="currentColor" stroke-width="1.5"/></svg></button>
     </div>
-    <form id="form" novalidate>
-      <div class="field"><label for="f-name">Name</label><input id="f-name" autocomplete="name" placeholder="Ihr Name"></div>
-      <div class="field"><label for="f-contact">Telefon oder E-Mail</label><input id="f-contact" placeholder="So erreichen wir Sie"></div>
-      <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" placeholder="Wunschtermin, Raum, Fragen …"></textarea></div>
-      <div class="actions"><small>Mittelstraße 12 · 14467 Potsdam · Di–Sa 10–18 Uhr</small><button class="pill solid" type="submit">Anfrage senden</button></div>
+    <form id="mform" novalidate>
+      <div class="field"><label for="m-name">Name</label><input id="m-name" autocomplete="name" placeholder="Ihr Name"></div>
+      <div class="field"><label for="m-contact">Telefon oder E-Mail</label><input id="m-contact" placeholder="So erreichen wir Sie"></div>
+      <div class="field full"><label for="m-msg">Nachricht</label><textarea id="m-msg"></textarea></div>
+      <div class="form-foot"><small>Ihre Angaben verwenden wir nur für diese Anfrage. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>.</small><button class="pill solid" type="submit">Anfrage senden</button></div>
     </form>
   </div>
 </div>
 
-<div id="err"><div><h2 style="font-family:var(--f-display);font-weight:500;font-size:40px;margin:0 0 10px">Ihr Browser zeigt keine 3D-Grafik.</h2><p style="color:var(--muted)">Öffnen Sie die Seite bitte in einem aktuellen Chrome, Safari oder Firefox.</p></div></div>
+<!-- legal: Impressum -->
+<div class="legal" id="impressum" aria-hidden="true" role="dialog" aria-label="Impressum">
+  <div class="bar"><div class="wrap"><span class="mono">Atelier Havel · Rechtliches</span><a class="pill" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Impressum</h2>
+    <p class="demo">Muster für den Demo-Entwurf: Atelier Havel ist ein erfundenes Unternehmen. Alle Angaben auf dieser Seite sind Platzhalter und werden vor der Veröffentlichung durch die echten Daten des Kunden ersetzt.</p>
+    <h3>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</h3>
+    <address>Atelier Havel GmbH<br>Musterstraße 12<br>14467 Potsdam<br>Deutschland</address>
+    <h3>Vertreten durch</h3>
+    <p>Clara Muster, Geschäftsführerin</p>
+    <h3>Kontakt</h3>
+    <p>Telefon: 0331 000 00 00<br>E-Mail: kontakt@atelier-havel.example</p>
+    <h3>Registereintrag</h3>
+    <p>Eintragung im Handelsregister<br>Registergericht: Amtsgericht Potsdam<br>Registernummer: HRB 00000 P</p>
+    <h3>Umsatzsteuer-ID</h3>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE 000 000 000</p>
+    <h3>Berufsrechtliche Angaben</h3>
+    <p>Die Tischlerei ist in die Handwerksrolle eingetragen.<br>Zuständige Kammer: Handwerkskammer Potsdam<br>Berufsbezeichnung: Tischlermeister/in (verliehen in der Bundesrepublik Deutschland)<br>Berufsrechtliche Regelung: Gesetz zur Ordnung des Handwerks (Handwerksordnung), einsehbar unter gesetze-im-internet.de</p>
+    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <p>Clara Muster, Anschrift wie oben</p>
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <h3>Haftung für Inhalte</h3>
+    <p>Wir erstellen die Inhalte dieser Seite mit großer Sorgfalt. Für die Richtigkeit, Vollständigkeit und Aktualität können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich.</p>
+    <h3>Haftung für Links</h3>
+    <p>Diese Seite enthält Links zu externen Websites, auf deren Inhalte wir keinen Einfluss haben. Für diese Inhalte ist der jeweilige Anbieter verantwortlich. Bei Bekanntwerden von Rechtsverletzungen entfernen wir solche Links umgehend.</p>
+    <h3>Bildnachweise</h3>
+    <p>Die 3D-Modelle, Texturen und Schriften stammen von Dritten. Urheber und Lizenzen finden Sie unter <a href="#lizenzen">Lizenzen &amp; Bildnachweise</a>.</p>
+  </article>
+</div>
+
+<!-- legal: Datenschutz -->
+<div class="legal" id="datenschutz" aria-hidden="true" role="dialog" aria-label="Datenschutzerklärung">
+  <div class="bar"><div class="wrap"><span class="mono">Atelier Havel · Rechtliches</span><a class="pill" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Datenschutz&shy;erklärung</h2>
+    <p class="demo">Muster für den Demo-Entwurf. Vor der Veröffentlichung werden Hosting-Anbieter, Speicherfristen und Kontaktdaten an den tatsächlichen Betrieb angepasst und rechtlich geprüft.</p>
+    <h3>1. Verantwortlicher</h3>
+    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
+    <address>Atelier Havel GmbH<br>Musterstraße 12, 14467 Potsdam<br>Telefon: 0331 000 00 00<br>E-Mail: kontakt@atelier-havel.example</address>
+    <h3>2. Das Wichtigste in Kürze</h3>
+    <ul>
+      <li>Diese Website setzt <strong>keine Cookies</strong> und verwendet <strong>keine Analyse- oder Tracking-Dienste</strong>.</li>
+      <li>Schriften, Programmbibliotheken und 3D-Modelle werden <strong>von unserem eigenen Server</strong> geladen. Es werden keine Daten an Google, Content-Delivery-Netzwerke oder andere Drittanbieter übertragen.</li>
+      <li>Der 3D-Showroom wird vollständig in Ihrem Browser berechnet. Dabei werden keine Daten an uns gesendet.</li>
+      <li>Personenbezogene Daten verarbeiten wir nur, wenn Sie uns über das Formular, per E-Mail oder telefonisch kontaktieren.</li>
+    </ul>
+    <h3>3. Hosting und Server-Logfiles</h3>
+    <p>Diese Website wird bei [Hosting-Anbieter, Anschrift] betrieben. Beim Aufruf der Seite verarbeitet der Server automatisch Daten, die Ihr Browser übermittelt: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Referrer-URL sowie Browser und Betriebssystem.</p>
+    <p>Zweck ist die technische Bereitstellung und die Sicherheit der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt im stabilen und sicheren Betrieb. Die Logfiles werden nach spätestens [14] Tagen gelöscht. Mit dem Hosting-Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.</p>
+    <h3>4. Verschlüsselung</h3>
+    <p>Die Übertragung erfolgt verschlüsselt über SSL/TLS. Sie erkennen das an „https://“ und dem Schloss-Symbol in der Adresszeile.</p>
+    <h3>5. Kontaktformular, E-Mail und Telefon</h3>
+    <p>Wenn Sie uns kontaktieren, verarbeiten wir Ihren Namen, Ihre Kontaktdaten, Ihre Nachricht und gegebenenfalls das angefragte Möbelstück, um Ihre Anfrage zu beantworten.</p>
+    <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einem Vertrag oder vorvertraglichen Maßnahmen zusammenhängt, und im Übrigen Art. 6 Abs. 1 lit. f DSGVO (Interesse an der Bearbeitung von Anfragen). Wir löschen die Daten, wenn die Anfrage erledigt ist. Kommt ein Vertrag zustande, gelten die gesetzlichen Aufbewahrungsfristen nach Handels- und Steuerrecht (bis zu 10 Jahre).</p>
+    <p>Hinweis zum Demo-Entwurf: Das Formular verschickt derzeit keine Daten.</p>
+    <h3>6. Ihre Rechte</h3>
+    <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18) und Datenübertragbarkeit (Art. 20). Eine erteilte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3).</p>
+    <p><strong>Widerspruchsrecht:</strong> Soweit wir Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, können Sie aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen (Art. 21 DSGVO).</p>
+    <p>Sie können sich außerdem bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO). Für uns zuständig ist: Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg, Stahnsdorfer Damm 77, 14532 Kleinmachnow.</p>
+    <h3>7. Keine automatisierte Entscheidungsfindung</h3>
+    <p>Wir nutzen keine automatisierte Entscheidungsfindung oder Profiling.</p>
+    <p style="margin-top:36px">Stand: November 2026</p>
+  </article>
+</div>
+
+<!-- legal: Lizenzen -->
+<div class="legal" id="lizenzen" aria-hidden="true" role="dialog" aria-label="Lizenzen und Bildnachweise">
+  <div class="bar"><div class="wrap"><span class="mono">Atelier Havel · Rechtliches</span><a class="pill" href="#">Schließen</a></div></div>
+  <article>
+    <h2>Lizenzen &amp; Bildnachweise</h2>
+    <p>Für diesen Demo-Entwurf verwenden wir frei lizenzierte Werke. Die 3D-Modelle stammen aus den Khronos glTF Sample Assets. Ihre Texturen wurden für schnellere Ladezeiten auf 1024 Pixel verkleinert und in das WebP-Format umgewandelt; Lichtquellen in den Dateien wurden entfernt.</p>
+    <h3>3D-Modelle</h3>
+    <ul>
+      <li><strong>Glam Velvet Sofa</strong> – Eric Chadwick, © Wayfair, LLC, 2021. Lizenz: CC BY 4.0</li>
+      <li><strong>Chair Damask Purplegold</strong> – Eric Chadwick, © Wayfair, 2021. Lizenz: CC BY 4.0</li>
+      <li><strong>Iridescence Lamp</strong> – Eric Chadwick, © Wayfair, LLC, 2022. Lizenz: CC BY 4.0</li>
+      <li><strong>Specular Silk Pouf</strong> – Eric Chadwick, © Wayfair, LLC, 2023. Lizenz: CC BY 4.0</li>
+      <li><strong>Diffuse Transmission Plant</strong> – Eric Chadwick, © Darmstadt Graphics Group GmbH, 2024 (CC BY 4.0); Rico Cilliers (CC0 1.0)</li>
+      <li><strong>Sheen Chair</strong> – Eric Chadwick, Wayfair, LLC, 2020. Lizenz: CC0 1.0</li>
+      <li><strong>Glass Vase with Flowers</strong> – Eric Chadwick, Rico Cilliers, 2023. Lizenz: CC0 1.0</li>
+    </ul>
+    <p>Lizenztexte: CC BY 4.0 unter creativecommons.org/licenses/by/4.0/, CC0 1.0 unter creativecommons.org/publicdomain/zero/1.0/. Quelle: github.com/KhronosGroup/glTF-Sample-Assets</p>
+    <h3>Licht und Texturen</h3>
+    <ul>
+      <li><strong>HDRI „Venice Sunset“</strong> – Poly Haven, Lizenz: CC0 1.0</li>
+      <li><strong>Parkett-Textur „hardwood2“</strong> – aus den Beispielen des three.js-Projekts (MIT-Lizenz)</li>
+      <li>Teppich, Putz und Wandbild werden im Browser erzeugt.</li>
+    </ul>
+    <h3>Schriften</h3>
+    <ul>
+      <li>Cormorant Garamond, Manrope, JetBrains Mono – SIL Open Font License 1.1, lokal eingebunden</li>
+    </ul>
+    <h3>Software</h3>
+    <ul>
+      <li>three.js r160 – MIT-Lizenz</li>
+      <li>postprocessing 6.33 – zlib-Lizenz</li>
+      <li>N8AO 1.8 – ISC-Lizenz</li>
+    </ul>
+  </article>
+</div>
 
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
-    "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
-    "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.33.4/build/index.js",
-    "n8ao": "https://cdn.jsdelivr.net/npm/n8ao@1.8.1/dist/N8AO.js"
+    "three": "./lib/three.module.js",
+    "three/addons/": "./lib/jsm/",
+    "three/examples/jsm/": "./lib/jsm/",
+    "postprocessing": "./lib/postprocessing.js",
+    "n8ao": "./lib/N8AO.js"
   }
 }
+</script>
+<script>
+/* Page UI that does not depend on 3D: header, menu, legal panels, forms. */
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var top = $('top');
+  function onScroll(){ top.classList.toggle('solid', scrollY > 40); }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var menu = $('menu');
+  function setMenu(open){ menu.classList.toggle('open', open); $('menuBtn').setAttribute('aria-expanded', String(open)); document.body.classList.toggle('lock', open); }
+  $('menuBtn').onclick = function(){ setMenu(true); };
+  $('menuClose').onclick = function(){ setMenu(false); };
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  var LEGAL = ['impressum','datenschutz','lizenzen'];
+  function route(){
+    var h = location.hash.slice(1), any = false;
+    LEGAL.forEach(function(id){
+      var el = $(id), on = h === id; any = any || on;
+      el.classList.toggle('open', on); el.setAttribute('aria-hidden', String(!on));
+      if (on){ el.scrollTop = 0; }
+    });
+    document.body.classList.toggle('lock', any);
+    window.__legalOpen = any;
+  }
+  addEventListener('hashchange', route); route();
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && window.__legalOpen) location.hash = ''; });
+  function wire(formId, nameId, contactId){
+    var f = $(formId);
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var n = $(nameId), c = $(contactId), old = f.querySelector('.err'); if (old) old.remove();
+      var miss = !n.value.trim() ? n : !c.value.trim() ? c : null;
+      if (miss){ var er = document.createElement('p'); er.className = 'err'; er.textContent = miss === n ? 'Bitte geben Sie Ihren Namen an.' : 'Bitte geben Sie eine Telefonnummer oder E-Mail-Adresse an, damit wir antworten können.'; f.insertBefore(er, f.querySelector('.form-foot')); miss.focus(); return; }
+      var box = document.createElement('div'); box.className = 'thanks'; box.setAttribute('role','status');
+      box.textContent = 'Danke, ' + n.value.trim().split(' ')[0] + '. Wir melden uns innerhalb eines Werktags bei Ihnen.';
+      f.innerHTML = ''; f.appendChild(box);
+    });
+  }
+  wire('form','f-name','f-contact'); wire('mform','m-name','m-contact');
+})();
 </script>
 <script type="module">
 import * as THREE from 'three';
@@ -257,16 +676,21 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (id) => document.getElementById(id);
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const ease = (t) => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3)/2;
+const hero = $('showroom');
+const size = () => [hero.clientWidth, hero.clientHeight];
+const touch = matchMedia('(pointer: coarse)').matches;
+if (touch) $('hintText').textContent = 'Seitlich wischen zum Umsehen · Punkte antippen';
 
 /* ---------------- renderer ---------------- */
 const canvas = $('c');
 let renderer;
 try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'high-performance' }); }
-catch (e) { $('err').classList.add('show'); $('loader').classList.add('done'); throw e; }
-let mobile = innerWidth < 760;
+catch (e) { $('loader').classList.add('done'); hero.style.background = 'linear-gradient(160deg,#4a3c2e,#15110d)'; throw e; }
+let [VW, VH] = size();
+let mobile = VW < 760;
 const PR = Math.min(devicePixelRatio, mobile ? 1.5 : 2);
 renderer.setPixelRatio(PR);
-renderer.setSize(innerWidth, innerHeight, false);
+renderer.setSize(VW, VH, false);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.AgXToneMapping;
 renderer.toneMappingExposure = 1.05;
@@ -275,18 +699,14 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const ANISO = Math.min(16, renderer.capabilities.getMaxAnisotropy());
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(mobile ? 62 : 50, innerWidth/innerHeight, .05, 200);
+const camera = new THREE.PerspectiveCamera(mobile ? 62 : 50, VW/VH, .05, 200);
 camera.position.set(4.2, 2.4, 3.6);
 
 const manager = new THREE.LoadingManager();
 manager.onProgress = (_u, loaded, total) => {
-  const p = Math.round(loaded/total*100);
   $('lbar').style.transform = `scaleX(${loaded/total})`;
-  $('lpct').textContent = p + ' %';
+  $('lpct').textContent = Math.round(loaded/total*100) + ' %';
 };
-
-/* ---------------- environment light ---------------- */
-RectAreaLightUniformsLib.init();
 async function fetchB64(path){
   manager.itemStart(path);
   try {
@@ -296,6 +716,9 @@ async function fetchB64(path){
     return u8.buffer;
   } finally { manager.itemEnd(path); }
 }
+
+/* ---------------- environment light ---------------- */
+RectAreaLightUniformsLib.init();
 fetchB64('assets/venice_sunset_1k.json').then((buf) => {
   const d = new RGBELoader().parse(buf);
   const hdr = new THREE.DataTexture(d.data, d.width, d.height, THREE.RGBAFormat, d.type);
@@ -304,7 +727,6 @@ fetchB64('assets/venice_sunset_1k.json').then((buf) => {
   scene.background = hdr;
   scene.backgroundBlurriness = .035;
   scene.backgroundIntensity = .95;
-  scene.backgroundRotation && scene.backgroundRotation.set(0, 0, 0);
   const pm = new THREE.PMREMGenerator(renderer);
   scene.environment = pm.fromEquirectangular(hdr).texture;
 });
@@ -323,15 +745,14 @@ const floorMat = new THREE.MeshStandardMaterial({ map: fw.d, bumpMap: fw.b, bump
 const ow = woodTex(.12, .5, Math.PI/2);
 const oakMat = new THREE.MeshPhysicalMaterial({ map: ow.d, bumpMap: ow.b, bumpScale: .8, roughnessMap: ow.r, roughness: .7, color: 0xe9d3b6, clearcoat: .25, clearcoatRoughness: .45, envMapIntensity: .6 });
 
-function noiseCanvas(size, base, amp, seed = 1){
-  const c = document.createElement('canvas'); c.width = c.height = size;
-  const x = c.getContext('2d'), img = x.createImageData(size, size);
-  let s = seed;
-  const rnd = () => (s = (s*16807) % 2147483647) / 2147483647;
-  for (let i = 0; i < size*size; i++){ const v = base + (rnd() - .5)*amp; img.data[i*4] = img.data[i*4+1] = img.data[i*4+2] = v; img.data[i*4+3] = 255; }
+function noiseCanvas(sz, base, amp, seed = 1){
+  const c = document.createElement('canvas'); c.width = c.height = sz;
+  const x = c.getContext('2d'), img = x.createImageData(sz, sz);
+  let s = seed; const rnd = () => (s = (s*16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < sz*sz; i++){ const v = base + (rnd() - .5)*amp; img.data[i*4] = img.data[i*4+1] = img.data[i*4+2] = v; img.data[i*4+3] = 255; }
   x.putImageData(img, 0, 0);
   x.globalAlpha = .08;
-  for (let k = 0; k < 900; k++){ x.fillStyle = rnd() > .5 ? '#fff' : '#000'; const r = 2 + rnd()*30; x.beginPath(); x.arc(rnd()*size, rnd()*size, r, 0, 7); x.fill(); }
+  for (let k = 0; k < 900; k++){ x.fillStyle = rnd() > .5 ? '#fff' : '#000'; const r = 2 + rnd()*30; x.beginPath(); x.arc(rnd()*sz, rnd()*sz, r, 0, 7); x.fill(); }
   return c;
 }
 const plasterBump = new THREE.CanvasTexture(noiseCanvas(512, 128, 40, 7));
@@ -341,7 +762,6 @@ const ceilMat = new THREE.MeshStandardMaterial({ color: 0xf1ece6, roughness: .95
 const steelMat = new THREE.MeshStandardMaterial({ color: 0x1c1b1a, roughness: .42, metalness: .75, envMapIntensity: .8 });
 const whiteTrim = new THREE.MeshStandardMaterial({ color: 0xf3eee8, roughness: .6, envMapIntensity: .35 });
 
-/* rug */
 function rugCanvas(){
   const c = document.createElement('canvas'); c.width = 1024; c.height = 700; const x = c.getContext('2d');
   x.fillStyle = '#cdbfaa'; x.fillRect(0, 0, 1024, 700);
@@ -355,7 +775,6 @@ const rugTex = new THREE.CanvasTexture(rugCanvas()); rugTex.colorSpace = THREE.S
 const rugBump = new THREE.CanvasTexture(noiseCanvas(512, 128, 120, 11)); rugBump.wrapS = rugBump.wrapT = THREE.RepeatWrapping; rugBump.repeat.set(6, 4);
 const rugMat = new THREE.MeshStandardMaterial({ map: rugTex, bumpMap: rugBump, bumpScale: 2.2, roughness: 1, envMapIntensity: .3 });
 
-/* art */
 function artCanvas(){
   const c = document.createElement('canvas'); c.width = 1100; c.height = 800; const x = c.getContext('2d');
   const g = x.createLinearGradient(0, 0, 0, 800); g.addColorStop(0, '#e9dfd0'); g.addColorStop(1, '#d9cbb7'); x.fillStyle = g; x.fillRect(0, 0, 1100, 800);
@@ -377,34 +796,25 @@ function box(w, h, d, mat, x, y, z, r = 0, round = 0){
   const m = new THREE.Mesh(g, mat); m.position.set(x, y, z); m.rotation.y = r; m.castShadow = true; m.receiveShadow = true; scene.add(m); return m;
 }
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(W, D), floorMat); floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; scene.add(floor);
-box(W + .4, .1, D + .4, ceilMat, 0, H + .05, 0);                 // ceiling slab
-box(W + .4, H, .2, wallMat, 0, H/2, Z0 - .1);                    // back wall
-box(.2, H, D + .4, wallMat, X1 + .1, H/2, 0);                    // right wall
-box(W + .4, H, .2, wallMat, 0, H/2, Z1 + .1);                    // front wall
-box(.3, .35, D + .4, wallMat, X0 - .15, H - .175, 0);            // header over glazing
-// glazing: floor-to-ceiling steel curtain wall on the left
+box(W + .4, .1, D + .4, ceilMat, 0, H + .05, 0);
+box(W + .4, H, .2, wallMat, 0, H/2, Z0 - .1);
+box(.2, H, D + .4, wallMat, X1 + .1, H/2, 0);
+box(W + .4, H, .2, wallMat, 0, H/2, Z1 + .1);
+box(.3, .35, D + .4, wallMat, X0 - .15, H - .175, 0);
 for (let i = 0; i <= 6; i++){ const z = Z0 + i*1.0; box(.07, H - .35, .07, steelMat, X0 + .02, (H - .35)/2, z); }
 box(.07, .06, D, steelMat, X0 + .02, 2.25, 0);
 box(.07, .05, D, steelMat, X0 + .02, .025, 0);
 box(.07, .06, D, steelMat, X0 + .02, H - .38, 0);
-// baseboards
 box(W, .09, .02, whiteTrim, 0, .045, Z0 + .01);
 box(.02, .09, D, whiteTrim, X1 - .01, .045, 0);
-// recessed ceiling light slots
 const glowMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 1.45, 1.25) });
 for (const z of [-1.6, .4]){ const s = new THREE.Mesh(new THREE.PlaneGeometry(3.2, .05), glowMat); s.rotation.x = Math.PI/2; s.position.set(.6, H - .001, z); scene.add(s); }
-
-/* rug */
 const rug = box(3.0, .014, 2.1, rugMat, .3, .007, -1.35, 0, .006); rug.castShadow = false;
-
-/* art above sofa */
-const artFrame = box(1.46, 1.06, .04, oakMat, .3, 1.78, Z0 + .03, 0, .006);
+box(1.46, 1.06, .04, oakMat, .3, 1.78, Z0 + .03, 0, .006);
 const art = new THREE.Mesh(new THREE.PlaneGeometry(1.36, .96), new THREE.MeshStandardMaterial({ map: artTex, roughness: .92, envMapIntensity: .3 }));
 art.position.set(.3, 1.78, Z0 + .052); art.receiveShadow = true; scene.add(art);
 
-/* products made in our workshop */
 const pieces = {};
-// coffee table
 {
   const g = new THREE.Group();
   const top = new THREE.Mesh(new RoundedBoxGeometry(1.2, .04, .62, 3, .012), oakMat); top.position.y = .38;
@@ -414,35 +824,30 @@ const pieces = {};
   for (const m of [top, s1, s2, sh]){ m.castShadow = m.receiveShadow = true; g.add(m); }
   g.position.set(.3, 0, -1.25); scene.add(g); pieces.table = g;
 }
-// side table
 {
   const g = new THREE.Group();
   const top = new THREE.Mesh(new THREE.CylinderGeometry(.27, .27, .03, 64), oakMat); top.position.y = .5;
   const stem = new THREE.Mesh(new THREE.CylinderGeometry(.04, .05, .48, 32), oakMat); stem.position.y = .25;
   const base = new THREE.Mesh(new THREE.CylinderGeometry(.19, .2, .025, 64), oakMat); base.position.y = .0125;
   for (const m of [top, stem, base]){ m.castShadow = m.receiveShadow = true; g.add(m); }
-  g.position.set(1.78, 0, -2.42); scene.add(g); pieces.side = g;
+  g.position.set(1.78, 0, -2.42); scene.add(g);
 }
-// wall shelf on the right wall
 {
   const g = new THREE.Group(), depth = .36, x = X1 - depth/2 - .01;
   const add = (w, h, d, px, py, pz, mat = oakMat) => { const m = new THREE.Mesh(new RoundedBoxGeometry(w, h, d, 2, Math.min(.008, Math.min(w, h, d)*.4)), mat); m.position.set(px, py, pz); m.castShadow = m.receiveShadow = true; g.add(m); return m; };
   for (const z of [-1.5, -.5, .5, 1.5]) add(depth, 2.32, .035, 0, 1.16, z);
   for (const y of [.62, 1.08, 1.54, 2.0, 2.32]) add(depth, .03, 3.03, 0, y, 0);
-  add(depth, .6, 3.03, 0, .3, 0);                       // closed lower cabinet
-  for (const z of [-1.0, 0, 1.0]) add(.012, .54, .96, -depth/2 - .004, .31, z);   // door fronts
+  add(depth, .6, 3.03, 0, .3, 0);
+  for (const z of [-1.0, 0, 1.0]) add(.012, .54, .96, -depth/2 - .004, .31, z);
   const bookCols = [0x5b4a3d, 0x8a7a63, 0x3f4a4c, 0xb8a68a, 0x6d3b2a, 0x2f2a26, 0x9a8f7d];
   let s = 9; const rnd = () => (s = (s*16807) % 2147483647) / 2147483647;
-  const shelfY = [.635, 1.095, 1.555, 2.015];
-  shelfY.forEach((y, row) => {
-    let z = -1.45 + rnd()*.2;
-    const stop = row % 2 ? .3 : 1.42;
+  [.635, 1.095, 1.555, 2.015].forEach((y, row) => {
+    let z = -1.45 + rnd()*.2; const stop = row % 2 ? .3 : 1.42;
     while (z < stop){
       const t = .025 + rnd()*.03, hgt = .22 + rnd()*.12;
       const bm = new THREE.MeshStandardMaterial({ color: bookCols[Math.floor(rnd()*bookCols.length)], roughness: .85, envMapIntensity: .3 });
       add(.2 + rnd()*.05, hgt, t, .02, y + hgt/2, z + t/2, bm);
-      z += t + .004;
-      if (rnd() > .86) z += .25;
+      z += t + .004; if (rnd() > .86) z += .25;
     }
   });
   g.position.set(x, 0, 0); scene.add(g); pieces.shelf = g;
@@ -465,8 +870,8 @@ const lampGlow = new THREE.PointLight(0xffb36b, 0, 3.2, 2); lampGlow.position.se
 /* ---------------- products ---------------- */
 const loader = new GLTFLoader(manager);
 const PRODUCTS = [
-  { id: 'sofa', file: 'GlamVelvetSofa', cat: 'Sofa · 3-Sitzer', name: 'Sofa Glam', price: 2890, from: false,
-    desc: 'Tiefer Sitz, Samtbezug mit sanftem Schimmer und gesteppte Rückenpolster. Die Füße sind aus massiver Eiche aus unserer Werkstatt.',
+  { id: 'sofa', file: 'GlamVelvetSofa', cat: 'Sofa · 3-Sitzer', name: 'Sofa Glam', price: 2890,
+    desc: 'Tiefer Sitz, Samtbezug mit sanftem Schimmer und eine geschwungene Form, die jeden Raum weicher macht.',
     specs: [['Maße', '219 × 102 × 79 cm'], ['Sitzhöhe', '44 cm'], ['Bezug', 'Baumwollsamt'], ['Lieferzeit', '6–8 Wochen']],
     pos: [.3, 0, -2.36], rot: 0, varLabel: 'Bezug', variants: 'gltf',
     sw: { 'Champagne': '#cdb497', 'Navy': '#283750', 'Gray': '#8c8a87', 'Black': '#222124', 'Pale Pink': '#d9b1aa' },
@@ -484,7 +889,7 @@ const PRODUCTS = [
     pos: [2.25, 0, -.55], rot: -2.05,
     view: { cam: [1.05, 1.0, .45], tgt: [2.25, .38, -.55] }, anchor: [2.25, .85, -.55] },
   { id: 'table', piece: 'table', cat: 'Couchtisch · Maßanfertigung', name: 'Couchtisch Havel', price: 1450, own: true,
-    desc: 'Massive Eiche, Wangen mit verdeckten Schwalbenschwänzen und eine schwebende Ablage. Gebaut in unserer Tischlerei in Babelsberg.',
+    desc: 'Massive Eiche, Wangen mit verdeckten Schwalbenschwänzen und eine schwebende Ablage. Gebaut in unserer Werkstatt in Babelsberg.',
     specs: [['Maße', '120 × 62 × 38 cm'], ['Holz', 'Eiche, geölt'], ['Verbindung', 'Schwalbenschwanz'], ['Lieferzeit', '3–4 Wochen']],
     varLabel: 'Holz', variants: 'wood',
     wood: [['Eiche natur', '#c89c6a', 0xe9d3b6], ['Eiche geräuchert', '#7d5a3c', 0x9a7a5e], ['Nussbaum', '#5a3a26', 0x6e4e3a]],
@@ -495,17 +900,17 @@ const PRODUCTS = [
     pos: [1.78, .515, -2.42], rot: .4,
     view: { cam: [2.55, 1.15, -1.35], tgt: [1.78, .78, -2.42] }, anchor: [1.78, 1.1, -2.42] },
   { id: 'pouf', file: 'SpecularSilkPouf', cat: 'Pouf', name: 'Pouf Seide', price: 340,
-    desc: 'Bezug aus Seidenmischgewebe mit feinem Glanz. Als Fußablage, Extrasitz oder Beistelltisch mit Tablett.',
+    desc: 'Bezug aus Seidenmischgewebe mit feinem Glanz. Als Fußablage, Extrasitz oder mit Tablett als Beistelltisch.',
     specs: [['Maße', 'Ø 61 × 20 cm'], ['Bezug', 'Seide, Viskose'], ['Füllung', 'EPS-Perlen'], ['Lieferzeit', '2 Wochen']],
     pos: [1.3, 0, .1], rot: .3,
     view: { cam: [2.2, 1.0, 1.15], tgt: [1.3, .12, .1] }, anchor: [1.3, .38, .1] },
   { id: 'plant', file: 'DiffuseTransmissionPlant', cat: 'Pflanze', name: 'Zimmerpflanze im Terrakottatopf', price: 89,
-    desc: 'Pflegeleicht, mag das helle Licht an der Fensterfront. Lieferung mit Topf und Pflegeanleitung.',
+    desc: 'Pflegeleicht und dankbar für das helle Licht an der Fensterfront. Lieferung mit Topf und Pflegeanleitung.',
     specs: [['Höhe', 'ca. 85 cm'], ['Topf', 'Terrakotta'], ['Standort', 'hell, keine Mittagssonne'], ['Lieferzeit', 'sofort']],
     pos: [-3.25, 0, -2.45], rot: .6,
     view: { cam: [-2.15, 1.2, -1.15], tgt: [-3.25, .5, -2.45] }, anchor: [-3.25, 1.0, -2.45] },
   { id: 'shelf', piece: 'shelf', cat: 'Wandregal · Maßanfertigung', name: 'Wandregal Brandt', price: 2400, from: true, own: true,
-    desc: 'Raumhohes Regal mit geschlossenem Unterschrank, millimetergenau auf Ihre Wand gefertigt. Böden tragen 40 kg.',
+    desc: 'Raumhohes Regal mit geschlossenem Unterschrank, millimetergenau für Ihre Wand gefertigt. Jeder Boden trägt 40 kg.',
     specs: [['Maße', 'nach Aufmaß'], ['Holz', 'Eiche, geölt'], ['Böden', '30 mm massiv'], ['Lieferzeit', '4–6 Wochen']],
     view: { cam: [1.35, 1.5, .55], tgt: [3.8, 1.2, .05] }, anchor: [3.6, 1.3, .05] }
 ];
@@ -533,31 +938,14 @@ function prep(root, productId){
   });
 }
 const gltfCache = {};
-function loadGLB(name){ return gltfCache[name] || (gltfCache[name] = fetchB64(`assets/${name}.json`).then((buf) => loader.parseAsync(buf, 'assets/'))); }
-
-for (const p of PRODUCTS){
-  if (p.piece){ prep(pieces[p.piece], p.id); p.root = pieces[p.piece]; continue; }
-  loadGLB(p.file).then((gltf) => {
-    const root = gltf.scene;
-    root.position.set(...p.pos); root.rotation.y = p.rot;
-    prep(root, p.id); scene.add(root);
-    p.root = root; p.gltf = gltf;
-    if (p.variants === 'gltf'){
-      const ext = gltf.userData.gltfExtensions && gltf.userData.gltfExtensions.KHR_materials_variants;
-      p.variantList = ext ? ext.variants.map((v) => v.name) : [];
-      p.ext = ext;
-      if (ext && p.variantList.length){ p.curVar = p.variantList[0]; selectVariant(p, p.curVar); }
-    }
-    if (p.id === 'lamp') lampGlow.intensity = 1.4;
-  });
+function loadGLB(name){
+  if (gltfCache[name]) return gltfCache[name];
+  const key = name + '#parse'; manager.itemStart(key);
+  const pr = fetchB64(`assets/${name}.json`).then((buf) => loader.parseAsync(buf, 'assets/'));
+  pr.then(() => manager.itemEnd(key), () => manager.itemEnd(key));
+  return (gltfCache[name] = pr);
 }
-for (const d of DECOR){
-  loadGLB(d.file).then((gltf) => {
-    const root = gltf.scene.clone(true);
-    root.position.set(...d.pos); root.rotation.y = d.rot; root.scale.setScalar(d.scale);
-    prep(root, null); scene.add(root);
-  });
-}
+const placed = [];
 
 async function selectVariant(p, name){
   const ext = p.ext, parser = p.gltf.parser, idx = ext.variants.findIndex((v) => v.name === name);
@@ -576,37 +964,60 @@ async function selectVariant(p, name){
   });
   await Promise.all(jobs);
 }
+const variantJobs = [];
+for (const p of PRODUCTS){
+  if (p.piece){ prep(pieces[p.piece], p.id); p.root = pieces[p.piece]; continue; }
+  placed.push(loadGLB(p.file).then((gltf) => {
+    const root = gltf.scene;
+    root.position.set(...p.pos); root.rotation.y = p.rot;
+    prep(root, p.id); scene.add(root);
+    p.root = root; p.gltf = gltf;
+    if (p.variants === 'gltf'){
+      const ext = gltf.userData.gltfExtensions && gltf.userData.gltfExtensions.KHR_materials_variants;
+      p.variantList = ext ? ext.variants.map((v) => v.name) : [];
+      p.ext = ext;
+      if (ext && p.variantList.length){ p.curVar = p.variantList[0]; variantJobs.push(selectVariant(p, p.curVar)); }
+    }
+    if (p.id === 'lamp') lampGlow.intensity = 1.4;
+  }));
+}
+for (const d of DECOR){
+  placed.push(loadGLB(d.file).then((gltf) => {
+    const root = gltf.scene.clone(true);
+    root.position.set(...d.pos); root.rotation.y = d.rot; root.scale.setScalar(d.scale);
+    prep(root, null); scene.add(root);
+  }));
+}
 function setWood(tint){ oakMat.color.setHex(tint); }
 
 /* ---------------- post processing ---------------- */
-const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(innerWidth*PR, innerHeight*PR, { type: THREE.HalfFloatType, samples: 0 }));
+const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(VW*PR, VH*PR, { type: THREE.HalfFloatType }));
 composer.addPass(new RenderPass(scene, camera));
 let aoPass = null;
 if (N8AOPass){
   try {
-    aoPass = new N8AOPass(scene, camera, innerWidth, innerHeight);
+    aoPass = new N8AOPass(scene, camera, VW, VH);
     Object.assign(aoPass.configuration, { aoRadius: .55, distanceFalloff: .6, intensity: 2.6, aoSamples: mobile ? 8 : 16, denoiseSamples: mobile ? 4 : 8, denoiseRadius: 10, halfRes: mobile, gammaCorrection: false, color: new THREE.Color(0x1a120a) });
     composer.addPass(aoPass);
   } catch (e) { aoPass = null; }
 }
-const smaa = new SMAAPass(innerWidth*PR, innerHeight*PR);
-composer.addPass(smaa);
+composer.addPass(new SMAAPass(VW*PR, VH*PR));
 composer.addPass(new OutputPass());
 
 function resize(){
-  mobile = innerWidth < 760;
-  camera.aspect = innerWidth/innerHeight; camera.fov = mobile ? 62 : 50; camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight, false);
-  composer.setSize(innerWidth, innerHeight);
-  if (aoPass && aoPass.setSize) aoPass.setSize(innerWidth, innerHeight);
+  [VW, VH] = size(); mobile = VW < 760;
+  camera.aspect = VW/VH; camera.fov = mobile ? 62 : 50; camera.updateProjectionMatrix();
+  renderer.setPixelRatio(PR); renderer.setSize(VW, VH, false);
+  composer.setSize(VW, VH);
+  if (aoPass && aoPass.setSize) aoPass.setSize(VW, VH);
 }
 addEventListener('resize', resize);
 
 /* ---------------- camera & controls ---------------- */
 const controls = new OrbitControls(camera, canvas);
+canvas.style.touchAction = 'pan-y';   // vertical swipes keep scrolling the page
 controls.enableDamping = true; controls.dampingFactor = .06;
-controls.enablePan = false; controls.rotateSpeed = .55; controls.zoomSpeed = .7;
-controls.minDistance = .9; controls.maxDistance = 6.2;
+controls.enablePan = false; controls.enableZoom = false; controls.rotateSpeed = .55;
 controls.minPolarAngle = .55; controls.maxPolarAngle = 1.58;
 controls.target.set(-.3, .75, -1.3);
 
@@ -629,48 +1040,56 @@ function keepInside(){
 }
 
 let touring = !reduce, tourIdx = 0, lastInput = performance.now(), tourNext = 0, selected = null;
-controls.addEventListener('start', () => { lastInput = performance.now(); fly = null; });
+controls.addEventListener('start', () => { lastInput = performance.now(); fly = null; $('hint').classList.add('off'); });
+const tourBtn = $('tourBtn');
 function setTour(on){
-  touring = on; $('tourBtn').setAttribute('aria-pressed', String(on));
-  $('tourBtn').querySelector('svg').innerHTML = on ? '<path d="M5 3.5v9l7-4.5-7-4.5z" fill="currentColor"/>' : '<path d="M4.5 3.5h2.5v9H4.5zM9 3.5h2.5v9H9z" fill="currentColor"/>';
+  touring = on; tourBtn.setAttribute('aria-pressed', String(on));
+  tourBtn.querySelector('svg').innerHTML = on ? '<path d="M4.5 3.5h2.5v9H4.5zM9 3.5h2.5v9H9z" fill="currentColor"/>' : '<path d="M5 3.5v9l7-4.5-7-4.5z" fill="currentColor"/>';
 }
-$('tourBtn').addEventListener('click', () => { setTour(!touring); if (touring){ tourNext = 0; deselect(); } });
+setTour(touring);
+tourBtn.addEventListener('click', () => { setTour(!touring); if (touring){ tourNext = 0; deselect(false); } });
 
-/* ---------------- UI: chips, hotspots, drawer ---------------- */
+/* ---------------- UI: chips, hotspots, cards, drawer ---------------- */
 const fmt = (n) => n.toLocaleString('de-DE') + ' €';
-const chips = $('chips'), hsLayer = $('hotspots');
+const priceTxt = (p) => (p.from ? 'ab ' : '') + fmt(p.price);
+const chips = $('chips'), hsLayer = $('hotspots'), cards = $('cards');
 const swatchColor = (p) => p.sw ? Object.values(p.sw)[0] : p.wood ? p.wood[0][1] : ({ damask: '#5b2e4a', lamp: '#b9a6d6', pouf: '#d8cfc4', plant: '#4f6b3b' })[p.id] || '#999';
-PRODUCTS.forEach((p, i) => {
+PRODUCTS.forEach((p) => {
   const c = document.createElement('button'); c.type = 'button'; c.className = 'chip'; c.setAttribute('role', 'listitem');
-  c.innerHTML = `<span class="sw" style="background:${swatchColor(p)}"></span>${p.name}<em>${p.from ? 'ab ' : ''}${fmt(p.price)}</em>`;
+  c.innerHTML = `<span class="sw" style="background:${swatchColor(p)}"></span>${p.name}<em>${priceTxt(p)}</em>`;
   c.addEventListener('click', () => select(p.id)); chips.appendChild(c); p.chip = c;
-  const h = document.createElement('button'); h.type = 'button'; h.className = 'hs'; h.setAttribute('aria-label', `${p.name}, ${fmt(p.price)}`);
-  h.innerHTML = `<span class="ring"></span><span class="dot"></span><span class="tip">${p.name}<em>${p.from ? 'ab ' : ''}${fmt(p.price)}</em></span>`;
+  const h = document.createElement('button'); h.type = 'button'; h.className = 'hs hidden'; h.setAttribute('aria-label', `${p.name}, ${priceTxt(p)}`);
+  h.innerHTML = `<span class="ring"></span><span class="dot"></span><span class="tip">${p.name}<em>${priceTxt(p)}</em></span>`;
   h.addEventListener('click', (e) => { e.stopPropagation(); select(p.id); }); hsLayer.appendChild(h); p.hs = h;
+  const card = document.createElement('button'); card.type = 'button'; card.className = 'card';
+  card.innerHTML = `<div class="img"><canvas width="800" height="600" aria-hidden="true"></canvas>${p.own ? '<span class="badge own">Eigene Werkstatt</span>' : ''}<span class="pill look">Im Raum ansehen</span></div>
+    <div class="meta"><h3>${p.name}</h3><span class="price">${priceTxt(p)}</span></div><p>${p.cat}</p>`;
+  card.addEventListener('click', () => { hero.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); setTimeout(() => select(p.id), reduce ? 0 : 500); });
+  cards.appendChild(card); p.card = card.querySelector('canvas');
   p.anchorV = new THREE.Vector3(...p.anchor);
 });
 
 const drawer = $('drawer');
 function renderDrawer(p){
   $('pCat').textContent = p.cat; $('pName').textContent = p.name;
-  $('pPrice').innerHTML = `${p.from ? 'ab ' : ''}${fmt(p.price)}<small>inkl. MwSt.</small>`;
+  $('pPrice').innerHTML = `${priceTxt(p)}<small>inkl. 19 % MwSt., zzgl. Lieferung</small>`;
   $('pDesc').textContent = p.desc; $('pBadge').hidden = !p.own;
   $('pSpecs').innerHTML = p.specs.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
   const vb = $('pVariants'), sws = $('pSwatches');
   sws.innerHTML = ''; vb.hidden = true;
+  const vlabel = (name) => (p.vnames && p.vnames[name]) || name;
   if (p.variants === 'gltf' && p.variantList && p.variantList.length){
     vb.hidden = false; $('pVarLabel').textContent = p.varLabel;
-    p.variantList.forEach((name, i) => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'sw-btn' + ((p.curVar || p.variantList[0]) === name ? ' on' : '');
-      b.setAttribute('aria-label', (p.vnames && p.vnames[name]) || name);
-      b.innerHTML = `<span style="background:${(p.sw && p.sw[name]) || '#999'}"></span>`;
-      b.addEventListener('click', async () => { p.curVar = name; [...sws.children].forEach((x) => x.classList.toggle('on', x === b)); $('pVarName').textContent = (p.vnames && p.vnames[name]) || name; await selectVariant(p, name); });
+    p.variantList.forEach((name) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'sw-btn' + (p.curVar === name ? ' on' : '');
+      b.setAttribute('aria-label', vlabel(name)); b.innerHTML = `<span style="background:${(p.sw && p.sw[name]) || '#999'}"></span>`;
+      b.addEventListener('click', async () => { p.curVar = name; [...sws.children].forEach((x) => x.classList.toggle('on', x === b)); $('pVarName').textContent = vlabel(name); await selectVariant(p, name); });
       sws.appendChild(b);
     });
-    $('pVarName').textContent = (p.vnames && p.vnames[p.curVar || p.variantList[0]]) || p.curVar || p.variantList[0];
+    $('pVarName').textContent = vlabel(p.curVar);
   } else if (p.variants === 'wood'){
     vb.hidden = false; $('pVarLabel').textContent = p.varLabel;
-    p.wood.forEach(([name, col, tint], i) => {
+    p.wood.forEach(([name, col, tint]) => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'sw-btn' + ((p.curVar || p.wood[0][0]) === name ? ' on' : '');
       b.setAttribute('aria-label', name); b.innerHTML = `<span style="background:${col}"></span>`;
       b.addEventListener('click', () => { p.curVar = name; [...sws.children].forEach((x) => x.classList.toggle('on', x === b)); $('pVarName').textContent = name; setWood(tint); });
@@ -684,10 +1103,10 @@ function select(id){
   selected = p; setTour(false);
   renderDrawer(p);
   drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false');
-  $('intro').classList.add('off');
+  $('intro').classList.add('off'); $('scrim').classList.add('off'); $('hint').classList.add('off');
   PRODUCTS.forEach((x) => { x.chip.classList.toggle('active', x === p); x.hs.classList.toggle('active', x === p); });
   let cam = p.view.cam.slice(), tgt = p.view.tgt.slice();
-  if (!mobile && innerWidth > 900){ // shift framing left so the drawer does not cover the piece
+  if (!mobile && VW > 900){
     const dir = new THREE.Vector3(tgt[0]-cam[0], 0, tgt[2]-cam[2]).normalize(), right = new THREE.Vector3(-dir.z, 0, dir.x);
     tgt = [tgt[0] + right.x*.5, tgt[1], tgt[2] + right.z*.5];
   }
@@ -695,18 +1114,18 @@ function select(id){
   flyTo(cam, tgt);
   p.chip.scrollIntoView({ inline: 'center', block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
 }
-function deselect(){
+function deselect(flyBack = true){
   if (!selected) return;
   selected = null; drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true');
-  $('intro').classList.remove('off');
+  $('intro').classList.remove('off'); $('scrim').classList.remove('off');
   PRODUCTS.forEach((x) => { x.chip.classList.remove('active'); x.hs.classList.remove('active'); });
-  flyTo(TOUR[0].cam, TOUR[0].tgt, 2);
+  if (flyBack) flyTo(TOUR[0].cam, TOUR[0].tgt, 2);
 }
 const step = (d) => { const i = PRODUCTS.indexOf(selected); select(PRODUCTS[(i + d + PRODUCTS.length) % PRODUCTS.length].id); };
 $('prevBtn').onclick = () => step(-1); $('nextBtn').onclick = () => step(1);
-$('closeBtn').onclick = deselect; $('backBtn').onclick = deselect;
-$('home').onclick = (e) => { e.preventDefault(); deselect(); };
+$('closeBtn').onclick = () => deselect(); $('backBtn').onclick = () => deselect();
 addEventListener('keydown', (e) => {
+  if (window.__legalOpen) return;
   if (e.key === 'Escape'){ if ($('modal').classList.contains('open')) closeModal(); else deselect(); }
   if (selected && e.key === 'ArrowRight') step(1);
   if (selected && e.key === 'ArrowLeft') step(-1);
@@ -715,67 +1134,83 @@ addEventListener('keydown', (e) => {
 /* click directly on furniture */
 const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
 let downAt = null;
+function setNdc(e){ const r = canvas.getBoundingClientRect(); ndc.set((e.clientX - r.left)/r.width*2 - 1, -((e.clientY - r.top)/r.height)*2 + 1); }
 canvas.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; lastInput = performance.now(); });
 canvas.addEventListener('pointerup', (e) => {
   if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 6) return;
-  ndc.set(e.clientX/innerWidth*2 - 1, -(e.clientY/innerHeight)*2 + 1);
-  ray.setFromCamera(ndc, camera);
+  setNdc(e); ray.setFromCamera(ndc, camera);
   const hit = ray.intersectObjects(pickables, false)[0];
   if (hit) select(hit.object.userData.product);
 });
 canvas.addEventListener('pointermove', (e) => {
   if (e.buttons) return;
-  ndc.set(e.clientX/innerWidth*2 - 1, -(e.clientY/innerHeight)*2 + 1);
-  ray.setFromCamera(ndc, camera);
+  setNdc(e); ray.setFromCamera(ndc, camera);
   canvas.style.cursor = ray.intersectObjects(pickables, false).length ? 'pointer' : 'grab';
 });
 
-/* contact modal */
+/* product enquiry modal */
 const modal = $('modal');
 function openModal(p){
-  $('mKicker').textContent = p ? 'Anfrage zu' : 'Persönliche Beratung';
-  $('mTitle').textContent = p ? p.name : 'Termin im Showroom';
-  $('f-msg').value = p ? `Ich interessiere mich für ${p.name}${p.curVar ? ' (' + ((p.vnames && p.vnames[p.curVar]) || p.curVar) + ')' : ''}.` : '';
-  modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); setTimeout(() => $('f-name').focus(), 50);
+  $('mTitle').textContent = p.name;
+  const v = p.curVar ? ` (${(p.vnames && p.vnames[p.curVar]) || p.curVar})` : '';
+  $('m-msg').value = `Ich interessiere mich für ${p.name}${v}. Bitte melden Sie sich bei mir.`;
+  modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); setTimeout(() => $('m-name').focus(), 50);
 }
 function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); }
-$('contactBtn').onclick = () => openModal(null);
-$('askBtn').onclick = () => openModal(selected);
+$('askBtn').onclick = () => selected && openModal(selected);
 $('mClose').onclick = closeModal;
 modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-$('form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const n = $('f-name'), c = $('f-contact');
-  if (!n.value.trim()){ n.focus(); return; } if (!c.value.trim()){ c.focus(); return; }
-  const f = $('form'); f.innerHTML = `<div class="thanks" role="status">Danke, ${n.value.trim().split(' ')[0]}. Wir melden uns innerhalb eines Werktags.</div>`;
-});
+
+/* ---------------- visibility: render only while the showroom is on screen ---------------- */
+let heroVisible = true;
+new IntersectionObserver((es) => {
+  heroVisible = es[0].isIntersecting;
+  if (!heroVisible && selected) deselect(false);
+}, { threshold: .05 }).observe(hero);
+
+/* ---------------- collection thumbnails rendered from the scene ---------------- */
+function renderThumbs(){
+  const tw = 800, th = 600, cam = new THREE.PerspectiveCamera(42, tw/th, .05, 200);
+  renderer.setPixelRatio(1); renderer.setSize(tw, th, false);
+  for (const p of PRODUCTS){
+    if (!p.card) continue;
+    const c = p.view.cam, t = p.view.tgt;
+    const back = c.map((v, i) => t[i] + (v - t[i])*1.08);
+    cam.position.set(...back); cam.lookAt(...t);
+    renderer.render(scene, cam);
+    p.card.getContext('2d').drawImage(renderer.domElement, 0, 0, tw, th);
+  }
+  resize();
+}
 
 /* ---------------- loop ---------------- */
 const tmp = new THREE.Vector3(), clock = new THREE.Clock();
-let started = false, startAt = 0, frameN = 0;
-manager.onLoad = () => {
+let started = false, frameN = 0;
+manager.onLoad = async () => {
   if (started) return; started = true;
+  try { await Promise.allSettled(placed); await Promise.all(variantJobs); } catch (e) {}
+  try { renderThumbs(); } catch (e) {}
   $('loader').classList.add('done');
-  startAt = performance.now();
   camera.position.set(4.1, 2.35, 3.4);
   flyTo(TOUR[0].cam, TOUR[0].tgt, reduce ? .01 : 3.6);
   tourNext = performance.now() + 9000;
+  setTimeout(() => $('hint').classList.add('off'), 9000);
 };
-setTimeout(() => manager.onLoad(), 25000); // failsafe if one asset stalls
+setTimeout(() => manager.onLoad(), 25000);
 
 function updateHotspots(){
   const occl = (frameN++ % 8) === 0;
   for (const p of PRODUCTS){
     tmp.copy(p.anchorV).project(camera);
     const behind = tmp.z > 1 || tmp.z < -1;
-    const x = (tmp.x*.5 + .5)*innerWidth, y = (-tmp.y*.5 + .5)*innerHeight;
+    const x = (tmp.x*.5 + .5)*VW, y = (-tmp.y*.5 + .5)*VH;
     p.hs.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
-    const off = behind || x < -40 || x > innerWidth + 40 || y < 40 || y > innerHeight - 40 || (selected && selected !== p);
+    const off = behind || x < -40 || x > VW + 40 || y < 70 || y > VH - 70 || (selected && selected !== p);
     p.hs.classList.toggle('hidden', !!off || !started);
     if (occl && !off){
       const dir = tmp.copy(p.anchorV).sub(camera.position), dist = dir.length();
       ray.set(camera.position, dir.normalize());
-      const hit = ray.intersectObjects(scene.children, true).find((h) => h.object.visible && !h.object.isPoints);
+      const hit = ray.intersectObjects(scene.children, true).find((h) => h.object.visible);
       const blocked = hit && hit.distance < dist - .25 && hit.object.userData.product !== p.id;
       p.hs.classList.toggle('dim', !!blocked);
     }
@@ -785,22 +1220,20 @@ function updateHotspots(){
 function frame(){
   requestAnimationFrame(frame);
   const dt = Math.min(clock.getDelta(), .1), t = clock.elapsedTime, now = performance.now();
+  if (!heroVisible || window.__legalOpen) return;
   if (fly){
     fly.t += dt/fly.dur; const k = ease(clamp(fly.t, 0, 1));
     camera.position.lerpVectors(fly.c0, fly.c1, k); controls.target.lerpVectors(fly.t0, fly.t1, k);
     if (fly.t >= 1) fly = null;
   } else if (touring && started && !selected){
     if (now > tourNext){ tourIdx = (tourIdx + 1) % TOUR.length; flyTo(TOUR[tourIdx].cam, TOUR[tourIdx].tgt, 5.5); tourNext = now + 10500; }
-  } else if (!touring && !selected && now - lastInput > 14000 && started && !reduce){
+  } else if (!touring && !selected && now - lastInput > 20000 && started && !reduce){
     setTour(true); tourNext = now + 1500;
   }
-  // gentle handheld drift so the room never freezes
-  if (!reduce && started){
-    camera.position.x += Math.sin(t*.31)*.0009; camera.position.y += Math.sin(t*.23)*.0006;
-  }
+  if (!reduce && started){ camera.position.x += Math.sin(t*.31)*.0009; camera.position.y += Math.sin(t*.23)*.0006; }
   controls.update();
   keepInside();
-  lampGlow.intensity = lampGlow.intensity > 0 ? 1.3 + Math.sin(t*2.1)*.04 : 0;
+  if (lampGlow.intensity > 0) lampGlow.intensity = 1.3 + Math.sin(t*2.1)*.04;
   updateHotspots();
   composer.render();
 }
