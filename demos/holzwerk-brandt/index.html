@@ -4,552 +4,1051 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>document.documentElement.classList.add('js');</script>
 <style>
-/* Layout: cinematic sticky 3D scene (a dovetail joint assembling on scroll), then quiet editorial sections on warm black. Single dark look by choice. */
+/* Layout: one fixed WebGL stage behind the page. 36 wooden boards morph between formations
+   (sideboard → exploded view → staircase → bookcase → vortex) as the visitor scrolls.
+   Opaque editorial sections sit between the 3D chapters. Single dark showroom look by choice. */
 :root{
-  --bg:#0d0a08;
-  --bg-2:#15110d;
+  --bg:#0b0907;
+  --bg-2:#14100c;
+  --bg-3:#1c1611;
   --line:rgba(236,226,212,.12);
-  --fg:#ece2d4;
-  --muted:#9d9184;
-  --brass:#d6a15c;
-  --brass-dim:rgba(214,161,92,.16);
+  --fg:#efe6d8;
+  --muted:#a09383;
+  --brass:#d9a35e;
+  --brass-dim:rgba(217,163,94,.14);
   --f-display:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
   --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-  --gutter:max(16px,env(safe-area-inset-left,0px));
-  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --gl:max(16px,env(safe-area-inset-left,0px));
+  --gr:max(16px,env(safe-area-inset-right,0px));
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:90;background:var(--bg)}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
-.wrap{max-width:1240px;margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
-.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h2{font-size:clamp(40px,6vw,84px)}
-h2 em,h1 em{font-style:italic;color:var(--brass)}
+::selection{background:var(--brass);color:var(--bg)}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:.98;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h2{font-size:clamp(46px,7vw,112px)}
+em{font-style:italic;color:var(--brass)}
 p{margin:0}
 
-/* Nav */
-.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
-.nav.solid{background:rgba(13,10,8,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px}
-.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none}
-.logo b{font-family:var(--f-display);font-weight:400;font-size:26px;letter-spacing:.01em}
-.logo span{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
-.links{display:flex;gap:28px;font-size:14px}
-.links a{text-decoration:none;color:var(--muted);transition:color .2s}
-.links a:hover{color:var(--fg)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:1px solid var(--brass);color:var(--fg);text-decoration:none;font-size:14px;font-weight:600;border-radius:999px;background:transparent;cursor:pointer;font-family:var(--f-body);transition:background .25s,color .25s}
-.btn:hover{background:var(--brass);color:var(--bg)}
-.btn.fill{background:var(--brass);color:var(--bg)}
-.btn.fill:hover{background:var(--fg);border-color:var(--fg)}
-@media (max-width:820px){.links{display:none}}
-@media (max-width:560px){.logo span{display:none}.logo b{font-size:22px}.nav .btn{padding:10px 14px;font-size:13px}}
+/* film grain */
+.grain{position:fixed;inset:-50%;z-index:80;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
 
-/* Scene */
-#scene{position:relative;height:330vh}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
-.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 62% 45%,transparent 30%,rgba(13,10,8,.55) 75%,var(--bg) 100%)}
-.no-webgl #gl{background:radial-gradient(ellipse at 65% 45%,#3a2a1b 0%,var(--bg) 60%)}
-.caps{position:absolute;inset:0;z-index:2;pointer-events:none}
-.caps .wrap{position:relative;height:100%}
-.cap{position:absolute;left:var(--gutter);right:var(--gutter-r);max-width:560px;transition:opacity .7s ease,transform .7s ease}
-.cap.off{opacity:0;transform:translateY(24px)}
-.cap-1{top:50%;transform:translateY(-50%)}
-.cap-1.off{transform:translateY(calc(-50% - 30px))}
-.cap-1 h1{font-size:clamp(56px,9vw,128px);margin:18px 0 24px}
-.cap-1 p{font-size:18px;color:var(--muted);max-width:42ch}
-.cap-1 .row{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;pointer-events:auto}
-.cap-2,.cap-3{bottom:14vh}
-.cap-2 h3,.cap-3 h3{font-size:clamp(34px,4.6vw,60px);margin:14px 0 14px}
-.cap-2 p,.cap-3 p{color:var(--muted);max-width:44ch}
-.spec{display:flex;gap:28px;flex-wrap:wrap;margin-top:22px}
-.spec div{display:grid;gap:2px}
-.spec b{font-family:var(--f-mono);font-weight:500;font-size:22px;color:var(--fg);font-variant-numeric:tabular-nums}
-.scroll-hint{position:absolute;right:var(--gutter-r);bottom:28px;z-index:2;display:flex;align-items:center;gap:12px}
-.scroll-hint i{display:block;width:1px;height:46px;background:linear-gradient(var(--brass),transparent);animation:drip 2.2s ease-in-out infinite}
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:none;flex-direction:column;justify-content:space-between;
+  padding:max(24px,env(safe-area-inset-top,0px)) var(--gr) max(24px,env(safe-area-inset-bottom,0px)) var(--gl);
+  clip-path:inset(0 0 0 0);transition:clip-path 1.1s cubic-bezier(.77,0,.18,1)}
+.js #loader{display:flex}
+#loader.done{clip-path:inset(0 0 100% 0)}
+#loader .count{font-family:var(--f-display);font-size:clamp(110px,22vw,320px);line-height:.8;font-variant-numeric:tabular-nums;align-self:flex-end}
+#loader .bar{height:1px;background:var(--line);position:relative;overflow:hidden}
+#loader .bar i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(0)}
+
+/* cursor */
+.cursor,.cursor-dot{position:fixed;left:0;top:0;z-index:95;pointer-events:none;border-radius:50%;display:none}
+.cursor{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid var(--brass);transition:width .3s,height .3s,margin .3s,background .3s}
+.cursor-dot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--brass)}
+.has-cursor .cursor,.has-cursor .cursor-dot{display:block}
+.has-cursor,.has-cursor a,.has-cursor button{cursor:none}
+.cursor.big{width:86px;height:86px;margin:-43px 0 0 -43px;background:var(--brass-dim)}
+
+/* stage */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.no-webgl #gl{background:radial-gradient(ellipse at 65% 45%,#3a2a1b 0%,var(--bg) 62%)}
+main,footer,.nav{position:relative;z-index:2}
+
+/* labels for exploded view */
+.labels{position:fixed;inset:0;z-index:3;pointer-events:none}
+.lbl{position:absolute;left:0;top:0;opacity:0;white-space:nowrap;display:flex;align-items:center;gap:10px;will-change:transform}
+.lbl::before{content:"";width:9px;height:9px;border-radius:50%;border:1px solid var(--brass);background:var(--bg);box-shadow:0 0 0 4px rgba(217,163,94,.12)}
+.lbl::after{content:"";position:absolute;left:9px;top:50%;width:26px;height:1px;background:var(--brass)}
+.lbl span{margin-left:28px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;padding:6px 10px;background:rgba(11,9,7,.78);border:1px solid var(--line);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.lbl b{color:var(--brass);font-weight:500}
+@media (max-width:700px){.lbl span{font-size:10px;padding:4px 7px}}
+
+/* nav */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:70;transition:background .4s,border-color .4s,transform .5s;border-bottom:1px solid transparent}
+.nav.solid{background:rgba(11,9,7,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:var(--line)}
+.nav.hide{transform:translateY(-110%)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:18px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:30px;height:30px}
+.logo b{font-family:var(--f-display);font-weight:400;font-size:26px;letter-spacing:.01em;line-height:1}
+.links{display:flex;gap:30px;font-size:14px}
+.links a{text-decoration:none;color:var(--muted);position:relative;transition:color .2s}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--brass);transform:scaleX(0);transform-origin:right;transition:transform .4s}
+.links a:hover{color:var(--fg)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border:1px solid var(--brass);color:var(--fg);text-decoration:none;font-size:14px;font-weight:600;border-radius:999px;background:transparent;font-family:var(--f-body);position:relative;overflow:hidden;isolation:isolate;transition:color .35s,border-color .35s}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--brass);transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.btn:hover{color:var(--bg)}
+.btn:hover::before{transform:translateY(0)}
+.btn.fill{background:var(--brass);color:var(--bg)}
+.btn.fill::before{background:var(--fg)}
+.btn .arr{transition:transform .35s}
+.btn:hover .arr{transform:translateX(4px)}
+@media (max-width:860px){.links{display:none}}
+@media (max-width:520px){.logo b{font-size:22px}.nav .btn{padding:10px 15px;font-size:13px}}
+
+/* split text */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .w>i{display:inline-block;font-style:inherit}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-block:120px 40px}
+.hero .wrap{width:100%}
+.hero .eyebrow{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+.hero .eyebrow i{width:40px;height:1px;background:var(--brass)}
+.hero h1{font-size:clamp(68px,12.5vw,196px);max-width:9ch}
+.hero-bottom{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:40px;align-items:end;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-bottom p{color:var(--muted);font-size:17px;max-width:40ch}
+.hero-bottom .row{display:flex;gap:12px;flex-wrap:wrap}
+.scrollcue{display:flex;flex-direction:column;align-items:center;gap:10px}
+.scrollcue i{display:block;width:1px;height:54px;background:linear-gradient(var(--brass),transparent);animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-.progress{position:absolute;left:var(--gutter);bottom:30px;z-index:2;display:flex;gap:8px;align-items:center}
-.progress span{width:28px;height:2px;background:var(--line);transition:background .4s}
-.progress span.on{background:var(--brass)}
-@media (max-width:820px){
-  .cap-1{top:auto;bottom:9vh;transform:none}
-  .cap-1 h1{font-size:clamp(48px,14vw,72px);margin:12px 0 16px}
-  .cap-1.off{transform:translateY(-30px)}
-  .cap-1 p{font-size:16px}
-  .cap-2,.cap-3{bottom:12vh}
+@media (max-width:860px){
+  .hero{padding-bottom:28px}
+  .hero-bottom{grid-template-columns:1fr;gap:22px}
+  .scrollcue{display:none}
 }
 
-/* Sections */
-section.block{padding-block:clamp(96px,14vw,180px);border-top:1px solid var(--line)}
-.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:72px}
-.head p{color:var(--muted);max-width:46ch;font-size:17px}
-@media (max-width:820px){.head{grid-template-columns:1fr;margin-bottom:48px}}
+/* marquee */
+.marquee{position:relative;z-index:2;border-block:1px solid var(--line);background:rgba(11,9,7,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow:hidden;padding-block:22px}
+.marquee .track{display:flex;width:max-content;gap:0;will-change:transform}
+.marquee span{font-family:var(--f-display);font-size:clamp(30px,4vw,54px);padding-inline:28px;white-space:nowrap;display:flex;align-items:center;gap:56px}
+.marquee span::after{content:"";width:10px;height:10px;transform:rotate(45deg);border:1px solid var(--brass)}
+.marquee span:nth-child(even){font-style:italic;color:var(--brass)}
 
-/* Services */
-.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
-.svc{padding:36px 36px 40px 0;border-bottom:1px solid var(--line);display:grid;gap:14px;align-content:start;position:relative}
-.svc:nth-child(odd){border-right:1px solid var(--line)}
-.svc:nth-child(even){padding-left:36px;padding-right:0}
-.svc h3{font-size:clamp(28px,3vw,40px)}
-.svc p{color:var(--muted);max-width:44ch}
-.svc .meta{display:flex;gap:18px;flex-wrap:wrap}
-.svc .meta span{font-family:var(--f-mono);font-size:12px;color:var(--brass);letter-spacing:.04em}
-.svc::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:0;background:var(--brass);transition:width .6s ease}
-.svc:nth-child(even)::before{left:36px}
-.svc:hover::before{width:72px}
-@media (max-width:820px){.services{grid-template-columns:1fr}.svc,.svc:nth-child(even){padding:30px 0;border-right:0!important}.svc:nth-child(even)::before{left:0}}
+/* 3D chapters */
+.chapter{min-height:170vh;position:relative}
+.chapter .wrap{height:100%}
+.chapter .panel{position:sticky;top:22vh;max-width:500px;padding-block:24px}
+.chapter.right .panel{margin-left:auto}
+.chapter .panel h2{font-size:clamp(46px,6vw,92px);margin:16px 0 22px}
+.chapter .panel p{color:var(--muted);font-size:17px;max-width:42ch}
+.chapter .kpis{display:flex;gap:34px;flex-wrap:wrap;margin-top:30px}
+.chapter .kpis div{display:grid;gap:4px}
+.chapter .kpis b{font-family:var(--f-mono);font-weight:500;font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
+.chip{justify-self:start;width:max-content;display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);padding:7px 12px;border:1px solid rgba(217,163,94,.35);border-radius:999px}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--brass);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (max-width:860px){
+  .chapter{min-height:150vh}
+  .chapter .panel{position:relative;top:auto;margin-top:52vh;padding:22px 18px 26px;background:linear-gradient(180deg,rgba(11,9,7,.2),rgba(11,9,7,.9) 22%);border-radius:4px}
+  .chapter.right .panel{margin-left:0}
+  .chapter .panel h2{font-size:clamp(40px,11vw,60px)}
+  .chapter .panel p{font-size:15px}
+}
 
-/* Woods */
-.woods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.wood{display:grid;gap:16px}
-.wood canvas{width:100%;aspect-ratio:3/4;max-width:100%;display:block;border-radius:2px;transition:transform .6s ease,filter .6s}
-.wood:hover canvas{transform:translateY(-6px);filter:brightness(1.1)}
-.wood h3{font-size:30px}
-.wood dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px}
+/* solid sections */
+.solid{background:var(--bg);position:relative;z-index:2}
+.block{padding-block:clamp(100px,13vw,180px);border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:76px}
+.head p{color:var(--muted);max-width:44ch;font-size:17px}
+@media (max-width:860px){.head{grid-template-columns:1fr;margin-bottom:48px}}
+
+/* services as an interactive list */
+.svc-list{border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:90px minmax(0,1.4fr) minmax(0,1fr) auto;gap:30px;align-items:center;padding-block:34px;border-bottom:1px solid var(--line);position:relative;text-decoration:none;overflow:hidden;isolation:isolate}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--brass-dim),transparent 70%);transform:scaleY(0);transform-origin:bottom;transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.svc:hover::before{transform:scaleY(1)}
+.svc .tag{font-family:var(--f-mono);font-size:12px;color:var(--brass)}
+.svc h3{font-size:clamp(32px,4vw,58px);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.svc:hover h3{transform:translateX(14px)}
+.svc p{color:var(--muted);font-size:15px}
+.svc .price{text-align:right;display:grid;gap:4px}
+.svc .price b{font-family:var(--f-mono);font-weight:500;font-size:17px;font-variant-numeric:tabular-nums}
+@media (max-width:860px){.svc{grid-template-columns:1fr;gap:10px;padding-block:28px}.svc .price{text-align:left;display:flex;gap:16px}}
+
+/* woods */
+.woods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;perspective:1000px}
+.wood{display:grid;gap:18px}
+.wood .card{position:relative;aspect-ratio:3/4;max-width:100%;border-radius:3px;overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease-out;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.wood canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.wood .card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,30%),rgba(255,236,205,.35),transparent 55%);mix-blend-mode:soft-light;pointer-events:none}
+.wood .card .name{position:absolute;left:18px;bottom:16px;font-family:var(--f-display);font-size:38px;color:#fff6ea;text-shadow:0 2px 20px rgba(0,0,0,.5);transform:translateZ(40px)}
+.wood dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:7px 16px;font-size:13px}
 .wood dt{color:var(--muted)}
 .wood dd{margin:0;font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
-@media (max-width:980px){.woods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1000px){.woods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.wood .card .name{font-size:28px}}
 
-/* Process */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s}
-.step{padding:28px 28px 0 0;border-top:1px solid var(--line);display:grid;gap:12px;align-content:start;position:relative}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
+.steps .rail{position:absolute;left:0;right:0;top:0;height:1px;background:var(--line)}
+.steps .rail i{position:absolute;inset:0;background:var(--brass);transform-origin:left;transform:scaleX(var(--p,1))}
+.step{padding:34px 30px 0 0;display:grid;gap:12px;align-content:start;position:relative}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--brass)}
 .step .n{font-family:var(--f-mono);font-size:12px;color:var(--brass)}
-.step h3{font-size:30px}
+.step h3{font-size:34px}
 .step p{color:var(--muted);font-size:15px}
-.step .dur{font-family:var(--f-mono);font-size:12px;color:var(--fg);opacity:.7;margin-top:6px}
-.step::after{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--brass)}
-@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}}
+.step .dur{font-family:var(--f-mono);font-size:12px;opacity:.75;margin-top:6px}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:56px}}
 @media (max-width:560px){.steps{grid-template-columns:1fr}}
 
-/* Projects */
-.projects{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px}
-.proj{position:relative;overflow:hidden;border-radius:2px;min-height:340px;display:flex;align-items:flex-end;isolation:isolate}
-.proj canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-2;transition:transform 1.2s ease}
-.proj::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(13,10,8,.92))}
-.proj:hover canvas{transform:scale(1.04)}
-.proj .txt{padding:28px;display:grid;gap:8px}
-.proj h3{font-size:clamp(26px,2.6vw,36px)}
-.proj p{color:var(--muted);font-size:14px;max-width:46ch}
-.p1{grid-column:span 7;min-height:460px}
-.p2{grid-column:span 5;min-height:460px}
-.p3{grid-column:span 12;min-height:320px}
-@media (max-width:820px){.p1,.p2,.p3{grid-column:span 12;min-height:360px}}
+/* projects horizontal */
+.hscroll{overflow:hidden}
+.hscroll .htrack{display:flex;gap:24px;padding-left:var(--gl);padding-right:var(--gr);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.gsap-on .hscroll .htrack{overflow:visible;width:max-content;scroll-snap-type:none}
+.proj{flex:0 0 auto;height:min(60vh,560px);width:min(78vw,calc(min(60vh,560px)*1.4));max-width:100%;position:relative;border-radius:3px;overflow:hidden;scroll-snap-align:start;isolation:isolate;display:flex;align-items:flex-end}
+.proj canvas{position:absolute;inset:-6%;width:112%;height:112%;z-index:-2;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.proj:hover canvas{transform:scale(1.06) rotate(-.6deg)}
+.proj::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,9,7,0) 35%,rgba(11,9,7,.9))}
+.proj .txt{padding:30px;display:grid;gap:10px;width:100%}
+.proj h3{font-size:clamp(30px,3.6vw,52px)}
+.proj p{color:var(--muted);font-size:15px;max-width:46ch}
+.proj .idx{position:absolute;top:24px;right:26px;font-family:var(--f-mono);font-size:12px;color:#fff6ea;opacity:.8}
+@media (max-width:600px){.proj{height:auto;aspect-ratio:4/5;width:84vw}}
+#projekte{padding-block:90px 100px}
+#projekte .head{margin-bottom:40px}
+#projekte .head h2{font-size:clamp(46px,6vw,92px)}
 
-/* Quote */
-.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
-.quote figure{margin:0;display:grid;gap:22px;align-content:start}
-.quote blockquote{margin:0;font-family:var(--f-display);font-size:clamp(26px,2.8vw,38px);line-height:1.2}
-.quote figcaption{color:var(--muted);font-size:14px}
-.quote figcaption b{color:var(--fg);font-weight:600}
-.stars{color:var(--brass);letter-spacing:4px;font-size:14px}
-@media (max-width:820px){.quote{grid-template-columns:1fr}}
+/* testimonials */
+.quotes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+.quotes figure{margin:0;display:grid;gap:22px;align-content:start}
+.quotes blockquote{margin:0;font-family:var(--f-display);font-size:clamp(28px,3vw,42px);line-height:1.15}
+.quotes figcaption{color:var(--muted);font-size:14px}
+.quotes figcaption b{color:var(--fg);font-weight:600}
+.stars{color:var(--brass);letter-spacing:5px;font-size:14px}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
 
-/* Contact */
-.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:64px}
-.contact .info{display:grid;gap:28px;align-content:start}
-.contact .info h2{margin-bottom:8px}
-.contact .info p{color:var(--muted);max-width:40ch}
-.facts{display:grid;gap:18px;border-top:1px solid var(--line);padding-top:24px}
+/* contact over vortex */
+.contact-sec{min-height:100vh;padding-block:140px 100px;display:flex;align-items:center}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center;width:100%}
+.contact .info{display:grid;gap:26px;align-content:start}
+.contact .info p{color:var(--muted);max-width:40ch;font-size:17px}
+.facts{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:24px}
 .facts div{display:grid;gap:2px}
-.facts span{font-size:17px}
+.glass{background:rgba(20,16,12,.55);border:1px solid var(--line);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);padding:34px;border-radius:6px;box-shadow:0 40px 100px -40px rgba(0,0,0,.9)}
 form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .field{display:grid;gap:8px}
 .field.full{grid-column:1/-1}
 label{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--bg-2);border:1px solid var(--line);border-radius:2px;padding:14px 16px;width:100%;transition:border-color .2s}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brass)}
-textarea{min-height:140px;resize:vertical}
+input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:rgba(11,9,7,.6);border:1px solid var(--line);border-radius:3px;padding:14px 16px;width:100%;transition:border-color .2s,background .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brass);background:rgba(11,9,7,.85)}
+textarea{min-height:130px;resize:vertical}
 .form-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:6px}
 .form-foot small{color:var(--muted);font-size:13px}
-.thanks{grid-column:1/-1;border:1px solid var(--brass);background:var(--brass-dim);padding:22px;border-radius:2px}
-@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.thanks{grid-column:1/-1;border:1px solid var(--brass);background:var(--brass-dim);padding:22px;border-radius:3px}
+@media (max-width:900px){.contact{grid-template-columns:1fr}.glass{padding:22px}.contact .info{background:rgba(11,9,7,.62);padding:22px;border-radius:6px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}}
 @media (max-width:560px){form{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line);padding-block:40px}
-footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer p{color:var(--muted);font-size:13px}
+footer{background:var(--bg);border-top:1px solid var(--line);overflow:hidden}
+.bigname{font-family:var(--f-display);font-size:clamp(70px,17vw,280px);line-height:.85;letter-spacing:-.03em;white-space:nowrap;padding-block:50px 10px;color:transparent;-webkit-text-stroke:1px rgba(217,163,94,.55)}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:28px 40px;border-top:1px solid var(--line)}
+.foot p{color:var(--muted);font-size:13px}
 
-.reveal{transition:opacity .9s ease,transform .9s ease}
-.js .reveal.pending{opacity:.001;transform:translateY(28px)}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .reveal,.cap{transition:none!important}
-  .js .reveal.pending{opacity:1;transform:none}
-  .scroll-hint i{animation:none}
+  .grain,.scrollcue i,.chip i{animation:none}
+  #loader{transition:none}
 }
 </style>
 
+<div id="loader" aria-hidden="true">
+  <div class="mono">Holzwerk Brandt · Tischlerei · Potsdam</div>
+  <div>
+    <div class="count" id="count">000</div>
+    <div class="bar"><i id="bar"></i></div>
+  </div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="labels" id="labels" aria-hidden="true">
+  <div class="lbl" data-part="0"><span><b>Deckplatte</b> · Eiche massiv · 30 mm</span></div>
+  <div class="lbl" data-part="2"><span><b>Seite</b> · Schwalbenschwanz 1:6</span></div>
+  <div class="lbl" data-part="6"><span><b>Rückwand</b> · in Nut · 8 mm</span></div>
+  <div class="lbl" data-part="20"><span><b>Lamellenfront</b> · 24 × 18 mm Nussbaum</span></div>
+  <div class="lbl" data-part="9"><span><b>Fuß</b> · konisch · 7° Neigung</span></div>
+</div>
+
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Holzwerk Brandt, zum Anfang"><b>Holzwerk Brandt</b><span>Tischlerei · Potsdam</span></a>
+    <a class="logo" href="#top" aria-label="Holzwerk Brandt, zum Anfang">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 22h24v6H4z" stroke="#d9a35e"/><path d="M7 22l-1.5-7h5L9 22M14.5 22l-1.5-7h5L16.5 22M22 22l-1.5-7h5L24 22" stroke="#d9a35e"/><path d="M4 4h24v11H4z" stroke="#efe6d8" stroke-opacity=".5"/></svg>
+      <b>Holzwerk Brandt</b>
+    </a>
     <nav class="links" aria-label="Hauptnavigation">
+      <a href="#konstruktion">Konstruktion</a>
       <a href="#leistungen">Leistungen</a>
       <a href="#hoelzer">Hölzer</a>
-      <a href="#ablauf">Ablauf</a>
       <a href="#projekte">Projekte</a>
     </nav>
-    <a class="btn" href="#kontakt">Projekt anfragen</a>
+    <a class="btn magnetic" href="#kontakt">Projekt anfragen <span class="arr">→</span></a>
   </div>
 </header>
 
 <main id="top">
-  <section id="scene" aria-label="Einleitung">
-    <div class="stage">
-      <canvas id="gl" aria-hidden="true"></canvas>
-      <div class="caps">
-        <div class="cap cap-1" id="cap1">
-          <div class="mono">Meisterbetrieb · Babelsberg · seit 1987</div>
-          <h1>Möbel, die <em>sitzen.</em></h1>
-          <p>Wir planen und bauen Einbauschränke, Küchen und Treppen für Potsdamer Altbauten und Neubauten. Jedes Stück auf den Millimeter, in unserer eigenen Werkstatt.</p>
-          <div class="row">
-            <a class="btn fill" href="#kontakt">Kostenloses Aufmaß vereinbaren</a>
-            <a class="btn" href="#projekte">Projekte ansehen</a>
-          </div>
+  <!-- Chapter 0: sideboard -->
+  <section class="hero" data-chapter="0">
+    <div class="wrap">
+      <div class="eyebrow mono"><i></i>Meisterbetrieb in Babelsberg · seit 1987</div>
+      <h1 class="split" data-split>Möbel, die <em>sitzen.</em></h1>
+      <div class="hero-bottom">
+        <p>Wir planen und bauen Einbauschränke, Küchen und Treppen für Potsdamer Altbauten und Neubauten. Jedes Stück auf den Millimeter, in unserer eigenen Werkstatt.</p>
+        <div class="row">
+          <a class="btn fill magnetic" href="#kontakt">Kostenloses Aufmaß <span class="arr">→</span></a>
+          <a class="btn magnetic" href="#projekte">Projekte</a>
         </div>
-        <div class="cap cap-2 off" id="cap2">
-          <div class="mono">Die Verbindung</div>
-          <h3>Schwalbenschwanz.<br><em>Hält ohne Schraube.</em></h3>
-          <p>Die Zinken weiten sich nach außen. Einmal zusammengeschoben, sperrt die Form sich selbst. So bauen wir Schubkästen, Korpusse und Treppenwangen, die auch nach Jahrzehnten nicht wackeln.</p>
+        <div class="scrollcue mono">Scroll<i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="marquee">
+      <span>Schwalbenschwanz</span><span>Eiche geölt</span><span>Fingerzinken</span><span>Nussbaum</span><span>Gratleiste</span><span>Esche weiß</span><span>Überblattung</span><span>Altholz</span>
+      <span>Schwalbenschwanz</span><span>Eiche geölt</span><span>Fingerzinken</span><span>Nussbaum</span><span>Gratleiste</span><span>Esche weiß</span><span>Überblattung</span><span>Altholz</span>
+    </div>
+  </div>
+
+  <!-- Chapter 1: exploded -->
+  <section class="chapter right" id="konstruktion" data-chapter="1">
+    <div class="wrap"><div class="panel">
+      <span class="chip"><i></i>Explosionszeichnung</span>
+      <h2 class="split" data-split>Jedes Teil hat <em>seinen Platz.</em></h2>
+      <p>36 Bauteile, keine einzige sichtbare Schraube. Seiten und Deckplatte sind mit Schwalbenschwänzen verbunden, die Rückwand läuft in einer Nut. So bleibt das Sideboard auch nach 30 Jahren im Winkel.</p>
+      <div class="kpis">
+        <div><b data-count="36">0</b><span class="mono">Bauteile</span></div>
+        <div><b data-count="0.1" data-dec="1">0</b><span class="mono">mm Toleranz</span></div>
+        <div><b>0</b><span class="mono">Schrauben</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Chapter 2: stairs -->
+  <section class="chapter" data-chapter="2">
+    <div class="wrap"><div class="panel">
+      <span class="chip"><i></i>Treppenbau</span>
+      <h2 class="split" data-split>Vierzehn Stufen. <em>Ein Guss.</em></h2>
+      <p>Wangentreppen, Faltwerk oder frei tragend. Wir rechnen die Statik, planen nach DIN 18065 und montieren meist an einem einzigen Tag.</p>
+      <div class="kpis">
+        <div><b data-count="18">0</b><span class="mono">cm Steigung</span></div>
+        <div><b data-count="26">0</b><span class="mono">cm Auftritt</span></div>
+        <div><b data-count="1">0</b><span class="mono">Tag Montage</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Chapter 3: bookcase -->
+  <section class="chapter right" data-chapter="3">
+    <div class="wrap"><div class="panel">
+      <span class="chip"><i></i>Einbaumöbel</span>
+      <h2 class="split" data-split>Bis unter die <em>Stuckdecke.</em></h2>
+      <p>Bibliothekswände für Raumhöhen bis 4,20 m. Gebaut um schiefe Wände, Kastenfenster und Heizkörper herum, so dass es aussieht, als wäre das Haus um das Regal gebaut.</p>
+      <div class="kpis">
+        <div><b data-count="4.2" data-dec="1">0</b><span class="mono">m Raumhöhe</span></div>
+        <div><b data-count="40">0</b><span class="mono">kg pro Boden</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <div class="solid">
+    <section class="block" id="leistungen">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="split" data-split>Was wir <em>bauen</em></h2>
+          <p>Vom einzelnen Regal in der Dachschräge bis zur kompletten Innenausstattung einer Gründerzeitwohnung. Planung, Fertigung und Montage aus einer Hand.</p>
         </div>
-        <div class="cap cap-3 off" id="cap3">
-          <div class="mono">Die Werkstatt</div>
-          <h3>Gefräst auf 0,1 mm.<br><em>Geschliffen von Hand.</em></h3>
-          <div class="spec">
-            <div><b>0,1 mm</b><span class="mono">CNC-Toleranz</span></div>
-            <div><b>4,20 m</b><span class="mono">max. Raumhöhe</span></div>
-            <div><b>38</b><span class="mono">Jahre Erfahrung</span></div>
-          </div>
+        <div class="svc-list">
+          <a class="svc" href="#kontakt"><span class="tag">Schränke</span><h3>Einbauschränke nach Maß</h3><p>Nischen, Dachschrägen, Altbauhöhen. Schiebetüren oder grifflos.</p><span class="price"><b>ab 2.400 €</b><span class="mono">4–6 Wochen</span></span></a>
+          <a class="svc" href="#kontakt"><span class="tag">Küchen</span><h3>Küchen aus Massivholz</h3><p>Arbeitsplatten bis 4,10 m aus einem Stück, alle Geräte integriert.</p><span class="price"><b>ab 14.000 €</b><span class="mono">8–10 Wochen</span></span></a>
+          <a class="svc" href="#kontakt"><span class="tag">Treppen</span><h3>Treppen &amp; Geländer</h3><p>Wangen-, Bolzen- und Faltwerktreppen, statisch berechnet.</p><span class="price"><b>ab 9.500 €</b><span class="mono">6–8 Wochen</span></span></a>
+          <a class="svc" href="#kontakt"><span class="tag">Altbau</span><h3>Restaurierung</h3><p>Kastenfenster, Kassettentüren, Dielen. Auch nach Denkmalauflagen.</p><span class="price"><b>nach Aufwand</b><span class="mono">Termin in 2 Wochen</span></span></a>
         </div>
       </div>
-      <div class="progress" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
-      <div class="scroll-hint mono" aria-hidden="true">Scrollen <i></i></div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block" id="leistungen">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>Was wir <em>bauen</em></h2>
-        <p>Vom einzelnen Regal in der Dachschräge bis zur kompletten Innenausstattung einer Gründerzeitwohnung. Planung, Fertigung und Montage aus einer Hand.</p>
+    <section class="block" id="hoelzer">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="split" data-split>Vier Hölzer. <em>Ehrlich verarbeitet.</em></h2>
+          <p>Wir kaufen bei zwei Sägewerken in Brandenburg und Thüringen. Kein Furnier auf Spanplatte, wo Massivholz hingehört.</p>
+        </div>
+        <div class="woods">
+          <div class="wood"><div class="card tilt"><canvas data-wood="oak" width="480" height="640"></canvas><span class="name">Eiche</span></div>
+            <dl><dt>Rohdichte</dt><dd>670 kg/m³</dd><dt>Härte (Brinell)</dt><dd>34 N/mm²</dd><dt>Für</dt><dd>Küchen, Treppen</dd></dl></div>
+          <div class="wood"><div class="card tilt"><canvas data-wood="walnut" width="480" height="640"></canvas><span class="name">Nussbaum</span></div>
+            <dl><dt>Rohdichte</dt><dd>640 kg/m³</dd><dt>Härte (Brinell)</dt><dd>32 N/mm²</dd><dt>Für</dt><dd>Fronten, Tische</dd></dl></div>
+          <div class="wood"><div class="card tilt"><canvas data-wood="ash" width="480" height="640"></canvas><span class="name">Esche</span></div>
+            <dl><dt>Rohdichte</dt><dd>690 kg/m³</dd><dt>Härte (Brinell)</dt><dd>38 N/mm²</dd><dt>Für</dt><dd>Stühle, Geländer</dd></dl></div>
+          <div class="wood"><div class="card tilt"><canvas data-wood="pine" width="480" height="640"></canvas><span class="name">Altholz</span></div>
+            <dl><dt>Rohdichte</dt><dd>520 kg/m³</dd><dt>Härte (Brinell)</dt><dd>19 N/mm²</dd><dt>Für</dt><dd>Regale, Dielen</dd></dl></div>
+        </div>
       </div>
-      <div class="services">
-        <article class="svc reveal">
-          <h3>Einbauschränke nach Maß</h3>
-          <p>Für Nischen, Dachschrägen und Raumhöhen, an denen jeder Fertigschrank scheitert. Mit Schiebetüren, Grifflos-Fronten oder Altbau-Profilen.</p>
-          <div class="meta"><span>ab 2.400 €</span><span>4–6 Wochen</span></div>
-        </article>
-        <article class="svc reveal">
-          <h3>Küchen aus Massivholz</h3>
-          <p>Fronten aus Eiche oder Nussbaum, Arbeitsplatten bis 4,10 m aus einem Stück, Geräte aller Hersteller sauber integriert.</p>
-          <div class="meta"><span>ab 14.000 €</span><span>8–10 Wochen</span></div>
-        </article>
-        <article class="svc reveal">
-          <h3>Treppen &amp; Geländer</h3>
-          <p>Wangen-, Bolzen- und Faltwerktreppen. Statisch berechnet, nach DIN 18065 geplant und in einem Tag montiert.</p>
-          <div class="meta"><span>ab 9.500 €</span><span>6–8 Wochen</span></div>
-        </article>
-        <article class="svc reveal">
-          <h3>Restaurierung im Altbau</h3>
-          <p>Kastenfenster, Kassettentüren und Dielen aus der Zeit um 1900. Wir arbeiten auch nach Vorgaben der Potsdamer Denkmalpflege.</p>
-          <div class="meta"><span>nach Aufwand</span><span>Termin in 2 Wochen</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block" id="hoelzer">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>Vier Hölzer.<br><em>Ehrlich verarbeitet.</em></h2>
-        <p>Wir kaufen bei zwei Sägewerken in Brandenburg und Thüringen. Kein Furnier auf Spanplatte, wo Massivholz hingehört.</p>
+    <section class="block" id="ablauf">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="split" data-split>So läuft es <em>ab</em></h2>
+          <p>Nach dem Aufmaß bekommen Sie einen Festpreis. Was im Angebot steht, steht auch auf der Rechnung.</p>
+        </div>
+        <div class="steps" id="steps">
+          <div class="rail"><i></i></div>
+          <div class="step"><span class="n">Schritt 1</span><h3>Beratung vor Ort</h3><p>Wir schauen uns den Raum an und hören zu, was Sie brauchen.</p><span class="dur">kostenlos · 1 Std.</span></div>
+          <div class="step"><span class="n">Schritt 2</span><h3>Aufmaß &amp; Entwurf</h3><p>Laser-Aufmaß, 3D-Zeichnung und Holzmuster zum Anfassen. Dazu der Festpreis.</p><span class="dur">ca. 1 Woche</span></div>
+          <div class="step"><span class="n">Schritt 3</span><h3>Fertigung</h3><p>Zuschnitt, Fräsen und Oberfläche in Babelsberg. Sie dürfen jederzeit vorbeikommen.</p><span class="dur">3–8 Wochen</span></div>
+          <div class="step"><span class="n">Schritt 4</span><h3>Montage</h3><p>Zwei Tischler, ein fester Termin, Abdeckung für Ihren Boden.</p><span class="dur">meist 1–2 Tage</span></div>
+        </div>
       </div>
-      <div class="woods">
-        <div class="wood reveal"><canvas data-wood="oak" width="420" height="560" aria-hidden="true"></canvas><h3>Eiche</h3>
-          <dl><dt>Rohdichte</dt><dd>670 kg/m³</dd><dt>Härte (Brinell)</dt><dd>34 N/mm²</dd><dt>Für</dt><dd>Küchen, Treppen</dd></dl></div>
-        <div class="wood reveal"><canvas data-wood="walnut" width="420" height="560" aria-hidden="true"></canvas><h3>Nussbaum</h3>
-          <dl><dt>Rohdichte</dt><dd>640 kg/m³</dd><dt>Härte (Brinell)</dt><dd>32 N/mm²</dd><dt>Für</dt><dd>Fronten, Tische</dd></dl></div>
-        <div class="wood reveal"><canvas data-wood="ash" width="420" height="560" aria-hidden="true"></canvas><h3>Esche</h3>
-          <dl><dt>Rohdichte</dt><dd>690 kg/m³</dd><dt>Härte (Brinell)</dt><dd>38 N/mm²</dd><dt>Für</dt><dd>Stühle, Geländer</dd></dl></div>
-        <div class="wood reveal"><canvas data-wood="pine" width="420" height="560" aria-hidden="true"></canvas><h3>Altholz-Kiefer</h3>
-          <dl><dt>Rohdichte</dt><dd>520 kg/m³</dd><dt>Härte (Brinell)</dt><dd>19 N/mm²</dd><dt>Für</dt><dd>Regale, Dielen</dd></dl></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block" id="ablauf">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>So läuft es <em>ab</em></h2>
-        <p>Sie bekommen nach dem Aufmaß einen Festpreis. Was im Angebot steht, steht auch auf der Rechnung.</p>
+    <section class="block hscroll" id="projekte">
+      <div class="wrap">
+        <div class="head">
+          <h2 class="split" data-split>Aus der <em>Werkstatt</em></h2>
+          <p>Vier Arbeiten aus diesem Jahr. Mehr zeigen wir Ihnen bei einem Besuch in der Werkstatt.</p>
+        </div>
       </div>
-      <div class="steps">
-        <div class="step reveal"><span class="n">Schritt 1</span><h3>Beratung vor Ort</h3><p>Wir kommen zu Ihnen, schauen uns den Raum an und hören zu, was Sie brauchen.</p><span class="dur">kostenlos · 1 Std.</span></div>
-        <div class="step reveal"><span class="n">Schritt 2</span><h3>Aufmaß &amp; Entwurf</h3><p>Laser-Aufmaß, 3D-Zeichnung und Holzmuster zum Anfassen. Dazu der Festpreis.</p><span class="dur">ca. 1 Woche</span></div>
-        <div class="step reveal"><span class="n">Schritt 3</span><h3>Fertigung</h3><p>Zuschnitt, Fräsen und Oberfläche in unserer Werkstatt in Babelsberg. Sie können jederzeit vorbeikommen.</p><span class="dur">3–8 Wochen</span></div>
-        <div class="step reveal"><span class="n">Schritt 4</span><h3>Montage</h3><p>Zwei Tischler, ein fester Termin, Abdeckung für Ihren Boden. Wir gehen, wenn alles sauber ist.</p><span class="dur">meist 1–2 Tage</span></div>
+      <div class="htrack" id="htrack">
+        <article class="proj"><canvas data-wood="oak" data-scene="1" width="1100" height="760"></canvas><span class="idx">01 / 04</span><div class="txt"><span class="mono">Holländisches Viertel · 2026</span><h3>Bibliothekswand, 4,20 m</h3><p>Eiche geölt, Rollleiter aus Messing, gebaut um zwei Kastenfenster von 1742.</p></div></article>
+        <article class="proj"><canvas data-wood="walnut" data-scene="1" width="1100" height="760"></canvas><span class="idx">02 / 04</span><div class="txt"><span class="mono">Babelsberg · 2026</span><h3>Grifflose Küche</h3><p>Nussbaum-Fronten, Arbeitsplatte 3,80 m aus einem Stück.</p></div></article>
+        <article class="proj"><canvas data-wood="ash" data-scene="1" width="1100" height="760"></canvas><span class="idx">03 / 04</span><div class="txt"><span class="mono">Werder (Havel) · 2026</span><h3>Faltwerktreppe</h3><p>Esche weiß geölt, 28 Stufen ohne sichtbare Befestigung.</p></div></article>
+        <article class="proj"><canvas data-wood="pine" data-scene="1" width="1100" height="760"></canvas><span class="idx">04 / 04</span><div class="txt"><span class="mono">Brandenburger Vorstadt · 2026</span><h3>Dielen aus Altholz</h3><p>120 m² Kiefer aus einem Speicher von 1890, neu verlegt.</p></div></article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="block" id="projekte">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>Aus der <em>Werkstatt</em></h2>
-        <p>Drei Arbeiten aus diesem Jahr. Mehr zeigen wir Ihnen gern bei einem Besuch in der Werkstatt.</p>
+    <section class="block">
+      <div class="wrap quotes">
+        <figure>
+          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <blockquote>„Der Schrank passt in unsere schiefe Altbau-Nische, als wäre das Haus um ihn herum gebaut worden.“</blockquote>
+          <figcaption><b>Familie K.</b> · Brandenburger Vorstadt</figcaption>
+        </figure>
+        <figure>
+          <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+          <blockquote>„Festpreis eingehalten, Termin eingehalten. Und die Werkstatt war danach sauberer als vorher unsere Küche.“</blockquote>
+          <figcaption><b>Martin S.</b> · Potsdam-West</figcaption>
+        </figure>
       </div>
-      <div class="projects">
-        <article class="proj p1 reveal"><canvas data-wood="oak" data-dark="1" width="900" height="600" aria-hidden="true"></canvas><div class="txt"><span class="mono">Holländisches Viertel · 2026</span><h3>Bibliothekswand, 4,20 m hoch</h3><p>Eiche geölt, mit Rollleiter aus Messing. Gebaut um zwei Kastenfenster von 1742 herum.</p></div></article>
-        <article class="proj p2 reveal"><canvas data-wood="walnut" data-dark="1" width="700" height="700" aria-hidden="true"></canvas><div class="txt"><span class="mono">Babelsberg · 2026</span><h3>Grifflose Küche</h3><p>Nussbaum-Fronten, Arbeitsplatte 3,80 m aus einem Stück.</p></div></article>
-        <article class="proj p3 reveal"><canvas data-wood="ash" data-dark="1" width="1400" height="420" aria-hidden="true"></canvas><div class="txt"><span class="mono">Werder (Havel) · 2026</span><h3>Faltwerktreppe über zwei Etagen</h3><p>Esche weiß geölt, 28 Stufen, ohne sichtbare Befestigung.</p></div></article>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
-  <section class="block">
-    <div class="wrap quote">
-      <figure class="reveal">
-        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <blockquote>„Der Schrank passt in unsere schiefe Altbau-Nische, als wäre das Haus um ihn herum gebaut worden.“</blockquote>
-        <figcaption><b>Familie K.</b> · Brandenburger Vorstadt</figcaption>
-      </figure>
-      <figure class="reveal">
-        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <blockquote>„Festpreis eingehalten, Termin eingehalten, und die Werkstatt hat danach sauberer ausgesehen als vorher unsere Küche.“</blockquote>
-        <figcaption><b>Martin S.</b> · Potsdam-West</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="block" id="kontakt">
+  <!-- Chapter 4: vortex -->
+  <section class="contact-sec" id="kontakt" data-chapter="4">
     <div class="wrap contact">
-      <div class="info reveal">
-        <h2>Erzählen Sie uns von <em>Ihrem Raum.</em></h2>
-        <p>Wir melden uns innerhalb von zwei Werktagen und vereinbaren einen Termin für das kostenlose Aufmaß.</p>
+      <div class="info">
+        <span class="chip"><i></i>Termine ab Dezember frei</span>
+        <h2 class="split" data-split>Erzählen Sie uns von <em>Ihrem Raum.</em></h2>
+        <p>Wir melden uns innerhalb von zwei Werktagen und vereinbaren das kostenlose Aufmaß.</p>
         <div class="facts">
           <div><span class="mono">Werkstatt</span><span>Werkstraße 14, 14482 Potsdam-Babelsberg</span></div>
           <div><span class="mono">Telefon</span><span>0331 000 00 00</span></div>
           <div><span class="mono">Öffnungszeiten</span><span>Mo–Fr 7:30–16:30 · Sa nach Absprache</span></div>
         </div>
       </div>
-      <form id="form" class="reveal" novalidate>
-        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required placeholder="Ihr Name"></div>
-        <div class="field"><label for="f-contact">Telefon oder E-Mail</label><input id="f-contact" name="contact" required placeholder="So erreichen wir Sie"></div>
-        <div class="field full"><label for="f-type">Vorhaben</label>
-          <select id="f-type" name="type"><option>Einbauschrank</option><option>Küche</option><option>Treppe</option><option>Restaurierung</option><option>Etwas anderes</option></select></div>
-        <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="msg" placeholder="Raum, ungefähre Maße, Wunschtermin …"></textarea></div>
-        <div class="form-foot"><small>Ihre Angaben nutzen wir nur für Ihre Anfrage.</small><button class="btn fill" type="submit">Anfrage senden</button></div>
-      </form>
+      <div class="glass">
+        <form id="form" novalidate>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Ihr Name"></div>
+          <div class="field"><label for="f-contact">Telefon oder E-Mail</label><input id="f-contact" name="contact" placeholder="So erreichen wir Sie"></div>
+          <div class="field full"><label for="f-type">Vorhaben</label>
+            <select id="f-type" name="type"><option>Einbauschrank</option><option>Küche</option><option>Treppe</option><option>Restaurierung</option><option>Etwas anderes</option></select></div>
+          <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="msg" placeholder="Raum, ungefähre Maße, Wunschtermin …"></textarea></div>
+          <div class="form-foot"><small>Ihre Angaben nutzen wir nur für Ihre Anfrage.</small><button class="btn fill magnetic" type="submit">Anfrage senden <span class="arr">→</span></button></div>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="bigname" aria-hidden="true">Holzwerk Brandt</div>
+  <div class="wrap foot">
     <p>© 2026 Holzwerk Brandt · Tischlermeister J. Brandt</p>
     <p>Demo-Entwurf · erfundenes Unternehmen</p>
   </div>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/GammaCorrectionShader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Reflector.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/environments/RoomEnvironment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (function(){
-  document.documentElement.classList.add('js');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- procedural wood ---------- */
-  var WOODS = {
-    oak:    {base:[176,128,78], dark:[112,74,40], light:[206,160,104]},
-    walnut: {base:[98,64,42],   dark:[52,32,20],  light:[136,94,62]},
-    ash:    {base:[214,190,152],dark:[160,128,88],light:[234,216,184]},
-    pine:   {base:[184,136,82], dark:[120,78,40], light:[214,170,112]}
-  };
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = matchMedia('(pointer: fine)').matches;
+  var hasGsap = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+  var clamp = function(v,a,b){ return Math.min(b, Math.max(a, v)); };
+  var lerp = function(a,b,t){ return a + (b-a)*t; };
+  var smooth = function(a,b,v){ var t = clamp((v-a)/(b-a),0,1); return t*t*(3-2*t); };
+  var easeIO = function(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; };
   function rng(seed){ return function(){ seed = (seed*16807) % 2147483647; return (seed-1)/2147483646; }; }
-  function paintWood(ctx, w, h, kind, seed, dim){
+
+  /* ================= procedural wood ================= */
+  var WOODS = {
+    oak:    {base:[178,128,76], dark:[108,70,38], light:[212,166,108]},
+    walnut: {base:[100,64,40],  dark:[46,28,18],  light:[142,98,64]},
+    ash:    {base:[216,192,154],dark:[158,126,86],light:[238,222,190]},
+    pine:   {base:[188,138,82], dark:[118,76,38], light:[220,176,116]}
+  };
+  function paintWood(ctx, w, h, kind, seed, vertical){
     var c = WOODS[kind], r = rng(seed||7);
-    var g = ctx.createLinearGradient(0,0,w,h);
-    g.addColorStop(0,'rgb('+c.light+')'); g.addColorStop(.5,'rgb('+c.base+')'); g.addColorStop(1,'rgb('+c.dark+')');
+    ctx.save();
+    if (vertical){ ctx.translate(w,0); ctx.rotate(Math.PI/2); var t=w; w=h; h=t; }
+    var g = ctx.createLinearGradient(0,0,0,h);
+    g.addColorStop(0,'rgb('+c.base+')'); g.addColorStop(.5,'rgb('+c.light+')'); g.addColorStop(1,'rgb('+c.base+')');
     ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
-    var lines = Math.round(h/3.2);
+    var lines = Math.round(h/2.6);
     for (var i=0;i<lines;i++){
-      var y0 = (i/lines)*h + r()*4;
-      var amp = 4 + r()*10, freq = .002 + r()*.006, ph = r()*6.28;
-      var a = .05 + r()*.22;
-      var dark = r() > .35;
-      ctx.strokeStyle = 'rgba('+(dark?c.dark:c.light)+','+a+')';
-      ctx.lineWidth = .6 + r()*2.4;
+      var y0 = (i/lines)*h + r()*4, amp = 3 + r()*9, fq = .0015 + r()*.005, ph = r()*6.28;
+      ctx.strokeStyle = 'rgba('+(r()>.35?c.dark:c.light)+','+(.04 + r()*.2)+')';
+      ctx.lineWidth = .5 + r()*2.2;
       ctx.beginPath();
-      for (var x=0;x<=w;x+=8){
-        var y = y0 + Math.sin(x*freq+ph)*amp + Math.sin(x*freq*3.1+ph*2)*amp*.25;
+      for (var x=0;x<=w;x+=10){
+        var y = y0 + Math.sin(x*fq+ph)*amp + Math.sin(x*fq*3.3+ph*2)*amp*.22;
         x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
       }
       ctx.stroke();
     }
-    // a knot / cathedral ring
-    var kx = w*(.25+r()*.5), ky = h*(.3+r()*.4);
-    for (var k=0;k<14;k++){
-      ctx.strokeStyle = 'rgba('+c.dark+','+(.18-k*.01)+')';
-      ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.ellipse(kx, ky, 6+k*9, 2+k*3.2, .08, 0, Math.PI*2); ctx.stroke();
+    for (var n=0;n<2;n++){
+      var kx = w*(.15+r()*.7), ky = h*(.2+r()*.6);
+      for (var k=0;k<16;k++){
+        ctx.strokeStyle = 'rgba('+c.dark+','+(.16-k*.009)+')'; ctx.lineWidth = 1.1;
+        ctx.beginPath(); ctx.ellipse(kx,ky,8+k*12,2+k*3,.04,0,Math.PI*2); ctx.stroke();
+      }
     }
-    // pores
-    for (var p=0;p<w*h/90;p++){
-      ctx.fillStyle = 'rgba('+c.dark+','+(r()*.25)+')';
-      ctx.fillRect(r()*w, r()*h, 1+r()*3, 1);
-    }
-    if (dim){ ctx.fillStyle='rgba(13,10,8,.45)'; ctx.fillRect(0,0,w,h); }
+    for (var p=0;p<w*h/80;p++){ ctx.fillStyle='rgba('+c.dark+','+(r()*.22)+')'; ctx.fillRect(r()*w,r()*h,1+r()*3,1); }
+    ctx.restore();
   }
-  document.querySelectorAll('canvas[data-wood]').forEach(function(cv, i){
-    paintWood(cv.getContext('2d'), cv.width, cv.height, cv.dataset.wood, 11+i*37, cv.dataset.dark);
+  function paintProject(ctx, w, h, kind, seed){
+    // a lit showroom vignette: wood wall with a light slit and floor
+    paintWood(ctx, w, h, kind, seed, false);
+    var v = ctx.createRadialGradient(w*.62,h*.35,10,w*.5,h*.5,w*.75);
+    v.addColorStop(0,'rgba(255,230,190,.28)'); v.addColorStop(.5,'rgba(11,9,7,.15)'); v.addColorStop(1,'rgba(11,9,7,.85)');
+    ctx.fillStyle = v; ctx.fillRect(0,0,w,h);
+    var r = rng(seed+3);
+    for (var i=0;i<7;i++){ // vertical slats shadow rhythm
+      var x = w*(.08 + i*.13 + r()*.02);
+      ctx.fillStyle='rgba(11,9,7,.28)'; ctx.fillRect(x,0,w*.012,h*.72);
+    }
+    ctx.fillStyle='rgba(11,9,7,.55)'; ctx.fillRect(0,h*.72,w,h*.28);
+    var l = ctx.createLinearGradient(0,h*.72,0,h); l.addColorStop(0,'rgba(255,220,170,.18)'); l.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=l; ctx.fillRect(0,h*.72,w,h*.28);
+  }
+  document.querySelectorAll('canvas[data-wood]').forEach(function(cv,i){
+    var ctx = cv.getContext('2d');
+    if (cv.dataset.scene) paintProject(ctx, cv.width, cv.height, cv.dataset.wood, 21+i*31);
+    else paintWood(ctx, cv.width, cv.height, cv.dataset.wood, 11+i*37, true);
   });
 
-  /* ---------- nav + reveals ---------- */
-  var nav = document.getElementById('nav');
-  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
-  if ('IntersectionObserver' in window && !reduce){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.remove('pending'); io.unobserve(e.target); } });
-    }, {rootMargin:'0px 0px -8% 0px'});
-    reveals.forEach(function(el){
-      var r = el.getBoundingClientRect();
-      if (r.top > innerHeight) { el.classList.add('pending'); io.observe(el); }
+  /* ================= split headings ================= */
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    function walk(node){
+      [].slice.call(node.childNodes).forEach(function(ch){
+        if (ch.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(function(part){
+            if (!part) return;
+            if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span'); w.className='w';
+            var i = document.createElement('i'); i.textContent = part; w.appendChild(i); frag.appendChild(w);
+          });
+          node.replaceChild(frag, ch);
+        } else if (ch.nodeType === 1) walk(ch);
+      });
+    }
+    walk(el);
+  });
+
+  /* ================= loader ================= */
+  var loader = document.getElementById('loader'), countEl = document.getElementById('count'), bar = document.getElementById('bar');
+  var introStart = null;
+  function finishLoader(){
+    if (loader.classList.contains('done')) return;
+    loader.classList.add('done');
+    introStart = performance.now();
+    if (hasGsap && !reduce){
+      gsap.from('.hero h1 .w>i', {yPercent:115, rotate:4, duration:1.3, ease:'expo.out', stagger:.08, delay:.35});
+      gsap.from('.hero .eyebrow, .hero-bottom > *', {y:30, opacity:0, duration:1.1, ease:'expo.out', stagger:.08, delay:.7});
+      gsap.from('.nav', {yPercent:-100, duration:1, ease:'expo.out', delay:.5});
+    }
+    setTimeout(function(){ loader.style.display='none'; }, 1300);
+  }
+  if (reduce){ finishLoader(); }
+  else {
+    var t0 = performance.now(), DUR = 1700;
+    (function tick(now){
+      var p = clamp((now - t0)/DUR, 0, 1), e = 1 - Math.pow(1-p, 3);
+      countEl.textContent = String(Math.round(e*100)).padStart(3,'0');
+      bar.style.transform = 'scaleX('+e+')';
+      if (p < 1) requestAnimationFrame(tick); else setTimeout(finishLoader, 180);
+    })(t0);
+    setTimeout(finishLoader, 4000); // failsafe
+  }
+
+  /* ================= smooth scroll ================= */
+  var lenis = null;
+  if (typeof Lenis !== 'undefined' && !reduce){
+    try {
+      lenis = new Lenis({lerp:.085, wheelMultiplier:1, smoothWheel:true});
+      if (hasGsap){ lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(function(t){ lenis.raf(t*1000); }); gsap.ticker.lagSmoothing(0); }
+      else { (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0); }
+    } catch(e){ lenis = null; }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href'); var el = id.length>1 ? document.querySelector(id) : document.body;
+      if (!el) return; e.preventDefault();
+      if (lenis) lenis.scrollTo(el, {duration:1.6}); else el.scrollIntoView({behavior: reduce?'auto':'smooth'});
+    });
+  });
+
+  /* ================= nav ================= */
+  var nav = document.getElementById('nav'), lastY = 0;
+  function navState(){
+    var y = scrollY;
+    nav.classList.toggle('solid', y > 60);
+    nav.classList.toggle('hide', y > lastY + 4 && y > innerHeight*.8);
+    if (y < lastY - 4) nav.classList.remove('hide');
+    lastY = y;
+  }
+  addEventListener('scroll', navState, {passive:true});
+
+  /* ================= cursor + magnetic + tilt ================= */
+  var mouse = {x:innerWidth/2, y:innerHeight/2, nx:0, ny:0};
+  addEventListener('pointermove', function(e){
+    mouse.x = e.clientX; mouse.y = e.clientY;
+    mouse.nx = (e.clientX/innerWidth)*2-1; mouse.ny = (e.clientY/innerHeight)*2-1;
+  }, {passive:true});
+  if (finePointer && !reduce){
+    document.documentElement.classList.add('has-cursor');
+    var cur = document.getElementById('cursor'), dot = document.getElementById('cursorDot'), cx = mouse.x, cy = mouse.y;
+    (function loop(){
+      cx += (mouse.x - cx)*.16; cy += (mouse.y - cy)*.16;
+      cur.style.transform = 'translate('+cx+'px,'+cy+'px)';
+      dot.style.transform = 'translate('+mouse.x+'px,'+mouse.y+'px)';
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.tilt,.proj').forEach(function(el){
+      el.addEventListener('pointerenter', function(){ cur.classList.add('big'); });
+      el.addEventListener('pointerleave', function(){ cur.classList.remove('big'); });
+    });
+    document.querySelectorAll('.magnetic').forEach(function(el){
+      el.addEventListener('pointermove', function(e){
+        var r = el.getBoundingClientRect();
+        el.style.transform = 'translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';
+      });
+      el.addEventListener('pointerleave', function(){ el.style.transition='transform .6s cubic-bezier(.2,.8,.2,1)'; el.style.transform=''; setTimeout(function(){ el.style.transition=''; },600); });
+    });
+    document.querySelectorAll('.tilt').forEach(function(el){
+      el.addEventListener('pointermove', function(e){
+        var r = el.getBoundingClientRect(), px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+        el.style.transform = 'rotateY('+((px-.5)*16)+'deg) rotateX('+((.5-py)*14)+'deg) scale(1.03)';
+        el.style.setProperty('--mx', (px*100)+'%'); el.style.setProperty('--my', (py*100)+'%');
+      });
+      el.addEventListener('pointerleave', function(){ el.style.transform=''; });
     });
   }
 
-  /* ---------- form ---------- */
+  /* ================= marquee (scroll-velocity reactive) ================= */
+  var mq = document.getElementById('marquee'), mqX = 0, mqV = 0, prevY = scrollY;
+  (function mqLoop(){
+    var dy = scrollY - prevY; prevY = scrollY;
+    mqV += (Math.abs(dy)*.08 - mqV)*.1;
+    if (!reduce){ mqX -= .6 + mqV*2.2; var half = mq.scrollWidth/2; if (-mqX > half) mqX += half; mq.style.transform = 'translate3d('+mqX+'px,0,0)'; }
+    requestAnimationFrame(mqLoop);
+  })();
+
+  /* ================= GSAP reveals ================= */
+  if (hasGsap){
+    gsap.registerPlugin(ScrollTrigger);
+    if (!reduce){
+      document.querySelectorAll('[data-split]').forEach(function(el){
+        if (el.closest('.hero')) return;
+        gsap.from(el.querySelectorAll('.w>i'), {yPercent:115, rotate:3, duration:1.2, ease:'expo.out', stagger:.06,
+          scrollTrigger:{trigger:el, start:'top 85%'}});
+      });
+      gsap.utils.toArray('.chapter .panel').forEach(function(p){
+        gsap.from(p.querySelectorAll('.chip, p, .kpis'), {y:40, opacity:0, duration:1, ease:'expo.out', stagger:.1, scrollTrigger:{trigger:p, start:'top 80%'}});
+      });
+      gsap.utils.toArray('.svc').forEach(function(s,i){
+        gsap.from(s, {y:60, opacity:0, duration:1, ease:'expo.out', delay:i*.05, scrollTrigger:{trigger:s, start:'top 92%'}});
+      });
+      gsap.utils.toArray('.wood').forEach(function(w,i){
+        gsap.from(w, {y:120, rotateX:-25, opacity:0, duration:1.4, ease:'expo.out', delay:i*.1, scrollTrigger:{trigger:'.woods', start:'top 85%'}});
+      });
+      gsap.from('.step', {y:50, opacity:0, duration:1, stagger:.15, ease:'expo.out', scrollTrigger:{trigger:'#steps', start:'top 80%'}});
+      gsap.fromTo('#steps .rail i', {scaleX:0}, {scaleX:1, ease:'none', scrollTrigger:{trigger:'#steps', start:'top 85%', end:'bottom 60%', scrub:true}});
+      gsap.utils.toArray('.quotes figure').forEach(function(f,i){
+        gsap.from(f, {y:60, opacity:0, duration:1.2, ease:'expo.out', delay:i*.15, scrollTrigger:{trigger:f, start:'top 88%'}});
+      });
+      gsap.from('.bigname', {xPercent:-12, ease:'none', scrollTrigger:{trigger:'footer', start:'top bottom', end:'bottom bottom', scrub:true}});
+      gsap.from('.glass', {y:80, opacity:0, duration:1.3, ease:'expo.out', scrollTrigger:{trigger:'#kontakt', start:'top 70%'}});
+
+      // horizontal projects
+      var track = document.getElementById('htrack');
+      document.documentElement.classList.add('gsap-on');
+      ScrollTrigger.matchMedia({
+        '(min-width: 700px)': function(){
+          var dist = function(){ return Math.max(0, track.scrollWidth - innerWidth); };
+          gsap.to(track, {x:function(){ return -dist(); }, ease:'none',
+            scrollTrigger:{trigger:'#projekte', start:'top top', end:function(){ return '+='+dist(); }, pin:true, scrub:1, invalidateOnRefresh:true}});
+          gsap.utils.toArray('.proj canvas').forEach(function(c){
+            gsap.fromTo(c, {xPercent:-4}, {xPercent:4, ease:'none', scrollTrigger:{trigger:'#projekte', start:'top top', end:function(){ return '+='+dist(); }, scrub:true}});
+          });
+        },
+        '(max-width: 699px)': function(){ document.documentElement.classList.remove('gsap-on'); }
+      });
+    }
+    // counters
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var to = parseFloat(el.dataset.count), dec = +el.dataset.dec || 0, o = {v:0};
+      var fmt = function(v){ return v.toFixed(dec).replace('.', ','); };
+      if (reduce){ el.textContent = fmt(to); return; }
+      ScrollTrigger.create({trigger:el, start:'top 90%', once:true, onEnter:function(){
+        gsap.to(o, {v:to, duration:1.8, ease:'expo.out', onUpdate:function(){ el.textContent = fmt(o.v); }});
+      }});
+    });
+  } else {
+    document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent = (+el.dataset.count).toFixed(+el.dataset.dec||0).replace('.', ','); });
+  }
+
+  /* ================= form ================= */
   var form = document.getElementById('form');
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var name = document.getElementById('f-name'), ct = document.getElementById('f-contact');
-    if (!name.value.trim() || !ct.value.trim()){ (name.value.trim()? ct : name).focus(); return; }
+    if (!name.value.trim()){ name.focus(); return; }
+    if (!ct.value.trim()){ ct.focus(); return; }
     var box = document.createElement('div'); box.className='thanks'; box.setAttribute('role','status');
     box.textContent = 'Danke, ' + name.value.trim().split(' ')[0] + '. Wir melden uns innerhalb von zwei Werktagen.';
-    form.innerHTML=''; form.appendChild(box);
+    form.innerHTML = ''; form.appendChild(box);
   });
 
-  /* ---------- scroll state ---------- */
-  var scene = document.getElementById('scene');
-  var caps = [document.getElementById('cap1'),document.getElementById('cap2'),document.getElementById('cap3')];
-  var dots = document.querySelectorAll('.progress span');
-  var progress = 0;
-  function onScroll(){
-    var r = scene.getBoundingClientRect();
-    var span = r.height - innerHeight;
-    progress = Math.min(1, Math.max(0, -r.top/span));
-    var idx = progress < .3 ? 0 : progress < .66 ? 1 : 2;
-    caps.forEach(function(c,i){ c.classList.toggle('off', i!==idx); });
-    dots.forEach(function(d,i){ d.classList.toggle('on', i<=idx); });
-    nav.classList.toggle('solid', r.bottom < innerHeight*1.02 || scrollY > innerHeight*.4);
-  }
-  addEventListener('scroll', onScroll, {passive:true});
-  addEventListener('resize', onScroll);
-  onScroll();
-
-  /* ---------- 3D dovetail ---------- */
+  /* ================= WebGL ================= */
   var canvas = document.getElementById('gl');
   if (typeof THREE === 'undefined'){ document.documentElement.classList.add('no-webgl'); return; }
   var renderer;
-  try { renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:false}); }
-  catch(err){ document.documentElement.classList.add('no-webgl'); return; }
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  try { renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, powerPreference:'high-performance'}); }
+  catch(e){ document.documentElement.classList.add('no-webgl'); return; }
+
+  var mobile = innerWidth < 760;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.5 : 1.75));
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  renderer.toneMappingExposure = 1.0;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.setClearColor(0x0d0a08, 1);
+  var BG_LIN = new THREE.Color(0x0b0907); if (THREE.EffectComposer && THREE.GammaCorrectionShader) BG_LIN.convertSRGBToLinear();
+  renderer.setClearColor(BG_LIN, 1);
 
-  var sc = new THREE.Scene();
-  sc.fog = new THREE.Fog(0x0d0a08, 9, 22);
-  var cam = new THREE.PerspectiveCamera(32, 1, .1, 60);
+  var scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(BG_LIN.getHex(), 11, 26);
+  var camera = new THREE.PerspectiveCamera(34, innerWidth/innerHeight, .1, 80);
+  camera.position.set(0, 1.2, 10);
 
-  function woodTex(kind, seed){
+  if (THREE.RoomEnvironment){
+    var pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(new THREE.RoomEnvironment(), .04).texture;
+  }
+
+  function tex(kind, seed, vertical){
     var cv = document.createElement('canvas'); cv.width = 1024; cv.height = 1024;
-    paintWood(cv.getContext('2d'), 1024, 1024, kind, seed);
-    var t = new THREE.CanvasTexture(cv);
-    t.encoding = THREE.sRGBEncoding; t.wrapS = t.wrapT = THREE.RepeatWrapping;
-    t.repeat.set(.2, .3); t.offset.set(.5, .5); t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+    paintWood(cv.getContext('2d'), 1024, 1024, kind, seed, vertical);
+    var t = new THREE.CanvasTexture(cv); t.encoding = THREE.sRGBEncoding;
+    t.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
     return t;
   }
-  var matOak = new THREE.MeshStandardMaterial({map:woodTex('oak',5), roughness:.62, metalness:0});
-  var matNut = new THREE.MeshStandardMaterial({map:woodTex('walnut',9), roughness:.55, metalness:0});
+  function woodMat(map){ return new THREE.MeshPhysicalMaterial({map:map, roughness:.5, metalness:0, clearcoat:.35, clearcoatRoughness:.35, envMapIntensity:.55}); }
+  var M = {
+    oakH: woodMat(tex('oak',5,false)), oakV: woodMat(tex('oak',6,true)),
+    nutH: woodMat(tex('walnut',9,false)), nutV: woodMat(tex('walnut',10,true)),
+    ashH: woodMat(tex('ash',13,false))
+  };
 
-  // joint profile: three tails, wider at the top than at the root
-  var W=4.2, H=1.15, h=.62, wb=.5, wt=.9, centers=[-1.35,0,1.35];
-  var prof = [[-W/2,0]];
-  centers.forEach(function(cx){ prof.push([cx-wb/2,0],[cx-wt/2,h],[cx+wt/2,h],[cx+wb/2,0]); });
-  prof.push([W/2,0]);
-  var sa = new THREE.Shape(); sa.moveTo(-W/2,-H); sa.lineTo(W/2,-H);
-  for (var i=prof.length-1;i>=0;i--) sa.lineTo(prof[i][0],prof[i][1]);
-  var sb = new THREE.Shape(); sb.moveTo(prof[0][0],prof[0][1]);
-  for (var j=1;j<prof.length;j++) sb.lineTo(prof[j][0],prof[j][1]);
-  sb.lineTo(W/2,h+H); sb.lineTo(-W/2,h+H); sb.lineTo(-W/2,0);
-  var D = 1.0;
-  var ex = {depth:D, bevelEnabled:true, bevelThickness:.025, bevelSize:.018, bevelOffset:-.018, bevelSegments:3, curveSegments:1};
-  var ga = new THREE.ExtrudeGeometry(sa, ex), gb = new THREE.ExtrudeGeometry(sb, ex);
-  ga.translate(0,-h/2,-D/2); gb.translate(0,-h/2,-D/2);
-  var A = new THREE.Mesh(ga, matOak), B = new THREE.Mesh(gb, matNut);
-  A.castShadow = B.castShadow = true; A.receiveShadow = B.receiveShadow = true;
-  var joint = new THREE.Group(); joint.add(A); joint.add(B); sc.add(joint);
+  /* ---------- formations ---------- */
+  var N = 36;
+  function P(x,y,z, w,h,d, rx,ry,rz){ return {p:[x,y,z], s:[w,h,d], r:[rx||0,ry||0,rz||0]}; }
+  // 0 — sideboard (180 × 65 × 45 cm, 1 unit = 50 cm)
+  var F0 = [
+    P(0,.44,0, 3.72,.06,.96),            // 0 top
+    P(0,-.82,0, 3.48,.05,.9),            // 1 bottom
+    P(-1.77,-.2,0, .06,1.25,.9),         // 2 left
+    P(1.77,-.2,0, .06,1.25,.9),          // 3 right
+    P(-.6,-.2,-.02, .04,1.18,.84),       // 4 divider
+    P(.6,-.2,-.02, .04,1.18,.84),        // 5 divider
+    P(0,-.2,-.43, 3.48,1.18,.03),        // 6 back
+    P(0,-.2,-.02, 3.48,.04,.84),         // 7 shelf
+    P(-1.52,-1.03,.3, .07,.38,.07, .12,0,.12),
+    P(1.52,-1.03,.3, .07,.38,.07, .12,0,-.12),
+    P(-1.52,-1.03,-.3, .07,.38,.07, -.12,0,.12),
+    P(1.52,-1.03,-.3, .07,.38,.07, -.12,0,-.12)
+  ];
+  for (var i=0;i<24;i++) F0.push(P(-1.665 + i*.1448, -.2, .47, .118,1.18,.05));
 
-  var floor = new THREE.Mesh(new THREE.PlaneGeometry(60,60), new THREE.ShadowMaterial({opacity:.55}));
-  floor.rotation.x = -Math.PI/2; floor.position.y = -2.6; floor.receiveShadow = true; sc.add(floor);
+  // 1 — exploded view
+  var F1 = F0.map(function(b,k){
+    var o = {p:b.p.slice(), s:b.s.slice(), r:b.r.slice()};
+    if (k===0){ o.p[1]+=1.05; o.r[0]=-.12; }
+    else if (k===1){ o.p[1]-=.55; }
+    else if (k===2){ o.p[0]-=.95; o.r[2]=.1; }
+    else if (k===3){ o.p[0]+=.95; o.r[2]=-.1; }
+    else if (k===4||k===5){ o.p[1]+=.25; o.p[2]-=.35; }
+    else if (k===6){ o.p[2]-=1.35; }
+    else if (k===7){ o.p[1]+=.42; o.p[2]+=.15; }
+    else if (k<12){ o.p[1]-=.75; o.p[0]*=1.18; o.p[2]*=1.6; }
+    else { var j=k-12; o.p[2]+=1.05 + Math.sin(j*.55)*.18; o.p[1]+=Math.cos(j*.4)*.08; o.r[1]=(j-11.5)*.035; }
+    return o;
+  });
 
-  sc.add(new THREE.HemisphereLight(0xffe2c0, 0x0d0a08, .35));
-  var key = new THREE.SpotLight(0xffd29a, 2.4, 30, .5, .55, 1.2);
-  key.position.set(-4, 7, 5); key.castShadow = true; key.shadow.mapSize.set(1024,1024); key.shadow.bias = -.0004;
-  sc.add(key);
-  var rim = new THREE.DirectionalLight(0x9fb4ff, .55); rim.position.set(5, 2, -6); sc.add(rim);
-  var fill = new THREE.PointLight(0xd6a15c, .6, 14); fill.position.set(3, -1, 4); sc.add(fill);
+  // 2 — staircase
+  var F2 = [], run=.26, rise=.18, x0=-1.82, yb=-1.2, ang=Math.atan2(rise,run), slopeLen=Math.hypot(14*run,14*rise);
+  for (var s=0;s<14;s++) F2.push(P(x0+s*run+.13, yb+(s+1)*rise, 0, .32,.05,1.0));
+  var mid = [x0+7*run, yb+7*rise];
+  F2.push(P(mid[0], mid[1]-.02, .53, slopeLen+.25,.3,.05, 0,0,ang));
+  F2.push(P(mid[0], mid[1]-.02, -.53, slopeLen+.25,.3,.05, 0,0,ang));
+  F2.push(P(mid[0], mid[1]+.98, .55, slopeLen+.1,.06,.08, 0,0,ang)); // handrail
+  for (var b=0;b<19;b++){
+    var bx = x0 + .12 + b*(14*run-.2)/18, by = yb + ((bx-x0)/run)*rise + .1;
+    F2.push(P(bx, by+.45, .55, .028,.88,.028));
+  }
 
-  // dust in the light
-  var pg = new THREE.BufferGeometry(), N = 260, pos = new Float32Array(N*3);
-  for (var k=0;k<N;k++){ pos[k*3]=(Math.random()-.5)*14; pos[k*3+1]=(Math.random()-.5)*8; pos[k*3+2]=(Math.random()-.5)*8; }
-  pg.setAttribute('position', new THREE.BufferAttribute(pos,3));
-  var dust = new THREE.Points(pg, new THREE.PointsMaterial({color:0xe9c99a, size:.025, transparent:true, opacity:.55, depthWrite:false}));
-  sc.add(dust);
+  // 3 — bookcase
+  var F3 = [], vx=[-1.7,-.85,0,.85,1.7], hy=[-1.15,-.5,.15,.8,1.42];
+  vx.forEach(function(x){ F3.push(P(x,.15,0, .05,2.66,.5)); });
+  hy.forEach(function(y){ F3.push(P(0,y,0, 3.45,.05,.5)); });
+  var br = rng(42), comps = [];
+  for (var row=0; row<4; row++) for (var col=0; col<4; col++) comps.push([row,col]);
+  comps.sort(function(){ return br()-.5; });
+  var placed = 0;
+  for (var ci=0; ci<comps.length && placed<26; ci++){
+    var rw = comps[ci][0], cl = comps[ci][1];
+    if (ci%5===4) continue; // leave some compartments empty
+    var x = vx[cl] + .06, xmax = vx[cl+1] - .05, base = hy[rw] + .025, cnt = 0;
+    while (placed<26 && cnt<5){
+      var bw = .06 + br()*.07, bh = .36 + br()*.18;
+      if (x + bw > xmax) break;
+      var lean = (cnt===4 || (cnt===3 && br()>.5)) ? -.22 : 0;
+      F3.push(P(x+bw/2 + (lean? .08:0), base + bh/2 - (lean? .01:0), .02, bw, bh, .34, 0,0,lean));
+      x += bw + .012; cnt++; placed++;
+    }
+  }
+  while (F3.length < N){ var e = F3.length; F3.push(P(-1.3 + (e%3)*.1, -1.15+.2, .05, .08,.4,.34)); }
 
-  var wide = true;
+  // 4 — vortex (dynamic)
+  function vortex(k, t){
+    var a = k*.62 + t*.18, rad = 2.5 + (k%3)*.35, y = -1.7 + k*.1 + Math.sin(t*.6 + k)*.08;
+    return {p:[Math.cos(a)*rad, y, Math.sin(a)*rad - 1.2], s:[.95,.045,.22], r:[Math.sin(k)*.3, -a+Math.PI/2, .18]};
+  }
+  // chaos (intro start)
+  var cr = rng(7), CH = [];
+  for (var c=0;c<N;c++){
+    var th = cr()*Math.PI*2, ph = Math.acos(2*cr()-1), rr = 7 + cr()*6;
+    CH.push({p:[Math.sin(ph)*Math.cos(th)*rr, Math.cos(ph)*rr*.6 + 2, Math.sin(ph)*Math.sin(th)*rr - 2], r:[cr()*6, cr()*6, cr()*6]});
+  }
+
+  /* ---------- meshes ---------- */
+  var group = new THREE.Group(); scene.add(group);
+  var unit = new THREE.BoxGeometry(1,1,1);
+  var meshes = [], seeds = [];
+  var sr = rng(99);
+  for (var m=0;m<N;m++){
+    var sb = F0[m].s, vert = sb[1] > sb[0];
+    var mat = m < 8 ? (vert ? M.oakV : M.oakH) : (m < 12 ? M.nutV : M.nutV);
+    var mesh = new THREE.Mesh(unit, mat);
+    mesh.castShadow = true; mesh.receiveShadow = true;
+    group.add(mesh); meshes.push(mesh);
+    seeds.push({d: sr()*.32, lift: .4 + sr()*1.1, spin: (sr()-.5)*2.4,
+      axis: new THREE.Vector3(sr()-.5, sr()-.5, sr()-.5).normalize(), introD: sr()*.45});
+  }
+  var Q = function(r){ return new THREE.Quaternion().setFromEuler(new THREE.Euler(r[0],r[1],r[2])); };
+  var FORMS = [F0,F1,F2,F3].map(function(F){ return F.map(function(b){ return {p:new THREE.Vector3().fromArray(b.p), s:new THREE.Vector3().fromArray(b.s), q:Q(b.r)}; }); });
+  var CHQ = CH.map(function(b){ return {p:new THREE.Vector3().fromArray(b.p), q:Q(b.r)}; });
+  var VX = []; for (var v=0;v<N;v++) VX.push({p:new THREE.Vector3(), s:new THREE.Vector3(), q:new THREE.Quaternion()});
+  function updateVortex(t){ for (var k=0;k<N;k++){ var o = vortex(k,t); VX[k].p.fromArray(o.p); VX[k].s.fromArray(o.s); VX[k].q.copy(Q(o.r)); } }
+
+  /* ---------- environment: floor, tubes, lights ---------- */
+  var FLOOR_Y = -1.22;
+  if (!mobile && THREE.Reflector){
+    var refl = new THREE.Reflector(new THREE.PlaneGeometry(60,60), {clipBias:.003, textureWidth:innerWidth*.6, textureHeight:innerHeight*.6, color:0x8a8a8a});
+    refl.rotation.x = -Math.PI/2; refl.position.y = FLOOR_Y; scene.add(refl);
+    var dim = new THREE.Mesh(new THREE.PlaneGeometry(60,60), new THREE.MeshBasicMaterial({color:BG_LIN.clone(), transparent:true, opacity:.84}));
+    dim.rotation.x = -Math.PI/2; dim.position.y = FLOOR_Y + .002; scene.add(dim);
+  } else {
+    var fl = new THREE.Mesh(new THREE.PlaneGeometry(60,60), new THREE.MeshStandardMaterial({color:new THREE.Color(0x0e0b09).convertSRGBToLinear(), roughness:.75, metalness:0, envMapIntensity:.12}));
+    fl.rotation.x = -Math.PI/2; fl.position.y = FLOOR_Y; fl.receiveShadow = true; scene.add(fl);
+  }
+  var shadowPlane = new THREE.Mesh(new THREE.PlaneGeometry(60,60), new THREE.ShadowMaterial({opacity:.6}));
+  shadowPlane.rotation.x = -Math.PI/2; shadowPlane.position.y = FLOOR_Y + .004; shadowPlane.receiveShadow = true; scene.add(shadowPlane);
+
+  // neon light tubes (like a showroom)
+  var tubes = [];
+  var tubeDefs = [
+    {p:[-3.2, 3.6,-3.6], r:[0,0, 1.05], l:7.5},
+    {p:[ 2.8, 3.2,-4.2], r:[0,0,-.35], l:9},
+    {p:[ 6.2,-.3,-2.4], r:[0,0, 1.45], l:5.5},
+    {p:[-7.2, 1.2,-5.0], r:[0,0, .08], l:7},
+    {p:[ 0.2, 4.6,-6.0], r:[0,0, 1.57], l:12}
+  ];
+  tubeDefs.forEach(function(d){
+    var mat = new THREE.MeshBasicMaterial({color:new THREE.Color(0,0,0), toneMapped:false});
+    var t = new THREE.Mesh(new THREE.CylinderGeometry(.028,.028,d.l,12), mat);
+    t.position.fromArray(d.p); t.rotation.set(d.r[0],d.r[1],d.r[2]); scene.add(t); tubes.push(t);
+  });
+  var tubeColor = new THREE.Color(3.2, 2.7, 2.1);
+
+  scene.add(new THREE.HemisphereLight(0xffe6c8, 0x000000, .2));
+  var key = new THREE.SpotLight(0xffd6a0, 0, 32, .55, .6, 1.1);
+  key.position.set(-4.5, 7.5, 5.5); key.castShadow = true; key.shadow.mapSize.set(mobile?1024:2048, mobile?1024:2048); key.shadow.bias = -.0003; key.shadow.radius = 4;
+  scene.add(key); scene.add(key.target);
+  var rim = new THREE.DirectionalLight(0xaebcff, 0); rim.position.set(6, 3, -7); scene.add(rim);
+  var warm = new THREE.PointLight(0xd9a35e, 0, 16, 1.6); warm.position.set(3.5, -.4, 4); scene.add(warm);
+  var back = new THREE.PointLight(0xffe2c0, 0, 14, 2); back.position.set(0, 3.4, -5); scene.add(back);
+
+  // dust motes
+  var dg = new THREE.BufferGeometry(), DN = mobile ? 260 : 600, dp = new Float32Array(DN*3), dr = rng(5);
+  for (var q=0;q<DN;q++){ dp[q*3]=(dr()-.5)*18; dp[q*3+1]=dr()*7-1.2; dp[q*3+2]=(dr()-.5)*12; }
+  dg.setAttribute('position', new THREE.BufferAttribute(dp,3));
+  var dust = new THREE.Points(dg, new THREE.PointsMaterial({color:0xf0cf9c, size:.03, transparent:true, opacity:.6, depthWrite:false, sizeAttenuation:true}));
+  scene.add(dust);
+
+  /* ---------- post processing ---------- */
+  var composer = null, bloom = null;
+  if (THREE.EffectComposer && THREE.UnrealBloomPass){
+    composer = new THREE.EffectComposer(renderer);
+    composer.addPass(new THREE.RenderPass(scene, camera));
+    bloom = new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), .85, .55, .82);
+    composer.addPass(bloom);
+    if (THREE.GammaCorrectionShader) composer.addPass(new THREE.ShaderPass(THREE.GammaCorrectionShader));
+  }
+
   function resize(){
-    var w = canvas.clientWidth, hgt = canvas.clientHeight;
-    renderer.setSize(w, hgt, false);
-    cam.aspect = w/hgt; cam.updateProjectionMatrix();
-    wide = w/hgt > 1.05;
+    var w = innerWidth, h = innerHeight;
+    mobile = w < 760;
+    renderer.setSize(w, h, false);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    if (composer){ composer.setSize(w, h); }
   }
   addEventListener('resize', resize); resize();
 
-  function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-  function lerp(a,b,t){ return a+(b-a)*t; }
-  var sp = reduce ? 1 : 0, t0 = performance.now(), visible = true;
-  new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }).observe(scene);
+  /* ---------- chapter progress from scroll ---------- */
+  var chapters = [].slice.call(document.querySelectorAll('[data-chapter]')).sort(function(a,b){ return a.dataset.chapter - b.dataset.chapter; });
+  var cTarget = 0, cSmooth = 0, active = true;
+  function readChapter(){
+    var vh = innerHeight, c = 0;
+    for (var k=1;k<chapters.length;k++){
+      var top = chapters[k].getBoundingClientRect().top;
+      c += smooth(vh*.95, vh*.05, top);
+    }
+    cTarget = c;
+    // render only while a 3D chapter is on screen
+    active = chapters.some(function(el){ var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < vh; });
+  }
+  addEventListener('scroll', readChapter, {passive:true});
+  readChapter();
 
-  function frame(now){
+  // per chapter layout: [groupX, groupY, rotY, camY, camZ, lookY]
+  var LAY_W = [[1.6,0,-.62, 1.15,10.2,-.15],[-2.0,0,-.8, 1.6,11.6,0],[1.6,-.1,.5, 1.3,10.8,.15],[-1.75,-.05,-.32, .9,11.4,.15],[1.2,.1,0, 1.4,12.5,0]];
+  var LAY_M = [[0,0,-.55, 1.6,13.2,-1.9],[0,0,-.8, 2.0,14.4,-1.9],[0,0,.5, 1.8,14.2,-1.7],[0,0,-.3, 1.6,14.6,-1.6],[0,0,0, 1.8,15,-1.6]];
+  function layout(c){
+    var L = mobile ? LAY_M : LAY_W, i = Math.floor(clamp(c,0,3.999)), f = easeIO(c - i), a = L[i], b = L[i+1] || L[i];
+    return a.map(function(v,j){ return lerp(v, b[j], f); });
+  }
+
+  /* ---------- labels ---------- */
+  var labels = [].slice.call(document.querySelectorAll('.lbl')).map(function(el){ return {el:el, part:+el.dataset.part}; });
+  var tmpV = new THREE.Vector3();
+
+  /* ---------- loop ---------- */
+  var tmpP = new THREE.Vector3(), tmpS = new THREE.Vector3(), tmpQ = new THREE.Quaternion(), arcQ = new THREE.Quaternion();
+  var clock = new THREE.Clock(), mx = 0, my = 0, ready = false;
+  function blend(A, B, t, k, out){
+    var sd = seeds[k], tk = easeIO(clamp((t - sd.d)/(1 - .32), 0, 1));
+    out.p.copy(A.p).lerp(B.p, tk);
+    out.p.y += Math.sin(Math.PI*tk) * sd.lift * .6;
+    out.p.z += Math.sin(Math.PI*tk) * sd.lift * .35;
+    out.s.copy(A.s).lerp(B.s, tk);
+    out.q.copy(A.q).slerp(B.q, tk);
+    arcQ.setFromAxisAngle(sd.axis, Math.sin(Math.PI*tk) * sd.spin);
+    out.q.premultiply(arcQ);
+  }
+  var outA = {p:new THREE.Vector3(), s:new THREE.Vector3(), q:new THREE.Quaternion()};
+
+  function frame(){
     requestAnimationFrame(frame);
-    if (!visible) return;
-    var t = (now - t0)/1000;
-    var target = reduce ? 1 : progress;
-    sp += (target - sp) * .08;
-    var join = ease(Math.min(1, sp/.55));           // 0 → 1 slide together
-    var turn = ease(Math.max(0, (sp-.45)/.55));     // 0 → 1 turn to face camera
-    B.position.z = lerp(-5.5, 0, join);
-    B.position.y = lerp(.35, 0, join);
-    A.position.z = lerp(.4, 0, join);
-    joint.rotation.y = lerp(-.85, -.18, join) + turn*.55 + (reduce?0:Math.sin(t*.4)*.04);
-    joint.rotation.x = lerp(.55, .32, join) - turn*.22 + (reduce?0:Math.sin(t*.55)*.02);
-    joint.rotation.z = lerp(.12, 0, join);
-    joint.position.x = wide ? lerp(1.9, 1.5, turn) : 0;
-    joint.position.y = (wide ? lerp(.1, 0, turn) : 2.1) + (reduce?0:Math.sin(t*.8)*.06);
-    var s = wide ? 1 : .6; joint.scale.setScalar(s);
-    cam.position.set(0, lerp(1.2, .5, turn), lerp(12.5, 10.2, turn));
-    cam.lookAt(0, wide?0:.6, 0);
-    dust.rotation.y = t*.015; dust.position.y = Math.sin(t*.2)*.15;
-    renderer.render(sc, cam);
+    var dt = Math.min(clock.getDelta(), .1), t = clock.elapsedTime;
+    if (!active && ready) return;
+    cSmooth += (cTarget - cSmooth) * (reduce ? 1 : 1 - Math.exp(-dt*3.2));
+    var c = clamp(cSmooth, 0, 4);
+    if (c > 2.9) updateVortex(t);
+    var i = Math.min(3, Math.floor(c)), f = c - i;
+    var A = i < 4 ? FORMS[i] : VX, B = i+1 < 4 ? FORMS[i+1] : VX;
+
+    // intro: lights + assembly from chaos
+    var it = introStart ? clamp((performance.now() - introStart)/3600, 0, 1) : 0;
+    if (reduce) it = 1;
+    var lightT = introStart ? (performance.now() - introStart)/1000 : 0;
+    var flick = reduce ? 1 : (lightT < .15 ? 0 : lightT < .25 ? 1 : lightT < .4 ? .1 : lightT < .5 ? 1 : lightT < .62 ? .25 : lightT < 1.1 ? smooth(.62,1.1,lightT) : 1);
+    tubes.forEach(function(tb, n){
+      var local = reduce ? 1 : clamp(flick * (lightT > n*.12 ? 1 : 0), 0, 1);
+      var pulse = .92 + Math.sin(t*1.3 + n)*.08;
+      tb.material.color.copy(tubeColor).multiplyScalar(local * pulse);
+    });
+    key.intensity = 2.6 * flick; rim.intensity = .7 * flick; warm.intensity = .9 * flick; back.intensity = 1.2 * flick;
+
+    for (var k=0;k<N;k++){
+      blend(A[k], B[k], f, k, outA);
+      if (it < 1){
+        var sd = seeds[k], tk = easeIO(clamp((it - sd.introD)/(1 - .45), 0, 1));
+        tmpP.copy(CHQ[k].p).lerp(outA.p, tk);
+        tmpQ.copy(CHQ[k].q).slerp(outA.q, tk);
+        meshes[k].position.copy(tmpP); meshes[k].quaternion.copy(tmpQ);
+        meshes[k].scale.copy(outA.s).multiplyScalar(lerp(.3, 1, tk));
+      } else {
+        meshes[k].position.copy(outA.p); meshes[k].quaternion.copy(outA.q); meshes[k].scale.copy(outA.s);
+      }
+    }
+
+    // layout, idle motion, mouse parallax
+    var L = layout(c);
+    var mk = 1 - Math.exp(-dt*3); mx += (mouse.nx - mx) * mk; my += (mouse.ny - my) * mk;
+    var idle = reduce ? 0 : 1;
+    group.position.set(L[0], L[1] + Math.sin(t*.7)*.05*idle, 0);
+    group.rotation.y = L[2] + Math.sin(t*.25)*.06*idle + mx*.22*idle + (1-it)*-1.2;
+    group.rotation.x = my*.06*idle;
+    var sc = mobile ? .88 : 1; group.scale.setScalar(sc);
+    camera.position.set(mx*.45*idle, L[3] - my*.25*idle, L[4] + (1-easeIO(it))*3.5);
+    camera.lookAt(0, L[5], 0);
+    key.target.position.copy(group.position);
+
+    dust.rotation.y = t*.012; dust.position.y = Math.sin(t*.25)*.12;
+
+    // labels (exploded view)
+    var lo = clamp(1 - Math.abs(c - 1)/.32, 0, 1);
+    labels.forEach(function(lb, n){
+      var msh = meshes[lb.part];
+      tmpV.copy(msh.position); group.localToWorld(tmpV); tmpV.project(camera);
+      var sx = (tmpV.x*.5+.5)*innerWidth, sy = (-tmpV.y*.5+.5)*innerHeight;
+      lb.el.style.opacity = (lo * clamp((lo*5) - n*.6, 0, 1)).toFixed(3);
+      lb.el.style.transform = 'translate('+sx.toFixed(1)+'px,'+(sy-4).toFixed(1)+'px)';
+    });
+
+    if (composer) composer.render(); else renderer.render(scene, camera);
+    ready = true;
   }
   requestAnimationFrame(frame);
 })();
