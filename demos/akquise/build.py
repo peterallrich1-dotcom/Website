@@ -16,6 +16,9 @@ for f in sorted((here / "clients").glob("*.json")):
     if only and f.stem not in only:
         continue
     c = json.loads(f.read_text(encoding="utf-8"))
+    if "ch" in c["hero"]:  # short form: five [label, headline, text] triples, placed on the fixed film chapters
+        RANGES = [(0.08, 0.27), (0.31, 0.52), (0.55, 0.70), (0.72, 0.87), (0.90, 1.2)]
+        c["hero"]["chapters"] = [{"a": a, "b": b, "k": t[0], "h": t[1], "p": t[2] if len(t) > 2 else ""} for (a, b), t in zip(RANGES, c["hero"].pop("ch"))]
     out = (tpl.replace("__BASE_CSS__", css)
               .replace("__TITLE__", c["name"] + " · Designentwurf")
               .replace("__NAME__", c["name"])

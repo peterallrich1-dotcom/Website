@@ -1,0 +1,159 @@
+{
+ "name": "Das Haus mit Pfiff Bauträger GmbH",
+ "brand": "Haus mit Pfiff",
+ "brandSub": "Architekt Axel Breckerbohm",
+ "accent": "#aed6b4",
+ "accentDark": "#2f6b3f",
+ "source": "breckerbohm.de",
+ "sourceUrl": "https://breckerbohm.de",
+ "cta": "Projekt besprechen",
+ "hero": {
+  "eyebrow": "Architekturbüro und Bauträger · Baierbrunn",
+  "head": "Häuser mit\n*Pfiff.*",
+  "intro": "Architektenhäuser im Münchner Umland, geplant und schlüsselfertig gebaut unter einem Dach. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°01′N · 11°29′E · Baierbrunn",
+  "ch": [
+   [
+    "Architektur",
+    "Erst geplant, dann *gebaut.*",
+    "Ihre Entwürfe, so gezeigt, dass man hindurchgehen möchte."
+   ],
+   [
+    "Räume",
+    "Anspruchsvoll bis ins *Detail.*",
+    "Einfamilien-, Doppel-, Reihen- und Mehrfamilienhäuser als begehbare Referenzen."
+   ],
+   [
+    "Ökologie",
+    "Baubiologisch und *ökologisch.*",
+    "Langjährige Erfahrung, sichtbar gemacht."
+   ],
+   [
+    "Umbau",
+    "Auch Bestand hat *Zukunft.*",
+    "Umbauten, Aufstockungen und Altbausanierungen."
+   ],
+   [
+    "Architekturbüro seit 1985",
+    "Schlüsselfertig seit *2003*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Willkommen",
+  "head": "Architekturbüro und Bauträger *unter einem Dach.*",
+  "text": [
+   "Im Architekturbüro, das Dipl.-Ing. Axel Breckerbohm seit 1985 führt, entstehen anspruchsvolle Einfamilien-, Doppel-, Reihen- und Mehrfamilienhäuser, Bauten für Handel und Gewerbe sowie Umbauten und Nutzungsänderungen.",
+   "Unter demselben Dach arbeitet die Das Haus mit Pfiff Bauträger GmbH. Sie realisiert seit 2003 im Münchner Umland und im Stadtgebiet schlüsselfertige Projekte, die zuvor im Architekturbüro geplant wurden."
+  ],
+  "facts": [
+   [
+    "1985",
+    "Architekturbüro Axel Breckerbohm"
+   ],
+   [
+    "2003",
+    "Bauträger Das Haus mit Pfiff"
+   ],
+   [
+    "8",
+    "Referenzprojekte auf der Website"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Referenzen",
+  "eyebrow": "Referenzen",
+  "head": "Gebaut im *Münchner Umland*",
+  "lead": "Eine Auswahl der Projekte von breckerbohm.de.",
+  "items": [
+   {
+    "status": "Neubau",
+    "name": "Zwei Einfamilienhäuser",
+    "place": "Südlich von München",
+    "text": "Neubau von zwei Einfamilienhäusern."
+   },
+   {
+    "status": "Neubau",
+    "name": "Doppelhaus mit Architekturbüro",
+    "place": "Baierbrunn · Isartal",
+    "text": "Neubau in Hanglage."
+   },
+   {
+    "status": "Neubau",
+    "name": "Mehrfamilienhaus und Doppelhaus",
+    "place": "München",
+    "text": "Neubau im Stadtgebiet."
+   },
+   {
+    "status": "Holzbau",
+    "name": "Holzhaus mit Arztpraxis",
+    "place": "Bei Augsburg",
+    "text": "Neubau in baubiologischer Bauweise."
+   },
+   {
+    "status": "Umbau",
+    "name": "Aufstockung und Umbau",
+    "place": "München-Pasing",
+    "text": "Ein Bau aus der Nachkriegszeit, aufgestockt und umgebaut."
+   },
+   {
+    "status": "Neubau",
+    "name": "Großzügige Doppelhäuser",
+    "place": "Wörthsee",
+    "text": "Neubau großzügiger Doppelhäuser."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Schwerpunkte",
+  "quote": "Wohnen und Arbeiten *unter einem Dach.*",
+  "points": [
+   [
+    "Architektenhäuser",
+    "Individuell geplant statt von der Stange."
+   ],
+   [
+    "Ökologischer Wohnungsbau",
+    "Baubiologische und ökologische Maßnahmen nach Bedarf."
+   ],
+   [
+    "Altbausanierung",
+    "Umbauten, Aufstockungen und Nutzungsänderungen."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Planen und *bauen.*",
+  "lead": "Vom ersten Entwurf bis zum fertigen Haus.",
+  "items": [
+   [
+    "Architektur",
+    "Einfamilien-, Doppel-, Reihen- und Mehrfamilienhäuser, Bauten für Handel und Gewerbe."
+   ],
+   [
+    "Bauträger",
+    "Schlüsselfertige Projekte im Münchner Umland und im Stadtgebiet."
+   ],
+   [
+    "Umbau und Sanierung",
+    "Altbausanierungen, Umbauten und Nutzungsänderungen."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen wir über Ihr *Projekt.*",
+  "address": [
+   "Kreuzwiesenstr. 9",
+   "82065 Baierbrunn"
+  ],
+  "phone": "089 82 00 55 24",
+  "email": "info@breckerbohm.de",
+  "topics": [
+   "Neubau planen",
+   "Schlüsselfertiges Haus",
+   "Umbau oder Sanierung",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

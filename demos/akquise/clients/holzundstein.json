@@ -1,0 +1,146 @@
+{
+ "name": "Holz & Stein GmbH",
+ "brand": "Holz & Stein",
+ "brandSub": "Vielseitig bauen · Traunstein",
+ "accent": "#dcc7a8",
+ "accentDark": "#7a5a36",
+ "source": "holzundstein.com",
+ "sourceUrl": "https://www.holzundstein.com",
+ "cta": "Beratung anfragen",
+ "hero": {
+  "eyebrow": "Bauunternehmen · Traunstein",
+  "head": "Ihr Traum in besten\n*Händen.*",
+  "intro": "Ganzheitliche Beratung, intelligente Planung und hochwertige Bauausführung aus einer Hand. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°52′N · 12°38′E · Traunstein",
+  "ch": [
+   [
+    "Planen",
+    "Fragen über Fragen. Eine klare *Antwort.*",
+    "Bauherren sehen ihr Haus, bevor es steht."
+   ],
+   [
+    "Bauen",
+    "Im Einklang mit Mensch, *Natur* und Technik.",
+    "Holz und Stein, so gezeigt, dass man sie fast spürt."
+   ],
+   [
+    "Details",
+    "Vom ersten Gespräch bis zur *Schlüsselübergabe.*",
+    "Der Ablauf Schritt für Schritt erklärt."
+   ],
+   [
+    "Wohnen",
+    "Ökologisch, ökonomisch, *wertbeständig.*",
+    "Referenzhäuser als Rundgang."
+   ],
+   [
+    "Holz & Stein · Traunstein",
+    "Transparent, termingerecht, *zukunftsorientiert*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Alle Leistungen *aus einer Hand.*",
+  "text": [
+   "Wer ein Eigenheim bauen will, steht vor vielen Fragen: zu Kosten, Planung, Energieeffizienz und Machbarkeit. Holz & Stein begleitet Bauherren vom ersten Gespräch bis zur Schlüsselübergabe.",
+   "Mit einem erfahrenen Team, einem persönlichen Projektleiter und kurzen Wegen."
+  ],
+  "facts": [
+   [
+    "1",
+    "persönlicher Projektleiter für jedes Bauvorhaben"
+   ],
+   [
+    "3",
+    "Schritte: planen, bauen, wohnen"
+   ],
+   [
+    "100 %",
+    "aus einer Hand"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Bauen",
+  "eyebrow": "Planen · Bauen · Wohnen",
+  "head": "So entsteht Ihr *Zuhause*",
+  "lead": "Individuell gebaut, im Einklang mit Mensch, Natur und moderner Technik.",
+  "items": [
+   {
+    "status": "Planen",
+    "name": "Beratung und Planung",
+    "place": "Ganzheitlich",
+    "text": "Zuverlässige Beratung zu Planung, Energieeffizienz und Machbarkeit."
+   },
+   {
+    "status": "Bauen",
+    "name": "Bauausführung",
+    "place": "Hochwertig und termingerecht",
+    "text": "Mit persönlichem Projektleiter und kurzen Wegen."
+   },
+   {
+    "status": "Wohnen",
+    "name": "Ein wertbeständiges Zuhause",
+    "place": "Ökologisch und ökonomisch",
+    "text": "Sicher und nachhaltig für die Zukunft gebaut."
+   },
+   {
+    "status": "Service",
+    "name": "Mein Holz & Stein",
+    "place": "Für Bauherren",
+    "text": "Der eigene Bereich für Kunden."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitsatz",
+  "quote": "Transparent, termingerecht, *zukunftsorientiert.*",
+  "points": [
+   [
+    "Transparent",
+    "Was der Traum vom eigenen Zuhause wirklich kostet."
+   ],
+   [
+    "Termingerecht",
+    "Verlässliche Abläufe vom ersten Gespräch bis zum Einzug."
+   ],
+   [
+    "Zukunftsorientiert",
+    "Nachhaltig und wertbeständig gebaut."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Planen, bauen, *wohnen.*",
+  "lead": "Ihr Bauunternehmen in Traunstein.",
+  "items": [
+   [
+    "Beratung",
+    "Ganzheitliche Beratung zu allen Fragen rund ums Bauen."
+   ],
+   [
+    "Planung",
+    "Intelligente Planung mit Blick auf Energieeffizienz."
+   ],
+   [
+    "Bauausführung",
+    "Hochwertige Ausführung aus einer Hand."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen wir über Ihr *Zuhause.*",
+  "address": [
+   "Maximilianstraße 29",
+   "83278 Traunstein"
+  ],
+  "phone": "+49 861 90 99 174 71",
+  "email": "info@holzundstein.com",
+  "topics": [
+   "Neubau planen",
+   "Beratungsgespräch",
+   "Allgemeine Anfrage"
+  ]
+ }
+}
