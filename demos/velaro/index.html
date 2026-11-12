@@ -877,7 +877,7 @@ const fmt = n => new Intl.NumberFormat("de-DE").format(Math.round(n));
 
 /* ---------------- HERO FILM: scroll-scrubbed frame sequence ---------------- */
 // two Full-HD sequences: the full 16:9 frame, and a 3:4 centre crop at full height for portrait screens
-const portrait = innerWidth / innerHeight < .75;
+const portrait = innerWidth / innerHeight < 1;
 const N = 240;
 const dir = portrait ? "frames-p/" : "frames-hd/";
 const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
@@ -908,8 +908,13 @@ function draw(i) {
   const k = nearest(i);
   if (k < 0 || k === drawn) return;
   const img = frames[k];
-  const s = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+  // Fill the screen, but never enlarge the film more than 12 % beyond its full width on landscape screens:
+  // on 4:3 tablets it then sits as a cinema-style band instead of a blown-up, soft crop.
+  const cover = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+  const fit = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+  const s = portrait ? cover : Math.min(cover, fit * 1.12);
   const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  if (h < H - 1 || w < W - 1) { ctx.fillStyle = "#10151a"; ctx.fillRect(0, 0, W, H); }
   ctx.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
   drawn = k;
 }
