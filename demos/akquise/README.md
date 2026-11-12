@@ -15,19 +15,19 @@ Jede Seite trägt unten den festen Hinweis „Designentwurf, nicht die offiziell
 
 | Firma | Ort | Website | Befund | Entwurf | Mail |
 |---|---|---|---|---|---|
-| Junker GmbH Wohnbau + Immobilien | Friedrichshafen | junker-wohnbau.de | feste Breite, nicht mobil, sehr alte Optik; Bauträger, 500+ Einheiten | `junker/` | Entwurf in Gmail |
+| Junker GmbH Wohnbau + Immobilien | Friedrichshafen | junker-wohnbau.de | feste Breite, nicht mobil, sehr alte Optik; Bauträger, 500+ Einheiten | `junker/` | gesendet 12.11.2026 |
 | zbz Wohnen GmbH | Germering | zbz-wohnen.de | schmale, kleine Darstellung; Architekten-Bauträger | `zbz/` | gesendet 12.11.2026 |
 | STREAM GmbH | Starnberg | stream-online.com | NetObjects Fusion 7.5, nicht mobil; Hausverwaltung | `stream/` | gesendet 12.11.2026 |
-| RÜBA Immobiliengruppe | München | rueba.com | sehr alt, nicht mobil; Bauträger seit 1978 | `rueba/` | Entwurf in Gmail |
-| LMI Immobilien & Hausverwaltung KG | Seefeld / Andechs | lmi-immobilien.de | sehr alt, nicht mobil | `lmi/` | Entwurf in Gmail |
-| Steiner Immobilien GmbH | Garmisch-Partenkirchen | steiner-immo.de | gedrängt, alte Optik; Makler seit 55+ Jahren | `steiner/` | Entwurf in Gmail |
-| Fahrländer Immobilien | Freiburg | fahrlaender-immobilien.de | alte Optik; Makler seit 1973 | `fahrlaender/` | Entwurf in Gmail |
-| Licker Immobilien GmbH | Ludwigsburg | licker.de | ältere Optik, feste Breite | `licker/` | Entwurf in Gmail |
-| Das Haus mit Pfiff Bauträger GmbH | Baierbrunn | breckerbohm.de | alte Optik, sichtbare Debug-Leiste | `breckerbohm/` | Entwurf in Gmail |
-| Martin Weiß Immobilien | München | martin-weiss-immobilien.de | schlichte, ältere Optik | `martin-weiss/` | Entwurf in Gmail |
-| Max Neuner Immobilien | Garmisch-Partenkirchen | maxneuner-immobilien.de | sehr karg | `maxneuner/` | Entwurf in Gmail |
-| Holz & Stein GmbH | Traunstein | holzundstein.com | feste Breite, alte Optik | `holzundstein/` | Entwurf in Gmail |
-| Goldmann & Partner | Starnberg | goldmann-partner.de | ältere Optik; Gewerbeimmobilien | `goldmann/` | Entwurf in Gmail |
+| RÜBA Immobiliengruppe | München | rueba.com | sehr alt, nicht mobil; Bauträger seit 1978 | `rueba/` | gesendet 12.11.2026 |
+| LMI Immobilien & Hausverwaltung KG | Seefeld / Andechs | lmi-immobilien.de | sehr alt, nicht mobil | `lmi/` | gesendet 12.11.2026 |
+| Steiner Immobilien GmbH | Garmisch-Partenkirchen | steiner-immo.de | gedrängt, alte Optik; Makler seit 55+ Jahren | `steiner/` | gesendet 12.11.2026 |
+| Fahrländer Immobilien | Freiburg | fahrlaender-immobilien.de | alte Optik; Makler seit 1973 | `fahrlaender/` | gesendet 12.11.2026 |
+| Licker Immobilien GmbH | Ludwigsburg | licker.de | ältere Optik, feste Breite | `licker/` | gesendet 12.11.2026 |
+| Das Haus mit Pfiff Bauträger GmbH | Baierbrunn | breckerbohm.de | alte Optik, sichtbare Debug-Leiste | `breckerbohm/` | gesendet 12.11.2026 |
+| Martin Weiß Immobilien | München | martin-weiss-immobilien.de | schlichte, ältere Optik | `martin-weiss/` | gesendet 12.11.2026 |
+| Max Neuner Immobilien | Garmisch-Partenkirchen | maxneuner-immobilien.de | sehr karg | `maxneuner/` | gesendet 12.11.2026 |
+| Holz & Stein GmbH | Traunstein | holzundstein.com | feste Breite, alte Optik | `holzundstein/` | gesendet 12.11.2026 |
+| Goldmann & Partner | Starnberg | goldmann-partner.de | ältere Optik; Gewerbeimmobilien | `goldmann/` | gesendet 12.11.2026 |
 
 Weitere geprüfte Kandidaten (noch ohne Entwurf): Max Neuner Gewerbe- und Wohnimmobilien (Garmisch-Partenkirchen, maxneuner-immobilien.de, sehr karg), Ritter Bauträger & Immobilien GmbH (Deisenhofen, ritter-bautraeger.de, mittel), Rainer Beger Immobilien und Wohnbau (Lindau, immobilien-beger.de, mittel).
 Nicht geeignet, weil bereits modern: Locate Immobilien, Kern Bau, Loibl Bau, Füsser, BMI.
