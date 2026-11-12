@@ -27,4 +27,8 @@ for f in sorted((here / "clients").glob("*.json")):
     d = here / f.stem
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(out, encoding="utf-8")
+    # short link: the same page at /<slug>/ in the repository root, with asset paths adjusted
+    top = here.parent.parent / f.stem
+    top.mkdir(exist_ok=True)
+    (top / "index.html").write_text(out.replace("../../velaro/", "../demos/velaro/"), encoding="utf-8")
     print("built", d / "index.html", len(out) // 1024, "KB")

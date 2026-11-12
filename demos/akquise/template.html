@@ -197,7 +197,7 @@ $("#cTel").textContent = C.contact.phone; $("#cMail").textContent = C.contact.em
 $("#fTopic").innerHTML = C.contact.topics.map(t => `<option>${esc(t)}</option>`).join("");
 $("#fBig").textContent = C.brand;
 $("#fNote").textContent = `Unverbindlicher Designentwurf für ${C.name}. Kein Angebot der ${C.name}, keine offizielle Website. Inhalte nach ${C.source}.`;
-$("#rName").textContent = C.name; $("#rFilm").textContent = "Der Film ist eine Beispielvisualisierung und zeigt kein Objekt des Unternehmens.";
+$("#rName").textContent = C.name; $("#rFilm").textContent = "Film und Bilder sind Platzhalter. Welche Fotos und Videos gezeigt werden, entscheidet das Unternehmen.";
 $("#rOrig").href = C.sourceUrl; $("#rOrig").textContent = "Zur offiziellen Website";
 $("#rX").onclick = () => $("#ribbon").hidden = true;
 document.addEventListener("click", e => { const a = e.target.closest(".prow"); if (a) $("#fMsg").value = `Ich interessiere mich für „${a.dataset.p}“ und bitte um Unterlagen.`; });
