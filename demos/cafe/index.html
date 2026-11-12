@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<title>Café Morgenrot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Café Morgenrot – Rösterei und Café. Beim Scrollen entsteht ein Iced Latte, Schicht für Schicht.">
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url(fonts/fraunces-latin-opsz-italic.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;font-display:swap;src:url(fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:500;font-display:swap;src:url(fonts/dm-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:700;font-display:swap;src:url(fonts/dm-sans-latin-700-normal.woff2) format("woff2")}
+
+/* Layout: one glass stands in the middle of the screen; scrolling makes the drink: ice, milk, espresso, crema, straw.
+   The recipe runs down the left like a bar ticket, the current step is told on the right. Below: a calm oat-coloured page.
+   One committed light look: oat, espresso ink, crema as the single warm accent. All drawing is code, so it is sharp at any size. */
+:root{
+  --oat:#ece4d6;
+  --oat-2:#e2d8c6;
+  --paper:#f6f1e7;
+  --ink:#24170f;
+  --ink-2:#5b4a3c;
+  --muted:#8b7a69;
+  --crema:#b97a34;
+  --crema-2:#d9a25c;
+  --roast:#3a2417;
+  --line:rgba(36,23,15,.16);
+  --f-display:"Fraunces","Iowan Old Style","Georgia",serif;
+  --f-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gl:max(18px,env(safe-area-inset-left,0px));
+  --gr:max(18px,env(safe-area-inset-right,0px));
+  --gt:env(safe-area-inset-top,0px);
+  --gb:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--oat);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--gt);z-index:60;background:var(--oat)}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+:focus-visible{outline:2px solid var(--crema);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(40px,5.6vw,80px)}
+h2 i,h1 i{font-style:italic;color:var(--crema)}
+p{margin:0}
+.tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--crema)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;background:var(--ink);color:var(--paper);font-weight:700;font-size:14.5px;text-decoration:none;transition:background .25s,transform .25s}
+.btn:hover{background:var(--crema);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.hdr{position:fixed;top:var(--gt);left:0;right:0;z-index:50;transition:background .4s,box-shadow .4s}
+.hdr.solid{background:rgba(236,228,214,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.logo{font-family:var(--f-display);font-size:24px;font-style:italic;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo b{font-style:normal;font-weight:500}
+.nav{display:flex;gap:28px}
+.nav a{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink-2)}
+.nav a:hover{color:var(--crema)}
+.hdr .btn{padding:10px 18px;font-size:13.5px}
+@media (max-width:820px){.nav{display:none}}
+
+/* ============ the pour ============ */
+#pour{position:relative;height:560vh}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(120% 90% at 50% 38%,var(--paper) 0%,var(--oat) 55%,var(--oat-2) 100%)}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.intro{position:absolute;left:max(var(--gl),7vw);top:50%;width:min(52vw,720px);pointer-events:none;opacity:var(--io,1);transform:translateY(calc(-50% + var(--iy,0px)))}
+.intro h1{font-size:clamp(46px,7.2vw,116px);margin-top:12px}
+.intro p{margin:20px 0 0;max-width:36ch;color:var(--ink-2);font-size:18px}
+.cue{position:absolute;left:50%;bottom:calc(var(--gb) + 26px);transform:translateX(-50%);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:var(--io,1);display:flex;flex-direction:column;align-items:center;gap:8px}
+.cue i{width:1.5px;height:34px;background:linear-gradient(var(--crema),transparent);animation:drip 1.8s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(.2);transform-origin:top}60%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+.ticket{position:absolute;left:var(--gl);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;opacity:var(--so,0);transition:opacity .3s;padding-left:18px}
+.ticket::before{content:"";position:absolute;left:3px;top:6px;bottom:6px;width:1.5px;background:var(--line)}
+.ticket::after{content:"";position:absolute;left:3px;top:6px;width:1.5px;height:calc((100% - 12px)*var(--p,0));background:var(--crema)}
+.ticket div{position:relative;font-family:var(--f-display);font-size:19px;color:var(--muted);transition:color .3s,font-size .3s,transform .3s;transform-origin:left center}
+.ticket div::before{content:"";position:absolute;left:-18.5px;top:50%;width:8px;height:8px;border-radius:50%;background:var(--oat);box-shadow:inset 0 0 0 1.5px var(--muted);transform:translateY(-50%);transition:background .3s,box-shadow .3s}
+.ticket div.on{color:var(--ink);font-size:30px}
+.ticket div.on::before,.ticket div.done::before{background:var(--crema);box-shadow:none}
+.ticket div.done{color:var(--ink-2)}
+
+.step{position:absolute;right:var(--gr);top:50%;width:min(360px,34vw);transform:translateY(-50%);opacity:0;visibility:hidden}
+.step .n{font-family:var(--f-display);font-style:italic;font-size:22px;color:var(--crema)}
+.step h3{font-size:clamp(34px,4.2vw,62px);margin:6px 0 14px}
+.step p{color:var(--ink-2)}
+.step .spec{display:flex;gap:22px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
+.step .spec b{display:block;font-family:var(--f-display);font-weight:400;font-size:26px;color:var(--ink);line-height:1.1}
+.step .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.step.last{pointer-events:auto}
+@media (max-width:820px){
+  .ticket{top:calc(var(--gt) + 92px);transform:none;gap:8px}
+  .ticket div{font-size:15px}.ticket div.on{font-size:21px}
+  .step{left:var(--gl);right:var(--gr);top:auto;bottom:calc(var(--gb) + 22px);width:auto;transform:none;background:rgba(246,241,231,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:16px 18px}
+  .step h3{font-size:30px;margin:2px 0 8px}
+  .step p{font-size:14.5px}
+  .step .spec{margin-top:12px;padding-top:10px}
+  .step .spec b{font-size:21px}
+  .intro{left:var(--gl);right:var(--gr);width:auto;top:calc(var(--gt) + 92px);transform:translateY(var(--iy,0px));text-align:center}
+  .intro h1{font-size:clamp(40px,11.5vw,60px)}
+  .intro p{margin:14px auto 0;font-size:16px}
+}
+
+/* ============ page ============ */
+.sec{padding-block:clamp(80px,11vw,150px)}
+.rv{transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity 1s}
+.rv.pre{transform:translateY(28px);opacity:.3}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,96px);align-items:center}
+.two>*{min-width:0}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border-top:1.5px solid var(--ink)}
+.facts div{padding:22px 18px 0 0}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(34px,4vw,54px);line-height:1}
+.facts span{display:block;margin-top:8px;font-size:14px;color:var(--ink-2)}
+.beanart{aspect-ratio:1;border-radius:50%;background:var(--roast);position:relative;overflow:hidden;max-width:460px;justify-self:center;width:100%}
+.beanart canvas{position:absolute;inset:0;width:100%;height:100%}
+
+.dark{background:var(--roast);color:var(--paper)}
+.dark .lead,.dark .muted{color:rgba(246,241,231,.72)}
+.dark h2 i{color:var(--crema-2)}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{padding:10px 16px;border-radius:999px;font-size:14px;font-weight:500;color:rgba(246,241,231,.75);box-shadow:inset 0 0 0 1.5px rgba(246,241,231,.25);transition:background .25s,color .25s}
+.tabs button[aria-selected="true"]{background:var(--paper);color:var(--roast);box-shadow:none}
+.menu{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,6vw,90px)}
+.item{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:20px 0;border-bottom:1px solid rgba(246,241,231,.16);align-items:baseline}
+.item h3{font-size:25px}
+.item .pr{font-family:var(--f-display);font-size:23px;font-variant-numeric:tabular-nums;color:var(--crema-2)}
+.item p{grid-column:1/-1;font-size:14.5px;color:rgba(246,241,231,.68);max-width:46ch}
+@media (max-width:820px){.two,.menu{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}}
+
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:13px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{font-weight:700;color:var(--crema)}
+.card{background:var(--paper);border-radius:26px;padding:clamp(22px,3vw,40px)}
+.card h3{font-size:30px;margin-bottom:14px}
+.addr{margin-top:22px;display:flex;flex-direction:column;gap:6px;color:var(--ink-2)}
+.addr b{color:var(--ink)}
+form{display:flex;flex-direction:column;gap:16px}
+label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);display:flex;flex-direction:column;gap:7px}
+input,select{font:inherit;font-size:16px;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+input:focus,select:focus{outline:none;border-color:var(--crema)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.msg{font-size:14.5px;color:var(--crema);min-height:1.2em}
+.ftr{padding-block:54px calc(var(--gb) + 34px);border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.ftr .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv,.rv.pre{transform:none!important;opacity:1!important}.cue i{animation:none}}
+</style>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top"><b>Café</b> Morgenrot</a>
+    <nav class="nav" aria-label="Hauptnavigation"><a href="#haus">Das Haus</a><a href="#karte">Karte</a><a href="#besuch">Besuch</a></nav>
+    <a class="btn" href="#besuch">Tisch reservieren</a>
+  </div>
+</header>
+
+<main id="top">
+<section id="pour" aria-label="Ein Iced Latte entsteht">
+  <div class="pin" id="pin">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="intro" id="intro">
+      <p class="tag">Rösterei &amp; Café · seit 2014</p>
+      <h1>Guter Kaffee<br>braucht <i>Zeit.</i></h1>
+      <p>Scrollen Sie, und wir machen Ihnen einen Iced Latte. Schicht für Schicht.</p>
+    </div>
+    <div class="cue" aria-hidden="true">Scrollen<i></i></div>
+    <div class="ticket" id="ticket" aria-hidden="true"></div>
+    <div id="steps"></div>
+  </div>
+</section>
+
+<section class="sec" id="haus">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="tag">Das Haus</p>
+      <h2 style="margin:16px 0 22px">Wir rösten selbst, <i>jeden Dienstag.</i></h2>
+      <p class="lead">Unsere Bohnen kommen von vier Kooperativen, die wir persönlich kennen. Geröstet wird in kleinen Chargen von zwölf Kilo, langsam und hell, damit man die Herkunft schmeckt.</p>
+      <div class="facts">
+        <div><b>12 kg</b><span>pro Röstung, nie mehr</span></div>
+        <div><b>4</b><span>Kooperativen, direkt bezogen</span></div>
+        <div><b>18 g</b><span>Kaffee in jedem Espresso</span></div>
+      </div>
+    </div>
+    <div class="beanart rv" aria-hidden="true"><canvas id="beans"></canvas></div>
+  </div>
+</section>
+
+<section class="sec dark" id="karte">
+  <div class="wrap">
+    <div class="menu-head rv">
+      <div><p class="tag" style="color:var(--crema-2)">Karte</p><h2 style="margin-top:14px">Heute <i>frisch.</i></h2></div>
+      <div class="tabs" role="tablist" aria-label="Karte" id="tabs"></div>
+    </div>
+    <div class="menu" id="menu"></div>
+    <p class="muted" style="margin-top:26px;font-size:14px">Alle Milchgetränke auch mit Hafer- oder Mandeldrink, ohne Aufpreis.</p>
+  </div>
+</section>
+
+<section class="sec" id="besuch">
+  <div class="wrap two" style="align-items:start">
+    <div class="rv">
+      <p class="tag">Besuch</p>
+      <h2 style="margin:16px 0 26px">Kommen Sie <i>vorbei.</i></h2>
+      <table class="hours" id="hours"><tbody></tbody></table>
+      <div class="addr"><b>Café Morgenrot</b><span>Lindenstraße 12 · 80469 München</span><span>Telefon 089 555 01 42</span></div>
+    </div>
+    <div class="card rv">
+      <h3>Tisch reservieren</h3>
+      <form id="res" novalidate>
+        <label for="rName">Name<input id="rName" type="text" autocomplete="name" placeholder="Vor- und Nachname"></label>
+        <div class="row2">
+          <label for="rDay">Tag<input id="rDay" type="date"></label>
+          <label for="rTime">Uhrzeit<select id="rTime"><option>09:00</option><option>10:00</option><option selected>11:00</option><option>12:00</option><option>14:00</option><option>15:00</option><option>16:00</option></select></label>
+        </div>
+        <label for="rPeople">Personen<select id="rPeople"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+        <p class="msg" id="rMsg" role="status"></p>
+        <button class="btn" type="submit" style="align-self:flex-start">Anfrage senden</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr"><div class="wrap"><span>© 2026 Café Morgenrot · Erfundenes Café, Muster-Website</span><span>Die Animation ist gezeichnet, kein Video.</span></div></footer>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v)), lerp = (a, b, t) => a + (b - a) * t;
+const seg = (p, a, b) => clamp((p - a) / (b - a));
+const eio = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const eout = t => 1 - Math.pow(1 - t, 3);
+const bounce = t => { const n = 7.5625, d = 2.75; if (t < 1 / d) return n * t * t; if (t < 2 / d) return n * (t -= 1.5 / d) * t + .75; if (t < 2.5 / d) return n * (t -= 2.25 / d) * t + .9375; return n * (t -= 2.625 / d) * t + .984375; };
+
+/* ---------------- the recipe: one record drives ticket, texts and drawing ---------------- */
+const STEPS = [
+  { key: "Eis", a: .06, b: .24, h: "Erst das Eis.", p: "Fünf klare Würfel aus gefiltertem Wasser. Sie schmelzen langsam und verwässern nichts.", spec: [["5", "Würfel"], ["−18 °C", "aus dem Block"]] },
+  { key: "Milch", a: .24, b: .46, h: "Dann kalte Milch.", p: "Frische Vollmilch vom Hof Sedlmair, 3,8 % Fett. Auf Wunsch Hafer oder Mandel.", spec: [["180 ml", "Milch"], ["4 °C", "eiskalt"]] },
+  { key: "Espresso", a: .46, b: .70, h: "Darüber der Espresso.", p: "Ein doppelter Shot aus unserer Hausröstung. Er zieht in Schlieren durch die Milch.", spec: [["18 g", "Kaffee"], ["27 s", "Durchlauf"]] },
+  { key: "Crema", a: .70, b: .86, h: "Oben die Crema.", p: "Kalt aufgeschäumte Milch, fein wie Sahne, mit einer Spur Kakao.", spec: [["2 cm", "Schaum"], ["1 Prise", "Kakao"]] },
+  { key: "Servieren", a: .86, b: 1.01, h: "Iced Latte.", p: "Fertig. Am besten gleich trinken, solange die Schichten noch stehen.", spec: [["4,90 €", "im Glas"], ["0,3 l", "Inhalt"]], last: true },
+];
+const ticket = $("#ticket"), stepsBox = $("#steps");
+ticket.innerHTML = STEPS.map(s => `<div>${s.key}</div>`).join("");
+stepsBox.innerHTML = STEPS.map((s, i) => `<div class="step${s.last ? " last" : ""}"><span class="n">${String(i + 1).padStart(2, "0")} / 05</span><h3>${s.h}</h3><p>${s.p}</p><div class="spec">${s.spec.map(x => `<div><b>${x[0]}</b>${x[1]}</div>`).join("")}</div>${s.last ? '<div class="acts"><a class="btn" href="#karte">Zur Karte</a><a class="btn ghost" href="#besuch">Reservieren</a></div>' : ""}</div>`).join("");
+const tEls = $$("div", ticket), sEls = $$(".step", stepsBox);
+
+/* ---------------- drawing ---------------- */
+const cv = $("#cv"), g = cv.getContext("2d"), pin = $("#pin"), sect = $("#pour");
+let W = 0, H = 0, dpr = 1;
+function size() { dpr = Math.min(devicePixelRatio || 1, 3); W = cv.clientWidth; H = cv.clientHeight; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0); }
+// fixed pseudo-random numbers so the drink looks the same on every visit
+const R = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+const CUBES = [[-.22, .0, -.2], [.2, .02, .25], [-.03, .2, .1], [-.2, .42, .35], [.18, .44, -.3]].map(c => ({ x: c[0], rest: c[1], rot: c[2], sz: .25 + R() * .04 }));
+const BUB = Array.from({ length: 46 }, () => [R(), R(), .4 + R() * 1.6]);
+const CAN_BLUR = (() => { try { const c = document.createElement("canvas").getContext("2d"); c.filter = "blur(2px)"; return c.filter === "blur(2px)"; } catch (e) { return false; } })();
+const SWIRL = Array.from({ length: 7 }, (_, i) => ({ x: -.36 + i * .12 + (R() - .5) * .06, w: .05 + R() * .07, ph: R() * 6.28, len: .5 + R() * .45 }));
+
+function draw(p, t) {
+  g.clearRect(0, 0, W, H);
+  const mob = W < 820;
+  // geometry: the glass
+  const gh = Math.min(H * (mob ? .44 : .56), W * (mob ? .95 : .5)), topW = gh * .5, botW = topW * .8;
+  const end = eio(seg(p, .9, 1));
+  const rest = 1 - eio(seg(p, 0, .08));                       // at rest the glass stands aside so the headline is free
+  const cx = W / 2 - (mob ? 0 : end * W * .07) + (mob ? 0 : rest * W * .2), bot = H * (mob ? .62 : .74) + (mob ? rest * H * .2 : 0), top = bot - gh;
+  const wall = Math.max(2.5, gh * .012), base = gh * .055, r = gh * .045;
+  const halfAt = y => lerp(topW / 2, botW / 2, (y - top) / gh);
+  const outer = () => { g.beginPath(); g.moveTo(cx - topW / 2, top); g.lineTo(cx - botW / 2, bot - r); g.quadraticCurveTo(cx - botW / 2, bot, cx - botW / 2 + r, bot); g.lineTo(cx + botW / 2 - r, bot); g.quadraticCurveTo(cx + botW / 2, bot, cx + botW / 2, bot - r); g.lineTo(cx + topW / 2, top); g.closePath(); };
+  const iBot = bot - base, iH = gh - base;
+  const inner = () => { const r2 = r * .7, hb = halfAt(iBot) - wall, ht = topW / 2 - wall; g.beginPath(); g.moveTo(cx - ht, top - 2); g.lineTo(cx - hb, iBot - r2); g.quadraticCurveTo(cx - hb, iBot, cx - hb + r2, iBot); g.lineTo(cx + hb - r2, iBot); g.quadraticCurveTo(cx + hb, iBot, cx + hb, iBot - r2); g.lineTo(cx + ht, top - 2); g.closePath(); };
+
+  // phases
+  const ice = seg(p, .06, .24), milk = eio(seg(p, .25, .45)), esp = eio(seg(p, .47, .69)), foam = eio(seg(p, .71, .85)), straw = eout(seg(p, .87, .96));
+  const milkTop = iBot - iH * .62 * milk;                       // milk level
+  const espH = iH * .16 * esp, liqTop = milkTop - espH;         // espresso sits on top and bleeds down
+  const foamH = iH * .1 * foam, surf = liqTop - foamH;
+
+  // shadow on the table
+  const sh = g.createRadialGradient(cx + gh * .1, bot + gh * .02, 0, cx + gh * .1, bot + gh * .02, topW * 1.05);
+  sh.addColorStop(0, "rgba(58,36,23,.22)"); sh.addColorStop(1, "rgba(58,36,23,0)");
+  g.save(); g.translate(0, bot + gh * .02); g.scale(1, .16); g.translate(0, -(bot + gh * .02)); g.fillStyle = sh; g.beginPath(); g.arc(cx + gh * .1, bot + gh * .02, topW * 1.05, 0, 6.3); g.fill(); g.restore();
+
+  // glass body, back face
+  outer(); const gb = g.createLinearGradient(cx - topW / 2, 0, cx + topW / 2, 0);
+  gb.addColorStop(0, "rgba(255,255,255,.55)"); gb.addColorStop(.18, "rgba(255,255,255,.12)"); gb.addColorStop(.7, "rgba(255,255,255,.08)"); gb.addColorStop(1, "rgba(255,255,255,.42)");
+  g.fillStyle = gb; g.fill();
+
+  g.save(); inner(); g.clip();
+  // milk
+  if (milk > 0) {
+    const mg = g.createLinearGradient(0, liqTop, 0, iBot);
+    mg.addColorStop(0, "#f7efe2"); mg.addColorStop(1, "#efe3d0");
+    g.fillStyle = mg; g.fillRect(cx - topW, milkTop, topW * 2, iBot - milkTop + 2);
+  }
+  // espresso: a dark band on top that bleeds into the milk in soft tongues
+  if (esp > 0) {
+    const eg = g.createLinearGradient(0, liqTop, 0, milkTop + iH * .34 * esp);
+    eg.addColorStop(0, "rgba(52,28,14,1)"); eg.addColorStop(.32, "rgba(96,58,30,.95)"); eg.addColorStop(.62, "rgba(160,112,70,.55)"); eg.addColorStop(1, "rgba(200,160,118,0)");
+    g.fillStyle = eg; g.fillRect(cx - topW, liqTop, topW * 2, espH + iH * .34 * esp);
+    if (CAN_BLUR) g.filter = `blur(${Math.max(2, gh * .014)}px)`;
+    for (const s of SWIRL) {
+      const x0 = cx + s.x * topW, L = iH * .42 * s.len * esp, sway = Math.sin(t * .0006 + s.ph) * topW * .035, ww = s.w * topW * 1.25;
+      const sg = g.createLinearGradient(0, milkTop, 0, milkTop + L);
+      sg.addColorStop(0, "rgba(96,58,30,.5)"); sg.addColorStop(.6, "rgba(140,96,58,.28)"); sg.addColorStop(1, "rgba(170,126,86,0)");
+      g.fillStyle = sg; g.beginPath(); g.moveTo(x0 - ww, milkTop - 4);
+      g.bezierCurveTo(x0 - ww * 1.1 + sway, milkTop + L * .5, x0 - ww * .9 + sway * 2, milkTop + L, x0 + sway * 2, milkTop + L);
+      g.bezierCurveTo(x0 + ww * .9 + sway * 2, milkTop + L, x0 + ww * 1.1 + sway, milkTop + L * .5, x0 + ww, milkTop - 4); g.fill();
+    }
+    g.filter = "none";
+  }
+  // ice cubes: they fall in, then float up with the liquid
+  CUBES.forEach((c, i) => {
+    const ti = clamp((ice - i * .14) / .44); if (ti <= 0) return;
+    const sz = topW * c.sz, restY = iBot - sz * .55 - c.rest * iH * .55;
+    let y = lerp(top - gh * .9 - i * 30, restY, bounce(ti));
+    const floatY = surf + sz * (.35 + c.rest * .9) + (i % 2 ? sz * .5 : 0);
+    if (milk > 0) y = Math.min(y, Math.max(floatY, top + sz));
+    const x = cx + c.x * topW * (1 - .12 * (1 - (y - top) / gh)), rot = c.rot + (1 - ti) * 1.6 + Math.sin(t * .0007 + i) * .03 * milk;
+    g.save(); g.translate(x, y); g.rotate(rot);
+    const under = y > liqTop, a = under ? .55 : .9;
+    const ig = g.createLinearGradient(-sz / 2, -sz / 2, sz / 2, sz / 2);
+    ig.addColorStop(0, `rgba(255,255,255,${a})`); ig.addColorStop(.45, `rgba(232,240,244,${a * .45})`); ig.addColorStop(1, `rgba(255,255,255,${a * .8})`);
+    const rr = sz * .2; g.beginPath(); g.moveTo(-sz / 2 + rr, -sz / 2); g.arcTo(sz / 2, -sz / 2, sz / 2, sz / 2, rr); g.arcTo(sz / 2, sz / 2, -sz / 2, sz / 2, rr); g.arcTo(-sz / 2, sz / 2, -sz / 2, -sz / 2, rr); g.arcTo(-sz / 2, -sz / 2, sz / 2, -sz / 2, rr); g.closePath();
+    g.fillStyle = ig; g.fill(); g.lineWidth = Math.max(1, sz * .03); g.strokeStyle = `rgba(255,255,255,${a})`; g.stroke();
+    g.beginPath(); g.moveTo(-sz * .28, -sz * .3); g.lineTo(sz * .12, -sz * .3); g.strokeStyle = "rgba(255,255,255,.9)"; g.lineWidth = Math.max(1, sz * .05); g.lineCap = "round"; g.stroke();
+    g.restore();
+  });
+  // crema / foam with fine bubbles and cocoa
+  if (foam > 0) {
+    const fg = g.createLinearGradient(0, surf, 0, liqTop + 2);
+    fg.addColorStop(0, "#fbf5ea"); fg.addColorStop(1, "#ead9c0");
+    g.fillStyle = fg; g.beginPath(); g.moveTo(cx - topW, liqTop + 2); g.lineTo(cx - topW, surf + foamH * .2);
+    for (let k = 0; k <= 12; k++) { const xx = cx - topW / 2 + topW * k / 12; g.lineTo(xx, surf + Math.sin(k * 1.7 + t * .0008) * foamH * .06); }
+    g.lineTo(cx + topW, surf + foamH * .2); g.lineTo(cx + topW, liqTop + 2); g.fill();
+    for (const b of BUB) { g.beginPath(); g.arc(cx + (b[0] - .5) * topW * .9, surf + foamH * (.2 + b[1] * .75), b[2] * gh * .0032, 0, 6.3); g.fillStyle = "rgba(255,255,255,.75)"; g.fill(); }
+    const dust = seg(foam, .6, 1);
+    for (let k = 0; k < 60; k++) { const b = BUB[k % BUB.length]; g.fillStyle = `rgba(92,52,24,${.5 * dust})`; g.fillRect(cx + ((b[0] * 7 + k * .137) % 1 - .5) * topW * .6, surf + foamH * .06 + ((b[1] * 3 + k * .31) % 1) * foamH * .16, gh * .004, gh * .004); }
+  }
+  // surface line
+  if (milk > 0) { g.fillStyle = "rgba(255,255,255,.5)"; g.fillRect(cx - topW, surf - 1, topW * 2, 1.5); }
+  g.restore();
+
+  // pouring streams (drawn over the rim, inside the glass mouth)
+  const stream = (ph, col, wob) => {
+    if (ph <= 0 || ph >= 1) return;
+    const thick = topW * .05 * Math.sin(Math.PI * Math.min(1, ph * 1.15)) + 1, sx = cx + topW * .1, ey = Math.min(surf, liqTop) + 2;
+    g.beginPath(); g.moveTo(sx - thick, -10);
+    g.bezierCurveTo(sx - thick + Math.sin(t * .004) * wob, H * .2, sx - thick * .8, ey - gh * .3, sx - thick * .6, ey);
+    g.lineTo(sx + thick * .6, ey);
+    g.bezierCurveTo(sx + thick * .8, ey - gh * .3, sx + thick + Math.sin(t * .004 + 1) * wob, H * .2, sx + thick, -10);
+    g.fillStyle = col; g.fill();
+    g.beginPath(); g.ellipse(sx, ey, thick * 2.6, thick * .7, 0, 0, 6.3); g.fillStyle = "rgba(255,255,255,.35)"; g.fill();
+  };
+  stream(seg(p, .25, .45), "#f6eee1", 1.5);
+  stream(seg(p, .47, .69), "#4a2a16", 1);
+
+  // straw
+  if (straw > 0) {
+    g.save(); g.translate(cx + topW * .16, lerp(top - gh * 1.2, iBot - iH * .04, straw)); g.rotate(-.13);
+    const sw = topW * .055, sl = gh * 1.18; g.fillStyle = "#2f4a3a"; g.fillRect(-sw / 2, -sl, sw, sl);
+    g.fillStyle = "rgba(255,255,255,.28)"; g.fillRect(-sw / 2, -sl, sw * .3, sl); g.restore();
+    // the part of the straw inside the liquid is tinted by clipping again
+    g.save(); inner(); g.clip(); g.fillStyle = "rgba(236,224,205,.5)"; g.fillRect(cx - topW, surf, topW * 2, iBot - surf); g.restore();
+  }
+
+  // glass: front wall, highlights, rim, base
+  outer(); g.lineWidth = wall; g.strokeStyle = "rgba(255,255,255,.75)"; g.stroke();
+  g.lineWidth = 1; g.strokeStyle = "rgba(58,36,23,.18)"; g.stroke();
+  const hl = g.createLinearGradient(0, top, 0, bot); hl.addColorStop(0, "rgba(255,255,255,.85)"); hl.addColorStop(1, "rgba(255,255,255,.15)");
+  g.beginPath(); g.moveTo(cx - topW * .36, top + gh * .05); g.lineTo(cx - botW * .37, bot - gh * .12); g.lineWidth = topW * .035; g.lineCap = "round"; g.strokeStyle = hl; g.stroke();
+  g.beginPath(); g.moveTo(cx + topW * .4, top + gh * .08); g.lineTo(cx + botW * .41, bot - gh * .3); g.lineWidth = topW * .014; g.strokeStyle = "rgba(255,255,255,.6)"; g.stroke();
+  g.beginPath(); g.ellipse(cx, top, topW / 2, topW * .035, 0, 0, 6.3); g.lineWidth = Math.max(1.5, wall * .7); g.strokeStyle = "rgba(255,255,255,.9)"; g.stroke();
+  const bg2 = g.createLinearGradient(0, iBot, 0, bot); bg2.addColorStop(0, "rgba(255,255,255,.5)"); bg2.addColorStop(1, "rgba(210,200,185,.55)");
+  g.fillStyle = bg2; g.beginPath(); g.moveTo(cx - halfAt(iBot) + wall, iBot); g.lineTo(cx + halfAt(iBot) - wall, iBot); g.lineTo(cx + botW / 2 - r, bot - 1); g.lineTo(cx - botW / 2 + r, bot - 1); g.closePath(); g.fill();
+
+  // cold condensation appears once the milk is in
+  if (milk > .3) { g.fillStyle = `rgba(255,255,255,${.5 * seg(milk, .3, 1)})`; BUB.slice(0, 26).forEach(b => { const yy = lerp(top + gh * .3, bot - base * 1.6, b[1]); g.beginPath(); g.arc(cx + (b[0] - .5) * 2 * (halfAt(yy) - wall * 2), yy, b[2] * gh * .0028, 0, 6.3); g.fill(); }); }
+}
+
+/* ---------------- scroll ---------------- */
+let prog = 0, cur = 0;
+const intro = $("#intro"), hdr = $("#hdr");
+function onScroll() { const r = sect.getBoundingClientRect(); prog = clamp(-r.top / (sect.offsetHeight - pin.offsetHeight)); hdr.classList.toggle("solid", scrollY > sect.offsetHeight - innerHeight); }
+function ui(p) {
+  pin.style.setProperty("--io", 1 - seg(p, .01, .06)); pin.style.setProperty("--iy", (-30 * seg(p, 0, .06)) + "px");
+  pin.style.setProperty("--so", seg(p, .05, .09)); pin.style.setProperty("--p", clamp((p - .06) / .9));
+  let active = -1; STEPS.forEach((s, i) => { if (p >= s.a) active = i; });
+  tEls.forEach((e, i) => { e.classList.toggle("on", i === active); e.classList.toggle("done", i < active); });
+  STEPS.forEach((s, i) => { const v = Math.min(seg(p, s.a, s.a + .03), s.last ? 1 : 1 - seg(p, s.b - .03, s.b)); const e = sEls[i]; e.style.opacity = v; e.style.visibility = v > .01 ? "visible" : "hidden"; if (innerWidth >= 820) e.style.transform = `translateY(calc(-50% + ${(1 - v) * 18}px))`; else e.style.transform = `translateY(${(1 - v) * 14}px)`; });
+}
+function tick(t) { cur += (prog - cur) * (RM ? 1 : .14); if (Math.abs(prog - cur) < .0004) cur = prog; draw(cur, t); ui(cur); requestAnimationFrame(tick); }
+addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
+size(); onScroll(); requestAnimationFrame(tick);
+
+/* ---------------- beans illustration ---------------- */
+(function beans() {
+  const c = $("#beans"), x = c.getContext("2d"), d = Math.min(devicePixelRatio || 1, 2), s = c.clientWidth || 460; c.width = c.height = s * d; x.setTransform(d, 0, 0, d, 0, 0);
+  for (let i = 0; i < 70; i++) { const bx = R() * s, by = R() * s, sz = s * (.05 + R() * .035), rot = R() * 6.28;
+    x.save(); x.translate(bx, by); x.rotate(rot); const gr = x.createLinearGradient(-sz, -sz, sz, sz); gr.addColorStop(0, "#8a5a36"); gr.addColorStop(1, "#4a2b18");
+    x.fillStyle = gr; x.beginPath(); x.ellipse(0, 0, sz, sz * .66, 0, 0, 6.3); x.fill();
+    x.strokeStyle = "rgba(30,16,8,.75)"; x.lineWidth = sz * .09; x.lineCap = "round"; x.beginPath(); x.moveTo(-sz * .75, 0); x.bezierCurveTo(-sz * .3, -sz * .22, sz * .3, sz * .22, sz * .75, 0); x.stroke();
+    x.fillStyle = "rgba(255,255,255,.1)"; x.beginPath(); x.ellipse(-sz * .25, -sz * .3, sz * .4, sz * .12, -.3, 0, 6.3); x.fill(); x.restore(); }
+})();
+
+/* ---------------- menu ---------------- */
+const MENU = {
+  "Kaffee": [["Espresso", "2,60", "Hausröstung, doppelt gezogen."], ["Cappuccino", "3,90", "Mit feinporigem Milchschaum."], ["Flat White", "4,20", "Zwei Shots, wenig Schaum."], ["Iced Latte", "4,90", "Eis, Milch, Espresso, Crema. Wie oben."], ["Filterkaffee", "3,40", "Handaufguss, täglich wechselnde Bohne."], ["Cold Brew", "4,50", "16 Stunden kalt gezogen."]],
+  "Frühstück": [["Butterbrioche", "3,20", "Aus dem eigenen Ofen, mit Marmelade."], ["Bircher Müsli", "6,90", "Über Nacht eingeweicht, mit Apfel und Nüssen."], ["Rührei auf Sauerteig", "9,50", "Drei Eier, Schnittlauch, gesalzene Butter."], ["Avocadobrot", "10,90", "Mit Limette, Chili und pochiertem Ei."]],
+  "Kuchen": [["Zimtschnecke", "3,80", "Jeden Morgen frisch."], ["Käsekuchen", "4,60", "Nach dem Rezept der Großmutter."], ["Zitronentarte", "4,90", "Mit gebrannter Baiserhaube."], ["Bananenbrot", "3,60", "Mit Walnüssen, ohne Ei."]],
+};
+const tabs = $("#tabs"), menu = $("#menu");
+Object.keys(MENU).forEach((k, i) => { const b = document.createElement("button"); b.textContent = k; b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === 0); b.id = "tab-" + i; b.onclick = () => { $$("button", tabs).forEach(x => x.setAttribute("aria-selected", x === b)); show(k); }; tabs.appendChild(b); });
+function show(k) { menu.innerHTML = MENU[k].map(m => `<div class="item"><h3>${m[0]}</h3><span class="pr">${m[1]} €</span><p>${m[2]}</p></div>`).join(""); }
+show("Kaffee");
+
+/* ---------------- hours, reservation (sample) ---------------- */
+const HOURS = [["Montag", "8:00 – 18:00"], ["Dienstag", "8:00 – 18:00"], ["Mittwoch", "8:00 – 18:00"], ["Donnerstag", "8:00 – 18:00"], ["Freitag", "8:00 – 19:00"], ["Samstag", "9:00 – 19:00"], ["Sonntag", "9:00 – 17:00"]];
+const today = (new Date().getDay() + 6) % 7;
+$("#hours tbody").innerHTML = HOURS.map((h, i) => `<tr class="${i === today ? "today" : ""}"><td>${h[0]}${i === today ? " · heute" : ""}</td><td>${h[1]}</td></tr>`).join("");
+$("#res").addEventListener("submit", e => { e.preventDefault(); const n = $("#rName").value.trim(), m = $("#rMsg"); if (!n) { m.textContent = "Bitte geben Sie Ihren Namen ein."; $("#rName").focus(); return; } m.textContent = `Danke, ${n.split(" ")[0]}. Das ist eine Muster-Seite, es wurde nichts gesendet.`; });
+
+if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); io.observe(el); } }); }
+})();
+</script>
