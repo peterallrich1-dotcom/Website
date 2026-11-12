@@ -1,0 +1,153 @@
+{
+ "name": "Architekturbüro Lehmann & Schiefer",
+ "brand": "Lehmann & Schiefer",
+ "brandSub": "Architekturbüro · Lauffen a. N.",
+ "accent": "#f2e2a0",
+ "accentDark": "#7a6a1a",
+ "source": "lehmann-schiefer.de",
+ "sourceUrl": "https://www.lehmann-schiefer.de",
+ "cta": "Kontakt aufnehmen",
+ "hero": {
+  "eyebrow": "Freie Architekten · Lauffen am Neckar",
+  "head": "Entwurf, Planung,\n*Bauleitung.*",
+  "intro": "Architektur, Energieberatung und Gutachten aus einem Büro am Postplatz in Lauffen. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "49°04′N · 9°09′E · Lauffen am Neckar",
+  "ch": [
+   [
+    "Entwurf",
+    "Vom ersten Strich zum *fertigen Haus.*",
+    "Ihre Projekte, die auf der heutigen Seite gar nicht zu sehen sind."
+   ],
+   [
+    "Energie",
+    "Energieberatung für *Wohngebäude.*",
+    "Hartmut Lehmanns Schwerpunkt, klar erklärt."
+   ],
+   [
+    "Sanierung",
+    "Sanierungskonzepte mit *Plan.*",
+    "Für Bestandsgebäude in der Region."
+   ],
+   [
+    "Gutachten",
+    "Sachverständiger für *Schäden an Gebäuden.*",
+    "Andreas Schiefers Schwerpunkt als eigener Bereich."
+   ],
+   [
+    "Lehmann & Schiefer",
+    "Zwei Architekten, *ein Büro*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Büro",
+  "head": "Zwei Architekten, zwei *Schwerpunkte.*",
+  "text": [
+   "Hartmut Lehmann ist Freier Architekt und Energieberater für Wohngebäude. Andreas Schiefer ist Diplom-Ingenieur (FH) Architektur und Sachverständiger für Schäden an Gebäuden.",
+   "Gemeinsam decken sie Entwurf, Planung und Bauleitung ab, dazu Energieberatung, Sanierungskonzepte, Beratung, Qualitätsüberwachung und Gutachten."
+  ],
+  "facts": [
+   [
+    "2",
+    "Architekten: Hartmut Lehmann und Andreas Schiefer"
+   ],
+   [
+    "8",
+    "Leistungen von Entwurf bis Gutachten"
+   ],
+   [
+    "Lauffen",
+    "Büro am Postplatz 3"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Schwerpunkte",
+  "eyebrow": "Leistungen",
+  "head": "Planen, beraten, *begutachten*",
+  "lead": "Für Bauherren und Eigentümer in Lauffen und der Region.",
+  "items": [
+   {
+    "status": "Architektur",
+    "name": "Entwurf, Planung, Bauleitung",
+    "place": "Hartmut Lehmann · Andreas Schiefer",
+    "text": "Vom Entwurf bis zur Bauleitung auf der Baustelle."
+   },
+   {
+    "status": "Energie",
+    "name": "Energieberatung",
+    "place": "Hartmut Lehmann",
+    "text": "Energieberater für Wohngebäude."
+   },
+   {
+    "status": "Bestand",
+    "name": "Sanierungskonzepte",
+    "place": "Für Bestandsgebäude",
+    "text": "Konzepte für die Sanierung von Wohnhäusern."
+   },
+   {
+    "status": "Gutachten",
+    "name": "Schäden an Gebäuden",
+    "place": "Andreas Schiefer",
+    "text": "Sachverständiger für Schäden an Gebäuden."
+   },
+   {
+    "status": "Kontrolle",
+    "name": "Beratung und Qualitätsüberwachung",
+    "place": "Baubegleitend",
+    "text": "Unabhängige Kontrolle während des Baus."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leistungsbild",
+  "quote": "Entwurf · Planung · Bauleitung · *Energieberatung.*",
+  "points": [
+   [
+    "Beratung",
+    "Vor dem Kauf, vor dem Bau, vor der Sanierung."
+   ],
+   [
+    "Qualitätsüberwachung",
+    "Baubegleitende Kontrolle."
+   ],
+   [
+    "Gutachten",
+    "Bei Schäden an Gebäuden."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Bauen und sanieren *mit Plan.*",
+  "lead": "Für Neubau und Bestand.",
+  "items": [
+   [
+    "Architektur",
+    "Entwurf, Planung und Bauleitung."
+   ],
+   [
+    "Energieberatung und Sanierung",
+    "Energieberatung für Wohngebäude und Sanierungskonzepte."
+   ],
+   [
+    "Gutachten",
+    "Beratung, Qualitätsüberwachung und Gutachten."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *uns.*",
+  "address": [
+   "Postplatz 3",
+   "74348 Lauffen a. N."
+  ],
+  "phone": "07133 9852-0",
+  "email": "info@lehmann-schiefer.de",
+  "topics": [
+   "Neubau",
+   "Energieberatung",
+   "Sanierung",
+   "Gutachten"
+  ]
+ }
+}

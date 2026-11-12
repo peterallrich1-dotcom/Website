@@ -1,0 +1,147 @@
+{
+ "name": "CS Hausverwaltung",
+ "brand": "CS Hausverwaltung",
+ "brandSub": "Cornelia Schölzel · IHK-zertifiziert",
+ "accent": "#bcd69a",
+ "accentDark": "#4a6a1c",
+ "source": "cshausverwaltung.de",
+ "sourceUrl": "https://www.cshausverwaltung.de",
+ "cta": "Rückruf anfragen",
+ "hero": {
+  "eyebrow": "Hausverwaltung · Böblingen · Herrenberg · Stuttgart",
+  "head": "Vertraulich, zuverlässig,\n*sorgenfrei.*",
+  "intro": "WEG- und Mietverwaltung mit einem klaren Schwerpunkt auf Kommunikation und Konfliktlösung. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°41′N · 9°01′E · Böblingen",
+  "ch": [
+   [
+    "Verwaltung",
+    "Mehr als Zahlen auf dem *Papier.*",
+    "Ihr eigener Satz, als Einstieg statt im Fließtext."
+   ],
+   [
+    "Gemeinschaft",
+    "Stark in Kommunikation und *Konfliktlösung.*",
+    "Was Sie von anderen Verwaltungen unterscheidet."
+   ],
+   [
+    "Persönlich",
+    "Verwalterin, Buchhalterin, *Mediatorin.*",
+    "Ein Gesicht und ein Name für alle Anliegen."
+   ],
+   [
+    "Wert",
+    "Damit Ihre Immobilie im Wert *steigt.*",
+    "WEG- und Mietverwaltung klar erklärt."
+   ],
+   [
+    "CS Hausverwaltung",
+    "Ein Ansprechpartner für *alles*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Verwalterin, Buchhalterin und *Mediatorin.*",
+  "text": [
+   "Cornelia Schölzel verwaltet Eigentümergemeinschaften und Mietobjekte im Großraum Böblingen, Herrenberg und Stuttgart. Die Abrechnung muss stimmen, doch der Schwerpunkt liegt auf klarer Kommunikation.",
+   "Sie ist IHK-zertifizierte Verwalterin, geprüfte Immobilien-Verwalterin (AWI) und hat ein Fernstudium Buchhaltung und Bilanzmanagement an der AKAD Stuttgart abgeschlossen."
+  ],
+  "facts": [
+   [
+    "2023",
+    "IHK-Prüfung zur zertifizierten Verwalterin bestanden"
+   ],
+   [
+    "3",
+    "Rollen: Verwalterin, Buchhalterin, Mediatorin"
+   ],
+   [
+    "Mo–Do",
+    "Öffnungszeiten 9 bis 17 Uhr"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Verwaltung",
+  "eyebrow": "Leistungen",
+  "head": "WEG und *Miete*",
+  "lead": "Mit Rückruf-Service für alle Anliegen.",
+  "items": [
+   {
+    "status": "WEG",
+    "name": "WEG-Verwaltung",
+    "place": "Für Eigentümergemeinschaften",
+    "text": "Jahresabrechnungen, Wirtschaftspläne, Eigentümerversammlungen und Beschlusssammlung."
+   },
+   {
+    "status": "Miete",
+    "name": "Mietverwaltung",
+    "place": "Für private Vermieter",
+    "text": "Betreuung von Mietobjekten und Mietern."
+   },
+   {
+    "status": "Buchhaltung",
+    "name": "Buchhaltungsservice",
+    "place": "Mit Zertifikat",
+    "text": "Übersichtliche und verständliche Abrechnungen, haushaltsnahe Dienstleistungen ausgewiesen."
+   },
+   {
+    "status": "Sanierung",
+    "name": "Begleitung von Sanierungen",
+    "place": "Dach, Fassade, Balkon, Beton",
+    "text": "Erfahrung mit Sanierungsmaßnahmen und Schadensabwicklung."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Haltung",
+  "quote": "Respektvoll und auf *Augenhöhe.*",
+  "points": [
+   [
+    "Ehrlich",
+    "Ehrlichkeit und Offenheit als Grundlage."
+   ],
+   [
+    "Im Gespräch",
+    "Konflikte im persönlichen Gespräch lösen."
+   ],
+   [
+    "Handlungsfähig",
+    "Damit Gemeinschaften entscheiden können."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Für Gemeinschaften und *Vermieter.*",
+  "lead": "Im Großraum Böblingen, Herrenberg und Stuttgart.",
+  "items": [
+   [
+    "WEG-Verwaltung",
+    "Kaufmännische und allgemeine Betreuung der Gemeinschaft."
+   ],
+   [
+    "Mietverwaltung",
+    "Verwaltung von Mietobjekten."
+   ],
+   [
+    "Rückruf-Service",
+    "Anliegen hinterlassen und zurückgerufen werden."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *mir.*",
+  "address": [
+   "Schönaicher Straße 19",
+   "71032 Böblingen"
+  ],
+  "phone": "+49 7031 4928600",
+  "email": "info@cshausverwaltung.de",
+  "topics": [
+   "Angebot WEG-Verwaltung",
+   "Angebot Mietverwaltung",
+   "Rückruf",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

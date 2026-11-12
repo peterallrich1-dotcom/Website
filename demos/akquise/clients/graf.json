@@ -1,0 +1,153 @@
+{
+ "name": "Immobilienverwaltung Graf",
+ "brand": "Graf",
+ "brandSub": "Immobilienverwaltung · Berchtesgadener Land",
+ "accent": "#f0b888",
+ "accentDark": "#b05a14",
+ "source": "iv-graf.de",
+ "sourceUrl": "https://www.iv-graf.de",
+ "cta": "Angebot anfordern",
+ "hero": {
+  "eyebrow": "Hausverwaltung · Piding · Bad Reichenhall",
+  "head": "Seit über 30 Jahren im\n*Berchtesgadener Land.*",
+  "intro": "WEG-, Miet- und Sondereigentumsverwaltung, dazu Vermietung und Verkauf. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°46′N · 12°55′E · Piding",
+  "ch": [
+   [
+    "Verwaltung",
+    "Zuverlässig, transparent, *rechtskonform.*",
+    "Ihr Versprechen an Eigentümer, klar an erster Stelle."
+   ],
+   [
+    "Erreichbar",
+    "Auch außerhalb der *Geschäftszeiten.*",
+    "Ein Vorteil, den man sofort sehen sollte."
+   ],
+   [
+    "Angebote",
+    "Wohnungen in Piding und *Bad Reichenhall.*",
+    "Aktuelle Mietobjekte mit Bild, statt als lange Textliste."
+   ],
+   [
+    "Zertifiziert",
+    "Zertifizierter Verwalter nach *§ 26a WEG.*",
+    "Seit Dezember 2023 für Gemeinschaften entscheidend."
+   ],
+   [
+    "Immobilienverwaltung Graf",
+    "Angebot *anfordern*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Verwalter, Betriebswirt und *Sachverständiger.*",
+  "text": [
+   "Wolfgang Graf, Diplom-Betriebswirt (FH), ist seit über 30 Jahren als Hausverwalter im Berchtesgadener Land tätig. Er ist zertifizierter Verwalter (IHK) nach § 26a Wohnungseigentumsgesetz und Immobiliensachverständiger.",
+   "Zugesichert werden die zuverlässige kaufmännische und technische Betreuung, eine transparente und übersichtliche Abrechnung und die Erreichbarkeit auch außerhalb der normalen Geschäftszeiten."
+  ],
+  "facts": [
+   [
+    "30+",
+    "Jahre Hausverwaltung im Berchtesgadener Land"
+   ],
+   [
+    "§ 26a",
+    "zertifizierter Verwalter nach WEG (IHK)"
+   ],
+   [
+    "3",
+    "Verwaltungsarten: WEG, Miete, Sondereigentum"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Verwaltung",
+  "eyebrow": "Leistungsspektrum",
+  "head": "Verwalten, vermieten, *verkaufen*",
+  "lead": "Für private und gewerbliche Vermieter, Gemeinschaften und Bauträger.",
+  "items": [
+   {
+    "status": "WEG",
+    "name": "WEG-Verwaltung",
+    "place": "Für Eigentümergemeinschaften",
+    "text": "Buchführung der Rücklagen, Hausgeld-Abrechnungen, Wirtschaftspläne und Vermögensberichte."
+   },
+   {
+    "status": "Miete",
+    "name": "Mietverwaltung",
+    "place": "Für private und gewerbliche Vermieter",
+    "text": "Buchführung und Nebenkostenabrechnung für die Mieter."
+   },
+   {
+    "status": "SE",
+    "name": "Sondereigentumsverwaltung",
+    "place": "Für einzelne Wohnungen",
+    "text": "Verwaltung einzelner Einheiten im Auftrag der Eigentümer."
+   },
+   {
+    "status": "Gewerbe",
+    "name": "Gewerbliche Objekte",
+    "place": "Kaufmännisch und technisch",
+    "text": "Verwaltung gewerblicher Objekte."
+   },
+   {
+    "status": "Vermittlung",
+    "name": "Vermietung und Verkauf",
+    "place": "Piding, Bad Reichenhall, Bayerisch Gmain",
+    "text": "Wohnungen, Häuser und Stellplätze."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Zusage",
+  "quote": "Jederzeit *erreichbar*, auch außerhalb der Geschäftszeiten.",
+  "points": [
+   [
+    "Kaufmännisch",
+    "Transparente, rechtskonforme und übersichtliche Abrechnung."
+   ],
+   [
+    "Technisch",
+    "Gebäudedaten, Zählerstände, Wartungstermine und Energieausweise."
+   ],
+   [
+    "Persönlich",
+    "Der Inhaber ist direkter Ansprechpartner."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Für Eigentümer im *Berchtesgadener Land.*",
+  "lead": "Von der kleinen Vermietung bis zur Gemeinschaft.",
+  "items": [
+   [
+    "Hausverwaltung",
+    "WEG-, Miet- und Sondereigentumsverwaltung."
+   ],
+   [
+    "Gebäude-Management",
+    "Technisches Management mit Übergabeprotokollen und Wartungsplanung."
+   ],
+   [
+    "An- und Verkauf",
+    "Wohnungen und Immobilien in der Region."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Fordern Sie Ihr *Angebot* an.",
+  "address": [
+   "Berchtesgadener Str. 10",
+   "83451 Piding"
+  ],
+  "phone": "0176 232 968 49",
+  "email": "IMMOBILIENVERWALTUNG-GRAF@eMail.de",
+  "topics": [
+   "Angebot WEG-Verwaltung",
+   "Angebot Mietverwaltung",
+   "Wohnung mieten",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

@@ -1,0 +1,147 @@
+{
+ "name": "Bienek Immobilien Management",
+ "brand": "Bienek",
+ "brandSub": "Immobilien · Heidelberg-Neuenheim",
+ "accent": "#aebfe8",
+ "accentDark": "#27418c",
+ "source": "heidelberg-immobilien-bienek.de",
+ "sourceUrl": "https://www.heidelberg-immobilien-bienek.de",
+ "cta": "Anfrage stellen",
+ "hero": {
+  "eyebrow": "Immobilienmakler · Heidelberg-Neuenheim",
+  "head": "Ihr Makler im Herzen\nvon *Neuenheim.*",
+  "intro": "Mietobjekte, Kaufobjekte und Gewerbe in Heidelberg, persönlich betreut vom Inhaber. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "49°25′N · 8°41′E · Heidelberg",
+  "ch": [
+   [
+    "Kaufen",
+    "Die richtige Immobilie in *Heidelberg.*",
+    "Ihre Kaufobjekte groß gezeigt, nicht in einem kleinen Fenster."
+   ],
+   [
+    "Mieten",
+    "Wohnen in *Neuenheim.*",
+    "Mietobjekte mit Bildern, Lage und Daten."
+   ],
+   [
+    "Service",
+    "Vom ersten Gespräch bis nach dem *Vertrag.*",
+    "Ihre sieben Leistungen als klarer Ablauf."
+   ],
+   [
+    "International",
+    "Deutsch und *Englisch.*",
+    "Wie bisher zweisprachig, für Kunden aus dem Ausland."
+   ],
+   [
+    "Bienek Immobilien",
+    "Engagiert und *persönlich*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Firmenprofil",
+  "head": "Der engagierte Makler im Herzen von *Heidelberg-Neuenheim.*",
+  "text": [
+   "Inhaber Franz Hebig, Diplom-Volkswirt, lädt Kunden in sein Büro in der Schröderstraße ein, um Fragen rund um die Immobilie im persönlichen Gespräch zu klären.",
+   "Die Website führt Mietobjekte, Kaufobjekte und Gewerbe und ist durchgehend zweisprachig, deutsch und englisch."
+  ],
+  "facts": [
+   [
+    "7",
+    "Leistungen von der Bewertung bis nach dem Vertragsabschluss"
+   ],
+   [
+    "2",
+    "Sprachen: Deutsch und Englisch"
+   ],
+   [
+    "3",
+    "Bereiche: Miete, Kauf, Gewerbe"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Objekte",
+  "eyebrow": "Objekte",
+  "head": "Mieten, kaufen, *Gewerbe*",
+  "lead": "Aktuelle Objekte aus Heidelberg und Umgebung.",
+  "items": [
+   {
+    "status": "Miete",
+    "name": "Mietobjekte",
+    "place": "Heidelberg und Umgebung",
+    "text": "Wohnungen und Häuser zur Miete."
+   },
+   {
+    "status": "Kauf",
+    "name": "Kaufobjekte",
+    "place": "Heidelberg und Umgebung",
+    "text": "Wohnungen und Häuser zum Kauf."
+   },
+   {
+    "status": "Gewerbe",
+    "name": "Gewerbeobjekte",
+    "place": "Büro, Laden, Praxis",
+    "text": "Gewerbliche Flächen."
+   },
+   {
+    "status": "Service",
+    "name": "Finanzierung",
+    "place": "Passgenau und kostengünstig",
+    "text": "Vermittlung einer passenden Finanzierung."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Service",
+  "quote": "Persönlich, im Büro in der *Schröderstraße.*",
+  "points": [
+   [
+    "Bewertung",
+    "Intensive Besichtigung und fundierte Bewertung der Verkaufsobjekte."
+   ],
+   [
+    "Vermarktung",
+    "Aktive Vermarktung mit allen Kommunikationsmitteln."
+   ],
+   [
+    "Nach dem Vertrag",
+    "Vermittlung bei Problemen nach dem Vertragsabschluss."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Verkaufen, suchen, *finanzieren.*",
+  "lead": "Alles aus einer Hand.",
+  "items": [
+   [
+    "Für Verkäufer",
+    "Bewertung, Vermarktung und fachmännische Begleitung des Verkaufs."
+   ],
+   [
+    "Für Käufer",
+    "Gezielte Immobiliensuche und Finanzierung."
+   ],
+   [
+    "Vertragsabschluss",
+    "Professionelle Durchführung des Vertragsabschlusses."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Besuchen Sie uns im *Büro.*",
+  "address": [
+   "Schröderstraße 20a",
+   "69120 Heidelberg-Neuenheim"
+  ],
+  "phone": "06221 40 81 04",
+  "email": "F-hebig@t-online.de",
+  "topics": [
+   "Immobilie verkaufen",
+   "Kaufobjekt suchen",
+   "Mietobjekt suchen",
+   "Gewerbe"
+  ]
+ }
+}
