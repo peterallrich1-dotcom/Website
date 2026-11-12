@@ -2,7 +2,7 @@
 <title>Velaro Private Estates</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Velaro Private Estates – Architektenvillen und Off-Market-Anwesen auf Mallorca, Ibiza und Menorca. Büros in Palma und Hamburg.">
-<link rel="preload" href="frames-hd/f001.webp" as="image">
+<link rel="preload" href="frames-ai/f001.webp" as="image">
 <style>
 @font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-normal.woff2) format("woff2")}
 @font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-italic.woff2) format("woff2")}
@@ -879,7 +879,7 @@ const fmt = n => new Intl.NumberFormat("de-DE").format(Math.round(n));
 // two Full-HD sequences: the full 16:9 frame, and a 3:4 centre crop at full height for portrait screens
 const portrait = innerWidth / innerHeight < 1;
 const N = 240;
-const dir = portrait ? "frames-p/" : "frames-hd/";
+const dir = portrait ? "frames-aip/" : "frames-ai/";
 const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
 const frames = new Array(N);
 const ok = new Uint8Array(N);

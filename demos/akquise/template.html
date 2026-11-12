@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Designentwurf für __NAME__. Keine offizielle Website.">
-<link rel="preload" href="../../velaro/frames-hd/f001.webp" as="image">
+<link rel="preload" href="../../velaro/frames-ai/f001.webp" as="image">
 <style>
 __BASE_CSS__
 
@@ -205,7 +205,7 @@ $("#cform").addEventListener("submit", e => {
 });
 
 /* ---- scroll-driven film (same engine as the Velaro demo, shared frames) ---- */
-const portrait = innerWidth / innerHeight < 1, N = 240, dir = "../../velaro/" + (portrait ? "frames-p/" : "frames-hd/");
+const portrait = innerWidth / innerHeight < 1, N = 240, dir = "../../velaro/" + (portrait ? "frames-aip/" : "frames-ai/");
 const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
 const frames = new Array(N), ok = new Uint8Array(N); let loaded = 0;
 const cv = $("#cv"), ctx = cv.getContext("2d"), film = $("#film"), stage = $("#stage"), pin = $("#pin");
