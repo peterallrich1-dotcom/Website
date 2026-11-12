@@ -101,8 +101,7 @@ p{margin:0}
 .stage{position:absolute;inset:0;clip-path:inset(var(--it,0px) var(--is,0px) var(--ib,0px) var(--is,0px) round var(--ir,0px));will-change:clip-path}
 .stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:
-  linear-gradient(180deg,rgba(16,21,26,.55) 0%,rgba(16,21,26,0) 22%,rgba(16,21,26,0) 55%,rgba(16,21,26,.78) 100%),
-  radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(10,13,16,.35) 100%)}
+  linear-gradient(180deg,rgba(16,21,26,.45) 0%,rgba(16,21,26,0) 18%,rgba(16,21,26,0) 52%,rgba(16,21,26,.72) 100%)}
 .veil{position:absolute;inset:0;background:var(--dusk);opacity:var(--veil,0);pointer-events:none}
 
 .title{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gr) calc(var(--gb) + 6vh) var(--gl);pointer-events:none;opacity:var(--t-o,1);transform:translateY(var(--t-y,0px))}
@@ -877,9 +876,10 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const fmt = n => new Intl.NumberFormat("de-DE").format(Math.round(n));
 
 /* ---------------- HERO FILM: scroll-scrubbed frame sequence ---------------- */
-const small = Math.min(innerWidth, innerHeight * 16 / 9) <= 820 || (navigator.connection && navigator.connection.saveData);
-const N = small ? 120 : 240;
-const dir = small ? "frames-s/" : "frames/";
+// two Full-HD sequences: the full 16:9 frame, and a 3:4 centre crop at full height for portrait screens
+const portrait = innerWidth / innerHeight < .75;
+const N = 240;
+const dir = portrait ? "frames-p/" : "frames/";
 const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
 const frames = new Array(N);
 const ok = new Uint8Array(N);
