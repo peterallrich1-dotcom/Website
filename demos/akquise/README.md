@@ -28,15 +28,15 @@ Jede Seite trägt unten den festen Hinweis „Designentwurf, nicht die offiziell
 | Max Neuner Immobilien | Garmisch-Partenkirchen | maxneuner-immobilien.de | sehr karg | `maxneuner/` | gesendet 12.11.2026 |
 | Holz & Stein GmbH | Traunstein | holzundstein.com | feste Breite, alte Optik | `holzundstein/` | gesendet 12.11.2026 |
 | Goldmann & Partner | Starnberg | goldmann-partner.de | ältere Optik; Gewerbeimmobilien | `goldmann/` | gesendet 12.11.2026 |
-| Architekt Dieter Ankerne | Puchheim | architekt-ankerne.de | sehr alte Optik | `ankerne/` | Entwurf |
-| Architektur Achim Hildebrand | Friedrichshafen | architektur-hildebrand.de | Grafik-Navigation, Dateien von 2015 | `hildebrand/` | Entwurf |
-| Arnes Hausverwaltung GmbH | Gaggenau / Stuttgart | arnes-hv.de | Baukasten, alte Optik | `arnes/` | Entwurf |
-| BMI Immobilienmanagement GmbH | Münsing | bmi-im.de | Copyright 2014 | `bmi/` | Entwurf |
-| CS Hausverwaltung | Böblingen | cshausverwaltung.de | Baukasten, alte Optik | `cs/` | Entwurf |
-| Bienek Immobilien Management | Heidelberg | heidelberg-immobilien-bienek.de | Gerüst von 2009 | `bienek/` | Entwurf |
-| Immobilienverwaltung Graf | Piding | iv-graf.de | sehr alte Optik | `graf/` | Entwurf |
-| Architekturbüro Lehmann & Schiefer | Lauffen a. N. | lehmann-schiefer.de | nur eine Visitenkarte, Copyright 2005 | `lehmann-schiefer/` | Entwurf |
-| YK Architektur | Kornwestheim | yk-architektur.de | alte Optik, Projekte als Liste | `yk/` | Entwurf |
+| Architekt Dieter Ankerne | Puchheim | architekt-ankerne.de | sehr alte Optik | `ankerne/` | gesendet 12.11.2026 |
+| Architektur Achim Hildebrand | Friedrichshafen | architektur-hildebrand.de | Grafik-Navigation, Dateien von 2015 | `hildebrand/` | gesendet 12.11.2026 |
+| Arnes Hausverwaltung GmbH | Gaggenau / Stuttgart | arnes-hv.de | Baukasten, alte Optik | `arnes/` | gesendet 12.11.2026 |
+| BMI Immobilienmanagement GmbH | Münsing | bmi-im.de | Copyright 2014 | `bmi/` | gesendet 12.11.2026 |
+| CS Hausverwaltung | Böblingen | cshausverwaltung.de | Baukasten, alte Optik | `cs/` | gesendet 12.11.2026 |
+| Bienek Immobilien Management | Heidelberg | heidelberg-immobilien-bienek.de | Gerüst von 2009 | `bienek/` | gesendet 12.11.2026 |
+| Immobilienverwaltung Graf | Piding | iv-graf.de | sehr alte Optik | `graf/` | gesendet 12.11.2026 |
+| Architekturbüro Lehmann & Schiefer | Lauffen a. N. | lehmann-schiefer.de | nur eine Visitenkarte, Copyright 2005 | `lehmann-schiefer/` | gesendet 12.11.2026 |
+| YK Architektur | Kornwestheim | yk-architektur.de | alte Optik, Projekte als Liste | `yk/` | gesendet 12.11.2026 |
 
 Weitere geprüfte Kandidaten (noch ohne Entwurf): Max Neuner Gewerbe- und Wohnimmobilien (Garmisch-Partenkirchen, maxneuner-immobilien.de, sehr karg), Ritter Bauträger & Immobilien GmbH (Deisenhofen, ritter-bautraeger.de, mittel), Rainer Beger Immobilien und Wohnbau (Lindau, immobilien-beger.de, mittel).
 Nicht geeignet, weil bereits modern: Locate Immobilien, Kern Bau, Loibl Bau, Füsser, BMI.
