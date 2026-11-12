@@ -1,0 +1,255 @@
+<meta charset="utf-8">
+<title>__TITLE__</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Designentwurf für __NAME__. Keine offizielle Website.">
+<link rel="preload" href="../../velaro/frames-hd/f001.webp" as="image">
+<style>
+__BASE_CSS__
+
+/* ---- additions for the personalised drafts ---- */
+:root{--glow:__ACCENT__;--teak:__ACCENT_DARK__}
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:65;background:var(--trav);color:var(--ink);font-size:12.5px;padding:9px var(--gr) calc(9px + var(--gb)) var(--gl);display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;text-align:center;border-top:1px solid var(--line-l)}
+.ribbon b{font-weight:600}
+.ribbon a{text-decoration:underline}
+.ribbon button{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-l);padding:5px 9px}
+.brand b{letter-spacing:.2em;margin-right:-.2em;font-size:22px;text-transform:uppercase;white-space:nowrap}
+.facts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:clamp(60px,8vw,100px);border-top:1px solid var(--line-d)}
+.facts-row div{padding:26px 22px 0 0;min-width:0}
+.facts-row b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(36px,4.2vw,60px);line-height:1;font-variant-numeric:lining-nums}
+.facts-row span{display:block;margin-top:12px;color:var(--haze);font-size:14px;max-width:26ch}
+.src{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:var(--haze);margin-top:26px}
+.light .src{color:var(--ink-2)}
+.prow{display:grid;grid-template-columns:90px 1.1fr 1.4fr auto;gap:clamp(16px,3vw,44px);align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line-l);text-decoration:none;color:inherit;transition:padding .35s,background .35s}
+.prow:first-child{border-top:1px solid var(--ink)}
+.prow:hover{padding-left:14px;background:rgba(28,26,23,.035)}
+.prow .st{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teak)}
+.prow h3{font-size:clamp(26px,2.6vw,38px);line-height:1.05}
+.prow h3 small{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-top:10px}
+.prow p{color:var(--ink-2);font-size:15px;max-width:52ch}
+.prow .go{width:40px;height:40px;border:1px solid var(--line-l);display:grid;place-items:center;align-self:center}
+.prow .go svg{width:14px;height:14px}
+@media (max-width:820px){.prow{grid-template-columns:1fr;gap:10px}.prow .go{display:none}}
+.quoteband{font-family:var(--f-display);font-size:clamp(30px,4.4vw,68px);line-height:1.1;letter-spacing:-.01em;max-width:20ch}
+.quoteband i{color:var(--glow)}
+.pitch{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);margin-top:56px}
+.pitch div{border-top:1px solid var(--line-d);padding-top:22px}
+.pitch h3{font-size:28px;margin-bottom:12px}
+.pitch p{color:var(--mist);font-size:15px}
+@media (max-width:820px){.pitch{grid-template-columns:1fr}}
+.ftr{padding-bottom:calc(var(--gb) + 90px)}
+</style>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top"><b id="bName"></b><span id="bSub"></span></a>
+    <nav class="nav" aria-label="Hauptnavigation" id="nav"></nav>
+    <a class="btn line" href="#kontakt" id="hdrCta"></a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="top"><span class="brand"><b id="dName"></b></span><button class="x" id="drawerX" aria-label="Menü schließen">×</button></div>
+  <div id="dNav" style="display:flex;flex-direction:column;gap:8px"></div>
+</div>
+
+<main id="top">
+<section id="film" aria-label="Beispielfilm">
+  <div class="pin" id="pin">
+    <div class="stage" id="stage"><canvas id="cv" aria-hidden="true"></canvas></div>
+    <div class="veil" id="veil"></div>
+    <div class="loadbar mono" id="loadbar"><i></i><span>Film lädt</span></div>
+    <div class="hud mono" aria-hidden="true"><span class="rec"><i></i><span id="tc">00:00:00</span></span><span class="geo" id="geo"></span></div>
+    <div class="floors" aria-hidden="true" id="floors">
+      <div data-l="D"><span>Dachterrasse</span><b>D</b></div><div data-l="1"><span>Obergeschoss</span><b>1</b></div>
+      <div data-l="0"><span>Erdgeschoss</span><b>0</b></div><div data-l="P"><span>Terrasse</span><b>P</b></div>
+    </div>
+    <div class="title" id="title"><div class="in">
+      <p class="mono" id="hEyebrow"></p>
+      <h1 id="hHead"></h1>
+      <div class="row"><p id="hIntro"></p><span class="cue mono"><span></span>Scrollen zum Fliegen</span></div>
+    </div></div>
+    <div id="chaps"></div>
+    <div class="scrub" aria-hidden="true"><i></i>
+      <span style="left:4%">Ankunft</span><span style="left:18%">Terrasse</span><span style="left:41%">Wohnen</span><span style="left:62%">Treppe</span><span style="left:80%">Obergeschoss</span><span style="left:95%">Überblick</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="firma">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="eyebrow mono" id="aEyebrow"></p><h2 style="margin-top:26px" id="aHead"></h2></div>
+      <div class="side rv" id="aText"></div>
+    </div>
+    <div class="facts-row" id="facts"></div>
+    <p class="src" id="aSrc"></p>
+  </div>
+</section>
+
+<section class="sec light" id="projekte">
+  <div class="wrap">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:48px">
+      <div><p class="eyebrow mono" id="pEyebrow"></p><h2 style="margin-top:22px" id="pHead"></h2></div>
+      <p class="lead" style="color:var(--ink-2);max-width:44ch" id="pLead"></p>
+    </div>
+    <div id="plist"></div>
+    <p class="src" id="pSrc"></p>
+  </div>
+</section>
+
+<section class="sec" id="haltung">
+  <div class="wrap">
+    <p class="eyebrow mono rv" id="qEyebrow"></p>
+    <p class="quoteband rv" style="margin-top:28px" id="qText"></p>
+    <div class="pitch rv" id="pitch"></div>
+  </div>
+</section>
+
+<section class="sec light" id="leistungen">
+  <div class="wrap svc">
+    <div class="sticky rv"><p class="eyebrow mono">Leistungen</p><h2 id="sHead"></h2><p class="lead" style="color:var(--ink-2)" id="sLead"></p></div>
+    <div class="svc-list" id="svc"></div>
+  </div>
+</section>
+
+<section class="sec light" id="kontakt" style="padding-top:0">
+  <div class="wrap contact">
+    <div class="left rv">
+      <p class="eyebrow mono">Kontakt</p>
+      <h2 id="cHead"></h2>
+      <div class="offices" style="grid-template-columns:1fr"><div><h4 id="cName"></h4><p id="cAddr"></p>
+        <p style="margin-top:10px">Telefon <span class="copy" id="cTel"></span></p>
+        <p style="margin-top:6px">E-Mail <span class="copy" id="cMail"></span></p></div></div>
+    </div>
+    <div class="rv">
+      <form class="cform" id="cform" novalidate>
+        <div class="two">
+          <div class="field"><label for="fName">Name</label><input type="text" id="fName" autocomplete="name" placeholder="Vor- und Nachname"></div>
+          <div class="field"><label for="fMail">E-Mail</label><input type="email" id="fMail" autocomplete="email" placeholder="name@beispiel.de"></div>
+        </div>
+        <div class="field"><label for="fTopic">Anliegen</label><select id="fTopic"></select></div>
+        <div class="field"><label for="fMsg">Nachricht</label><textarea id="fMsg" placeholder="Ihre Nachricht"></textarea></div>
+        <p class="err" id="fErr" role="alert"></p>
+        <button class="btn line" type="submit" style="align-self:flex-start">Anfrage senden</button>
+      </form>
+      <div class="sent" id="sent" hidden><p class="mono" style="color:var(--teak)">Entwurf</p><h3>Das Formular ist nur ein Muster.</h3><p style="color:var(--ink-2)">In diesem Designentwurf wird nichts übertragen oder gespeichert.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="big" aria-hidden="true" id="fBig"></div>
+    <div class="base"><span id="fNote"></span><span class="mono">Designentwurf · November 2026</span></div>
+  </div>
+</footer>
+
+<div class="ribbon" id="ribbon"><span><b>Designentwurf</b> für <span id="rName"></span>. Dies ist nicht die offizielle Website. <span id="rFilm"></span></span><a id="rOrig" target="_blank" rel="noopener"></a><button id="rX" aria-label="Hinweis ausblenden">Ausblenden</button></div>
+
+<script>
+const CLIENT = __CLIENT_JSON__;
+(() => {
+"use strict";
+const C = CLIENT, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches, clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const em = s => esc(s).replace(/\*(.+?)\*/g, "<i>$1</i>");   // *word* marks the italic accent word
+
+/* ---- fill the page from the client record ---- */
+$("#bName").textContent = $("#dName").textContent = C.brand; $("#bSub").textContent = C.brandSub;
+const NAV = [["#firma", "Unternehmen"], ["#projekte", C.projects.nav], ["#leistungen", "Leistungen"], ["#kontakt", "Kontakt"]];
+$("#nav").innerHTML = NAV.map(n => `<a href="${n[0]}">${esc(n[1])}</a>`).join("");
+$("#dNav").innerHTML = NAV.map(n => `<a class="big" href="${n[0]}">${esc(n[1])}</a>`).join("");
+$("#hdrCta").textContent = C.cta;
+$("#hEyebrow").textContent = C.hero.eyebrow; $("#hHead").innerHTML = em(C.hero.head).replace(/\n/g, "<br>").replace(/<i>/g, "<em>").replace(/<\/i>/g, "</em>"); $("#hIntro").textContent = C.hero.intro;
+$("#geo").textContent = C.hero.geo;
+$("#chaps").innerHTML = C.hero.chapters.map((c, i) => {
+  const last = i === C.hero.chapters.length - 1;
+  return `<div class="chap${last ? " end" : ""}" data-a="${c.a}" data-b="${c.b}"><div class="in"><p class="mono">${esc(c.k)}</p><h3>${em(c.h)}</h3>${c.p ? `<p>${esc(c.p)}</p>` : ""}${last ? `<div class="acts"><a class="btn glow" href="#projekte">${esc(C.projects.nav)} ansehen</a><a class="btn line" href="#kontakt">${esc(C.cta)}</a></div>` : ""}</div></div>`;
+}).join("");
+$("#aEyebrow").textContent = C.about.eyebrow; $("#aHead").innerHTML = em(C.about.head);
+$("#aText").innerHTML = C.about.text.map((t, i) => `<p${i ? "" : ' class="lead"'}>${esc(t)}</p>`).join("");
+$("#facts").innerHTML = C.about.facts.map(f => `<div><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("");
+$("#aSrc").textContent = "Angaben laut " + C.source + ", Stand November 2026.";
+$("#pEyebrow").textContent = C.projects.eyebrow; $("#pHead").innerHTML = em(C.projects.head); $("#pLead").textContent = C.projects.lead;
+$("#plist").innerHTML = C.projects.items.map(p => `<a class="prow rv" href="#kontakt" data-p="${esc(p.name)}"><span class="st">${esc(p.status)}</span><h3>${esc(p.name)}<small>${esc(p.place)}</small></h3><p>${esc(p.text)}</p><span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>`).join("");
+$("#pSrc").textContent = "Projektnamen und Orte laut " + C.source + ". Texte für diesen Entwurf zusammengefasst.";
+$("#qEyebrow").textContent = C.stance.eyebrow; $("#qText").innerHTML = em(C.stance.quote);
+$("#pitch").innerHTML = C.stance.points.map(p => `<div><h3>${esc(p[0])}</h3><p>${esc(p[1])}</p></div>`).join("");
+$("#sHead").innerHTML = em(C.services.head); $("#sLead").textContent = C.services.lead;
+const svc = $("#svc");
+C.services.items.forEach((s, i) => {
+  const d = document.createElement("div"); d.className = "svc-item" + (i === 0 ? " open" : "");
+  d.innerHTML = `<button aria-expanded="${i === 0}"><h3>${esc(s[0])}</h3><span class="pm" aria-hidden="true"></span></button><div class="body"><div><div class="in" style="grid-template-columns:1fr"><p>${esc(s[1])}</p></div></div></div>`;
+  $("button", d).onclick = () => { const o = !d.classList.contains("open"); $$(".svc-item", svc).forEach(x => { x.classList.remove("open"); $("button", x).setAttribute("aria-expanded", false); }); if (o) { d.classList.add("open"); $("button", d).setAttribute("aria-expanded", true); } };
+  svc.appendChild(d);
+});
+$("#cHead").innerHTML = em(C.contact.head); $("#cName").textContent = C.name; $("#cAddr").innerHTML = C.contact.address.map(esc).join("<br>");
+$("#cTel").textContent = C.contact.phone; $("#cMail").textContent = C.contact.email;
+$("#fTopic").innerHTML = C.contact.topics.map(t => `<option>${esc(t)}</option>`).join("");
+$("#fBig").textContent = C.brand;
+$("#fNote").textContent = `Unverbindlicher Designentwurf für ${C.name}. Kein Angebot der ${C.name}, keine offizielle Website. Inhalte nach ${C.source}.`;
+$("#rName").textContent = C.name; $("#rFilm").textContent = "Der Film ist eine Beispielvisualisierung und zeigt kein Objekt des Unternehmens.";
+$("#rOrig").href = C.sourceUrl; $("#rOrig").textContent = "Zur offiziellen Website";
+$("#rX").onclick = () => $("#ribbon").hidden = true;
+document.addEventListener("click", e => { const a = e.target.closest(".prow"); if (a) $("#fMsg").value = `Ich interessiere mich für „${a.dataset.p}“ und bitte um Unterlagen.`; });
+$("#cform").addEventListener("submit", e => {
+  e.preventDefault(); const err = $("#fErr");
+  if (!$("#fName").value.trim()) { err.textContent = "Bitte geben Sie Ihren Namen ein."; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($("#fMail").value.trim())) { err.textContent = "Bitte prüfen Sie die E-Mail-Adresse."; return; }
+  err.textContent = ""; $("#cform").hidden = true; $("#sent").hidden = false;
+});
+
+/* ---- scroll-driven film (same engine as the Velaro demo, shared frames) ---- */
+const portrait = innerWidth / innerHeight < 1, N = 240, dir = "../../velaro/" + (portrait ? "frames-p/" : "frames-hd/");
+const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
+const frames = new Array(N), ok = new Uint8Array(N); let loaded = 0;
+const cv = $("#cv"), ctx = cv.getContext("2d"), film = $("#film"), stage = $("#stage"), pin = $("#pin");
+let W = 0, H = 0, cur = 0, target = 0, drawn = -1;
+function size() { const dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
+function nearest(i) { if (ok[i]) return i; for (let d = 1; d < N; d++) { if (i - d >= 0 && ok[i - d]) return i - d; if (i + d < N && ok[i + d]) return i + d; } return -1; }
+function draw(i) {
+  const k = nearest(i); if (k < 0 || k === drawn) return; const img = frames[k];
+  const cover = Math.max(W / img.naturalWidth, H / img.naturalHeight), fit = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+  const s = portrait ? cover : Math.min(cover, fit * 1.12), w = img.naturalWidth * s, h = img.naturalHeight * s;
+  if (h < H - 1 || w < W - 1) { ctx.fillStyle = "#10151a"; ctx.fillRect(0, 0, W, H); }
+  ctx.drawImage(img, (W - w) / 2, (H - h) / 2, w, h); drawn = k;
+}
+const order = [], seen = new Uint8Array(N);
+for (const step of [32, 16, 8, 4, 2, 1]) for (let i = 0; i < N; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
+let qi = 0; const lb = $("#loadbar");
+function pump() { if (qi >= order.length) return; const i = order[qi++], img = new Image(); img.decoding = "async";
+  img.onload = () => { frames[i] = img; ok[i] = 1; loaded++; lb.style.setProperty("--lp", loaded / N); if (loaded === N) lb.style.opacity = 0; if (i === 0 || Math.abs(i - Math.round(cur)) < 40) drawn = -1; pump(); };
+  img.onerror = () => { loaded++; pump(); }; img.src = src(i); }
+for (let c = 0; c < 6; c++) pump();
+const chaps = $$(".chap").map(el => ({ el, a: +el.dataset.a, b: +el.dataset.b })), floorEls = $$("#floors div");
+const title = $("#title"), veil = $("#veil"), tc = $("#tc"), hdr = $("#hdr");
+let prog = 0, titleTop = innerHeight * .55;
+const measureTitle = () => { titleTop = $(".in", title).getBoundingClientRect().top - (parseFloat(getComputedStyle(title).getPropertyValue("--t-y")) || 0); };
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function layout(p) {
+  const o = ease(clamp(p / .07, 0, 1)), mob = innerWidth < 760;
+  stage.style.setProperty("--it", (mob ? 96 : 108) * (1 - o) + "px");
+  stage.style.setProperty("--is", (mob ? 16 : Math.max(24, innerWidth * .06)) * (1 - o) + "px");
+  stage.style.setProperty("--ib", Math.max(innerHeight * .3, innerHeight - titleTop + (mob ? 22 : 34)) * (1 - o) + "px");
+  stage.style.setProperty("--ir", 2 * (1 - o) + "px");
+  title.style.setProperty("--t-o", 1 - clamp(p / .05, 0, 1)); title.style.setProperty("--t-y", -40 * clamp(p / .06, 0, 1) + "px");
+  pin.style.setProperty("--hud", clamp((p - .05) / .03, 0, 1) * (1 - clamp((p - .985) / .015, 0, 1))); pin.style.setProperty("--p", p);
+  veil.style.setProperty("--veil", clamp((p - .975) / .025, 0, 1) * .85);
+  for (const c of chaps) { const fi = clamp((p - c.a) / .025, 0, 1), fo = 1 - clamp((p - (c.b - .025)) / .025, 0, 1), v = Math.min(fi, fo); c.el.style.opacity = v; c.el.style.visibility = v > .01 ? "visible" : "hidden"; c.el.style.transform = `translateY(${(1 - fi) * 30 - (1 - fo) * 20}px)`; }
+  const L = p < .30 ? "P" : p < .56 ? "0" : p < .89 ? "1" : "D"; floorEls.forEach(f => f.classList.toggle("on", f.dataset.l === L));
+  const secs = p * 10; tc.textContent = `00:${String(Math.floor(secs)).padStart(2, "0")}:${String(Math.floor((secs % 1) * 24)).padStart(2, "0")}`;
+}
+function onScroll() { const r = film.getBoundingClientRect(); prog = clamp(-r.top / (film.offsetHeight - pin.offsetHeight), 0, 1); target = prog * (N - 1); hdr.classList.toggle("solid", scrollY > film.offsetHeight - innerHeight * 1.05); }
+function tick() { cur += (target - cur) * (RM ? 1 : .18); if (Math.abs(target - cur) < .01) cur = target; draw(Math.round(cur)); layout(prog); requestAnimationFrame(tick); }
+addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); measureTitle(); onScroll(); });
+if (document.fonts) document.fonts.ready.then(measureTitle);
+size(); measureTitle(); onScroll(); requestAnimationFrame(tick);
+
+if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); io.observe(el); } }); }
+const drawer = $("#drawer"), burger = $("#burger"), setDrawer = o => { drawer.classList.toggle("open", o); drawer.setAttribute("aria-hidden", !o); burger.setAttribute("aria-expanded", o); document.body.classList.toggle("lock", o); };
+burger.onclick = () => setDrawer(true); $("#drawerX").onclick = () => setDrawer(false); $$("a", drawer).forEach(a => a.addEventListener("click", () => setDrawer(false)));
+})();
+</script>
