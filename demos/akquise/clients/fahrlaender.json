@@ -1,0 +1,141 @@
+{
+ "name": "Fahrländer Immobilien",
+ "brand": "Fahrländer",
+ "brandSub": "Immobilien · Freiburg",
+ "accent": "#f2b98a",
+ "accentDark": "#b05a14",
+ "source": "fahrlaender-immobilien.de",
+ "sourceUrl": "https://www.fahrlaender-immobilien.de",
+ "cta": "Rückruf anfragen",
+ "hero": {
+  "eyebrow": "Immobilienmakler · Freiburg · seit 1973",
+  "head": "Mit Herz und\n*Sachverstand.*",
+  "intro": "Ein Familienunternehmen, das Verkäufer und Käufer in Freiburg seit 1973 begleitet. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°59′N · 7°51′E · Freiburg",
+  "ch": [
+   [
+    "Vertrauen",
+    "Begleiter und *Ratgeber.*",
+    "Ihre persönliche Art, sichtbar schon auf den ersten Blick."
+   ],
+   [
+    "Verkauf",
+    "Eine Immobilie ist mehr als ein *Objekt.*",
+    "Mit Erinnerungen verbunden, und so wird sie hier auch gezeigt."
+   ],
+   [
+    "Kauf",
+    "Solide Werte, *planbare Zukunft.*",
+    "Aktuelle Angebote klar und hochwertig präsentiert."
+   ],
+   [
+    "Diskretion",
+    "Mit Einfühlungsvermögen und *Diskretion.*",
+    "Für Verkäufe, die Fingerspitzengefühl brauchen."
+   ],
+   [
+    "Fahrländer Immobilien",
+    "Seit *1973* in Freiburg"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Gegründet 1973. *Geführt von Dieter und Rena Fahrländer.*",
+  "text": [
+   "Dieter Fahrländer hat das Unternehmen 1973 gegründet und führt es gemeinsam mit seiner Frau Rena als bodenständiges, in der Region verwurzeltes Familienunternehmen.",
+   "Käufer sind zu Verkäufern geworden und umgekehrt. Manches Objekt wurde mehr als dreimal durch Fahrländer vermittelt."
+  ],
+  "facts": [
+   [
+    "1973",
+    "Gründung durch Dieter Fahrländer"
+   ],
+   [
+    "2",
+    "Inhaber: Dieter und Rena Fahrländer"
+   ],
+   [
+    "3×",
+    "Manches Objekt wurde mehr als dreimal vermittelt"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Für Sie",
+  "eyebrow": "Unsere Leistungen",
+  "head": "Verkaufen, kaufen, *vermieten*",
+  "lead": "Für Eigentümer und Suchende in Freiburg und der Region.",
+  "items": [
+   {
+    "status": "Verkauf",
+    "name": "Immobilie verkaufen",
+    "place": "Bewertung bis Notartermin",
+    "text": "Marktgerechte Bewertung, gemeinsame Festlegung des Angebotspreises, Unterlagen, Präsentation, Besichtigungen und Begleitung im Notartermin."
+   },
+   {
+    "status": "Kauf",
+    "name": "Eigenheim oder Anlageobjekt",
+    "place": "Interessentenkartei",
+    "text": "Wer vorgemerkt ist, erfährt vor allen anderen von neuen Objekten."
+   },
+   {
+    "status": "Vermietung",
+    "name": "Den passenden Mieter finden",
+    "place": "Für Vermieter",
+    "text": "Mieter und Vermieter sollen zueinander passen, als Grundstein für eine langfristige Beziehung."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitsatz",
+  "quote": "Mit Herz und *Sachverstand.*",
+  "points": [
+   [
+    "Erfahrung",
+    "Langjährige Erfahrung und exzellente Kenntnis des Freiburger Marktes."
+   ],
+   [
+    "Vernetzung",
+    "Gute Verbindungen zu allen wesentlichen amtlichen Stellen."
+   ],
+   [
+    "Auch danach",
+    "Auch nach dem Notartermin weiter für die Kunden da."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Rund um die *Immobilie.*",
+  "lead": "Persönlich betreut von den Inhabern.",
+  "items": [
+   [
+    "Bewertung",
+    "Marktgerechte Bewertung Ihrer Immobilie."
+   ],
+   [
+    "Vermarktung",
+    "Präsentation, Besichtigungen und Verhandlung."
+   ],
+   [
+    "Notartermin",
+    "Vorbereitung und Begleitung im Termin."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Wir sind gerne für Sie *da.*",
+  "address": [
+   "Grünwälderstraße 6",
+   "79098 Freiburg im Breisgau"
+  ],
+  "phone": "0761 33416",
+  "email": "info@fahrlaender-immobilien.de",
+  "topics": [
+   "Immobilie verkaufen",
+   "Immobilie suchen",
+   "Vermietung",
+   "Rückruf"
+  ]
+ }
+}

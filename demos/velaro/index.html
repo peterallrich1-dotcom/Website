@@ -1,0 +1,1366 @@
+<meta charset="utf-8">
+<title>Velaro Private Estates</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Velaro Private Estates – Architektenvillen und Off-Market-Anwesen auf Mallorca, Ibiza und Menorca. Büros in Palma und Hamburg.">
+<link rel="preload" href="frames-ai/f001.webp" as="image">
+<style>
+@font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-italic.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:300;font-display:swap;src:url(fonts/manrope-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+
+/* Layout: the drone film is the hero. 240 frames scrub with the scroll inside a framed window that opens to full bleed;
+   the floors of the villa are tracked like a lift indicator. Below, the site alternates blue-hour slate (the film's last light)
+   with travertine bands (the villa's floors). One committed look; sunset apricot as the single warm accent, pool turquoise only for "available". */
+:root{
+  --dusk:#10151a;
+  --dusk-2:#161d24;
+  --dusk-3:#1f2830;
+  --mist:#c9ced1;
+  --haze:#8b959c;
+  --trav:#ebe4d8;
+  --trav-2:#ddd3c4;
+  --ink:#1c1a17;
+  --ink-2:#4a453e;
+  --teak:#8c5634;
+  --glow:#e9a273;
+  --pool:#6fcdd4;
+  --line-d:rgba(233,228,216,.14);
+  --line-l:rgba(28,26,23,.16);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72","Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gl:max(16px,env(safe-area-inset-left,0px));
+  --gr:max(16px,env(safe-area-inset-right,0px));
+  --gt:env(safe-area-inset-top,0px);
+  --gb:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--dusk);color:var(--trav);font-family:var(--f-body);font-size:16px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--gt);z-index:70;background:var(--dusk)}
+body.lock{overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.mono{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1;letter-spacing:-.015em;text-wrap:balance;font-optical-sizing:auto}
+h2{font-size:clamp(42px,6.2vw,96px)}
+h2 i,h1 i,h3 i{font-style:italic;color:var(--glow)}
+.light h2 i,.light h3 i{color:var(--teak)}
+p{margin:0}
+.lead{font-size:clamp(17px,1.5vw,20px);line-height:1.6;font-weight:300;max-width:56ch}
+.num{font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;border:1px solid currentColor;border-radius:0;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background .3s,color .3s,border-color .3s}
+.btn svg{width:14px;height:14px;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.glow{background:var(--glow);border-color:var(--glow);color:var(--dusk)}
+.btn.glow:hover{background:var(--trav);border-color:var(--trav)}
+.btn.line:hover{background:var(--trav);color:var(--dusk);border-color:var(--trav)}
+.light .btn.line:hover{background:var(--ink);color:var(--trav);border-color:var(--ink)}
+.light{background:var(--trav);color:var(--ink)}
+.light .mono{color:var(--ink-2)}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--haze)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.light .eyebrow{color:var(--teak)}
+
+/* header */
+.hdr{position:fixed;top:var(--gt);left:0;right:0;z-index:60;transition:background .5s,border-color .5s,transform .5s;border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(16,21,26,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line-d)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1}
+.brand b{font-family:var(--f-display);font-weight:500;font-size:25px;letter-spacing:.32em;margin-right:-.32em}
+.brand span{font-family:var(--f-mono);font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:var(--haze);margin-top:7px}
+.nav{display:flex;gap:34px;align-items:center}
+.nav a{font-size:13px;letter-spacing:.08em;text-decoration:none;color:var(--mist);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--glow);transition:right .35s}
+.nav a:hover::after{right:0}
+.nav a:hover{color:var(--trav)}
+.hdr .btn{padding:11px 18px;font-size:11.5px}
+.burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.burger i{display:block;width:22px;height:1px;background:var(--trav);box-shadow:0 7px 0 var(--trav)}
+.drawer{position:fixed;inset:0;z-index:80;background:var(--dusk);padding:calc(var(--gt) + 24px) var(--gr) calc(var(--gb) + 24px) var(--gl);display:flex;flex-direction:column;gap:8px;transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.drawer.open{transform:none}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
+.drawer a.big{font-family:var(--f-display);font-size:44px;text-decoration:none;line-height:1.2;border-bottom:1px solid var(--line-d);padding:6px 0}
+.drawer .x{width:44px;height:44px;font-size:26px}
+@media (max-width:980px){.nav,.hdr .btn{display:none}.burger{display:flex}}
+
+/* ============ HERO FILM ============ */
+#film{position:relative;height:640vh}
+@media (max-width:760px){#film{height:520vh}}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--dusk)}
+.stage{position:absolute;inset:0;clip-path:inset(var(--it,0px) var(--is,0px) var(--ib,0px) var(--is,0px) round var(--ir,0px));will-change:clip-path}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(180deg,rgba(16,21,26,.45) 0%,rgba(16,21,26,0) 18%,rgba(16,21,26,0) 52%,rgba(16,21,26,.72) 100%)}
+.veil{position:absolute;inset:0;background:var(--dusk);opacity:var(--veil,0);pointer-events:none}
+
+.title{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gr) calc(var(--gb) + 6vh) var(--gl);pointer-events:none;opacity:var(--t-o,1);transform:translateY(var(--t-y,0px))}
+.title .in{max-width:1320px;margin:0 auto;width:100%}
+.title .mono{color:var(--mist)}
+.title h1{font-size:clamp(44px,7.2vw,124px);line-height:.92;margin-top:14px;letter-spacing:-.03em}
+.title h1 em{font-style:italic;color:var(--glow)}
+.title .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:22px}
+.title p{max-width:44ch;color:var(--mist);font-weight:300;font-size:17px}
+.title p.mono{max-width:none;font-size:11px;font-weight:400}
+.cue{display:flex;align-items:center;gap:14px;color:var(--mist)}
+.cue span{position:relative;width:1px;height:52px;background:var(--line-d);overflow:hidden}
+.cue span::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--glow);animation:cue 2.2s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes cue{to{top:100%}}
+
+.chap{position:absolute;left:0;right:0;bottom:calc(var(--gb) + 10vh);padding:0 var(--gr) 0 var(--gl);pointer-events:none;opacity:0;visibility:hidden}
+.chap .in{max-width:1320px;margin:0 auto}
+.chap .mono{color:var(--glow)}
+.chap h3{font-size:clamp(38px,5.6vw,84px);margin:14px 0 18px;max-width:13ch;line-height:.98}
+.chap p{max-width:40ch;color:var(--mist);font-weight:300;font-size:16.5px}
+.chap .facts{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+.chap .facts div{border-left:1px solid var(--line-d);padding-left:14px}
+.chap .facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1.1}
+.chap .facts span{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--haze)}
+.chap.end{pointer-events:auto}
+.chap.end h3{max-width:none}
+.chap.end .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+
+.floors{position:absolute;right:var(--gr);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:2px;opacity:var(--hud,0);transition:opacity .4s;pointer-events:none}
+.floors div{display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:9px 0;color:var(--haze);transition:color .4s}
+.floors div b{font-family:var(--f-mono);font-weight:500;font-size:12px;width:30px;height:30px;border:1px solid var(--line-d);display:grid;place-items:center;transition:background .4s,border-color .4s,color .4s}
+.floors div span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:0;transform:translateX(6px);transition:opacity .4s,transform .4s}
+.floors div.on{color:var(--trav)}
+.floors div.on b{background:var(--glow);border-color:var(--glow);color:var(--dusk)}
+.floors div.on span{opacity:1;transform:none}
+.hud{position:absolute;left:var(--gl);right:var(--gr);top:calc(var(--gt) + 96px);display:flex;justify-content:space-between;gap:16px;color:var(--mist);opacity:var(--hud,0);pointer-events:none}
+.hud .rec{display:flex;align-items:center;gap:10px}
+.hud .rec i{width:7px;height:7px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 4px rgba(233,162,115,.18)}
+.scrub{position:absolute;left:var(--gl);right:var(--gr);bottom:calc(var(--gb) + 4vh);height:1px;background:var(--line-d);opacity:var(--hud,0)}
+.scrub i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p,0)*100%);background:var(--glow)}
+.scrub span{position:absolute;top:10px;transform:translateX(-50%);font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--haze);white-space:nowrap}
+.scrub span::before{content:"";position:absolute;left:50%;top:-14px;width:1px;height:7px;background:var(--haze)}
+.loadbar{position:absolute;left:var(--gl);top:calc(var(--gt) + 90px);display:flex;align-items:center;gap:10px;color:var(--haze);transition:opacity .6s}
+.loadbar i{display:block;width:80px;height:1px;background:var(--line-d);position:relative}
+.loadbar i::after{content:"";position:absolute;inset:0;width:calc(var(--lp,0)*100%);background:var(--mist)}
+@media (max-width:760px){
+  .floors{top:auto;bottom:auto;top:calc(var(--gt) + 130px);transform:none}
+  .floors div{padding:4px 0}
+  .floors div b{width:26px;height:26px;font-size:11px}
+  .floors div span{display:none}
+  .scrub span{display:none}
+  .hud .geo{display:none}
+  .chap{bottom:calc(var(--gb) + 8vh)}
+  .title p{font-size:15.5px}
+  .title .cue{display:none}
+  .chap .facts{gap:18px}
+  .chap .facts b{font-size:24px}
+}
+
+/* ============ SECTIONS ============ */
+.sec{padding-block:clamp(90px,12vw,170px)}
+.rv{transition:transform 1.1s cubic-bezier(.2,.7,.2,1),opacity 1.1s}
+.rv.pre{transform:translateY(34px);opacity:.25}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,7vw,120px);align-items:end}
+.intro h2{font-size:clamp(40px,5.4vw,82px)}
+.intro .side{display:flex;flex-direction:column;gap:28px;color:var(--mist)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(70px,9vw,120px);border-top:1px solid var(--line-d)}
+.stats div{padding:28px 24px 0 0;border-right:1px solid var(--line-d);min-width:0}
+.stats div+div{padding-left:24px}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(40px,4.6vw,68px);line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.stats span{display:block;margin-top:12px;color:var(--haze);font-size:14px;max-width:24ch}
+@media (max-width:900px){.intro{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(3){padding-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line-d);margin-top:28px}}
+
+/* exposé */
+.expo-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.expo-head .price{text-align:right}
+.expo-head .price b{display:block;font-family:var(--f-display);font-weight:400;font-size:clamp(34px,3.6vw,52px);line-height:1}
+.coords{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;color:var(--ink-2)}
+.gallery{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.gallery figure{margin:0;position:relative;overflow:hidden;background:var(--trav-2);min-width:0;cursor:zoom-in}
+.gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{position:absolute;left:14px;bottom:12px;right:14px;color:#f4efe7;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.g1{grid-column:span 8;aspect-ratio:16/9}
+.g2{grid-column:span 4}
+.g3,.g4,.g5{grid-column:span 4;aspect-ratio:4/3}
+.g2 img{aspect-ratio:auto}
+@media (max-width:760px){.g1{grid-column:span 12}.g2{grid-column:span 12;aspect-ratio:16/10}.g3,.g4,.g5{grid-column:span 12}.g4,.g5{grid-column:span 6;aspect-ratio:1}}
+.expo-body{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,100px);margin-top:clamp(60px,8vw,110px)}
+.expo-body .txt{display:flex;flex-direction:column;gap:20px;color:var(--ink-2)}
+.expo-body .txt h3{font-size:clamp(30px,3vw,44px);color:var(--ink)}
+.spec{width:100%;border-collapse:collapse;font-size:14.5px}
+.spec th,.spec td{padding:14px 0;border-bottom:1px solid var(--line-l);text-align:left;vertical-align:baseline}
+.spec th{font-family:var(--f-mono);font-weight:400;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);width:46%}
+.spec td{font-variant-numeric:tabular-nums;font-weight:500}
+.spec tr:first-child th,.spec tr:first-child td{border-top:1px solid var(--ink)}
+.expo-acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+@media (max-width:900px){.expo-body{grid-template-columns:1fr}.expo-head .price{text-align:left}}
+
+/* floors explorer */
+.levels{margin-top:clamp(70px,9vw,130px);border-top:1px solid var(--ink);padding-top:28px}
+.levels-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.levels-top h3{font-size:clamp(32px,3.6vw,54px)}
+.ltabs{display:flex;gap:0;border:1px solid var(--line-l);flex-wrap:wrap}
+.ltabs button{padding:12px 16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);border-right:1px solid var(--line-l);transition:background .3s,color .3s}
+.ltabs button:last-child{border-right:0}
+.ltabs button[aria-selected="true"]{background:var(--ink);color:var(--trav)}
+.lview{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,64px);margin-top:36px;align-items:start}
+.plan{background:#f3eee6;border:1px solid var(--line-l);padding:clamp(12px,2vw,24px);min-width:0}
+.plan svg{width:100%;height:auto;display:block}
+.plan .note{display:flex;justify-content:space-between;margin-top:12px;color:var(--ink-2)}
+.lside{display:flex;flex-direction:column;gap:22px;min-width:0}
+.lside .ph{aspect-ratio:16/10;overflow:hidden;background:var(--trav-2)}
+.lside .ph img{width:100%;height:100%;object-fit:cover;transition:opacity .5s}
+.lside h4{font-family:var(--f-display);font-weight:400;font-size:28px;margin:0;line-height:1.1}
+.rooms{list-style:none;margin:0;padding:0;font-size:14.5px}
+.rooms li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-l);cursor:default;transition:color .25s,padding .25s}
+.rooms li span:last-child{font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.rooms li.hl{color:var(--teak);padding-left:8px}
+@media (max-width:900px){.lview{grid-template-columns:1fr}}
+
+/* portfolio */
+.port-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:10px 16px;border:1px solid var(--line-d);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);transition:background .3s,color .3s,border-color .3s}
+.chip:hover{border-color:var(--mist)}
+.chip[aria-pressed="true"]{background:var(--trav);color:var(--dusk);border-color:var(--trav)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,34px);margin-top:48px}
+.card{display:flex;flex-direction:column;min-width:0;text-decoration:none;color:inherit}
+.card .pic{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--dusk-2)}
+.card canvas{position:absolute;inset:0;width:100%;height:100%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover canvas{transform:scale(1.035)}
+.card .st{position:absolute;left:14px;top:14px;display:flex;align-items:center;gap:8px;padding:7px 11px;background:rgba(16,21,26,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.card .st i{width:6px;height:6px;border-radius:50%;background:var(--pool)}
+.card .st.res i{background:var(--glow)}
+.card .st.off i{background:transparent;border:1px solid var(--mist)}
+.card .ref{position:absolute;right:14px;top:16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:rgba(235,228,216,.8)}
+.card .meta{display:flex;flex-direction:column;gap:8px;padding-top:18px}
+.card .loc{color:var(--haze)}
+.card h3{font-size:clamp(26px,2.2vw,32px);line-height:1.05}
+.card .row{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:1px solid var(--line-d);padding-top:12px;margin-top:6px;font-size:14px;color:var(--mist)}
+.card .row b{font-weight:500;color:var(--trav);font-variant-numeric:tabular-nums}
+.card.hide{display:none}
+.empty{margin-top:30px;color:var(--haze)}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.cards{grid-template-columns:1fr}.card .pic{aspect-ratio:4/3.4}}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,7vw,120px)}
+.svc .sticky{position:sticky;top:120px;align-self:start;display:flex;flex-direction:column;gap:24px}
+.svc-list{border-top:1px solid var(--ink)}
+.svc-item{border-bottom:1px solid var(--line-l)}
+.svc-item button{width:100%;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:26px 0;text-align:left}
+.svc-item h3{font-size:clamp(28px,2.8vw,40px);transition:color .3s}
+.svc-item button:hover h3{color:var(--teak)}
+.svc-item .pm{width:36px;height:36px;border:1px solid var(--line-l);position:relative;transition:transform .4s,background .3s}
+.svc-item .pm::before,.svc-item .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--ink);transform:translate(-50%,-50%)}
+.svc-item .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .4s}
+.svc-item.open .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.svc-item .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+.svc-item.open .body{grid-template-rows:1fr}
+.svc-item .body>div{overflow:hidden}
+.svc-item .body .in{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;padding:0 0 30px;color:var(--ink-2)}
+.svc-item ul{margin:0;padding:0;list-style:none;font-size:14px}
+.svc-item ul li{padding:7px 0;border-bottom:1px dashed var(--line-l)}
+@media (max-width:900px){.svc{grid-template-columns:1fr}.svc .sticky{position:static}.svc-item .body .in{grid-template-columns:1fr}}
+
+/* process */
+.proc{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:60px;counter-reset:s}
+.proc li{list-style:none;padding:0 22px 0 0;position:relative;min-width:0}
+.proc li::before{counter-increment:s;content:counter(s,decimal-leading-zero);display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--glow);padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--line-d)}
+.proc li::after{content:"";position:absolute;left:0;top:34px;width:7px;height:7px;border-radius:50%;background:var(--glow);transform:translateY(-50%)}
+.proc h3{font-size:26px;line-height:1.1;margin-bottom:12px}
+.proc p{font-size:14.5px;color:var(--mist)}
+.proc .term{display:block;margin-top:14px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--haze)}
+.proc{padding:0}
+@media (max-width:980px){.proc{grid-template-columns:1fr 1fr;row-gap:44px}}
+@media (max-width:560px){.proc{grid-template-columns:1fr}}
+
+/* valuation */
+.val{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:56px;border:1px solid var(--line-l)}
+.val form{padding:clamp(22px,3vw,44px);display:flex;flex-direction:column;gap:24px;border-right:1px solid var(--line-l);min-width:0}
+.field{display:flex;flex-direction:column;gap:10px}
+.field label,.field .lab{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.field output{color:var(--ink);font-variant-numeric:tabular-nums}
+select,input[type=text],input[type=email],input[type=tel],textarea{font:inherit;font-size:15px;color:inherit;background:transparent;border:0;border-bottom:1px solid var(--line-l);padding:10px 0;border-radius:0;width:100%;outline:none;transition:border-color .3s}
+select:focus,input:focus,textarea:focus{border-color:var(--teak)}
+select option{color:var(--ink);background:var(--trav)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:24px;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:1px;background:var(--ink)}
+input[type=range]::-moz-range-track{height:1px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--teak);border:3px solid var(--trav);box-shadow:0 0 0 1px var(--teak);margin-top:-9px}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--teak);border:3px solid var(--trav);box-shadow:0 0 0 1px var(--teak)}
+.toggles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tg{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line-l);cursor:pointer;font-size:14px;transition:border-color .3s,background .3s}
+.tg input{accent-color:var(--teak);width:16px;height:16px;margin:0}
+.tg:has(input:checked){border-color:var(--teak);background:rgba(140,86,52,.06)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-l)}
+.seg label{display:block;text-align:center;padding:11px 6px;font-size:13px;cursor:pointer;border-right:1px solid var(--line-l);transition:background .3s,color .3s;text-transform:none;letter-spacing:0;font-family:var(--f-body);color:var(--ink)}
+.seg label:last-child{border-right:0}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--ink);color:var(--trav)}
+.seg label:has(input:focus-visible){outline:2px solid var(--teak);outline-offset:-3px}
+.res{padding:clamp(22px,3vw,44px);background:var(--dusk);color:var(--trav);display:flex;flex-direction:column;gap:22px;min-width:0}
+.res .mono{color:var(--haze)}
+.res .range{font-family:var(--f-display);font-size:clamp(38px,4.4vw,64px);line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.res .range small{display:block;font-size:.42em;color:var(--mist);margin-top:12px;font-family:var(--f-body);font-weight:300}
+.res .mid{font-size:15px;color:var(--mist)}
+.res .mid b{color:var(--glow);font-weight:500}
+.brk{width:100%;border-collapse:collapse;font-size:14px}
+.brk td{padding:9px 0;border-bottom:1px solid var(--line-d)}
+.brk td:last-child{text-align:right;font-variant-numeric:tabular-nums;color:var(--mist)}
+.res .small{font-size:12.5px;color:var(--haze);margin-top:auto}
+@media (max-width:900px){.val{grid-template-columns:1fr}.val form{border-right:0;border-bottom:1px solid var(--line-l)}}
+
+/* market */
+.mkt{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(40px,6vw,100px);align-items:start}
+.mkt-tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.mkt-tbl th{font-family:var(--f-mono);font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--haze);text-align:left;padding:0 0 14px;border-bottom:1px solid var(--trav)}
+.mkt-tbl td{padding:13px 0;border-bottom:1px solid var(--line-d);vertical-align:middle}
+.mkt-tbl td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:14px}
+.mkt-tbl th.n{text-align:right}
+.mkt-tbl .bar{width:42%;padding-left:16px}
+.mkt-tbl .bar i{display:block;height:6px;background:linear-gradient(90deg,var(--teak),var(--glow));width:calc(var(--w)*100%)}
+.up{color:var(--pool)}
+.mkt-wrap{overflow-x:auto}
+@media (max-width:900px){.mkt{grid-template-columns:1fr}}
+@media (max-width:560px){.mkt-tbl .bar{display:none}}
+
+/* voices */
+.voices{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,6vw,100px);align-items:center}
+.quote{font-family:var(--f-display);font-size:clamp(28px,3.2vw,48px);line-height:1.18;letter-spacing:-.01em;margin:0;transition:opacity .5s}
+.quote::before{content:"„";color:var(--teak)}
+.quote::after{content:"“";color:var(--teak)}
+.who{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.who .mono{color:var(--ink-2)}
+.qnav{display:flex;gap:8px}
+.qnav button{width:46px;height:46px;border:1px solid var(--line-l);display:grid;place-items:center;transition:background .3s,color .3s}
+.qnav button:hover{background:var(--ink);color:var(--trav)}
+.qnav svg{width:16px;height:16px}
+.vside{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink)}
+.vside div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px solid var(--line-l)}
+.vside b{font-family:var(--f-display);font-weight:400;font-size:40px;line-height:1;font-variant-numeric:lining-nums}
+.vside span{color:var(--ink-2);font-size:14px;text-align:right;max-width:24ch}
+@media (max-width:900px){.voices{grid-template-columns:1fr}}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,34px);margin-top:56px}
+.mem{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mem .av{aspect-ratio:3/4;background:var(--dusk-2);position:relative;overflow:hidden;display:grid;place-items:center}
+.mem .av canvas{position:absolute;inset:0;width:100%;height:100%}
+.mem .av b{position:relative;font-family:var(--f-display);font-weight:400;font-style:italic;font-size:clamp(54px,6vw,86px);color:var(--trav);letter-spacing:-.02em}
+.mem h3{font-size:24px;line-height:1.1}
+.mem .mono{color:var(--haze)}
+.mem p{font-size:14px;color:var(--mist)}
+.mem .lang{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;color:var(--haze)}
+@media (max-width:980px){.team{grid-template-columns:1fr 1fr}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,110px)}
+.contact .left{display:flex;flex-direction:column;gap:30px}
+.offices{display:grid;grid-template-columns:1fr 1fr;gap:28px;border-top:1px solid var(--ink);padding-top:24px}
+.offices h4{margin:0 0 10px;font-family:var(--f-display);font-weight:400;font-size:26px}
+.offices p{font-size:14.5px;color:var(--ink-2);line-height:1.7}
+.copy{display:inline-flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink);border-bottom:1px dotted var(--ink-2);user-select:all}
+.copy-btn{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teak);margin-left:8px}
+.cform{display:flex;flex-direction:column;gap:26px;min-width:0}
+.cform .two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.cform textarea{resize:vertical;min-height:110px}
+.cform .consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--ink-2)}
+.cform .consent input{accent-color:var(--teak);margin-top:4px;flex:none}
+.cform .err{color:#9b3b22;font-size:13px;min-height:1em}
+.sent{border:1px solid var(--teak);padding:28px;display:flex;flex-direction:column;gap:10px}
+.sent h3{font-size:34px}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+@media (max-width:560px){.cform .two,.offices,.toggles{grid-template-columns:1fr}}
+
+/* footer */
+.ftr{padding-block:80px calc(var(--gb) + 40px);border-top:1px solid var(--line-d)}
+.ftr .big{font-family:var(--f-display);font-size:clamp(64px,15vw,240px);line-height:.85;letter-spacing:.06em;color:var(--dusk-3);white-space:nowrap;overflow:hidden;user-select:none}
+.ftr .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-top:50px;font-size:14px;color:var(--mist)}
+.ftr .cols a{display:block;text-decoration:none;padding:3px 0}
+.ftr .cols a:hover,.ftr .cols button:hover{color:var(--glow)}
+.ftr .cols button{display:block;padding:3px 0;color:var(--mist);text-align:left}
+.ftr .cols .mono{color:var(--haze);margin-bottom:12px;display:block}
+.ftr .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;padding-top:24px;border-top:1px solid var(--line-d);color:var(--haze);font-size:12.5px}
+@media (max-width:760px){.ftr .cols{grid-template-columns:1fr 1fr}}
+
+/* modals */
+dialog{border:0;padding:0;max-width:none;max-height:none;width:100%;height:100%;background:transparent;color:inherit}
+dialog::backdrop{background:rgba(8,10,13,.88);backdrop-filter:blur(6px)}
+.mbox{position:absolute;inset:calc(var(--gt) + 20px) var(--gr) calc(var(--gb) + 20px) var(--gl);display:flex;flex-direction:column;gap:14px;align-items:center;justify-content:center}
+.mbox video,.mbox img{max-width:min(1280px,100%);max-height:calc(100% - 60px);width:auto;height:auto;background:#000}
+.mclose{position:absolute;top:0;right:0;width:46px;height:46px;border:1px solid var(--line-d);color:var(--trav);font-size:22px;display:grid;place-items:center;background:rgba(16,21,26,.6)}
+.mbox .cap{color:var(--mist)}
+.legal .sheet{position:absolute;inset:calc(var(--gt) + 20px) var(--gr) calc(var(--gb) + 20px) var(--gl);max-width:820px;margin:0 auto;background:var(--trav);color:var(--ink);overflow:auto;padding:clamp(24px,4vw,56px)}
+.legal h2{font-size:clamp(36px,4vw,56px);margin-bottom:24px}
+.legal h3{font-family:var(--f-body);font-weight:600;font-size:15px;margin:26px 0 8px;letter-spacing:0}
+.legal p{font-size:14.5px;color:var(--ink-2);margin-bottom:10px;max-width:68ch}
+.legal .mclose{position:sticky;top:0;float:right;border-color:var(--line-l);color:var(--ink);background:var(--trav)}
+.toast{position:fixed;left:50%;bottom:calc(var(--gb) + 24px);transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--trav);color:var(--ink);padding:12px 18px;font-size:13.5px;z-index:95;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.rv.pre{transform:none!important;opacity:1!important;transition:none}
+  .cue span::after{animation:none}
+}
+</style>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Velaro Private Estates, zum Seitenanfang"><b>VELARO</b><span>Private Estates</span></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#villa">Cala Serena</a>
+      <a href="#anwesen">Anwesen</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#bewertung">Bewertung</a>
+      <a href="#markt">Markt</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn line" href="#kontakt">Private Besichtigung</a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="top"><a class="brand" href="#top"><b>VELARO</b><span>Private Estates</span></a><button class="x" id="drawerX" aria-label="Menü schließen">×</button></div>
+  <a class="big" href="#villa">Cala Serena</a>
+  <a class="big" href="#anwesen">Anwesen</a>
+  <a class="big" href="#leistungen">Leistungen</a>
+  <a class="big" href="#bewertung">Bewertung</a>
+  <a class="big" href="#markt">Markt</a>
+  <a class="big" href="#kontakt">Kontakt</a>
+  <p class="mono" style="margin-top:auto;color:var(--haze)">Palma · Hamburg · +34 971 418 260</p>
+</div>
+
+<main id="top">
+<!-- ============ HERO: scroll-driven drone flight ============ -->
+<section id="film" aria-label="Drohnenflug durch die Villa Cala Serena">
+  <div class="pin" id="pin">
+    <div class="stage" id="stage"><canvas id="cv" aria-hidden="true"></canvas></div>
+    <div class="veil" id="veil"></div>
+
+    <div class="loadbar mono" id="loadbar"><i></i><span id="loadtxt">Film lädt</span></div>
+
+    <div class="hud mono" aria-hidden="true">
+      <span class="rec"><i></i><span id="tc">00:00:00</span></span>
+      <span class="geo">39°31′N · 2°22′E · Andratx</span>
+    </div>
+
+    <div class="floors" aria-hidden="true" id="floors">
+      <div data-l="D"><span>Dachterrasse</span><b>D</b></div>
+      <div data-l="1"><span>Obergeschoss</span><b>1</b></div>
+      <div data-l="0"><span>Erdgeschoss</span><b>0</b></div>
+      <div data-l="P"><span>Terrasse &amp; Pool</span><b>P</b></div>
+    </div>
+
+    <div class="title" id="title">
+      <div class="in">
+        <p class="mono">Private Estates · Balearen · seit 2009</p>
+        <h1>Wohnen, wo der<br>Horizont <em>beginnt.</em></h1>
+        <div class="row">
+          <p>Wir vermitteln Architektenvillen auf den Balearen, viele davon diskret und off-market. Scrollen Sie durch die Villa Cala Serena, Etage für Etage.</p>
+          <span class="cue mono"><span></span>Scrollen zum Fliegen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chap" data-a=".08" data-b=".27">
+      <div class="in">
+        <p class="mono">Ebene P · Terrasse &amp; Pool</p>
+        <h3>Ein Pool, der ins Meer übergeht.</h3>
+        <p>25 Meter Infinity-Kante aus portugiesischem Kalkstein, ausgerichtet auf den Sonnenuntergang über der Dragonera.</p>
+        <div class="facts"><div><b class="num">25 × 5 m</b><span>Salzwasser-Pool</span></div><div><b class="num">420 m²</b><span>Travertin-Terrasse</span></div></div>
+      </div>
+    </div>
+    <div class="chap" data-a=".31" data-b=".52">
+      <div class="in">
+        <p class="mono">Ebene 0 · Erdgeschoss</p>
+        <h3>Die Glasfront verschwindet in der Wand.</h3>
+        <p>Elf Meter rahmenlose Schiebeelemente öffnen den Wohnraum vollständig zur Terrasse. Raumhöhe 5,40 m im Luftraum.</p>
+        <div class="facts"><div><b class="num">312 m²</b><span>Wohnen · Kochen · Essen</span></div><div><b class="num">5,40 m</b><span>Raumhöhe Galerie</span></div></div>
+      </div>
+    </div>
+    <div class="chap" data-a=".55" data-b=".70">
+      <div class="in">
+        <p class="mono">Ebene 0 → 1 · Treppe</p>
+        <h3>Teakstufen, frei auskragend.</h3>
+        <p>Jede Stufe ist einzeln in der Betonwand verankert. Das Geländer: 12 mm Edelstahlseile, sonst nichts.</p>
+      </div>
+    </div>
+    <div class="chap" data-a=".72" data-b=".87">
+      <div class="in">
+        <p class="mono">Ebene 1 · Obergeschoss</p>
+        <h3>Aufwachen über dem Meer.</h3>
+        <p>Die Master-Suite belegt den ganzen Westflügel: Ankleide, Bad mit freistehender Steinwanne, eigene Terrasse.</p>
+        <div class="facts"><div><b class="num">96 m²</b><span>Master-Suite</span></div><div><b class="num">6</b><span>Schlafzimmer gesamt</span></div></div>
+      </div>
+    </div>
+    <div class="chap end" data-a=".9" data-b="1.2">
+      <div class="in">
+        <p class="mono">Ref. VE-0417 · Exklusiv bei Velaro</p>
+        <h3>Villa Cala Serena</h3>
+        <div class="facts"><div><b class="num">742 m²</b><span>Wohnfläche</span></div><div><b class="num">3.180 m²</b><span>Grundstück</span></div><div><b class="num">€ 14,8 Mio.</b><span>Kaufpreis</span></div></div>
+        <div class="acts"><a class="btn glow" href="#villa">Exposé ansehen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a><button class="btn line" data-film>Film mit Ton</button></div>
+      </div>
+    </div>
+
+    <div class="scrub" aria-hidden="true"><i></i>
+      <span style="left:4%">Ankunft</span><span style="left:18%">Pool</span><span style="left:41%">Erdgeschoss</span><span style="left:62%">Treppe</span><span style="left:80%">Obergeschoss</span><span style="left:95%">Überblick</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="sec" id="haus">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv">
+        <p class="eyebrow mono">Das Haus Velaro</p>
+        <h2 style="margin-top:26px">Wir verkaufen wenige Häuser. Dafür <i>die richtigen.</i></h2>
+      </div>
+      <div class="side rv">
+        <p class="lead">Velaro wurde 2009 in Palma gegründet. Heute begleiten zwölf Beraterinnen und Berater aus Palma und Hamburg Käufer und Eigentümer von Anwesen ab drei Millionen Euro.</p>
+        <p>Fast zwei Drittel unserer Objekte erscheinen nie in einem Portal. Sie gehen an vorgeprüfte Interessenten, nach einem Gespräch, mit einem Film und einer vollständigen Unterlagenmappe.</p>
+        <a class="btn line" href="#leistungen" style="align-self:flex-start">Unsere Leistungen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="stats">
+      <div><b data-count="312">312</b><span>vermittelte Anwesen seit 2009</span></div>
+      <div><b>€ <span data-count="1.9" data-dec="1" style="all:unset">1,9</span> Mrd.</b><span>Transaktionsvolumen</span></div>
+      <div><b><span data-count="64" style="all:unset">64</span> %</b><span>davon diskret, ohne öffentliches Inserat</span></div>
+      <div><b><span data-count="94" style="all:unset">94</span> Tage</b><span>durchschnittlich bis zur notariellen Escritura</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPOSÉ ============ -->
+<section class="sec light" id="villa">
+  <div class="wrap">
+    <div class="expo-head rv">
+      <div>
+        <p class="eyebrow mono">Exposé · Ref. VE-0417</p>
+        <h2 style="margin-top:22px">Villa Cala <i>Serena</i></h2>
+        <div class="coords mono"><span>Andratx, Mallorca Südwest</span><span>39°31′N 2°22′E</span><span>Baujahr 2025</span><span>Energieklasse A</span></div>
+      </div>
+      <div class="price">
+        <p class="mono">Kaufpreis</p>
+        <b class="num">€ 14.800.000</b>
+        <p class="mono" style="margin-top:8px">zzgl. 3 % Käuferprovision</p>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <figure class="g1 rv" data-full="img/s0_3.webp"><img src="img/s0_3.webp" alt="Villa Cala Serena bei Sonnenuntergang mit Infinity-Pool im Vordergrund" loading="lazy"><figcaption>Westansicht · Pool-Ebene</figcaption></figure>
+      <figure class="g2 rv" data-full="img/s6_4.webp"><img src="img/s6_4.webp" alt="Freitragende Teaktreppe neben Glasfassade" loading="lazy"><figcaption>Treppe · Luftraum 5,40 m</figcaption></figure>
+      <figure class="g3 rv" data-full="img/s4_4.webp"><img src="img/s4_4.webp" alt="Wohnbereich mit Sofa, Kamin und Blick zur Treppe" loading="lazy"><figcaption>Wohnen · Erdgeschoss</figcaption></figure>
+      <figure class="g4 rv" data-full="img/s8_3.webp"><img src="img/s8_3.webp" alt="Blick aus dem Schlafzimmer über Terrasse und Meer" loading="lazy"><figcaption>Master-Suite</figcaption></figure>
+      <figure class="g5 rv" data-full="img/s9_6.webp"><img src="img/s9_6.webp" alt="Luftaufnahme der Villa mit beleuchtetem Pool in der Dämmerung" loading="lazy"><figcaption>Blaue Stunde · Luftbild</figcaption></figure>
+    </div>
+
+    <div class="expo-body">
+      <div class="txt rv">
+        <h3>Drei versetzte Kuben, ein Blick nach Westen.</h3>
+        <p>Die Villa liegt am obersten Rand einer Hangparzelle über der Cala Serena, eingebettet in einen alten Bestand aus Aleppokiefern und Olivenbäumen. Der Entwurf des Palmesaner Büros Ferrer Oliver schichtet drei Baukörper aus weißem Sichtbeton und geöltem Teak so übereinander, dass jede Ebene ihre eigene Terrasse mit freiem Meerblick erhält.</p>
+        <p>Innen dominieren Travertin, Eiche und Glas. Die Haustechnik ist zeitgemäß ausgeführt: Erdwärme mit Fußbodenkühlung, 28 kWp Photovoltaik mit Speicher, KNX-Steuerung, eigene Zisterne mit 180 m³ und Osmoseanlage.</p>
+        <p>Alle Genehmigungen liegen vor, einschließlich Licencia de primera ocupación und Cédula de habitabilidad. Die Villa wird vollständig möbliert mit Stücken von Minotti, B&amp;B Italia und Vincent Van Duysen übergeben.</p>
+        <div class="expo-acts">
+          <a class="btn line" href="#kontakt" data-ref="VE-0417">Besichtigung anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <button class="btn line" data-film>Film ansehen</button>
+        </div>
+      </div>
+      <div class="rv">
+        <table class="spec">
+          <tbody>
+            <tr><th>Wohnfläche</th><td>742 m² (construidos 868 m²)</td></tr>
+            <tr><th>Grundstück</th><td>3.180 m², terrassierter Garten</td></tr>
+            <tr><th>Ebenen</th><td>Pool-Ebene, EG, OG, Dachterrasse</td></tr>
+            <tr><th>Schlafzimmer / Bäder</th><td>6 Suiten / 7 Bäder, 1 Gäste-WC</td></tr>
+            <tr><th>Pool</th><td>25 × 5 m Infinity, Salzwasser, beheizt</td></tr>
+            <tr><th>Spa</th><td>Sauna, Dampfbad, Fitness 72 m²</td></tr>
+            <tr><th>Personal</th><td>Apartment 54 m², separater Zugang</td></tr>
+            <tr><th>Garage</th><td>4 Stellplätze, 2 Wallboxen</td></tr>
+            <tr><th>Entfernungen</th><td>Port d'Andratx 6 min · Flughafen PMI 32 min</td></tr>
+            <tr><th>Grundsteuer (IBI)</th><td>ca. € 9.400 p. a.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- floors explorer -->
+    <div class="levels rv" id="ebenen">
+      <div class="levels-top">
+        <div>
+          <p class="eyebrow mono">Grundrisse</p>
+          <h3 style="margin-top:16px">Die Villa, <i>Ebene für Ebene</i></h3>
+        </div>
+        <div class="ltabs" role="tablist" aria-label="Ebene wählen" id="ltabs"></div>
+      </div>
+      <div class="lview">
+        <div class="plan">
+          <svg id="plan" viewBox="0 0 1000 620" role="img" aria-label="Schematischer Grundriss"></svg>
+          <div class="note mono"><span id="planName">Erdgeschoss</span><span id="planArea">312 m²</span></div>
+        </div>
+        <div class="lside">
+          <div class="ph"><img id="lph" src="img/s4_4.webp" alt="" loading="lazy"></div>
+          <h4 id="lttl">Erdgeschoss</h4>
+          <p id="ltxt" style="color:var(--ink-2)"></p>
+          <ul class="rooms" id="rooms"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="sec" id="anwesen">
+  <div class="wrap">
+    <div class="port-head rv">
+      <div>
+        <p class="eyebrow mono">Portfolio · Stand November 2026</p>
+        <h2 style="margin-top:22px">Weitere <i>Anwesen</i></h2>
+      </div>
+      <div class="filters" role="group" aria-label="Nach Insel filtern" id="filters">
+        <button class="chip" data-f="all" aria-pressed="true">Alle</button>
+        <button class="chip" data-f="Mallorca" aria-pressed="false">Mallorca</button>
+        <button class="chip" data-f="Ibiza" aria-pressed="false">Ibiza</button>
+        <button class="chip" data-f="Menorca" aria-pressed="false">Menorca</button>
+        <button class="chip" data-f="off" aria-pressed="false">Off-Market</button>
+      </div>
+    </div>
+    <div class="cards" id="cards"></div>
+    <p class="empty" id="empty" hidden>In dieser Auswahl ist gerade nichts frei. Fragen Sie nach unseren diskreten Angeboten.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec light" id="leistungen">
+  <div class="wrap svc">
+    <div class="sticky rv">
+      <p class="eyebrow mono">Leistungen</p>
+      <h2>Ein Ansprech&shy;partner, <i>von der Suche bis zum Schlüssel.</i></h2>
+      <p class="lead" style="color:var(--ink-2)">Wir arbeiten mit festen Partnern auf der Insel: Anwälte, Architekten, Gutachter, Banken. Sie sprechen mit einer Person.</p>
+    </div>
+    <div class="svc-list" id="svc"></div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="ablauf">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow mono">Ablauf eines Kaufs</p>
+      <h2 style="margin-top:22px;max-width:16ch">In fünf Schritten zur <i>Escritura.</i></h2>
+    </div>
+    <ol class="proc rv">
+      <li><h3>Erstgespräch</h3><p>Wir klären Lage, Budget, Zeitrahmen und Nutzung. Danach erhalten Sie eine Auswahl, keine Liste.</p><span class="term">Dauer: 60 Minuten, Palma, Hamburg oder per Video</span></li>
+      <li><h3>Private Besichtigung</h3><p>Drei bis fünf Häuser an einem Tag, mit Fahrer und vorab versandtem Film jedes Objekts.</p><span class="term">Inkl. Off-Market-Objekte nach NDA</span></li>
+      <li><h3>Prüfung</h3><p>Unsere Partnerkanzlei prüft Grundbuch, Baugenehmigungen, Lasten und Steuern.</p><span class="term">Nota simple · Licencia · Cédula · NIE</span></li>
+      <li><h3>Reservierung</h3><p>Privatvertrag mit Anzahlung, üblich sind zehn Prozent. Der Preis ist damit für beide Seiten gesichert.</p><span class="term">Contrato de arras</span></li>
+      <li><h3>Notar &amp; Übergabe</h3><p>Beurkundung beim spanischen Notar, Übergabe der Schlüssel am selben Tag. Wir bleiben danach erreichbar.</p><span class="term">Escritura pública · ITP 8–13 %</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ VALUATION ============ -->
+<section class="sec light" id="bewertung">
+  <div class="wrap">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap">
+      <div>
+        <p class="eyebrow mono">Für Eigentümer</p>
+        <h2 style="margin-top:22px">Was ist Ihr Haus <i>wert?</i></h2>
+      </div>
+      <p class="lead" style="color:var(--ink-2);max-width:44ch">Eine erste Einschätzung auf Basis unserer Abschlüsse der letzten 24 Monate. Die verbindliche Bewertung machen wir vor Ort, kostenfrei.</p>
+    </div>
+    <div class="val rv">
+      <form id="valForm" autocomplete="off">
+        <div class="field">
+          <label for="vRegion">Lage</label>
+          <select id="vRegion"></select>
+        </div>
+        <div class="field">
+          <label for="vLiving">Wohnfläche <output id="oLiving" for="vLiving">420 m²</output></label>
+          <input type="range" id="vLiving" min="80" max="1500" step="10" value="420">
+        </div>
+        <div class="field">
+          <label for="vPlot">Grundstück <output id="oPlot" for="vPlot">1.800 m²</output></label>
+          <input type="range" id="vPlot" min="0" max="20000" step="100" value="1800">
+        </div>
+        <div class="field">
+          <span class="lab">Zustand</span>
+          <div class="seg" role="radiogroup" aria-label="Zustand">
+            <label><input type="radio" name="vCond" id="vCond0" value="-0.15">Zu sanieren</label>
+            <label><input type="radio" name="vCond" id="vCond1" value="0" checked>Gepflegt</label>
+            <label><input type="radio" name="vCond" id="vCond2" value="0.08">Neubau</label>
+          </div>
+        </div>
+        <div class="field">
+          <span class="lab">Ausstattung</span>
+          <div class="toggles">
+            <label class="tg"><input type="checkbox" id="vSea" checked>Meerblick</label>
+            <label class="tg"><input type="checkbox" id="vPool" checked>Pool</label>
+            <label class="tg"><input type="checkbox" id="vLic">Ferienvermietungslizenz</label>
+            <label class="tg"><input type="checkbox" id="vFront">Erste Meereslinie</label>
+          </div>
+        </div>
+      </form>
+      <div class="res" aria-live="polite">
+        <p class="mono">Geschätzter Marktwert</p>
+        <div class="range" id="vRange">€ 5,1 – 6,1 Mio.<small>Spanne ± 9 %</small></div>
+        <p class="mid">Mittelwert <b id="vMid">€ 5.600.000</b> · entspricht <span id="vSqm">€ 13.300</span> pro m² Wohnfläche</p>
+        <table class="brk"><tbody id="vBrk"></tbody></table>
+        <a class="btn glow" href="#kontakt" id="vCta" style="align-self:flex-start">Bewertung vor Ort vereinbaren <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <p class="small">Orientierungswert, kein Gutachten. Grundlage: Velaro-Abschlüsse und Notarstatistik 2024–2026, Objekte ab € 2 Mio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKET ============ -->
+<section class="sec" id="markt">
+  <div class="wrap mkt">
+    <div class="rv" style="display:flex;flex-direction:column;gap:24px">
+      <p class="eyebrow mono">Marktbericht Herbst 2026</p>
+      <h2>Wo die Preise <i>gerade stehen.</i></h2>
+      <p class="lead" style="color:var(--mist)">Durchschnittliche Abschlusspreise für Villen und Penthäuser ab € 2 Mio. in unseren Kernlagen, je Quadratmeter Wohnfläche.</p>
+      <p style="color:var(--haze);font-size:14px">Der Südwesten Mallorcas bleibt die teuerste Lage der Balearen. Am stärksten zugelegt haben Ibizas Norden und die Südküste Menorcas, wo das Angebot an Neubauten knapp ist.</p>
+    </div>
+    <div class="mkt-wrap rv">
+      <table class="mkt-tbl">
+        <thead><tr><th>Lage</th><th class="bar" aria-hidden="true"></th><th class="n">€ / m²</th><th class="n">ggü. 2025</th></tr></thead>
+        <tbody id="mkt"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="sec light" id="stimmen">
+  <div class="wrap voices">
+    <div class="rv">
+      <p class="eyebrow mono">Stimmen</p>
+      <blockquote class="quote" id="quote" style="margin-top:28px"></blockquote>
+      <div class="who">
+        <p class="mono" id="qwho"></p>
+        <div class="qnav"><button id="qPrev" aria-label="Vorherige Stimme"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15 8H2M7 3L2 8l5 5"/></svg></button><button id="qNext" aria-label="Nächste Stimme"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button></div>
+      </div>
+    </div>
+    <div class="vside rv">
+      <div><b>4,9</b><span>Weiterempfehlung, Befragung von 186 Kunden 2025</span></div>
+      <div><b>41 %</b><span>unserer Käufer kommen über eine persönliche Empfehlung</span></div>
+      <div><b>11</b><span>Sprachen im Team, darunter Katalanisch und Schwedisch</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section class="sec" id="team">
+  <div class="wrap">
+    <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap">
+      <div>
+        <p class="eyebrow mono">Ihre Ansprechpartner</p>
+        <h2 style="margin-top:22px">Menschen, die die <i>Insel kennen.</i></h2>
+      </div>
+    </div>
+    <div class="team" id="teamGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec light" id="kontakt">
+  <div class="wrap contact">
+    <div class="left rv">
+      <p class="eyebrow mono">Kontakt</p>
+      <h2>Sprechen wir über <i>Ihr Haus.</i></h2>
+      <p class="lead" style="color:var(--ink-2)">Wir melden uns innerhalb von 24 Stunden, auf Wunsch auch am Wochenende. Alle Anfragen behandeln wir vertraulich.</p>
+      <div class="offices">
+        <div>
+          <h4>Palma</h4>
+          <p>Passeig del Born 14, 2º<br>07012 Palma de Mallorca</p>
+          <p style="margin-top:10px"><span class="copy" id="telP">+34 971 418 260</span><button class="copy-btn" data-copy="telP">Kopieren</button></p>
+        </div>
+        <div>
+          <h4>Hamburg</h4>
+          <p>Neuer Wall 61<br>20354 Hamburg</p>
+          <p style="margin-top:10px"><span class="copy" id="telH">+49 40 3346 2190</span><button class="copy-btn" data-copy="telH">Kopieren</button></p>
+        </div>
+      </div>
+      <p style="font-size:14.5px;color:var(--ink-2)">E-Mail: <span class="copy" id="mail">privat@velaro-estates.example</span><button class="copy-btn" data-copy="mail">Kopieren</button></p>
+    </div>
+    <div class="rv">
+      <form class="cform" id="cform" novalidate>
+        <div class="field">
+          <span class="lab">Ich möchte</span>
+          <div class="seg" role="radiogroup" aria-label="Anliegen">
+            <label><input type="radio" name="cType" id="cT0" value="Kaufen" checked>Kaufen</label>
+            <label><input type="radio" name="cType" id="cT1" value="Verkaufen">Verkaufen</label>
+            <label><input type="radio" name="cType" id="cT2" value="Bewerten">Bewerten</label>
+          </div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="cName">Name</label><input type="text" id="cName" autocomplete="name" placeholder="Vor- und Nachname"></div>
+          <div class="field"><label for="cMail">E-Mail</label><input type="email" id="cMail" autocomplete="email" placeholder="name@beispiel.de"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="cTel">Telefon <span style="text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" id="cTel" autocomplete="tel" placeholder="+49 …"></div>
+          <div class="field"><label for="cBudget">Budget</label>
+            <select id="cBudget"><option>€ 3 – 5 Mio.</option><option selected>€ 5 – 10 Mio.</option><option>€ 10 – 20 Mio.</option><option>über € 20 Mio.</option><option>Noch offen</option></select></div>
+        </div>
+        <div class="field"><label for="cMsg">Nachricht</label><textarea id="cMsg" placeholder="Lage, Zeitrahmen, Wünsche …"></textarea></div>
+        <label class="consent"><input type="checkbox" id="cOk"><span>Ich bin einverstanden, dass Velaro meine Angaben zur Bearbeitung der Anfrage verwendet. Details in der <button type="button" data-legal="datenschutz" style="text-decoration:underline">Datenschutzerklärung</button>.</span></label>
+        <p class="err" id="cErr" role="alert"></p>
+        <button class="btn line" type="submit" style="align-self:flex-start">Anfrage senden <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+      </form>
+      <div class="sent" id="sent" hidden>
+        <p class="mono" style="color:var(--teak)">Demo-Formular</p>
+        <h3>Danke, <span id="sentName"></span>.</h3>
+        <p style="color:var(--ink-2)">Dies ist eine Beispielseite. Ihre Angaben wurden nicht übertragen und nirgends gespeichert.</p>
+        <button class="btn line" id="sentBack" style="align-self:flex-start;margin-top:10px">Neue Anfrage</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="big" aria-hidden="true">VELARO</div>
+    <div class="cols">
+      <div><span class="mono">Velaro Private Estates S.L.</span><p style="max-width:36ch">Architektenvillen, Fincas und Penthäuser auf Mallorca, Ibiza und Menorca. Kauf, Verkauf, Bewertung und Verwaltung.</p></div>
+      <div><span class="mono">Seite</span><a href="#villa">Cala Serena</a><a href="#anwesen">Anwesen</a><a href="#leistungen">Leistungen</a><a href="#bewertung">Bewertung</a></div>
+      <div><span class="mono">Haus</span><a href="#ablauf">Ablauf</a><a href="#markt">Marktbericht</a><a href="#team">Team</a><a href="#kontakt">Kontakt</a></div>
+      <div><span class="mono">Rechtliches</span><button data-legal="impressum">Impressum</button><button data-legal="datenschutz">Datenschutz</button><button data-legal="hinweis">Bildnachweis</button></div>
+    </div>
+    <div class="base"><span>© 2026 Velaro Private Estates S.L. · Fiktives Unternehmen, Demo-Website</span><span class="mono">API · Registro AICAT 4128</span></div>
+  </div>
+</footer>
+
+<dialog id="filmDlg" aria-label="Film">
+  <div class="mbox">
+    <button class="mclose" data-close aria-label="Schließen">×</button>
+    <video id="filmVid" src="media/villa-flight.mp4" controls playsinline preload="none" poster="img/s0_3.webp"></video>
+    <p class="cap mono">Villa Cala Serena · Drohnenflug · 0:10</p>
+  </div>
+</dialog>
+<dialog id="imgDlg" aria-label="Bild">
+  <div class="mbox">
+    <button class="mclose" data-close aria-label="Schließen">×</button>
+    <img id="imgBig" src="" alt="">
+    <p class="cap mono" id="imgCap"></p>
+  </div>
+</dialog>
+<dialog id="legalDlg" class="legal" aria-label="Rechtliches">
+  <div class="sheet">
+    <button class="mclose" data-close aria-label="Schließen">×</button>
+    <div id="legalBody"></div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const fmt = n => new Intl.NumberFormat("de-DE").format(Math.round(n));
+
+/* ---------------- HERO FILM: scroll-scrubbed frame sequence ---------------- */
+// two Full-HD sequences: the full 16:9 frame, and a 3:4 centre crop at full height for portrait screens
+const portrait = innerWidth / innerHeight < 1;
+const N = 240;
+const dir = portrait ? "frames-aip/" : "frames-ai/";
+const src = i => dir + "f" + String(i + 1).padStart(3, "0") + ".webp";
+const frames = new Array(N);
+const ok = new Uint8Array(N);
+let loaded = 0;
+const cv = $("#cv"), ctx = cv.getContext("2d");
+const film = $("#film"), stage = $("#stage"), pin = $("#pin");
+let W = 0, H = 0, cur = 0, target = 0, drawn = -1;
+
+function size() {
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.imageSmoothingQuality = "high";
+  drawn = -1;
+}
+function nearest(i) {
+  if (ok[i]) return i;
+  for (let d = 1; d < N; d++) {
+    if (i - d >= 0 && ok[i - d]) return i - d;
+    if (i + d < N && ok[i + d]) return i + d;
+  }
+  return -1;
+}
+function draw(i) {
+  const k = nearest(i);
+  if (k < 0 || k === drawn) return;
+  const img = frames[k];
+  // Fill the screen, but never enlarge the film more than 12 % beyond its full width on landscape screens:
+  // on 4:3 tablets it then sits as a cinema-style band instead of a blown-up, soft crop.
+  const cover = Math.max(W / img.naturalWidth, H / img.naturalHeight);
+  const fit = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+  const s = portrait ? cover : Math.min(cover, fit * 1.12);
+  const w = img.naturalWidth * s, h = img.naturalHeight * s;
+  if (h < H - 1 || w < W - 1) { ctx.fillStyle = "#10151a"; ctx.fillRect(0, 0, W, H); }
+  ctx.drawImage(img, (W - w) / 2, (H - h) / 2, w, h);
+  drawn = k;
+}
+// progressive loading: coarse frames first so scrubbing works immediately
+const order = [];
+const seen = new Uint8Array(N);
+for (const step of [32, 16, 8, 4, 2, 1]) for (let i = 0; i < N; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
+if (!seen[N - 1]) order.splice(1, 0, N - 1);
+let qi = 0;
+const lb = $("#loadbar");
+function pump() {
+  if (qi >= order.length) return;
+  const i = order[qi++];
+  const img = new Image();
+  img.decoding = "async";
+  img.onload = () => {
+    frames[i] = img; ok[i] = 1; loaded++;
+    lb.style.setProperty("--lp", loaded / N);
+    if (loaded === N) { lb.style.opacity = 0; }
+    if (i === 0 || Math.abs(i - Math.round(cur)) < 40) drawn = -1;
+    pump();
+  };
+  img.onerror = () => { loaded++; pump(); };
+  img.src = src(i);
+}
+for (let c = 0; c < 6; c++) pump();
+
+const chaps = $$(".chap").map(el => ({ el, a: +el.dataset.a, b: +el.dataset.b }));
+const floorEls = $$("#floors div");
+const title = $("#title"), veil = $("#veil"), tc = $("#tc"), hdr = $("#hdr");
+let prog = 0, titleTop = innerHeight * .55;
+const measureTitle = () => { titleTop = $(".in", title).getBoundingClientRect().top - (parseFloat(getComputedStyle(title).getPropertyValue("--t-y")) || 0); };
+function heroProgress() {
+  const r = film.getBoundingClientRect();
+  const total = film.offsetHeight - pin.offsetHeight;
+  return clamp(-r.top / total, 0, 1);
+}
+function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+function layout(p) {
+  // the framed window opens to full bleed over the first part of the scroll
+  const o = ease(clamp(p / .07, 0, 1));
+  const mob = innerWidth < 760;
+  const it = (mob ? 96 : 108) * (1 - o);
+  const is = (mob ? 16 : Math.max(24, innerWidth * .06)) * (1 - o);
+  // the window ends just above the headline block, so nothing overlaps at rest
+  const bot = Math.max(innerHeight * .3, innerHeight - titleTop + (mob ? 22 : 34)) * (1 - o);
+  stage.style.setProperty("--it", it + "px");
+  stage.style.setProperty("--is", is + "px");
+  stage.style.setProperty("--ib", bot + "px");
+  stage.style.setProperty("--ir", (2 * (1 - o)) + "px");
+  title.style.setProperty("--t-o", 1 - clamp(p / .05, 0, 1));
+  title.style.setProperty("--t-y", (-40 * clamp(p / .06, 0, 1)) + "px");
+  pin.style.setProperty("--hud", clamp((p - .05) / .03, 0, 1) * (1 - clamp((p - .985) / .015, 0, 1)));
+  pin.style.setProperty("--p", p);
+  veil.style.setProperty("--veil", clamp((p - .975) / .025, 0, 1) * .85);
+  for (const c of chaps) {
+    const fadeIn = clamp((p - c.a) / .025, 0, 1), fadeOut = 1 - clamp((p - (c.b - .025)) / .025, 0, 1);
+    const v = Math.min(fadeIn, fadeOut);
+    c.el.style.opacity = v;
+    c.el.style.visibility = v > 0.01 ? "visible" : "hidden";
+    c.el.style.transform = `translateY(${(1 - fadeIn) * 30 - (1 - fadeOut) * 20}px)`;
+  }
+  const L = p < .30 ? "P" : p < .56 ? "0" : p < .89 ? "1" : "D";
+  floorEls.forEach(f => f.classList.toggle("on", f.dataset.l === L));
+  const secs = p * 10, ff = Math.floor((secs % 1) * 24);
+  tc.textContent = `00:${String(Math.floor(secs)).padStart(2, "0")}:${String(ff).padStart(2, "0")} · F ${String(Math.round(p * 239) + 1).padStart(3, "0")}/240`;
+}
+function onScroll() {
+  prog = heroProgress();
+  target = prog * (N - 1);
+  hdr.classList.toggle("solid", scrollY > film.offsetHeight - innerHeight * 1.05);
+}
+function tick() {
+  cur += (target - cur) * (RM ? 1 : .18);
+  if (Math.abs(target - cur) < .01) cur = target;
+  draw(Math.round(cur));
+  layout(prog);
+  requestAnimationFrame(tick);
+}
+addEventListener("scroll", onScroll, { passive: true });
+addEventListener("resize", () => { size(); measureTitle(); onScroll(); });
+if (document.fonts) document.fonts.ready.then(measureTitle);
+size(); measureTitle(); onScroll(); requestAnimationFrame(tick);
+
+/* ---------------- reveal (from a visible resting state) ---------------- */
+if (!RM && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  $$(".rv").forEach(el => { if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); io.observe(el); } });
+}
+/* count-up */
+const cio = "IntersectionObserver" in window && !RM ? new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, to = +el.dataset.count, dec = +(el.dataset.dec || 0), t0 = performance.now();
+  const step = t => { const k = clamp((t - t0) / 1600, 0, 1), v = to * (1 - Math.pow(1 - k, 3)); el.textContent = v.toLocaleString("de-DE", { minimumFractionDigits: dec, maximumFractionDigits: dec }); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}), { threshold: .6 }) : null;
+if (cio) $$("[data-count]").forEach(el => { if (el.getBoundingClientRect().top > innerHeight) cio.observe(el); });
+
+/* ---------------- header / drawer ---------------- */
+const drawer = $("#drawer"), burger = $("#burger");
+const setDrawer = o => { drawer.classList.toggle("open", o); drawer.setAttribute("aria-hidden", !o); burger.setAttribute("aria-expanded", o); document.body.classList.toggle("lock", o); };
+burger.onclick = () => setDrawer(true);
+$("#drawerX").onclick = () => setDrawer(false);
+$$("a", drawer).forEach(a => a.addEventListener("click", () => setDrawer(false)));
+
+/* ---------------- modals ---------------- */
+const filmDlg = $("#filmDlg"), vid = $("#filmVid");
+$$("[data-film]").forEach(b => b.addEventListener("click", () => { filmDlg.showModal(); vid.currentTime = 0; vid.play().catch(() => {}); }));
+filmDlg.addEventListener("close", () => vid.pause());
+const imgDlg = $("#imgDlg");
+$$(".gallery figure").forEach(f => f.addEventListener("click", () => { $("#imgBig").src = f.dataset.full; $("#imgBig").alt = $("img", f).alt; $("#imgCap").textContent = $("figcaption", f).textContent; imgDlg.showModal(); }));
+$$("dialog").forEach(d => {
+  d.addEventListener("click", e => { if (e.target === d || e.target.classList.contains("mbox") || e.target.closest("[data-close]")) d.close(); });
+});
+const toast = $("#toast"); let tt;
+const say = m => { toast.textContent = m; toast.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("on"), 2400); };
+
+/* ---------------- floors explorer ---------------- */
+// rects on a 1000×620 board: [x, y, w, h, name, m²]
+const LEVELS = [
+  { id: "D", name: "Dachterrasse", area: "186 m² Terrasse", img: "img/s9_6.webp",
+    txt: "Die oberste Ebene ist vollständig Außenraum: Sonnendeck, Outdoor-Kino und ein Whirlpool mit Blick auf die Dragonera.",
+    rooms: [[60, 70, 420, 300, "Sonnendeck", 92], [480, 70, 220, 180, "Whirlpool", 18], [480, 250, 220, 120, "Bar", 22], [700, 70, 240, 300, "Outdoor-Kino", 54], [60, 370, 260, 180, "Treppenhaus", 0]] },
+  { id: "1", name: "Obergeschoss", area: "248 m²", img: "img/s8_3.webp",
+    txt: "Vier Suiten mit eigenen Bädern, verbunden über eine verglaste Galerie, die über dem Wohnraum schwebt.",
+    rooms: [[40, 40, 420, 330, "Master-Suite", 96], [460, 40, 200, 200, "Suite 2", 34], [660, 40, 300, 200, "Suite 3", 38], [460, 240, 500, 130, "Galerie / Luftraum", 0], [40, 370, 260, 210, "Ankleide & Bad", 0], [300, 370, 160, 210, "Treppe", 0], [460, 370, 500, 210, "Suite 4 mit Terrasse", 42]] },
+  { id: "0", name: "Erdgeschoss", area: "312 m²", img: "img/s4_4.webp",
+    txt: "Ein durchgehender Raum aus Wohnen, Kochen und Essen. Die Glasfront öffnet sich auf elf Metern zur Pool-Terrasse.",
+    rooms: [[40, 40, 520, 340, "Wohnen", 128], [560, 40, 400, 200, "Küche", 46], [560, 240, 400, 140, "Essen", 38], [40, 380, 220, 200, "Bibliothek / Büro", 28], [260, 380, 160, 200, "Treppe", 0], [420, 380, 220, 200, "Weinzimmer", 14], [640, 380, 320, 200, "Gästesuiten 5 & 6", 58]] },
+  { id: "P", name: "Terrasse & Pool", area: "182 m² + 420 m² Terrasse", img: "img/s1_6.webp",
+    txt: "Die Gartenebene mit Infinity-Pool, Spa, Personal-Apartment und Garage. Direkter Zugang vom Hang.",
+    rooms: [[40, 300, 920, 130, "Infinity-Pool 25 × 5 m", 125], [40, 40, 320, 240, "Spa & Fitness", 72], [360, 40, 300, 240, "Pool-Lounge", 46], [660, 40, 300, 240, "Personal-Apartment", 54], [40, 450, 600, 130, "Travertin-Terrasse", 0], [640, 450, 320, 130, "Garage · 4 Stellplätze", 0]] },
+];
+const plan = $("#plan"), rooms = $("#rooms"), ltabs = $("#ltabs");
+const NS = "http://www.w3.org/2000/svg";
+let curL = 2;
+LEVELS.forEach((L, i) => {
+  const b = document.createElement("button");
+  b.setAttribute("role", "tab"); b.id = "lt-" + L.id; b.textContent = L.id === "D" ? "Dach" : L.id === "P" ? "Pool" : L.id === "1" ? "OG" : "EG";
+  b.title = L.name;
+  b.onclick = () => showLevel(i);
+  ltabs.appendChild(b);
+});
+function svgEl(t, a) { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; }
+function showLevel(i) {
+  curL = i; const L = LEVELS[i];
+  $$("button", ltabs).forEach((b, j) => b.setAttribute("aria-selected", j === i));
+  plan.innerHTML = "";
+  // site outline + north arrow + scale
+  plan.appendChild(svgEl("rect", { x: 20, y: 20, width: 960, height: 580, fill: "none", stroke: "#1c1a17", "stroke-opacity": .18, "stroke-dasharray": "4 6" }));
+  L.rooms.forEach((r, k) => {
+    const g = svgEl("g", { "data-k": k });
+    const pool = /Pool 25/.test(r[4]), void_ = /Luftraum|Treppe|Treppenhaus/.test(r[4]), out = /Terrasse|Deck|Whirlpool|Kino|Bar/.test(r[4]) && L.id !== "1";
+    g.appendChild(svgEl("rect", { x: r[0] + 3, y: r[1] + 3, width: r[2] - 6, height: r[3] - 6, fill: pool ? "#8fd3d8" : out ? "#e4dccf" : void_ ? "#f3eee6" : "#ebe4d8", stroke: "#1c1a17", "stroke-width": pool ? 1.5 : 5, "stroke-opacity": pool ? .6 : .85 }));
+    if (void_) { for (let s = 0; s < r[2]; s += 26) g.appendChild(svgEl("line", { x1: r[0] + s + 6, y1: r[1] + 6, x2: r[0] + s + 6, y2: r[1] + r[3] - 6, stroke: "#1c1a17", "stroke-opacity": .14 })); }
+    const t = svgEl("text", { x: r[0] + 22, y: r[1] + 40, fill: "#1c1a17", "font-family": "Manrope, sans-serif", "font-size": 22, "font-weight": 500 }); t.textContent = r[4]; g.appendChild(t);
+    if (r[5]) { const a = svgEl("text", { x: r[0] + 22, y: r[1] + 66, fill: "#4a453e", "font-family": "JetBrains Mono, monospace", "font-size": 16 }); a.textContent = r[5] + " m²"; g.appendChild(a); }
+    g.addEventListener("mouseenter", () => hl(k, true)); g.addEventListener("mouseleave", () => hl(k, false));
+    plan.appendChild(g);
+  });
+  // door gaps / glazing line on the sea side for EG
+  if (L.id === "0") plan.appendChild(svgEl("line", { x1: 50, y1: 43, x2: 950, y2: 43, stroke: "#6fcdd4", "stroke-width": 4 }));
+  const n = svgEl("g", { transform: "translate(950 570)" });
+  n.appendChild(svgEl("path", { d: "M0 -26 L8 0 L0 -6 L-8 0 Z", fill: "#1c1a17" }));
+  const nt = svgEl("text", { x: -4, y: 18, "font-family": "JetBrains Mono, monospace", "font-size": 14, fill: "#1c1a17" }); nt.textContent = "N"; n.appendChild(nt);
+  plan.appendChild(n);
+  $("#planName").textContent = L.name + " · schematisch";
+  $("#planArea").textContent = L.area;
+  $("#lttl").textContent = L.name; $("#ltxt").textContent = L.txt;
+  const ph = $("#lph"); ph.style.opacity = .3; ph.onload = () => ph.style.opacity = 1; ph.src = L.img; ph.alt = L.name;
+  rooms.innerHTML = "";
+  L.rooms.forEach((r, k) => { const li = document.createElement("li"); li.innerHTML = `<span>${r[4]}</span><span>${r[5] ? r[5] + " m²" : "–"}</span>`; li.onmouseenter = () => hl(k, true); li.onmouseleave = () => hl(k, false); rooms.appendChild(li); });
+}
+function hl(k, on) {
+  const g = plan.querySelector(`g[data-k="${k}"] rect`); if (g) g.setAttribute("fill-opacity", on ? .55 : 1);
+  const li = rooms.children[k]; if (li) li.classList.toggle("hl", on);
+}
+ltabs.addEventListener("keydown", e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { const n = (curL + (e.key === "ArrowRight" ? 1 : -1) + LEVELS.length) % LEVELS.length; showLevel(n); ltabs.children[n].focus(); } });
+showLevel(2);
+
+/* ---------------- portfolio: each card paints its own dusk elevation ---------------- */
+const ESTATES = [
+  { ref: "VE-0392", name: "Casa Mirall", loc: "Port d'Andratx", isle: "Mallorca", beds: 5, m2: 520, plot: 1650, price: 9400000, st: "Verfügbar", seed: 3, vol: 2 },
+  { ref: "VE-0405", name: "Finca Es Lledoner", loc: "Santa Gertrudis", isle: "Ibiza", beds: 6, m2: 610, plot: 21000, price: 7950000, st: "Reserviert", seed: 11, vol: 1, finca: 1 },
+  { ref: "VE-0411", name: "Villa Punta Blanca", loc: "Cala d'Or", isle: "Mallorca", beds: 4, m2: 410, plot: 1200, price: 5200000, st: "Verfügbar", seed: 7, vol: 2 },
+  { ref: "VE-0398", name: "Penthouse Llevant", loc: "Palma, Paseo Marítimo", isle: "Mallorca", beds: 3, m2: 236, plot: 0, price: 4650000, st: "Verfügbar", seed: 19, vol: 4, tower: 1 },
+  { ref: "VE-0420", name: "Residència Cap Martinet", loc: "Talamanca", isle: "Ibiza", beds: 7, m2: 890, plot: 4300, price: 0, st: "Off-Market", seed: 23, vol: 3 },
+  { ref: "VE-0414", name: "Casa Binibeca Alta", loc: "Sant Lluís", isle: "Menorca", beds: 4, m2: 380, plot: 2100, price: 3900000, st: "Verfügbar", seed: 31, vol: 2, white: 1 },
+];
+function rng(s) { return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
+function paintEstate(c, e) {
+  const dpr = Math.min(devicePixelRatio || 1, 2), w = c.clientWidth, h = c.clientHeight;
+  if (!w) return;
+  c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const R = rng(e.seed * 7919 + 13);
+  const hz = h * (.46 + R() * .06);
+  // sky: blue hour above, apricot at the horizon
+  const sky = g.createLinearGradient(0, 0, 0, hz);
+  sky.addColorStop(0, "#1a2330"); sky.addColorStop(.5, "#45506a"); sky.addColorStop(.82, "#c98b74"); sky.addColorStop(1, "#f0b483");
+  g.fillStyle = sky; g.fillRect(0, 0, w, hz);
+  const sx = w * (.2 + R() * .6);
+  const sun = g.createRadialGradient(sx, hz, 0, sx, hz, w * .5);
+  sun.addColorStop(0, "rgba(255,214,160,.85)"); sun.addColorStop(.25, "rgba(240,170,120,.25)"); sun.addColorStop(1, "rgba(240,170,120,0)");
+  g.fillStyle = sun; g.fillRect(0, 0, w, hz);
+  // clouds
+  g.globalAlpha = .22;
+  for (let i = 0; i < 6; i++) { g.fillStyle = i % 2 ? "#f2c4a6" : "#7d7f99"; const cy = hz * (.25 + R() * .45); g.beginPath(); g.ellipse(R() * w, cy, w * (.15 + R() * .25), 3 + R() * 6, 0, 0, Math.PI * 2); g.fill(); }
+  g.globalAlpha = 1;
+  // far headland
+  g.fillStyle = "#3a3f52"; g.beginPath(); g.moveTo(0, hz);
+  const hl = R() < .5; for (let x = 0; x <= w; x += 8) { const t = x / w; const y = hz - (hl ? Math.max(0, 1 - t * 2.2) : Math.max(0, t * 2.2 - 1.2)) * h * .08 * (1 + Math.sin(x * .05) * .1); g.lineTo(x, y); }
+  g.lineTo(w, hz); g.fill();
+  // sea
+  const sea = g.createLinearGradient(0, hz, 0, h);
+  sea.addColorStop(0, "#b98a7d"); sea.addColorStop(.15, "#4b5871"); sea.addColorStop(1, "#141b25");
+  g.fillStyle = sea; g.fillRect(0, hz, w, h - hz);
+  g.fillStyle = "rgba(255,210,170,.35)";
+  for (let i = 0; i < 40; i++) { const y = hz + Math.pow(R(), 2) * (h - hz) * .5; g.fillRect(sx - (y - hz) * .6 * R() - 10, y, 6 + R() * 30, 1); }
+  // land / garden slope
+  const ground = h * (.7 + R() * .05);
+  g.fillStyle = "#1b2219"; g.beginPath(); g.moveTo(0, ground + 20); g.quadraticCurveTo(w * .5, ground - 12, w, ground + 10); g.lineTo(w, h); g.lineTo(0, h); g.fill();
+  // pines
+  for (let i = 0; i < 7; i++) { const tx = R() < .5 ? R() * w * .22 : w - R() * w * .22, ty = ground + 4, s = 18 + R() * 26; g.fillStyle = "#121912"; g.fillRect(tx - 1, ty - s, 2, s); g.beginPath(); g.ellipse(tx, ty - s, s * .7, s * .28, 0, 0, Math.PI * 2); g.fill(); }
+  // building
+  const bw = w * (e.tower ? .42 : .7), bx = (w - bw) / 2;
+  if (e.tower) {
+    // apartment block with penthouse crown
+    const floors = 7, fh = (ground - h * .2) / floors;
+    for (let f = 0; f < floors; f++) {
+      const y = ground - (f + 1) * fh;
+      g.fillStyle = "#e8e1d6"; g.fillRect(bx - 6, y + fh - 4, bw + 12, 4);
+      g.fillStyle = f === floors - 1 ? "#f1b37c" : (R() < .45 ? "#d9925c" : "#2c3440");
+      g.fillRect(bx, y + 4, bw, fh - 8);
+      g.strokeStyle = "rgba(20,24,30,.6)"; for (let m = 1; m < 6; m++) { g.beginPath(); g.moveTo(bx + bw * m / 6, y + 4); g.lineTo(bx + bw * m / 6, y + fh - 4); g.stroke(); }
+    }
+    g.fillStyle = "#e8e1d6"; g.fillRect(bx - 16, ground - floors * fh - 5, bw + 32, 5);
+  } else {
+    const n = e.vol + 1; let y = ground;
+    for (let v = 0; v < n; v++) {
+      const vh = (e.finca ? 34 : 30) + R() * 14;
+      const vw = bw * (v === 0 ? 1 : .55 + R() * .35), vx = bx + (bw - vw) * (v === 0 ? 0 : R());
+      y -= vh;
+      const wood = !e.white && !e.finca && R() < .55;
+      // volume face
+      g.fillStyle = e.finca ? "#c9b291" : "#ece6db"; g.fillRect(vx, y, vw, vh);
+      // glazing band with warm interior light
+      const gx = vx + vw * (.08 + R() * .1), gw = vw * (.5 + R() * .3);
+      const lg = g.createLinearGradient(0, y, 0, y + vh);
+      lg.addColorStop(0, "#f6c38b"); lg.addColorStop(1, "#b9703f");
+      g.fillStyle = lg; g.fillRect(gx, y + 6, gw, vh - 8);
+      g.fillStyle = "rgba(25,30,38,.5)"; for (let m = gx; m < gx + gw; m += 22 + R() * 10) g.fillRect(m, y + 6, 1.4, vh - 8);
+      if (wood) { g.fillStyle = "#8c5634"; const wx = gx + gw + 4; g.fillRect(wx, y + 2, vx + vw - wx - 4, vh - 2); g.fillStyle = "rgba(0,0,0,.18)"; for (let m = wx; m < vx + vw - 6; m += 4) g.fillRect(m, y + 2, 1, vh - 2); }
+      // roof slab overhang
+      g.fillStyle = e.finca ? "#a3866a" : "#f4efe6"; g.fillRect(vx - 10, y - 4, vw + 20, 5);
+      if (e.finca && v === n - 1) { g.beginPath(); g.moveTo(vx - 12, y - 3); g.lineTo(vx + vw / 2, y - 22); g.lineTo(vx + vw + 12, y - 3); g.fillStyle = "#8d6a4f"; g.fill(); }
+    }
+  }
+  // pool
+  if (e.plot) {
+    const pw = w * (.5 + R() * .2), px = (w - pw) / 2 + (R() - .5) * 30, py = ground + 14;
+    const pg = g.createLinearGradient(0, py, 0, py + 16);
+    pg.addColorStop(0, "#9fe3e6"); pg.addColorStop(1, "#2a9aa6");
+    g.fillStyle = "#d8cdbb"; g.fillRect(px - 10, py - 4, pw + 20, 24);
+    g.fillStyle = pg; g.fillRect(px, py, pw, 14);
+    g.fillStyle = "rgba(255,240,220,.5)"; g.fillRect(px + pw * .2, py + 4, pw * .3, 1);
+  }
+  // vignette
+  const vg = g.createLinearGradient(0, h * .6, 0, h); vg.addColorStop(0, "rgba(16,21,26,0)"); vg.addColorStop(1, "rgba(16,21,26,.55)");
+  g.fillStyle = vg; g.fillRect(0, 0, w, h);
+}
+const cards = $("#cards");
+ESTATES.forEach(e => {
+  const a = document.createElement("a");
+  a.className = "card rv"; a.href = "#kontakt"; a.dataset.isle = e.isle; a.dataset.off = e.st === "Off-Market" ? 1 : 0; a.dataset.ref = e.ref;
+  const cls = e.st === "Reserviert" ? "res" : e.st === "Off-Market" ? "off" : "";
+  a.innerHTML = `<div class="pic"><canvas aria-hidden="true"></canvas><span class="st ${cls}"><i></i>${e.st}</span><span class="ref">${e.ref}</span></div>
+  <div class="meta"><p class="loc mono">${e.loc} · ${e.isle}</p><h3>${e.name}</h3>
+  <div class="row"><span class="num">${e.beds} SZ · ${fmt(e.m2)} m²${e.plot ? " · " + fmt(e.plot) + " m² Grund" : " · Dachterrasse"}</span><b>${e.price ? "€ " + (e.price / 1e6).toLocaleString("de-DE", { maximumFractionDigits: 2 }) + " Mio." : "Auf Anfrage"}</b></div></div>`;
+  a.setAttribute("aria-label", `${e.name}, ${e.loc}, ${e.st}. Anfrage stellen`);
+  cards.appendChild(a);
+});
+const paintAll = () => $$(".card", cards).forEach((a, i) => paintEstate($("canvas", a), ESTATES[i]));
+requestAnimationFrame(paintAll);
+let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { paintAll(); paintTeam(); }, 200); });
+$$(".chip").forEach(ch => ch.addEventListener("click", () => {
+  $$(".chip").forEach(c => c.setAttribute("aria-pressed", c === ch));
+  const f = ch.dataset.f; let vis = 0;
+  $$(".card", cards).forEach(c => { const show = f === "all" || (f === "off" ? c.dataset.off === "1" : c.dataset.isle === f); c.classList.toggle("hide", !show); c.classList.remove("pre"); vis += show; });
+  $("#empty").hidden = vis > 0;
+  requestAnimationFrame(paintAll);
+}));
+
+/* prefill contact from any reference link */
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-ref]"); if (!a || !a.matches("a")) return;
+  const m = $("#cMsg"); m.value = `Ich interessiere mich für Objekt ${a.dataset.ref}${a.querySelector("h3") ? " (" + a.querySelector("h3").textContent + ")" : ""} und bitte um ein Exposé.`;
+  $("#cT0").checked = true;
+});
+
+/* ---------------- services accordion ---------------- */
+const SVC = [
+  ["Kaufen", "Wir suchen nach Ihrem Profil, auch in Häusern, die nicht offiziell zum Verkauf stehen. Jede Besichtigung bereiten wir mit Film, Grundriss und Rechtsauskunft vor.", ["Suchprofil und Vorauswahl", "Off-Market-Zugang nach NDA", "Verhandlung und Preisbegleitung", "Anwalt, Steuerberater, Finanzierung"]],
+  ["Verkaufen", "Wir vermarkten diskret oder öffentlich, je nach Ihrem Wunsch. Zum Paket gehören Architekturfotografie, Drohnenfilm und eine geprüfte Unterlagenmappe.", ["Marktwertanalyse vor Ort", "Film, Fotografie, 3D-Rundgang", "Vorgeprüfte Käufer aus 30 Ländern", "Begleitung bis zur Escritura"]],
+  ["Bewertung", "Für Verkauf, Erbschaft, Finanzierung oder Scheidung. Grundlage sind unsere eigenen Abschlussdaten und die Notarstatistik.", ["Kurzbewertung in 48 Stunden", "Ausführliches Gutachten durch Partner", "Vergleichsobjekte mit Notarpreisen"]],
+  ["Vermietung & Verwaltung", "Wir kümmern uns um das Haus, wenn Sie nicht da sind: Personal, Garten, Pool, Technik und, mit Lizenz, die Ferienvermietung.", ["Hausverwaltung und Schlüsseldienst", "Ferienvermietung mit ETV-Lizenz", "Monatlicher Zustandsbericht mit Fotos"]],
+  ["Projektentwicklung", "Grundstücke mit Baurecht, Abriss und Neubau, Sanierung von Fincas. Wir bringen Sie mit Architekten und Bauträgern zusammen, die wir seit Jahren kennen.", ["Grundstücksprüfung und Bebaubarkeit", "Architektenauswahl", "Kosten- und Zeitplanung"]],
+];
+const svc = $("#svc");
+SVC.forEach((s, i) => {
+  const d = document.createElement("div"); d.className = "svc-item" + (i === 0 ? " open" : "");
+  d.innerHTML = `<button aria-expanded="${i === 0}" aria-controls="svc-${i}" id="svcb-${i}"><h3>${s[0]}</h3><span class="pm" aria-hidden="true"></span></button>
+  <div class="body" id="svc-${i}" role="region" aria-labelledby="svcb-${i}"><div><div class="in"><p>${s[1]}</p><ul>${s[2].map(x => `<li>${x}</li>`).join("")}</ul></div></div></div>`;
+  $("button", d).onclick = () => { const o = !d.classList.contains("open"); $$(".svc-item", svc).forEach(x => { x.classList.remove("open"); $("button", x).setAttribute("aria-expanded", false); }); if (o) { d.classList.add("open"); $("button", d).setAttribute("aria-expanded", true); } };
+  svc.appendChild(d);
+});
+
+/* ---------------- market table & valuation share one dataset ---------------- */
+// [Lage, €/m², Veränderung ggü. 2025 in %, Bodenwert-Faktor €/m² Grundstück]
+const REG = [
+  ["Port d'Andratx & Cala Llamp", 14500, 6.1, 520],
+  ["Ibiza, Talamanca & Cap Martinet", 13200, 8.4, 480],
+  ["Son Vida, Palma", 12800, 4.2, 410],
+  ["Santa Ponsa & Port Adriano", 11000, 5.0, 360],
+  ["Ibiza Nord, Santa Gertrudis", 10600, 9.7, 140],
+  ["Palma, Altstadt & Paseo Marítimo", 9200, 3.6, 0],
+  ["Cala d'Or & Südosten", 7400, 5.8, 190],
+  ["Menorca Süd, Sant Lluís", 6800, 10.2, 150],
+];
+const maxP = REG[0][1];
+$("#mkt").innerHTML = REG.map(r => `<tr><td>${r[0]}</td><td class="bar" aria-hidden="true"><i style="--w:${(r[1] / maxP).toFixed(3)}"></i></td><td class="n">${fmt(r[1])}</td><td class="n up">+${r[2].toLocaleString("de-DE")} %</td></tr>`).join("");
+
+const vRegion = $("#vRegion");
+REG.forEach((r, i) => { const o = document.createElement("option"); o.value = i; o.textContent = r[0]; vRegion.appendChild(o); });
+const mio = v => "€ " + (v / 1e6).toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+function valuate() {
+  const r = REG[+vRegion.value], living = +$("#vLiving").value, plot = +$("#vPlot").value;
+  const cond = +($("input[name=vCond]:checked") || { value: 0 }).value;
+  $("#oLiving").textContent = fmt(living) + " m²";
+  $("#oPlot").textContent = plot ? fmt(plot) + " m²" : "keines";
+  const base = living * r[1];
+  const land = Math.max(0, plot - living) * r[3] * .35;
+  const lines = [["Wohnfläche × Lagepreis", base], ["Zusätzliche Grundstücksfläche", land]];
+  let f = 0;
+  if ($("#vSea").checked) { f += .18; }
+  if ($("#vPool").checked) { f += .05; }
+  if ($("#vLic").checked) { f += .07; }
+  if ($("#vFront").checked) { f += .22; }
+  const adj = (base + land) * (f + cond);
+  lines.push(["Ausstattung und Lage", (base + land) * f]);
+  lines.push(["Zustand", (base + land) * cond]);
+  const mid = base + land + adj;
+  $("#vRange").innerHTML = `${mio(mid * .91)} – ${mio(mid * 1.09).replace("€ ", "")} Mio.<small>Spanne ± 9 %</small>`;
+  $("#vMid").textContent = "€ " + fmt(Math.round(mid / 10000) * 10000);
+  $("#vSqm").textContent = "€ " + fmt(Math.round(mid / living / 100) * 100);
+  $("#vBrk").innerHTML = lines.map(l => `<tr><td>${l[0]}</td><td>${l[1] < 0 ? "− " : l[1] > 0 ? "+ " : ""}€ ${fmt(Math.abs(l[1]))}</td></tr>`).join("");
+}
+$("#valForm").addEventListener("input", valuate);
+$("#valForm").addEventListener("submit", e => e.preventDefault());
+valuate();
+$("#vCta").addEventListener("click", () => {
+  $("#cT2").checked = true;
+  $("#cMsg").value = `Bitte um Bewertung vor Ort: ${REG[+vRegion.value][0]}, ca. ${fmt(+$("#vLiving").value)} m² Wohnfläche, ${fmt(+$("#vPlot").value)} m² Grundstück. Online-Schätzung: ${$("#vMid").textContent}.`;
+});
+
+/* ---------------- voices ---------------- */
+const Q = [
+  ["Wir hatten zwei Jahre über Portale gesucht. Velaro hat uns drei Häuser gezeigt, keines davon war inseriert. Das zweite haben wir gekauft.", "Familie aus Zürich · Kauf in Son Vida, 2025"],
+  ["Der Film unseres Hauses lief bei vier Interessenten, bevor überhaupt jemand vor Ort war. Verkauft nach elf Wochen, zum Angebotspreis.", "Eigentümer · Verkauf in Port d'Andratx, 2026"],
+  ["Was ich geschätzt habe: Niemand hat gedrängt. Und als die Licencia fehlte, hat das Team sie in sechs Wochen nachgeholt.", "Unternehmer aus München · Kauf auf Ibiza, 2025"],
+];
+let qi2 = 0;
+const qEl = $("#quote"), qWho = $("#qwho");
+function showQ(i) { qi2 = (i + Q.length) % Q.length; qEl.style.opacity = 0; setTimeout(() => { qEl.textContent = Q[qi2][0]; qWho.textContent = Q[qi2][1]; qEl.style.opacity = 1; }, RM ? 0 : 250); }
+qEl.textContent = Q[0][0]; qWho.textContent = Q[0][1];
+$("#qPrev").onclick = () => showQ(qi2 - 1); $("#qNext").onclick = () => showQ(qi2 + 1);
+
+/* ---------------- team ---------------- */
+const TEAM = [
+  ["Inés Ferrer", "Gründerin · Geschäftsführung", "Seit 1998 im Immobilienmarkt Mallorca, zuvor Architektin in Barcelona.", "ES · CA · DE · EN", 41],
+  ["Jonas Albrecht", "Partner · Büro Hamburg", "Betreut Käufer aus Deutschland, Österreich und der Schweiz.", "DE · EN · ES", 17],
+  ["Maren Lindqvist", "Senior Advisor · Ibiza", "Spezialisiert auf Fincas und Grundstücke im Norden der Insel.", "SV · EN · DE · ES", 9],
+  ["Tomeu Riera", "Bewertung & Recht", "Diplomierter Gutachter, koordiniert unsere Partnerkanzleien.", "CA · ES · EN", 27],
+];
+const tg = $("#teamGrid");
+TEAM.forEach(t => {
+  const ini = t[0].split(" ").map(s => s[0]).join("");
+  const d = document.createElement("div"); d.className = "mem rv";
+  d.innerHTML = `<div class="av"><canvas aria-hidden="true"></canvas><b>${ini}</b></div><div><h3>${t[0]}</h3><p class="mono" style="margin-top:6px">${t[1]}</p></div><p>${t[2]}</p><p class="lang">${t[3]}</p>`;
+  tg.appendChild(d);
+});
+function paintTeam() {
+  $$(".mem canvas", tg).forEach((c, i) => {
+    const w = c.clientWidth, h = c.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2); if (!w) return;
+    c.width = w * dpr; c.height = h * dpr; const g = c.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const R = rng(TEAM[i][4] * 991);
+    const gr = g.createLinearGradient(0, 0, w * .4, h);
+    gr.addColorStop(0, "#1f2830"); gr.addColorStop(.7, i % 2 ? "#5a3c2c" : "#3c4656"); gr.addColorStop(1, "#c98b6a");
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    // architectural light: vertical slats like the teak cladding
+    g.globalAlpha = .12; g.fillStyle = "#ebe4d8";
+    for (let x = R() * 12; x < w; x += 9 + R() * 6) g.fillRect(x, h * (.55 + R() * .1), 2, h);
+    g.globalAlpha = 1;
+  });
+}
+requestAnimationFrame(paintTeam);
+
+/* ---------------- copy buttons ---------------- */
+$$("[data-copy]").forEach(b => b.addEventListener("click", () => {
+  const el = document.getElementById(b.dataset.copy), txt = el.textContent;
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say("Markiert – mit Strg/⌘ + C kopieren"); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => say("Kopiert: " + txt), sel); else sel();
+}));
+
+/* ---------------- contact form (demo) ---------------- */
+const cf = $("#cform");
+cf.addEventListener("submit", e => {
+  e.preventDefault();
+  const name = $("#cName").value.trim(), mail = $("#cMail").value.trim(), err = $("#cErr");
+  if (!name) { err.textContent = "Bitte geben Sie Ihren Namen ein."; $("#cName").focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { err.textContent = "Bitte prüfen Sie die E-Mail-Adresse, zum Beispiel name@beispiel.de."; $("#cMail").focus(); return; }
+  if (!$("#cOk").checked) { err.textContent = "Bitte bestätigen Sie die Einwilligung zur Datenverarbeitung."; return; }
+  err.textContent = ""; $("#sentName").textContent = name.split(" ")[0]; cf.hidden = true; $("#sent").hidden = false;
+});
+$("#sentBack").onclick = () => { cf.reset(); cf.hidden = false; $("#sent").hidden = true; };
+
+/* ---------------- legal (sample texts, fictional company) ---------------- */
+const LEGAL = {
+  impressum: `<h2>Impressum</h2><p><b>Hinweis:</b> Velaro Private Estates ist ein fiktives Unternehmen. Diese Seite ist eine Demo-Website, alle Angaben sind Mustertexte.</p>
+  <h3>Anbieter</h3><p>Velaro Private Estates S.L.<br>Passeig del Born 14, 2º · 07012 Palma de Mallorca · Spanien</p>
+  <p>Zweigniederlassung Deutschland: Neuer Wall 61 · 20354 Hamburg</p>
+  <h3>Vertreten durch</h3><p>Inés Ferrer (Administradora única)</p>
+  <h3>Register</h3><p>Registro Mercantil de Palma, Tomo 0000, Folio 00, Hoja PM-00000 · CIF B-00000000 (Muster)</p>
+  <h3>Aufsicht und Berufsrecht</h3><p>Registro de Agentes Inmobiliarios de las Illes Balears (AICAT), Nr. 4128 (Muster). Gewerbeerlaubnis nach § 34c GewO für die Hamburger Niederlassung (Muster).</p>
+  <h3>Kontakt</h3><p>Telefon +34 971 418 260 · privat@velaro-estates.example</p>
+  <h3>Streitbeilegung</h3><p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>`,
+  datenschutz: `<h2>Datenschutz</h2><p><b>Hinweis:</b> Mustertext für eine Demo-Website. Diese Seite überträgt keine Formulardaten und setzt keine Cookies.</p>
+  <h3>1. Verantwortlicher</h3><p>Velaro Private Estates S.L., Passeig del Born 14, 07012 Palma de Mallorca.</p>
+  <h3>2. Kontaktanfragen</h3><p>Angaben aus dem Kontaktformular verarbeiten wir zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine Aufbewahrungspflichten bestehen.</p>
+  <h3>3. Hosting und Schriften</h3><p>Alle Schriften, Bilder und Filme werden von unserem eigenen Server ausgeliefert. Es werden keine Inhalte von Drittanbietern nachgeladen.</p>
+  <h3>4. Ihre Rechte</h3><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei einer Aufsichtsbehörde, in Spanien der Agencia Española de Protección de Datos.</p>`,
+  hinweis: `<h2>Bildnachweis</h2><p>Der Drohnenflug durch die Villa Cala Serena ist eine computergenerierte Visualisierung. Die Villa existiert nicht.</p>
+  <p>Die Ansichten der weiteren Anwesen werden im Browser gezeichnet und sind stilisierte Illustrationen, keine Fotos.</p>
+  <h3>Schriften</h3><p>Bodoni Moda, Manrope und JetBrains Mono, jeweils unter der SIL Open Font License 1.1, selbst gehostet.</p>`,
+};
+const legalDlg = $("#legalDlg");
+$$("[data-legal]").forEach(b => b.addEventListener("click", () => { $("#legalBody").innerHTML = LEGAL[b.dataset.legal]; legalDlg.showModal(); $(".sheet", legalDlg).scrollTop = 0; }));
+})();
+</script>

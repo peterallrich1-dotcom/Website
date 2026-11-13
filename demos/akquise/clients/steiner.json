@@ -1,0 +1,147 @@
+{
+ "name": "Steiner Immobilien GmbH",
+ "brand": "Steiner",
+ "brandSub": "Immobilien · Garmisch-Partenkirchen",
+ "accent": "#f1d96a",
+ "accentDark": "#8a6f12",
+ "source": "steiner-immo.de",
+ "sourceUrl": "https://www.steiner-immo.de",
+ "cta": "Beratung vereinbaren",
+ "hero": {
+  "eyebrow": "Immobilienmakler · Garmisch-Partenkirchen",
+  "head": "Zuhause unter der\n*Zugspitze.*",
+  "intro": "Ein Familienunternehmen, das seit mehr als 55 Jahren Käufer aus dem In- und Ausland begleitet. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°29′N · 11°05′E · Garmisch-Partenkirchen",
+  "ch": [
+   [
+    "Ankommen",
+    "Ihre persönlichen *Immobilienberater.*",
+    "Der erste Eindruck Ihrer Objekte, so hochwertig wie die Lage."
+   ],
+   [
+    "Angebot",
+    "Vom Feriendomizil bis zur *Luxusimmobilie.*",
+    "Jedes Objekt als eigene Geschichte mit Film, Bildern und Daten."
+   ],
+   [
+    "Neubau",
+    "Drei Landhäuser, *25 Wohnungen.*",
+    "Ihr aktuelles Bauvorhaben verdient mehr als ein Banner."
+   ],
+   [
+    "Der Ort",
+    "Garmisch-Partenkirchen hat so viel zu *bieten.*",
+    "Wintersport, Wandern und Kultur als Teil jedes Exposés."
+   ],
+   [
+    "Steiner Immobilien GmbH",
+    "Seit über *55 Jahren* am Ort"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Wir über uns",
+  "head": "Ein Familienunternehmen, seit über *55 Jahren.*",
+  "text": [
+   "Unterhalb des Zugspitzpanoramas betreut Steiner Immobilien nationale und internationale Kunden bei der Suche und beim Kauf einer Immobilie, ebenso bei Grundstücken, Gewerbeflächen, Hotels, Pensionen und Eigentumswohnungen.",
+   "Auch bei Mietobjekten ist das Portfolio breit: von der Mietwohnung bis zum Ladengeschäft in 1A-Lage."
+  ],
+  "facts": [
+   [
+    "55+",
+    "Jahre als Familienunternehmen in Garmisch-Partenkirchen"
+   ],
+   [
+    "25",
+    "Eigentumswohnungen im neuen Bauvorhaben"
+   ],
+   [
+    "3",
+    "Landhäuser im neuen Bauvorhaben"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Objekte",
+  "eyebrow": "Unsere Objekte",
+  "head": "Kaufen und *Mieten*",
+  "lead": "Vom kleinen Feriendomizil bis zur Luxusimmobilie.",
+  "items": [
+   {
+    "status": "Neubau",
+    "name": "Neues Bauvorhaben",
+    "place": "Verkaufsstart erfolgt",
+    "text": "Drei Landhäuser mit 25 Zwei- bis Vier-Zimmer-Eigentumswohnungen mit Balkon oder Terrasse und Lift."
+   },
+   {
+    "status": "Kauf",
+    "name": "Häuser und Wohnungen",
+    "place": "Garmisch-Partenkirchen und Umgebung",
+    "text": "Eigentumswohnungen, Häuser und Feriendomizile."
+   },
+   {
+    "status": "Kauf",
+    "name": "Grundstücke und Gewerbe",
+    "place": "Auch Hotels und Pensionen",
+    "text": "Beratung beim Kauf von Grundstücken, Gewerbeflächen, Hotels und Pensionen."
+   },
+   {
+    "status": "Miete",
+    "name": "Mietobjekte",
+    "place": "Wohnen und Gewerbe",
+    "text": "Von der Mietwohnung bis zum Ladengeschäft in 1A-Lage."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Unser Service",
+  "quote": "Gute Beratung ist uns *wichtig.*",
+  "points": [
+   [
+    "Bewertung",
+    "Jede Immobilie wird sorgfältig bewertet, um den marktgerechten Preis zu ermitteln."
+   ],
+   [
+    "Exposé und Besichtigung",
+    "Ein umfassendes Exposé für jedes Objekt, Besichtigungen durch erfahrene Makler."
+   ],
+   [
+    "Bis zum Notar",
+    "Alle Unterlagen und Termine für den Kaufvertrag werden vorbereitet."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Von der Bewertung bis zum *Notartermin.*",
+  "lead": "Für Verkäufer, Käufer und Vermieter.",
+  "items": [
+   [
+    "Verkauf",
+    "Bewertung, Exposé, Besichtigungen und Begleitung bis zum Notartermin."
+   ],
+   [
+    "Suchanfrage",
+    "Interessenten hinterlegen ihre Wünsche und erhalten passende Angebote."
+   ],
+   [
+    "Vermietung",
+    "Wohnungen und Ladengeschäfte, auch in 1A-Lagen."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Wir freuen uns auf Ihren *Besuch.*",
+  "address": [
+   "Weitfelderstraße 13",
+   "82467 Garmisch-Partenkirchen"
+  ],
+  "phone": "+49 8821 5 55 11",
+  "email": "steiner.immo@gaponline.de",
+  "topics": [
+   "Neues Bauvorhaben",
+   "Immobilie verkaufen",
+   "Suchanfrage",
+   "Mietobjekte"
+  ]
+ }
+}

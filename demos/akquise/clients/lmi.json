@@ -1,0 +1,153 @@
+{
+ "name": "LMI Immobilien & Hausverwaltung KG",
+ "brand": "LMI",
+ "brandSub": "Immobilien & Hausverwaltung",
+ "accent": "#eeb0a8",
+ "accentDark": "#9c2f2a",
+ "source": "lmi-immobilien.de",
+ "sourceUrl": "https://www.lmi-immobilien.de",
+ "cta": "Angebot anfragen",
+ "hero": {
+  "eyebrow": "Hausverwaltung · Andechs · München",
+  "head": "Ein Maßanzug mit\n*Weitblick.*",
+  "intro": "Verwaltung, Verkauf und Vermietung, zugeschnitten auf jeden Eigentümer. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°58′N · 11°11′E · Andechs",
+  "ch": [
+   [
+    "Individuell",
+    "Maßgeschneidert statt *von der Stange.*",
+    "Ihr eigener Anspruch, groß und selbstbewusst gezeigt."
+   ],
+   [
+    "Verwaltung",
+    "Ihr Eigentum, *persönlich betreut.*",
+    "Miet-, WEG- und Sondermietverwaltung übersichtlich erklärt."
+   ],
+   [
+    "Netzwerk",
+    "Handwerker, Architekten, *Anwälte.*",
+    "Ein über Jahre gewachsenes Netzwerk als Vorteil für Eigentümer."
+   ],
+   [
+    "Mediation",
+    "Konflikte *lösen*, bevor sie teuer werden.",
+    "Qualifizierte Mediation durch eine geprüfte Wirtschaftsmediatorin (IHK)."
+   ],
+   [
+    "LMI Immobilien & Hausverwaltung",
+    "Die Erstberatung ist *kostenfrei*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Wir über uns",
+  "head": "Ein kleines Team mit *jahrzehntelanger Erfahrung.*",
+  "text": [
+   "LMI ist ein Team ausgebildeter Immobilienwirte und bietet in München und im Umland sowie seit Juni 2021 auch im Großraum Berlin Dienstleistungen rund um die Immobilie.",
+   "Die Stärke liegt in der individuellen Betreuung. Jede Dienstleistung wird auf den Kunden zugeschnitten, gestützt auf ein gewachsenes Netzwerk aus Handwerkern, Architekten, Fachingenieuren und Anwälten."
+  ],
+  "facts": [
+   [
+    "3",
+    "Standorte: Andechs, München, Berlin & Brandenburg"
+   ],
+   [
+    "IHK",
+    "geprüfte Wirtschaftsmediatorin im Team"
+   ],
+   [
+    "0 €",
+    "Die Erstberatung ist kostenfrei und unverbindlich"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Angebot",
+  "eyebrow": "Unser Angebot",
+  "head": "Verwalten, vermitteln, *beraten*",
+  "lead": "Auch als Teilleistung für Selbstverwalter und Selbstvermarkter.",
+  "items": [
+   {
+    "status": "Verwaltung",
+    "name": "Mietverwaltung",
+    "place": "Referenz: München Alt-Bogenhausen",
+    "text": "Zum Beispiel ein repräsentativer Altbau mit 13 Wohnungen."
+   },
+   {
+    "status": "Verwaltung",
+    "name": "WEG-Verwaltung",
+    "place": "Referenz: München Feldmoching",
+    "text": "Zum Beispiel 18 Wohnungen mit Tiefgarage."
+   },
+   {
+    "status": "Vermittlung",
+    "name": "Verkauf und Vermietung",
+    "place": "München und Umland",
+    "text": "Zum Beispiel eine großzügige Doppelhaushälfte in Seefeld, vermietet."
+   },
+   {
+    "status": "Beratung",
+    "name": "Beratung & Planung",
+    "place": "Für Selbstverwalter",
+    "text": "Einzelne Leistungen für Eigentümer, die selbst verwalten oder vermarkten."
+   },
+   {
+    "status": "Mediation",
+    "name": "Wirtschaftsmediation",
+    "place": "Geprüft durch die IHK",
+    "text": "Professionelle Konfliktlösung zwischen Eigentümern, Mietern und Partnern."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Service",
+  "quote": "Service wird bei uns *groß* geschrieben.",
+  "points": [
+   [
+    "Zuverlässig",
+    "Von der Anfrage bis zur transparenten Abwicklung."
+   ],
+   [
+    "Individuell",
+    "Jede Leistung wird auf den Bedarf zugeschnitten."
+   ],
+   [
+    "Ohne Kostenfallen",
+    "Jede Erstberatung ist kostenneutral und unverbindlich."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Rund um die *Immobilie.*",
+  "lead": "Für Eigentümer in München, im Umland und im Raum Berlin.",
+  "items": [
+   [
+    "Hausverwaltung",
+    "Mietverwaltung, WEG-Verwaltung und Sondermietverwaltung."
+   ],
+   [
+    "Immobilienvermittlung",
+    "Verkauf und Vermietung mit persönlicher Betreuung."
+   ],
+   [
+    "Mediation",
+    "Qualifizierte Mediation durch eine geprüfte Wirtschaftsmediatorin (IHK)."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Stellen Sie uns auf die *Probe.*",
+  "address": [
+   "Hartstraße 9",
+   "82229 Seefeld"
+  ],
+  "phone": "08152 793 69",
+  "email": "info@lmi-immobilien.de",
+  "topics": [
+   "Angebot Hausverwaltung",
+   "Verkauf oder Vermietung",
+   "Beratung & Planung",
+   "Mediation"
+  ]
+ }
+}

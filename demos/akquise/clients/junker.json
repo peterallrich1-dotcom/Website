@@ -1,0 +1,64 @@
+{
+ "name": "Junker GmbH Wohnbau + Immobilien",
+ "brand": "Junker", "brandSub": "Wohnbau + Immobilien",
+ "accent": "#9ec3e6", "accentDark": "#2c5c8a",
+ "source": "junker-wohnbau.de", "sourceUrl": "https://www.junker-wohnbau.de",
+ "cta": "Beratung anfragen",
+ "hero": {
+  "eyebrow": "Bauträger · Friedrichshafen · seit 1989",
+  "head": "Bauen am See.\nSeit *1989.*",
+  "intro": "Schlüsselfertige Wohn- und Gewerbeobjekte in der Region Bodensee-Oberschwaben. Scrollen Sie durch ein Beispiel, wie Ihre Projekte online wirken könnten.",
+  "geo": "47°39′N · 9°28′E · Friedrichshafen",
+  "chapters": [
+   {"a": 0.08, "b": 0.27, "k": "So könnte ein Projekt beginnen", "h": "Erst das Gefühl, dann der *Grundriss.*", "p": "Interessenten sehen ein Projekt, bevor der erste Stein liegt: als Film, der beim Scrollen durch die Räume führt."},
+   {"a": 0.31, "b": 0.52, "k": "Bau- und Wohnqualität", "h": "Qualität, die man *sieht.*", "p": "Ihr Leitsatz „Wir legen Wert auf Bau und Wohnqualität“ steht hier nicht im Kleingedruckten, sondern im Bild."},
+   {"a": 0.55, "b": 0.70, "k": "Details", "h": "Jedes Detail hat seinen *Platz.*", "p": "Ausstattung, Materialien, Bauablauf: verständlich erklärt, auch auf dem Handy."},
+   {"a": 0.72, "b": 0.87, "k": "Lage", "h": "Wohnen in Fußnähe zum *See.*", "p": "Uferpark, Seepromenade und Yachthafen als Teil der Geschichte jedes Projekts."},
+   {"a": 0.90, "b": 1.2, "k": "Aktuell im Verkauf", "h": "Vier Projekte in der *Region.*"}
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Unternehmen",
+  "head": "Über 500 gebaute Einheiten. *Eine Familie.*",
+  "text": [
+   "Die Junker GmbH hat sich auf die schlüsselfertige Erstellung von Wohn- und Gewerbeobjekten spezialisiert und sich in der Region Bodensee-Oberschwaben einen Namen gemacht.",
+   "Geschäftsführer August Junker, Dipl.-Ing. (FH), ist seit 1983 in der Immobilienbranche und seit 1985 als Bauträger selbständig. 1989 gründete er die Junker GmbH in ihrer heutigen Form. Sein Sohn Robert Junker verantwortet als Bautechniker Projektsteuerung und Bauleitung."
+  ],
+  "facts": [["1989", "Gründung der Junker GmbH in heutiger Form"], ["500+", "gebaute Einheiten in der Region"], ["4", "Projekte aktuell im Verkauf"], ["2", "Generationen im Unternehmen"]]
+ },
+ "projects": {
+  "nav": "Projekte", "eyebrow": "Aktuelle Projekte", "head": "Im *Verkauf*",
+  "lead": "Weitere Projekte sind in Planung. Interessenten können sich vormerken lassen und erhalten die Unterlagen zum Verkaufsstart.",
+  "items": [
+   {"status": "Verkaufsstart", "name": "Klosterstraße 10", "place": "88045 Friedrichshafen", "text": "Neun Eigentumswohnungen mit durchdachten Grundrissen. Uferpark, Seepromenade und Yachthafen sind in wenigen Minuten erreichbar."},
+   {"status": "Verkaufsstart", "name": "Bellevue carré 49", "place": "Friedrichstraße 49 · 88045 Friedrichshafen", "text": "Wohnen in zentraler Lage von Friedrichshafen, in Fußnähe zum Bodensee."},
+   {"status": "Verkaufsstart", "name": "Karlstraße 47", "place": "88250 Weingarten", "text": "Modern und nachhaltig wohnen in der Barockstadt, nahe Altstadt, Fußgängerzone und Basilika."},
+   {"status": "Verkaufsstart", "name": "Schussenstraße 2", "place": "88097 Eriskirch", "text": "Modern und nachhaltig wohnen in Eriskirch am Bodensee."}
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitsatz",
+  "quote": "„Wir legen Wert auf Bau und *Wohnqualität.*“",
+  "points": [
+   ["Straffe Bauabwicklung", "Gut koordinierte Abläufe von der Planung bis zur Übergabe."],
+   ["Handwerkliche Umsetzung", "Die korrekte Ausführung steht an erster Stelle. Referenzobjekte können besichtigt werden."],
+   ["Kundennah", "Persönliche Ansprechpartner für alle Fragen rund ums Bauen."]
+  ]
+ },
+ "services": {
+  "head": "Schlüsselfertig, *aus einer Hand.*",
+  "lead": "Vom Grundstück bis zur Schlüsselübergabe.",
+  "items": [
+   ["Wohnbau", "Schlüsselfertige Eigentumswohnungen und Wohnhäuser in Friedrichshafen und der Region Bodensee-Oberschwaben."],
+   ["Gewerbeobjekte", "Wohn- und Geschäftshäuser, zum Beispiel in der Friedrichstraße und der Karlstraße in Friedrichshafen."],
+   ["Projektsteuerung und Bauleitung", "Robert Junker übernimmt als ausgebildeter Bautechniker die Bauleitung der Projekte."],
+   ["Vormerkung", "Interessenten werden informiert, sobald die Verkaufsunterlagen eines neuen Projekts fertig sind."]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *uns.*",
+  "address": ["Friedrichstraße 65", "88045 Friedrichshafen"],
+  "phone": "+49 7541 402 888 0", "email": "info@junker-wohnbau.de",
+  "topics": ["Klosterstraße 10", "Bellevue carré 49", "Karlstraße 47, Weingarten", "Schussenstraße 2, Eriskirch", "Vormerkung für neue Projekte", "Allgemeine Anfrage"]
+ }
+}
