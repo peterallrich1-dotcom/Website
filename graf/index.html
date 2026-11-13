@@ -454,6 +454,37 @@ dialog::backdrop{background:rgba(8,10,13,.88);backdrop-filter:blur(6px)}
 .intro>*{min-width:0}
 h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 @media (max-width:560px){.brand span{letter-spacing:.18em;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.brand b{font-size:19px}}
+
+/* ---- optional sections (only rendered when the client record has them) ---- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 34px}
+.tabs button{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:11px 16px;border:1px solid var(--line-l);color:var(--ink-2)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--trav);border-color:var(--ink)}
+.tabintro{font-size:clamp(18px,1.6vw,22px);max-width:60ch;color:var(--ink);margin-bottom:34px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px)}
+.groups div{border-top:1px solid var(--ink);padding-top:18px;min-width:0}
+.groups h3{font-size:24px;margin-bottom:14px}
+.groups ul{list-style:none;padding:0;margin:0}
+.groups li{padding:9px 0 9px 22px;border-bottom:1px solid var(--line-l);font-size:15px;color:var(--ink-2);position:relative}
+.groups li:before{content:"";position:absolute;left:0;top:19px;width:10px;height:1px;background:var(--teak)}
+.rec-list{margin-top:56px;border-top:1px solid var(--line-d)}
+.rec{display:grid;grid-template-columns:110px 1.1fr 1.6fr;gap:clamp(14px,3vw,40px);padding:20px 0;border-bottom:1px solid var(--line-d);align-items:baseline}
+.rec .w{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--glow)}
+.rec h3{font-size:clamp(20px,2vw,28px)}
+.rec p{color:var(--mist);font-size:15px}
+@media (max-width:760px){.rec{grid-template-columns:1fr;gap:6px}}
+.facts-row b.open{color:var(--haze);font-style:italic}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(18px,3vw,36px);margin-top:48px;counter-reset:st}
+.steps div{border-top:1px solid var(--line-d);padding-top:20px;counter-increment:st;min-width:0}
+.steps div:before{content:counter(st,decimal-leading-zero);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--glow)}
+.steps h3{font-size:26px;margin:12px 0 10px}
+.steps p{color:var(--mist);font-size:15px}
+.faq{margin-top:70px;border-top:1px solid var(--line-d)}
+.faq details{border-bottom:1px solid var(--line-d);padding:20px 0}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--f-display);font-size:clamp(20px,2vw,28px);display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:var(--f-mono);color:var(--glow)}
+.faq details[open] summary:after{content:"\2013"}
+.faq p{color:var(--mist);margin-top:12px;max-width:70ch;font-size:15px}
 </style>
 
 <header class="hdr" id="hdr">
@@ -503,6 +534,27 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
   </div>
 </section>
 
+<section class="sec light" id="verwaltung" hidden>
+  <div class="wrap">
+    <div class="rv"><p class="eyebrow mono" id="vEyebrow"></p><h2 style="margin-top:22px;max-width:22ch" id="vHead"></h2></div>
+    <div class="tabs" role="tablist" id="vTabs" style="margin-top:40px"></div>
+    <div id="vPanel"></div>
+    <p class="src" id="vSrc"></p>
+  </div>
+</section>
+
+<section class="sec" id="bilanz" hidden>
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="eyebrow mono" id="rEyebrow"></p><h2 style="margin-top:26px" id="rHead"></h2></div>
+      <div class="side rv"><p class="lead" id="rLead"></p></div>
+    </div>
+    <div class="facts-row" id="rFacts"></div>
+    <div class="rec-list" id="rList"></div>
+    <p class="src" id="rSrc"></p>
+  </div>
+</section>
+
 <section class="sec light" id="projekte">
   <div class="wrap">
     <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:48px">
@@ -526,6 +578,14 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
   <div class="wrap svc">
     <div class="sticky rv"><p class="eyebrow mono">Leistungen</p><h2 id="sHead"></h2><p class="lead" style="color:var(--ink-2)" id="sLead"></p></div>
     <div class="svc-list" id="svc"></div>
+  </div>
+</section>
+
+<section class="sec" id="wechsel" hidden>
+  <div class="wrap">
+    <div class="rv"><p class="eyebrow mono" id="wEyebrow"></p><h2 style="margin-top:22px;max-width:22ch" id="wHead"></h2><p class="lead" style="color:var(--mist);margin-top:20px;max-width:56ch" id="wLead"></p></div>
+    <div class="steps rv" id="wSteps"></div>
+    <div class="faq" id="wFaq"></div>
   </div>
 </section>
 
@@ -565,7 +625,7 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 <div class="ribbon" id="ribbon"><span><b>Designentwurf</b> für <span id="rName"></span>. Dies ist nicht die offizielle Website. <span id="rFilm"></span></span><a id="rOrig" target="_blank" rel="noopener"></a><button id="rX" aria-label="Hinweis ausblenden">Ausblenden</button></div>
 
 <script>
-const CLIENT = {"name": "Immobilienverwaltung Graf", "brand": "Graf", "brandSub": "Immobilienverwaltung · Berchtesgadener Land", "accent": "#f0b888", "accentDark": "#b05a14", "source": "iv-graf.de", "sourceUrl": "https://www.iv-graf.de", "cta": "Angebot anfordern", "hero": {"eyebrow": "Hausverwaltung · Piding · Bad Reichenhall", "head": "Seit über 30 Jahren im\n*Berchtesgadener Land.*", "intro": "WEG-, Miet- und Sondereigentumsverwaltung, dazu Vermietung und Verkauf. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.", "geo": "47°46′N · 12°55′E · Piding", "chapters": [{"a": 0.08, "b": 0.27, "k": "Verwaltung", "h": "Zuverlässig, transparent, *rechtskonform.*", "p": "Ihr Versprechen an Eigentümer, klar an erster Stelle."}, {"a": 0.31, "b": 0.52, "k": "Erreichbar", "h": "Auch außerhalb der *Geschäftszeiten.*", "p": "Ein Vorteil, den man sofort sehen sollte."}, {"a": 0.55, "b": 0.7, "k": "Angebote", "h": "Wohnungen in Piding und *Bad Reichenhall.*", "p": "Aktuelle Mietobjekte mit Bild, statt als lange Textliste."}, {"a": 0.72, "b": 0.87, "k": "Zertifiziert", "h": "Zertifizierter Verwalter nach *§ 26a WEG.*", "p": "Seit Dezember 2023 für Gemeinschaften entscheidend."}, {"a": 0.9, "b": 1.2, "k": "Immobilienverwaltung Graf", "h": "Angebot *anfordern*", "p": ""}]}, "about": {"eyebrow": "Über uns", "head": "Verwalter, Betriebswirt und *Sachverständiger.*", "text": ["Wolfgang Graf, Diplom-Betriebswirt (FH), ist seit über 30 Jahren als Hausverwalter im Berchtesgadener Land tätig. Er ist zertifizierter Verwalter (IHK) nach § 26a Wohnungseigentumsgesetz und Immobiliensachverständiger.", "Zugesichert werden die zuverlässige kaufmännische und technische Betreuung, eine transparente und übersichtliche Abrechnung und die Erreichbarkeit auch außerhalb der normalen Geschäftszeiten."], "facts": [["30+", "Jahre Hausverwaltung im Berchtesgadener Land"], ["§ 26a", "zertifizierter Verwalter nach WEG (IHK)"], ["3", "Verwaltungsarten: WEG, Miete, Sondereigentum"]]}, "projects": {"nav": "Verwaltung", "eyebrow": "Leistungsspektrum", "head": "Verwalten, vermieten, *verkaufen*", "lead": "Für private und gewerbliche Vermieter, Gemeinschaften und Bauträger.", "items": [{"status": "WEG", "name": "WEG-Verwaltung", "place": "Für Eigentümergemeinschaften", "text": "Buchführung der Rücklagen, Hausgeld-Abrechnungen, Wirtschaftspläne und Vermögensberichte."}, {"status": "Miete", "name": "Mietverwaltung", "place": "Für private und gewerbliche Vermieter", "text": "Buchführung und Nebenkostenabrechnung für die Mieter."}, {"status": "SE", "name": "Sondereigentumsverwaltung", "place": "Für einzelne Wohnungen", "text": "Verwaltung einzelner Einheiten im Auftrag der Eigentümer."}, {"status": "Gewerbe", "name": "Gewerbliche Objekte", "place": "Kaufmännisch und technisch", "text": "Verwaltung gewerblicher Objekte."}, {"status": "Vermittlung", "name": "Vermietung und Verkauf", "place": "Piding, Bad Reichenhall, Bayerisch Gmain", "text": "Wohnungen, Häuser und Stellplätze."}]}, "stance": {"eyebrow": "Zusage", "quote": "Jederzeit *erreichbar*, auch außerhalb der Geschäftszeiten.", "points": [["Kaufmännisch", "Transparente, rechtskonforme und übersichtliche Abrechnung."], ["Technisch", "Gebäudedaten, Zählerstände, Wartungstermine und Energieausweise."], ["Persönlich", "Der Inhaber ist direkter Ansprechpartner."]]}, "services": {"head": "Für Eigentümer im *Berchtesgadener Land.*", "lead": "Von der kleinen Vermietung bis zur Gemeinschaft.", "items": [["Hausverwaltung", "WEG-, Miet- und Sondereigentumsverwaltung."], ["Gebäude-Management", "Technisches Management mit Übergabeprotokollen und Wartungsplanung."], ["An- und Verkauf", "Wohnungen und Immobilien in der Region."]]}, "contact": {"head": "Fordern Sie Ihr *Angebot* an.", "address": ["Berchtesgadener Str. 10", "83451 Piding"], "phone": "0176 232 968 49", "email": "IMMOBILIENVERWALTUNG-GRAF@eMail.de", "topics": ["Angebot WEG-Verwaltung", "Angebot Mietverwaltung", "Wohnung mieten", "Allgemeine Anfrage"]}};
+const CLIENT = {"name": "Immobilienverwaltung Graf", "brand": "Graf", "brandSub": "Immobilienverwaltung · Berchtesgadener Land", "accent": "#f0b888", "accentDark": "#b05a14", "source": "iv-graf.de", "sourceUrl": "https://www.iv-graf.de", "cta": "Angebot anfordern", "hero": {"eyebrow": "WEG- und Mietverwaltung · Piding · Bad Reichenhall", "head": "Wir verwalten, was Ihnen\n*gehört.*", "intro": "WEG-, Miet-, Sondereigentums- und BHKW-Verwaltung seit über 30 Jahren. Im fertigen Auftritt fliegt dieser Film durch eine der Wohnanlagen, die Sie betreuen.", "geo": "47°46′N · 12°55′E · Piding", "chapters": [{"a": 0.08, "b": 0.27, "k": "Hausverwaltung", "h": "Verwaltung ist mehr als *Vermietung.*", "p": "Kaufmännisch und technisch, für Gemeinschaften, Vermieter und Gewerbe."}, {"a": 0.31, "b": 0.52, "k": "Werterhalt", "h": "Instandhaltung, Wartung, *Verkehrssicherheit.*", "p": "Damit das Gemeinschaftseigentum in zwanzig Jahren noch so aussieht."}, {"a": 0.55, "b": 0.7, "k": "Versammlung", "h": "Präsenz, hybrid, online oder *im Umlauf.*", "p": "Beschlüsse rechtssicher vorbereiten, umsetzen und digital dokumentieren."}, {"a": 0.72, "b": 0.87, "k": "Zertifiziert", "h": "Zertifizierter Verwalter (IHK) nach *§ 26a WEG.*", "p": "Seit Dezember 2023 Voraussetzung für ordnungsmäßige Verwaltung."}, {"a": 0.9, "b": 1.2, "k": "Immobilienverwaltung Graf", "h": "Verwaltungsangebot *anfordern*", "p": ""}]}, "about": {"eyebrow": "Über uns", "head": "Verwalter, Betriebswirt und *Sachverständiger.*", "text": ["Wolfgang Graf, Diplom-Betriebswirt (FH), ist seit über 30 Jahren als Hausverwalter im Berchtesgadener Land tätig. Er ist zertifizierter Verwalter (IHK) nach § 26a Wohnungseigentumsgesetz und Immobiliensachverständiger.", "Für private Eigentümer, Gemeinschaften und Geschäftskunden: Wir arbeiten eng mit unseren Kunden und heimischen Handwerksbetrieben zusammen und handeln grundsätzlich namens, in Vollmacht und für Rechnung unserer Gemeinschaften.", "Zugesichert werden die zuverlässige kaufmännische und technische Betreuung, eine transparente und rechtskonforme Abrechnung und die Erreichbarkeit auch außerhalb der normalen Geschäftszeiten."], "facts": [["30+", "Jahre Hausverwaltung im Berchtesgadener Land"], ["§ 26a", "zertifizierter Verwalter nach WEG (IHK)"], ["5", "Verwaltungsarten: WEG, Miete, Sondereigentum, BHKW/PV, Gewerbe"], ["§ 34c", "GewO, Aufsicht IHK München und Oberbayern"]]}, "detail": {"nav": "Verwaltung", "eyebrow": "Leistungsspektrum im Detail", "head": "Was wir für Ihr Objekt *übernehmen*", "tabs": [{"name": "WEG-Verwaltung", "intro": "Alle Leistungen nach dem Wohnungseigentumsgesetz, für Eigentümergemeinschaften jeder Größe.", "groups": [["Kaufmännisch", ["Vorbereitung und Leitung der Eigentümerversammlungen", "Beschlussumsetzung und digitale Beschluss-Sammlung", "Durchsetzung der Hausordnung", "Vertretung in Rechtsfragen", "Vertragsverhandlungen mit Dienstleistern und Hausmeister"]], ["Werterhalt und Technik", ["Instandhaltungs- und Sanierungspläne", "Ausschreibungen und Rahmenverträge", "Reparaturabwicklung und laufende Wartung", "Energieversorgung und -optimierung", "Überwachung der Verkehrssicherungspflichten"]], ["Rechnungslegung", ["Hausgeldinkasso per SEPA-Lastschrift, Mahnwesen", "Laufende Buchhaltung und Rechnungsprüfung", "Jahresabrechnung, Wirtschaftsplan, Vermögensbericht", "Heiz- und Warmwasserkostenabrechnung", "Verwaltung der Erhaltungsrücklage, Sonderumlagen"]], ["Versicherung und Energie", ["Rahmenverträge für Energie und Brennstoffe", "Optimierung von Wohngebäude-, Haftpflicht-, Elementar- und Feuerversicherung", "Gute Schadenquote im Bestand als Argument bei Prämien"]]]}, {"name": "Mietverwaltung", "intro": "Für Eigentumswohnung, Einliegerwohnung oder Haus, auch im Umgang mit schwierigen Mietern.", "groups": [["Vermietung", ["Mietersuche mit Bonitätsprüfung", "Besichtigungen und Vertragsabschluss", "Wohnungsabnahme mit Übergabeprotokoll", "Kautionsverwaltung", "Mieterhöhungen nach Vertrag und Gesetz"]], ["Werterhalt", ["Instandhaltungspläne", "Ausschreibung und Abwicklung von Reparaturen", "Bausanierungen durch eigene Bauingenieure", "Überwachung der Verkehrssicherungspflichten"]], ["Rechnungslegung", ["Mietinkasso und Mahnwesen", "Betriebskostenabrechnung", "Ausweis nach § 35a EStG", "Gesamtabrechnung über mehrere Objekte", "Belege für Finanzamt und Steuerberater"]], ["Für den Eigentümer", ["Vertretung gegenüber den Mietern", "Vermietung in Abstimmung mit Ihnen", "Online-Datendienst"]]]}, {"name": "BHKW und PV", "intro": "Seit vielen Jahren betreuen wir Blockheizkraftwerke und Photovoltaikanlagen von Eigentümergemeinschaften.", "groups": [["Betreuung", ["Kaufmännische und technische Betreuung der Anlagen", "Abstimmung mit der Steuerkanzlei für die steuerlichen Erklärungen"]], ["Abrechnung", ["Rechtskonforme Abrechnung von Strom und Wärme", "Jährlicher Antrag beim Zollamt zur Rückerstattung bei BHKW-Anlagen"]], ["Energierecht", ["GEG, Heizkostenverordnung, fernablesbare Geräte", "Mieterstrom und PV im Mehrparteienhaus", "Fördermittel für energetische Modernisierung"]]]}, {"name": "Sondereigentum und Gewerbe", "intro": "Einzelne Wohnungen im Auftrag der Eigentümer, dazu Gewerbeimmobilien und Facility Management.", "groups": [["Sondereigentum", ["Verwaltung einzelner Einheiten im Auftrag der Eigentümer", "Abstimmung mit der WEG-Verwaltung"]], ["Gewerbe", ["Gewerbeimmobilien-Verwaltung", "Facility Management im Rahmen einer festen Budgetvorgabe"]], ["Aufbewahrung", ["Unterlagen nach § 147 AO und GoBD", "Datenschutzgerecht nach DSGVO und BDSG"]]]}]}, "record": {"nav": "Bilanz", "eyebrow": "Track Record", "head": "Was wir zuletzt *vermittelt* haben", "lead": "Ein Auszug der Vermietungen aus den letzten Jahren, so wie er auf iv-graf.de steht. Im fertigen Auftritt ergänzen wir hier Ihre Zahlen, Objekte und Fotos.", "facts": [["12", "Vermietungen 2021 bis 2023 laut Website"], ["4", "Orte: Piding, Bad Reichenhall, Bayerisch Gmain, Anger"], ["Ihre Zahl", "verwaltete Einheiten", true], ["Ihre Zahl", "betreute Eigentümergemeinschaften", true]], "items": [["11 / 2023", "Wohnung Bayerisch Gmain", "ca. 40 m², Balkon, Stellplatz. Vermietet."], ["10 / 2023", "Tiefgarage Bad Reichenhall", "Kfz-Stellplatz Frühlingstraße / Schillerstraße. Vermietet."], ["01 / 2023", "Einzelgarage Bayerisch Gmain", "Nähe Reichenhaller Straße. Vermietet."], ["2022", "Doppelhaushälfte Piding-Dorf", "110 m², Garten, Balkon, Stellplatz, Keller. Vermietet."], ["09 / 2022", "2-Zimmer-Wohnung Bayerisch Gmain", "70 m², 1. OG, zwei Balkone. Vermietet."], ["09 / 2022", "1-Zimmer-Wohnung Bayerisch Gmain", "40 m², Balkon, Einbauküche. Vermietet."], ["2022", "Erstbezug Piding", "140 m², 5 Zimmer, Glasfaser mit 1.000 Mbit/s. Vermietet."], ["02 / 2022", "Eigentumswohnung Bad Reichenhall", "ca. 160 m², Sauna, großer Garten, Doppelgarage. Vermietet."], ["02 / 2022", "Wohnung Piding-Mauthausen", "51 m², 2 Zimmer, neu saniert. Vermietet."], ["01 / 2022", "Wohnung Aufham", "60 m², 2 Zimmer, möbliert, überdachter Balkon. Vermietet."], ["11 / 2021", "Lagerraum Anger", "50 m², trocken und beheizbar. Vermietet."], ["10 / 2021", "Dachgeschosswohnung Piding", "47 m², Balkon, Einbauküche. Vermietet."]], "src": "Alle Einträge laut News-Seite auf iv-graf.de (Stand April 2024). Mieten bewusst nicht gezeigt."}, "projects": {"nav": "Objekte", "eyebrow": "Aktuelle Objekte", "head": "Zu verkaufen, zu *vermieten*", "lead": "Jedes Objekt mit eigener Seite, Fotos, Grundriss und Anfrage. Hier mit den Angaben von Ihrer Website.", "items": [{"status": "Verkauf", "name": "Einfamilienhaus nahe Chiemsee", "place": "Zwischen Traunstein und Traunreut", "text": "Einmalige Gelegenheit: großes Grundstück mit ca. 1.000 m², nur 5 km zum Chiemsee."}, {"status": "Neubau", "name": "Dachgeschosswohnung Piding-Dorf", "place": "Piding", "text": "Exklusive Neubau-DG-Wohnung mit ca. 50 m² und Balkon."}, {"status": "Ihr Objekt", "name": "Platz für Ihr nächstes Angebot", "place": "Berchtesgadener Land", "text": "Neue Objekte stellen Sie selbst ein, mit Bildern statt langer Textliste."}]}, "stance": {"eyebrow": "Zusage", "quote": "Jederzeit *erreichbar*, auch außerhalb der Geschäftszeiten.", "points": [["Kaufmännisch", "Transparente, rechtskonforme und übersichtliche Abrechnung."], ["Technisch", "Instandhaltung, Wartung und Energie mit heimischen Handwerksbetrieben."], ["Persönlich", "Der Inhaber ist direkter Ansprechpartner."]]}, "services": {"head": "Für Eigentümer im *Berchtesgadener Land.*", "lead": "Von der einzelnen Wohnung bis zur großen Gemeinschaft.", "items": [["WEG-Verwaltung", "Versammlungen, Beschlüsse, Hausgeld, Wirtschaftsplan, Jahresabrechnung und Werterhalt."], ["Mietverwaltung", "Mietersuche mit Bonitätsprüfung, Inkasso, Betriebskosten und technische Betreuung."], ["Sondereigentumsverwaltung", "Einzelne Einheiten im Auftrag der Eigentümer."], ["BHKW- und PV-Verwaltung", "Betreuung, Abrechnung und Rückerstattung beim Zollamt."], ["Gewerbe und Facility Management", "Gewerbeimmobilien im Rahmen einer festen Budgetvorgabe."], ["Vermietung und Verkauf", "Wohnungen, Häuser, Garagen und Stellplätze in Piding, Bad Reichenhall und Bayerisch Gmain."]]}, "change": {"nav": "Verwalterwechsel", "eyebrow": "Verwalterwechsel", "head": "In vier Schritten zu *uns.*", "lead": "Seit Dezember 2023 muss der Verwalter einer Gemeinschaft zertifiziert sein. Wer wechseln will oder muss, findet hier den Ablauf.", "steps": [["Anfrage", "Sie schicken uns die Eckdaten: Ort, Anzahl der Einheiten, Baujahr, besondere Technik wie BHKW oder PV."], ["Angebot", "Sie erhalten ein schriftliches Angebot, auf Wunsch stellen wir uns in der Versammlung vor."], ["Bestellung", "Die Gemeinschaft beschließt die Bestellung, präsenz, hybrid oder im Umlaufverfahren."], ["Übergabe", "Wir übernehmen Unterlagen, Konten und Verträge vom bisherigen Verwalter und kümmern uns um alles Weitere."]], "faq": [["Was ändert der zertifizierte Verwalter für unsere Gemeinschaft?", "Seit Dezember 2023 entspricht die Bestellung eines Verwalters nur noch dann ordnungsmäßiger Verwaltung, wenn er nach § 26a WEG zertifiziert ist. Wolfgang Graf führt den Titel seit August 2023."], ["Können Versammlungen online stattfinden?", "Ja. Wir führen Präsenz-, hybride und Online-Versammlungen durch, dazu Umlauf- und Mehrheitsumlaufverfahren nach § 23 WEG."], ["Ein Eigentümer möchte eine E-Ladestation. Was nun?", "Seit Dezember 2020 besteht ein Rechtsanspruch darauf. Wir wissen, was rechtlich, planerisch und technisch zu beachten ist, und fassen die Beschlüsse rechtssicher."], ["Wie gehen Sie mit baulichen Veränderungen um?", "Die Beschlussquoren wurden gesenkt. Wir planen die Fortentwicklung der Wohnanlage so, dass finanzschwächere Eigentümer nicht überfordert werden."], ["Was bedeutet das neue Energierecht für unser Haus?", "GEG, Heizkostenverordnung, CO₂-Preis-Verteilung, Mieterstrom: Wir behalten die Vorgaben im Blick und beraten zu Fördermitteln."]]}, "contact": {"head": "Fordern Sie Ihr *Verwaltungsangebot* an.", "address": ["Berchtesgadener Str. 10", "83451 Piding"], "phone": "0176 232 968 49", "email": "IMMOBILIENVERWALTUNG-GRAF@eMail.de", "topics": ["Angebot WEG-Verwaltung", "Verwalterwechsel", "Angebot Mietverwaltung", "BHKW- oder PV-Verwaltung", "Objekt verkaufen oder vermieten", "Allgemeine Anfrage"]}};
 (() => {
 "use strict";
 const C = CLIENT, $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -575,7 +635,7 @@ const em = s => esc(s).replace(/\*(.+?)\*/g, "<i>$1</i>");   // *word* marks the
 
 /* ---- fill the page from the client record ---- */
 $("#bName").textContent = $("#dName").textContent = C.brand; $("#bSub").textContent = C.brandSub;
-const NAV = [["#firma", "Unternehmen"], ["#projekte", C.projects.nav], ["#leistungen", "Leistungen"], ["#kontakt", "Kontakt"]];
+const NAV = [["#firma", "Unternehmen"], ...(C.detail ? [["#verwaltung", C.detail.nav]] : []), ...(C.record ? [["#bilanz", C.record.nav]] : []), ["#projekte", C.projects.nav], ["#leistungen", "Leistungen"], ...(C.change ? [["#wechsel", C.change.nav]] : []), ["#kontakt", "Kontakt"]];
 $("#nav").innerHTML = NAV.map(n => `<a href="${n[0]}">${esc(n[1])}</a>`).join("");
 $("#dNav").innerHTML = NAV.map(n => `<a class="big" href="${n[0]}">${esc(n[1])}</a>`).join("");
 $("#hdrCta").textContent = C.cta;
@@ -602,6 +662,27 @@ C.services.items.forEach((s, i) => {
   $("button", d).onclick = () => { const o = !d.classList.contains("open"); $$(".svc-item", svc).forEach(x => { x.classList.remove("open"); $("button", x).setAttribute("aria-expanded", false); }); if (o) { d.classList.add("open"); $("button", d).setAttribute("aria-expanded", true); } };
   svc.appendChild(d);
 });
+if (C.detail) {
+  const D = C.detail; $("#verwaltung").hidden = false;
+  $("#vEyebrow").textContent = D.eyebrow; $("#vHead").innerHTML = em(D.head); $("#vSrc").textContent = "Leistungen laut " + C.source + ". Für diesen Entwurf gegliedert.";
+  const show = k => { $$("#vTabs button").forEach((b, i) => b.setAttribute("aria-selected", i === k)); const t = D.tabs[k];
+    $("#vPanel").innerHTML = `<p class="tabintro">${esc(t.intro)}</p><div class="groups">${t.groups.map(g => `<div><h3>${esc(g[0])}</h3><ul>${g[1].map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`; };
+  $("#vTabs").innerHTML = D.tabs.map((t, i) => `<button role="tab" aria-selected="${i === 0}">${esc(t.name)}</button>`).join("");
+  $$("#vTabs button").forEach((b, i) => b.onclick = () => show(i)); show(0);
+}
+if (C.record) {
+  const R = C.record; $("#bilanz").hidden = false;
+  $("#rEyebrow").textContent = R.eyebrow; $("#rHead").innerHTML = em(R.head); $("#rLead").textContent = R.lead;
+  $("#rFacts").innerHTML = R.facts.map(f => `<div><b${f[2] ? ' class="open"' : ""}>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("");
+  $("#rList").innerHTML = R.items.map(r => `<div class="rec rv"><span class="w">${esc(r[0])}</span><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join("");
+  $("#rSrc").textContent = R.src;
+}
+if (C.change) {
+  const W = C.change; $("#wechsel").hidden = false; $("#kontakt").style.paddingTop = "";
+  $("#wEyebrow").textContent = W.eyebrow; $("#wHead").innerHTML = em(W.head); $("#wLead").textContent = W.lead;
+  $("#wSteps").innerHTML = W.steps.map(x => `<div><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div>`).join("");
+  $("#wFaq").innerHTML = (W.faq || []).map(x => `<details><summary>${esc(x[0])}</summary><p>${esc(x[1])}</p></details>`).join("");
+}
 $("#cHead").innerHTML = em(C.contact.head); $("#cName").textContent = C.name; $("#cAddr").innerHTML = C.contact.address.map(esc).join("<br>");
 $("#cTel").textContent = C.contact.phone; $("#cMail").textContent = C.contact.email;
 $("#fTopic").innerHTML = C.contact.topics.map(t => `<option>${esc(t)}</option>`).join("");

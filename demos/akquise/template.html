@@ -44,6 +44,37 @@ __BASE_CSS__
 .intro>*{min-width:0}
 h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
 @media (max-width:560px){.brand span{letter-spacing:.18em;max-width:62vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.brand b{font-size:19px}}
+
+/* ---- optional sections (only rendered when the client record has them) ---- */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 34px}
+.tabs button{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:11px 16px;border:1px solid var(--line-l);color:var(--ink-2)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--trav);border-color:var(--ink)}
+.tabintro{font-size:clamp(18px,1.6vw,22px);max-width:60ch;color:var(--ink);margin-bottom:34px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px)}
+.groups div{border-top:1px solid var(--ink);padding-top:18px;min-width:0}
+.groups h3{font-size:24px;margin-bottom:14px}
+.groups ul{list-style:none;padding:0;margin:0}
+.groups li{padding:9px 0 9px 22px;border-bottom:1px solid var(--line-l);font-size:15px;color:var(--ink-2);position:relative}
+.groups li:before{content:"";position:absolute;left:0;top:19px;width:10px;height:1px;background:var(--teak)}
+.rec-list{margin-top:56px;border-top:1px solid var(--line-d)}
+.rec{display:grid;grid-template-columns:110px 1.1fr 1.6fr;gap:clamp(14px,3vw,40px);padding:20px 0;border-bottom:1px solid var(--line-d);align-items:baseline}
+.rec .w{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--glow)}
+.rec h3{font-size:clamp(20px,2vw,28px)}
+.rec p{color:var(--mist);font-size:15px}
+@media (max-width:760px){.rec{grid-template-columns:1fr;gap:6px}}
+.facts-row b.open{color:var(--haze);font-style:italic}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(18px,3vw,36px);margin-top:48px;counter-reset:st}
+.steps div{border-top:1px solid var(--line-d);padding-top:20px;counter-increment:st;min-width:0}
+.steps div:before{content:counter(st,decimal-leading-zero);font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--glow)}
+.steps h3{font-size:26px;margin:12px 0 10px}
+.steps p{color:var(--mist);font-size:15px}
+.faq{margin-top:70px;border-top:1px solid var(--line-d)}
+.faq details{border-bottom:1px solid var(--line-d);padding:20px 0}
+.faq summary{cursor:pointer;list-style:none;font-family:var(--f-display);font-size:clamp(20px,2vw,28px);display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:var(--f-mono);color:var(--glow)}
+.faq details[open] summary:after{content:"\2013"}
+.faq p{color:var(--mist);margin-top:12px;max-width:70ch;font-size:15px}
 </style>
 
 <header class="hdr" id="hdr">
@@ -93,6 +124,27 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
   </div>
 </section>
 
+<section class="sec light" id="verwaltung" hidden>
+  <div class="wrap">
+    <div class="rv"><p class="eyebrow mono" id="vEyebrow"></p><h2 style="margin-top:22px;max-width:22ch" id="vHead"></h2></div>
+    <div class="tabs" role="tablist" id="vTabs" style="margin-top:40px"></div>
+    <div id="vPanel"></div>
+    <p class="src" id="vSrc"></p>
+  </div>
+</section>
+
+<section class="sec" id="bilanz" hidden>
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="eyebrow mono" id="rEyebrow"></p><h2 style="margin-top:26px" id="rHead"></h2></div>
+      <div class="side rv"><p class="lead" id="rLead"></p></div>
+    </div>
+    <div class="facts-row" id="rFacts"></div>
+    <div class="rec-list" id="rList"></div>
+    <p class="src" id="rSrc"></p>
+  </div>
+</section>
+
 <section class="sec light" id="projekte">
   <div class="wrap">
     <div class="rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:48px">
@@ -116,6 +168,14 @@ h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
   <div class="wrap svc">
     <div class="sticky rv"><p class="eyebrow mono">Leistungen</p><h2 id="sHead"></h2><p class="lead" style="color:var(--ink-2)" id="sLead"></p></div>
     <div class="svc-list" id="svc"></div>
+  </div>
+</section>
+
+<section class="sec" id="wechsel" hidden>
+  <div class="wrap">
+    <div class="rv"><p class="eyebrow mono" id="wEyebrow"></p><h2 style="margin-top:22px;max-width:22ch" id="wHead"></h2><p class="lead" style="color:var(--mist);margin-top:20px;max-width:56ch" id="wLead"></p></div>
+    <div class="steps rv" id="wSteps"></div>
+    <div class="faq" id="wFaq"></div>
   </div>
 </section>
 
@@ -165,7 +225,7 @@ const em = s => esc(s).replace(/\*(.+?)\*/g, "<i>$1</i>");   // *word* marks the
 
 /* ---- fill the page from the client record ---- */
 $("#bName").textContent = $("#dName").textContent = C.brand; $("#bSub").textContent = C.brandSub;
-const NAV = [["#firma", "Unternehmen"], ["#projekte", C.projects.nav], ["#leistungen", "Leistungen"], ["#kontakt", "Kontakt"]];
+const NAV = [["#firma", "Unternehmen"], ...(C.detail ? [["#verwaltung", C.detail.nav]] : []), ...(C.record ? [["#bilanz", C.record.nav]] : []), ["#projekte", C.projects.nav], ["#leistungen", "Leistungen"], ...(C.change ? [["#wechsel", C.change.nav]] : []), ["#kontakt", "Kontakt"]];
 $("#nav").innerHTML = NAV.map(n => `<a href="${n[0]}">${esc(n[1])}</a>`).join("");
 $("#dNav").innerHTML = NAV.map(n => `<a class="big" href="${n[0]}">${esc(n[1])}</a>`).join("");
 $("#hdrCta").textContent = C.cta;
@@ -192,6 +252,27 @@ C.services.items.forEach((s, i) => {
   $("button", d).onclick = () => { const o = !d.classList.contains("open"); $$(".svc-item", svc).forEach(x => { x.classList.remove("open"); $("button", x).setAttribute("aria-expanded", false); }); if (o) { d.classList.add("open"); $("button", d).setAttribute("aria-expanded", true); } };
   svc.appendChild(d);
 });
+if (C.detail) {
+  const D = C.detail; $("#verwaltung").hidden = false;
+  $("#vEyebrow").textContent = D.eyebrow; $("#vHead").innerHTML = em(D.head); $("#vSrc").textContent = "Leistungen laut " + C.source + ". Für diesen Entwurf gegliedert.";
+  const show = k => { $$("#vTabs button").forEach((b, i) => b.setAttribute("aria-selected", i === k)); const t = D.tabs[k];
+    $("#vPanel").innerHTML = `<p class="tabintro">${esc(t.intro)}</p><div class="groups">${t.groups.map(g => `<div><h3>${esc(g[0])}</h3><ul>${g[1].map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`; };
+  $("#vTabs").innerHTML = D.tabs.map((t, i) => `<button role="tab" aria-selected="${i === 0}">${esc(t.name)}</button>`).join("");
+  $$("#vTabs button").forEach((b, i) => b.onclick = () => show(i)); show(0);
+}
+if (C.record) {
+  const R = C.record; $("#bilanz").hidden = false;
+  $("#rEyebrow").textContent = R.eyebrow; $("#rHead").innerHTML = em(R.head); $("#rLead").textContent = R.lead;
+  $("#rFacts").innerHTML = R.facts.map(f => `<div><b${f[2] ? ' class="open"' : ""}>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("");
+  $("#rList").innerHTML = R.items.map(r => `<div class="rec rv"><span class="w">${esc(r[0])}</span><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div>`).join("");
+  $("#rSrc").textContent = R.src;
+}
+if (C.change) {
+  const W = C.change; $("#wechsel").hidden = false; $("#kontakt").style.paddingTop = "";
+  $("#wEyebrow").textContent = W.eyebrow; $("#wHead").innerHTML = em(W.head); $("#wLead").textContent = W.lead;
+  $("#wSteps").innerHTML = W.steps.map(x => `<div><h3>${esc(x[0])}</h3><p>${esc(x[1])}</p></div>`).join("");
+  $("#wFaq").innerHTML = (W.faq || []).map(x => `<details><summary>${esc(x[0])}</summary><p>${esc(x[1])}</p></details>`).join("");
+}
 $("#cHead").innerHTML = em(C.contact.head); $("#cName").textContent = C.name; $("#cAddr").innerHTML = C.contact.address.map(esc).join("<br>");
 $("#cTel").textContent = C.contact.phone; $("#cMail").textContent = C.contact.email;
 $("#fTopic").innerHTML = C.contact.topics.map(t => `<option>${esc(t)}</option>`).join("");
