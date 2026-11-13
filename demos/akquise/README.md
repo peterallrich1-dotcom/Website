@@ -73,5 +73,5 @@ Diese 36 Firmen nicht noch einmal anschreiben.
 - Keine Nachfass-Mails. Jede Firma bekommt genau eine Mail.
 - Antwortvorlagen erst schreiben, wenn eine echte Antwort da ist.
 - Kein eigenes Stilprofil nötig, die Muster-Mail ist der Maßstab.
-- Preise: Start 990 € (eine Seite, ein Scroll-Film), Plus 1.490 € (mehrere Bereiche wie Graf), Pflege 39 €/Monat (Hosting, Domain, kleine Änderungen). Graf: Preis noch offen, Vorschlag 990 € plus Pflege gegen Referenz.
+- Preise: Start 990 € (voll personalisierte Seite mit Scroll-Video oben), Plus 1.490 € (Extras: mehr Videos, aufwendigere Darstellung, 3D, mehrere Bereiche), Hosting inkl. Pflege 39 €/Monat (Hosting, Domain und kleine Änderungen immer enthalten; Kosten für Peter ca. 1 €/Monat über Cloudflare Pages). Graf: Preis noch offen, Vorschlag 990 € plus Pflege gegen Referenz.
 - Eigene Absender-Domain mit SPF/DKIM/DMARC erst nach dem ersten Verkauf. Bis dahin Gmail, höchstens 30 bis 40 Mails am Tag.
