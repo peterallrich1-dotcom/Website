@@ -40,3 +40,13 @@ Jede Seite trägt unten den festen Hinweis „Designentwurf, nicht die offiziell
 
 Weitere geprüfte Kandidaten (noch ohne Entwurf): Max Neuner Gewerbe- und Wohnimmobilien (Garmisch-Partenkirchen, maxneuner-immobilien.de, sehr karg), Ritter Bauträger & Immobilien GmbH (Deisenhofen, ritter-bautraeger.de, mittel), Rainer Beger Immobilien und Wohnbau (Lindau, immobilien-beger.de, mittel).
 Nicht geeignet, weil bereits modern: Locate Immobilien, Kern Bau, Loibl Bau, Füsser, BMI.
+
+## Sammelversand mit dem Velaro-Beispiel (13.11.2026)
+
+Ein Link für alle: https://peterallrich1-dotcom.github.io/Website/velaro/ – kein eigener Entwurf je Firma, Preis 990 €.
+
+Mit geprüfter Beobachtung zur eigenen Website: anton-steininger.de, rinne-emv.de (beide nicht für Smartphones ausgelegt), huebner-vv.de (Copyright 2014), gbg-stadtamhof.de (Copyright 2016).
+
+Allgemeine Mail: locate-immobilien.com, immobilien-piesch.de, remaon.de, goldwasser-immobilien.de, akurat.net, stege-immo.de, hahn-keller.com, langmayer-immobilien.de, dsimmoservice.de, housemaster24.de, immobauprojekt.com, hoschka-immo.de, draexl-immobilien.de, ingvest.de, dragon24.de, bausolide.de, 1516-immobilien.de, immobilien-bausch.de, hvi.immo, bvgiesing.de, bayerische-wohnungsbau.de, barth-architekten.de, twiehaus.de, architektur-berthold.de, hv-minerva.de, img-hv.de, wohnbaureichenhall.de, werkraum-a.net, jenkel-architekten.de, ebh-architekten.de, tolnai-immo.de, medwohnbau.de.
+
+Diese 36 Firmen nicht noch einmal anschreiben.
