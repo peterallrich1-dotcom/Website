@@ -50,3 +50,28 @@ Mit geprüfter Beobachtung zur eigenen Website: anton-steininger.de, rinne-emv.d
 Allgemeine Mail: locate-immobilien.com, immobilien-piesch.de, remaon.de, goldwasser-immobilien.de, akurat.net, stege-immo.de, hahn-keller.com, langmayer-immobilien.de, dsimmoservice.de, housemaster24.de, immobauprojekt.com, hoschka-immo.de, draexl-immobilien.de, ingvest.de, dragon24.de, bausolide.de, 1516-immobilien.de, immobilien-bausch.de, hvi.immo, bvgiesing.de, bayerische-wohnungsbau.de, barth-architekten.de, twiehaus.de, architektur-berthold.de, hv-minerva.de, img-hv.de, wohnbaureichenhall.de, werkraum-a.net, jenkel-architekten.de, ebh-architekten.de, tolnai-immo.de, medwohnbau.de.
 
 Diese 36 Firmen nicht noch einmal anschreiben.
+
+## Entscheidungen (13.11.2026)
+
+**Muster-Erstmail (freigegeben, Vorlage für jede Firma).** Nur echte Beobachtungen von der Firmen-Website, kein Objekt erfinden.
+
+> Betreff: Eine Website-Idee für {Firma}
+>
+> Guten Tag {Vorname Nachname},
+>
+> auf Ihrer Seite habe ich {konkretes Objekt/Detail von der Website} gesehen. So ein Objekt würde ich nicht als Foto zeigen, sondern als Film, der beim Scrollen durch das Haus fliegt.
+>
+> So sieht eine meiner Websites aus:
+> [Hier klicken und das Beispiel ansehen]
+>
+> Welche Bilder, Videos und Texte zu sehen sind, entscheiden allein Sie, zum Beispiel {Bezug}.
+>
+> Ich würde mich freuen, wenn Ihnen das Beispiel gefällt.
+>
+> Peter Allrich
+
+- Keine Nachfass-Mails. Jede Firma bekommt genau eine Mail.
+- Antwortvorlagen erst schreiben, wenn eine echte Antwort da ist.
+- Kein eigenes Stilprofil nötig, die Muster-Mail ist der Maßstab.
+- Preise: Start 990 € (eine Seite, ein Scroll-Film), Plus 1.490 € (mehrere Bereiche wie Graf), Pflege 39 €/Monat (Hosting, Domain, kleine Änderungen). Graf: Preis noch offen, Vorschlag 990 € plus Pflege gegen Referenz.
+- Eigene Absender-Domain mit SPF/DKIM/DMARC erst nach dem ersten Verkauf. Bis dahin Gmail, höchstens 30 bis 40 Mails am Tag.
