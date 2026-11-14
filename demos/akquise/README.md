@@ -93,3 +93,11 @@ Hinweis: Das Gmail-Werkzeug wandelt jeden Link in einen google.com/url-Umleitung
 - Architektur Hildebrand: kein Interesse.
 - Immobilienverwaltung Graf: Kritik am ersten Entwurf (zu sehr Makler, kein Trackrecord, keine Objekte). Entwurf /graf/ am 13.11. überarbeitet (Verwaltung, Bilanz, Objekte, Verwalterwechsel), Antwort gesendet, wartet auf Fotos, Videos und Kennzahlen.
 - Rückläufer (Strato-Spamfilter, „No SPAM please! (B-SCORE)“): twiehaus.de, dragon24.de, housemaster24.de.
+
+## Eigene Website „Allrich Webdesign“ (pausiert, Stand 14.11.2026)
+
+Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends verlinkt). Peter will sie erst später fertigstellen.
+- Name: Allrich Webdesign. Zielgruppe: alle Branchen. Preis auf der Seite: „ab 990 €“. Kein Foto.
+- Impressum: Peter Allrich, 14476 Potsdam, E-Mail peter.allrich1@gmail.com. Es fehlen noch Straße und Hausnummer. Keine Steuernummer, kein Gewerbe erwähnen.
+- Offen: „wir“ oder „ich“, Domain allrich-webdesign.de (Peter kauft sie selbst), danach Weiterleitung per Cloudflare und Versand per Brevo mit eigener Domain, damit Links nicht über google.com/url laufen.
+- Hinweis an Peter: Vor dem ersten bezahlten Auftrag die Gewerbeanmeldung klären.
