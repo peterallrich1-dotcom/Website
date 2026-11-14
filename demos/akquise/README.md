@@ -76,3 +76,20 @@ Diese 36 Firmen nicht noch einmal anschreiben.
 - Preise: Start 990 € (voll personalisierte Seite mit Scroll-Video oben), Plus 1.490 € (Extras: mehr Videos, aufwendigere Darstellung, 3D, mehrere Bereiche), Hosting inkl. Pflege 29 €/Monat (Hosting, Domain und kleine Änderungen immer enthalten; Kosten für Peter ca. 1 €/Monat über Cloudflare Pages). Graf: 990 € plus 29 €/Monat, ohne Hinweis auf „erster Kunde“ oder Rabatt.
 - Versand Montag bis Samstag, kein Versand am Sonntag.
 - Eigene Absender-Domain mit SPF/DKIM/DMARC erst nach dem ersten Verkauf. Bis dahin Gmail, höchstens 30 bis 40 Mails am Tag.
+
+## Versand 14.11.2026 (ganz Deutschland + Wien)
+
+40 Firmen (34 Makler/Verwalter/Bauträger, 4 Architekten, 2 in Wien), Quelle: Gelbe Seiten und Herold, inhabergeführt, Name aus dem Impressum geprüft. Jede Mail mit eigenem ersten Satz zu einem konkreten Objekt oder Schwerpunkt der Firma, Link zu /Website/velaro/, ohne Preis. Versand in 4 Durchgängen à 10 (10:00, 11:30, 13:00, 14:00 Uhr), keine Rückläufer.
+
+richardemaier.de, flachsbarthkullick.de, wiegand-immobilien.de, merzenich.de, immobilien-demski.de, michaelruland.de, schneider-immobilien.com, dr-reise-immobilien.de, immosax.de, wilbrand-immobilien.de, strassberger.de, fredebeul-immobilien.de, haeuser-simmen.de, thyzel-immobilien.de, koppius-schwartz.de, tofa-immo.com, epunktimmobilien.com, weyel-immobilien.de, kallen.de, proficon-immobilien.de, immofinanzvp.de, werz-immobilien.de, eden-ehbrecht-immobilien.de, architektin-im-wasserturm.de, aip-immobilien.de, rehm-immobilien.de, kotschenreuther24.de, gick-architekten.de, fassbender-immobilien.de, kokon-architektur.de, saale-immobilien.de, jena-makler.de, architekturbuero-drewniok.de, imak-immobilien.de, vista-immobilien.de, immobilienvogel.de, aplusarchitektur.com, schwelme.de, huebl-partner.com, ar-immobilien.at.
+
+Diese 40 Firmen nicht noch einmal anschreiben.
+
+Hinweis: Das Gmail-Werkzeug wandelt jeden Link in einen google.com/url-Umleitungslink um (Empfänger sehen eine Weiterleitungsseite, ein Klick mehr). Abhilfe: eigene Domain mit eigenem Versandweg.
+
+## Antworten und Rückläufer (Stand 14.11.2026)
+
+- Hoschka Immobilien: Inhaberin geht zum Jahresende in den Ruhestand. Freundlich geantwortet, erledigt.
+- Architektur Hildebrand: kein Interesse.
+- Immobilienverwaltung Graf: Kritik am ersten Entwurf (zu sehr Makler, kein Trackrecord, keine Objekte). Entwurf /graf/ am 13.11. überarbeitet (Verwaltung, Bilanz, Objekte, Verwalterwechsel), Antwort gesendet, wartet auf Fotos, Videos und Kennzahlen.
+- Rückläufer (Strato-Spamfilter, „No SPAM please! (B-SCORE)“): twiehaus.de, dragon24.de, housemaster24.de.
