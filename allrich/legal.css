@@ -1,0 +1,19 @@
+@font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f3efe8;color:#11151a;font-family:"Manrope",system-ui,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:780px;margin:0 auto;padding:0 clamp(16px,5vw,40px)}
+header{background:#11151a;color:#ece7df}
+header .wrap{max-width:1240px;display:flex;justify-content:space-between;align-items:center;height:78px;gap:16px}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo b{font-family:"Bodoni Moda",serif;font-weight:400;font-size:22px;letter-spacing:.32em}
+.logo span{font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:#9aa1a8;margin-top:7px}
+.back{font-size:14px;color:#9aa1a8;text-decoration:none}
+main{padding:clamp(50px,8vw,90px) clamp(16px,5vw,40px)}
+h1{font-family:"Bodoni Moda",serif;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.05;margin-bottom:34px}
+h2{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#9a7440;margin:34px 0 10px;font-weight:600}
+p{overflow-wrap:anywhere}
+mark{background:#f5e3a8;padding:0 3px}
+.small{font-size:13px;color:#5d636a;margin-top:34px}
+footer{padding:30px clamp(16px,5vw,40px) 50px;font-size:14px;color:#5d636a}
