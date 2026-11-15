@@ -9,7 +9,6 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="film/l/f001.webp" as="image" media="(min-aspect-ratio: 1/1)">
-<link rel="preload" href="film/l/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
 <style>
 @font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
@@ -464,21 +463,43 @@ const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt 
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
 function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
 const ease = t => t * t * (3 - 2 * t);
+function band(im, ox, y0, w, bh) {
+  /* sharp frame as a band, soft edges into the dimmed background */
+  ctx.drawImage(im, ox, y0, w, bh);
+  const f = Math.min(110, bh * .28);
+  if (y0 > 1) for (const [a, b] of [[y0, y0 + f], [y0 + bh, y0 + bh - f]]) { const g = ctx.createLinearGradient(0, a, 0, b); g.addColorStop(0, "rgba(7,8,10,1)"); g.addColorStop(1, "rgba(7,8,10,0)"); ctx.fillStyle = g; ctx.fillRect(0, Math.min(a, b), W, f); }
+}
+function scrInfo(k) {
+  const q = SC && SC[k]; if (!q) return null;
+  const xs = q.map(p => p[0]), ys = q.map(p => p[1]);
+  return { cx: (Math.min(...xs) + Math.max(...xs)) / 2, cy: (Math.min(...ys) + Math.max(...ys)) / 2, w: Math.max(...xs) - Math.min(...xs) };
+}
+const clampX = (x, w) => Math.min(0, Math.max(W - w, x));
 function draw(i) {
   const k = near(i); if (k < 0 || k === drawn) return;
   const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
-  if (k < K) {
-    const e = ease(k / K), sC = H / ih, s0 = Math.min(sC, .92 * W / (.76 * iw)), s = s0 + (sC - s0) * e, cx = .44 + .03 * e;
-    ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
-    const y0 = (H - ih * s) / 2, bh = ih * s, f = Math.min(90, bh * .3);
-    ctx.drawImage(im, W / 2 - cx * iw * s, y0, iw * s, bh); screenAt(k, W / 2 - cx * iw * s, y0, iw * s, bh, false);
-    if (y0 > 1) for (const [a, b] of [[y0, y0 + f], [y0 + bh, y0 + bh - f]]) { const g = ctx.createLinearGradient(0, a, 0, b); g.addColorStop(0, "#07080a"); g.addColorStop(1, "rgba(7,8,10,0)"); ctx.fillStyle = g; ctx.fillRect(0, Math.min(a, b), W, f); }
+  if (!portrait) {
+    const s = Math.max(W / iw, H / ih), ox = (W - iw * s) / 2, oy = (H - ih * s) / 2;
+    ctx.drawImage(im, ox, oy, iw * s, ih * s); screenAt(k, ox, oy, iw * s, ih * s, false);
   } else {
-    const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s); screenAt(k, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s, portrait);
+    /* phone: the camera follows the monitor; once the monitor is wider than the phone, the frame
+       shrinks to a band so the whole monitor stays visible, over a dimmed full-height copy */
+    const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .47 }).cx;
+    let s, cx, cy = .5;
+    if (k < K) { const e = ease(k / K), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = s0 + (sC - s0) * e; cx = .44 + (endCx - .44) * e; }
+    else { cx = info ? info.cx : endCx; s = info ? Math.min(sC, .94 * W / (info.w * iw)) : sC; cy = info ? info.cy : .5; }
+    ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
+    if (k >= K && s < sC - .001) {
+      const bx = clampX(W / 2 - cx * iw * sC, iw * sC);
+      ctx.globalAlpha = .28; ctx.drawImage(im, bx, 0, iw * sC, H); ctx.globalAlpha = 1;
+    }
+    const w = iw * s, bh = ih * s, ox = clampX(W / 2 - cx * w, w);
+    const y0 = k < K ? (H - bh) / 2 : Math.min(Math.max(0, H - bh), Math.max(Math.min(0, H - bh), H * .42 - cy * bh));
+    band(im, ox, y0, w, bh); screenAt(k, ox, y0, w, bh, false);
   }
   drawn = k;
 }
-const src = i => "film/" + (portrait && i >= K ? "p/" : "l/") + "f" + String(i + 1).padStart(3, "0") + ".webp";
+const src = i => "film/l/f" + String(i + 1).padStart(3, "0") + ".webp";
 const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
 let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = src(i); }
 for (let c = 0; c < 5; c++) pump();
