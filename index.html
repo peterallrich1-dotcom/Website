@@ -71,7 +71,7 @@ img,canvas{display:block;max-width:100%}
 .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
 .pin canvas{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
-.screen{position:absolute;left:0;top:0;width:1000px;height:557px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#0a0a0b;opacity:0;will-change:transform,opacity;font-family:var(--f-b)}
+.screen{position:absolute;left:0;top:0;width:1000px;height:557px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#0a0a0b;opacity:0;will-change:transform,opacity;font-family:var(--f-b);box-shadow:0 0 0 7px #0c0c0e}
 .screen .bar{position:absolute;inset:0 0 auto;height:30px;background:#ececec;display:flex;align-items:center;gap:7px;padding:0 14px}
 .screen .bar i{width:11px;height:11px;border-radius:50%;background:#cfcfcf}
 .screen .bar u{text-decoration:none;margin:0 auto;padding:2px 60px;border-radius:7px;background:#fff;font-size:12px;color:#555}
@@ -441,7 +441,9 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 const portrait = innerWidth / innerHeight < 1, N = 240, K = portrait ? 72 : 0;
 const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen"), cards = [...document.querySelectorAll("#screen .card .sl")], chip = $("#screen .chip");
 /* monitor corners per frame (normalised to the landscape frame); my own café website is mapped onto it */
-let SC = null; fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
+let SC = null, NE = 239;
+function calcNE() { if (!portrait || !SC) return; const sC = H / 1080; NE = 239; for (let k = K; k < 240; k++) { const q = SC[k]; if (q && (Math.max(...q.map(p => p[0])) - Math.min(...q.map(p => p[0]))) * 1920 * sC > .9 * W) { NE = k; break; } } onScroll(); }
+fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; calcNE(); }).catch(() => {});
 const PX0 = 590 / 2280, PXW = 962 / 2280, SRC = [[0, 0], [1000, 0], [1000, 557], [0, 557]];
 function homo(src, dst) {
   const A = [], b = [];
@@ -450,13 +452,13 @@ function homo(src, dst) {
   const h = b.map((v, i) => v / A[i][i]);
   return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
 }
-const SLIDES = [[0, "Immobilien"], [120, "Gastronomie"], [190, "Ihr Betrieb"]]; let slide = -1;
+const SLIDES = [[0, "Immobilien"], [.5, "Gastronomie"], [.8, "Ihr Betrieb"]]; let slide = -1;
 function screenAt(k, ox, oy, w, h, crop) {
   const q = SC && SC[k]; if (!q) { scr.style.opacity = 0; return; }
   const dst = q.map(([x, y]) => [ox + (crop ? (x - PX0) / PXW : x) * w, oy + y * h]);
   scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")";
   scr.style.opacity = ease(Math.min(1, Math.max(0, (k - 42) / 14)));
-  let n = 0; SLIDES.forEach(([f], j) => { if (k >= f) n = j; });
+  let n = 0; SLIDES.forEach(([f], j) => { if (k >= f * NE) n = j; });
   if (n !== slide) { slide = n; cards.forEach((c, j) => c.classList.toggle("on", j === n)); chip.textContent = SLIDES[n][1]; chip.style.display = n === 2 ? "none" : ""; }
 }
 
@@ -483,19 +485,14 @@ function draw(i) {
     const s = Math.max(W / iw, H / ih), ox = (W - iw * s) / 2, oy = (H - ih * s) / 2;
     ctx.drawImage(im, ox, oy, iw * s, ih * s); screenAt(k, ox, oy, iw * s, ih * s, false);
   } else {
-    /* phone: the camera follows the monitor; once the monitor is wider than the phone, the frame
-       shrinks to a band so the whole monitor stays visible, over a dimmed full-height copy */
+    /* phone: full-screen, the camera follows the monitor; the film ends (NE) where the monitor fills the width */
     const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .47 }).cx;
     let s, cx, cy = .5;
     if (k < K) { const e = ease(k / K), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = s0 + (sC - s0) * e; cx = .44 + (endCx - .44) * e; }
-    else { cx = info ? info.cx : endCx; s = info ? Math.min(sC, .94 * W / (info.w * iw)) : sC; cy = info ? info.cy : .5; }
+    else { cx = info ? info.cx : endCx; s = sC; }
     ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
-    if (k >= K && s < sC - .001) {
-      const bx = clampX(W / 2 - cx * iw * sC, iw * sC);
-      ctx.globalAlpha = .28; ctx.drawImage(im, bx, 0, iw * sC, H); ctx.globalAlpha = 1;
-    }
-    const w = iw * s, bh = ih * s, ox = clampX(W / 2 - cx * w, w);
-    const y0 = k < K ? (H - bh) / 2 : Math.min(Math.max(0, H - bh), Math.max(Math.min(0, H - bh), H * .42 - cy * bh));
+    if (k >= K) s = sC;
+    const w = iw * s, bh = ih * s, ox = clampX(W / 2 - cx * w, w), y0 = (H - bh) / 2;
     band(im, ox, y0, w, bh); screenAt(k, ox, y0, w, bh, false);
   }
   drawn = k;
@@ -505,13 +502,13 @@ const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 
 let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = src(i); }
 for (let c = 0; c < 5; c++) pump();
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * (N - 1); }
+function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * NE; }
 function tick() {
   cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(Math.round(cur));
-  const a = clamp(cur / (N - 1) / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
+  const a = clamp(cur / NE / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
   requestAnimationFrame(tick);
 }
-addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
+addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); calcNE(); onScroll(); });
 size(); onScroll(); requestAnimationFrame(tick);
 
 /* contact: opens the visitor's mail program */
