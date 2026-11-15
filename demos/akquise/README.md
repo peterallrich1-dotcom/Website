@@ -107,5 +107,5 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - **Startseite** `index.html` im Root ist eine Kopie von `allrich/index.html` mit angepassten Pfaden. Bei Änderungen an `allrich/index.html` die Root-Kopie neu erzeugen (Pfade `fonts/`, `film/`, `img-*`, `impressum.html`, `datenschutz.html` mit `allrich/` davor, `../` entfernen).
 - **Hero-Film** `allrich/film/` aus Peters Video (dunkles Büro, New-York-Skyline). `film/screen.json` enthält pro Bild die Ecken des Monitors; darauf wird per Homografie eine saubere Seite ohne Text gelegt. Kein Foto auf der Seite (Peter will das nicht).
 - **Impressum:** Peter Allrich, Am Föhrenhang 65, 14476 Potsdam (Neu Fahrland).
-- **Kaya (YK Architektur, Kornwestheim):** heißer Lead, antwortete am 15.11., Preis 990 € ok, fragt nach Peters Website. Antwort noch offen, Peter will sie vorher sehen.
+- **Kaya (YK Architektur, Kornwestheim):** heißer Lead, antwortete am 15.11. (Preis 990 € ok, Website stand wegen Rücken-OPs 2019–2024 still). Antwort am 15.11. abends gesendet: Link zu allrich-webdesign.com, Bitte um Visualisierungen, Fotos, Videos und Text. Nicht nachhaken, auf sein Material warten.
 - **Gewerbe:** Anmeldung über eMeldung Potsdam scheiterte an der Straßenauswahl (Am Föhrenhang nicht auswählbar). Peter ruft Montag beim Gewerbeamt an (0331 289-1690).
