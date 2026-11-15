@@ -3,178 +3,231 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Allrich Webdesign · Websites, die in Erinnerung bleiben</title>
-<meta name="description" content="Allrich Webdesign baut hochwertige Websites mit Scroll-Film: Ihr Haus, Ihr Produkt oder Ihr Betrieb als Film, der beim Scrollen läuft. Für Unternehmen aller Branchen, ab 990 €.">
-<meta name="theme-color" content="#11151a">
+<title>Allrich Webdesign · Websites, die bleiben</title>
+<meta name="description" content="Allrich Webdesign baut Websites mit Scroll-Film: Ihr Betrieb als Film, der beim Scrollen läuft. Für Unternehmen aller Branchen, kostenloser Entwurf, ab 990 €.">
+<meta name="theme-color" content="#0a0a0b">
 <meta name="robots" content="noindex, nofollow">
-<link rel="preload" href="fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="film/l/f001.webp" as="image" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" href="film/p/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
 <style>
-@font-face{font-family:"Bodoni Moda";font-style:normal;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-normal.woff2) format("woff2")}
-@font-face{font-family:"Bodoni Moda";font-style:italic;font-weight:400 900;font-display:swap;src:url(fonts/bodoni-moda-latin-opsz-italic.woff2) format("woff2")}
-@font-face{font-family:"Manrope";font-weight:300;font-display:swap;src:url(fonts/manrope-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format("woff2")}
 :root{
-  --ink:#11151a;--ink-2:#1a2027;--paper:#f3efe8;--paper-2:#e9e3d9;
-  --text:#ece7df;--mute:#9aa1a8;--mute-l:#5d636a;--line:rgba(236,231,223,.14);--line-l:rgba(17,21,26,.14);
-  --gold:#c9a36b;--gold-d:#9a7440;
-  --f-d:"Bodoni Moda","Didot","Times New Roman",serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --gut:clamp(16px,5vw,72px);--max:1240px;
+  --black:#0a0a0b;--black-2:#141518;--black-3:#1d1f23;
+  --white:#f5f4f1;--paper:#efede8;
+  --blue:#3d7bff;--blue-d:#2456d6;--blue-soft:rgba(61,123,255,.14);
+  --mute:#9a9ea6;--mute-d:#5c6068;
+  --line:rgba(245,244,241,.12);--line-d:rgba(10,10,11,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;
+  --f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1320px;--r:18px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--ink);color:var(--text);font-family:var(--f-b);font-size:16px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--black);color:var(--white);font-family:var(--f-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img,canvas{display:block;max-width:100%}
-h1,h2,h3{font-family:var(--f-d);font-weight:400;line-height:1.05;letter-spacing:-.01em;overflow-wrap:break-word}
-h1 em,h2 em,h3 em{font-style:italic;color:var(--gold)}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
-.eyebrow{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px}
-.eyebrow:before{content:"";width:34px;height:1px;background:currentColor}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:1px solid var(--gold);transition:background .3s,color .3s}
-.btn.fill{background:var(--gold);color:var(--ink)}
-.btn.fill:hover{background:transparent;color:var(--gold)}
-.btn.line:hover{background:var(--gold);color:var(--ink)}
-.light .btn.line{border-color:var(--ink);color:var(--ink)}
-.light .btn.line:hover{background:var(--ink);color:var(--paper)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+.h em{font-style:normal;color:var(--blue)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 24px;border-radius:999px;font-size:14.5px;font-weight:600;border:1.5px solid transparent;transition:transform .25s,background .25s,color .25s,border-color .25s;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.blue:hover{background:var(--blue-d)}
+.btn.ghost{border-color:rgba(245,244,241,.35);color:var(--white);background:rgba(10,10,11,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn.ghost:hover{border-color:var(--white)}
+.light .btn.ghost{border-color:rgba(10,10,11,.25);color:var(--black);background:transparent}
+.light .btn.ghost:hover{border-color:var(--black)}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translateX(3px)}
 
 /* header */
-.hdr{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
-.hdr.solid{background:rgba(17,21,26,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
-.logo{display:flex;flex-direction:column;line-height:1}
-.logo b{font-family:var(--f-d);font-weight:400;font-size:24px;letter-spacing:.32em;margin-right:-.32em}
-.logo span{font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--mute);margin-top:7px}
-.nav{display:flex;gap:30px;font-size:13.5px;letter-spacing:.04em}
-.nav a{color:var(--mute);transition:color .3s}
-.nav a:hover{color:var(--text)}
-.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--text);cursor:pointer}
-.burger i,.burger i:before{display:block;width:26px;height:1px;background:currentColor;position:relative;margin:auto}
-.burger i:before{content:"";position:absolute;top:8px}
-.drawer{position:fixed;inset:0;z-index:60;background:var(--ink);padding:24px var(--gut);display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px 0;transition:background .35s,padding .35s}
+.hdr.solid{background:rgba(10,10,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px 0}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--f-h);font-size:24px;letter-spacing:.04em;text-transform:uppercase;line-height:1;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue)}
+.logo small{font-family:var(--f-b);font-size:11px;font-weight:500;letter-spacing:.2em;color:var(--mute);margin-left:2px}
+.nav{display:flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(10,10,11,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav a{font-size:13.5px;font-weight:500;padding:8px 15px;border-radius:999px;color:#d4d6da;transition:background .25s,color .25s}
+.nav a:hover{background:rgba(245,244,241,.1);color:#fff}
+.hdr .btn{height:42px;padding:0 20px;font-size:13.5px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(10,10,11,.4);color:var(--white);cursor:pointer}
+.burger i,.burger i:before{display:block;width:18px;height:1.5px;background:currentColor;position:relative;margin:auto}
+.burger i:before{content:"";position:absolute;top:6px}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--black);padding:20px var(--gut) 40px;display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1)}
 .drawer.open{transform:none}
-.drawer .x{align-self:flex-end;background:none;border:0;color:var(--text);font-size:34px;line-height:1;cursor:pointer;width:44px;height:44px}
-.drawer a{font-family:var(--f-d);font-size:38px;padding:6px 0;border-bottom:1px solid var(--line)}
-@media (max-width:900px){.nav,.hdr .btn{display:none}.burger{display:block}}
+.drawer .x{align-self:flex-end;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--white);font-size:26px;cursor:pointer}
+.drawer a{font-family:var(--f-h);text-transform:uppercase;font-size:44px;line-height:1.15;padding:8px 0;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:28px;font-family:var(--f-b);text-transform:none;font-size:15px;border-bottom:0}
+@media (max-width:960px){.nav,.hdr .btn{display:none}.burger{display:block}}
 
-/* hero with scroll film */
-.hero{position:relative;height:260vh}
-.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.pin canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.0;transition:opacity 1s}
-.pin canvas.on{opacity:1}
-.pin:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,21,26,.7) 0%,rgba(17,21,26,.15) 60%),linear-gradient(180deg,rgba(17,21,26,.55) 0%,rgba(17,21,26,.2) 40%,rgba(17,21,26,.85) 100%);pointer-events:none}
-.hero .copy{position:absolute;left:0;right:0;bottom:clamp(60px,11vh,120px);z-index:2}
-.hero h1{font-size:clamp(46px,7.6vw,118px);max-width:12ch}
-.hero p.lead{max-width:46ch;margin-top:26px;color:#d6d0c6;font-size:clamp(16px,1.35vw,19px);font-weight:300}
-.hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-.hero .hint{position:absolute;right:var(--gut);bottom:clamp(60px,11vh,120px);z-index:2;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);writing-mode:vertical-rl}
-.hero .bar{position:absolute;left:0;bottom:0;height:2px;background:var(--gold);z-index:3;width:0}
-.hero .tag{position:absolute;top:100px;right:var(--gut);z-index:2;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-align:right}
-@media (max-width:700px){.hero .hint{display:none}.hero .tag{top:92px;font-size:10px}}
+/* hero */
+.hero{position:relative;height:330vh}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
+.pin canvas{position:absolute;inset:0;width:100%;height:100%}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.72) 0%,rgba(10,10,11,.1) 32%,rgba(10,10,11,0) 55%,rgba(10,10,11,.82) 100%)}
+.screen{position:absolute;left:0;top:0;width:1000px;height:625px;transform-origin:0 0;opacity:0;pointer-events:none;overflow:hidden;background:#fff;will-change:transform,opacity}
+.screen .bar{height:7%;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 3.5%;font:600 22px var(--f-b);color:#111}
+.screen .bar b{font-family:var(--f-h);font-weight:400;letter-spacing:.04em;font-size:26px}
+.screen .bar span{display:flex;gap:28px;color:#666;font-weight:500;font-size:19px}
+.screen .bar u{text-decoration:none;background:var(--blue);color:#fff;padding:7px 18px;border-radius:99px;font-size:18px}
+.screen .im{position:absolute;left:3.5%;right:3.5%;top:10%;bottom:12%;border-radius:10px;overflow:hidden;background:url(img-velaro.jpg) center/cover}
+.screen .im:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,0) 70%)}
+.screen .im p{position:absolute;left:6%;bottom:12%;z-index:1;color:#fff;font-family:var(--f-h);text-transform:uppercase;font-size:92px;line-height:.92}
+.screen .im p small{display:block;font-family:var(--f-b);text-transform:none;font-size:22px;font-weight:500;margin-top:16px;opacity:.85}
+.screen .ft{position:absolute;left:3.5%;bottom:4%;display:flex;gap:14px}
+.screen.p .im p{left:0;right:0;text-align:center;font-size:84px}
+.screen.p .bar span,.screen.p .bar b{visibility:hidden}
+.screen .ft i{display:block;width:120px;height:12px;border-radius:6px;background:#e7e7e7}
+
+.hero .top{position:absolute;left:0;right:0;top:clamp(84px,13vh,130px);z-index:2;will-change:transform,opacity}
+.hero h1{font-size:clamp(64px,13.2vw,220px);letter-spacing:-.005em;text-shadow:0 6px 40px rgba(0,0,0,.35)}
+.hero h1 span{display:block}
+.hero .bottom{position:absolute;left:0;right:0;bottom:clamp(26px,6vh,64px);z-index:2;will-change:opacity}
+.hero .bottom .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
+.hero .lead{max-width:40ch;font-size:clamp(15.5px,1.25vw,18px);color:#e2e3e6;font-weight:500}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.floats{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.chip{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;background:rgba(14,15,18,.62);border:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:13px;font-weight:500;color:#d8dade}
+.chip b{font-family:var(--f-h);font-weight:400;font-size:26px;line-height:1;color:#fff;letter-spacing:.02em}
+.chip.prog{flex-direction:column;align-items:stretch;gap:9px;min-width:250px}
+.chip.prog .row{display:flex;justify-content:space-between;gap:16px}
+.chip.prog .row em{font-style:normal;color:var(--blue);font-weight:600}
+.chip.prog .track{height:5px;border-radius:5px;background:rgba(245,244,241,.12);overflow:hidden}
+.chip.prog .track i{display:block;height:100%;width:0;background:var(--blue);border-radius:5px;box-shadow:0 0 12px var(--blue)}
+.endcopy{position:absolute;left:0;right:0;bottom:clamp(26px,7vh,70px);z-index:2;opacity:0;pointer-events:none;text-align:center}
+.endcopy p.h{font-size:clamp(34px,5vw,74px)}
+.endcopy .acts{justify-content:center;margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:820px){
+  .hero .bottom .wrap{flex-direction:column;align-items:stretch}
+  .floats{flex-direction:row;align-items:stretch}
+  .floats .chip:not(.prog){display:none}
+  .chip.prog{min-width:0;flex:1}
+  .hero .acts .btn{flex:1}
+}
+
+/* trust strip */
+.trust{background:var(--black);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust div{padding:30px 24px 32px 0;border-right:1px solid var(--line)}
+.trust div+div{padding-left:24px}
+.trust div:last-child{border-right:0}
+.trust b{display:block;font-family:var(--f-h);font-weight:400;font-size:clamp(30px,3.2vw,46px);line-height:1;text-transform:uppercase}
+.trust b em{font-style:normal;color:var(--blue)}
+.trust span{display:block;margin-top:10px;font-size:14px;color:var(--mute)}
+@media (max-width:820px){.trust .wrap{grid-template-columns:1fr 1fr}.trust div{padding:24px 14px 24px 0!important}.trust div:nth-child(2n){border-right:0;padding-left:14px!important}.trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 
 /* sections */
-.sec{padding:clamp(90px,12vw,170px) 0}
-.light{background:var(--paper);color:var(--ink)}
-.light .eyebrow{color:var(--gold-d)}
-.light h2 em,.light h3 em{color:var(--gold-d)}
-.sec h2{font-size:clamp(36px,5vw,72px);max-width:16ch;margin-top:26px}
-.lead2{font-size:clamp(17px,1.4vw,20px);font-weight:300;max-width:52ch;margin-top:26px;color:var(--mute)}
-.light .lead2{color:var(--mute-l)}
-.split{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,6vw,100px);align-items:end}
-@media (max-width:860px){.split{grid-template-columns:1fr}}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.light{background:var(--paper);color:var(--black)}
+.light .kicker{color:var(--blue-d)}
+.sec .h2{font-size:clamp(46px,7vw,112px);margin-top:20px}
+.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.intro p.lead2{max-width:44ch;color:var(--mute);font-size:clamp(16px,1.3vw,18.5px);font-weight:500}
+.light .intro p.lead2{color:var(--mute-d)}
 
-/* intro numbers */
-.nums{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(60px,8vw,100px);border-top:1px solid var(--line-l)}
-.nums div{padding:28px 24px 0 0}
-.nums b{font-family:var(--f-d);font-weight:400;font-size:clamp(40px,4.6vw,66px);line-height:1;display:block}
-.nums span{display:block;margin-top:12px;color:var(--mute-l);font-size:14.5px;max-width:28ch}
-@media (max-width:700px){.nums{grid-template-columns:1fr}.nums div{padding:24px 0;border-bottom:1px solid var(--line-l)}}
-
-/* work */
-.work{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px);margin-top:clamp(50px,7vw,90px)}
-.card{position:relative;display:block;overflow:hidden;border:1px solid var(--line);background:var(--ink-2)}
-.card .media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0c0f12}
-.card .media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.card:hover .media img{transform:scale(1.05)}
-.card .play{position:absolute;left:18px;bottom:18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:rgba(17,21,26,.75);padding:8px 12px;border:1px solid var(--line)}
-.card .meta{padding:26px 26px 30px;display:flex;justify-content:space-between;gap:20px;align-items:flex-end}
-.card h3{font-size:clamp(28px,2.6vw,38px)}
-.card p{color:var(--mute);font-size:15px;margin-top:10px;max-width:40ch}
-.card .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.card .go{flex:none;width:46px;height:46px;border:1px solid var(--line);display:grid;place-items:center;transition:background .3s,border-color .3s}
-.card:hover .go{background:var(--gold);border-color:var(--gold);color:var(--ink)}
-.note{font-size:12.5px;color:var(--mute);margin-top:22px}
-@media (max-width:820px){.work{grid-template-columns:1fr}}
+/* bento work */
+.bento{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:clamp(40px,6vw,70px)}
+.tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--black-2);border:1px solid var(--line);display:block;min-height:280px}
+.tile.big{grid-row:span 2;min-height:560px}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.05)}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,0) 40%,rgba(10,10,11,.85))}
+.tile .tag{position:absolute;top:16px;left:16px;z-index:2;font-size:12px;font-weight:600;padding:7px 12px;border-radius:99px;background:rgba(10,10,11,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line)}
+.tile .info{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.tile h3{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.2vw,48px);line-height:.95}
+.tile p{color:#c9ccd1;font-size:14.5px;margin-top:8px;max-width:36ch}
+.tile .go{flex:none;width:48px;height:48px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-size:20px;transition:transform .3s}
+.tile:hover .go{transform:rotate(-45deg)}
+.tile.next{background:var(--blue);border-color:var(--blue);display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.tile.next:after{display:none}
+.tile.next h3{font-size:clamp(34px,3.6vw,54px)}
+.tile.next p{color:rgba(255,255,255,.88);font-size:15px;max-width:34ch}
+.tile.next .go{background:#fff;color:var(--blue)}
+.note{font-size:12.5px;color:var(--mute);margin-top:16px}
+@media (max-width:860px){.bento{grid-template-columns:1fr}.tile.big{grid-row:auto;min-height:420px}}
 
 /* sectors */
-.sectors{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(50px,7vw,90px);border-top:1px solid var(--line-l)}
-.sectors div{padding:30px 28px 34px 0;border-bottom:1px solid var(--line-l)}
-.sectors div:not(:nth-child(3n)){border-right:1px solid var(--line-l);padding-right:28px}
-.sectors div:not(:nth-child(3n+1)){padding-left:28px}
-.sectors h3{font-size:26px}
-.sectors p{color:var(--mute-l);font-size:15px;margin-top:10px}
-@media (max-width:860px){.sectors{grid-template-columns:1fr}.sectors div{border-right:0!important;padding:26px 0!important}}
+.sectors{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(36px,5vw,60px)}
+.sectors span{font-family:var(--f-h);text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:1;padding:16px 24px 15px;border-radius:999px;border:1.5px solid rgba(10,10,11,.18);transition:background .25s,color .25s,border-color .25s}
+.sectors span:hover,.sectors span.on{background:var(--black);color:var(--white);border-color:var(--black)}
+.sectors span.b{background:var(--blue);color:#fff;border-color:var(--blue)}
 
-/* services */
-.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(30px,5vw,80px);margin-top:clamp(50px,7vw,90px)}
-.svc div{padding:30px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:54px 1fr;gap:10px}
-.svc i{font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--gold);padding-top:8px}
-.svc h3{font-size:26px}
-.svc p{color:var(--mute);font-size:15px;margin-top:8px}
-@media (max-width:820px){.svc{grid-template-columns:1fr}}
+/* about */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
+.portrait{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.15;background:var(--black-2);border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .name{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(14,15,18,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);font-size:13.5px;color:#d8dade}
+.portrait .name b{display:block;color:#fff;font-size:16px}
+.portrait .name i{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;flex:none}
+.about .txt p{color:#c9ccd1;font-size:clamp(16px,1.3vw,18.5px);margin-top:20px;max-width:52ch}
+.about ul{list-style:none;margin-top:30px;display:grid;gap:10px}
+.about li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.about li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+@media (max-width:860px){.about{grid-template-columns:1fr}.portrait{max-width:420px}}
 
-/* process */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,36px);margin-top:clamp(50px,7vw,90px)}
-.steps div{border-top:1px solid var(--ink);padding-top:22px}
-.steps i{font-style:normal;font-size:12px;letter-spacing:.16em;color:var(--gold-d)}
-.steps h3{font-size:28px;margin:14px 0 10px}
-.steps p{color:var(--mute-l);font-size:15px}
-@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.steps{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(40px,6vw,70px)}
+.step{background:#fff;border-radius:var(--r);padding:26px 24px 30px;border:1px solid var(--line-d);display:flex;flex-direction:column;gap:14px;min-height:250px}
+.step i{font-style:normal;font-family:var(--f-h);font-size:54px;line-height:1;color:var(--blue)}
+.step h3{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;margin-top:auto}
+.step p{color:var(--mute-d);font-size:15px}
+.step.hl{background:var(--black);color:var(--white);border-color:var(--black)}
+.step.hl p{color:var(--mute)}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{min-height:0}}
 
 /* price */
-.price{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,100px);align-items:start}
-.pbox{border:1px solid var(--gold);padding:clamp(28px,4vw,48px);background:linear-gradient(160deg,rgba(201,163,107,.07),transparent 60%)}
-.pbox .from{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
-.pbox .amt{font-family:var(--f-d);font-size:clamp(64px,8vw,110px);line-height:1;margin:14px 0 6px}
-.pbox .sub{color:var(--mute);font-size:14.5px}
-.pbox ul{list-style:none;margin:30px 0 34px;border-top:1px solid var(--line)}
-.pbox li{padding:13px 0 13px 28px;border-bottom:1px solid var(--line);position:relative;font-size:15.5px}
-.pbox li:before{content:"";position:absolute;left:0;top:23px;width:14px;height:1px;background:var(--gold)}
-@media (max-width:860px){.price{grid-template-columns:1fr}}
+.prices{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:clamp(40px,6vw,70px)}
+.pbox{border-radius:var(--r);padding:clamp(26px,3.5vw,44px);background:var(--black-2);border:1px solid var(--line);display:flex;flex-direction:column}
+.pbox.main{background:linear-gradient(150deg,#1a2a52 0%,var(--black-2) 60%);border-color:rgba(61,123,255,.45)}
+.pbox .lbl{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.pbox .amt{font-family:var(--f-h);font-size:clamp(58px,7.4vw,112px);line-height:.9;margin-top:16px;white-space:nowrap}
+.pbox .amt small{font-size:.32em;color:var(--mute);font-family:var(--f-b);font-weight:500;margin-left:8px}
+.pbox .sub{color:var(--mute);font-size:14.5px;margin-top:10px}
+.pbox ul{list-style:none;margin:28px 0 30px;display:grid;gap:12px}
+.pbox li{display:flex;gap:12px;font-size:15.5px}
+.pbox li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.pbox .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:860px){.prices{grid-template-columns:1fr}}
 
 /* faq */
-.faq{margin-top:clamp(40px,6vw,70px);border-top:1px solid var(--line-l)}
-.faq details{border-bottom:1px solid var(--line-l);padding:24px 0}
-.faq summary{cursor:pointer;list-style:none;font-family:var(--f-d);font-size:clamp(21px,2vw,28px);display:flex;justify-content:space-between;gap:24px}
+.faq{margin-top:clamp(36px,5vw,60px);display:grid;gap:10px}
+.faq details{background:#fff;border-radius:14px;border:1px solid var(--line-d);padding:0 24px}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:clamp(16.5px,1.4vw,19px);padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:after{content:"+";font-family:var(--f-b);font-weight:300;color:var(--gold-d);font-size:26px;line-height:1}
-.faq details[open] summary:after{content:"\2013"}
-.faq p{color:var(--mute-l);margin-top:14px;max-width:72ch}
+.faq summary:after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;background:var(--blue-soft);color:var(--blue-d);display:grid;place-items:center;font-size:20px;font-weight:500;transition:transform .3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{color:var(--mute-d);padding-bottom:22px;max-width:72ch}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start}
-.cinfo p{color:var(--mute);margin-top:6px}
-.cinfo .big{font-family:var(--f-d);font-size:clamp(24px,2.6vw,36px);color:var(--text);display:inline-block;margin-top:30px;border-bottom:1px solid var(--gold);padding-bottom:4px;word-break:break-all}
-.form{display:grid;gap:16px}
-.form label{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
-.form input,.form textarea,.form select{width:100%;margin-top:8px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);font:inherit;padding:10px 0;border-radius:0}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.contact .txt p{color:var(--mute);font-size:clamp(16px,1.3vw,18.5px);margin-top:20px;max-width:42ch}
+.mail{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 20px;border-radius:14px;border:1px solid var(--line);background:var(--black-2);font-weight:600;word-break:break-all}
+.mail i{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);flex:none}
+.form{display:grid;gap:12px;background:var(--black-2);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,34px)}
+.form label{font-size:12.5px;font-weight:600;color:var(--mute)}
+.form input,.form textarea,.form select{width:100%;margin-top:6px;background:var(--black-3);border:1px solid var(--line);border-radius:12px;color:var(--white);font:inherit;padding:13px 14px}
 .form select option{color:#111}
 .form textarea{min-height:120px;resize:vertical}
-.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--gold)}
-.form .err{color:#e3a07a;font-size:14px;min-height:20px}
+.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--blue)}
+.form .err{color:#ff9b7a;font-size:14px;min-height:20px}
 .form .hint{font-size:12.5px;color:var(--mute)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
 /* footer */
-.ftr{border-top:1px solid var(--line);padding:50px 0 calc(40px + env(safe-area-inset-bottom))}
-.ftr .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
-.ftr nav{display:flex;gap:24px;font-size:14px;color:var(--mute)}
-.ftr nav a:hover{color:var(--text)}
+.ftr{border-top:1px solid var(--line);padding:46px 0 calc(36px + env(safe-area-inset-bottom))}
+.ftr .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.ftr nav{display:flex;gap:22px;font-size:14px;color:var(--mute)}
+.ftr nav a:hover{color:var(--white)}
 .ftr small{color:var(--mute);font-size:13px}
 
-.rv{opacity:0;transform:translateY(26px);transition:opacity 1s,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
@@ -183,160 +236,192 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold)}
 
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Allrich Webdesign, zur Startseite"><b>ALLRICH</b><span>Webdesign</span></a>
+    <a class="logo" href="#top" aria-label="Allrich Webdesign, zur Startseite"><i></i>Allrich<small>Webdesign</small></a>
     <nav class="nav" aria-label="Hauptnavigation">
-      <a href="#arbeiten">Arbeiten</a><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a>
+      <a href="#arbeiten">Arbeiten</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a>
     </nav>
-    <a class="btn line" href="#kontakt">Projekt anfragen</a>
+    <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
   </div>
 </header>
 <div class="drawer" id="drawer" aria-hidden="true">
   <button class="x" id="drawerX" aria-label="Menü schließen">×</button>
-  <a href="#arbeiten">Arbeiten</a><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a><a href="#kontakt">Kontakt</a>
+  <a href="#arbeiten">Arbeiten</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a><a href="#kontakt">Kontakt</a>
+  <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
 </div>
 
 <main id="top">
 <section class="hero" id="hero" aria-label="Einleitung">
-  <div class="pin">
+  <div class="pin" id="pin">
     <canvas id="cv" aria-hidden="true"></canvas>
-    <p class="tag">Live-Beispiel<br>Scrollen Sie</p>
-    <div class="copy"><div class="wrap">
-      <p class="eyebrow">Allrich Webdesign</p>
-      <h1 style="margin-top:24px">Websites, die in <em>Erinnerung</em> bleiben.</h1>
-      <p class="lead">Ihr Haus, Ihr Produkt, Ihr Betrieb: als Film, der beim Scrollen läuft. Hochwertig gestaltet, schnell auf jedem Handy und mit Ihren eigenen Bildern.</p>
-      <div class="acts"><a class="btn fill" href="#arbeiten">Arbeiten ansehen</a><a class="btn line" href="#kontakt">Projekt anfragen</a></div>
+    <div class="screen" id="screen" aria-hidden="true">
+      <div class="bar"><b>Ihre Firma</b><span>Leistungen&nbsp;&nbsp;Projekte&nbsp;&nbsp;Kontakt</span><u>Anfragen</u></div>
+      <div class="im"><p>Ihre Website.<small>Mit Ihren Bildern, Ihrem Film, Ihren Farben.</small></p></div>
+      <div class="ft"><i></i><i></i><i></i></div>
+    </div>
+    <div class="shade"></div>
+    <div class="top" id="top1"><div class="wrap"><h1 class="h"><span>Websites,</span><span>die <em>bleiben.</em></span></h1></div></div>
+    <div class="bottom" id="bot1"><div class="wrap">
+      <div>
+        <p class="lead">Ihr Betrieb als Film, der beim Scrollen läuft. Gestaltet für Ihre Branche, schnell auf jedem Handy und mit Ihren eigenen Bildern.</p>
+        <div class="acts"><a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a><a class="btn ghost" href="#arbeiten">Beispiele ansehen</a></div>
+      </div>
+      <div class="floats">
+        <div class="chip"><b>0 €</b><span>für Ihren<br>persönlichen Entwurf</span></div>
+        <div class="chip prog"><div class="row"><span>Scroll-Film</span><em id="pct">Scrollen Sie</em></div><div class="track"><i id="bar"></i></div></div>
+      </div>
     </div></div>
-    <span class="hint">Scrollen</span>
-    <i class="bar" id="bar"></i>
+    <div class="endcopy" id="end1"><div class="wrap">
+      <p class="h">So kann <em>Ihre</em> Website wirken.</p>
+    </div></div>
   </div>
 </section>
 
-<section class="sec light" id="ansatz">
+<section class="trust" aria-label="Auf einen Blick">
   <div class="wrap">
-    <div class="split">
-      <div class="rv"><p class="eyebrow">Der Ansatz</p><h2>Nicht noch eine Website. Ein <em>Erlebnis.</em></h2></div>
-      <p class="lead2 rv">Die meisten Websites zeigen Fotos und Text. Wir erzählen mit Bewegung: Beim Scrollen fliegt die Kamera durch Ihr Objekt, ein Getränk entsteht, ein Werkstück nimmt Form an. Besucher sehen sich Ihr Angebot genauer an und behalten es in Erinnerung.</p>
-    </div>
-    <div class="nums rv">
-      <div><b>1</b><span>Ansprechpartner von der ersten Idee bis zum Livegang</span></div>
-      <div><b>100 %</b><span>Ihre Inhalte: Bilder, Videos und Texte bestimmen Sie</span></div>
-      <div><b>ab 990 €</b><span>für die komplette Website, einmalig</span></div>
-    </div>
+    <div><b><em>0 €</em> Entwurf</b><span>Sie sehen Ihre Seite, bevor Sie sich entscheiden</span></div>
+    <div><b>ab 990 €</b><span>für die komplette Website, einmalig</span></div>
+    <div><b>1 Kontakt</b><span>von der ersten Idee bis zum Livegang</span></div>
+    <div><b>Jede Branche</b><span>vom Makler bis zum Café</span></div>
   </div>
 </section>
 
 <section class="sec" id="arbeiten">
   <div class="wrap">
-    <div class="split">
-      <div class="rv"><p class="eyebrow">Arbeiten</p><h2>So fühlt sich eine Allrich-Website <em>an.</em></h2></div>
+    <div class="intro">
+      <div class="rv"><p class="kicker">Arbeiten</p><h2 class="h h2">So fühlt sich<br>das <em>an.</em></h2></div>
       <p class="lead2 rv">Zwei Konzeptseiten aus verschiedenen Branchen. Öffnen Sie sie am besten auf dem Handy und scrollen Sie langsam.</p>
     </div>
-    <div class="work">
-      <a class="card rv" href="../velaro/" target="_blank" rel="noopener">
-        <div class="media"><img src="../demos/velaro/frames-ai/f150.webp" alt="Blick in eine moderne Villa mit offener Treppe" loading="lazy"><span class="play">Scroll-Film</span></div>
-        <div class="meta"><div><span class="k">Immobilien</span><h3 style="margin-top:12px">Velaro Private Estates</h3><p>Beim Scrollen fliegt man wie eine Drohne durch eine Villa am Meer.</p></div><span class="go" aria-hidden="true">→</span></div>
+    <div class="bento">
+      <a class="tile big rv" href="../velaro/" target="_blank" rel="noopener">
+        <img src="img-velaro.jpg" alt="Blick in eine moderne Villa mit offener Treppe" loading="lazy">
+        <span class="tag">Immobilien · Scroll-Film</span>
+        <div class="info"><div><h3>Velaro Private Estates</h3><p>Beim Scrollen fliegt man wie eine Drohne durch eine Villa am Meer.</p></div><span class="go" aria-hidden="true">→</span></div>
       </a>
-      <a class="card rv" href="../cafe/" target="_blank" rel="noopener">
-        <div class="media"><img src="../demos/cafe/frames/f160.webp" alt="Iced Latte mit Milch, die sich im Glas verteilt" loading="lazy"><span class="play">Scroll-Film</span></div>
-        <div class="meta"><div><span class="k">Gastronomie</span><h3 style="margin-top:12px">Milla Kaffeebar</h3><p>Beim Scrollen baut sich ein Iced Latte Schicht für Schicht auf.</p></div><span class="go" aria-hidden="true">→</span></div>
+      <a class="tile rv" href="../cafe/" target="_blank" rel="noopener">
+        <img src="img-milla.jpg" alt="Iced Latte mit Milch, die sich im Glas verteilt" loading="lazy">
+        <span class="tag">Gastronomie · Scroll-Film</span>
+        <div class="info"><div><h3>Milla Kaffeebar</h3><p>Ein Iced Latte entsteht Schicht für Schicht.</p></div><span class="go" aria-hidden="true">→</span></div>
+      </a>
+      <a class="tile next rv" href="#kontakt">
+        <span class="tag" style="position:static;align-self:flex-start">Als Nächstes</span>
+        <div class="info" style="position:static"><div><h3>Ihre Branche</h3><p>Schicken Sie mir Ihre Website-Adresse. Sie erhalten einen kostenlosen Entwurf mit Ihren Inhalten.</p></div><span class="go" aria-hidden="true">→</span></div>
       </a>
     </div>
-    <p class="note rv">Konzeptseiten zur Veranschaulichung. Velaro und Milla sind Beispielmarken.</p>
+    <p class="note rv">Velaro und Milla sind Beispielmarken zur Veranschaulichung.</p>
   </div>
 </section>
 
 <section class="sec light" id="branchen">
   <div class="wrap">
-    <div class="rv"><p class="eyebrow">Für jede Branche</p><h2>Was Sie zeigen, wird <em>Bewegung.</em></h2></div>
-    <div class="sectors">
-      <div class="rv"><h3>Immobilien</h3><p>Ein Flug durch Haus, Wohnung oder Neubau, statt einer Bildergalerie.</p></div>
-      <div class="rv"><h3>Gastronomie</h3><p>Gerichte und Getränke, die beim Scrollen entstehen.</p></div>
-      <div class="rv"><h3>Handwerk</h3><p>Vom Rohling zum fertigen Stück, Schritt für Schritt.</p></div>
-      <div class="rv"><h3>Autohäuser</h3><p>Eine Fahrt um das Fahrzeug, jedes Detail im Blick.</p></div>
-      <div class="rv"><h3>Hotels und Ferienwohnungen</h3><p>Ankommen, eintreten, Zimmer und Aussicht erleben.</p></div>
-      <div class="rv"><h3>Praxen und Kanzleien</h3><p>Ruhig, klar und vertrauenswürdig, mit einem Rundgang durch die Räume.</p></div>
+    <div class="intro">
+      <div class="rv"><p class="kicker">Für jede Branche</p><h2 class="h h2">Was Sie zeigen,<br>wird <em>Bewegung.</em></h2></div>
+      <p class="lead2 rv">Ein Flug durch das Objekt, ein Gericht, das entsteht, ein Werkstück, das Form annimmt: Jede Branche bekommt ihren eigenen Film und ihre eigenen Farben.</p>
+    </div>
+    <div class="sectors rv">
+      <span class="b">Immobilien</span><span>Hausverwaltung</span><span>Architektur</span><span>Bauträger</span><span>Handwerk</span><span>Gastronomie</span><span>Cafés</span><span>Hotels</span><span>Ferienwohnungen</span><span>Autohäuser</span><span>Praxen</span><span>Kanzleien</span><span>Garten- und Landschaftsbau</span><span>Sanitär und Heizung</span><span>Friseure</span><span>Fitness</span><span>Einzelhandel</span><span>und mehr</span>
     </div>
   </div>
 </section>
 
-<section class="sec" id="leistungen">
-  <div class="wrap">
-    <div class="split">
-      <div class="rv"><p class="eyebrow">Leistungen</p><h2>Alles aus <em>einer Hand.</em></h2></div>
-      <p class="lead2 rv">Sie liefern Ihr Material oder Ihre Ideen, wir kümmern uns um den Rest.</p>
+<section class="sec" id="ueber">
+  <div class="wrap about">
+    <div class="portrait rv">
+      <img src="img-peter.jpg" alt="Porträt von Peter Allrich" loading="lazy">
+      <div class="name"><div><b>Peter Allrich</b>Webdesign aus Potsdam</div><i title="Erreichbar"></i></div>
     </div>
-    <div class="svc">
-      <div class="rv"><i>01</i><div><h3>Scroll-Film</h3><p>Aus Ihren Fotos oder einem Handyvideo entsteht der Film, der beim Scrollen läuft.</p></div></div>
-      <div class="rv"><i>02</i><div><h3>Gestaltung</h3><p>Ein eigenes Design in Ihren Farben, ruhig, hochwertig und klar aufgebaut.</p></div></div>
-      <div class="rv"><i>03</i><div><h3>Texte</h3><p>Verständliche Texte, die zeigen, was Sie besonders macht. Auf Wunsch formulieren wir sie für Sie.</p></div></div>
-      <div class="rv"><i>04</i><div><h3>Für jedes Gerät</h3><p>Auf Handy, Tablet und Computer optimiert, mit schnellen Ladezeiten.</p></div></div>
-      <div class="rv"><i>05</i><div><h3>Kontakt und Anfragen</h3><p>Kontaktformular, Telefon und Anfahrt so platziert, dass Interessenten sich melden.</p></div></div>
-      <div class="rv"><i>06</i><div><h3>Einrichtung</h3><p>Domain, Veröffentlichung, Impressum und Datenschutzhinweise: Wir richten alles ein.</p></div></div>
+    <div class="txt rv">
+      <p class="kicker">Über mich</p>
+      <h2 class="h h2">Ein Ansprech&shy;partner. <em>Von A bis Z.</em></h2>
+      <p>Hinter Allrich Webdesign stehe ich, Peter Allrich. Ich gestalte jede Website selbst, vom ersten Entwurf bis zum Livegang. Sie schreiben nicht mit einer Agentur oder einem Callcenter, sondern direkt mit mir.</p>
+      <ul>
+        <li>Persönliche Antwort, in der Regel am selben Tag</li>
+        <li>Erst der Entwurf, dann Ihre Entscheidung</li>
+        <li>Klare Preise, schriftlich vorab</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <section class="sec light" id="ablauf">
   <div class="wrap">
-    <div class="rv"><p class="eyebrow">Ablauf</p><h2>In vier Schritten <em>online.</em></h2></div>
+    <div class="intro">
+      <div class="rv"><p class="kicker">Ablauf</p><h2 class="h h2">In vier Schritten<br><em>online.</em></h2></div>
+      <p class="lead2 rv">Sie liefern Ihr Material oder Ihre Ideen. Ich kümmere mich um den Rest.</p>
+    </div>
     <div class="steps">
-      <div class="rv"><i>01</i><h3>Gespräch</h3><p>Sie erzählen von Ihrem Unternehmen und was die Website erreichen soll.</p></div>
-      <div class="rv"><i>02</i><h3>Material</h3><p>Sie schicken Fotos, Videos und Texte. Was fehlt, ergänzen wir gemeinsam.</p></div>
-      <div class="rv"><i>03</i><h3>Entwurf</h3><p>Sie erhalten einen Entwurf zum Anklicken und sagen, was wir ändern sollen.</p></div>
-      <div class="rv"><i>04</i><h3>Livegang</h3><p>Nach Ihrer Freigabe geht die Website unter Ihrer Domain online.</p></div>
+      <div class="step rv"><i>01</i><h3>Anfrage</h3><p>Sie schicken mir Ihre bisherige Website oder ein paar Sätze zu Ihrem Betrieb.</p></div>
+      <div class="step hl rv"><i>02</i><h3>Gratis-Entwurf</h3><p>Sie erhalten einen persönlichen Entwurf zum Anklicken, kostenlos und unverbindlich.</p></div>
+      <div class="step rv"><i>03</i><h3>Ihr Material</h3><p>Fotos, Videos und Texte von Ihnen. Was fehlt, ergänzen wir gemeinsam.</p></div>
+      <div class="step rv"><i>04</i><h3>Livegang</h3><p>Nach Ihrer Freigabe geht die Website unter Ihrer Domain online.</p></div>
     </div>
   </div>
 </section>
 
 <section class="sec" id="preis">
-  <div class="wrap price">
-    <div class="rv"><p class="eyebrow">Preis</p><h2>Klar kalkuliert, <em>ohne Überraschungen.</em></h2><p class="lead2">Sie wissen vorher, was Ihre Website kostet. Größere Projekte mit vielen Unterseiten oder Objekten bieten wir individuell an.</p></div>
-    <div class="pbox rv">
-      <p class="from">Komplette Website</p>
-      <p class="amt">ab 990 €</p>
-      <p class="sub">einmalig, das genaue Angebot erhalten Sie vorab schriftlich</p>
-      <ul>
-        <li>Scroll-Film aus Ihrem Material</li>
-        <li>Eigenes Design in Ihren Farben</li>
-        <li>Optimiert für Handy, Tablet und Computer</li>
-        <li>Kontaktformular und Anfahrt</li>
-        <li>Einrichtung von Domain und Veröffentlichung</li>
-        <li>Abstimmung, bis Sie zufrieden sind</li>
-      </ul>
-      <a class="btn fill" href="#kontakt">Unverbindlich anfragen</a>
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="kicker">Preis</p><h2 class="h h2">Klar kalkuliert.<br><em>Ohne Überraschung.</em></h2></div>
+      <p class="lead2 rv">Sie wissen vorher, was Ihre Website kostet. Größere Projekte mit vielen Unterseiten biete ich individuell an.</p>
+    </div>
+    <div class="prices">
+      <div class="pbox main rv">
+        <p class="lbl">Komplette Website</p>
+        <p class="amt">ab 990 €<small>einmalig</small></p>
+        <p class="sub">Das genaue Angebot erhalten Sie vorab schriftlich.</p>
+        <ul>
+          <li>Scroll-Film aus Ihrem Material</li>
+          <li>Eigenes Design in Ihren Farben</li>
+          <li>Optimiert für Handy, Tablet und Computer</li>
+          <li>Kontaktformular, Anfahrt, Impressum und Datenschutzseite</li>
+          <li>Abstimmung, bis Sie zufrieden sind</li>
+        </ul>
+        <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
+      </div>
+      <div class="pbox rv">
+        <p class="lbl">Hosting und Pflege</p>
+        <p class="amt">29 €<small>pro Monat</small></p>
+        <p class="sub">Optional. Monatlich kündbar.</p>
+        <ul>
+          <li>Hosting und Domain inklusive</li>
+          <li>Kleine Änderungen an Texten und Bildern</li>
+          <li>Ihre Seite bleibt schnell und erreichbar</li>
+        </ul>
+        <a class="btn ghost" href="#fragen">Fragen ansehen</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="sec light" id="fragen">
   <div class="wrap">
-    <div class="rv"><p class="eyebrow">Fragen</p><h2>Gut zu <em>wissen.</em></h2></div>
+    <div class="rv"><p class="kicker">Fragen</p><h2 class="h h2">Gut zu <em>wissen.</em></h2></div>
     <div class="faq">
-      <details class="rv"><summary>Brauche ich einen professionellen Film?</summary><p>Nein. Oft reicht ein ruhig gefilmtes Handyvideo oder eine Reihe guter Fotos. Daraus entsteht der Scroll-Film. Wenn noch kein Material vorhanden ist, beraten wir Sie, wie Sie es einfach selbst aufnehmen.</p></details>
-      <details class="rv"><summary>Wer entscheidet über Bilder, Texte und Farben?</summary><p>Sie. Alles, was auf Ihrer Website zu sehen ist, stimmen wir mit Ihnen ab. Sie sehen den Entwurf, bevor etwas veröffentlicht wird.</p></details>
-      <details class="rv"><summary>Funktioniert die Seite auch auf dem Handy?</summary><p>Ja. Jede Website wird zuerst für das Handy gestaltet und auf verschiedenen Geräten getestet. Der Film lädt in mehreren Stufen, damit die Seite schnell sichtbar ist.</p></details>
-      <details class="rv"><summary>Kann ich meine bestehende Domain behalten?</summary><p>Ja. Wir verbinden die neue Website mit Ihrer vorhandenen Domain. Ihre E-Mail-Adressen bleiben dabei unverändert.</p></details>
-      <details class="rv"><summary>Was kostet die Website?</summary><p>Eine komplette Website gibt es ab 990 €. Sie erhalten vorab ein schriftliches Angebot mit allen Leistungen.</p></details>
+      <details class="rv"><summary>Was kostet mich der Entwurf?</summary><p>Nichts. Sie erhalten einen persönlichen Entwurf zum Anklicken und entscheiden danach in Ruhe, ob Sie die Website umsetzen lassen möchten.</p></details>
+      <details class="rv"><summary>Brauche ich einen professionellen Film?</summary><p>Nein. Oft reicht ein ruhig gefilmtes Handyvideo oder eine Reihe guter Fotos. Wenn noch kein Material da ist, erkläre ich Ihnen, wie Sie es einfach selbst aufnehmen.</p></details>
+      <details class="rv"><summary>Wer entscheidet über Bilder, Texte und Farben?</summary><p>Sie. Alles, was auf Ihrer Website zu sehen ist, stimme ich mit Ihnen ab. Nichts wird ohne Ihre Freigabe veröffentlicht.</p></details>
+      <details class="rv"><summary>Funktioniert die Seite auch auf dem Handy?</summary><p>Ja. Jede Website wird zuerst für das Handy gestaltet und auf verschiedenen Geräten getestet. Der Film lädt in Stufen, damit die Seite sofort sichtbar ist.</p></details>
+      <details class="rv"><summary>Kann ich meine bestehende Domain behalten?</summary><p>Ja. Die neue Website wird mit Ihrer vorhandenen Domain verbunden. Ihre E-Mail-Adressen bleiben dabei unverändert.</p></details>
+      <details class="rv"><summary>Muss ich das Hosting bei Ihnen buchen?</summary><p>Nein, das ist freiwillig. Wenn Sie möchten, kümmere ich mich für 29 € im Monat um Hosting, Domain und kleine Änderungen.</p></details>
     </div>
   </div>
 </section>
 
 <section class="sec" id="kontakt">
   <div class="wrap contact">
-    <div class="cinfo rv">
-      <p class="eyebrow">Kontakt</p>
-      <h2>Erzählen Sie uns von Ihrem <em>Projekt.</em></h2>
-      <p class="lead2">Schreiben Sie uns in ein paar Sätzen, worum es geht. Sie erhalten eine persönliche Antwort.</p>
-      <a class="big" href="mailto:peter.allrich1@gmail.com">peter.allrich1@gmail.com</a>
+    <div class="txt rv">
+      <p class="kicker">Kontakt</p>
+      <h2 class="h h2">Ihr Entwurf.<br><em>Kostenlos.</em></h2>
+      <p>Schreiben Sie mir kurz, worum es geht, gern mit der Adresse Ihrer bisherigen Website. Sie erhalten eine persönliche Antwort.</p>
+      <a class="mail" href="mailto:peter.allrich1@gmail.com"><i></i>peter.allrich1@gmail.com</a>
     </div>
     <form class="form rv" id="form" novalidate>
       <div><label for="fName">Name</label><input id="fName" autocomplete="name" placeholder="Vor- und Nachname"></div>
-      <div><label for="fFirm">Unternehmen</label><input id="fFirm" autocomplete="organization" placeholder="Name Ihres Unternehmens"></div>
-      <div><label for="fType">Branche</label><select id="fType"><option>Immobilien</option><option>Gastronomie</option><option>Handwerk</option><option>Autohaus</option><option>Hotel oder Ferienwohnung</option><option>Praxis oder Kanzlei</option><option>Andere Branche</option></select></div>
+      <div><label for="fFirm">Unternehmen und Website</label><input id="fFirm" autocomplete="organization" placeholder="z. B. Muster GmbH, muster.de"></div>
+      <div><label for="fType">Branche</label><select id="fType"><option>Immobilien</option><option>Hausverwaltung</option><option>Architektur</option><option>Handwerk</option><option>Gastronomie</option><option>Hotel oder Ferienwohnung</option><option>Praxis oder Kanzlei</option><option>Andere Branche</option></select></div>
       <div><label for="fMsg">Ihr Anliegen</label><textarea id="fMsg" placeholder="Was soll Ihre neue Website zeigen?"></textarea></div>
       <p class="err" id="fErr" role="alert"></p>
-      <div><button class="btn fill" type="submit" style="cursor:pointer;font-family:inherit">Anfrage per E-Mail senden</button></div>
+      <div><button class="btn blue" type="submit">Anfrage per E-Mail senden <span class="arr">→</span></button></div>
       <p class="hint">Beim Absenden öffnet sich Ihr E-Mail-Programm mit Ihrer Anfrage. Es werden keine Daten auf dieser Website gespeichert.</p>
     </form>
   </div>
@@ -345,7 +430,7 @@ h1 em,h2 em,h3 em{font-style:italic;color:var(--gold)}
 
 <footer class="ftr">
   <div class="wrap">
-    <div><a class="logo" href="#top"><b>ALLRICH</b><span>Webdesign</span></a><small style="display:block;margin-top:18px">© <span id="yr">2026</span> Allrich Webdesign</small></div>
+    <div><a class="logo" href="#top"><i></i>Allrich<small>Webdesign</small></a><small style="display:block;margin-top:14px">© <span id="yr">2026</span> Allrich Webdesign · Potsdam</small></div>
     <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
@@ -358,25 +443,57 @@ const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 $("#yr").textContent = new Date().getFullYear();
 
 /* header + drawer */
-const hdr = $("#hdr"); const onS = () => hdr.classList.toggle("solid", scrollY > 40); addEventListener("scroll", onS, { passive: true }); onS();
+const hdr = $("#hdr"); const onS = () => hdr.classList.toggle("solid", scrollY > innerHeight * 2.6); addEventListener("scroll", onS, { passive: true }); onS();
 const dr = $("#drawer"), bg = $("#burger"), set = o => { dr.classList.toggle("open", o); dr.setAttribute("aria-hidden", !o); bg.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; };
 bg.onclick = () => set(true); $("#drawerX").onclick = () => set(false); $$("#drawer a").forEach(a => a.onclick = () => set(false));
 
 /* reveal */
 if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
 
-/* hero scroll film (frames of the Velaro concept) */
-const portrait = innerWidth / innerHeight < 1, N = 240, dir = "../demos/velaro/" + (portrait ? "frames-aip/" : "frames-ai/");
-const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), bar = $("#bar");
-const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
-function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); drawn = -1; }
+/* hero scroll film */
+const portrait = innerWidth / innerHeight < 1, N = 236, dir = "film/" + (portrait ? "p/" : "l/");
+const IW = portrait ? 810 : 1920, IH = 1080;
+/* monitor corners in the last frame (landscape, normalised); portrait frames are a centre crop */
+const SC = [[.2875, .135], [.704, .078], [.704, .531], [.2875, .524]];
+const PX0 = .3066, PXW = .4218;
+const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), bar = $("#bar"), pct = $("#pct");
+const top1 = $("#top1"), bot1 = $("#bot1"), end1 = $("#end1"), scr = $("#screen");
+const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1, prog = 0;
+function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); drawn = -1; place(); }
 function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
-function draw(i) { const k = near(i); if (k < 0 || k === drawn) return; const im = fr[k], s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; ctx.drawImage(im, (W - w) / 2, (H - h) / 2, w, h); drawn = k; cv.classList.add("on"); }
+function cover() { const s = Math.max(W / IW, H / IH); return { s, x: (W - IW * s) / 2, y: (H - IH * s) / 2 }; }
+function draw(i) { const k = near(i); if (k < 0 || k === drawn) return; const c = cover(); ctx.drawImage(fr[k], c.x, c.y, IW * c.s, IH * c.s); drawn = k; }
+/* homography: map the 1000x625 screen div onto the monitor corners */
+function homo(src, dst) {
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) { const [x, y] = src[i], [u, v] = dst[i]; A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u); A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v); }
+  for (let c = 0; c < 8; c++) { let p = c; for (let r = c + 1; r < 8; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r; [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]]; for (let r = 0; r < 8; r++) if (r !== c) { const f = A[r][c] / A[c][c]; for (let k = c; k < 8; k++) A[r][k] -= f * A[c][k]; b[r] -= f * b[c]; } }
+  const h = b.map((v, i) => v / A[i][i]);
+  return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
+}
+function place() {
+  scr.classList.toggle("p", portrait);
+  const c = cover();
+  const dst = SC.map(([x, y]) => { const nx = portrait ? (x - PX0) / PXW : x; return [c.x + nx * IW * c.s, c.y + y * IH * c.s]; });
+  scr.style.transform = "matrix3d(" + homo([[0, 0], [1000, 0], [1000, 625], [0, 625]], dst).join(",") + ")";
+}
 const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
+if (!seen[N - 1]) order.splice(1, 0, N - 1);
 let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = dir + "f" + String(i + 1).padStart(3, "0") + ".webp"; }
 for (let c = 0; c < 5; c++) pump();
-function onScroll() { const r = hero.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (hero.offsetHeight - innerHeight))); tgt = p * (N - 1); bar.style.width = p * 100 + "%"; }
-function tick() { cur += (tgt - cur) * (RM ? 1 : .16); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(Math.round(cur)); requestAnimationFrame(tick); }
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), ease = t => t * t * (3 - 2 * t);
+function onScroll() { const r = hero.getBoundingClientRect(); prog = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1); tgt = clamp(prog / .9, 0, 1) * (N - 1); }
+function tick() {
+  cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(Math.round(cur));
+  const f = cur / (N - 1);
+  bar.style.width = f * 100 + "%"; pct.textContent = f < .01 ? "Scrollen Sie" : Math.round(f * 100) + " %";
+  const a = ease(clamp(f / .35, 0, 1));
+  top1.style.opacity = 1 - a; top1.style.transform = "translateY(" + (-a * 60) + "px)";
+  bot1.style.opacity = 1 - ease(clamp((f - .15) / .3, 0, 1));
+  const e = ease(clamp((f - .9) / .1, 0, 1));
+  scr.style.opacity = e; end1.style.opacity = ease(clamp((prog - .9) / .08, 0, 1));
+  requestAnimationFrame(tick);
+}
 addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
 size(); onScroll(); requestAnimationFrame(tick);
 
@@ -386,7 +503,7 @@ $("#form").addEventListener("submit", e => {
   if (!n) { err.textContent = "Bitte geben Sie Ihren Namen ein."; return; }
   if (!m) { err.textContent = "Bitte beschreiben Sie kurz Ihr Anliegen."; return; }
   err.textContent = "";
-  const body = `Name: ${n}\nUnternehmen: ${$("#fFirm").value.trim()}\nBranche: ${$("#fType").value}\n\n${m}`;
+  const body = `Name: ${n}\nUnternehmen und Website: ${$("#fFirm").value.trim()}\nBranche: ${$("#fType").value}\n\n${m}`;
   location.href = "mailto:peter.allrich1@gmail.com?subject=" + encodeURIComponent("Website-Anfrage: " + ($("#fFirm").value.trim() || n)) + "&body=" + encodeURIComponent(body);
 });
 })();
