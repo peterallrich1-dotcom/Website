@@ -72,15 +72,12 @@ img,canvas{display:block;max-width:100%}
 .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
 .pin canvas{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
-.screen{position:absolute;left:0;top:0;width:1000px;height:625px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#fff;will-change:transform,opacity}
-.screen{display:none}
-.screen .bar{height:7%;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 3.5%}
-.screen .bar .dot{width:26px;height:26px;border-radius:50%;background:#111}
-.screen .bar span{display:flex;gap:22px}
-.screen .bar span i,.screen .ft i{display:block;width:90px;height:12px;border-radius:6px;background:#e4e4e4}
-.screen .bar u{display:block;width:120px;height:30px;border-radius:99px;background:var(--blue)}
-.screen .im{position:absolute;left:3.5%;right:3.5%;top:10%;bottom:12%;border-radius:10px;overflow:hidden;background:url(allrich/img-velaro.jpg) center/cover}
-.screen .ft{position:absolute;left:3.5%;bottom:4%;display:flex;gap:14px}
+.screen{position:absolute;left:0;top:0;width:1000px;height:557px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#f4efe7;opacity:0;will-change:transform,opacity}
+.screen .bar{position:absolute;inset:0 0 auto;height:30px;background:#fff;border-bottom:1px solid #e6e6e6;display:flex;align-items:center;gap:8px;padding:0 14px}
+.screen .bar i{width:11px;height:11px;border-radius:50%;background:#ddd}
+.screen .bar u{margin-left:18px;width:300px;height:16px;border-radius:8px;background:#f0f0f0}
+.screen img{position:absolute;left:0;top:30px;width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top center;transition:none}
+.screen img+img{opacity:0}
 .hcopy{position:absolute;left:0;right:0;bottom:clamp(30px,8vh,80px);z-index:2;will-change:opacity,transform}
 .hcopy h1{font-family:var(--f-b);font-weight:600;font-size:clamp(28px,3.6vw,52px);line-height:1.1;letter-spacing:-.025em;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
 @media (max-width:820px){.hcopy .btn{width:100%}}
@@ -229,6 +226,10 @@ img,canvas{display:block;max-width:100%}
 <section class="hero" id="hero" aria-label="Einleitung">
   <div class="pin" id="pin">
     <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="screen" id="screen" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><u></u></div>
+      <img src="allrich/img-screen-1.webp" alt=""><img src="allrich/img-screen-2.webp" alt="" id="scr2">
+    </div>
     <div class="shade"></div>
     <div class="hcopy" id="hcopy"><div class="wrap">
       <h1>Websites, die bleiben.</h1>
@@ -420,7 +421,24 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 /* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
    and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
 const portrait = innerWidth / innerHeight < 1, N = 240, K = portrait ? 72 : 0;
-const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy");
+const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen"), scr2 = $("#scr2");
+/* monitor corners per frame (normalised to the landscape frame); my own café website is mapped onto it */
+let SC = null; fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
+const PX0 = 590 / 2280, PXW = 962 / 2280, SRC = [[0, 0], [1000, 0], [1000, 557], [0, 557]];
+function homo(src, dst) {
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) { const [x, y] = src[i], [u, v] = dst[i]; A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u); A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v); }
+  for (let c = 0; c < 8; c++) { let p = c; for (let r = c + 1; r < 8; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r; [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]]; for (let r = 0; r < 8; r++) if (r !== c) { const f = A[r][c] / A[c][c]; for (let k = c; k < 8; k++) A[r][k] -= f * A[c][k]; b[r] -= f * b[c]; } }
+  const h = b.map((v, i) => v / A[i][i]);
+  return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
+}
+function screenAt(k, ox, oy, w, h, crop) {
+  const q = SC && SC[k]; if (!q) { scr.style.opacity = 0; return; }
+  const dst = q.map(([x, y]) => [ox + (crop ? (x - PX0) / PXW : x) * w, oy + y * h]);
+  scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")";
+  scr.style.opacity = Math.min(1, (k - 59) / 6);
+  scr2.style.opacity = ease(Math.min(1, Math.max(0, (k - 150) / 60)));
+}
 const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
 function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
@@ -432,10 +450,10 @@ function draw(i) {
     const e = ease(k / K), sC = H / ih, s0 = Math.min(sC, .92 * W / (.76 * iw)), s = s0 + (sC - s0) * e, cx = .44 + .03 * e;
     ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
     const y0 = (H - ih * s) / 2, bh = ih * s, f = Math.min(90, bh * .3);
-    ctx.drawImage(im, W / 2 - cx * iw * s, y0, iw * s, bh);
+    ctx.drawImage(im, W / 2 - cx * iw * s, y0, iw * s, bh); screenAt(k, W / 2 - cx * iw * s, y0, iw * s, bh, false);
     if (y0 > 1) for (const [a, b] of [[y0, y0 + f], [y0 + bh, y0 + bh - f]]) { const g = ctx.createLinearGradient(0, a, 0, b); g.addColorStop(0, "#07080a"); g.addColorStop(1, "rgba(7,8,10,0)"); ctx.fillStyle = g; ctx.fillRect(0, Math.min(a, b), W, f); }
   } else {
-    const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s);
+    const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s); screenAt(k, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s, portrait);
   }
   drawn = k;
 }
