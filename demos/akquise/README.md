@@ -101,3 +101,11 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - Impressum: Peter Allrich, 14476 Potsdam, E-Mail peter.allrich1@gmail.com. Es fehlen noch Straße und Hausnummer. Keine Steuernummer, kein Gewerbe erwähnen.
 - Offen: „wir“ oder „ich“, Domain allrich-webdesign.de (Peter kauft sie selbst), danach Weiterleitung per Cloudflare und Versand per Brevo mit eigener Domain, damit Links nicht über google.com/url laufen.
 - Hinweis an Peter: Vor dem ersten bezahlten Auftrag die Gewerbeanmeldung klären.
+
+## Stand 15.11.2026
+- **Eigene Domain:** `allrich-webdesign.com` (gekauft bei INWX, DNS über Cloudflare, Nameserver hans/nucum.ns.cloudflare.com, A-Records auf GitHub Pages, `www` als CNAME). `CNAME`-Datei im Repo-Root. Alte Links `peterallrich1-dotcom.github.io/Website/...` leiten automatisch weiter. Neue Links ab jetzt: `https://allrich-webdesign.com/<slug>/`.
+- **Startseite** `index.html` im Root ist eine Kopie von `allrich/index.html` mit angepassten Pfaden. Bei Änderungen an `allrich/index.html` die Root-Kopie neu erzeugen (Pfade `fonts/`, `film/`, `img-*`, `impressum.html`, `datenschutz.html` mit `allrich/` davor, `../` entfernen).
+- **Hero-Film** `allrich/film/` aus Peters Video (dunkles Büro, New-York-Skyline). `film/screen.json` enthält pro Bild die Ecken des Monitors; darauf wird per Homografie eine saubere Seite ohne Text gelegt. Kein Foto auf der Seite (Peter will das nicht).
+- **Impressum:** Peter Allrich, Am Föhrenhang 65, 14476 Potsdam (Neu Fahrland).
+- **Kaya (YK Architektur, Kornwestheim):** heißer Lead, antwortete am 15.11., Preis 990 € ok, fragt nach Peters Website. Antwort noch offen, Peter will sie vorher sehen.
+- **Gewerbe:** Anmeldung über eMeldung Potsdam scheiterte an der Straßenauswahl (Am Föhrenhang nicht auswählbar). Peter ruft Montag beim Gewerbeamt an (0331 289-1690).
