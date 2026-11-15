@@ -168,18 +168,19 @@ img,canvas{display:block;max-width:100%}
 @media (max-width:560px){.steps{grid-template-columns:1fr}.step{min-height:0}}
 
 /* price */
-.prices{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:clamp(40px,6vw,70px)}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(40px,6vw,70px)}
 .pbox{border-radius:var(--r);padding:clamp(26px,3.5vw,44px);background:var(--black-2);border:1px solid var(--line);display:flex;flex-direction:column}
 .pbox.main{background:linear-gradient(150deg,#1a2a52 0%,var(--black-2) 60%);border-color:rgba(61,123,255,.45)}
 .pbox .lbl{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
-.pbox .amt{font-family:var(--f-h);font-size:clamp(58px,7.4vw,112px);line-height:.9;margin-top:16px;white-space:nowrap}
+.pbox .amt{font-family:var(--f-h);font-size:clamp(54px,5.2vw,88px);line-height:.9;margin-top:16px;white-space:nowrap}
 .pbox .amt small{font-size:.32em;color:var(--mute);font-family:var(--f-b);font-weight:500;margin-left:8px}
 .pbox .sub{color:var(--mute);font-size:14.5px;margin-top:10px}
 .pbox ul{list-style:none;margin:28px 0 30px;display:grid;gap:12px}
 .pbox li{display:flex;gap:12px;font-size:15.5px}
 .pbox li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
 .pbox .btn{margin-top:auto;align-self:flex-start}
-@media (max-width:860px){.prices{grid-template-columns:1fr}}
+@media (max-width:1100px){.prices{grid-template-columns:1fr 1fr}.prices .pbox:last-child{grid-column:1/-1}}
+@media (max-width:760px){.prices{grid-template-columns:1fr}}
 
 /* faq */
 .faq{margin-top:clamp(36px,5vw,60px);display:grid;gap:10px}
@@ -348,19 +349,32 @@ img,canvas{display:block;max-width:100%}
   <div class="wrap">
     <div class="intro">
       <div class="rv"><p class="kicker">Preis</p><h2 class="h h2">Klar kalkuliert.<br><em>Ohne Überraschung.</em></h2></div>
-      <p class="lead2 rv">Sie wissen vorher, was Ihre Website kostet. Größere Projekte mit vielen Unterseiten biete ich individuell an.</p>
+      <p class="lead2 rv">Sie wissen vorher, was Ihre Website kostet. Zwei feste Pakete, größere Projekte biete ich individuell an.</p>
     </div>
     <div class="prices">
-      <div class="pbox main rv">
-        <p class="lbl">Komplette Website</p>
-        <p class="amt">ab 990 €<small>einmalig</small></p>
-        <p class="sub">Das genaue Angebot erhalten Sie vorab schriftlich.</p>
+      <div class="pbox rv">
+        <p class="lbl">Start</p>
+        <p class="amt">990 €<small>einmalig</small></p>
+        <p class="sub">Die komplette Website. Das genaue Angebot erhalten Sie vorab schriftlich.</p>
         <ul>
-          <li>Scroll-Film aus Ihrem Material</li>
+          <li>Ein Scroll-Film aus Ihrem Material</li>
           <li>Eigenes Design in Ihren Farben</li>
           <li>Optimiert für Handy, Tablet und Computer</li>
           <li>Kontaktformular, Anfahrt, Impressum und Datenschutzseite</li>
           <li>Abstimmung, bis Sie zufrieden sind</li>
+        </ul>
+        <a class="btn ghost" href="#kontakt">Kostenlosen Entwurf anfragen</a>
+      </div>
+      <div class="pbox main rv">
+        <p class="lbl">Premium</p>
+        <p class="amt">1.490 €<small>einmalig</small></p>
+        <p class="sub">Für einen besonders hochwertigen Auftritt mit mehr Bewegung und mehr Inhalt.</p>
+        <ul>
+          <li>Alles aus Start</li>
+          <li>Mehrere Scroll-Filme, zum Beispiel für jedes Objekt oder Projekt</li>
+          <li>Aufwendigere Gestaltung mit 3D-Elementen und Animationen</li>
+          <li>Mehrere Bereiche, etwa Projekte, Leistungen und Team</li>
+          <li>Texte auf Wunsch komplett von mir formuliert</li>
         </ul>
         <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
       </div>
