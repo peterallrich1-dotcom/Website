@@ -451,10 +451,9 @@ function homo(src, dst) {
   const h = b.map((v, i) => v / A[i][i]);
   return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
 }
-/* during the dissolve (frames 42-59) the monitor already stands where it is in frame 60 */
 const SLIDES = [[0, "Immobilien"], [120, "Gastronomie"], [190, "Ihr Betrieb"]]; let slide = -1;
 function screenAt(k, ox, oy, w, h, crop) {
-  const q = SC && (SC[k] || (k >= 42 && SC[60])); if (!q) { scr.style.opacity = 0; return; }
+  const q = SC && SC[k]; if (!q) { scr.style.opacity = 0; return; }
   const dst = q.map(([x, y]) => [ox + (crop ? (x - PX0) / PXW : x) * w, oy + y * h]);
   scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")";
   scr.style.opacity = ease(Math.min(1, Math.max(0, (k - 42) / 14)));
