@@ -179,6 +179,11 @@ img,canvas{display:block;max-width:100%}
 .pbox ul{list-style:none;margin:28px 0 30px;display:grid;gap:12px}
 .pbox li{display:flex;gap:12px;font-size:15.5px}
 .pbox li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.pbox .badge{display:inline-block;margin-left:8px;padding:3px 10px;border-radius:99px;background:var(--blue);color:#fff;font-size:11px;letter-spacing:.1em;vertical-align:1px}
+.plus li b{color:#fff}
+.plus li{color:#c9ccd1}
+.plus li.all{color:var(--blue);font-weight:600}
+.plus li.all:before{display:none}
 .pbox .btn{margin-top:auto;align-self:flex-start}
 @media (max-width:1100px){.prices{grid-template-columns:1fr 1fr}.prices .pbox:last-child{grid-column:1/-1}}
 @media (max-width:760px){.prices{grid-template-columns:1fr}}
@@ -367,15 +372,17 @@ img,canvas{display:block;max-width:100%}
         <a class="btn ghost" href="#kontakt">Kostenlosen Entwurf anfragen</a>
       </div>
       <div class="pbox main rv">
-        <p class="lbl">Premium</p>
+        <p class="lbl">Premium <span class="badge">Empfehlung</span></p>
         <p class="amt">1.490 €<small>einmalig</small></p>
         <p class="sub">Für einen besonders hochwertigen Auftritt mit mehr Bewegung und mehr Inhalt.</p>
-        <ul>
-          <li>Alles aus Start</li>
-          <li>Mehrere Scroll-Filme, zum Beispiel für jedes Objekt oder Projekt</li>
-          <li>Aufwendigere Gestaltung mit 3D-Elementen und Animationen</li>
-          <li>Mehrere Bereiche, etwa Projekte, Leistungen und Team</li>
-          <li>Texte auf Wunsch komplett von mir formuliert</li>
+        <ul class="plus">
+          <li class="all">Alles aus Start, dazu:</li>
+          <li><span><b>Ihr Name im Film.</b> Ihr Logo oder Schriftzug wird Teil der Szene, so wie ALLRICH auf meiner Seite.</span></li>
+          <li><span><b>Bis zu drei Scroll-Filme.</b> Jedes wichtige Objekt, Projekt oder jeder Raum bekommt seinen eigenen Film.</span></li>
+          <li><span><b>Eigene Projektseiten.</b> Jedes Projekt mit Galerie, Kennzahlen und Lage, statt einer Liste.</span></li>
+          <li><span><b>Interaktive Extras.</b> Zum Beispiel 3D-Ansicht, Vorher-nachher-Regler oder ein Rechner für Ihre Kunden.</span></li>
+          <li><span><b>Texte aus einer Hand.</b> Ich schreibe alle Inhalte, zugeschnitten auf Ihre Kunden.</span></li>
+          <li><span><b>Vorrang.</b> Ihr Projekt wird vor allen anderen umgesetzt.</span></li>
         </ul>
         <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
       </div>
