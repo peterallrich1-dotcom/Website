@@ -9,7 +9,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="film/l/f001.webp" as="image" media="(min-aspect-ratio: 1/1)">
-<link rel="preload" href="film/p/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
+<link rel="preload" href="film/l/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
 <style>
 @font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format("woff2")}
@@ -72,7 +72,7 @@ img,canvas{display:block;max-width:100%}
 .pin canvas{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
 .screen{position:absolute;left:0;top:0;width:1000px;height:625px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#fff;will-change:transform,opacity}
-.screen{opacity:1}
+.screen{display:none}
 .screen .bar{height:7%;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 3.5%}
 .screen .bar .dot{width:26px;height:26px;border-radius:50%;background:#111}
 .screen .bar span{display:flex;gap:22px}
@@ -132,17 +132,18 @@ img,canvas{display:block;max-width:100%}
 .sectors span.b{background:var(--blue);color:#fff;border-color:var(--blue)}
 
 /* about */
-.about{display:grid;grid-template-columns:1fr;max-width:900px;gap:clamp(30px,6vw,90px);align-items:center}
-.portrait{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.15;background:var(--black-2);border:1px solid var(--line)}
-.portrait img{width:100%;height:100%;object-fit:cover}
-.portrait .name{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(14,15,18,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);font-size:13.5px;color:#d8dade}
-.portrait .name b{display:block;color:#fff;font-size:16px}
-.portrait .name i{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;flex:none}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
 .about .txt p{color:#c9ccd1;font-size:clamp(16px,1.3vw,18.5px);margin-top:20px;max-width:52ch}
 .about ul{list-style:none;margin-top:30px;display:grid;gap:10px}
 .about li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
 .about li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
-@media (max-width:860px){.about{grid-template-columns:1fr}.portrait{max-width:420px}}
+.facts{background:var(--black-2);border:1px solid var(--line);border-radius:var(--r);padding:8px clamp(20px,2.6vw,32px)}
+.facts div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);padding-top:2px}
+.facts dd{font-size:15.5px;color:#e2e3e6}
+.facts dd a{border-bottom:1px solid var(--blue)}
+@media (max-width:860px){.about{grid-template-columns:1fr}.facts div{grid-template-columns:1fr;gap:4px}}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(40px,6vw,70px)}
@@ -227,11 +228,6 @@ img,canvas{display:block;max-width:100%}
 <section class="hero" id="hero" aria-label="Einleitung">
   <div class="pin" id="pin">
     <canvas id="cv" aria-hidden="true"></canvas>
-    <div class="screen" id="screen" aria-hidden="true">
-      <div class="bar"><i class="dot"></i><span><i></i><i></i><i></i></span><u></u></div>
-      <div class="im"></div>
-      <div class="ft"><i></i><i></i><i></i></div>
-    </div>
     <div class="shade"></div>
     <div class="hcopy" id="hcopy"><div class="wrap">
       <h1>Websites, die bleiben.</h1>
@@ -292,13 +288,24 @@ img,canvas{display:block;max-width:100%}
     <div class="txt rv">
       <p class="kicker">Über mich</p>
       <h2 class="h h2">Ein Ansprech&shy;partner. <em>Von A bis Z.</em></h2>
-      <p>Hinter Allrich Webdesign stehe ich, Peter Allrich. Ich gestalte jede Website selbst, vom ersten Entwurf bis zum Livegang. Sie schreiben nicht mit einer Agentur oder einem Callcenter, sondern direkt mit mir.</p>
+      <p>Hinter Allrich Webdesign stehe ich, Peter Allrich aus Potsdam. Ich gestalte und programmiere jede Website selbst, vom ersten Entwurf bis zum Livegang. Sie schreiben nicht mit einer Agentur oder einem Callcenter, sondern direkt mit mir.</p>
+      <p>Mein Schwerpunkt sind Websites, die mit Bewegung erzählen: Ein Film läuft beim Scrollen und zeigt Ihr Objekt, Ihr Produkt oder Ihren Betrieb so, wie Fotos allein es nicht können.</p>
       <ul>
         <li>Persönliche Antwort, in der Regel am selben Tag</li>
-        <li>Erst der Entwurf, dann Ihre Entscheidung</li>
+        <li>Erst der kostenlose Entwurf, dann Ihre Entscheidung</li>
         <li>Klare Preise, schriftlich vorab</li>
       </ul>
     </div>
+    <dl class="facts rv">
+      <div><dt>Name</dt><dd>Peter Allrich</dd></div>
+      <div><dt>Unternehmen</dt><dd>Allrich Webdesign</dd></div>
+      <div><dt>Größe</dt><dd>Einzelunternehmen, eine Person. Sie haben immer denselben Ansprechpartner.</dd></div>
+      <div><dt>Standort</dt><dd>Potsdam</dd></div>
+      <div><dt>Arbeitsgebiet</dt><dd>Deutschland und Österreich. Alles läuft bequem per E-Mail und Telefon, ein Termin vor Ort ist nicht nötig.</dd></div>
+      <div><dt>Schwerpunkt</dt><dd>Websites mit Scroll-Film für Immobilien, Architektur, Hausverwaltung, Handwerk und Gastronomie</dd></div>
+      <div><dt>Technik</dt><dd>Kein Baukasten: selbst programmiert, schnell geladen, zuerst für das Handy gestaltet</dd></div>
+      <div><dt>Kontakt</dt><dd><a href="mailto:peter.allrich1@gmail.com">peter.allrich1@gmail.com</a></dd></div>
+    </dl>
   </div>
 </section>
 
@@ -409,32 +416,31 @@ bg.onclick = () => set(true); $("#drawerX").onclick = () => set(false); $$("#dra
 /* reveal */
 if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
 
-/* hero scroll film; a clean page is mapped onto the monitor in every frame */
-const portrait = innerWidth / innerHeight < 1, N = 236, dir = "film/" + (portrait ? "p/" : "l/");
-const IW = portrait ? 962 : 1920, IH = portrait ? 1282 : 1080;
-const PX0 = .3066, PXW = .4219;
-const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen");
-const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1, SC = null;
-fetch("film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
+/* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
+   and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
+const portrait = innerWidth / innerHeight < 1, N = 240, K = portrait ? 72 : 0;
+const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy");
+const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
 function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
-function cover() { const s = Math.max(W / IW, H / IH); return { s, x: (W - IW * s) / 2, y: (H - IH * s) / 2 }; }
-function homo(src, dst) {
-  const A = [], b = [];
-  for (let i = 0; i < 4; i++) { const [x, y] = src[i], [u, v] = dst[i]; A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u); A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v); }
-  for (let c = 0; c < 8; c++) { let p = c; for (let r = c + 1; r < 8; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r; [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]]; for (let r = 0; r < 8; r++) if (r !== c) { const f = A[r][c] / A[c][c]; for (let k = c; k < 8; k++) A[r][k] -= f * A[c][k]; b[r] -= f * b[c]; } }
-  const h = b.map((v, i) => v / A[i][i]);
-  return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
-}
-const SRC = [[0, 0], [1000, 0], [1000, 625], [0, 625]];
+const ease = t => t * t * (3 - 2 * t);
 function draw(i) {
   const k = near(i); if (k < 0 || k === drawn) return;
-  const c = cover(); ctx.drawImage(fr[k], c.x, c.y, IW * c.s, IH * c.s); drawn = k;
-  if (SC) { const dst = SC[k].map(([x, y]) => [c.x + (portrait ? (x - PX0) / PXW : x) * IW * c.s, c.y + y * IH * c.s]); scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")"; }
-  else scr.style.transform = "scale(0)";
+  const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
+  if (k < K) {
+    const e = ease(k / K), sC = H / ih, s0 = Math.min(sC, .92 * W / (.76 * iw)), s = s0 + (sC - s0) * e, cx = .44 + .03 * e;
+    ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
+    const y0 = (H - ih * s) / 2, bh = ih * s, f = Math.min(90, bh * .3);
+    ctx.drawImage(im, W / 2 - cx * iw * s, y0, iw * s, bh);
+    if (y0 > 1) for (const [a, b] of [[y0, y0 + f], [y0 + bh, y0 + bh - f]]) { const g = ctx.createLinearGradient(0, a, 0, b); g.addColorStop(0, "#07080a"); g.addColorStop(1, "rgba(7,8,10,0)"); ctx.fillStyle = g; ctx.fillRect(0, Math.min(a, b), W, f); }
+  } else {
+    const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s);
+  }
+  drawn = k;
 }
+const src = i => "film/" + (portrait && i >= K ? "p/" : "l/") + "f" + String(i + 1).padStart(3, "0") + ".webp";
 const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
-let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = dir + "f" + String(i + 1).padStart(3, "0") + ".webp"; }
+let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = src(i); }
 for (let c = 0; c < 5; c++) pump();
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * (N - 1); }
