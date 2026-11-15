@@ -109,3 +109,33 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - **Impressum:** Peter Allrich, Am Föhrenhang 65, 14476 Potsdam (Neu Fahrland).
 - **Kaya (YK Architektur, Kornwestheim):** heißer Lead, antwortete am 15.11. (Preis 990 € ok, Website stand wegen Rücken-OPs 2019–2024 still). Antwort am 15.11. abends gesendet: Link zu allrich-webdesign.com, Bitte um Visualisierungen, Fotos, Videos und Text. Nicht nachhaken, auf sein Material warten.
 - **Gewerbe:** Anmeldung über eMeldung Potsdam scheiterte an der Straßenauswahl (Am Föhrenhang nicht auswählbar). Peter ruft Montag beim Gewerbeamt an (0331 289-1690).
+
+## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
+**Takt:** Montag bis Samstag 40 Mails pro Tag, 4 Durchgänge à 10 (ca. 9:00, 10:10, 11:20, 12:30 Uhr Berlin).
+
+**Vor jedem Durchgang**
+1. Gmail prüfen: neue Antworten im Posteingang und Rückläufer (mailer-daemon, „Undelivered“, „Unzustellbar“). Antworten und Rückläufer hier in der Lead-Liste vermerken. Auf echte Antworten nicht selbst antworten, sondern Peter Bescheid geben (Ausnahme: nichts).
+2. Lead-Liste und Gmail „Gesendet“ als Sperrliste: keine Firma, keine Domain, keine Person doppelt.
+
+**Firmensuche (10 pro Durchgang)**
+- Branchen: Immobilienmakler, Hausverwaltungen, Architekten. Gebiet: ganz Deutschland und Österreich, Städte rotieren (keine Stadt, die schon dran war, bevor alle anderen dran waren).
+- Quellen: Gelbe Seiten `/branchen/{rubrik}/{stadt}` (Website base64 in `data-webseiteLink`), Herold `/gelbe-seiten/{stadt}/{rubrik}/` (`data-ht-label` `send_mail` / `go_to_website`). Skripte liegen in `demos/akquise/tools/`.
+- **Bevorzugt Firmen mit schlechter Website** (veraltete Optik, nicht für Handy, kein https, Objekte nur als Liste, Baukasten-Look, kaum Bilder), sonst ohne Website (dann Mail aus dem Branchenbuch). Gute, moderne Websites überspringen.
+- Inhabergeführt, keine Ketten/Franchise, höchstens 2 Firmen pro Stadt.
+- Startseite und Impressum lesen: Vorname und Nachname der Inhaberin/des Inhabers bzw. Geschäftsführung, ein konkretes Objekt, Projekt oder Schwerpunkt für den ersten Satz.
+
+**Mail** (Gmail peter.allrich1@gmail.com, HTML)
+- Betreff: `Eine Website-Idee für {Firma}`
+- `Guten Tag {Vorname} {Nachname},`
+- Erster Satz: konkret zu einem Objekt, Projekt oder Schwerpunkt der Firma (geprüft, nichts erfinden). Kritik an der Website nur, wenn geprüft und sachlich.
+- `So sieht eine meiner Websites aus:` + Link **Hier klicken und das Beispiel ansehen** → `https://allrich-webdesign.com`
+- `Welche Bilder, Videos und Texte zu sehen sind, entscheiden allein Sie, zum Beispiel …` (passend zur Firma)
+- `Ich würde mich freuen, wenn Ihnen das Beispiel gefällt.`
+- `Peter Allrich`
+- Verboten: Preis, „ausgedacht“, Velaro als Kunde, Anrufen, „melden Sie sich“.
+
+**Nach dem Durchgang:** Jede Firma als Zeile unten eintragen (Firma | Ort | Website | Befund | gesendet am), committen und pushen.
+
+### Versandliste ab 16.11.2026
+| Firma | Ort | Website | Befund | Gesendet |
+|---|---|---|---|---|
