@@ -1,0 +1,462 @@
+<!doctype html>
+<!-- generiert aus allrich/index.html (Pfade angepasst) -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Allrich Webdesign · Websites, die bleiben</title>
+<meta name="description" content="Allrich Webdesign baut Websites mit Scroll-Film: Ihr Betrieb als Film, der beim Scrollen läuft. Für Unternehmen aller Branchen, kostenloser Entwurf, ab 990 €.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" href="allrich/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="allrich/film/l/f001.webp" as="image" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" href="allrich/film/p/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(allrich/fonts/anton-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(allrich/fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:500;font-display:swap;src:url(allrich/fonts/manrope-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:600;font-display:swap;src:url(allrich/fonts/manrope-latin-600-normal.woff2) format("woff2")}
+:root{
+  --black:#0a0a0b;--black-2:#141518;--black-3:#1d1f23;
+  --white:#f5f4f1;--paper:#efede8;
+  --blue:#3d7bff;--blue-d:#2456d6;--blue-soft:rgba(61,123,255,.14);
+  --mute:#9a9ea6;--mute-d:#5c6068;
+  --line:rgba(245,244,241,.12);--line-d:rgba(10,10,11,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;
+  --f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1320px;--r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--black);color:var(--white);font-family:var(--f-b);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img,canvas{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+.h em{font-style:normal;color:var(--blue)}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 12px currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding:0 24px;border-radius:999px;font-size:14.5px;font-weight:600;border:1.5px solid transparent;transition:transform .25s,background .25s,color .25s,border-color .25s;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn.blue{background:var(--blue);color:#fff}
+.btn.blue:hover{background:var(--blue-d)}
+.btn.ghost{border-color:rgba(245,244,241,.35);color:var(--white);background:rgba(10,10,11,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn.ghost:hover{border-color:var(--white)}
+.light .btn.ghost{border-color:rgba(10,10,11,.25);color:var(--black);background:transparent}
+.light .btn.ghost:hover{border-color:var(--black)}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translateX(3px)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px 0;transition:background .35s,padding .35s}
+.hdr.solid{background:rgba(10,10,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px 0}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--f-h);font-size:24px;letter-spacing:.04em;text-transform:uppercase;line-height:1;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue)}
+.logo small{font-family:var(--f-b);font-size:11px;font-weight:500;letter-spacing:.2em;color:var(--mute);margin-left:2px}
+.nav{display:flex;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:rgba(10,10,11,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav a{font-size:13.5px;font-weight:500;padding:8px 15px;border-radius:999px;color:#d4d6da;transition:background .25s,color .25s}
+.nav a:hover{background:rgba(245,244,241,.1);color:#fff}
+.hdr .btn{height:42px;padding:0 20px;font-size:13.5px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(10,10,11,.4);color:var(--white);cursor:pointer}
+.burger i,.burger i:before{display:block;width:18px;height:1.5px;background:currentColor;position:relative;margin:auto}
+.burger i:before{content:"";position:absolute;top:6px}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--black);padding:20px var(--gut) 40px;display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.drawer.open{transform:none}
+.drawer .x{align-self:flex-end;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--white);font-size:26px;cursor:pointer}
+.drawer a{font-family:var(--f-h);text-transform:uppercase;font-size:44px;line-height:1.15;padding:8px 0;border-bottom:1px solid var(--line)}
+.drawer .btn{margin-top:28px;font-family:var(--f-b);text-transform:none;font-size:15px;border-bottom:0}
+@media (max-width:960px){.nav,.hdr .btn{display:none}.burger{display:block}}
+
+/* hero */
+.hero{position:relative;height:330vh}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
+.pin canvas{position:absolute;inset:0;width:100%;height:100%}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
+.screen{position:absolute;left:0;top:0;width:1000px;height:625px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#fff;will-change:transform,opacity}
+.screen{opacity:1}
+.screen .bar{height:7%;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 3.5%}
+.screen .bar .dot{width:26px;height:26px;border-radius:50%;background:#111}
+.screen .bar span{display:flex;gap:22px}
+.screen .bar span i,.screen .ft i{display:block;width:90px;height:12px;border-radius:6px;background:#e4e4e4}
+.screen .bar u{display:block;width:120px;height:30px;border-radius:99px;background:var(--blue)}
+.screen .im{position:absolute;left:3.5%;right:3.5%;top:10%;bottom:12%;border-radius:10px;overflow:hidden;background:url(allrich/img-velaro.jpg) center/cover}
+.screen .ft{position:absolute;left:3.5%;bottom:4%;display:flex;gap:14px}
+.hcopy{position:absolute;left:0;right:0;bottom:clamp(30px,8vh,80px);z-index:2;will-change:opacity,transform}
+.hcopy h1{font-family:var(--f-b);font-weight:600;font-size:clamp(28px,3.6vw,52px);line-height:1.1;letter-spacing:-.025em;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
+@media (max-width:820px){.hcopy .btn{width:100%}}
+
+/* trust strip */
+.trust{background:var(--black);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust div{padding:30px 24px 32px 0;border-right:1px solid var(--line)}
+.trust div+div{padding-left:24px}
+.trust div:last-child{border-right:0}
+.trust b{display:block;font-family:var(--f-h);font-weight:400;font-size:clamp(30px,3.2vw,46px);line-height:1;text-transform:uppercase}
+.trust b em{font-style:normal;color:var(--blue)}
+.trust span{display:block;margin-top:10px;font-size:14px;color:var(--mute)}
+@media (max-width:820px){.trust .wrap{grid-template-columns:1fr 1fr}.trust div{padding:24px 14px 24px 0!important}.trust div:nth-child(2n){border-right:0;padding-left:14px!important}.trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+/* sections */
+.sec{padding:clamp(80px,11vw,150px) 0}
+.light{background:var(--paper);color:var(--black)}
+.light .kicker{color:var(--blue-d)}
+.sec .h2{font-size:clamp(46px,7vw,112px);margin-top:20px}
+.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.intro p.lead2{max-width:44ch;color:var(--mute);font-size:clamp(16px,1.3vw,18.5px);font-weight:500}
+.light .intro p.lead2{color:var(--mute-d)}
+
+/* bento work */
+.bento{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:clamp(40px,6vw,70px)}
+.tile{position:relative;border-radius:var(--r);overflow:hidden;background:var(--black-2);border:1px solid var(--line);display:block;min-height:280px}
+.tile.big{grid-row:span 2;min-height:560px}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.05)}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,0) 40%,rgba(10,10,11,.85))}
+.tile .tag{position:absolute;top:16px;left:16px;z-index:2;font-size:12px;font-weight:600;padding:7px 12px;border-radius:99px;background:rgba(10,10,11,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line)}
+.tile .info{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.tile h3{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.2vw,48px);line-height:.95}
+.tile p{color:#c9ccd1;font-size:14.5px;margin-top:8px;max-width:36ch}
+.tile .go{flex:none;width:48px;height:48px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-size:20px;transition:transform .3s}
+.tile:hover .go{transform:rotate(-45deg)}
+.tile.next{background:var(--blue);border-color:var(--blue);display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.tile.next:after{display:none}
+.tile.next h3{font-size:clamp(34px,3.6vw,54px)}
+.tile.next p{color:rgba(255,255,255,.88);font-size:15px;max-width:34ch}
+.tile.next .go{background:#fff;color:var(--blue)}
+.note{font-size:12.5px;color:var(--mute);margin-top:16px}
+@media (max-width:860px){.bento{grid-template-columns:1fr}.tile.big{grid-row:auto;min-height:420px}}
+
+/* sectors */
+.sectors{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(36px,5vw,60px)}
+.sectors span{font-family:var(--f-h);text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:1;padding:16px 24px 15px;border-radius:999px;border:1.5px solid rgba(10,10,11,.18);transition:background .25s,color .25s,border-color .25s}
+.sectors span:hover,.sectors span.on{background:var(--black);color:var(--white);border-color:var(--black)}
+.sectors span.b{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr;max-width:900px;gap:clamp(30px,6vw,90px);align-items:center}
+.portrait{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.15;background:var(--black-2);border:1px solid var(--line)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .name{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:rgba(14,15,18,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);font-size:13.5px;color:#d8dade}
+.portrait .name b{display:block;color:#fff;font-size:16px}
+.portrait .name i{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;flex:none}
+.about .txt p{color:#c9ccd1;font-size:clamp(16px,1.3vw,18.5px);margin-top:20px;max-width:52ch}
+.about ul{list-style:none;margin-top:30px;display:grid;gap:10px}
+.about li{display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.about li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+@media (max-width:860px){.about{grid-template-columns:1fr}.portrait{max-width:420px}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(40px,6vw,70px)}
+.step{background:#fff;border-radius:var(--r);padding:26px 24px 30px;border:1px solid var(--line-d);display:flex;flex-direction:column;gap:14px;min-height:250px}
+.step i{font-style:normal;font-family:var(--f-h);font-size:54px;line-height:1;color:var(--blue)}
+.step h3{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:30px;line-height:1;margin-top:auto}
+.step p{color:var(--mute-d);font-size:15px}
+.step.hl{background:var(--black);color:var(--white);border-color:var(--black)}
+.step.hl p{color:var(--mute)}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{min-height:0}}
+
+/* price */
+.prices{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:clamp(40px,6vw,70px)}
+.pbox{border-radius:var(--r);padding:clamp(26px,3.5vw,44px);background:var(--black-2);border:1px solid var(--line);display:flex;flex-direction:column}
+.pbox.main{background:linear-gradient(150deg,#1a2a52 0%,var(--black-2) 60%);border-color:rgba(61,123,255,.45)}
+.pbox .lbl{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.pbox .amt{font-family:var(--f-h);font-size:clamp(58px,7.4vw,112px);line-height:.9;margin-top:16px;white-space:nowrap}
+.pbox .amt small{font-size:.32em;color:var(--mute);font-family:var(--f-b);font-weight:500;margin-left:8px}
+.pbox .sub{color:var(--mute);font-size:14.5px;margin-top:10px}
+.pbox ul{list-style:none;margin:28px 0 30px;display:grid;gap:12px}
+.pbox li{display:flex;gap:12px;font-size:15.5px}
+.pbox li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.5l2.5 2.5L14 7.5' fill='none' stroke='%233d7bff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
+.pbox .btn{margin-top:auto;align-self:flex-start}
+@media (max-width:860px){.prices{grid-template-columns:1fr}}
+
+/* faq */
+.faq{margin-top:clamp(36px,5vw,60px);display:grid;gap:10px}
+.faq details{background:#fff;border-radius:14px;border:1px solid var(--line-d);padding:0 24px}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:clamp(16.5px,1.4vw,19px);padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;background:var(--blue-soft);color:var(--blue-d);display:grid;place-items:center;font-size:20px;font-weight:500;transition:transform .3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq p{color:var(--mute-d);padding-bottom:22px;max-width:72ch}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:start}
+.contact .txt p{color:var(--mute);font-size:clamp(16px,1.3vw,18.5px);margin-top:20px;max-width:42ch}
+.mail{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding:14px 20px;border-radius:14px;border:1px solid var(--line);background:var(--black-2);font-weight:600;word-break:break-all}
+.mail i{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);flex:none}
+.form{display:grid;gap:12px;background:var(--black-2);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,34px)}
+.form label{font-size:12.5px;font-weight:600;color:var(--mute)}
+.form input,.form textarea,.form select{width:100%;margin-top:6px;background:var(--black-3);border:1px solid var(--line);border-radius:12px;color:var(--white);font:inherit;padding:13px 14px}
+.form select option{color:#111}
+.form textarea{min-height:120px;resize:vertical}
+.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--blue)}
+.form .err{color:#ff9b7a;font-size:14px;min-height:20px}
+.form .hint{font-size:12.5px;color:var(--mute)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+
+/* footer */
+.ftr{border-top:1px solid var(--line);padding:46px 0 calc(36px + env(safe-area-inset-bottom))}
+.ftr .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.ftr nav{display:flex;gap:22px;font-size:14px;color:var(--mute)}
+.ftr nav a:hover{color:var(--white)}
+.ftr small{color:var(--mute);font-size:13px}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Allrich Webdesign, zur Startseite"><i></i>Allrich<small>Webdesign</small></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#arbeiten">Arbeiten</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a>
+    </nav>
+    <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <button class="x" id="drawerX" aria-label="Menü schließen">×</button>
+  <a href="#arbeiten">Arbeiten</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen">Fragen</a><a href="#kontakt">Kontakt</a>
+  <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
+</div>
+
+<main id="top">
+<section class="hero" id="hero" aria-label="Einleitung">
+  <div class="pin" id="pin">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="screen" id="screen" aria-hidden="true">
+      <div class="bar"><i class="dot"></i><span><i></i><i></i><i></i></span><u></u></div>
+      <div class="im"></div>
+      <div class="ft"><i></i><i></i><i></i></div>
+    </div>
+    <div class="shade"></div>
+    <div class="hcopy" id="hcopy"><div class="wrap">
+      <h1>Websites, die bleiben.</h1>
+      <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
+    </div></div>
+  </div>
+</section>
+
+<section class="trust" aria-label="Auf einen Blick">
+  <div class="wrap">
+    <div><b><em>0 €</em> Entwurf</b><span>Sie sehen Ihre Seite, bevor Sie sich entscheiden</span></div>
+    <div><b>ab 990 €</b><span>für die komplette Website, einmalig</span></div>
+    <div><b>1 Kontakt</b><span>von der ersten Idee bis zum Livegang</span></div>
+    <div><b>Jede Branche</b><span>vom Makler bis zum Café</span></div>
+  </div>
+</section>
+
+<section class="sec" id="arbeiten">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="kicker">Arbeiten</p><h2 class="h h2">So fühlt sich<br>das <em>an.</em></h2></div>
+      <p class="lead2 rv">Zwei Konzeptseiten aus verschiedenen Branchen. Öffnen Sie sie am besten auf dem Handy und scrollen Sie langsam.</p>
+    </div>
+    <div class="bento">
+      <a class="tile big rv" href="velaro/" target="_blank" rel="noopener">
+        <img src="allrich/img-velaro.jpg" alt="Blick in eine moderne Villa mit offener Treppe" loading="lazy">
+        <span class="tag">Immobilien · Scroll-Film</span>
+        <div class="info"><div><h3>Velaro Private Estates</h3><p>Beim Scrollen fliegt man wie eine Drohne durch eine Villa am Meer.</p></div><span class="go" aria-hidden="true">→</span></div>
+      </a>
+      <a class="tile rv" href="cafe/" target="_blank" rel="noopener">
+        <img src="allrich/img-milla.jpg" alt="Iced Latte mit Milch, die sich im Glas verteilt" loading="lazy">
+        <span class="tag">Gastronomie · Scroll-Film</span>
+        <div class="info"><div><h3>Milla Kaffeebar</h3><p>Ein Iced Latte entsteht Schicht für Schicht.</p></div><span class="go" aria-hidden="true">→</span></div>
+      </a>
+      <a class="tile next rv" href="#kontakt">
+        <span class="tag" style="position:static;align-self:flex-start">Als Nächstes</span>
+        <div class="info" style="position:static"><div><h3>Ihre Branche</h3><p>Schicken Sie mir Ihre Website-Adresse. Sie erhalten einen kostenlosen Entwurf mit Ihren Inhalten.</p></div><span class="go" aria-hidden="true">→</span></div>
+      </a>
+    </div>
+    <p class="note rv">Velaro und Milla sind Beispielmarken zur Veranschaulichung.</p>
+  </div>
+</section>
+
+<section class="sec light" id="branchen">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="kicker">Für jede Branche</p><h2 class="h h2">Was Sie zeigen,<br>wird <em>Bewegung.</em></h2></div>
+      <p class="lead2 rv">Ein Flug durch das Objekt, ein Gericht, das entsteht, ein Werkstück, das Form annimmt: Jede Branche bekommt ihren eigenen Film und ihre eigenen Farben.</p>
+    </div>
+    <div class="sectors rv">
+      <span class="b">Immobilien</span><span>Hausverwaltung</span><span>Architektur</span><span>Bauträger</span><span>Handwerk</span><span>Gastronomie</span><span>Cafés</span><span>Hotels</span><span>Ferienwohnungen</span><span>Autohäuser</span><span>Praxen</span><span>Kanzleien</span><span>Garten- und Landschaftsbau</span><span>Sanitär und Heizung</span><span>Friseure</span><span>Fitness</span><span>Einzelhandel</span><span>und mehr</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ueber">
+  <div class="wrap about">
+    <div class="txt rv">
+      <p class="kicker">Über mich</p>
+      <h2 class="h h2">Ein Ansprech&shy;partner. <em>Von A bis Z.</em></h2>
+      <p>Hinter Allrich Webdesign stehe ich, Peter Allrich. Ich gestalte jede Website selbst, vom ersten Entwurf bis zum Livegang. Sie schreiben nicht mit einer Agentur oder einem Callcenter, sondern direkt mit mir.</p>
+      <ul>
+        <li>Persönliche Antwort, in der Regel am selben Tag</li>
+        <li>Erst der Entwurf, dann Ihre Entscheidung</li>
+        <li>Klare Preise, schriftlich vorab</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="ablauf">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="kicker">Ablauf</p><h2 class="h h2">In vier Schritten<br><em>online.</em></h2></div>
+      <p class="lead2 rv">Sie liefern Ihr Material oder Ihre Ideen. Ich kümmere mich um den Rest.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><i>01</i><h3>Anfrage</h3><p>Sie schicken mir Ihre bisherige Website oder ein paar Sätze zu Ihrem Betrieb.</p></div>
+      <div class="step hl rv"><i>02</i><h3>Gratis-Entwurf</h3><p>Sie erhalten einen persönlichen Entwurf zum Anklicken, kostenlos und unverbindlich.</p></div>
+      <div class="step rv"><i>03</i><h3>Ihr Material</h3><p>Fotos, Videos und Texte von Ihnen. Was fehlt, ergänzen wir gemeinsam.</p></div>
+      <div class="step rv"><i>04</i><h3>Livegang</h3><p>Nach Ihrer Freigabe geht die Website unter Ihrer Domain online.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="preis">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv"><p class="kicker">Preis</p><h2 class="h h2">Klar kalkuliert.<br><em>Ohne Überraschung.</em></h2></div>
+      <p class="lead2 rv">Sie wissen vorher, was Ihre Website kostet. Größere Projekte mit vielen Unterseiten biete ich individuell an.</p>
+    </div>
+    <div class="prices">
+      <div class="pbox main rv">
+        <p class="lbl">Komplette Website</p>
+        <p class="amt">ab 990 €<small>einmalig</small></p>
+        <p class="sub">Das genaue Angebot erhalten Sie vorab schriftlich.</p>
+        <ul>
+          <li>Scroll-Film aus Ihrem Material</li>
+          <li>Eigenes Design in Ihren Farben</li>
+          <li>Optimiert für Handy, Tablet und Computer</li>
+          <li>Kontaktformular, Anfahrt, Impressum und Datenschutzseite</li>
+          <li>Abstimmung, bis Sie zufrieden sind</li>
+        </ul>
+        <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
+      </div>
+      <div class="pbox rv">
+        <p class="lbl">Hosting und Pflege</p>
+        <p class="amt">29 €<small>pro Monat</small></p>
+        <p class="sub">Optional. Monatlich kündbar.</p>
+        <ul>
+          <li>Hosting und Domain inklusive</li>
+          <li>Kleine Änderungen an Texten und Bildern</li>
+          <li>Ihre Seite bleibt schnell und erreichbar</li>
+        </ul>
+        <a class="btn ghost" href="#fragen">Fragen ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="fragen">
+  <div class="wrap">
+    <div class="rv"><p class="kicker">Fragen</p><h2 class="h h2">Gut zu <em>wissen.</em></h2></div>
+    <div class="faq">
+      <details class="rv"><summary>Was kostet mich der Entwurf?</summary><p>Nichts. Sie erhalten einen persönlichen Entwurf zum Anklicken und entscheiden danach in Ruhe, ob Sie die Website umsetzen lassen möchten.</p></details>
+      <details class="rv"><summary>Brauche ich einen professionellen Film?</summary><p>Nein. Oft reicht ein ruhig gefilmtes Handyvideo oder eine Reihe guter Fotos. Wenn noch kein Material da ist, erkläre ich Ihnen, wie Sie es einfach selbst aufnehmen.</p></details>
+      <details class="rv"><summary>Wer entscheidet über Bilder, Texte und Farben?</summary><p>Sie. Alles, was auf Ihrer Website zu sehen ist, stimme ich mit Ihnen ab. Nichts wird ohne Ihre Freigabe veröffentlicht.</p></details>
+      <details class="rv"><summary>Funktioniert die Seite auch auf dem Handy?</summary><p>Ja. Jede Website wird zuerst für das Handy gestaltet und auf verschiedenen Geräten getestet. Der Film lädt in Stufen, damit die Seite sofort sichtbar ist.</p></details>
+      <details class="rv"><summary>Kann ich meine bestehende Domain behalten?</summary><p>Ja. Die neue Website wird mit Ihrer vorhandenen Domain verbunden. Ihre E-Mail-Adressen bleiben dabei unverändert.</p></details>
+      <details class="rv"><summary>Muss ich das Hosting bei Ihnen buchen?</summary><p>Nein, das ist freiwillig. Wenn Sie möchten, kümmere ich mich für 29 € im Monat um Hosting, Domain und kleine Änderungen.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kontakt">
+  <div class="wrap contact">
+    <div class="txt rv">
+      <p class="kicker">Kontakt</p>
+      <h2 class="h h2">Ihr Entwurf.<br><em>Kostenlos.</em></h2>
+      <p>Schreiben Sie mir kurz, worum es geht, gern mit der Adresse Ihrer bisherigen Website. Sie erhalten eine persönliche Antwort.</p>
+      <a class="mail" href="mailto:peter.allrich1@gmail.com"><i></i>peter.allrich1@gmail.com</a>
+    </div>
+    <form class="form rv" id="form" novalidate>
+      <div><label for="fName">Name</label><input id="fName" autocomplete="name" placeholder="Vor- und Nachname"></div>
+      <div><label for="fFirm">Unternehmen und Website</label><input id="fFirm" autocomplete="organization" placeholder="z. B. Muster GmbH, muster.de"></div>
+      <div><label for="fType">Branche</label><select id="fType"><option>Immobilien</option><option>Hausverwaltung</option><option>Architektur</option><option>Handwerk</option><option>Gastronomie</option><option>Hotel oder Ferienwohnung</option><option>Praxis oder Kanzlei</option><option>Andere Branche</option></select></div>
+      <div><label for="fMsg">Ihr Anliegen</label><textarea id="fMsg" placeholder="Was soll Ihre neue Website zeigen?"></textarea></div>
+      <p class="err" id="fErr" role="alert"></p>
+      <div><button class="btn blue" type="submit">Anfrage per E-Mail senden <span class="arr">→</span></button></div>
+      <p class="hint">Beim Absenden öffnet sich Ihr E-Mail-Programm mit Ihrer Anfrage. Es werden keine Daten auf dieser Website gespeichert.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div><a class="logo" href="#top"><i></i>Allrich<small>Webdesign</small></a><small style="display:block;margin-top:14px">© <span id="yr">2026</span> Allrich Webdesign · Potsdam</small></div>
+    <nav aria-label="Rechtliches"><a href="allrich/impressum.html">Impressum</a><a href="allrich/datenschutz.html">Datenschutz</a></nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+"use strict";
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+$("#yr").textContent = new Date().getFullYear();
+
+/* header + drawer */
+const hdr = $("#hdr"); const onS = () => hdr.classList.toggle("solid", scrollY > innerHeight * 2.6); addEventListener("scroll", onS, { passive: true }); onS();
+const dr = $("#drawer"), bg = $("#burger"), set = o => { dr.classList.toggle("open", o); dr.setAttribute("aria-hidden", !o); bg.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; };
+bg.onclick = () => set(true); $("#drawerX").onclick = () => set(false); $$("#drawer a").forEach(a => a.onclick = () => set(false));
+
+/* reveal */
+if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
+
+/* hero scroll film; a clean page is mapped onto the monitor in every frame */
+const portrait = innerWidth / innerHeight < 1, N = 236, dir = "allrich/film/" + (portrait ? "p/" : "l/");
+const IW = portrait ? 962 : 1920, IH = portrait ? 1282 : 1080;
+const PX0 = .3066, PXW = .4219;
+const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen");
+const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1, SC = null;
+fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
+function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
+function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
+function cover() { const s = Math.max(W / IW, H / IH); return { s, x: (W - IW * s) / 2, y: (H - IH * s) / 2 }; }
+function homo(src, dst) {
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) { const [x, y] = src[i], [u, v] = dst[i]; A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u); A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v); }
+  for (let c = 0; c < 8; c++) { let p = c; for (let r = c + 1; r < 8; r++) if (Math.abs(A[r][c]) > Math.abs(A[p][c])) p = r; [A[c], A[p]] = [A[p], A[c]]; [b[c], b[p]] = [b[p], b[c]]; for (let r = 0; r < 8; r++) if (r !== c) { const f = A[r][c] / A[c][c]; for (let k = c; k < 8; k++) A[r][k] -= f * A[c][k]; b[r] -= f * b[c]; } }
+  const h = b.map((v, i) => v / A[i][i]);
+  return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
+}
+const SRC = [[0, 0], [1000, 0], [1000, 625], [0, 625]];
+function draw(i) {
+  const k = near(i); if (k < 0 || k === drawn) return;
+  const c = cover(); ctx.drawImage(fr[k], c.x, c.y, IW * c.s, IH * c.s); drawn = k;
+  if (SC) { const dst = SC[k].map(([x, y]) => [c.x + (portrait ? (x - PX0) / PXW : x) * IW * c.s, c.y + y * IH * c.s]); scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")"; }
+  else scr.style.transform = "scale(0)";
+}
+const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
+let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = dir + "f" + String(i + 1).padStart(3, "0") + ".webp"; }
+for (let c = 0; c < 5; c++) pump();
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * (N - 1); }
+function tick() {
+  cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(Math.round(cur));
+  const a = clamp(cur / (N - 1) / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
+  requestAnimationFrame(tick);
+}
+addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
+size(); onScroll(); requestAnimationFrame(tick);
+
+/* contact: opens the visitor's mail program */
+$("#form").addEventListener("submit", e => {
+  e.preventDefault(); const n = $("#fName").value.trim(), m = $("#fMsg").value.trim(), err = $("#fErr");
+  if (!n) { err.textContent = "Bitte geben Sie Ihren Namen ein."; return; }
+  if (!m) { err.textContent = "Bitte beschreiben Sie kurz Ihr Anliegen."; return; }
+  err.textContent = "";
+  const body = `Name: ${n}\nUnternehmen und Website: ${$("#fFirm").value.trim()}\nBranche: ${$("#fType").value}\n\n${m}`;
+  location.href = "mailto:peter.allrich1@gmail.com?subject=" + encodeURIComponent("Website-Anfrage: " + ($("#fFirm").value.trim() || n)) + "&body=" + encodeURIComponent(body);
+});
+})();
+</script>
+</body>
+</html>
