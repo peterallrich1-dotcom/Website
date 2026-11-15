@@ -72,12 +72,27 @@ img,canvas{display:block;max-width:100%}
 .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
 .pin canvas{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
-.screen{position:absolute;left:0;top:0;width:1000px;height:557px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#f4efe7;opacity:0;will-change:transform,opacity}
-.screen .bar{position:absolute;inset:0 0 auto;height:30px;background:#fff;border-bottom:1px solid #e6e6e6;display:flex;align-items:center;gap:8px;padding:0 14px}
-.screen .bar i{width:11px;height:11px;border-radius:50%;background:#ddd}
-.screen .bar u{margin-left:18px;width:300px;height:16px;border-radius:8px;background:#f0f0f0}
-.screen img{position:absolute;left:0;top:30px;width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top center;transition:none}
-.screen img+img{opacity:0}
+.screen{position:absolute;left:0;top:0;width:1000px;height:557px;transform-origin:0 0;pointer-events:none;overflow:hidden;background:#0a0a0b;opacity:0;will-change:transform,opacity;font-family:var(--f-b)}
+.screen .bar{position:absolute;inset:0 0 auto;height:30px;background:#ececec;display:flex;align-items:center;gap:7px;padding:0 14px}
+.screen .bar i{width:11px;height:11px;border-radius:50%;background:#cfcfcf}
+.screen .bar u{text-decoration:none;margin:0 auto;padding:2px 60px;border-radius:7px;background:#fff;font-size:12px;color:#555}
+.screen .pg{position:absolute;inset:30px 0 0;padding:20px 32px}
+.screen .nv{display:flex;justify-content:space-between;align-items:center}
+.screen .nv b{font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.04em;display:flex;align-items:center;gap:8px;color:#fff}
+.screen .nv b i{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.screen .nv small{font-family:var(--f-b);font-size:10px;letter-spacing:.2em;color:#9a9ea6}
+.screen .nv span{background:var(--blue);color:#fff;font-size:13px;font-weight:600;padding:8px 16px;border-radius:99px}
+.screen .hd{position:absolute;left:32px;top:110px;width:400px}
+.screen .t1{font-size:54px;font-weight:600;line-height:1.05;letter-spacing:-.03em;color:#fff}
+.screen .t1 em{font-style:normal;color:var(--blue)}
+.screen .t2{margin-top:18px;font-size:16px;line-height:1.5;color:#b9bcc2}
+.screen .card{position:absolute;right:32px;top:84px;bottom:32px;width:500px;border-radius:16px;overflow:hidden;background:#141518}
+.screen .card .sl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.screen .card .sl.on{opacity:1}
+.screen .card .nx{background:linear-gradient(150deg,#3d7bff,#1a3a99);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px;padding:40px}
+.screen .card .nx b{font-size:40px;line-height:1.08;font-weight:600;letter-spacing:-.02em;color:#fff}
+.screen .card .nx span{background:#fff;color:#2456d6;font-size:15px;font-weight:600;padding:10px 18px;border-radius:99px}
+.screen .chip{position:absolute;left:14px;bottom:14px;background:rgba(10,10,11,.7);color:#fff;font-size:13px;font-weight:600;padding:7px 13px;border-radius:99px;border:1px solid rgba(255,255,255,.15)}
 .hcopy{position:absolute;left:0;right:0;bottom:clamp(30px,8vh,80px);z-index:2;will-change:opacity,transform}
 .hcopy h1{font-family:var(--f-b);font-weight:600;font-size:clamp(28px,3.6vw,52px);line-height:1.1;letter-spacing:-.025em;margin-bottom:22px;text-shadow:0 4px 30px rgba(0,0,0,.5)}
 @media (max-width:820px){.hcopy .btn{width:100%}}
@@ -227,8 +242,12 @@ img,canvas{display:block;max-width:100%}
   <div class="pin" id="pin">
     <canvas id="cv" aria-hidden="true"></canvas>
     <div class="screen" id="screen" aria-hidden="true">
-      <div class="bar"><i></i><i></i><i></i><u></u></div>
-      <img src="allrich/img-screen-1.webp" alt=""><img src="allrich/img-screen-2.webp" alt="" id="scr2">
+      <div class="bar"><i></i><i></i><i></i><u>allrich-webdesign.com</u></div>
+      <div class="pg">
+        <div class="nv"><b><i></i>ALLRICH <small>WEBDESIGN</small></b><span>Kostenloser Entwurf</span></div>
+        <div class="hd"><p class="t1">Ihre Branche.<br><em>Ihr Film.</em></p><p class="t2">Websites mit Scroll-Film für Immobilien, Gastronomie, Handwerk und mehr.</p></div>
+        <div class="card"><img src="allrich/img-velaro.jpg" alt="" class="sl on"><img src="allrich/img-screen-2.webp" alt="" class="sl"><div class="sl nx"><b>Ihre Branche<br>als Nächstes?</b><span>Kostenloser Entwurf</span></div><span class="chip">Immobilien</span></div>
+      </div>
     </div>
     <div class="shade"></div>
     <div class="hcopy" id="hcopy"><div class="wrap">
@@ -421,7 +440,7 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 /* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
    and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
 const portrait = innerWidth / innerHeight < 1, N = 240, K = portrait ? 72 : 0;
-const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen"), scr2 = $("#scr2");
+const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen"), cards = [...document.querySelectorAll("#screen .card .sl")], chip = $("#screen .chip");
 /* monitor corners per frame (normalised to the landscape frame); my own café website is mapped onto it */
 let SC = null; fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
 const PX0 = 590 / 2280, PXW = 962 / 2280, SRC = [[0, 0], [1000, 0], [1000, 557], [0, 557]];
@@ -432,13 +451,17 @@ function homo(src, dst) {
   const h = b.map((v, i) => v / A[i][i]);
   return [h[0], h[3], 0, h[6], h[1], h[4], 0, h[7], 0, 0, 1, 0, h[2], h[5], 0, 1];
 }
+/* during the dissolve (frames 42-59) the monitor already stands where it is in frame 60 */
+const SLIDES = [[0, "Immobilien"], [120, "Gastronomie"], [190, "Ihr Betrieb"]]; let slide = -1;
 function screenAt(k, ox, oy, w, h, crop) {
-  const q = SC && SC[k]; if (!q) { scr.style.opacity = 0; return; }
+  const q = SC && (SC[k] || (k >= 42 && SC[60])); if (!q) { scr.style.opacity = 0; return; }
   const dst = q.map(([x, y]) => [ox + (crop ? (x - PX0) / PXW : x) * w, oy + y * h]);
   scr.style.transform = "matrix3d(" + homo(SRC, dst).join(",") + ")";
-  scr.style.opacity = Math.min(1, (k - 59) / 6);
-  scr2.style.opacity = ease(Math.min(1, Math.max(0, (k - 150) / 60)));
+  scr.style.opacity = ease(Math.min(1, Math.max(0, (k - 42) / 14)));
+  let n = 0; SLIDES.forEach(([f], j) => { if (k >= f) n = j; });
+  if (n !== slide) { slide = n; cards.forEach((c, j) => c.classList.toggle("on", j === n)); chip.textContent = SLIDES[n][1]; chip.style.display = n === 2 ? "none" : ""; }
 }
+
 const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
 function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
