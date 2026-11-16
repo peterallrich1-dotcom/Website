@@ -117,7 +117,9 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - Erledigt 16.11.: Bing Webmaster Tools (Import aus Search Console, Sitemap eingereicht). Google-Unternehmensprofil „Allrich Webdesign“ angelegt (Dienstleistungsunternehmen, Kategorie Webdesigner, Adresse verborgen, Mo–Sa 8–19 Uhr, 9 Leistungen, Beschreibung); Google prüft die Verifizierung (bis 5 Tage). Logo und Fotos ggf. noch hochladen.
 
 ## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
-**Takt:** Montag bis Samstag 40 Mails pro Tag, 4 Durchgänge à 10 (ca. 9:00, 10:10, 11:20, 12:30 Uhr Berlin).
+**Takt (ab 17.11.2026, Peters Wunsch):** Montag bis Samstag 40 Mails pro Tag zwischen 8:30 und 12:00 Uhr Berlin, 4 Durchgänge à 10 (8:33, 9:33, 10:33, 11:33). Jeder Durchgang ist bis spätestens 12:00 fertig. Peter nicht fragen, selbstständig arbeiten (er vertraut darauf); nur echte Antworten von Firmen an ihn melden.
+**Diese README hat Vorrang** vor dem Text der geplanten Aufgaben (dort steht teils noch der alte Stand: Gmail-Versand, Link nur auf die Startseite).
+**Vor jedem Durchgang zuerst prüfen:** https://allrich-webdesign.com/ und https://allrich-webdesign.com/velaro/ laden mit HTTP 200 (Titel „Peter Allrich · Webdesign Potsdam …“ bzw. Velaro). Wenn nicht: nichts senden, Peter Bescheid geben.
 
 **Vor jedem Durchgang**
 1. Gmail prüfen: neue Antworten im Posteingang und Rückläufer (mailer-daemon, „Undelivered“, „Unzustellbar“). Antworten und Rückläufer hier in der Lead-Liste vermerken. Auf echte Antworten nicht selbst antworten, sondern Peter Bescheid geben (Ausnahme: nichts).
