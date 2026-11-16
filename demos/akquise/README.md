@@ -158,5 +158,16 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 | Immobilien Mersinger (Gerti Mersinger) | Trier | immobilien-mersinger.de | „Homepage im Aufbau“ | 16.11. D2 |
 | TRIDOMUS Immobilien (Anna Modestova-Lehnertz) | Trier | tridomus.de | „TESTSEITE“, nicht mobil | 16.11. D2 |
 | Nicknig Immobilien (Hans-Uwe Nicknig) | Koblenz | nicknig.com (nicknigimm@aol.com) | „Time for a new Look“ | 16.11. D2 |
+| Willam & Dr. Bechtloff Immobilien (Dr. Dagmar Bechtloff) | Celle | willam-bechtloff.de (info@w-b.immobilien) | kein https, nicht mobil | 16.11. D3 |
+| Lehmann-Immobilienservice (Andrea Lehmann) | Goslar | lehmann-immobilienservice.de | WebSite-X5-Baukasten | 16.11. D3 |
+| Torsten Geßner Immobilien | Zwickau | gessner-immobilien.de | kein https, nicht mobil | 16.11. D3 |
+| Immobilien Scott (Thomas Scott) | Plauen | immobilien-scott.de | nicht mobil | 16.11. D3 |
+| Schneider Immobilien Consulting (Uwe Schneider) | Gera | schneider-immobilien-consulting.de (u.schneider-immobilien@t-online.de) | Startseite ohne Objekte | 16.11. D3 |
+| Singer Immobilien (Bert Singer) | Weimar | singer-immobilien.de (mail@) | Seite von 2005, nicht mobil | 16.11. D3 |
+| SNM Immobilien & Hausverwaltung (Swantje Noé) | Troistedt/Weimar | snm-immobilien.de | kein https, nicht mobil | 16.11. D3 |
+| Eilenriede Immobilien (Horst Prigge) | Hannover | eilenriede-immo.de | „Browserversion veraltet“-Hinweis | 16.11. D3 |
+| Immobilien Brinkmann (Monica Brinkmann) | Bremen | immo-brinkmann.de | kein https | 16.11. D3 |
+| Immobilien & Hausverwaltung C. Goller (Thomas Klein) | Plauen | immobilien-goller.de | nicht mobil | 16.11. D3 |
+Geprüft D3, nicht angeschrieben: immobilien.if-c.biz (kein Impressum), immobilien-wolf-plauen.de (keine Mail), heimundgrund.com (kein Name), city-immobilienmakler.de (Kette), ziemek-bau.de. Städte D3: Celle, Goslar, Zwickau, Plauen, Gera, Weimar, Hannover, Bremen. Tipp: Kleinstädte liefern deutlich mehr schwache Websites (tools/scan.sh stadt1 stadt2 ...).
 Geprüft, nicht angeschrieben (nicht erneut prüfen): bredereck-immobilien.de (Ltd., Impressum unklar), machalett-immobilien.de (Wartungsseite), brandhuber-immobilien.de (Strato-Platzhalter), scheunpflug.de (Domain zu verkaufen), lange-immobilien.eu (Platzhalter), thaele.de (kein Impressum), sietan.de (Sachverständiger), wentzel-immobilien.com (3. in Magdeburg). Städte 16.11. D1: Erfurt, Magdeburg, Kassel, Chemnitz, Oldenburg (je max. 2).
 Geprüft D2, nicht angeschrieben: premium-hv.de / riess-und-gerle.de (Mail nur per JS), overbeck-immobilien.com (keine Website, keine Mail), kleinimmobilien.com (3. Osnabrück), zilk-immobilien.de (kein Name), auer-regensburg.de (keine Mail), krueger-kg.de (kein Impressum gefunden), drechsler-immobilien.de (3. Göttingen), objekt-raum.com, am-hv.de, wm-hausverwaltung.de (kein Name), stoelzgen.de (offline), immobilien-mueller.de (kein Name). Städte D2: Augsburg, Osnabrück, Bielefeld, Göttingen, Trier, Koblenz.
