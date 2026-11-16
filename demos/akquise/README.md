@@ -115,7 +115,7 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 
 **Vor jedem Durchgang**
 1. Gmail prüfen: neue Antworten im Posteingang und Rückläufer (mailer-daemon, „Undelivered“, „Unzustellbar“). Antworten und Rückläufer hier in der Lead-Liste vermerken. Auf echte Antworten nicht selbst antworten, sondern Peter Bescheid geben (Ausnahme: nichts).
-2. Lead-Liste und Gmail „Gesendet“ als Sperrliste: keine Firma, keine Domain, keine Person doppelt.
+2. Lead-Liste und Gmail als Sperrliste (Gmail „Gesendet“ für Mails bis 16.11. mittags, ab dann die BCC-Kopien: Suche `from:peter@allrich-webdesign.com`): keine Firma, keine Domain, keine Person doppelt.
 
 **Firmensuche (10 pro Durchgang)**
 - Branchen: Immobilienmakler, Hausverwaltungen, Architekten. Gebiet: ganz Deutschland und Österreich, Städte rotieren (keine Stadt, die schon dran war, bevor alle anderen dran waren).
@@ -124,7 +124,13 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - Inhabergeführt, keine Ketten/Franchise, höchstens 2 Firmen pro Stadt.
 - Startseite und Impressum lesen: Vorname und Nachname der Inhaberin/des Inhabers bzw. Geschäftsführung, ein konkretes Objekt, Projekt oder Schwerpunkt für den ersten Satz.
 
-**Mail** (Gmail peter.allrich1@gmail.com, HTML)
+**Versandweg ab 16.11.2026 nachmittags: Brevo** (nicht mehr das Gmail-Werkzeug, das jeden Link auf google.com/url umschreibt)
+- Absender `Peter Allrich <peter@allrich-webdesign.com>`, Reply-To und BCC `peter.allrich1@gmail.com` (Antworten landen in Gmail).
+- Senden: HTML der Mail in eine Datei schreiben, dann `python3 demos/akquise/tools/brevo_send.py EMPFAENGER "Vorname Nachname" "Betreff" mail.html`. Der API-Schlüssel wird vom Proxy für `api.brevo.com` eingesetzt (Platzhalter `proxy-injected`).
+- Domain bei Brevo authentifiziert (Brevo-Code, DKIM brevo1/brevo2, DMARC in Cloudflare). Gratis-Tarif: 300 Mails/Tag. Test am 16.11.: Link führt ohne Zwischenseite direkt auf allrich-webdesign.com.
+- Falls Brevo nicht erreichbar ist: nicht über Gmail ausweichen, sondern Peter Bescheid geben.
+
+**Mail** (HTML)
 - Betreff: `Eine Website-Idee für {Firma}`
 - `Guten Tag {Vorname} {Nachname},`
 - Erster Satz: konkret zu einem Objekt, Projekt oder Schwerpunkt der Firma (geprüft, nichts erfinden). Kritik an der Website nur, wenn geprüft und sachlich.
