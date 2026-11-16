@@ -128,6 +128,7 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - Absender `Peter Allrich <peter@allrich-webdesign.com>`, Reply-To und BCC `peter.allrich1@gmail.com` (Antworten landen in Gmail).
 - Senden: HTML der Mail in eine Datei schreiben, dann `python3 demos/akquise/tools/brevo_send.py EMPFAENGER "Vorname Nachname" "Betreff" mail.html`. Der API-Schlüssel wird vom Proxy für `api.brevo.com` eingesetzt (Platzhalter `proxy-injected`).
 - Domain bei Brevo authentifiziert (Brevo-Code, DKIM brevo1/brevo2, DMARC in Cloudflare). Gratis-Tarif: 300 Mails/Tag. Test am 16.11.: Link führt ohne Zwischenseite direkt auf allrich-webdesign.com.
+- Nach dem Senden die BCC-Kopien in Gmail aufräumen: Label „Akquise gesendet“ (Label_5) setzen, INBOX und UNREAD entfernen (Suche `from:peter@allrich-webdesign.com in:inbox`). Antworten der Firmen kommen trotzdem wieder in den Posteingang.
 - Falls Brevo nicht erreichbar ist: nicht über Gmail ausweichen, sondern Peter Bescheid geben.
 
 **Mail** (HTML)
