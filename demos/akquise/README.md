@@ -139,3 +139,14 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 ### Versandliste ab 16.11.2026
 | Firma | Ort | Website | Befund | Gesendet |
 |---|---|---|---|---|
+| Immobilienservice Grimm (Steffen Grimm) | Erfurt | grimm24.de | kein https, kaum Inhalt | 16.11. D1 |
+| Blümel & Rohde Immobilien-Service (Olaf Blümel) | Magdeburg | bluemel-rohde.de (kontakt@bris-verwaltung.de) | „Website im Aufbau“, kein https | 16.11. D1 |
+| Thomas Hund Immobilien | Magdeburg | thomas-hund-immobilien.de | alter T-Online-Baukasten, nicht mobil | 16.11. D1 |
+| HMC Immobilien (Michael Homberger) | Kassel | hmci.eu (info@hmci.de) | IONOS-Baukasten, kein https | 16.11. D1 |
+| Lingelbach & Choukair Immobilien (Ayse Lingelbach) | Kassel | lingelbach-choukair-immobilien.de (info@luc-immo.de) | kein https, wenig Inhalt | 16.11. D1 |
+| D-RENT Immobilien (Dirk Drischmann) | Chemnitz | d-rent.de | Tabellen-Layout, kein https, nicht mobil | 16.11. D1 |
+| RSI Ronald Stopp Immobilien | Chemnitz | stoppimmo.de | kein https | 16.11. D1 |
+| Windisch Immobilien (Anke Windisch-Zaremba) | Oldenburg | windisch-immo.de | veraltetes Layout | 16.11. D1 |
+| Kai Arnold Immobilien | Oldenburg | kai-arnold.de | älteres Tabellen-Layout | 16.11. D1 |
+
+Geprüft, nicht angeschrieben (nicht erneut prüfen): bredereck-immobilien.de (Ltd., Impressum unklar), machalett-immobilien.de (Wartungsseite), brandhuber-immobilien.de (Strato-Platzhalter), scheunpflug.de (Domain zu verkaufen), lange-immobilien.eu (Platzhalter), thaele.de (kein Impressum), sietan.de (Sachverständiger), wentzel-immobilien.com (3. in Magdeburg). Städte 16.11. D1: Erfurt, Magdeburg, Kassel, Chemnitz, Oldenburg (je max. 2).
