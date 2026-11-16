@@ -149,4 +149,14 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 | Windisch Immobilien (Anke Windisch-Zaremba) | Oldenburg | windisch-immo.de | veraltetes Layout | 16.11. D1 |
 | Kai Arnold Immobilien | Oldenburg | kai-arnold.de | älteres Tabellen-Layout | 16.11. D1 |
 
+| Wöhrl Immobilienservice (Dr. Martin Wöhrl) | Augsburg | woehrl-immobilien.de | nicht mobil, Tabellen-Layout | 16.11. D2 |
+| Immobilien-Treuhand G. Michalsky (Stephan Lonzer) | Osnabrück | immobilien-treuhand.de | eine Seite, nicht mobil | 16.11. D2 |
+| Gudrun KAPITZA Immobilien | Osnabrück | kapitza-immobilien.de | Jimdo-Baukasten | 16.11. D2 |
+| Kleiber Haus (Norbert Kleiber) | Bielefeld | kleiber-haus.de (hausverwaltung@) | Joomla 2012, kein https | 16.11. D2 |
+| Hausverwaltung Neuhaus / AMI (Sonja Neuhaus) | Göttingen | neuhaus-verwaltung-immobilien.de (HVN@) | Tabelle, nicht mobil | 16.11. D2 |
+| H + G Göttingen (Anette Wittorf) | Göttingen | hug-goe.de (hv@) | Startseite nicht mobil | 16.11. D2 |
+| Immobilien Mersinger (Gerti Mersinger) | Trier | immobilien-mersinger.de | „Homepage im Aufbau“ | 16.11. D2 |
+| TRIDOMUS Immobilien (Anna Modestova-Lehnertz) | Trier | tridomus.de | „TESTSEITE“, nicht mobil | 16.11. D2 |
+| Nicknig Immobilien (Hans-Uwe Nicknig) | Koblenz | nicknig.com (nicknigimm@aol.com) | „Time for a new Look“ | 16.11. D2 |
 Geprüft, nicht angeschrieben (nicht erneut prüfen): bredereck-immobilien.de (Ltd., Impressum unklar), machalett-immobilien.de (Wartungsseite), brandhuber-immobilien.de (Strato-Platzhalter), scheunpflug.de (Domain zu verkaufen), lange-immobilien.eu (Platzhalter), thaele.de (kein Impressum), sietan.de (Sachverständiger), wentzel-immobilien.com (3. in Magdeburg). Städte 16.11. D1: Erfurt, Magdeburg, Kassel, Chemnitz, Oldenburg (je max. 2).
+Geprüft D2, nicht angeschrieben: premium-hv.de / riess-und-gerle.de (Mail nur per JS), overbeck-immobilien.com (keine Website, keine Mail), kleinimmobilien.com (3. Osnabrück), zilk-immobilien.de (kein Name), auer-regensburg.de (keine Mail), krueger-kg.de (kein Impressum gefunden), drechsler-immobilien.de (3. Göttingen), objekt-raum.com, am-hv.de, wm-hausverwaltung.de (kein Name), stoelzgen.de (offline), immobilien-mueller.de (kein Name). Städte D2: Augsburg, Osnabrück, Bielefeld, Göttingen, Trier, Koblenz.
