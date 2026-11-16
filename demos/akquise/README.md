@@ -114,7 +114,7 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - noindex auf der Startseite entfernt (Peter zufrieden). Titel „Peter Allrich · Webdesign Potsdam · Websites mit Scroll-Film“, Canonical, Open-Graph-Bild `allrich/og-image.jpg`, Favicon, strukturierte Daten (ProfessionalService + Person), `robots.txt`, `sitemap.xml`.
 - Kundenentwürfe und Velaro bleiben noindex.
 - Erledigt 16.11.: Google Search Console (Domain-Property bestätigt über Cloudflare), Sitemap eingereicht, Indexierung beantragt.
-- Offen: Bing Webmaster Tools (Import aus Search Console), Google-Unternehmensprofil.
+- Erledigt 16.11.: Bing Webmaster Tools (Import aus Search Console, Sitemap eingereicht). Google-Unternehmensprofil „Allrich Webdesign“ angelegt (Dienstleistungsunternehmen, Kategorie Webdesigner, Adresse verborgen, Mo–Sa 8–19 Uhr, 9 Leistungen, Beschreibung); Google prüft die Verifizierung (bis 5 Tage). Logo und Fotos ggf. noch hochladen.
 
 ## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
 **Takt:** Montag bis Samstag 40 Mails pro Tag, 4 Durchgänge à 10 (ca. 9:00, 10:10, 11:20, 12:30 Uhr Berlin).
