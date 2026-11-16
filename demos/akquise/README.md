@@ -113,7 +113,8 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 ## Live geschaltet 16.11.2026
 - noindex auf der Startseite entfernt (Peter zufrieden). Titel „Peter Allrich · Webdesign Potsdam · Websites mit Scroll-Film“, Canonical, Open-Graph-Bild `allrich/og-image.jpg`, Favicon, strukturierte Daten (ProfessionalService + Person), `robots.txt`, `sitemap.xml`.
 - Kundenentwürfe und Velaro bleiben noindex.
-- Offen für Peter: Google Search Console (Domain-Bestätigung per TXT in Cloudflare), Sitemap einreichen, Bing Webmaster Tools (Import aus Search Console), Google-Unternehmensprofil.
+- Erledigt 16.11.: Google Search Console (Domain-Property bestätigt über Cloudflare), Sitemap eingereicht, Indexierung beantragt.
+- Offen: Bing Webmaster Tools (Import aus Search Console), Google-Unternehmensprofil.
 
 ## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
 **Takt:** Montag bis Samstag 40 Mails pro Tag, 4 Durchgänge à 10 (ca. 9:00, 10:10, 11:20, 12:30 Uhr Berlin).
