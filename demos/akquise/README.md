@@ -134,10 +134,11 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - Betreff: `Eine Website-Idee für {Firma}`
 - `Guten Tag {Vorname} {Nachname},`
 - Erster Satz: konkret zu einem Objekt, Projekt oder Schwerpunkt der Firma (geprüft, nichts erfinden). Kritik an der Website nur, wenn geprüft und sachlich.
-- `So sieht eine meiner Websites aus:` + Link **Hier klicken und das Beispiel ansehen** → `https://allrich-webdesign.com`
+- `So sieht eine meiner Beispiel-Websites aus:` + Link **Hier klicken und das Beispiel ansehen** → `https://allrich-webdesign.com/velaro/` (die Villa-Seite Velaro; Velaro nie als Kunden bezeichnen)
 - `Welche Bilder, Videos und Texte zu sehen sind, entscheiden allein Sie, zum Beispiel …` (passend zur Firma)
 - `Ich würde mich freuen, wenn Ihnen das Beispiel gefällt.`
 - `Peter Allrich`
+- Darunter: `Meine Website: ` + Link `allrich-webdesign.com` → `https://allrich-webdesign.com` (geändert am 16.11.2026 auf Peters Wunsch)
 - Verboten: Preis, „ausgedacht“, Velaro als Kunde, Anrufen, „melden Sie sich“.
 
 **Nach dem Durchgang:** Jede Firma als Zeile unten eintragen (Firma | Ort | Website | Befund | gesendet am), committen und pushen.
