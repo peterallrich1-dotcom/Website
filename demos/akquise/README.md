@@ -110,6 +110,11 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 - **Kaya (YK Architektur, Kornwestheim):** heißer Lead, antwortete am 15.11. (Preis 990 € ok, Website stand wegen Rücken-OPs 2019–2024 still). Antwort am 15.11. abends gesendet: Link zu allrich-webdesign.com, Bitte um Visualisierungen, Fotos, Videos und Text. Nicht nachhaken, auf sein Material warten.
 - **Gewerbe:** Anmeldung über eMeldung Potsdam scheiterte an der Straßenauswahl (Am Föhrenhang nicht auswählbar). Peter ruft Montag beim Gewerbeamt an (0331 289-1690).
 
+## Live geschaltet 16.11.2026
+- noindex auf der Startseite entfernt (Peter zufrieden). Titel „Peter Allrich · Webdesign Potsdam · Websites mit Scroll-Film“, Canonical, Open-Graph-Bild `allrich/og-image.jpg`, Favicon, strukturierte Daten (ProfessionalService + Person), `robots.txt`, `sitemap.xml`.
+- Kundenentwürfe und Velaro bleiben noindex.
+- Offen für Peter: Google Search Console (Domain-Bestätigung per TXT in Cloudflare), Sitemap einreichen, Bing Webmaster Tools (Import aus Search Console), Google-Unternehmensprofil.
+
 ## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
 **Takt:** Montag bis Samstag 40 Mails pro Tag, 4 Durchgänge à 10 (ca. 9:00, 10:10, 11:20, 12:30 Uhr Berlin).
 
