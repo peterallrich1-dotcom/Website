@@ -128,6 +128,7 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 **Firmensuche (10 pro Durchgang)**
 - Branchen: Immobilienmakler, Hausverwaltungen, Architekten. Gebiet: ganz Deutschland und Österreich, Städte rotieren (keine Stadt, die schon dran war, bevor alle anderen dran waren).
 - Quellen: Gelbe Seiten `/branchen/{rubrik}/{stadt}` (Website base64 in `data-webseiteLink`), Herold `/gelbe-seiten/{stadt}/{rubrik}/` (`data-ht-label` `send_mail` / `go_to_website`). Skripte liegen in `demos/akquise/tools/`.
+- **Seit 17.11. (Peter: ja):** auch Firmen mit mittelmäßiger Website (veraltet, aber mobil lesbar) anschreiben; in der Mail dann nur auf die Firma eingehen, nicht auf die Website. Architekten und Österreich stärker einbeziehen (scan.sh mit Rubrik architekten).
 - **Bevorzugt Firmen mit schlechter Website** (veraltete Optik, nicht für Handy, kein https, Objekte nur als Liste, Baukasten-Look, kaum Bilder), sonst ohne Website (dann Mail aus dem Branchenbuch). Gute, moderne Websites überspringen.
 - Inhabergeführt, keine Ketten/Franchise, höchstens 2 Firmen pro Stadt.
 - Startseite und Impressum lesen: Vorname und Nachname der Inhaberin/des Inhabers bzw. Geschäftsführung, ein konkretes Objekt, Projekt oder Schwerpunkt für den ersten Satz.
