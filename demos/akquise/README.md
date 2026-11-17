@@ -197,6 +197,9 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 | Atlant Immobilien (Steffen Zimmermann) | Nordhausen | atlant-immo.de (atlant-immo-ndh@web.de) | nicht mobil | 17.11. D2 |
 | Wahry Immobilien und Hausverwaltung (Mario Wahry) | Quedlinburg | wahry-dachdecker.de (wahry-immobilien@t-online.de) | nur Dachdecker-Seite, kein https | 17.11. D2 |
 | Bendix Immobilien (Frank Bendix) | Gotha | bendix-immobilien.de | TYPO3 4.5, nicht mobil | 17.11. D2 |
+| HWV Haus- und Wohnungsverwaltung (Frank Eichler) | Döbeln/Zeithain | hwv.de | nicht mobil | 17.11. D3 |
+| Immobilien Finanzservice Appel (Siegmund Appel) | Grimma | appel-makler.de | nicht mobil | 17.11. D3 |
+Geprüft 17.11. D3, ohne Treffer: Güstrow, Parchim, Ludwigslust, Waren, Torgau, Oschatz, Annaberg, Mittweida, Glauchau; eurocaptura.de (kein Impressum), prosalus-immobilien.de.
 Geprüft 17.11. D2, nicht angeschrieben: geyerimmobilien.de (keine Mail, „wird neu aufgebaut“), bauwert.info (kein Name), der-vermieter.info (keine Mail), grasemann-immobilien.de (Domain zu verkaufen), dazu Bayern/Franken (Hof, Bayreuth, Kulmbach, Coburg, Ansbach, Schweinfurt, Bad Kissingen, Aschaffenburg) ohne Treffer.
 Hinweis 17.11.: check.py/imp.py lesen jetzt auch gzip-Antworten (vorher Fehlalarme „KEIN-viewport“ bei modernen Seiten). Geprüft 17.11. D1, nicht angeschrieben: schedler-immobilien.de, immobilien-w-wittstock.de, fws-hausverwaltung.de, bj-hausverwaltung.de (Fehlalarm, Seiten ok), styn.immobilien (kein Name), annenhoefe-brb.de (Gewerbeobjekt), am-sonnenufer.de (Seniorenwohnen), streibel-immobilien.de (keine Mail), wortmann-immobilienverwaltung.de (Einkaufszentrum), andreasgrewe.de (Privatvermieter), immo-cux.de, zarnack.de (ok). Städte: Brandenburg a. d. H., Rathenow, Bernau, Frankfurt (Oder), Heidenau, Lüdenscheid.
 | Dittrich Immobilien (Hans-Jürgen Dittrich) | Bamberg | dittrichimmobilien.de (immobilien.dittrich@arcor.de) | WebSite X5, ©2015 | 16.11. D5 Brevo |
