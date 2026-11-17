@@ -2,8 +2,10 @@ import sys, re, html, urllib.request, urllib.parse, signal
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 def get(u):
     try:
-        r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=15)
-        return r.geturl(), r.read(600000).decode("utf-8", "ignore")
+        r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0", "Accept-Encoding": "identity"}), timeout=15)
+        b = r.read(2000000)
+        if b[:2] == b"\x1f\x8b": b = __import__("gzip").decompress(b)
+        return r.geturl(), b.decode("utf-8", "ignore")
     except Exception: return u, ""
 def text(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", s, flags=re.S))).strip()
 base = sys.argv[1].rstrip("/")

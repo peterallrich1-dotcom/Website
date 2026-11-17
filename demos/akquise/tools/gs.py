@@ -2,7 +2,7 @@
 python3 gs.py immobilienmakler erfurt  ->  TSV: name, website, adresse"""
 import sys, re, base64, html, urllib.request
 rub, city = sys.argv[1], sys.argv[2]
-req = urllib.request.Request(f"https://www.gelbeseiten.de/branchen/{rub}/{city}", headers={"User-Agent": "Mozilla/5.0"})
+req = urllib.request.Request(f"https://www.gelbeseiten.de/branchen/{rub}/{city}", headers={"User-Agent": "Mozilla/5.0", "Accept-Encoding": "identity"})
 s = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
 import signal; signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 for a in re.findall(r"<article.*?</article>", s, re.S):

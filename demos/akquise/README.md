@@ -188,6 +188,13 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 | SHG Hausverwaltung (Norbert Stern) | Marburg | shg-hausverwaltung.com (stern@) | WebSite-X5, 2016 | 16.11. D4 |
 | Yildiz Immobilien Plus (Zeynep Yildiz) | Wetzlar | yildizimmobilienplus.de | „Seite in Bearbeitung“ | 16.11. D4 |
 | HVD Hausverwaltung Dessau (Mario Saalmann) | Dessau-Roßlau | hv-dessau.de (info@) | NetObjects, nicht mobil | 16.11. D4 |
+| Maklerunternehmen Thomas Fiedler | Brandenburg a. d. H. | fiedler-maklerunternehmen.de (thomas@) | eine Textseite, kein https | 17.11. D1 |
+| HGV Haus- und Grundstücksverwaltung (Stefan Koch) | Rathenow | hgv-rathenow.de (0173-7182538@web.de) | „Browserversion veraltet“ | 17.11. D1 |
+| bios-consult Immobilien (Uwe Rosenkranz) | Bernau | bios-consult.de | kein https, nicht mobil | 17.11. D1 |
+| Family Haus Immobilien (Wilfried Sell) | Frankfurt (Oder) | family-haus-immobilien.de | nicht mobil | 17.11. D1 |
+| Eismann Hausverwaltung (Marina Brem) | Heidenau | eismann-hausverwaltung.de | nur Name und Mail | 17.11. D1 |
+| Harald Braunheim Immobilien | Lüdenscheid | harald-braunheim.de (post@) | nur Name, Mail, Telefon | 17.11. D1 |
+Hinweis 17.11.: check.py/imp.py lesen jetzt auch gzip-Antworten (vorher Fehlalarme „KEIN-viewport“ bei modernen Seiten). Geprüft 17.11. D1, nicht angeschrieben: schedler-immobilien.de, immobilien-w-wittstock.de, fws-hausverwaltung.de, bj-hausverwaltung.de (Fehlalarm, Seiten ok), styn.immobilien (kein Name), annenhoefe-brb.de (Gewerbeobjekt), am-sonnenufer.de (Seniorenwohnen), streibel-immobilien.de (keine Mail), wortmann-immobilienverwaltung.de (Einkaufszentrum), andreasgrewe.de (Privatvermieter), immo-cux.de, zarnack.de (ok). Städte: Brandenburg a. d. H., Rathenow, Bernau, Frankfurt (Oder), Heidenau, Lüdenscheid.
 | Dittrich Immobilien (Hans-Jürgen Dittrich) | Bamberg | dittrichimmobilien.de (immobilien.dittrich@arcor.de) | WebSite X5, ©2015 | 16.11. D5 Brevo |
 | Lotz Immobilien (Wolfgang Oetinger) | Bamberg | lotz-immobilien.de (lotz.immobilien@web.de) | Jimdo, nicht mobil | 16.11. D5 Brevo |
 | Immobilien Donhauser (Karin Donhauser) | Amberg | immobiliendonhauser.de (info@) | web to date 2014, kein https, nicht mobil | 16.11. D5 Brevo |

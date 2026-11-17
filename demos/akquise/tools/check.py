@@ -3,8 +3,10 @@ python3 check.py URL  ->  Signale + Impressum-Auszug (Name, E-Mail)"""
 import sys, re, html, urllib.request, urllib.parse, ssl
 def get(u):
     try:
-        r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=20)
-        return r.geturl(), r.read(600000).decode("utf-8", "ignore")
+        r = urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0", "Accept-Encoding": "identity"}), timeout=20)
+        b = r.read(2000000)
+        if b[:2] == b"\x1f\x8b": b = __import__("gzip").decompress(b)
+        return r.geturl(), b.decode("utf-8", "ignore")
     except Exception as e:
         return u, ""
 def text(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<script.*?</script>|<style.*?</style>|<[^>]+>", " ", s, flags=re.S))).strip()
