@@ -206,6 +206,17 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 | Immobilien Lafenthaler (Gerhard Lafenthaler) | Bad Hofgastein (AT) | lafenthaler.com (info@) | nicht mobil | 17.11. D4 |
 | architekturbuehne (Elfrid Wimmer-Repp) | Salzburg (AT) | architekturbuehne.at | kein https, nicht mobil | 17.11. D4 |
 | LC4 architektur (W. Lankmayer) | Salzburg (AT) | lc4.at (office@) | nicht mobil | 17.11. D4 |
+| Architekturbüro Karin Ritter | Görlitz | architekturbuero-ritter.de (ab.ritter@web.de) | FrontPage 4.0, nicht mobil | 18.11. D1 |
+| AVV-Immobilien (Bernd Elechnowitsch) | Pforzheim | avv-immobilien.de (avv-immobilien@live.de) | kein https, Tabellen-Layout, nicht mobil | 18.11. D1 |
+| Leuprecht Bauarchitektur (Ing. Gerold Leuprecht) | Dornbirn (AT) | bauarchitektur.at (g.leuprecht@) | TYPO3 2013, kein https, nicht mobil | 18.11. D1 |
+| Beyer-Schubert Architektur (Matthias Beyer-Schubert) | Eisenach | beyer-schubert.de (mail@) | „Inhalte werden überarbeitet“ | 18.11. D1 |
+| Büro 4 (Jan Krahmer) | Detmold | buero4.info (post@) | Adobe GoLive, nicht mobil | 18.11. D1 |
+| Becker Immobilien (Gabriele Becker) | Detmold | immobilien-becker.de (info@) | nicht mobil | 18.11. D1 |
+| HELLE Architekten (Silvia und Rolf Helle) | Paderborn | helle-architektur.de (hellearchitekten@gmx.de) | kein https, nicht mobil | 18.11. D1 |
+| Hausverwaltung Dieckmann (Andreas Dieckmann) | Lage | hausverwaltung-dieckmann.de (info@) | nur eine Zeile | 18.11. D1 |
+| Immobilien Wolff GmbH (Detlef Wolff) | Paderborn | immobilien-wolff.com (mail@) | nicht mobil, nur kleine Vorschaubilder | 18.11. D1 |
+| zottele . mallin architekten (DI Christian Zottele) | Bludenz (AT) | zottele-mallin.com (office@) | nur Kontaktdaten, nicht mobil | 18.11. D1 |
+Geprüft 18.11. D1, nicht angeschrieben: beaufort.at (kein Name, keine Mail), vontrottzusolz.de (kein Impressum, nur Bilder), bachmann-nothwang.de (nur Verweis auf Kammer), makler-arnold.de (Versicherungsmakler), mrw-architekten.de (Seite ok), klauswanko.at (nur JavaScript), dazu Sachverständige/Fremdbranchen aus Eisenach, Suhl, Ilmenau, Landshut. Städte D1: Görlitz, Pforzheim, Dornbirn, Eisenach, Detmold, Paderborn, Lage, Bludenz. Noch offen für später: grossmann-architekten.de, helms-architektur.de, architektur-kraus.com (Pforzheim-Umgebung), hagelgans-architektur.de, bauplanung-tegethoff.de, kornhardt.de (Minden), iv-schwabe.de.
 Geprüft 17.11. D4, nicht angeschrieben: musker.at, hofstaetter-kletzenbauer.at (kein Impressum), sixl-zt.com, zt-schatz.at (3. in Graz, für später), immobilienaust.com, immobilien-rueck.at (kein Name). Österreich über tools/scan_at.sh (Herold nach Bundesland) bringt deutlich mehr Treffer.
 Geprüft 17.11. D3, ohne Treffer: Güstrow, Parchim, Ludwigslust, Waren, Torgau, Oschatz, Annaberg, Mittweida, Glauchau; eurocaptura.de (kein Impressum), prosalus-immobilien.de.
 Geprüft 17.11. D2, nicht angeschrieben: geyerimmobilien.de (keine Mail, „wird neu aufgebaut“), bauwert.info (kein Name), der-vermieter.info (keine Mail), grasemann-immobilien.de (Domain zu verkaufen), dazu Bayern/Franken (Hof, Bayreuth, Kulmbach, Coburg, Ansbach, Schweinfurt, Bad Kissingen, Aschaffenburg) ohne Treffer.
