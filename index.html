@@ -452,7 +452,7 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 
 /* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
    and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
-const portrait = innerWidth / innerHeight < 1, N = 558, K = portrait ? 83 : 0, NE = N - 1;
+const portrait = innerWidth / innerHeight < 1, N = 263, K = portrait ? 33 : 0, NE = N - 1;
 const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy");
 /* monitor position per frame (normalised); on phones the camera follows the monitor */
 let SC = null;
@@ -474,13 +474,20 @@ function scrInfo(k) {
   return { cx: (Math.min(...xs) + Math.max(...xs)) / 2, cy: (Math.min(...ys) + Math.max(...ys)) / 2, w: Math.max(...xs) - Math.min(...xs) };
 }
 const clampX = (x, w) => Math.min(0, Math.max(W - w, x));
-function draw(i) {
-  const k = near(i); if (k < 0 || k === drawn) return;
-  const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
+function draw(x) {
   if (!portrait) {
+    /* laptop, tablet, monitor: blend the two neighbouring frames for smooth motion between film frames */
+    const i0 = Math.floor(x), f = x - i0, i1 = Math.min(N - 1, i0 + 1), key = i0 + Math.round(f * 16) / 16;
+    const k = near(i0); if (k < 0 || key === drawn) return;
+    const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
     const s = Math.max(W / iw, H / ih), ox = (W - iw * s) / 2, oy = (H - ih * s) / 2;
-    ctx.drawImage(im, ox, oy, iw * s, ih * s);
-  } else {
+    ctx.globalAlpha = 1; ctx.drawImage(im, ox, oy, iw * s, ih * s);
+    if (k === i0 && f > .03 && ok[i1]) { ctx.globalAlpha = f; ctx.drawImage(fr[i1], ox, oy, iw * s, ih * s); ctx.globalAlpha = 1; }
+    drawn = k === i0 ? key : k; return;
+  }
+  const k = near(Math.round(x)); if (k < 0 || k === drawn) return;
+  const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
+  {
     /* phone: full-screen, the camera follows the monitor */
     const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .47 }).cx;
     let s, cx, cy = .5;
@@ -494,13 +501,13 @@ function draw(i) {
   drawn = k;
 }
 const src = i => "allrich/film/l/f" + String(i + 1).padStart(3, "0") + ".webp";
-const order = [], seen = new Uint8Array(N); for (const st of portrait ? [80, 40, 20, 10, 4, 2] : [80, 40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
+const order = [], seen = new Uint8Array(N); for (const st of portrait ? [40, 20, 10, 4, 2] : [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
 let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = src(i); }
 for (let c = 0; c < 5; c++) pump();
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * NE; }
 function tick() {
-  cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(Math.round(cur));
+  cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(cur);
   const a = clamp(cur / NE / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
   requestAnimationFrame(tick);
 }
