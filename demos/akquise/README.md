@@ -118,6 +118,7 @@ Entwurf liegt in `allrich/` (online unter /Website/allrich/, noindex, nirgends v
 
 ## Täglicher Versand ab 16.11.2026 (Ablauf für jeden Durchgang)
 **Takt (ab 17.11.2026, Peters Wunsch):** Montag bis Samstag 40 Mails pro Tag zwischen 8:30 und 12:00 Uhr Berlin, 4 Durchgänge à 10 (8:33, 9:33, 10:33, 11:33). Jeder Durchgang ist bis spätestens 12:00 fertig. Peter nicht fragen, selbstständig arbeiten (er vertraut darauf); nur echte Antworten von Firmen an ihn melden.
+**STOPP seit 18.11.2026, 08:39 Uhr Berlin:** Brevo hat das Konto zur Prüfung gesperrt („E-Mail-Aktivitäten, die möglicherweise nicht unserer Anti-Spam-Richtlinie entsprechen“, Versand pausiert). D1 vom 18.11. ist noch zugestellt worden (alle 10 „delivered“). Bis Peter etwas anderes sagt: **keine Mails senden**, auch nicht über Gmail. Jeder Durchgang prüft nur Antworten und Rückläufer und meldet sie.
 **Diese README hat Vorrang** vor dem Text der geplanten Aufgaben (dort steht teils noch der alte Stand: Gmail-Versand, Link nur auf die Startseite).
 **Vor jedem Durchgang zuerst prüfen:** https://allrich-webdesign.com/ und https://allrich-webdesign.com/velaro/ laden mit HTTP 200 (Titel „Peter Allrich · Webdesign Potsdam …“ bzw. Velaro). Wenn nicht: nichts senden, Peter Bescheid geben.
 
