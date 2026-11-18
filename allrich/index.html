@@ -480,11 +480,11 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 
 /* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
    and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
-const portrait = innerWidth / innerHeight < 1, N = 240, K = portrait ? 72 : 0;
+const portrait = innerWidth / innerHeight < 1, N = 239, K = portrait ? 30 : 0;
 const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy"), scr = $("#screen"), cards = [...document.querySelectorAll("#screen .card .sl")], chip = $("#screen .chip");
 /* monitor corners per frame (normalised to the landscape frame); my own café website is mapped onto it */
-let SC = null, NE = 239;
-function calcNE() { if (!portrait || !SC) return; const sC = H / 1080; NE = 239; for (let k = K; k < 240; k++) { const q = SC[k]; if (q && (Math.max(...q.map(p => p[0])) - Math.min(...q.map(p => p[0]))) * 1920 * sC > .9 * W) { NE = k; break; } } onScroll(); }
+let SC = null, NE = N - 1;
+function calcNE() { if (!portrait || !SC) return; const sC = H / 1080; NE = N - 1; for (let k = K; k < N; k++) { const q = SC[k]; if (q && (Math.max(...q.map(p => p[0])) - Math.min(...q.map(p => p[0]))) * 1920 * sC > .9 * W) { NE = k; break; } } onScroll(); }
 fetch("film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; calcNE(); }).catch(() => {});
 const PX0 = 590 / 2280, PXW = 962 / 2280, SRC = [[0, 0], [1000, 0], [1000, 557], [0, 557]];
 function homo(src, dst) {
