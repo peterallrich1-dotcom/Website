@@ -452,11 +452,9 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 
 /* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
    and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
-const portrait = innerWidth / innerHeight < 1, N = 263, K = portrait ? 33 : 0, NE = N - 1;
+const portrait = innerWidth / innerHeight < 1, N = 246, K = portrait ? 12 : 0, NE = N - 1;
 const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy");
-/* monitor position per frame (normalised); on phones the camera follows the monitor */
-let SC = null;
-fetch("allrich/film/screen.json").then(r => r.json()).then(j => { SC = j; drawn = -1; }).catch(() => {});
+let SC = null; /* no tracked object in this film: phones keep the centre */
 
 const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
@@ -489,12 +487,14 @@ function draw(x) {
   const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
   {
     /* phone: full-screen, the camera follows the monitor */
-    const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .47 }).cx;
+    const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .5 }).cx;
     let s, cx, cy = .5;
-    if (k < K) { const e = ease(k / K), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = s0 + (sC - s0) * e; cx = .44 + (endCx - .44) * e; }
+    if (k < K) { const e = ease(k / K), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = s0 + (sC - s0) * e; cx = .5 + (endCx - .5) * e; }
     else { cx = info ? info.cx : endCx; s = sC; }
     ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
     if (k >= K) s = sC;
+    /* end: zoom back out so the whole logo is visible again */
+    const KE = 22; if (k > N - 1 - KE) { const e = ease((k - (N - 1 - KE)) / KE), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = sC + (s0 - sC) * e; cx = .5; }
     const w = iw * s, bh = ih * s, ox = clampX(W / 2 - cx * w, w), y0 = (H - bh) / 2;
     band(im, ox, y0, w, bh);
   }
