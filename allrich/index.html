@@ -86,7 +86,7 @@ img,canvas{display:block;max-width:100%}
 @media (max-width:960px){.nav,.hdr .btn{display:none}.burger{display:block}}
 
 /* hero */
-.hero{position:relative;height:330vh}
+.hero{position:relative;height:800vh}
 .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#07080a}
 .pin canvas{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,11,.55) 0%,rgba(10,10,11,0) 22%,rgba(10,10,11,0) 60%,rgba(10,10,11,.75) 100%)}
@@ -506,7 +506,7 @@ for (let c = 0; c < 5; c++) pump();
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * NE; }
 function tick() {
-  cur += (tgt - cur) * (RM ? 1 : .14); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(cur);
+  cur += (tgt - cur) * (RM ? 1 : .09); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(cur);
   const a = clamp(cur / NE / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
   requestAnimationFrame(tick);
 }
