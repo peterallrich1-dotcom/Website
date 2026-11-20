@@ -1,0 +1,19 @@
+{
+ "rows": [],
+ "meta": [
+  {
+   "label": "Quelle",
+   "value": "Cloudflare Web Analytics, allrich-webdesign.com (ohne Cookies)"
+  },
+  {
+   "label": "Stand",
+   "value": "2026-11-20 19:38 UTC"
+  },
+  {
+   "label": "cf_stats.py",
+   "value": "\"\"\"Besucherzahlen von allrich-webdesign.com aus Cloudflare Web Analytics holen und dauerhaft sammeln.\npython3 cf_stats.py  ->  aktualisiert demos/akquise/stats/besucher.json (Zeilen je Tag, alte Tage bleiben erhalten).\nDer API-Token wird vom Proxy für api.cloudflare.com eingesetzt (Platzhalter proxy-injected).\"\"\"\nimport json, urllib.request, datetime, pathlib\nACC = '053a3d442fff8e2da3a96649a428cb00'\nOUT = pathlib.Path(__file__).resolve().parent.parent / 'stats' / 'besucher.json'\nQ = '''query($acc:String!,$start:Time!,$end:Time!){viewer{accounts(filter:{accountTag:$acc}){\n rumPageloadEventsAdaptiveGroups(limit:1000,filter:{datetime_geq:$start,datetime_leq:$end,requestHost_like:\"%allrich-webdesign.com\"},orderBy:[date_ASC]){count sum{visits} dimensions{date}}}}}'''\nnow = datetime.datetime.now(datetime.timezone.utc)\nvar = {'acc': ACC, 'start': (now - datetime.timedelta(days=31)).strftime('%Y-%m-%dT00:00:00Z'), 'end': now.strftime('%Y-%m-%dT%H:%M:%SZ')}\nreq = urllib.request.Request('https://api.cloudflare.com/client/v4/graphql', data=json.dumps({'query': Q, 'variables': var}).encode(),\n                             headers={'Authorization': 'Bearer proxy-injected', 'Content-Type': 'application/json'})\nr = json.load(urllib.request.urlopen(req, timeout=60))\nif r.get('errors'): raise SystemExit('Cloudflare-Fehler: %s' % r['errors'])\nfresh = {g['dimensions']['date']: {'datum': g['dimensions']['date'], 'seitenaufrufe': g['count'], 'besuche': g['sum']['visits']}\n         for g in r['data']['viewer']['accounts'][0]['rumPageloadEventsAdaptiveGroups']}\nold = json.loads(OUT.read_text())['rows'] if OUT.exists() else []\nrows = {x['datum']: x for x in old}\nrows.update(fresh)   # die letzten 31 Tage neu, ältere Tage bleiben für immer\nout = {'rows': sorted(rows.values(), key=lambda x: x['datum']),\n       'meta': [{'label': 'Quelle', 'value': 'Cloudflare Web Analytics, allrich-webdesign.com (ohne Cookies)'},\n                {'label': 'Stand', 'value': now.strftime('%Y-%m-%d %H:%M UTC')},\n                {'label': 'cf_stats.py', 'value': pathlib.Path(__file__).read_text(), 'type': 'code', 'lang': 'python'}]}\nOUT.write_text(json.dumps(out, ensure_ascii=False, indent=1))\nprint(len(out['rows']), 'Tage gespeichert;', sum(x['besuche'] for x in out['rows']), 'Besuche gesamt')\n",
+   "type": "code",
+   "lang": "python"
+  }
+ ]
+}
