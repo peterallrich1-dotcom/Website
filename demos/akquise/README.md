@@ -243,3 +243,4 @@ Liste 2 (ganz Deutschland ohne Potsdam/Berlin, 40 Betriebe, 20.11.2026): haarem-
 
 ## Kleinanzeigen ab 20.11.2026
 Anzeige "Website mit Scroll-Film für Ihren Betrieb | Kostenloser Entwurf" ist online (Peter hat sie selbst eingestellt, Kategorie Weitere Dienstleistungen, 990 € Festpreis, Potsdam). 6 Bilder und Text: Kleinanzeigen-Paket (Bilder aus Startfilm und Velaro).
+Branchenbücher 20.11.2026 (per Cloud-Browser eingetragen): 11880.com (kostenloser Eintrag eingereicht, Freischaltung durch 11880), Gelbe Seiten Grundeintrag (eingereicht und per Mail-Link bestätigt, Prüfung bis 3 Werktage, gilt auch für Das Örtliche/Das Telefonbuch), Hotfrog (Konto angelegt, Bestätigungsmail steht aus). Cylex blockiert Cloud-Browser. Google/Bing/Apple brauchen Login von Peter bzw. Guido.
