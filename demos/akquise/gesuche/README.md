@@ -47,7 +47,7 @@ Polstermöbelhandel mit kleiner Polsterei, will Bilder und Aktionen später selb
 >
 > ich habe Ihre Anzeige gesehen. Für einen Polstermöbelhandel mit eigener Polsterei kann ich mir eine Website gut vorstellen, auf der man beim Scrollen wie in einem kurzen Film durch Ihre Ausstellung und Werkstatt geht: vom Stoff bis zum fertigen Sofa.
 >
-> Bilder und Aktionen wechseln: Wenn Sie mir ein neues Foto oder eine Aktion schicken, ist sie meist am selben Tag online. Das ist in der Pflege für 34 € im Monat enthalten, monatlich kündbar. Wenn Sie lieber alles selbst ändern möchten, sagen Sie es mir, dann besprechen wir, wie wir das lösen.
+> Bilder und Aktionen wechseln: Wenn Sie mir ein neues Foto oder eine Aktion schicken, stelle ich es für Sie online. Das ist in der Pflege für 34 € im Monat enthalten, monatlich kündbar. Wenn Sie lieber alles selbst ändern möchten, sagen Sie es mir, dann besprechen wir, wie wir das lösen.
 >
 > Die Website kostet einmalig ab 990 €. Vorher bekommen Sie einen kostenlosen, unverbindlichen Entwurf.
 >
