@@ -1,0 +1,153 @@
+{
+ "name": "Arnes Hausverwaltung GmbH",
+ "brand": "Arnes",
+ "brandSub": "Hausverwaltung · Baden-Baden bis Stuttgart",
+ "accent": "#aab4d8",
+ "accentDark": "#2a3a8a",
+ "source": "arnes-hv.de",
+ "sourceUrl": "https://www.arnes-hv.de",
+ "cta": "Angebot anfragen",
+ "hero": {
+  "eyebrow": "Hausverwaltung · Gaggenau · Stuttgart",
+  "head": "Wir kümmern uns um\nIhre *Immobilie.*",
+  "intro": "Verwaltung, Kauf- und Verkaufsberatung, Makler und Baubetreuung zwischen Baden-Baden und Stuttgart. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°48′N · 8°19′E · Gaggenau",
+  "ch": [
+   [
+    "Verwaltung",
+    "Kleine Gemeinschaften, *persönlich betreut.*",
+    "Ihr Schwerpunkt, WEGs bis 20 Einheiten, klar gezeigt."
+   ],
+   [
+    "Erreichbar",
+    "Rund um die Uhr *erreichbar.*",
+    "Ihr KI-Telefon und der Notdienst als sichtbarer Vorteil."
+   ],
+   [
+    "Baubetreuung",
+    "Aus einem Hotel wird ein *Mehrfamilienhaus.*",
+    "Ihr aktuelles Umbauprojekt als Referenz."
+   ],
+   [
+    "Region",
+    "Von Baden-Baden bis *Stuttgart.*",
+    "Alle Orte, die Sie betreuen, auf einen Blick."
+   ],
+   [
+    "Arnes Hausverwaltung",
+    "Schaden melden in *einer Minute*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Willkommen",
+  "head": "Verwalter, Berater, Makler und *Baubetreuer.*",
+  "text": [
+   "Arnes Hausverwaltung verwaltet Immobilien im Miet- und WEG-Recht, berät beim An- und Verkauf, ist als Makler tätig und betreut Sanierungen und Umbauten.",
+   "Derzeit verwaltet das Unternehmen überwiegend kleinere Gemeinschaften mit bis zu 20 Einheiten. Die Region reicht von Baden-Baden, Gaggenau und Rastatt über Karlsruhe bis Pforzheim und seit Juli 2025 auch nach Stuttgart."
+  ],
+  "facts": [
+   [
+    "20",
+    "Einheiten: Schwerpunkt kleinere Gemeinschaften"
+   ],
+   [
+    "24/7",
+    "telefonisch erreichbar, seit 2026 auch über eine KI"
+   ],
+   [
+    "2",
+    "Büros: Gaggenau und Stuttgart"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Angebot",
+  "eyebrow": "Leistungen",
+  "head": "Verwalten, beraten, *betreuen*",
+  "lead": "Für Eigentümergemeinschaften und private Vermieter.",
+  "items": [
+   {
+    "status": "Verwaltung",
+    "name": "WEG- und Mietverwaltung",
+    "place": "Mit 24-Stunden-Notdienst",
+    "text": "Für Eigentümergemeinschaften und Zinshäuser."
+   },
+   {
+    "status": "Beratung",
+    "name": "Kauf- und Verkaufsberatung",
+    "place": "Auch mit Besichtigung",
+    "text": "Welche Immobilie passt, und was kann ich mir leisten?"
+   },
+   {
+    "status": "Makler",
+    "name": "Wohnen und Gewerbe",
+    "place": "Miete und Kauf",
+    "text": "Vermittlung von Wohn- und Gewerbeimmobilien."
+   },
+   {
+    "status": "Bau",
+    "name": "Sanierungs- und Baubetreuung",
+    "place": "Aktuell: Hotel wird Mehrfamilienhaus",
+    "text": "Begleitung von Umbau und Sanierung."
+   },
+   {
+    "status": "Neu",
+    "name": "Ferienwohnungs-Vermietung",
+    "place": "Ab 10 % der Ist-Miete",
+    "text": "Vermietung von Ferienwohnungen im Auftrag der Eigentümer."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Haltung",
+  "quote": "Sie möchten etwas verändern, sind aber nicht sicher? *Fragen Sie uns.*",
+  "points": [
+   [
+    "Rückruf-Service",
+    "Fragen stellen oder ein Angebot anfordern."
+   ],
+   [
+    "Schadensmeldung",
+    "Schäden direkt online melden."
+   ],
+   [
+    "Infoblätter",
+    "Zum Beispiel zum Winterdienst."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Alles rund um Ihre *Immobilie.*",
+  "lead": "Zwischen Baden-Baden und Stuttgart.",
+  "items": [
+   [
+    "Hausverwaltung",
+    "WEG- und Mietverwaltung mit Notdienst."
+   ],
+   [
+    "Makler und Beratung",
+    "An- und Verkauf, Vermietung, Besichtigungen."
+   ],
+   [
+    "Baubetreuung",
+    "Sanierung und Umbau, zum Beispiel vom Hotel zum Mehrfamilienhaus."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Fragen Sie uns *an.*",
+  "address": [
+   "Theodor-Bergmann-Str. 11 · 76571 Gaggenau",
+   "Königstr. 5 · 70173 Stuttgart"
+  ],
+  "phone": "07221 3749 379",
+  "email": "info@arnes-hv.de",
+  "topics": [
+   "Angebot Hausverwaltung",
+   "Kauf oder Verkauf",
+   "Baubetreuung",
+   "Ferienwohnung vermieten"
+  ]
+ }
+}

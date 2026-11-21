@@ -1,0 +1,147 @@
+{
+ "name": "Licker Immobilien GmbH",
+ "brand": "Licker",
+ "brandSub": "Immobilien · Ludwigsburg · Winnenden",
+ "accent": "#f0a0a0",
+ "accentDark": "#b01f24",
+ "source": "licker.de",
+ "sourceUrl": "https://licker.de",
+ "cta": "Wert ermitteln lassen",
+ "hero": {
+  "eyebrow": "Immobilienmakler · Ludwigsburg · seit 1987",
+  "head": "Wir setzen Ihre Immobilie\nins richtige *Licht.*",
+  "intro": "Zwei Büros, ein Team und Erfahrung seit 1987. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°53′N · 9°11′E · Ludwigsburg",
+  "ch": [
+   [
+    "Präsentation",
+    "Ins richtige *Licht* gesetzt.",
+    "Ihr eigener Slogan, wörtlich genommen: ein Film statt einer Bilderleiste."
+   ],
+   [
+    "Angebote",
+    "Jedes Objekt *begehbar.*",
+    "Interessenten gehen beim Scrollen durch die Räume."
+   ],
+   [
+    "Verkäufer",
+    "Was ist Ihre Immobilie *wert?*",
+    "Der Weg zur Wertermittlung, mit einem Klick erreichbar."
+   ],
+   [
+    "Region",
+    "Ludwigsburg, Winnenden und *Umgebung.*",
+    "Regionale Angebote, übersichtlich nach Ort."
+   ],
+   [
+    "Licker Immobilien",
+    "glück*Licker* wohnen"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Erfahrung seit *1987.*",
+  "text": [
+   "Licker Immobilien beantwortet alle Fragen rund um die Immobilie: vom aktuellen Marktwert über den Verkauf bis zur Kapitalanlage.",
+   "Mit Teams in Ludwigsburg bei Stuttgart und in Winnenden und mit modernen Präsentationstechniken."
+  ],
+  "facts": [
+   [
+    "1987",
+    "Immobilienmakler seit"
+   ],
+   [
+    "2",
+    "Büros: Ludwigsburg und Winnenden"
+   ],
+   [
+    "10",
+    "aktuelle Angebote auf der Startseite (November 2026)"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Angebote",
+  "eyebrow": "Aktuelle Angebote",
+  "head": "Eine *Auswahl*",
+  "lead": "Beispiele von licker.de, Stand November 2026. Preise und Verfügbarkeit laut Anbieter.",
+  "items": [
+   {
+    "status": "Haus",
+    "name": "Terrassen-Haus in Aussichtslage",
+    "place": "Winnenden · ca. 175 m² · 7 Zimmer",
+    "text": "236 m² Gesamtfläche auf einer Ebene. Kaufpreis € 449.000."
+   },
+   {
+    "status": "Haus",
+    "name": "Einfamilienhaus mit Doppelgarage",
+    "place": "Spiegelberg · ca. 185 m² · 6,5 Zimmer",
+    "text": "Grundstück ca. 1.512 m². Kaufpreis € 579.000."
+   },
+   {
+    "status": "Anlage",
+    "name": "Fünf-Familien-Haus",
+    "place": "Fellbach · ca. 258 m²",
+    "text": "Kapitalanlage mit ca. 4,25 % Bruttorendite. Kaufpreis € 829.000."
+   },
+   {
+    "status": "Wohnung",
+    "name": "4,5-Zimmer-Wohnung mit zwei Balkonen",
+    "place": "Besigheim · ca. 92,73 m²",
+    "text": "Mit Tiefgaragenstellplatz. Kaufpreis € 265.000."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Slogan",
+  "quote": "glück*Licker* wohnen",
+  "points": [
+   [
+    "Marktwert",
+    "Was ist die Immobilie aktuell wert?"
+   ],
+   [
+    "Verkauf",
+    "Organisation des gesamten Verkaufs."
+   ],
+   [
+    "Kapitalanlage",
+    "Kapital gewinnbringend in Immobilien anlegen."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Für Käufer und *Verkäufer.*",
+  "lead": "Zwei Büros, eine Handschrift.",
+  "items": [
+   [
+    "Für Immobilienverkäufer",
+    "Wertermittlung, Vermarktung und Begleitung bis zum Abschluss."
+   ],
+   [
+    "Immobilienangebote",
+    "Aktuelle Häuser und Wohnungen aus der Region."
+   ],
+   [
+    "Referenzen",
+    "Verkaufte Objekte und Stimmen von Kunden."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Rufen Sie uns *an.*",
+  "address": [
+   "Büro Ludwigsburg · 07141 47 58-0",
+   "Büro Winnenden · 07195 91 71-0"
+  ],
+  "phone": "07141 47 58-0",
+  "email": "lb@licker.de",
+  "topics": [
+   "Wertermittlung",
+   "Immobilie verkaufen",
+   "Immobilie suchen",
+   "Kapitalanlage"
+  ]
+ }
+}

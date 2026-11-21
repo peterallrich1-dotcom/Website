@@ -1,0 +1,63 @@
+{
+ "name": "STREAM GmbH",
+ "brand": "Stream", "brandSub": "Strategic Real Estate Asset Management",
+ "accent": "#e3cd84", "accentDark": "#7d6420",
+ "source": "stream-online.com", "sourceUrl": "https://www.stream-online.com",
+ "cta": "Angebot anfordern",
+ "hero": {
+  "eyebrow": "Immobilienverwaltung · Starnberg",
+  "head": "Verwaltung ist\n*Vermögens*verwaltung.",
+  "intro": "WEG- und Mietverwaltung mit persönlicher Betreuung. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°59′N · 11°20′E · Starnberg",
+  "chapters": [
+   {"a": 0.08, "b": 0.27, "k": "Werte", "h": "Immobilien sind Werte, die *Zuwendung* brauchen.", "p": "Ihr eigener Satz, groß und selbstbewusst gezeigt statt klein im Fließtext."},
+   {"a": 0.31, "b": 0.52, "k": "Eigentümer", "h": "Sie als Eigentümer sind unser *Kunde.*", "p": "Der erste Eindruck entscheidet, ob ein Eigentümer ein Angebot anfordert."},
+   {"a": 0.55, "b": 0.70, "k": "Service", "h": "Ihr Angebot, online *angefordert.*", "p": "Die Online-Angebotsanfrage für WEG- und Mietverwaltung, bequem auch auf dem Handy."},
+   {"a": 0.72, "b": 0.87, "k": "P.R.E.A.M.", "h": "Auch eine Immobilie ist ein *Unternehmen.*", "p": "Private Real Estate Asset Management: Pflege und Entwicklung des Bestands."},
+   {"a": 0.90, "b": 1.2, "k": "STREAM GmbH · Starnberg", "h": "Erhalt und *Wertsteigerung*"}
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Unternehmen",
+  "head": "Kompetenz und *persönliches Engagement.*",
+  "text": [
+   "Die STREAM GmbH bietet Dienstleistungen im Immobilienmanagement und hat sich auf die Immobilienverwaltung spezialisiert. Ziel ist der Erhalt und die Wertsteigerung des Eigentums ihrer Kunden.",
+   "Gute Verwaltung ist neben der Kompetenz immer auch eine Frage des persönlichen Engagements. Die Dienstleistung versteht STREAM als Qualitätsprodukt zu einem angemessenen Preis."
+  ],
+  "facts": [["WEG", "Verwaltung von Wohnungseigentümergemeinschaften"], ["Miete", "Mietverwaltung für private Eigentümer"], ["P.R.E.A.M.", "Private Real Estate Asset Management"]]
+ },
+ "projects": {
+  "nav": "Verwaltung", "eyebrow": "Leistungsbereiche", "head": "Was wir für Sie *übernehmen*",
+  "lead": "Die Leistungsverzeichnisse sind eine Grundlage. Jeder Eigentümer erhält ein Angebot, das auf seine Wünsche zugeschnitten ist.",
+  "items": [
+   {"status": "Verwaltung", "name": "WEG-Verwaltung", "place": "Für Eigentümergemeinschaften", "text": "Verwaltung von Wohnungseigentum mit persönlicher Betreuung. Das Angebot lässt sich online anfordern."},
+   {"status": "Verwaltung", "name": "Mietverwaltung", "place": "Für private Eigentümer", "text": "Verwaltung von Mietobjekten, zum Beispiel Mehrfamilienhäuser in Niedrigenergiebauweise."},
+   {"status": "Strategie", "name": "P.R.E.A.M.", "place": "Private Real Estate Asset Management", "text": "Strategisches Marketing, Produktentwicklung, Controlling und Kundenbetreuung für den privaten Immobilienbestand."},
+   {"status": "Service", "name": "Formulare", "place": "Für Eigentümer und Mieter", "text": "Die wichtigsten Formulare als PDF zum Herunterladen."}
+  ]
+ },
+ "stance": {
+  "eyebrow": "Haltung",
+  "quote": "Immobilienverwaltung ist *Vermögensverwaltung.*",
+  "points": [
+   ["Zuverlässig", "Zuverlässigkeit und persönliche Betreuung sollen überzeugen."],
+   ["Wertorientiert", "Erhalt und Wertsteigerung des Eigentums stehen im Mittelpunkt."],
+   ["Angemessen", "Ein Qualitätsprodukt zu einem angemessenen Preis."]
+  ]
+ },
+ "services": {
+  "head": "Ihr Bestand, *in guten Händen.*",
+  "lead": "Für Eigentümer, die mehr erwarten als Abrechnungen.",
+  "items": [
+   ["Angebot online", "Eigentümer fordern ein Angebot für WEG- oder Mietverwaltung direkt online an."],
+   ["Persönliches Angebot", "Auf Wunsch ein Leistungspaket, das auf Objekt und Eigentümer abgestimmt ist."],
+   ["Asset Management", "Entwicklungsreserven im Bestand erkennen und heben: Marktbeobachtung, Zielgruppen, Maßnahmen, Erfolgskontrolle."]
+  ]
+ },
+ "contact": {
+  "head": "Fordern Sie Ihr *Angebot* an.",
+  "address": ["Heinrich-Wieland-Str. 4a", "82319 Starnberg"],
+  "phone": "08151 918 928", "email": "info@stream-online.com",
+  "topics": ["Angebot WEG-Verwaltung", "Angebot Mietverwaltung", "P.R.E.A.M.", "Allgemeine Anfrage"]
+ }
+}

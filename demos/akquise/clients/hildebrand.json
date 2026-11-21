@@ -1,0 +1,153 @@
+{
+ "name": "Architektur Achim Hildebrand",
+ "brand": "Hildebrand",
+ "brandSub": "Architektur · Friedrichshafen",
+ "accent": "#f0c070",
+ "accentDark": "#8a5a10",
+ "source": "architektur-hildebrand.de",
+ "sourceUrl": "https://www.architektur-hildebrand.de",
+ "cta": "Kontakt aufnehmen",
+ "hero": {
+  "eyebrow": "Architekturbüro · Friedrichshafen · seit 2003",
+  "head": "Ihr direkter\n*Ansprechpartner.*",
+  "intro": "Wohnungsbau, Bau im Bestand und Gewerbebau am Bodensee, alle Leistungsphasen aus einer Hand. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°39′N · 9°28′E · Friedrichshafen",
+  "ch": [
+   [
+    "Wohnungsbau",
+    "Vom Einfamilienhaus bis zum *Mehrfamilienhaus.*",
+    "Ihre Häuser, groß gezeigt statt als kleine Kacheln."
+   ],
+   [
+    "Räume",
+    "Entwurf, den man *betreten* kann.",
+    "Visualisierung und Modellbau gehören schon zu Ihrem Leistungsbild."
+   ],
+   [
+    "Bau im Bestand",
+    "Aus einer Scheuer wird ein *Wohnhaus.*",
+    "Vorher und nachher, als eigene Geschichte erzählt."
+   ],
+   [
+    "Gewerbebau",
+    "Werkhalle, Büro, *Ausstellung.*",
+    "Gewerbeprojekte mit Flächen und Kennzahlen."
+   ],
+   [
+    "Architektur Hildebrand",
+    "Leistungsphasen *1 bis 9*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Profil",
+  "head": "Geboren in Tettnang. Selbstständig seit *2003.*",
+  "text": [
+   "Achim Hildebrand hat in Weimar und Karlsruhe Architektur studiert und 1999 an der TH Karlsruhe das Diplom abgelegt. Nach drei Jahren im Büro Hildebrand + Schwarz ist er seit 2003 selbstständig.",
+   "Für seine Kundschaft ist er jederzeit der direkte und persönliche Ansprechpartner und betreut die Projekte selbst."
+  ],
+  "facts": [
+   [
+    "2003",
+    "selbstständig als Architekt"
+   ],
+   [
+    "1–9",
+    "alle Leistungsphasen nach HOAI"
+   ],
+   [
+    "7.470 l",
+    "Süßwasseraquarium, eines der ungewöhnlichsten Projekte"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Projekte",
+  "eyebrow": "Projekte",
+  "head": "Wohnen, Bestand, *Gewerbe*",
+  "lead": "Projektangaben laut architektur-hildebrand.de.",
+  "items": [
+   {
+    "status": "Wohnen",
+    "name": "Wohn- und Bürogebäude H",
+    "place": "Friedrichshafen · Baujahr 2006",
+    "text": "165 m² Wohnfläche und 81 m² Bürofläche."
+   },
+   {
+    "status": "Wohnen",
+    "name": "Mehrfamilienhaus mit 7 Wohneinheiten",
+    "place": "Bodenseeraum",
+    "text": "Neubau."
+   },
+   {
+    "status": "Bestand",
+    "name": "Umbau einer Scheuer in ein Wohnhaus",
+    "place": "Überlingen-Lippertsreute · 2005",
+    "text": "Umbau und Sanierung."
+   },
+   {
+    "status": "Gewerbe",
+    "name": "Gewerbehof mit Büro und Ausstellung",
+    "place": "Bodenseeraum",
+    "text": "101 m² Büro, 67 m² Werkhalle, 63 m² Ausstellung."
+   },
+   {
+    "status": "Besonderes",
+    "name": "Süßwasseraquarium",
+    "place": "Fertigstellung 2017",
+    "text": "Sechs Meter lang, 7.470 Liter, besetzt mit südamerikanischen Barschen."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Arbeitsweise",
+  "quote": "Jederzeit Ihr *persönlicher* Ansprechpartner.",
+  "points": [
+   [
+    "Entwurf",
+    "Entwurf, Baugenehmigung und Baukosten."
+   ],
+   [
+    "Ausführung",
+    "Ausführungspläne, Ausschreibung und Vergabe."
+   ],
+   [
+    "Bauleitung",
+    "Bauleitung, Abnahme und Gewährleistung."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Vom Entwurf bis zur *Abnahme.*",
+  "lead": "Alle Phasen nach HOAI.",
+  "items": [
+   [
+    "Architektur",
+    "Leistungsphasen 1 bis 9, vom Entwurf bis zur Überwachung der Gewährleistung."
+   ],
+   [
+    "Visualisierung",
+    "Darstellungen, die den Entwurf vor dem Bau zeigen."
+   ],
+   [
+    "Modellbau",
+    "Modelle zu den Entwürfen."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *mir.*",
+  "address": [
+   "Klosterstraße 26",
+   "88045 Friedrichshafen"
+  ],
+  "phone": "+49 7541 599999",
+  "email": "info@architektur-hildebrand.de",
+  "topics": [
+   "Neubau",
+   "Umbau oder Sanierung",
+   "Gewerbebau",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

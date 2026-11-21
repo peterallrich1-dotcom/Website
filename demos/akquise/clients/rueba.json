@@ -1,0 +1,151 @@
+{
+ "name": "RÜBA Immobiliengruppe",
+ "brand": "RÜBA",
+ "brandSub": "Wohnbau · Gewerbliche Vermietung",
+ "accent": "#a8c4ec",
+ "accentDark": "#2a4f96",
+ "source": "rueba.com",
+ "sourceUrl": "https://www.rueba.com",
+ "cta": "Kontakt aufnehmen",
+ "hero": {
+  "eyebrow": "Bauträger · München · seit 1978",
+  "head": "Bei Immobilienfragen\nin guten *Händen.*",
+  "intro": "Schlüsselfertiger Wohnungs- und Hausbau und die Vermietung eigener Büroflächen in München. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°07′N · 11°30′E · München",
+  "ch": [
+   [
+    "Wohnbau",
+    "Ihr solider *Bauträger.*",
+    "Ein neues Projekt lässt sich zeigen, bevor es gebaut ist: als Film, durch den man beim Scrollen geht."
+   ],
+   [
+    "Qualität",
+    "Schlüsselfertig, *durchdacht.*",
+    "Grundrisse, Ausstattung und Baufortschritt verständlich erklärt, auch auf dem Handy."
+   ],
+   [
+    "Familie",
+    "Zwei Generationen, *ein Name.*",
+    "Die Geschichte der Familie Rümmele seit 1978 als Teil jedes Projekts."
+   ],
+   [
+    "Vermietung",
+    "Büroflächen aus *eigener Hand.*",
+    "Das zweite Standbein: Vermietung und Verwaltung von Büroflächen im Firmenbesitz."
+   ],
+   [
+    "RÜBA Immobiliengruppe",
+    "31 Projekte seit *1978*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Unternehmen",
+  "head": "Seit 1978 in *Familienhand.*",
+  "text": [
+   "Die RÜBA Immobiliengruppe ist im Hauptgeschäft Bauträger für schlüsselfertigen Wohnungs- und Hausbau. Das zweite Standbein ist die Vermietung und Verwaltung von Büroflächen im Firmenbesitz.",
+   "Gegründet wurde das Unternehmen 1978 von Wolfgang und Rita Rümmele. Ende der 1990er-Jahre stiegen die Söhne Edgar und Dr. Andreas Rümmele als Gesellschafter ein, heute führen sie die RÜBA Wohnbau GmbH."
+  ],
+  "facts": [
+   [
+    "1978",
+    "Gründung durch Wolfgang und Rita Rümmele"
+   ],
+   [
+    "31",
+    "erfolgreich entwickelte Projekte (Stand Juni 2024)"
+   ],
+   [
+    "2",
+    "weitere Projekte in der Bauphase"
+   ],
+   [
+    "2",
+    "Grundstücke in Planung und Genehmigung"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Geschäftsfelder",
+  "eyebrow": "Geschäftsfelder",
+  "head": "Wohnbau und *Vermietung*",
+  "lead": "Doppelhäuser, Mehrfamilienhäuser und Wohnanlagen im Raum München.",
+  "items": [
+   {
+    "status": "Wohnbau",
+    "name": "Schlüsselfertiger Wohnungsbau",
+    "place": "RÜBA Wohnbau GmbH",
+    "text": "Planung und Bau von Wohnungen und Häusern als Bauträger, schlüsselfertig übergeben."
+   },
+   {
+    "status": "Gewerbe",
+    "name": "Büroflächen zur Miete",
+    "place": "RÜBA Objekt GmbH",
+    "text": "Vermietung und Verwaltung von Büroflächen, die sich im Besitz der Firmengruppe befinden."
+   },
+   {
+    "status": "Im Bau",
+    "name": "Aktuelle Projekte",
+    "place": "2 Projekte in der Bauphase",
+    "text": "Der Stand der laufenden Bauvorhaben, mit Bildern und Terminen."
+   },
+   {
+    "status": "Planung",
+    "name": "Kommende Projekte",
+    "place": "2 Grundstücke in Planung",
+    "text": "Interessenten können sich früh vormerken lassen."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitsatz",
+  "quote": "Bei Immobilienfragen in guten *Händen.*",
+  "points": [
+   [
+    "Solide",
+    "Ein Bauträger mit über vier Jahrzehnten Erfahrung."
+   ],
+   [
+    "Familiengeführt",
+    "Gesellschafter und Geschäftsführung aus einer Familie."
+   ],
+   [
+    "Zwei Standbeine",
+    "Wohnungsbau und gewerbliche Vermietung getrennt geführt."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Vom Grundstück bis zum *Schlüssel.*",
+  "lead": "Alles aus einer Firmengruppe.",
+  "items": [
+   [
+    "Bauträger",
+    "Schlüsselfertiger Wohnungs- und Hausbau im Raum München."
+   ],
+   [
+    "Gewerbliche Vermietung",
+    "Büroflächen direkt vom Eigentümer."
+   ],
+   [
+    "Referenzen",
+    "Eine Übersicht aller Bauvorhaben seit Ende der 1970er-Jahre."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *uns.*",
+  "address": [
+   "Zirler Str. 32",
+   "81377 München"
+  ],
+  "phone": "+49 89 72 44 907-0",
+  "email": "info@rueba.com",
+  "topics": [
+   "Wohnbau: aktuelle Projekte",
+   "Büroflächen zur Miete",
+   "Grundstück anbieten",
+   "Allgemeine Anfrage"
+  ]
+ }
+}
