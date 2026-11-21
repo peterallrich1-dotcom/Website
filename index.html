@@ -209,6 +209,8 @@ img,canvas{display:block;max-width:100%}
 .form textarea{min-height:120px;resize:vertical}
 .form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--blue)}
 .form .err{color:#ff9b7a;font-size:14px;min-height:20px}
+.form .ok{color:#7fe0a8;font-size:15px;font-weight:600;line-height:1.5}
+.form .hint a{color:inherit;text-decoration:underline}
 .form .hint{font-size:12.5px;color:var(--mute)}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 
@@ -422,12 +424,15 @@ img,canvas{display:block;max-width:100%}
     </div>
     <form class="form rv" id="form" novalidate>
       <div><label for="fName">Name</label><input id="fName" autocomplete="name" placeholder="Vor- und Nachname"></div>
+      <div><label for="fMail">E-Mail</label><input id="fMail" type="email" autocomplete="email" placeholder="name@firma.de"></div>
+      <div><label for="fTel">Telefon (optional)</label><input id="fTel" type="tel" autocomplete="tel" placeholder="Für einen kurzen Rückruf"></div>
       <div><label for="fFirm">Unternehmen und Website</label><input id="fFirm" autocomplete="organization" placeholder="z. B. Muster GmbH, muster.de"></div>
       <div><label for="fType">Branche</label><select id="fType"><option>Immobilien</option><option>Hausverwaltung</option><option>Architektur</option><option>Handwerk</option><option>Gastronomie</option><option>Hotel oder Ferienwohnung</option><option>Praxis oder Kanzlei</option><option>Andere Branche</option></select></div>
       <div><label for="fMsg">Ihr Anliegen</label><textarea id="fMsg" placeholder="Was soll Ihre neue Website zeigen?"></textarea></div>
       <p class="err" id="fErr" role="alert"></p>
-      <div><button class="btn blue" type="submit">Anfrage per E-Mail senden <span class="arr">→</span></button></div>
-      <p class="hint">Beim Absenden öffnet sich Ihr E-Mail-Programm mit Ihrer Anfrage. Es werden keine Daten auf dieser Website gespeichert.</p>
+      <div><button class="btn blue" type="submit" id="fBtn">Anfrage senden <span class="arr">→</span></button></div>
+      <p class="ok" id="fOk" role="status" hidden>Vielen Dank! Ihre Anfrage ist angekommen. Sie erhalten sofort eine Bestätigung per E-Mail, und ich melde mich persönlich innerhalb eines Werktags.</p>
+      <p class="hint">Ihre Angaben werden nur verwendet, um Ihre Anfrage zu beantworten. Mehr dazu in der <a href="allrich/datenschutz.html">Datenschutzerklärung</a>.</p>
     </form>
   </div>
 </section>
@@ -519,14 +524,28 @@ function tick() {
 addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
 size(); onScroll(); requestAnimationFrame(tick);
 
-/* contact: opens the visitor's mail program */
-$("#form").addEventListener("submit", e => {
-  e.preventDefault(); const n = $("#fName").value.trim(), m = $("#fMsg").value.trim(), err = $("#fErr");
+/* contact: sends the request; the visitor gets an instant confirmation e-mail, Peter the request */
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault(); const v = id => $(id).value.trim(), err = $("#fErr"), btn = $("#fBtn");
+  const n = v("#fName"), mail = v("#fMail"), m = v("#fMsg");
   if (!n) { err.textContent = "Bitte geben Sie Ihren Namen ein."; return; }
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)) { err.textContent = "Bitte geben Sie eine gültige E-Mail-Adresse ein, damit ich antworten kann."; return; }
   if (!m) { err.textContent = "Bitte beschreiben Sie kurz Ihr Anliegen."; return; }
-  err.textContent = "";
-  const body = `Name: ${n}\nUnternehmen und Website: ${$("#fFirm").value.trim()}\nBranche: ${$("#fType").value}\n\n${m}`;
-  location.href = "mailto:peter.allrich1@gmail.com?subject=" + encodeURIComponent("Website-Anfrage: " + ($("#fFirm").value.trim() || n)) + "&body=" + encodeURIComponent(body);
+  err.textContent = ""; btn.disabled = true;
+  const data = { name: n, email: mail, telefon: v("#fTel"), unternehmen: v("#fFirm"), branche: $("#fType").value, anliegen: m,
+    _subject: "Neue Website-Anfrage: " + (v("#fFirm") || n), _template: "table", _captcha: "false",
+    _autoresponse: "Guten Tag " + n + ",\n\nvielen Dank für Ihre Anfrage bei Allrich Webdesign! Sie ist gut angekommen.\n\nIch schaue mir Ihr Anliegen und Ihre bisherige Website an und melde mich persönlich innerhalb eines Werktags bei Ihnen, gern auch mit einem ersten kostenlosen Entwurf.\n\nFalls es eilt, erreichen Sie mich unter 0171 2269877 oder per WhatsApp.\n\nViele Grüße\nPeter Allrich\nAllrich Webdesign · allrich-webdesign.com" };
+  try {
+    const r = await fetch("https://formsubmit.co/ajax/peter.allrich1@gmail.com", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || String(j.success) !== "true") throw new Error(j.message || "Fehler");
+    $("#form").reset(); $("#fOk").hidden = false; btn.hidden = true;
+  } catch (x) {
+    btn.disabled = false;
+    const body = `Name: ${n}\nE-Mail: ${mail}\nTelefon: ${v("#fTel")}\nUnternehmen und Website: ${v("#fFirm")}\nBranche: ${$("#fType").value}\n\n${m}`;
+    err.textContent = "Das Senden hat gerade nicht geklappt. Ihr E-Mail-Programm öffnet sich stattdessen mit Ihrer Anfrage.";
+    location.href = "mailto:peter.allrich1@gmail.com?subject=" + encodeURIComponent("Website-Anfrage: " + (v("#fFirm") || n)) + "&body=" + encodeURIComponent(body);
+  }
 });
 })();
 </script>
