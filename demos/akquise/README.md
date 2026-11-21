@@ -247,3 +247,11 @@ Branchenbücher 20.11.2026 (per Cloud-Browser eingetragen): 11880.com (kostenlos
 Google-Unternehmensprofil seit 20.11. per Windsor.ai-Connector verbunden (location 7593553887613681789): Beschreibung, Website, Öffnungszeiten Mo–Sa 8–19, Logo, Titelbild, 3 Bilder, erster Beitrag gesetzt. Bilder liegen unter allrich/brand/bilder/.
 
 Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur Lesen). tools/cf_stats.py sammelt Tageswerte dauerhaft in stats/besucher.json; Dashboard https://claude.ai/artifact/PnWXZK8mygtfTQrnC9hXHX (Datensatz besucher, Datei-Upload).
+
+## Kontaktformular (21.11.2026)
+
+- Worker `allrich-ki` neu hochgeladen (Route `POST /kontakt`, Binding `MAIL` → peter.allrich1@gmail.com, Absender kontakt@allrich-webdesign.com).
+- Test KI-Chat (`POST /`): antwortet normal.
+- Test Kontaktformular (`POST /kontakt`): `{"ok":true}`, HTTP 200.
+- Zieladresse peter.allrich1@gmail.com ist in Email Routing verifiziert.
+- Email-Routing-Status der Zone ist mit dem API-Token nicht lesbar und nicht schaltbar (Authentication error). Weil der Versand trotzdem `ok` liefert, ist Routing sehr wahrscheinlich schon aktiv. Falls keine Test-Mail ankommt: dash.cloudflare.com → allrich-webdesign.com → Email → Email Routing → „Enable“.
