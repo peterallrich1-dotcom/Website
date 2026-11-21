@@ -550,6 +550,48 @@ $("#form").addEventListener("submit", async e => {
 })();
 </script>
 <!-- KI-Assistent (ElevenLabs) -->
+<!-- Schnell-Antworten (ohne KI, ohne Drittanbieter) -->
+<style>
+.qa-btn{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;border:1px solid var(--line);background:var(--black-2);color:var(--white);font:600 15px var(--f-b);cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.qa-btn i{width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px 2px rgba(61,123,255,.8)}
+.qa-box{position:fixed;right:20px;bottom:84px;z-index:91;width:min(380px,calc(100vw - 32px));max-height:min(560px,calc(100vh - 120px));display:none;flex-direction:column;background:var(--black-2);color:var(--white);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.6);font:15px/1.5 var(--f-b);overflow:hidden}
+.qa-box.on{display:flex}
+.qa-hd{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);font-weight:600}
+.qa-hd button{background:none;border:0;color:var(--mute);font-size:22px;cursor:pointer;line-height:1}
+.qa-log{flex:1;overflow:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.qa-m{padding:10px 13px;border-radius:14px;max-width:88%;background:var(--black-3)}
+.qa-m.u{align-self:flex-end;background:var(--blue);color:#fff}
+.qa-m a{color:#9cc0ff}
+.qa-ch{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 14px}
+.qa-ch button{border:1px solid rgba(61,123,255,.5);background:var(--blue-soft);color:var(--white);border-radius:999px;padding:7px 12px;font:600 13px var(--f-b);cursor:pointer}
+@media(max-width:600px){.qa-l{display:none}.qa-btn{right:16px;bottom:16px;padding:10px 14px 10px 12px}.qa-box{right:16px;bottom:76px}}
+</style>
+<button class="qa-btn" id="qaBtn" type="button" aria-expanded="false" aria-controls="qaBox"><i></i>Fragen?<span class="qa-l"> Sofort-Antwort</span></button>
+<div class="qa-box" id="qaBox" role="dialog" aria-label="Schnell-Antworten">
+  <div class="qa-hd">Allrich Webdesign<button type="button" id="qaX" aria-label="Schließen">×</button></div>
+  <div class="qa-log" id="qaLog" aria-live="polite"></div>
+  <div class="qa-ch" id="qaCh"></div>
+</div>
+<script>
+(function(){
+  var A={
+    preis:['Was kostet eine Website?','Es gibt zwei feste Pakete: <b>Start 990 €</b> und <b>Premium 1.490 €</b>, jeweils einmalig. Hosting und Pflege kosten optional 34 € im Monat, bei Premium sind die ersten 3 Monate gratis. Das genaue Angebot bekommen Sie vorab schriftlich.'],
+    entwurf:['Ist der Entwurf wirklich kostenlos?','Ja. Sie bekommen einen persönlichen Entwurf zum Anklicken, kostenlos und unverbindlich. Danach entscheiden Sie in Ruhe.'],
+    ablauf:['Wie läuft das ab?','In vier Schritten: 1. Sie schicken mir ein paar Sätze oder Ihre bisherige Website. 2. Sie erhalten den Gratis-Entwurf. 3. Sie liefern Fotos, Videos und Texte, was fehlt, ergänzen wir gemeinsam. 4. Nach Ihrer Freigabe geht die Seite unter Ihrer Domain online.'],
+    film:['Brauche ich einen Profi-Film?','Nein. Oft reicht ein ruhig gefilmtes Handyvideo oder gute Fotos. Wenn noch nichts da ist, erkläre ich Ihnen, wie Sie es einfach selbst aufnehmen.'],
+    google:['Werde ich bei Google gefunden?','Jede Website ist dafür gebaut: schnelle Ladezeit, saubere Technik, passende Titel und Texte. Bei Premium richte ich auch Ihr Google-Profil mit Google Maps ein. Einen festen Platz kann niemand seriös versprechen.'],
+    domain:['Kann ich meine Domain behalten?','Ja. Die neue Website wird mit Ihrer vorhandenen Domain verbunden, Ihre E-Mail-Adressen bleiben gleich.'],
+    kontakt:['Entwurf anfragen','Gern! Schreiben Sie mir kurz über das <a href="#kontakt" data-qa-go>Formular</a> oder rufen Sie an: <a href="tel:+491712269877">0171 2269877</a>. Ich melde mich schnell bei Ihnen. Peter Allrich'] 
+  };
+  var btn=document.getElementById('qaBtn'),box=document.getElementById('qaBox'),log=document.getElementById('qaLog'),ch=document.getElementById('qaCh'),started=false;
+  function msg(h,u){var d=document.createElement('div');d.className='qa-m'+(u?' u':'');d.innerHTML=h;log.appendChild(d);log.scrollTop=log.scrollHeight;}
+  function chips(){ch.innerHTML='';Object.keys(A).forEach(function(k){var b=document.createElement('button');b.type='button';b.textContent=A[k][0];b.onclick=function(){msg(A[k][0],true);setTimeout(function(){msg(A[k][1]);},250);};ch.appendChild(b);});}
+  function toggle(on){box.classList.toggle('on',on);btn.setAttribute('aria-expanded',on);if(on&&!started){started=true;msg('Hallo! Hier finden Sie sofort Antworten auf die häufigsten Fragen. Tippen Sie einfach auf ein Thema.');chips();}}
+  btn.onclick=function(){toggle(!box.classList.contains('on'));};
+  document.getElementById('qaX').onclick=function(){toggle(false);};
+  log.addEventListener('click',function(e){if(e.target.hasAttribute('data-qa-go'))toggle(false);});
+})();
+</script>
 <!-- pausiert bis ElevenLabs-Konto freigeschaltet ist:
 <elevenlabs-convai agent-id="agent_1601m7ykyc3kfxer4c39drv8nnwf"></elevenlabs-convai>
 <scr_ipt src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></scr_ipt>
