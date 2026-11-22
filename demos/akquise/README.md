@@ -255,3 +255,9 @@ Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur L
 - Test Kontaktformular (`POST /kontakt`): `{"ok":true}`, HTTP 200.
 - Zieladresse peter.allrich1@gmail.com ist in Email Routing verifiziert.
 - Email-Routing-Status der Zone ist mit dem API-Token nicht lesbar und nicht schaltbar (Authentication error). Weil der Versand trotzdem `ok` liefert, ist Routing sehr wahrscheinlich schon aktiv. Falls keine Test-Mail ankommt: dash.cloudflare.com → allrich-webdesign.com → Email → Email Routing → „Enable“.
+
+## Google-Sichtbarkeit (22.11.2026)
+
+- Neues Favicon (A mit blauem Punkt), `favicon.ico` im Root (vorher 404). Wirkt erst nach Merge in den Hauptbranch, Google übernimmt es nach Tagen bis Wochen.
+- Google-Profil: Einsatzgebiet auf Potsdam, Berlin, Brandenburg verkleinert (vorher ganz DE/AT). Extras (KI-Assistent 95 €, Sprachen 149 €, Monatsbeitrag 39 €) als Leistungen ergänzt. Beitrag zum KI-Assistenten veröffentlicht.
+- Bewertungslink zum Verschicken: https://search.google.com/local/writereview?placeid=ChIJRTu8ANUxfEkRzUE_MpZV_as
