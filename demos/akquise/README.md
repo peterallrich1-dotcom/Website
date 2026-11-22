@@ -262,5 +262,5 @@ Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur L
 - Google-Profil: Einsatzgebiet auf Potsdam, Berlin, Brandenburg verkleinert (vorher ganz DE/AT). Extras (KI-Assistent 95 €, Sprachen 149 €, Monatsbeitrag 39 €) als Leistungen ergänzt. Beitrag zum KI-Assistenten veröffentlicht.
 - Bewertungslink zum Verschicken: https://search.google.com/local/writereview?placeid=ChIJRTu8ANUxfEkRzUE_MpZV_as
 
-## Anrufliste N (22.11.2026)
-50 neue Betriebe rund um Berlin/Potsdam (20 Orte, 13 Branchen) in der Anrufliste als Filter „Neu: Brandenburg“. Weitere geprüfte Treffer (insgesamt 391 mit schwacher Website) in `leads-brandenburg-22-11.csv`, Spalte `in_liste_N` leer = noch nicht in der Liste. Skript in der Liste auf Peters lockeren Einstieg umgestellt, Hosting-Preis 39 €/Monat bzw. 390 €/Jahr.
+## Anrufliste: keine Betriebe aus Potsdam, Berlin und Umgebung (Peter, 22.11.2026)
+In die Anrufliste kommen NUR Betriebe aus dem übrigen Deutschland, nie aus Potsdam, Berlin oder dem Umland (Brandenburg). Die alte Potsdam-Liste (P) ist in der Anrufliste ausgeblendet. `leads-brandenburg-22-11.csv` ist Brandenburg-Umland und wird NICHT für Anrufe genutzt.
