@@ -261,3 +261,6 @@ Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur L
 - Neues Favicon (A mit blauem Punkt), `favicon.ico` im Root (vorher 404). Wirkt erst nach Merge in den Hauptbranch, Google übernimmt es nach Tagen bis Wochen.
 - Google-Profil: Einsatzgebiet auf Potsdam, Berlin, Brandenburg verkleinert (vorher ganz DE/AT). Extras (KI-Assistent 95 €, Sprachen 149 €, Monatsbeitrag 39 €) als Leistungen ergänzt. Beitrag zum KI-Assistenten veröffentlicht.
 - Bewertungslink zum Verschicken: https://search.google.com/local/writereview?placeid=ChIJRTu8ANUxfEkRzUE_MpZV_as
+
+## Anrufliste N (22.11.2026)
+50 neue Betriebe rund um Berlin/Potsdam (20 Orte, 13 Branchen) in der Anrufliste als Filter „Neu: Brandenburg“. Weitere geprüfte Treffer (insgesamt 391 mit schwacher Website) in `leads-brandenburg-22-11.csv`, Spalte `in_liste_N` leer = noch nicht in der Liste. Skript in der Liste auf Peters lockeren Einstieg umgestellt, Hosting-Preis 39 €/Monat bzw. 390 €/Jahr.
