@@ -264,3 +264,5 @@ Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur L
 
 ## Anrufliste: keine Betriebe aus Potsdam, Berlin und Umgebung (Peter, 22.11.2026)
 In die Anrufliste kommen NUR Betriebe aus dem übrigen Deutschland, nie aus Potsdam, Berlin oder dem Umland (Brandenburg). Die alte Potsdam-Liste (P) ist in der Anrufliste ausgeblendet. `leads-brandenburg-22-11.csv` ist Brandenburg-Umland und wird NICHT für Anrufe genutzt.
+
+Liste N in der Anrufliste (22.11.2026): 50 Betriebe aus 19 Städten außerhalb von Berlin/Brandenburg (Erfurt, Jena, Kiel, Bielefeld, Würzburg, Heilbronn, Fulda, Halle, Rostock, Lübeck, Münster, Regensburg, Ulm, Saarbrücken, Paderborn u. a.). Weitere 485 Treffer in `leads-deutschland-22-11.csv` (Spalte `in_liste_N` leer = noch frei).
