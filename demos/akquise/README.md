@@ -266,3 +266,6 @@ Besucherstatistik: Cloudflare Web Analytics (Token auf api.cloudflare.com, nur L
 In die Anrufliste kommen NUR Betriebe aus dem übrigen Deutschland, nie aus Potsdam, Berlin oder dem Umland (Brandenburg). Die alte Potsdam-Liste (P) ist in der Anrufliste ausgeblendet. `leads-brandenburg-22-11.csv` ist Brandenburg-Umland und wird NICHT für Anrufe genutzt.
 
 Liste N in der Anrufliste (22.11.2026): 50 Betriebe aus 19 Städten außerhalb von Berlin/Brandenburg (Erfurt, Jena, Kiel, Bielefeld, Würzburg, Heilbronn, Fulda, Halle, Rostock, Lübeck, Münster, Regensburg, Ulm, Saarbrücken, Paderborn u. a.). Weitere 485 Treffer in `leads-deutschland-22-11.csv` (Spalte `in_liste_N` leer = noch frei).
+
+## Später: US-Service per Cold Mail (geparkt 22.11.2026)
+Peter: erst starten, wenn der deutsche Markt läuft. Plan: Zielgruppe US-Immobilienmakler (Velaro als Beispiel), Preise $1,490 / $2,490, eigene Versand-Domain + 2 Postfächer (ca. 3–15 €/Monat), 2–3 Wochen Aufwärmen, dann ca. 40 Mails/Tag, CAN-SPAM (Name, Postadresse, Abmeldung), nur öffentliche Firmenadressen. Englische Seite steht schon: allrich-webdesign.com/en/.
