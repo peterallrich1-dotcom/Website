@@ -7,6 +7,9 @@
 <title>ALLRICH WEBDESIGN · Potsdam</title>
 <meta name="description" content="Websites mit Scroll-Film: eigenes Design, top auf dem Handy, bei Google gut zu finden. Dazu KI-Assistent und Hosting. Kostenloser Entwurf, ab 990 €.">
 <link rel="canonical" href="https://allrich-webdesign.com/">
+<link rel="alternate" hreflang="de" href="https://allrich-webdesign.com/">
+<link rel="alternate" hreflang="en" href="https://allrich-webdesign.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://allrich-webdesign.com/">
 <link rel="icon" href="https://allrich-webdesign.com/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="https://allrich-webdesign.com/allrich/favicon-192.png">
 <link rel="apple-touch-icon" href="https://allrich-webdesign.com/allrich/apple-touch-icon.png">
@@ -176,6 +179,14 @@ img,canvas{display:block;max-width:100%}
 .pbox .amt{font-family:var(--f-h);font-size:clamp(54px,5.2vw,88px);line-height:.9;margin-top:16px;white-space:nowrap}
 .pbox .amt small{font-size:.32em;color:var(--mute);font-family:var(--f-b);font-weight:500;margin-left:8px}
 .pbox .sub{color:var(--mute);font-size:14.5px;margin-top:10px}
+.lang{font:600 13px var(--f-b);letter-spacing:.08em;padding:7px 11px;border-radius:999px;border:1px solid var(--line);color:var(--white);margin-left:auto;margin-right:10px}
+.lang:hover{border-color:var(--blue)}
+.ftr .lang{margin:0;padding:4px 10px}
+.langhint{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:95;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 32px);padding:10px 12px 10px 18px;border-radius:999px;background:var(--black-2);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.45);font-size:14px;color:var(--white)}
+.langhint[hidden]{display:none}
+.langhint a{color:var(--blue);font-weight:600}
+.langhint button{background:none;border:0;color:var(--mute);font-size:20px;cursor:pointer;line-height:1;padding:2px 6px}
+@media(max-width:600px){.langhint{bottom:76px;border-radius:16px;width:calc(100vw - 32px);flex-wrap:nowrap;justify-content:flex-start;font-size:13px}.langhint span{flex:1}}
 .pbox .yr{margin-top:14px;font-size:14.5px;color:var(--mute);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .pbox .yr b{color:var(--white,#fff)}
 .pbox .yr span{font-size:12px;font-weight:600;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:rgba(61,123,255,.18);color:var(--blue)}
@@ -247,6 +258,7 @@ img,canvas{display:block;max-width:100%}
     <nav class="nav" aria-label="Hauptnavigation">
       <a href="#arbeiten">Arbeiten</a><a href="#ueber">Über mich</a><a href="#ablauf">Ablauf</a><a href="#preis">Preis</a><a href="#fragen" data-qa>Fragen</a>
     </nav>
+    <a class="lang" href="/en/" hreflang="en" lang="en">EN</a>
     <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
   </div>
@@ -257,6 +269,7 @@ img,canvas{display:block;max-width:100%}
   <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen</a>
 </div>
 
+<div class="langhint" id="langhint" hidden><span lang="en">This page is also available in English.</span> <a href="/en/" hreflang="en" lang="en">Switch to English →</a><button type="button" id="langX" aria-label="Close">×</button></div>
 <main id="top">
 <section class="hero" id="hero" aria-label="Einleitung">
   <div class="pin" id="pin">
@@ -461,7 +474,7 @@ img,canvas{display:block;max-width:100%}
 <footer class="ftr">
   <div class="wrap">
     <div><a class="logo" href="#top"><i></i>Allrich<small>Webdesign</small></a><small style="display:block;margin-top:14px">© <span id="yr">2026</span> Allrich Webdesign · Potsdam</small></div>
-    <nav aria-label="Rechtliches"><a href="allrich/impressum.html">Impressum</a><a href="allrich/datenschutz.html">Datenschutz</a></nav>
+    <nav aria-label="Rechtliches"><a href="allrich/impressum.html">Impressum</a><a href="allrich/datenschutz.html">Datenschutz</a><a class="lang" href="/en/" hreflang="en" lang="en">EN</a></nav>
   </div>
 </footer>
 
@@ -476,6 +489,9 @@ $("#yr").textContent = new Date().getFullYear();
 const hdr = $("#hdr"); const onS = () => hdr.classList.toggle("solid", scrollY > innerHeight * 2.6); addEventListener("scroll", onS, { passive: true }); onS();
 const dr = $("#drawer"), bg = $("#burger"), set = o => { dr.classList.toggle("open", o); dr.setAttribute("aria-hidden", !o); bg.setAttribute("aria-expanded", o); document.body.style.overflow = o ? "hidden" : ""; };
 document.querySelectorAll("[data-qa]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); const q = document.getElementById("qaBtn"); if (q && q.getAttribute("aria-expanded") !== "true") q.click(); }));
+{ const lh = $("#langhint"); let off = false; try { off = localStorage.getItem("allrich-lang-hint") === "1"; } catch (e) {}
+  if (lh && !lh.hasAttribute("data-off") && !off && !/^de\b/i.test(navigator.language || "de")) lh.hidden = false;
+  $("#langX") && ($("#langX").onclick = () => { lh.hidden = true; try { localStorage.setItem("allrich-lang-hint", "1"); } catch (e) {} }); }
 bg.onclick = () => set(true); $("#drawerX").onclick = () => set(false); $$("#drawer a").forEach(a => a.onclick = () => set(false));
 
 /* reveal */

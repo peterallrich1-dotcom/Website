@@ -5,7 +5,7 @@ Für jeden passenden Treffer liegt hier eine fertige Antwort. Peter schickt sie 
 (Button „Nachricht schreiben“ in der Anzeige). Nichts wird automatisch gesendet.
 
 Regeln für Antworten: kurz, Sie-Form, ehrlich (keine erfundenen Kunden; Velaro ist eine Muster-Website),
-Preise wie auf der Website (Start 990 €, Premium 1.490 €, Hosting/Pflege optional 34 €/Monat), keine Lieferzeiten versprechen.
+Preise wie auf der Website (Start 990 €, Premium 1.490 €, Hosting/Pflege optional 39 €/Monat oder 390 €/Jahr), keine Lieferzeiten versprechen.
 
 Suchseiten (Angebotstyp „Gesuche“):
 - https://www.kleinanzeigen.de/s-anzeige:gesuche/website/k0c297
@@ -25,7 +25,7 @@ Sucht eine komplette Firmenwebsite (Impressum, Datenschutz, Kontaktformular, Han
 >
 > ich habe Ihre Anzeige gesehen und baue genau solche Firmenwebsites, komplett fertig eingerichtet: eigenes Design, für Handy, Tablet und Computer, mit Kontaktformular, Impressum, Datenschutzseite und für Google vorbereitet.
 >
-> Mein Festpreis dafür ist 990 € einmalig. Hosting und Pflege kann ich optional für 34 € im Monat übernehmen, monatlich kündbar.
+> Mein Festpreis dafür ist 990 € einmalig. Hosting und Pflege kann ich optional für 39 € im Monat (oder 390 € im Jahr) übernehmen, monatlich kündbar.
 >
 > Zuerst bekommen Sie einen kostenlosen und unverbindlichen Entwurf zum Anklicken. Erst wenn er Ihnen gefällt, geht es weiter.
 >
