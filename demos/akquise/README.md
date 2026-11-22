@@ -269,3 +269,4 @@ Liste N in der Anrufliste (22.11.2026): 50 Betriebe aus 19 Städten außerhalb v
 
 ## Später: US-Service per Cold Mail (geparkt 22.11.2026)
 Peter: erst starten, wenn der deutsche Markt läuft. Plan: Zielgruppe US-Immobilienmakler (Velaro als Beispiel), Preise $1,490 / $2,490, eigene Versand-Domain + 2 Postfächer (ca. 3–15 €/Monat), 2–3 Wochen Aufwärmen, dann ca. 40 Mails/Tag, CAN-SPAM (Name, Postadresse, Abmeldung), nur öffentliche Firmenadressen. Englische Seite steht schon: allrich-webdesign.com/en/.
+Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präfix), alle per Cloudflare auf allrich-webdesign.com weitergeleitet, von der Hauptdomain nie kalt schreiben; 2–3 Postfächer pro Domain, je 20–30 Mails/Tag; 2–3 Wochen Aufwärmen. Kleiner Start ca. 40–55 €/Monat inkl. Versand-/Aufwärm-Tool. Nur USA, nicht DE/AT.
