@@ -58,3 +58,39 @@ Polstermöbelhandel mit kleiner Polsterei, will Bilder und Aktionen später selb
 > Allrich Webdesign, Tel./WhatsApp 0171 2269877
 
 Nicht passend: „Brauche Hilfe bei unserer Website in Oldenburg“ (20.11.2026), weil ein Termin vor Ort in Oldenburg nötig ist.
+
+## Gefunden am 22.11.2026
+
+### 3. „Kreativer Wix-Webdesigner gesucht oder für Homepages“ – Köln (22.11.2026)
+https://www.kleinanzeigen.de/s-anzeige/kreativer-wix-webdesigner-gesucht-oder-fuer-homepages/3579385240-226-988
+Buchautor (christliche Apologetik, Theologie, Geschichte), Wix-Seite angefangen, will hochwertiges, individuelles Design.
+
+> Guten Tag,
+>
+> Ihre Anzeige hat mich direkt angesprochen. Ich baue Websites für Menschen, die mit ihrer Arbeit auffallen wollen, und eine Autorenseite mit Ihren Büchern und Ihrer Gedankenwelt würde ich sehr gern gestalten.
+>
+> Ich arbeite nicht mit Wix, sondern programmiere jede Seite selbst. Der Vorteil: Das Design ist wirklich individuell, die Seite lädt schnell und sieht auf dem Handy genauso gut aus. Ihre vorhandenen Texte und Ihr Foto übernehme ich gern.
+>
+> Mein Vorschlag: Ich erstelle Ihnen zuerst einen kostenlosen Entwurf. Gefällt er Ihnen nicht, kostet es Sie nichts. Gefällt er Ihnen, sprechen wir über den Rest. Eine Website von mir kostet ab 990 € einmalig.
+>
+> So sieht meine eigene Seite aus: allrich-webdesign.com
+>
+> Viele Grüße
+> Peter Allrich
+
+### 4. „Ich suche jemanden, der eine Website erstellen kann“ – Nordhorn (02.10.2026, schon älter)
+https://www.kleinanzeigen.de/s-anzeige/ich-suche-jemanden-der-eine-website-erstellen-kann-/3529108967-228-3017
+Lodewijk Bartels, Website und eventuell Online-Shop, will Beispiele.
+
+> Guten Tag Herr Bartels,
+>
+> falls Sie noch jemanden suchen: Ich baue Websites für Betriebe, selbst programmiert, schnell und für Handy, Tablet und Computer gemacht.
+>
+> Beispiele: meine eigene Seite allrich-webdesign.com und die Musterseite allrich-webdesign.com/velaro (ein Konzept, bei dem man beim Scrollen durch eine Villa fliegt).
+>
+> Gern erstelle ich Ihnen zuerst einen kostenlosen Entwurf. Erzählen Sie mir kurz, was Sie verkaufen möchten, dann sage ich Ihnen auch, ob ein Online-Shop sinnvoll ist. Eine Website gibt es ab 990 € einmalig.
+>
+> Viele Grüße
+> Peter Allrich
+
+Nicht passend (22.11.): Oldenburg „Hilfe bei Strato-Website“ (nur vor Ort in Oldenburg), Ludwigsburg „Website gegen Revenue Share“ (keine Bezahlung), sonst nur Jobsuchende und andere Webdesigner.
