@@ -61,7 +61,7 @@ Nicht passend: „Brauche Hilfe bei unserer Website in Oldenburg“ (20.11.2026)
 
 ## Gefunden am 22.11.2026
 
-### 3. „Kreativer Wix-Webdesigner gesucht oder für Homepages“ – Köln (22.11.2026)
+### 3. „Kreativer Wix-Webdesigner gesucht oder für Homepages“ – Köln (22.11.2026) – GESENDET 22.11.
 https://www.kleinanzeigen.de/s-anzeige/kreativer-wix-webdesigner-gesucht-oder-fuer-homepages/3579385240-226-988
 Buchautor (christliche Apologetik, Theologie, Geschichte), Wix-Seite angefangen, will hochwertiges, individuelles Design.
 
@@ -78,7 +78,7 @@ Buchautor (christliche Apologetik, Theologie, Geschichte), Wix-Seite angefangen,
 > Viele Grüße
 > Peter Allrich
 
-### 4. „Ich suche jemanden, der eine Website erstellen kann“ – Nordhorn (02.10.2026, schon älter)
+### 4. „Ich suche jemanden, der eine Website erstellen kann“ – Nordhorn (02.10.2026, schon älter) – GESENDET 22.11.
 https://www.kleinanzeigen.de/s-anzeige/ich-suche-jemanden-der-eine-website-erstellen-kann-/3529108967-228-3017
 Lodewijk Bartels, Website und eventuell Online-Shop, will Beispiele.
 
