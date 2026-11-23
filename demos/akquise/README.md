@@ -273,3 +273,5 @@ Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präf
 
 **Anrufliste (Peter, 23.11.2026):** Betriebe in der Anrufliste (Artefakt „Anrufliste Allrich“) NIE entfernen. Bei neuen Listen die alten Einträge immer drin lassen, damit Peter sieht, was mit welchem Unternehmen war (Status, Notizen, Entwurf geschickt). Vorerst keine neuen Betriebe nötig.
 **Nachfassen:** Entwürfe am 23.11. verschickt an K-S Elektro (/ks-elektro/), Klaus Schmitt GmbH (/schmitt-gerbrunn/), TAFA Gartenbau (/tafa-gartenbau/), Tischlerei J.A. Neumann (/tischlerei-neumann/, starkes Interesse), YK Architektur Kaya (/yk/, neu gebaut). Peter nach 2–3 Tagen ans Nachfassen erinnern.
+
+**Kaya (23.11.):** hat aus persönlichen Gründen vorerst abgesagt. Freundliche Antwort gesendet. NICHT nachhaken, er meldet sich selbst. Entwurf /yk/ bleibt online.
