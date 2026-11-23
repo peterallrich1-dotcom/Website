@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>TAFA Garten- &amp; Landschaftsbau · Heilbronn</title>
+<meta name="description" content="TAFA Garten- und Landschaftsbau aus Heilbronn: Gartengestaltung, Natursteinbau, Wege, Terrassen, Brunnen und Teiche.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="preload" as="image" href="img/f1.webp">
+<style>
+@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
+  --or:#9bd264;--or2:#b7e38a;--or-soft:rgba(155,210,100,.13);--sand:#e6c88f;--line:rgba(245,244,241,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+/* Kopfzeile */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
+.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
+.logo svg{width:16px;height:24px;margin:0 2px}
+.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
+.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.or{background:var(--or);color:#0d1a06}
+.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:var(--line);color:var(--white)}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cap.on{opacity:1;transform:none}
+.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.cap.end{pointer-events:auto}
+.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
+.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
+.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
+/* Abschnitte */
+section{padding:clamp(72px,11vw,140px) 0}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
+.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(155,210,100,.5);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--or)}
+.card h3{margin:0;font-size:20px;font-weight:600}
+.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
+/* Eine Hand */
+.one{background:linear-gradient(180deg,var(--bg),#0a0e08 50%,var(--bg))}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
+.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
+.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
+.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.stars svg{width:26px;height:26px;fill:var(--or)}
+.big p{margin:6px 0 0;color:var(--mute)}
+/* Stimmen */
+.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .stars{justify-content:flex-start;margin:0}
+.q .stars svg{width:18px;height:18px}
+.q blockquote{margin:0;font-size:18px;line-height:1.55}
+.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
+.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
+.src a{color:var(--mute)}
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
+.step{border-top:2px solid var(--or);padding-top:18px}
+.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.step span{color:var(--mute);font-size:15px}
+/* Kontakt */
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(155,210,100,.12),transparent 70%),var(--bg)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+@media(max-width:860px){.cbox{grid-template-columns:1fr}}
+.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
+a.tile:hover{border-color:var(--or)}
+.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
+.tile .ic svg{width:24px;height:24px;stroke:#0d1a06}
+.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
+.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:860px){.area{grid-template-columns:1fr}}
+.area .map{min-height:280px;position:relative;background:#0e0e10}
+.area .map svg{position:absolute;inset:0;width:100%;height:100%}
+.area .txt{padding:28px 26px}
+.area h3{margin:0;font-size:22px}
+.area p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--mute);text-decoration:none}
+.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
+.draft b{color:var(--white);font-weight:600}
+.draft a{color:var(--or);text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
+</style>
+<style>
+.logo .lf{width:22px;height:22px;margin-right:8px}
+.logo small{letter-spacing:.2em}
+#film{background:#050605}
+.tag{position:absolute;top:calc(84px + env(safe-area-inset-top));right:var(--gut);font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:8px 14px;border-radius:999px;background:rgba(10,10,11,.6);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity .4s}
+.tag b{color:var(--or);font-weight:600}
+.bar{position:absolute;left:var(--gut);right:var(--gut);bottom:14px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--or)}
+.gal{columns:3 260px;column-gap:14px;margin-top:44px}
+.gal figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);position:relative}
+.gal img{width:100%;height:auto;display:block;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(10,10,11,.7);backdrop-filter:blur(6px)}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
+.ba figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:4/3}
+.ba img{width:100%;height:100%;object-fit:cover}
+.ba figcaption{position:absolute;left:14px;top:14px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:rgba(10,10,11,.7)}
+.ba figure:last-child figcaption{background:var(--or);color:#0d1a06}
+@media(max-width:700px){.ba{grid-template-columns:1fr}}
+.cap{text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,6,5,.55) 0%,rgba(5,6,5,0) 22%,rgba(5,6,5,0) 45%,rgba(5,6,5,.85) 100%)}
+@media(orientation:landscape){.shade{background:linear-gradient(90deg,rgba(5,6,5,.85) 0%,rgba(5,6,5,.35) 45%,rgba(5,6,5,0) 70%),linear-gradient(180deg,rgba(5,6,5,.5),rgba(5,6,5,0) 20%)}}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="logo" href="#top" aria-label="TAFA Garten- und Landschaftsbau, zum Anfang"><svg class="lf" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C9 3 4 9 4 15c0 2 .6 3.6 1.4 4.6C7 13 12 9 17 7c-4 3-8 7-10.4 13.4C8 21.4 9.6 22 11.5 22 17.5 22 21 15 20 3z" fill="#9bd264"/></svg>TAFA<small>GARTEN- &amp; LANDSCHAFTSBAU</small></a>
+  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#referenzen">Referenzen</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn or" href="tel:+491778660721"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+</header>
+
+<div class="hero" id="top">
+  <div class="stage">
+    <canvas id="film" aria-label="Ein Garten entsteht: von der Baustelle bis zum fertigen Garten" role="img"></canvas>
+    <div class="shade"></div>
+    <div class="tag" id="tag"><b>Vorher</b></div>
+    <div class="cap" data-a="0" data-b=".2"><div class="k">TAFA Garten- &amp; Landschaftsbau · Heilbronn</div><h1>Aus Erde wird Ihr Garten.</h1><p>Ihr Partner für natürlichen Gartenbau in Heilbronn und Umgebung.</p></div>
+    <div class="cap" data-a=".24" data-b=".44"><div class="k">Natursteinbau</div><h2>Stein für Stein.</h2><p>Natursteinmauern, Gabionen und Stufen, gesetzt für viele Jahre.</p></div>
+    <div class="cap" data-a=".48" data-b=".64"><div class="k">Wege- &amp; Terrassenbau</div><h2>Wege und Terrassen.</h2><p>Platten, Pflaster und Natursteinwege, sauber verlegt und eben.</p></div>
+    <div class="cap" data-a=".68" data-b=".82"><div class="k">Nachher</div><h2>Fertig zum Genießen.</h2><p>Bepflanzt, gestaltet und bereit für den ersten Sommerabend.</p></div>
+    <div class="cap end" data-a=".86" data-b="1.1"><div class="k">Jetzt anfragen</div><h2>Ihr Gartenbauer in Heilbronn.</h2><div class="row"><a class="btn or" href="tel:+491778660721">0177 866 07 21</a><a class="btn ghost" href="#referenzen">Referenzen ansehen</a></div></div>
+    <div class="hint" id="hint">Scrollen<i></i></div>
+    <div class="bar"><i id="pbar"></i></div>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Unser Angebot</div><h2 class="h">Was wir für Sie bauen</h2><p class="lead">Von der ersten Idee bis zur letzten Pflanze: Wir gestalten Gärten, die zu Ihnen und Ihrem Haus passen.</p></div>
+    <div class="grid">
+      <div class="card rv"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 8 4 3 4c0 5 4 8 9 8z"/><path d="M12 14c0-4 3-7 8-7 0 4-3 7-8 7z"/></svg></div><h3>Gartengestaltung &amp; Bepflanzung</h3><p>Neue Gärten planen und anlegen, Beete, Rasen, Hecken und Formgehölze.</p></div>
+      <div class="card rv"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="6" rx="1"/><rect x="13" y="4" width="8" height="6" rx="1"/><rect x="7" y="12" width="10" height="6" rx="1"/><path d="M3 21h18"/></svg></div><h3>Natursteinbau</h3><p>Natursteinmauern, Gabionen, Blockstufen und Einfassungen aus echtem Stein.</p></div>
+      <div class="card rv"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21 11 3M16 21 13 3"/><path d="M9 9h6M8.5 15h7"/></svg></div><h3>Wegebau</h3><p>Gartenwege, Hofeinfahrten und Zugänge aus Pflaster, Platten oder Naturstein.</p></div>
+      <div class="card rv"><span class="n">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18M3 19h18M5 15V9l7-5 7 5v6"/></svg></div><h3>Terrassenbau</h3><p>Terrassen aus Naturstein oder Platten, eben verlegt und mit sauberem Abschluss.</p></div>
+      <div class="card rv"><span class="n">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.2 4.5 5.8 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8.8 9.5 6.2 12 3z"/><path d="M3 20c2 1.3 4 1.3 6 0s4-1.3 6 0 4 1.3 6 0"/></svg></div><h3>Brunnen- &amp; Teichbau</h3><p>Wasser im Garten: Brunnen, Quellsteine und Teiche, die Ruhe bringen.</p></div>
+      <div class="card rv"><span class="n">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div><h3>Ihr Projekt</h3><p>Etwas anderes geplant? Rufen Sie an, wir beraten Sie gern vor Ort.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="one" id="vorher-nachher">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Vorher &amp; Nachher</div><h2 class="h">Derselbe Garten. Ein paar Wochen später.</h2><p class="lead">Ein echtes Projekt von uns: aus einer Fläche voller Erde wird ein Garten mit Natursteinstufen, Gabionen und Terrasse.</p></div>
+    <div class="ba">
+      <figure class="rv"><img src="img/f1.webp" alt="Garten vorher: unbefestigte Erdfläche hinter Reihenhäusern" loading="lazy"><figcaption>Vorher</figcaption></figure>
+      <figure class="rv"><img src="img/f4.webp" alt="Garten nachher: Terrasse mit Gabionen, Formgehölzen und Leuchtkugel" loading="lazy"><figcaption>Nachher</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Referenzen</div><h2 class="h">Gärten, die wir gebaut haben</h2><p class="lead">Eine Auswahl unserer Arbeiten in Heilbronn und Umgebung.</p></div>
+    <div class="gal">
+      <figure class="rv"><img src="img/g01.webp" alt="Treppe aus Natursteinblöcken mit Gabionen" loading="lazy" width="900" height="675"><figcaption>Natursteintreppe</figcaption></figure>
+      <figure class="rv"><img src="img/g10.webp" alt="Halbrunde Sandsteinstufen vor einer Haustür" loading="lazy" width="900" height="675"><figcaption>Eingang aus Sandstein</figcaption></figure>
+      <figure class="rv"><img src="img/g04.webp" alt="Runder Pflasterplatz mit Einfassung" loading="lazy" width="900" height="675"><figcaption>Runder Sitzplatz</figcaption></figure>
+      <figure class="rv"><img src="img/g09.webp" alt="Polygonale Natursteinplatten als Weg" loading="lazy" width="900" height="675"><figcaption>Polygonalweg</figcaption></figure>
+      <figure class="rv"><img src="img/g03.webp" alt="Terrasse mit Gabionen und Holzzaun" loading="lazy" width="900" height="675"><figcaption>Terrasse mit Gabionen</figcaption></figure>
+      <figure class="rv"><img src="img/g05.webp" alt="Trittplatten im Rasen am Hang" loading="lazy" width="900" height="675"><figcaption>Trittplatten im Rasen</figcaption></figure>
+      <figure class="rv"><img src="img/g08.webp" alt="Natursteinmauer vor einem Haus" loading="lazy" width="900" height="675"><figcaption>Natursteinmauer</figcaption></figure>
+      <figure class="rv"><img src="img/g02.webp" alt="Stufen aus Naturstein mit Formgehölzen" loading="lazy" width="900" height="675"><figcaption>Stufen &amp; Formgehölze</figcaption></figure>
+      <figure class="rv"><img src="img/g11.webp" alt="Vorgarten mit Natursteinweg und Beeten" loading="lazy" width="900" height="675"><figcaption>Vorgarten</figcaption></figure>
+      <figure class="rv"><img src="img/g07.webp" alt="Granitplatten-Terrasse" loading="lazy" width="900" height="600"><figcaption>Granitterrasse</figcaption></figure>
+      <figure class="rv"><img src="img/g12.webp" alt="Weg aus Klinker zwischen Mauern" loading="lazy" width="900" height="675"><figcaption>Zugang mit Mauer</figcaption></figure>
+      <figure class="rv"><img src="img/g13.webp" alt="Kiesbeet mit Gräsern" loading="lazy" width="900" height="675"><figcaption>Kiesbeet</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv"><div class="kick">So einfach geht's</div><h2 class="h">In drei Schritten</h2></div>
+    <div class="steps">
+      <div class="step rv"><b>1. Anrufen</b><span>Sie erzählen uns kurz, was Sie sich für Ihren Garten wünschen.</span></div>
+      <div class="step rv"><b>2. Beratung vor Ort</b><span>Wir schauen uns alles an, planen mit Ihnen und erstellen ein Angebot.</span></div>
+      <div class="step rv"><b>3. Ihr Garten</b><span>Wir bauen, pflanzen und räumen auf. Sie genießen.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Sprechen Sie uns an</h2><p class="lead">Sie haben Fragen oder möchten eine Beratung? Rufen Sie an oder schreiben Sie uns. Tagsüber sind wir oft auf der Baustelle, wir rufen Sie gern zurück.</p></div>
+    <div class="cbox">
+      <a class="tile rv" href="tel:+491778660721"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span><span><small>Mobil</small><strong>0177 866 07 21</strong></span></a>
+      <a class="tile rv" href="tel:+4971312791718"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon &amp; Fax</small><strong>07131 279 17 18</strong></span></a>
+      <a class="tile rv" href="mailto:info@tafa-gartenbau.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>info@tafa-gartenbau.de</strong></span></a>
+      <a class="tile rv" href="https://www.google.com/maps/dir/?api=1&destination=Gro%C3%9Fgartacher+Str.+260,+74080+Heilbronn" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Adresse</small><strong>Großgartacher Str. 260, 74080 Heilbronn</strong></span></a>
+    </div>
+    <div class="area rv">
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#9bd264" stop-opacity=".3"/><stop offset="1" stop-color="#9bd264" stop-opacity="0"/></radialGradient></defs>
+          <g stroke="rgba(245,244,241,.08)" fill="none"><path d="M0 80 600 60M0 160 600 190M0 260 600 240M120 0 90 340M260 0 300 340M430 0 400 340M520 0 560 340"/><path d="M380 0C360 90 420 170 380 340" stroke="rgba(120,170,255,.25)" stroke-width="6"/></g>
+          <circle cx="400" cy="150" r="7" fill="rgba(245,244,241,.5)"/><text x="410" y="140" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="13">Heilbronn</text>
+          <circle cx="250" cy="170" r="130" fill="url(#g)"/>
+          <circle cx="250" cy="170" r="9" fill="#9bd264"/><circle cx="250" cy="170" r="18" fill="none" stroke="#9bd264" stroke-opacity=".5"/>
+          <text x="80" y="210" fill="#f5f4f1" font-family="Manrope,sans-serif" font-size="15" font-weight="600">TAFA Gartenbau</text>
+          <text x="80" y="230" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Heilbronn-Böckingen</text>
+        </svg>
+      </div>
+      <div class="txt"><h3>Für Heilbronn und Umgebung</h3><p>Wir sind in Heilbronn zu Hause und arbeiten in der ganzen Region. Rufen Sie einfach an, wir kommen zur Beratung zu Ihnen.</p><p style="margin-top:18px"><a class="btn or" href="tel:+491778660721">Jetzt anrufen</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© TAFA Garten- &amp; Landschaftsbau · Tafa Sadrijaj · Heilbronn</span>
+    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+  </div>
+</footer>
+
+<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*5.6),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Scroll-Film aus echten Projektfotos: Überblendung mit langsamer Kamerafahrt */
+(()=>{
+const draft=document.querySelector('.draft'),cv=document.getElementById('film'),cx=cv.getContext('2d'),hero=document.querySelector('.hero'),caps=[...document.querySelectorAll('.cap')],hint=document.getElementById('hint'),tag=document.getElementById('tag'),pbar=document.getElementById('pbar');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Szenen: Bild, Start, Ende, Zoom von/bis, Fokuspunkt
+const SC=[{s:'img/f1.webp',a:0,b:.24,z:[1.04,1.14],f:[.5,.55],t:'Vorher'},{s:'img/f2.webp',a:.2,b:.46,z:[1.02,1.12],f:[.55,.5],t:'Bauphase'},{s:'img/f3.webp',a:.42,b:.68,z:[1.0,1.1],f:[.7,.6],t:'Bauphase'},{s:'img/f4.webp',a:.64,b:.86,z:[1.02,1.12],f:[.45,.6],t:'Nachher'},{s:'img/f5.webp',a:.82,b:1.01,z:[1.0,1.08],f:[.5,.55],t:'Nachher'}];
+SC.forEach(o=>{o.im=new Image();o.im.decoding='async';o.im.src=o.s;});
+let W=0,H=0,D=1,cur=0,tgt=0;
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;}
+size();addEventListener('resize',size);
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+function drawImg(o,k,alpha){const im=o.im;if(!im.complete||!im.naturalWidth||alpha<=0)return;
+  const z=o.z[0]+(o.z[1]-o.z[0])*k,sc=Math.max(W/im.naturalWidth,H/im.naturalHeight)*z,w=im.naturalWidth*sc,h=im.naturalHeight*sc;
+  const x=(W-w)*o.f[0],y=(H-h)*o.f[1];cx.globalAlpha=alpha;cx.drawImage(im,x,y,w,h);}
+function draw(p){cx.setTransform(D,0,0,D,0,0);cx.globalAlpha=1;cx.fillStyle='#050605';cx.fillRect(0,0,W,H);
+  let label='Vorher';
+  SC.forEach((o,i)=>{if(p<o.a-.001||p>o.b)return;const k=cl((p-o.a)/(o.b-o.a));const next=SC[i+1];let al=1;
+    if(i>0){const prev=SC[i-1];al=ease(cl((p-o.a)/(prev.b-o.a)));}drawImg(o,k,al);if(al>.5)label=o.t;});
+  cx.globalAlpha=1;
+  // leichte Vignette
+  const g=cx.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.45)');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  tag.innerHTML='<b>'+label+'</b>';}
+function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
+function frame(){tgt=prog();cur+=(tgt-cur)*(reduce?1:.1);draw(cur);caps.forEach(c=>c.classList.toggle('on',cur>=+c.dataset.a&&cur<+c.dataset.b));hint.style.opacity=cur>.02?0:1;pbar.style.width=(cur*100)+'%';draft.classList.toggle('hide',tgt<.995);tag.style.opacity=cur>.9?0:1;requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
