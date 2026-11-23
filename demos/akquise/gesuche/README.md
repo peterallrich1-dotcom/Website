@@ -5,7 +5,7 @@ Für jeden passenden Treffer liegt hier eine fertige Antwort. Peter schickt sie 
 (Button „Nachricht schreiben“ in der Anzeige). Nichts wird automatisch gesendet.
 
 Regeln für Antworten: kurz, Sie-Form, ehrlich (keine erfundenen Kunden; Velaro ist eine Muster-Website),
-Preise wie auf der Website (Start 990 €, Premium 1.490 €, Hosting/Pflege optional 39 €/Monat oder 390 €/Jahr), keine Lieferzeiten versprechen.
+Preise wie auf der Website (Start 990 €, Premium 1.490 €, Hosting/Pflege optional 39 €/Monat oder 390 €/Jahr, Google-Check kostenlos, Grundoptimierung 199 €), keine Lieferzeiten versprechen. Als Link nur https://allrich-webdesign.com nennen, nicht Velaro.
 
 Suchseiten (Angebotstyp „Gesuche“):
 - https://www.kleinanzeigen.de/s-anzeige:gesuche/website/k0c297
@@ -13,7 +13,15 @@ Suchseiten (Angebotstyp „Gesuche“):
 - https://www.kleinanzeigen.de/s-anzeige:gesuche/webseite/k0
 - https://www.kleinanzeigen.de/s-anzeige:gesuche/homepage/k0
 - https://www.kleinanzeigen.de/s-webdesigner-gesucht/k0
-Nicht passend: Jobsuchende, andere Agenturen, Vor-Ort-Termine außerhalb von Potsdam/Berlin, reine SEO-Aufträge.
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/seo/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/wordpress/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/homepage-erstellen/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/website-erstellen/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/internetauftritt/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/jimdo/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/wix/k0
+- https://www.kleinanzeigen.de/s-anzeige:gesuche/landingpage/k0
+Nicht passend: Jobsuchende, andere Agenturen, Vor-Ort-Termine außerhalb von Potsdam/Berlin, reine Backlink-Aufträge, Bezahlung nur per Umsatzbeteiligung. SEO-Gesuche (bei Google besser gefunden werden) sind passend: Google-Check kostenlos, Grundoptimierung 199 €.
 
 ## Gefunden am 21.11.2026
 
@@ -94,3 +102,19 @@ Lodewijk Bartels, Website und eventuell Online-Shop, will Beispiele.
 > Peter Allrich
 
 Nicht passend (22.11.): Oldenburg „Hilfe bei Strato-Website“ (nur vor Ort in Oldenburg), Ludwigsburg „Website gegen Revenue Share“ (keine Bezahlung), sonst nur Jobsuchende und andere Webdesigner.
+
+## Gefunden am 23.11.2026
+
+### 5. „Suche Grafiker aus Berlin, der mir kleine Webseite fertigt“ – Berlin-Kreuzberg (22.09.2026)
+https://www.kleinanzeigen.de/s-anzeige/suche-grafiker-aus-berlin-der-mir-kleine-webseite-fertigt/3520141693-109-3377
+Sehr einfache Seite, kein Zeitdruck, nur Leute aus Berlin. Antwort an Peter gegeben.
+
+### 6. „Suche jemanden der von Homepages Seo werte verbessert“ – Erlangen (23.11.2026)
+https://www.kleinanzeigen.de/s-anzeige/suche-jemanden-der-von-homepages-seo-werte-verbessert-/3580215560-298-6801
+Imkerverein will bessere Google-Werte, günstig. Antwort an Peter gegeben (Google-Check kostenlos, 199 €).
+
+### 7. „Wer kennt sich mit SEO aus“ – Berlin-Neukölln (01.11.2026)
+https://www.kleinanzeigen.de/s-anzeige/hey-wer-kennt-sich-mit-seo-aus-/3558392416-401-3400
+Sucht jemanden für SEO, keine Details. Antwort an Peter gegeben.
+
+Nicht passend (23.11.): Bremen „Word Press Hilfe“ (WooCommerce, nur vor Ort), Hagen „SEO-Freelancer Backlinks“ (nur Backlink-Aufbau), Ludwigsburg „Website Ersteller Revenue Share“ (keine Bezahlung).
