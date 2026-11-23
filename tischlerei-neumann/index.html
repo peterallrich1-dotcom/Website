@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Tischlerei J.A. Neumann · Ihr Tischler in Lübeck</title>
 <meta name="description" content="Tischlerei J.A. Neumann, Meisterbetrieb in Lübeck seit 2003: Innenausbau, Dachausbau, Einbaumöbel nach Maß, Fenster, Türen, Treppen, Parkett und Ladenbau im Umkreis von 100 km.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="theme-color" content="#f7efdf">
 <style>
 @font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
@@ -190,6 +190,52 @@ footer a{color:var(--mute);text-decoration:none}
 .faq details[open] summary::after{content:"–"}
 .faq p{color:var(--mute);margin:12px 0 0}
 .note{font-size:13px;color:var(--mute-d);margin-top:14px}
+
+/* === Farben wie auf der bisherigen Website: helles Ahorn, Dunkelbraun-Gold, Rostbraun === */
+:root{--bg:#f7efdf;--bg2:#fffaf0;--bg3:#efe2c8;--white:#2b1d10;--mute:#6b5640;--mute-d:#97806a;--or:#8a3b12;--or2:#a54a1c;--or-soft:rgba(138,59,18,.1);--line:rgba(70,45,20,.14);--gold:linear-gradient(90deg,#3d2c10 0%,#7a5d22 45%,#c9ad55 100%)}
+body{background:var(--bg) url(img/holz.webp) center/756px repeat;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:rgba(250,244,232,.86);pointer-events:none;z-index:-1}
+section,.trust{background:transparent}
+.hdr.solid{background:rgba(251,246,236,.92);border-bottom:1px solid var(--line)}
+.btn.or{background:var(--gold);color:#fff8e6;box-shadow:0 6px 18px rgba(80,50,15,.25)}
+.btn.or:hover{filter:brightness(1.1);background:var(--gold)}
+.btn.ghost{border-color:rgba(70,45,20,.3);color:var(--white)}
+.btn.ghost:hover{background:rgba(70,45,20,.06)}
+.logo .ja{color:#fff8e6;background:var(--gold);border:0}
+.h,.cap h1,.cap h2{color:var(--or)}
+.card,.q,.tile,.big,.stats div,.faq details,.person,.area,.gal figure{background:var(--bg2);box-shadow:0 10px 30px rgba(90,60,25,.08)}
+.card .ic{background:var(--or-soft)}
+.card .n{color:rgba(138,59,18,.08)}
+.tile .ic{background:var(--gold)}.tile .ic svg{stroke:#fff8e6}
+.one{background:linear-gradient(180deg,transparent,rgba(201,173,85,.12) 50%,transparent)}
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(201,173,85,.22),transparent 70%)}
+.area .map{background:#efe2c8}
+.area .map svg [fill="#f5f4f1"]{fill:#2b1d10}
+.area .map svg g{stroke:rgba(70,45,20,.15)}
+.person .av{background:var(--gold);color:#fff8e6}
+.big .num,.stats b,.trust b{color:var(--or)}
+.stats b{white-space:nowrap;font-size:clamp(26px,3vw,40px)}
+.stars svg{fill:#c9952e}
+.trust{background:linear-gradient(90deg,#3d2c10,#7a5d22 55%,#b59a48);border:0}
+.trust .wrap{color:#f6ead0}.trust b{color:#fff}
+.chips button{border-color:rgba(70,45,20,.25)}
+.chips button.on{background:var(--gold);color:#fff8e6;border-color:transparent}
+.gal figcaption{background:rgba(255,250,240,.92);color:var(--or)}
+footer{background:linear-gradient(90deg,#3d2c10,#6e5320);color:#e9dcc0;border:0}footer a{color:#fff3d6}
+.draft{background:rgba(255,250,240,.95);color:var(--mute)}.draft b{color:var(--white)}
+.faq summary::after{color:#a07a2a}
+.checks svg{stroke:#a07a2a}
+/* Film im Holz-Look */
+.stage{background:#f3e3c2 url(img/holz.webp) center/900px repeat}
+.bgs i{opacity:0}.bgs i.on{opacity:.22;mix-blend-mode:multiply}
+.veil{background:linear-gradient(90deg,rgba(251,244,230,.96) 0%,rgba(251,244,230,.82) 34%,rgba(251,244,230,.1) 62%,rgba(251,244,230,0) 100%),linear-gradient(180deg,rgba(251,244,230,.55),rgba(251,244,230,0) 18%)}
+.cap{text-shadow:none}.cap p{color:var(--mute)}.cap .k{color:#8a6a24}
+.fr img{box-shadow:0 30px 70px rgba(70,40,10,.35),0 0 0 8px #fffaf0,0 0 0 9px rgba(70,45,20,.15)}
+.fr figcaption{color:#8a6a24;bottom:-14px}
+.logo-card b{color:var(--or)}.logo-card span{color:#8a6a24}.logo-card small{color:var(--mute)}
+.dots i{background:rgba(70,45,20,.25)}.dots i.on{background:#8a6a24}
+.hint{color:var(--mute)}.hint i{background:linear-gradient(#8a6a24,transparent)}
+@media(orientation:portrait),(max-width:860px){.veil{background:linear-gradient(180deg,rgba(251,244,230,.6),rgba(251,244,230,0) 18%,rgba(251,244,230,0) 52%,rgba(251,244,230,.95) 70%)}}
 </style>
 </head>
 <body>
@@ -302,7 +348,7 @@ footer a{color:var(--mute);text-decoration:none}
           <text x="192" y="30" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">A1</text>
           <circle cx="300" cy="170" r="130" fill="url(#g)"/>
           <circle cx="300" cy="170" r="9" fill="#d9a05b"/><circle cx="300" cy="170" r="18" fill="none" stroke="#d9a05b" stroke-opacity=".5"/>
-          <text x="318" y="162" fill="#f5f4f1" font-family="Manrope,sans-serif" font-size="15" font-weight="600">Tischlerei J.A. Neumann</text>
+          <text x="318" y="162" fill="#2b1d10" font-family="Manrope,sans-serif" font-size="15" font-weight="600">Tischlerei J.A. Neumann</text>
           <text x="318" y="182" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Lübeck-Moisling</text>
         </svg>
       </div>
