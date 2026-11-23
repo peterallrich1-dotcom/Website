@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Tischlerei J.A. Neumann · Ihr Tischler in Lübeck</title>
+<meta name="description" content="Tischlerei J.A. Neumann, Meisterbetrieb in Lübeck seit 2003: Innenausbau, Dachausbau, Einbaumöbel nach Maß, Fenster, Türen, Treppen, Parkett und Ladenbau im Umkreis von 100 km.">
+<meta name="theme-color" content="#0a0a0b">
+<style>
+@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
+  --or:#d9a05b;--or2:#e8b978;--or-soft:rgba(217,160,91,.14);--line:rgba(245,244,241,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+/* Kopfzeile */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
+.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
+.logo svg{width:16px;height:24px;margin:0 2px}
+.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
+.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.or{background:var(--or);color:#1d1206}
+.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:var(--line);color:var(--white)}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cap.on{opacity:1;transform:none}
+.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.cap.end{pointer-events:auto}
+.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
+.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
+.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
+/* Abschnitte */
+section{padding:clamp(72px,11vw,140px) 0}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
+.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(217,160,91,.5);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--or)}
+.card h3{margin:0;font-size:20px;font-weight:600}
+.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
+/* Eine Hand */
+.one{background:linear-gradient(180deg,var(--bg),#110c07 50%,var(--bg))}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
+.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
+.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
+.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.stars svg{width:26px;height:26px;fill:var(--or)}
+.big p{margin:6px 0 0;color:var(--mute)}
+/* Stimmen */
+.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .stars{justify-content:flex-start;margin:0}
+.q .stars svg{width:18px;height:18px}
+.q blockquote{margin:0;font-size:18px;line-height:1.55}
+.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
+.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
+.src a{color:var(--mute)}
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
+.step{border-top:2px solid var(--or);padding-top:18px}
+.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.step span{color:var(--mute);font-size:15px}
+/* Kontakt */
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(217,160,91,.14),transparent 70%),var(--bg)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+@media(max-width:860px){.cbox{grid-template-columns:1fr}}
+.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
+a.tile:hover{border-color:var(--or)}
+.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
+.tile .ic svg{width:24px;height:24px;stroke:#1d1206}
+.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
+.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:860px){.area{grid-template-columns:1fr}}
+.area .map{min-height:280px;position:relative;background:#0e0e10}
+.area .map svg{position:absolute;inset:0;width:100%;height:100%}
+.area .txt{padding:28px 26px}
+.area h3{margin:0;font-size:22px}
+.area p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--mute);text-decoration:none}
+.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
+.draft b{color:var(--white);font-weight:600}
+.draft a{color:var(--or);text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
+</style>
+<style>
+.logo{gap:10px}
+.logo .ja{font-family:var(--f-b);font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--or);border:1px solid rgba(217,160,91,.5);border-radius:6px;padding:4px 6px;line-height:1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.stats div{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+.stats b{display:block;white-space:nowrap;font-family:var(--f-h);font-weight:400;font-size:clamp(26px,3vw,40px);line-height:1;color:var(--or)}
+.stats span{font-size:13px;color:var(--mute)}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}.stats div:last-child{grid-column:span 2}}
+.person{display:flex;gap:18px;align-items:center;margin-top:26px;padding:18px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
+.person .av{flex:none;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8b978,#9a6630);display:grid;place-items:center;font-family:var(--f-h);font-size:24px;color:#1d1206}
+.person b{display:block;font-size:17px}
+.person span{color:var(--mute);font-size:14px}
+.gal{columns:3 240px;column-gap:14px;margin-top:44px}
+.gal figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);position:relative}
+.gal img{width:100%;height:auto;display:block;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(10,10,11,.72);backdrop-filter:blur(6px)}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:30px}
+.refs div{border-left:2px solid var(--or);padding:6px 0 6px 16px}
+.refs b{display:block;font-size:16px}
+.refs span{color:var(--mute);font-size:14px}
+.faq{margin-top:40px;display:grid;gap:12px}
+.faq details{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--or);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mute);margin:12px 0 0}
+.note{font-size:13px;color:var(--mute-d);margin-top:14px}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="logo" href="#top" aria-label="Tischlerei J.A. Neumann, zum Anfang"><span class="ja">J.A.</span>NEUMANN<small>TISCHLEREI · LÜBECK</small></a>
+  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#arbeiten">Arbeiten</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn or" href="tel:+494512929626"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+</header>
+
+<div class="hero" id="top">
+  <div class="stage">
+    <canvas id="film" aria-hidden="true"></canvas>
+    <div class="cap" data-a="0" data-b=".19"><div class="k">Tischlerei J.A. Neumann · Lübeck</div><h1>Holz. Handwerk. Maß.</h1><p>Ihr Meisterbetrieb für Innenausbau und Möbel nach Maß, seit 2003 in Lübeck.</p></div>
+    <div class="cap" data-a=".22" data-b=".42"><div class="k">Dachausbau</div><h2>Aus Dachboden wird Wohnraum.</h2><p>Balken, Boden, Verkleidung: Wir bauen Ihr Dachgeschoss komplett aus.</p></div>
+    <div class="cap" data-a=".45" data-b=".61"><div class="k">Fenster &amp; Türen</div><h2>Licht rein. Wärme drin.</h2><p>Planung, Lieferung und Montage von Fenstern und Türen in Holz und Kunststoff.</p></div>
+    <div class="cap" data-a=".64" data-b=".8"><div class="k">Einbaumöbel</div><h2>Jede Nische genutzt.</h2><p>Einbauschränke und Maßanfertigungen, auch unter der Dachschräge.</p></div>
+    <div class="cap end" data-a=".86" data-b="1.1"><div class="k">Jetzt anfragen</div><h2>Ihr Tischler in Lübeck.</h2><div class="row"><a class="btn or" href="tel:+494512929626">0451 2 92 96 26</a><a class="btn ghost" href="#arbeiten">Arbeiten ansehen</a></div></div>
+    <div class="hint" id="hint">Scrollen<i></i></div>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Unsere Leistungen</div><h2 class="h">Alles rund ums Holz</h2><p class="lead">Wir sind Ihr Ansprechpartner für Innenausbau und Möbelfertigung in Lübeck und im Umkreis von 100 km, für Privatkunden ebenso wie für Hausverwaltungen.</p></div>
+    <div class="grid">
+      <div class="card rv"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div><h3>Innen- &amp; Dachausbau</h3><p>Dachgeschossausbau, Wand- und Deckenverkleidungen, Trockenbau.</p></div>
+      <div class="card rv"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></div><h3>Fenster &amp; Türen</h3><p>Planung, Lieferung und Montage in Holz und Kunststoff, Innentüren und Trennwände.</p></div>
+      <div class="card rv"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-4h4v-4h4V8h4"/></svg></div><h3>Treppen</h3><p>Planung, Lieferung und Montage von Treppen, auch Aufarbeitung alter Holztreppen.</p></div>
+      <div class="card rv"><span class="n">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12z"/><path d="M12 9v12M8 14v2M16 14v2"/></svg></div><h3>Einbaumöbel nach Maß</h3><p>Einbauschränke, Möbel unter der Dachschräge und individuelle Maßanfertigungen.</p></div>
+      <div class="card rv"><span class="n">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><path d="M8 7v5M15 12v5M11 17v4M17 3v4"/></svg></div><h3>Parkett &amp; Laminat</h3><p>Fertigparkett und Laminat, fachgerecht verlegt, mit ehrlicher Beratung zur Holzart.</p></div>
+      <div class="card rv"><span class="n">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Altbau &amp; Reparaturen</h3><p>Altbausanierung, Restaurierung, Instandsetzung und Reparaturen im Bau- und Möbelbereich.</p></div>
+      <div class="card rv"><span class="n">07</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 14h18M7 6h10l2 4H5z"/></svg></div><h3>Laden- &amp; Praxisbau</h3><p>Empfangstresen, Arbeitsplätze und Einrichtungen für Praxen und Geschäfte.</p></div>
+      <div class="card rv"><span class="n">08</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="16" cy="15" r="5"/></svg></div><h3>Alles aus einer Hand</h3><p>Durch Kooperation mit Betrieben der Nebengewerke bekommen Sie alles von einem Ansprechpartner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="one" id="ueber-uns">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="kick">Über uns</div>
+      <h2 class="h">Meisterbetrieb<br>aus Lübeck.</h2>
+      <p class="lead">Die Tischlerei J.A. Neumann wurde am 1. August 2003 gegründet. Unser Team bringt jahrzehntelange Berufserfahrung mit und fertigt fach- und sachgerecht nach Ihren ganz persönlichen Wünschen, ob nach unserer Beratung oder nach Ihren eigenen Zeichnungen.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Höchster Qualitätsanspruch</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Freundliches und kompetentes Auftreten</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Zuverlässige und termingerechte Ausführung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kostenlose Beratung im persönlichen Gespräch</li>
+      </ul>
+      <div class="person"><div class="av">JN</div><div><b>Jan Neumann</b><span>Tischlermeister, Inhaber und Gründer. Meisterbetrieb für das holz- und kunststoffverarbeitende Handwerk.</span></div></div>
+    </div>
+    <div class="rv">
+      <div class="big">
+        <div class="num">5,0</div>
+        <div class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg></div>
+        <p style="font-size:18px;color:var(--white);margin-top:14px">„Hat super tolle Arbeit gemacht, sind total zufrieden, Herr Neumann ist einfach weiter zu empfehlen. Dankeschön!“</p>
+        <p style="font-size:13px">Google-Bewertung · weitere Stimme: Pünktlichkeit, Qualität, Professionalität</p>
+      </div>
+      <div class="stats">
+        <div><b>2003</b><span>gegründet</span></div>
+        <div><b>100 km</b><span>Einsatzgebiet</span></div>
+        <div><b>7–18</b><span>Uhr, Mo bis Fr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="arbeiten">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Arbeiten</div><h2 class="h">Aus unserer Werkstatt</h2><p class="lead">Ein Blick auf Projekte, die wir umgesetzt haben: Dachausbau, Einbaumöbel, Küchen und Praxiseinrichtungen.</p></div>
+    <div class="gal">
+      <figure class="rv"><img src="img/p01.webp" alt="Einbauschrank aus Holz unter der Dachschräge" loading="lazy" width="820" height="547"><figcaption>Einbauschrank unter der Schräge</figcaption></figure>
+      <figure class="rv"><img src="img/p03.webp" alt="Küchenzeile mit Dunstabzug unter der Dachschräge" loading="lazy" width="620" height="827"><figcaption>Küche nach Maß</figcaption></figure>
+      <figure class="rv"><img src="img/p04.webp" alt="Ausgebautes Dachgeschoss mit Dachfenstern und Holzboden" loading="lazy" width="820" height="615"><figcaption>Dachausbau</figcaption></figure>
+      <figure class="rv"><img src="img/p02.webp" alt="Regalmöbel mit Schubladen in der Dachnische" loading="lazy" width="620" height="929"><figcaption>Möbel in der Dachnische</figcaption></figure>
+      <figure class="rv"><img src="img/p05.webp" alt="Schreibtisch mit Rundung in einer Praxis" loading="lazy" width="820" height="615"><figcaption>Praxiseinrichtung</figcaption></figure>
+      <figure class="rv"><img src="img/p07.webp" alt="Vitrinenschrank aus Holz mit Glastüren" loading="lazy" width="620" height="1025"><figcaption>Vitrine</figcaption></figure>
+      <figure class="rv"><img src="img/p08.webp" alt="Dachgeschoss mit Fensterreihe und Leiter" loading="lazy" width="820" height="545"><figcaption>Gaube &amp; Fensterreihe</figcaption></figure>
+      <figure class="rv"><img src="img/p06.webp" alt="Einbauschrank mit offenem Fach unter der Schräge" loading="lazy" width="620" height="929"><figcaption>Einbaumöbel</figcaption></figure>
+      <figure class="rv"><img src="img/p10.webp" alt="Empfangstresen in hellem Holz" loading="lazy" width="820" height="615"><figcaption>Empfangstresen</figcaption></figure>
+      <figure class="rv"><img src="img/p09.webp" alt="Eckvitrine mit Glasböden in der Küche" loading="lazy" width="620" height="827"><figcaption>Eckvitrine</figcaption></figure>
+      <figure class="rv"><img src="img/p12.webp" alt="Dielenboden im ausgebauten Dach" loading="lazy" width="820" height="615"><figcaption>Dielenboden</figcaption></figure>
+      <figure class="rv"><img src="img/p11.webp" alt="Weißer Einbauschrank unter der Dachschräge" loading="lazy" width="620" height="827"><figcaption>Schrank unter der Schräge</figcaption></figure>
+    </div>
+    <p class="note rv">Bilder aus früheren Projekten. Aktuelle Fotos folgen.</p>
+    <div class="refs">
+      <div class="rv"><b>Praxiseinrichtung</b><span>Möbel und Fußboden für eine Ergotherapie-Praxis in Plön</span></div>
+      <div class="rv"><b>Dachgeschossausbau</b><span>Kompletter Ausbau für eine Familie im Raum Hamburg</span></div>
+      <div class="rv"><b>Einbauschränke</b><span>Maßanfertigungen für Familien in Lübeck und Umgebung</span></div>
+      <div class="rv"><b>Fenster &amp; Altbausanierung</b><span>Umbau und Sanierung im Lübecker Umland</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="fragen" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Gut zu wissen</div><h2 class="h">Häufige Fragen</h2></div>
+    <div class="faq">
+      <details class="rv"><summary>Parkett aus Ahorn oder Eiche?</summary><p>Eiche ist unproblematischer als Ahorn, weil sie weniger zu Fugenbildung neigt. Ohne Fußbodenheizung und bei ausgeglichenem Raumklima funktioniert aber auch Ahorn völlig problemlos. Wir beraten Sie gern, welche Holzart zu Ihrem Haus passt.</p></details>
+      <details class="rv"><summary>Lässt sich eine alte Holztreppe wieder aufarbeiten?</summary><p>Ja, oft lohnt sich das. Je nach Lack und Profil arbeiten wir mit Abbeizer, Schleifen oder der Ziehklinge. Wir schauen uns Ihre Treppe gern vor Ort an.</p></details>
+      <details class="rv"><summary>Können Sie nach meiner eigenen Zeichnung bauen?</summary><p>Natürlich. Sie können uns Ihre Ideen beschreiben oder genaue Zeichnungen mitbringen. Gemeinsam finden wir die beste Lösung für Ihr Möbel oder Ihren Ausbau.</p></details>
+      <details class="rv"><summary>Wie weit fahren Sie?</summary><p>Wir arbeiten in Lübeck und im Umkreis von rund 100 km, also auch in Schleswig-Holstein und im Raum Hamburg.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Sprechen Sie uns an</h2><p class="lead">Für eine kostenlose Beratung erreichen Sie uns Montag bis Freitag von 7 bis 18 Uhr telefonisch oder jederzeit per E-Mail.</p></div>
+    <div class="cbox">
+      <a class="tile rv" href="tel:+494512929626"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon</small><strong>0451 2 92 96 26</strong></span></a>
+      <a class="tile rv" href="mailto:info@tischlerei-jan.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>info@tischlerei-jan.de</strong></span></a>
+      <div class="tile rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Geschäftszeiten</small><strong>Mo bis Fr, 7 bis 18 Uhr</strong></span></div>
+      <a class="tile rv" href="https://www.google.com/maps/search/Tischlerei+Jan+A.+Neumann+L%C3%BCbeck" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Adresse</small><strong>Neuland 6, 23560 Lübeck</strong></span></a>
+    </div>
+    <div class="area rv">
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d9a05b" stop-opacity=".3"/><stop offset="1" stop-color="#d9a05b" stop-opacity="0"/></radialGradient></defs>
+          <g stroke="rgba(245,244,241,.08)" fill="none"><path d="M0 80 600 60M0 160 600 190M0 260 600 240M120 0 90 340M260 0 300 340M430 0 400 340M520 0 560 340"/><path d="M180 0C200 120 160 220 230 340" stroke="rgba(245,244,241,.2)" stroke-width="5"/><path d="M380 0C420 80 470 120 600 140" stroke="rgba(120,170,255,.25)" stroke-width="7"/></g>
+          <text x="192" y="30" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">A1</text>
+          <circle cx="300" cy="170" r="130" fill="url(#g)"/>
+          <circle cx="300" cy="170" r="9" fill="#d9a05b"/><circle cx="300" cy="170" r="18" fill="none" stroke="#d9a05b" stroke-opacity=".5"/>
+          <text x="318" y="162" fill="#f5f4f1" font-family="Manrope,sans-serif" font-size="15" font-weight="600">Tischlerei J.A. Neumann</text>
+          <text x="318" y="182" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Lübeck-Moisling</text>
+        </svg>
+      </div>
+      <div class="txt"><h3>Lübeck und 100 km Umkreis</h3><p>Sie finden uns nahe der A1, Abfahrt Lübeck-Moisling. Wir kommen für Beratung und Aufmaß zu Ihnen, in ganz Schleswig-Holstein und im Raum Hamburg.</p><p style="margin-top:18px"><a class="btn or" href="tel:+494512929626">Jetzt anrufen</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Tischlerei Jan A. Neumann · Neuland 6 · 23560 Lübeck</span>
+    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+  </div>
+</footer>
+
+<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*5.6),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Scroll-Film: Dachgeschoss entsteht – Balken, Dielen, Dachfenster, Einbauschrank, Logo */
+(()=>{
+const draft=document.querySelector('.draft'),cv=document.getElementById('film'),cx=cv.getContext('2d'),hero=document.querySelector('.hero'),caps=[...document.querySelectorAll('.cap')],hint=document.getElementById('hint');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,WH='rgba(245,244,241,';
+let W=0,H=0,D=1,S=1,OX=0,OY=0,cur=0,tgt=0;
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;const port=H>W;
+  S=Math.min(W*(port?1:.6),H*(port?.62:1.15))/1000*(port?1.05:1.05);OX=W*(port||W<900?.5:.66)-500*S;OY=H*(port?.38:.46)-500*S;}
+size();addEventListener('resize',size);
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),seg=(p,a,b)=>cl((p-a)/(b-a)),ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const X=x=>OX+x*S,Y=y=>OY+y*S;
+// Holzmaserung als Muster
+function grain(base,dark){const c=document.createElement('canvas');c.width=360;c.height=120;const g=c.getContext('2d');g.fillStyle=base;g.fillRect(0,0,360,120);
+  for(let i=0;i<34;i++){g.beginPath();const y0=i*3.6+Math.random()*2;g.moveTo(0,y0);for(let x=0;x<=360;x+=12){g.lineTo(x,y0+Math.sin(x/40+i)*2.2+Math.sin(x/9+i*3)*.6);}g.strokeStyle=`rgba(${dark},${.12+Math.random()*.18})`;g.lineWidth=.6+Math.random()*1.4;g.stroke();}
+  return c;}
+const G1=grain('#c98b4a','70,38,12'),G2=grain('#ddb07a','90,55,20'),G3=grain('#b97a3c','60,30,8');
+let P1,P2,P3;
+const yl=x=>760-((x-180)/320)*510,yr=x=>760-((820-x)/320)*510; // Dachschrägen
+function beam(x1,y1,x2,y2,w,f){if(f<=0)return;const x=x1+(x2-x1)*f,y=y1+(y2-y1)*f;cx.save();cx.lineCap='round';cx.strokeStyle='#8a5a2b';cx.lineWidth=(w+4)*S;cx.beginPath();cx.moveTo(X(x1),Y(y1));cx.lineTo(X(x),Y(y));cx.stroke();cx.strokeStyle='#c98b4a';cx.lineWidth=w*S;cx.stroke();cx.strokeStyle='rgba(255,230,190,.35)';cx.lineWidth=2*S;cx.stroke();cx.restore();}
+function draw(p,time){
+  cx.setTransform(D,0,0,D,0,0);cx.clearRect(0,0,W,H);
+  if(!P1){P1=cx.createPattern(G1,'repeat');P2=cx.createPattern(G2,'repeat');P3=cx.createPattern(G3,'repeat');}
+  const lt=ease(seg(p,.46,.6)),fin=ease(seg(p,.8,.96));
+  const bg=cx.createRadialGradient(W/2,H*.48,0,W/2,H*.48,Math.max(W,H)*.75);bg.addColorStop(0,`rgba(${36+40*lt|0},${26+24*lt|0},${16+8*lt|0},1)`);bg.addColorStop(.55,'#0e0b08');bg.addColorStop(1,'#060606');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+  cx.strokeStyle='rgba(255,255,255,.03)';cx.lineWidth=1;const gs=64*S;for(let x=OX%gs;x<W;x+=gs){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke();}for(let y=OY%gs;y<H;y+=gs){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();}
+  cx.save();const sc=1-.28*fin;cx.translate(X(500),Y(500));cx.scale(sc,sc);cx.translate(-X(500),-Y(500)-120*fin*S);cx.globalAlpha=1-.8*fin;
+  // Skizze am Anfang
+  {const k=1-seg(p,.08,.2);if(k>0){cx.save();cx.setLineDash([6*S,8*S]);cx.globalAlpha*=.35*k;cx.strokeStyle=WH+'1)';cx.lineWidth=1.5*S;cx.beginPath();cx.moveTo(X(150),Y(762));cx.lineTo(X(850),Y(762));cx.moveTo(X(180),Y(760));cx.lineTo(X(500),Y(250));cx.lineTo(X(820),Y(760));cx.stroke();cx.restore();}}
+  // Wand-/Dachfläche hinter den Balken (wird mit Licht wärmer)
+  const bf=ease(seg(p,.02,.2));
+  if(bf>0){cx.save();cx.globalAlpha*=bf*.9;cx.beginPath();cx.moveTo(X(180),Y(760));cx.lineTo(X(500),Y(250));cx.lineTo(X(820),Y(760));cx.closePath();const wg=cx.createLinearGradient(0,Y(250),0,Y(760));wg.addColorStop(0,`rgba(${60+90*lt|0},${48+70*lt|0},${36+40*lt|0},1)`);wg.addColorStop(1,`rgba(${40+60*lt|0},${30+44*lt|0},${22+20*lt|0},1)`);cx.fillStyle=wg;cx.fill();cx.restore();}
+  // 1 Balken: Sparren, Kehlbalken, Drempel
+  beam(180,760,500,250,16,ease(seg(p,.02,.12)));beam(820,760,500,250,16,ease(seg(p,.05,.15)));
+  beam(330,yl(330)+2,670,yr(670)+2,13,ease(seg(p,.12,.2)));
+  beam(280,760,280,yl(280),12,ease(seg(p,.14,.21)));beam(720,760,720,yr(720),12,ease(seg(p,.15,.22)));
+  // 2 Dielen von links nach rechts
+  const fl=seg(p,.2,.4);if(fl>0){const n=16,w=640/n;for(let i=0;i<n;i++){const f=ease(cl(fl*n*1.15-i*1.05));if(f<=0)continue;const x=180+i*w;cx.save();cx.globalAlpha*=f;cx.translate(0,(1-f)*-30*S);
+    cx.fillStyle=i%2?P1:P2;cx.translate(X(x),Y(762));cx.fillRect(0,0,(w-1.5)*S,20*S);cx.fillStyle='rgba(0,0,0,.25)';cx.fillRect((w-1.5)*S,0,1.5*S,20*S);cx.restore();}}
+  // 3 Dachfenster links mit Lichtkegel
+  const wf=ease(seg(p,.42,.52));
+  if(wf>0){const a=Math.atan2(250-760,500-180),cxw=345,cyw=yl(345);cx.save();cx.translate(X(cxw),Y(cyw));cx.rotate(a);cx.globalAlpha*=wf;
+    cx.fillStyle='#8a5a2b';cx.fillRect(-60*S,-26*S,120*S,52*S);cx.fillStyle=`rgba(${150+100*lt|0},${190+50*lt|0},255,${.5+.4*lt})`;cx.fillRect(-52*S,-19*S,104*S,38*S);cx.strokeStyle='#8a5a2b';cx.lineWidth=4*S;cx.beginPath();cx.moveTo(0,-19*S);cx.lineTo(0,19*S);cx.stroke();cx.restore();
+    if(lt>0){cx.save();cx.globalAlpha*=lt*.55;const lg=cx.createLinearGradient(X(345),Y(cyw),X(470),Y(760));lg.addColorStop(0,'rgba(255,236,190,.9)');lg.addColorStop(1,'rgba(255,220,160,0)');cx.fillStyle=lg;cx.beginPath();cx.moveTo(X(300),Y(yl(300)));cx.lineTo(X(392),Y(yl(392)));cx.lineTo(X(600),Y(760));cx.lineTo(X(400),Y(760));cx.closePath();cx.fill();
+      for(let k=0;k<14&&!reduce;k++){const t=((time/6000)+k*.137)%1,dx=330+((k*53)%120)+t*90,dy=yl(330)+40+t*300;cx.fillStyle=`rgba(255,240,210,${.6*(1-t)})`;cx.beginPath();cx.arc(X(dx),Y(dy),1.6*S,0,7);cx.fill();}cx.restore();}}
+  // 4 Einbauschrank unter der rechten Schräge (Türen wachsen von unten hoch)
+  const cb=seg(p,.62,.78);
+  if(cb>0){const xs=[560,620,680,740,800];for(let i=0;i<xs.length-1;i++){const f=ease(cl(cb*4.2-i*.9));if(f<=0)continue;const x0=xs[i]+3,x1=xs[i+1]-3,t0=yr(x0)+8,t1=yr(x1)+8,bot=760;
+      cx.save();cx.beginPath();cx.moveTo(X(x0),Y(bot));cx.lineTo(X(x0),Y(bot-(bot-t0)*f));cx.lineTo(X(x1),Y(bot-(bot-t1)*f));cx.lineTo(X(x1),Y(bot));cx.closePath();cx.fillStyle=P3;cx.fill();cx.strokeStyle='rgba(40,20,6,.7)';cx.lineWidth=2*S;cx.stroke();
+      if(f>.95){cx.fillStyle='rgba(245,235,215,.9)';cx.fillRect(X(i%2?x0+8:x1-12),Y(bot-140),4*S,34*S);}cx.restore();}
+    // Sockel
+    cx.fillStyle='#5a3a1c';cx.fillRect(X(560),Y(752),240*S*cl(cb*1.3),8*S);}
+  cx.restore();
+  // 5 Logo
+  if(fin>0){cx.save();cx.globalAlpha=fin;const cxm=X(500),cy=Y(560)+(1-fin)*30,fs=Math.min(W*.13,S*150);
+    cx.textAlign='center';cx.textBaseline='middle';cx.font=`600 ${Math.max(12,fs*.2)}px Manrope, sans-serif`;cx.fillStyle='#d9a05b';cx.fillText('J . A .',cxm,cy-fs*.78);
+    cx.font=`${fs}px Anton, Impact, sans-serif`;cx.fillStyle='#f5f4f1';cx.fillText('NEUMANN',cxm,cy);
+    const tw=cx.measureText('NEUMANN').width;cx.fillStyle=P2;cx.fillRect(cxm-tw/2,cy+fs*.52,tw*cl(fin*1.2),fs*.07);
+    cx.font=`600 ${Math.max(12,fs*.15)}px Manrope, sans-serif`;cx.fillStyle='rgba(245,244,241,.75)';cx.fillText('T I S C H L E R E I  ·  L Ü B E C K',cxm,cy+fs*.85);cx.restore();}
+}
+function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
+function frame(now){tgt=prog();cur+=(tgt-cur)*(reduce?1:.1);draw(cur,now);caps.forEach(c=>c.classList.toggle('on',cur>=+c.dataset.a&&cur<+c.dataset.b));hint.style.opacity=cur>.02?0:1;draft.classList.toggle('hide',tgt<.995);requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
