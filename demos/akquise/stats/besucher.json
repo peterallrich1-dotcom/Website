@@ -1,5 +1,16 @@
 {
- "rows": [],
+ "rows": [
+  {
+   "datum": "2026-11-22",
+   "seitenaufrufe": 40,
+   "besuche": 20
+  },
+  {
+   "datum": "2026-11-23",
+   "seitenaufrufe": 20,
+   "besuche": 20
+  }
+ ],
  "meta": [
   {
    "label": "Quelle",
@@ -7,7 +18,7 @@
   },
   {
    "label": "Stand",
-   "value": "2026-11-20 19:38 UTC"
+   "value": "2026-11-23 06:18 UTC"
   },
   {
    "label": "cf_stats.py",
