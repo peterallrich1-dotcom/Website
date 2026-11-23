@@ -275,3 +275,5 @@ Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präf
 **Nachfassen:** Entwürfe am 23.11. verschickt an K-S Elektro (/ks-elektro/), Klaus Schmitt GmbH (/schmitt-gerbrunn/), TAFA Gartenbau (/tafa-gartenbau/), Tischlerei J.A. Neumann (/tischlerei-neumann/, starkes Interesse), YK Architektur Kaya (/yk/, neu gebaut). Peter nach 2–3 Tagen ans Nachfassen erinnern.
 
 **Kaya (23.11.):** hat aus persönlichen Gründen vorerst abgesagt. Freundliche Antwort gesendet. NICHT nachhaken, er meldet sich selbst. Entwurf /yk/ bleibt online.
+
+**Google-Bewertungen (23.11.):** Die 5 Bewertungen vom 22./23.11. sind von Freunden, NICHT von Kunden. Nicht auf der Website verwenden, keine Antworten dazu vorschlagen. Erst Bewertungen echter Kunden einbauen.
