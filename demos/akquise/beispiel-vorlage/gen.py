@@ -31,6 +31,11 @@ def build(c,out):
     d['STEPS']=''.join(f'<div class="step rv d{i%3}"><div class="im"><img src="img/{im}" alt="{h}" loading="lazy"></div><span class="n">{i+1}</span><div class="tx"><h3>{h}</h3><p>{p}</p></div></div>' for i,(im,h,p) in enumerate(c['steps']))
     d['GALLERY']=''.join(f'<figure class="rv {cl}"><img src="img/{im}" alt="{t}" loading="lazy"><figcaption><b>{t}</b><span>Beispielbild</span></figcaption></figure>' for im,t,cl in c['gallery'])
     d['FAQ']=''.join(f'<details class="rv"><summary>{q}</summary><p>{a}</p></details>' for q,a in c['faq'])
+    caps=[]
+    for i,(ra,rb,k,h,pp,end) in enumerate(c['scaps']):
+        row=f'<div class="row"><a class="btn wa" href="#anfrage">{I["I_WA"]}Foto per WhatsApp</a><a class="btn w" href="#anfrage">Angebot anfordern</a></div>' if end else ''
+        caps.append(f'<div class="scap{" end" if end else ""}" data-a="{ra}" data-b="{rb}"><span class="k">{k}</span><h2>{h}</h2><p>{pp}</p>{row}</div>')
+    d['SCAPS']='\n    '.join(caps)
     d['CHIPS']=', '.join('"'+x+'"' for x in c['chips']); d['CHIP1']=c['chips'][0]
     s=T
     for k,v in d.items():

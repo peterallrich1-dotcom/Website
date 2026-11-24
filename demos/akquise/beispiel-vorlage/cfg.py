@@ -28,7 +28,11 @@ steps=[('s1.webp','Besichtigung','Wir schauen uns alles vor Ort an und beraten S
 GALH='Satte Farben, klare Kanten.',GALP='Ein paar Eindrücke, wie Ihre Projekte hier gezeigt werden können.',
 gallery=[('s2.webp','Fassade mit Gerüst','wide tall'),('s4.webp','Wohnzimmer in Grün','wide'),('s6.webp','Terrakotta mit der Rolle',''),('s8.webp','Marmorputz',''),('s1.webp','Villa von oben','wide'),('s7.webp','Arbeit mit der Kelle','wide')],
 faq=[('Was kostet das Streichen eines Zimmers?','Das hängt von Fläche, Untergrund und Farbe ab. Schicken Sie uns ein Foto per WhatsApp, dann bekommen Sie schnell eine erste Einschätzung und danach ein schriftliches Festpreis-Angebot.'),('Muss ich vorher die Möbel ausräumen?','Nein. Wir rücken die Möbel in die Raummitte und decken sie vollständig ab. Nur Zerbrechliches und Persönliches räumen Sie am besten vorher weg.'),('Wie lange dauert ein Zimmer?','Ein normales Zimmer ist meist an einem Tag gestrichen. Bei Spachtelarbeiten oder dunklen Farbtönen kann ein zweiter Tag nötig sein.'),('Arbeiten Sie auch für Hausverwaltungen?','Ja. Treppenhäuser, Wohnungsübergaben und Fassaden gehören für uns zum Alltag.')],
-CONTACTH='Sprechen Sie<br>mit uns.',
+CONTACTH='Sprechen Sie<br>mit uns.',SHADE='rgba(10,8,40,.78)',HEROBG='s4.webp',
+scaps=[(0,.22,'Farbkontor · Malermeisterbetrieb','Ein Haus.<br>Eine neue <em>Farbe.</em>','Scrollen Sie und fliegen Sie mit.',False),
+(.25,.48,'Außen','Fassaden, die<br><em>wieder strahlen.</em>','Gerüst, Reinigung und Anstrich, alles aus einer Hand.',False),
+(.52,.74,'Innen','Räume, in denen man<br><em>ankommen will.</em>','Satte Farben, saubere Kanten, kein Tropfen daneben.',False),
+(.78,1.1,'Ihr Projekt','Was dürfen wir<br><em>für Sie streichen?</em>','Ein Foto genügt für eine erste Einschätzung.',True)],
 )
 build(M,'../../../beispiel-maler/index.html')
 TT=dict(
@@ -59,6 +63,10 @@ steps=[('s2.webp','Aufmaß','Wir messen bei Ihnen vor Ort und hören uns Ihre W�
 GALH='Holz in seiner schönsten Form.',GALP='Ein paar Eindrücke, wie Ihre Projekte hier gezeigt werden können.',
 gallery=[('s5.webp','Küche und Einbauschrank','wide tall'),('s2.webp','Holzhaus mit Glasfront','wide'),('s4.webp','Montage vor Ort',''),('s3.webp','Werkbank im Rohbau',''),('s1.webp','Neubau am Waldrand','wide'),('s6.webp','Blick ins Haus','wide')],
 faq=[('Was kostet ein Einbauschrank nach Maß?','Das hängt von Größe, Holzart und Ausstattung ab. Schicken Sie uns ein Foto und grobe Maße, dann bekommen Sie eine erste Einschätzung und nach dem Aufmaß ein festes Angebot.'),('Bauen Sie auch nach meinen eigenen Zeichnungen?','Ja, gern. Wir prüfen Ihre Idee, machen Vorschläge zu Holz und Konstruktion und fertigen danach.'),('Welche Holzarten gibt es?','Zum Beispiel Eiche, Nussbaum, Buche und Esche, massiv oder furniert, geölt, lackiert oder gekalkt. Muster bringen wir zur Beratung mit.'),('Übernehmen Sie auch die Montage?','Ja. Unser eigenes Team baut alles bei Ihnen ein und nimmt Verpackung und Reste wieder mit.')],
-CONTACTH='Erzählen Sie uns<br>von Ihrem Projekt.',
+CONTACTH='Erzählen Sie uns<br>von Ihrem Projekt.',SHADE='rgba(20,12,6,.8)',HEROBG='s5.webp',
+scaps=[(0,.22,'Werkholz · Tischlerei','Holz, das<br><em>bleibt.</em>','Scrollen Sie und kommen Sie mit hinein.',False),
+(.25,.48,'Von der Werkstatt zu Ihnen','Gefertigt<br><em>auf den Millimeter.</em>','Aufmaß, Entwurf und Fertigung aus einer Hand.',False),
+(.52,.74,'Einbaumöbel','Jede Nische<br><em>wird genutzt.</em>','Schränke und Regale, die genau in Ihren Raum passen.',False),
+(.78,1.1,'Ihr Projekt','Was dürfen wir<br><em>für Sie bauen?</em>','Ein Foto und grobe Maße genügen für eine erste Idee.',True)],
 )
 build(TT,'../../../beispiel-tischler/index.html')
