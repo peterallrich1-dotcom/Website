@@ -76,29 +76,6 @@ img{display:block;max-width:100%}
 .glide .tag{position:absolute;left:14px;bottom:12px;background:rgba(243,241,234,.92);color:var(--text);padding:8px 12px;border-radius:4px;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
 @media(max-width:760px){.glide{width:78vw;top:auto;bottom:6vh}.story .pin{align-items:flex-start;padding-top:18vh}}
 
-/* Anzeigetafel + Region */
-.board{position:relative;background:var(--ink);padding:clamp(80px,12vw,150px) 0;overflow:hidden}
-.board .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,70px);align-items:center}
-.board h2{font:300 clamp(34px,4.4vw,62px)/1.04 var(--serif);letter-spacing:-.015em;margin:16px 0 26px}
-.board h2 em{font-style:italic;color:var(--g2)}
-.board .k{color:var(--g)}
-.flap{display:flex;flex-wrap:nowrap;gap:4px;margin:0 0 18px;--n:16;width:100%}
-.flap .c{flex:0 0 auto;width:min(38px,calc((100% - (var(--n) - 1) * 4px) / var(--n)));aspect-ratio:2/3;background:linear-gradient(180deg,#1b1f18 0 49.5%,#0f120d 50.5% 100%);border-radius:4px;display:grid;place-items:center;font:500 clamp(12px,1.9vw,28px)/1 var(--sans);color:#f2f2ec;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 2px 6px rgba(0,0,0,.4)}
-.flap .c::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.65)}
-.flap .c.f{animation:flip .09s linear}
-@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(70deg);filter:brightness(.6)}100%{transform:rotateX(0)}}
-.board .lede{color:var(--mute-l);max-width:520px}
-.mapbox{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;justify-self:end}
-#map{width:100%;height:100%}
-.ticket{position:absolute;right:0;bottom:4%;width:min(270px,70%);background:var(--paper);color:var(--text);border-radius:10px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
-.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.ticket .code{font:500 26px/1 var(--sans);letter-spacing:.04em}
-.ticket .code i{font-style:normal;color:var(--mute);font-size:16px;margin:0 6px}
-.ticket small{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
-.ticket hr{border:0;border-top:1px dashed var(--line-d);margin:12px 0}
-.ticket a{display:block;margin-top:12px;text-align:center;background:var(--gd);color:#fff;text-decoration:none;border-radius:6px;padding:10px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
-@media(max-width:900px){.board .grid{grid-template-columns:1fr}.mapbox{justify-self:center}}
-
 /* Technische Ansicht */
 .spec{padding:clamp(80px,11vw,140px) 0}
 .spec .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
@@ -140,8 +117,13 @@ img{display:block;max-width:100%}
 .track{display:flex;gap:clamp(12px,1.6vw,22px);padding:0 var(--gut);will-change:transform}
 .card{flex:0 0 auto;width:clamp(240px,30vw,420px)}
 .card .im{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111}
-.card img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform .8s}
-.card:hover img{transform:scale(1)}
+.card img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}
+.card:nth-child(2n) img{animation-name:kb2;animation-duration:17s}
+.card:nth-child(3n) img{animation-name:kb3;animation-duration:15s}
+@keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.18) translate(-3%,-2%)}}
+@keyframes kb2{from{transform:scale(1.16) translate(2%,1%)}to{transform:scale(1.04) translate(-2%,0)}}
+@keyframes kb3{from{transform:scale(1.05) translate(-2%,2%)}to{transform:scale(1.17) translate(2%,-2%)}}
+.plan img{animation:kb 18s ease-in-out infinite alternate}
 .card b{display:block;margin-top:12px;font:300 22px/1.2 var(--serif)}
 .card span{font:600 9px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute-l)}
 
@@ -175,8 +157,10 @@ img{display:block;max-width:100%}
 .rw .k{color:var(--mute-l)}
 .rw .flap{margin:0;gap:3px;min-width:0}
 .rw .flap{gap:3px}.rw .flap .c{width:min(24px,calc((100% - (var(--n) - 1) * 3px) / var(--n)));font-size:clamp(9px,1.25vw,17px);border-radius:3px}
+.rw .val{font:300 clamp(20px,2.4vw,32px)/1.2 var(--serif);letter-spacing:-.01em}
 .rw .go{font:600 11px/1 var(--sans);letter-spacing:.2em;color:var(--g)}
-@media(max-width:760px){.rw{grid-template-columns:1fr}.rw .go{display:none}}
+@media(max-width:760px){.rw{grid-template-columns:1fr}.rw .val{font:300 clamp(20px,2.4vw,32px)/1.2 var(--serif);letter-spacing:-.01em}
+.rw .go{display:none}}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent}
 .btn.g{background:var(--g);color:#0f1a07}
@@ -226,27 +210,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </div>
 </section>
 
-<section class="board">
-  <div class="wrap grid">
-    <div class="rv">
-      <p class="k">Unsere Leistungen</p>
-      <h2>Wir bauen für Sie<br><em>jeden Tag etwas Neues.</em></h2>
-      <div class="flap" id="flap1" aria-live="polite"></div>
-      <p class="lede">Gartengestaltung und Bepflanzung, Natursteinbau, Wegebau, Terrassenbau, Brunnen und Teiche. Wir sind in Heilbronn zu Hause und kommen zur Beratung zu Ihnen, in der ganzen Region.</p>
-    </div>
-    <div class="mapbox rv">
-      <canvas id="map" aria-label="Karte: Einsatzgebiet rund um Heilbronn"></canvas>
-      <div class="ticket">
-        <div class="row"><small>Von</small><small>Nach</small></div>
-        <div class="row"><span class="code">HN<i>→</i></span><span class="code" id="tCode">NSU</span></div>
-        <div class="row"><small>Böckingen</small><small id="tName">Neckarsulm</small></div>
-        <hr>
-        <div class="row"><small>Beratung</small><small>Vor Ort bei Ihnen</small></div>
-        <a href="tel:+491778660721">Beratung anfragen</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="paper spec" id="ablauf">
   <div class="wrap">
@@ -316,10 +280,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <h2 class="rv">Sprechen Sie<br><em>mit uns.</em></h2>
     <p class="lede rv">Tagsüber sind wir oft auf der Baustelle. Rufen Sie an oder schreiben Sie uns, wir melden uns gern zurück.</p>
     <div class="rows">
-      <a class="rw" href="tel:+491778660721"><span class="k">Mobil</span><div class="flap" data-text="0177 866 07 21"></div><span class="go">ANRUFEN →</span></a>
-      <a class="rw" href="tel:+4971312791718"><span class="k">Telefon &amp; Fax</span><div class="flap" data-text="07131 279 17 18"></div><span class="go">ANRUFEN →</span></a>
-      <a class="rw" href="mailto:info@tafa-gartenbau.de"><span class="k">E-Mail</span><div class="flap" data-text="INFO@TAFA-GARTENBAU.DE"></div><span class="go">SCHREIBEN →</span></a>
-      <a class="rw" href="https://maps.google.com/?q=Gro%C3%9Fgartacher+Str.+260,+74080+Heilbronn" target="_blank" rel="noopener"><span class="k">Adresse</span><div class="flap" data-text="GROSSGARTACHER STR. 260"></div><span class="go">KARTE →</span></a>
+      <a class="rw" href="tel:+491778660721"><span class="k">Mobil</span><span class="val">0177 866 07 21</span><span class="go">ANRUFEN →</span></a>
+      <a class="rw" href="tel:+4971312791718"><span class="k">Telefon &amp; Fax</span><span class="val">07131 279 17 18</span><span class="go">ANRUFEN →</span></a>
+      <a class="rw" href="mailto:info@tafa-gartenbau.de"><span class="k">E-Mail</span><span class="val">info@tafa-gartenbau.de</span><span class="go">SCHREIBEN →</span></a>
+      <a class="rw" href="https://maps.google.com/?q=Gro%C3%9Fgartacher+Str.+260,+74080+Heilbronn" target="_blank" rel="noopener"><span class="k">Adresse</span><span class="val">Großgartacher Str. 260, Heilbronn</span><span class="go">KARTE →</span></a>
     </div>
     <div class="cta rv"><a class="btn g" href="tel:+491778660721">Jetzt anrufen</a><a class="btn o" href="https://wa.me/491778660721" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
@@ -432,83 +396,6 @@ function renderProj() {
   cnt.textContent = String(Math.min(12, 1 + Math.round(p * 11))).padStart(2, "0") + " / 12";
 }
 
-/* Anzeigetafel */
-const CH = " ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ0123456789.-@&/→";
-function makeFlap(el, len) { el.innerHTML = ""; el.style.setProperty("--n", len); for (let i = 0; i < len; i++) { const c = document.createElement("span"); c.className = "c"; c.textContent = " "; el.append(c); } return [...el.children]; }
-function flapTo(cells, text, speed = 28) {
-  text = text.toUpperCase().padEnd(cells.length, " ").slice(0, cells.length);
-  cells.forEach((c, i) => {
-    const target = text[i]; if (c.textContent === target) return;
-    let steps = 4 + Math.floor(Math.random() * 6) + i % 3;
-    const tick = () => {
-      c.classList.remove("f"); void c.offsetWidth; c.classList.add("f");
-      c.textContent = steps-- > 0 ? CH[Math.floor(Math.random() * CH.length)] : target;
-      if (steps >= 0) setTimeout(tick, speed);
-    };
-    setTimeout(tick, i * 18);
-  });
-}
-const SERV = ["NATURSTEINMAUERN", "TERRASSEN", "GARTENWEGE", "GABIONEN", "BEPFLANZUNG", "BRUNNEN & TEICHE", "HOFEINFAHRTEN"];
-const flap1 = document.getElementById("flap1");
-const cells1 = makeFlap(flap1, 16);
-let si = 0, flapRun = false;
-function nextServ() { const t = SERV[si % SERV.length]; flapTo(cells1, t.padStart(t.length + Math.floor((16 - t.length) / 2)).slice(0, 16)); si++; }
-document.querySelectorAll(".rw .flap").forEach(el => { el._cells = makeFlap(el, el.dataset.text.length); });
-
-/* Region um Heilbronn: Punkte und Bögen */
-const TOWNS = [
-  ["NSU", "Neckarsulm", 49.192, 9.225], ["WBG", "Weinsberg", 49.151, 9.285], ["LEI", "Leingarten", 49.146, 9.116],
-  ["BRA", "Bad Rappenau", 49.238, 9.103], ["LAU", "Lauffen", 49.073, 9.142], ["BRH", "Brackenheim", 49.078, 9.066],
-  ["EPP", "Eppingen", 49.137, 8.911], ["OEH", "Öhringen", 49.2, 9.502], ["BFH", "Bad Friedrichshall", 49.231, 9.214],
-  ["FLE", "Flein", 49.103, 9.212], ["UGR", "Untergruppenbach", 49.088, 9.276], ["SCH", "Schwaigern", 49.144, 9.053]
-];
-const HN = [49.142, 9.218];
-const map = document.getElementById("map"), mx = map.getContext("2d");
-let MW = 0, MD = 1, mapT0 = 0, mapOn = false, cur = 0;
-function proj2(lat, lon) { const sc = MW * 1.45; return [MW / 2 + (lon - HN[1]) * sc * Math.cos(HN[0] * Math.PI / 180), MW / 2 - (lat - HN[0]) * sc]; }
-const dots = [];
-for (let i = 0; i < 1400; i++) { const a = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()); dots.push([Math.cos(a) * r, Math.sin(a) * r, Math.random()]); }
-function drawMap(now) {
-  if (!MW) return;
-  mx.setTransform(MD, 0, 0, MD, 0, 0); mx.clearRect(0, 0, MW, MW);
-  const R = MW * .47, cx = MW / 2, cy = MW / 2, t = (now - mapT0) / 1000;
-  /* gepunktete Scheibe mit sanfter Drehung */
-  const rot = t * .04;
-  for (const [x, y, z] of dots) {
-    const xr = x * Math.cos(rot) - y * Math.sin(rot), yr = x * Math.sin(rot) + y * Math.cos(rot);
-    const d = Math.hypot(xr, yr);
-    mx.fillStyle = `rgba(242,242,236,${(.08 + .22 * (1 - d)) * (.6 + .4 * z)})`;
-    mx.fillRect(cx + xr * R, cy + yr * R, 1.4, 1.4);
-  }
-  mx.strokeStyle = "rgba(242,242,236,.12)"; mx.lineWidth = 1;
-  [1, .66, .33].forEach(k => { mx.beginPath(); mx.arc(cx, cy, R * k, 0, Math.PI * 2); mx.stroke(); });
-  const [hx, hy] = proj2(HN[0], HN[1]);
-  TOWNS.forEach((tw, i) => {
-    const [x, y] = proj2(tw[2], tw[3]);
-    const delay = i * .35, k = clamp((t - delay) / 1.1);
-    const active = i === cur;
-    const mxp = (hx + x) / 2, myp = (hy + y) / 2 - Math.hypot(x - hx, y - hy) * .35;
-    mx.strokeStyle = active ? "rgba(155,210,100,.95)" : "rgba(155,210,100,.32)"; mx.lineWidth = active ? 1.6 : 1;
-    mx.beginPath();
-    for (let s = 0; s <= 40 * k; s++) { const u = s / 40; const px = (1 - u) * (1 - u) * hx + 2 * (1 - u) * u * mxp + u * u * x, py = (1 - u) * (1 - u) * hy + 2 * (1 - u) * u * myp + u * u * y; s ? mx.lineTo(px, py) : mx.moveTo(px, py); }
-    mx.stroke();
-    if (k >= 1) {
-      mx.fillStyle = active ? "#9bd264" : "rgba(242,242,236,.8)";
-      mx.beginPath(); mx.arc(x, y, active ? 3.6 : 2.2, 0, Math.PI * 2); mx.fill();
-      mx.font = `${active ? 600 : 500} ${Math.max(9, MW * .021)}px Manrope, sans-serif`;
-      mx.fillStyle = active ? "#c3e89c" : "rgba(242,242,236,.55)";
-      mx.fillText(tw[1].toUpperCase(), x + 7, y - 6);
-    }
-  });
-  const pulse = (t % 2) / 2;
-  mx.strokeStyle = `rgba(155,210,100,${1 - pulse})`; mx.beginPath(); mx.arc(hx, hy, 5 + pulse * 22, 0, Math.PI * 2); mx.stroke();
-  mx.fillStyle = "#9bd264"; mx.beginPath(); mx.arc(hx, hy, 5, 0, Math.PI * 2); mx.fill();
-  mx.font = `600 ${Math.max(10, MW * .025)}px Manrope, sans-serif`; mx.fillStyle = "#fff"; mx.fillText("HEILBRONN", hx + 10, hy + 18);
-}
-function sizeMap() { MD = Math.min(2, devicePixelRatio || 1); MW = map.clientWidth; map.width = MW * MD; map.height = MW * MD; }
-const tCode = document.getElementById("tCode"), tName = document.getElementById("tName");
-function nextTown() { cur = (cur + 1) % TOWNS.length; tCode.textContent = TOWNS[cur][0]; tName.textContent = TOWNS[cur][1]; }
-
 /* Vorher / Nachher */
 const cmp = document.getElementById("cmp"), after = cmp.querySelector(".after"), hd = cmp.querySelector(".hd");
 function setCmp(x) { const r = cmp.getBoundingClientRect(), p = clamp((x - r.left) / r.width, .02, .98) * 100; after.style.clipPath = `inset(0 0 0 ${p}%)`; hd.style.left = p + "%"; }
@@ -521,22 +408,17 @@ cmp.addEventListener("pointerup", () => drag = false);
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   e.target.classList.add("in");
-  if (e.target.classList.contains("mapbox")) { mapOn = true; mapT0 = performance.now(); }
-  if (e.target === flap1.parentElement && !flapRun) { flapRun = true; nextServ(); setInterval(nextServ, 2600); }
   io.unobserve(e.target);
 }), { threshold: .2 });
 document.querySelectorAll(".rv,#plan").forEach(el => io.observe(el));
-const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { flapTo(e.target._cells, e.target.dataset.text, 24); io2.unobserve(e.target); } }), { threshold: .6 });
-document.querySelectorAll(".rw .flap").forEach(el => io2.observe(el));
-setInterval(nextTown, 2200);
+
 
 let ticking = false;
 function frame() { ticking = false; render(); renderStory(); renderProj(); }
 addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
-addEventListener("resize", () => { size(); sizeMap(); frame(); });
+addEventListener("resize", () => { size(); frame(); });
 imgs.forEach(im => im.addEventListener("load", frame));
-size(); sizeMap(); frame();
-(function loop(now) { if (mapOn) drawMap(now); requestAnimationFrame(loop); })(performance.now());
+size(); frame();
 })();
 </script>
 </body>
