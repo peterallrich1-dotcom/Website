@@ -277,3 +277,6 @@ Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präf
 **Kaya (23.11.):** hat aus persönlichen Gründen vorerst abgesagt. Freundliche Antwort gesendet. NICHT nachhaken, er meldet sich selbst. Entwurf /yk/ bleibt online.
 
 **Google-Bewertungen (23.11.):** Die 5 Bewertungen vom 22./23.11. sind von Freunden, NICHT von Kunden. Nicht auf der Website verwenden, keine Antworten dazu vorschlagen. Erst Bewertungen echter Kunden einbauen.
+
+## Malermeister Jörn Michaelis, Neubrandenburg (24.11.2026)
+Peter hat angerufen, Interesse (arbeitet gerade selbst an einer Website). Entwurf: allrich-webdesign.com/michaelis/ (Texte, Fotos und Logo von malermeister-michaelis.de, Scroll-Film aus Peters KI-Video, Vorher-Nachher-Regler mit Beispielbildern). Mail mit Entwurf am 24.11. an Malermeister-jm@web.de gesendet (über Gmail, von Peter freigegeben). Offen: echte Vorher-Nachher-Fotos, aktuelle Fotos, gewünschte E-Mail-Adresse auf der Seite, Impressum/Datenschutz.
