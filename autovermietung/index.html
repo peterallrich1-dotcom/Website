@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Noctis · Luxury Car Rental Dubai (Beispielseite)</title>
+<meta name="description" content="Beispielseite von Allrich Webdesign: Scroll-Film-Website für eine fiktive Luxus-Autovermietung in Dubai.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#060608">
+<link rel="preload" href="film/drive/f001.webp" as="image">
+<style>
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
+:root{--ink:#060608;--ink2:#0e0e12;--ink3:#16161c;--text:#efece6;--mute:#8d8a84;--amber:#e0a85c;--amber2:#f3c98b;--line:rgba(255,255,255,.12);--paper:#f2efe9;--ptext:#17161a;
+  --serif:"Fraunces",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:clamp(16px,4.5vw,64px);--max:1280px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.5em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font-size:9px;letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
+.film{position:relative}
+.film .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.film canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 52%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(820px,88vw);pointer-events:none}
+.cap .k{color:var(--amber);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.96 var(--serif);letter-spacing:-.025em;margin:14px 0 0}
+.cap em{font-style:italic;color:var(--amber2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cap.on .w{opacity:1;transform:none;filter:none}
+.cap.top2{bottom:auto;top:clamp(90px,15vh,150px)}
+.cap.top2 h2{font-size:clamp(32px,4.4vw,64px)}
+.gauge{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);width:140px;height:140px;pointer-events:none}
+.gauge canvas{position:static;width:140px;height:140px}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font:300 34px/1 var(--serif);padding-top:8px}
+.gauge span{position:absolute;left:0;right:0;bottom:30px;text-align:center;font:600 9px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.65)}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .4s}
+@media(max-width:700px){.gauge{display:none}}
+
+.paper{background:var(--paper);color:var(--ptext)}
+.story{position:relative;height:280vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(900px,50vw);padding:0 var(--gut)}
+.story .k{color:#8a5a1c}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(23,22,26,.14);transition:color .25s}
+.story p.big span.on{color:var(--ptext)}
+#glide{position:absolute;left:0;top:50%;width:min(40vw,600px);aspect-ratio:16/10;object-fit:cover;border-radius:8px;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);will-change:transform;z-index:1}
+@media(max-width:760px){.story .txt{max-width:none}#glide{width:88vw;top:auto;bottom:8vh}.story .pin{align-items:flex-start;padding-top:16vh}}
+
+.hot{position:absolute;z-index:4;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .5s}
+.hotson .hot{opacity:1;pointer-events:auto}
+.hot button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:rgba(6,6,8,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:300 22px/1 var(--sans);cursor:pointer;animation:pulse 2.4s infinite;transition:transform .3s}
+.hot.open button{transform:rotate(45deg);background:var(--amber);color:#1a1206;border-color:var(--amber)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,168,92,.6)}70%{box-shadow:0 0 0 16px rgba(224,168,92,0)}100%{box-shadow:0 0 0 0 rgba(224,168,92,0)}}
+.hot .card{position:absolute;left:50%;top:calc(100% + 12px);transform:translateX(-50%) translateY(6px);width:220px;background:rgba(242,239,233,.97);color:var(--ptext);border-radius:8px;padding:12px 14px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 20px 40px -14px rgba(0,0,0,.6)}
+.hot .card b{display:block;font:300 18px/1.2 var(--serif)}
+.hot .card p{margin:6px 0 0;font-size:13px;line-height:1.45;color:#57534c}
+.hot.open{z-index:6}.hot.open .card{opacity:1;transform:translateX(-50%)}
+
+/* Preisrechner */
+.calc{padding:clamp(80px,11vw,140px) 0}
+.calc h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 36px}
+.calc h2 em{font-style:italic;color:#8a5a1c}
+.calc .k{color:#8a5a1c}
+.cgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(18px,3vw,40px);align-items:start}
+.panel{background:#fbf9f5;border:1px solid rgba(23,22,26,.1);border-radius:14px;padding:clamp(20px,3vw,32px)}
+.panel h3{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 14px}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.seg button{border:1px solid rgba(23,22,26,.16);background:#fff;border-radius:999px;padding:11px 18px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ptext);transition:background .2s,color .2s,border-color .2s}
+.seg button[aria-pressed="true"]{background:var(--ptext);color:#fff;border-color:var(--ptext)}
+.range{margin:6px 0 28px}
+.range .row{display:flex;justify-content:space-between;align-items:baseline}
+.range b{font:300 40px/1 var(--serif)}
+.range input{width:100%;margin-top:14px;accent-color:#8a5a1c}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(23,22,26,.12);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .t b{display:block;font-weight:600;font-size:15px}
+.opt .t span{font-size:13px;color:var(--mute)}
+.opt .pr{font-weight:600;font-size:14px;white-space:nowrap}
+.opt .sw{width:42px;height:24px;border-radius:999px;background:#ddd8cf;position:relative;flex:0 0 auto;transition:background .2s}
+.opt .sw::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.opt:has(input:checked){border-color:#8a5a1c;box-shadow:0 0 0 3px rgba(138,90,28,.1)}
+.opt:has(input:checked) .sw{background:#8a5a1c}
+.opt:has(input:checked) .sw::after{transform:translateX(18px)}
+.sum{position:sticky;top:90px;background:var(--ink);color:var(--text);border-radius:14px;padding:clamp(22px,3vw,34px);overflow:hidden}
+.sum img{width:calc(100% + 2 * clamp(22px,3vw,34px));margin:calc(-1 * clamp(22px,3vw,34px)) calc(-1 * clamp(22px,3vw,34px)) 20px;aspect-ratio:16/9;object-fit:cover;display:block}
+.sum .k{color:var(--amber)}
+.sum .total{font:300 clamp(48px,6vw,76px)/1 var(--serif);letter-spacing:-.03em;margin:10px 0 4px}
+.sum .per{color:var(--mute);font-size:14px}
+.sum ul{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+.sum li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.sum li span:last-child{color:var(--mute)}
+.sum .btn{margin-top:22px;width:100%;justify-content:center}
+.note{font-size:12px;color:var(--mute);margin-top:14px}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.sum{position:relative;top:0}}
+
+/* Karte */
+.map{position:relative;height:420vh;background:var(--ink)}
+.map .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#city{position:absolute;inset:0;width:100%;height:100%}
+.map .ov{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(80px,12vh,120px) var(--gut) clamp(40px,8vh,80px);pointer-events:none}
+.map h2{font:300 clamp(36px,5vw,76px)/1 var(--serif);letter-spacing:-.02em;margin:12px 0 0;max-width:620px}
+.map h2 em{font-style:italic;color:var(--amber2)}
+.map .k{color:var(--amber)}
+.map .stats{display:flex;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.map .stats div{border-left:1px solid var(--line);padding-left:12px}
+.map .stats b{display:block;font:300 clamp(26px,3vw,40px)/1 var(--serif)}
+.map .stats span{font:600 9px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ticket{position:absolute;z-index:3;right:var(--gut);top:50%;transform:translateY(-50%);width:min(280px,78vw);background:var(--paper);color:var(--ptext);border-radius:10px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ticket .code{font:300 26px/1.1 var(--serif)}
+.ticket small{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ticket hr{border:0;border-top:1px dashed rgba(23,22,26,.2);margin:12px 0}
+.ticket a{display:block;margin-top:12px;text-align:center;background:var(--ptext);color:#fff;text-decoration:none;border-radius:6px;padding:10px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:760px){.ticket{top:auto;bottom:16vh;transform:none}}
+
+/* Ablauf + FAQ */
+.how{padding:clamp(80px,11vw,140px) 0}
+.how h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 40px}
+.how h2 em{font-style:italic;color:#8a5a1c}
+.how .k{color:#8a5a1c}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border-top:1px solid rgba(23,22,26,.2);padding-top:18px}
+.step .n{font:300 54px/1 var(--serif);color:#8a5a1c}
+.step h3{font:300 28px/1.1 var(--serif);margin:14px 0 8px}
+.step p{margin:0;color:#57534c;font-size:15px}
+.faq{margin-top:70px;border-top:1px solid rgba(23,22,26,.16)}
+.faq details{border-bottom:1px solid rgba(23,22,26,.16)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:300 clamp(20px,2.2vw,28px)/1.2 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{font-style:normal;font:300 26px var(--sans);transition:transform .3s;color:#8a5a1c}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq p{margin:0 0 20px;color:#57534c;max-width:720px}
+@media(max-width:900px){.steps{grid-template-columns:1fr}}
+
+.end{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.end img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.14) translateY(-1%)}}
+.end::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.2),rgba(6,6,8,.85))}
+.end .wrap{position:relative;z-index:2;padding-bottom:clamp(60px,10vh,110px);width:100%}
+.end h2{font:300 clamp(48px,8vw,128px)/.92 var(--serif);letter-spacing:-.035em;margin:12px 0 22px}
+.end h2 em{font-style:italic;color:var(--amber2)}
+.end .k{color:var(--amber)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.a{background:var(--amber);color:#1a1206}
+.btn.o{border-color:rgba(255,255,255,.3);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(6,6,8,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--amber2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#">NOCTIS<small>LUXURY CAR RENTAL · DUBAI</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#wagen">Der Wagen</a> · <a href="#preise">Preise</a> · <a href="#lieferung">Lieferung</a></div>
+    <div><b>Standort</b>Dubai · Al Quoz</div>
+    <div><b>Lieferung</b>Rund um die Uhr</div>
+  </div>
+  <a class="call" href="#preise">Buchen</a>
+</header>
+
+<section class="film hero" id="hero" style="height:720vh">
+  <div class="stage">
+    <canvas id="c1" aria-label="Film: Hypercar bei Nacht auf dem Highway in Dubai"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a=".2" data-b=".42"><p class="k">Noctis · Dubai</p><h1>Die Stadt bei Nacht.<br><em>Gehört Ihnen.</em></h1></div>
+    <div class="cap" data-a=".44" data-b=".7"><p class="k">Hypercar</p><h2>1.500 PS.<br><em>Ein Schlüssel.</em></h2></div>
+    <div class="cap" data-a=".72" data-b="1.1"><p class="k">Lieferung</p><h2>Wir bringen ihn,<br><em>wohin Sie wollen.</em></h2></div>
+    <div class="gauge"><canvas id="gauge" width="280" height="280"></canvas><b id="kmh">0</b><span>KM/H</span></div>
+    <div class="hint" id="hint">SCROLLEN</div>
+  </div>
+</section>
+
+<section class="paper story">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Der Wagen</p>
+      <p class="big" id="big">Sechzehn Zylinder, vier Turbolader und eine Karosserie aus Sichtcarbon. Wir übergeben ihn vollgetankt und gereinigt an Ihrem Hotel, am Flughafen oder vor Ihrer Villa. Sie fahren. Wir kümmern uns um alles andere.</p>
+    </div>
+    <img id="glide" src="film/drive/f070.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+  </div>
+</section>
+
+<section class="film front" id="wagen" style="height:440vh">
+  <div class="stage">
+    <canvas id="c2" aria-label="Film: Das Hypercar fährt frontal auf die Kamera zu"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".38"><p class="k">Design</p><h2>Er kommt<br><em>auf Sie zu.</em></h2></div>
+    <div class="cap" data-a=".4" data-b=".76"><p class="k">Licht</p><h2>Acht Augen<br><em>für die Nacht.</em></h2></div>
+    <div class="cap top2" data-a=".78" data-b="1.1"><p class="k">Entdecken</p><h2>Tippen Sie auf<br><em>die Punkte.</em></h2></div>
+    <div class="hot" data-x=".35" data-y=".485"><button type="button" aria-label="Scheinwerfer">+</button><div class="card"><b>Scheinwerfer</b><p>Vier LED-Module je Seite, die Straße wird bei Nacht taghell.</p></div></div>
+    <div class="hot" data-x=".508" data-y=".59"><button type="button" aria-label="Kühlergrill">+</button><div class="card"><b>Kühlergrill</b><p>Das Erkennungszeichen der Marke, von Hand poliert.</p></div></div>
+    <div class="hot" data-x=".5" data-y=".38"><button type="button" aria-label="Haube">+</button><div class="card"><b>Sichtcarbon</b><p>Haube und Mittelteil aus Carbon, leicht und extrem steif.</p></div></div>
+    <div class="hot" data-x=".328" data-y=".34"><button type="button" aria-label="Spiegel">+</button><div class="card"><b>Außenspiegel</b><p>Schmal und aerodynamisch geformt, beheizt und elektrisch einstellbar.</p></div></div>
+    <div class="hot" data-x=".66" data-y=".61"><button type="button" aria-label="Lufteinlass">+</button><div class="card"><b>Lufteinlässe</b><p>Kühlen Motor und Bremsen, auch bei hohem Tempo.</p></div></div>
+  </div>
+</section>
+
+<section class="paper calc" id="preise">
+  <div class="wrap">
+    <p class="k rv">Preise</p>
+    <h2 class="rv">Ihr Wagen.<br><em>Ihr Preis.</em></h2>
+    <div class="cgrid">
+      <div class="panel rv">
+        <h3>Abholung</h3>
+        <div class="seg" id="place">
+          <button type="button" aria-pressed="true" data-v="0">Hotel</button>
+          <button type="button" aria-pressed="false" data-v="0">Villa</button>
+          <button type="button" aria-pressed="false" data-v="350">Flughafen DXB</button>
+          <button type="button" aria-pressed="false" data-v="0">Unsere Garage</button>
+        </div>
+        <h3>Mietdauer</h3>
+        <div class="range"><div class="row"><b id="dLbl">3 Tage</b><span class="note" id="dDisc" style="margin:0"></span></div><input type="range" id="days" min="1" max="14" value="3" aria-label="Mietdauer in Tagen"></div>
+        <h3>Extras</h3>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" data-day="900"><div class="t"><b>Chauffeur</b><span>Ein Fahrer bringt Sie überall hin</span></div><span class="pr">+ 900 € / Tag</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-day="290" checked><div class="t"><b>Vollkasko ohne Selbstbeteiligung</b><span>Entspannt fahren, ohne Risiko</span></div><span class="pr">+ 290 € / Tag</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-once="450"><div class="t"><b>Fotoshooting bei Nacht</b><span>Ein Fotograf begleitet Ihre erste Fahrt</span></div><span class="pr">+ 450 €</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-day="120"><div class="t"><b>Zusatzfahrer</b><span>Eine zweite Person darf fahren</span></div><span class="pr">+ 120 € / Tag</span><span class="sw"></span></label>
+        </div>
+      </div>
+      <div class="sum rv">
+        <img src="film/drive/f150.webp" alt="Das Hypercar von vorn" loading="lazy">
+        <p class="k">Ihre Buchung</p>
+        <div class="total" id="total">0 €</div>
+        <div class="per" id="per">inkl. Lieferung</div>
+        <ul id="lines"></ul>
+        <a class="btn a" href="#kontakt">Jetzt anfragen</a>
+        <p class="note">Beispielpreise einer fiktiven Vermietung. Kaution 50.000 €, Mindestalter 25 Jahre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map" id="lieferung">
+  <div class="pin">
+    <canvas id="city" aria-label="Karte von Dubai mit Lieferorten"></canvas>
+    <div class="ov">
+      <div><p class="k">Lieferung in ganz Dubai</p><h2>Von unserer Garage<br><em id="mTitle">zu Ihnen.</em></h2></div>
+      <div class="stats"><div><b id="mKm">0 km</b><span>Strecke</span></div><div><b id="mMin">0 Min.</b><span>Lieferzeit</span></div><div><b>24/7</b><span>Rund um die Uhr</span></div></div>
+    </div>
+    <div class="ticket">
+      <div class="row"><small>Von</small><small>Nach</small></div>
+      <div class="row"><span class="code">Al Quoz</span><span class="code" id="tTo">Downtown</span></div>
+      <hr>
+      <div class="row"><small>Übergabe</small><small id="tWhere">Vor dem Hotel</small></div>
+      <div class="row"><small>Status</small><small style="color:#2e7d4f">Verfügbar</small></div>
+      <a href="#preise">Lieferung buchen</a>
+    </div>
+  </div>
+</section>
+
+<section class="paper how">
+  <div class="wrap">
+    <p class="k rv">So einfach geht's</p>
+    <h2 class="rv">Drei Schritte<br><em>bis zur ersten Fahrt.</em></h2>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h3>Anfragen</h3><p>Wunschdatum und Ort nennen, per Formular, Telefon oder WhatsApp.</p></div>
+      <div class="step rv"><span class="n">02</span><h3>Übergabe</h3><p>Wir bringen den Wagen vollgetankt zu Ihnen und erklären alles in Ruhe.</p></div>
+      <div class="step rv"><span class="n">03</span><h3>Fahren</h3><p>Genießen Sie Dubai. Am Ende holen wir den Wagen wieder ab, wo Sie möchten.</p></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Welchen Führerschein brauche ich?<i>+</i></summary><p>Einen gültigen Führerschein aus Ihrem Heimatland und für viele Länder zusätzlich einen internationalen Führerschein. Wir prüfen das vorab für Sie.</p></details>
+      <details><summary>Wie hoch ist die Kaution?<i>+</i></summary><p>Die Kaution wird bei der Übergabe auf Ihrer Kreditkarte geblockt und nach der Rückgabe wieder freigegeben.</p></details>
+      <details><summary>Wie alt muss ich sein?<i>+</i></summary><p>Für dieses Fahrzeug mindestens 25 Jahre, mit mindestens drei Jahren Fahrpraxis.</p></details>
+      <details><summary>Kann ich den Wagen auch mit Fahrer buchen?<i>+</i></summary><p>Ja. Mit dem Extra „Chauffeur“ fährt Sie ein erfahrener Fahrer, wohin Sie möchten.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="kontakt">
+  <img src="film/drive/f030.webp" alt="Die Skyline von Dubai bei Nacht" loading="lazy">
+  <div class="wrap">
+    <p class="k">Kontakt</p>
+    <h2>Heute Nacht<br><em>noch frei.</em></h2>
+    <div class="cta"><a class="btn a" href="https://allrich-webdesign.com/#kontakt">Solche Website anfragen</a><a class="btn o" href="https://allrich-webdesign.com">Allrich Webdesign</a></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>Noctis ist eine fiktive Vermietung. Beispielseite von Allrich Webdesign, Potsdam. Markennamen gehören ihren Inhabern.</span><span>Film aus KI-Video, im Browser abgespielt</span></div></footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Beispielseite</b> von Allrich Webdesign</a>
+
+<script>
+(() => {
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+const visible = el => { const r = el.getBoundingClientRect(); return r.bottom > -50 && r.top < innerHeight + 50; };
+const DPR = Math.min(2, devicePixelRatio || 1);
+const euro = n => Math.round(n).toLocaleString("de-DE") + " €";
+
+function splitWords(el, cls, delay) {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) { const f = document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); if (cls) s.className = cls; if (delay) s.style.transitionDelay = (i++ * delay) + "ms"; s.textContent = p; f.append(s); }); c.replaceWith(f); }
+    else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(el);
+}
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => splitWords(h, "w", 70));
+splitWords(document.getElementById("big"));
+
+/* Scroll-Film aus Videobildern */
+class Film {
+  constructor(canvas, dir, from, to, fx = .5, mobZoom = 0) {
+    this.mz = mobZoom; this.c = canvas; this.x = canvas.getContext("2d"); this.from = from; this.n = to - from + 1; this.fx = fx; this.imgs = []; this.last = -1; this.want = 0;
+    const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${dir}/f${String(from + i).padStart(3, "0")}.webp`; im.onload = () => { if (Math.abs(i - this.want) < 3) this.last = -1; }; this.imgs[i] = im; };
+    load(0);
+    const order = []; for (let st = 8; st >= 1; st >>= 1) for (let i = 0; i < this.n; i += st) if (!order.includes(i)) order.push(i);
+    let k = 0; const next = () => { for (let j = 0; j < 6 && k < order.length; j++, k++) if (!this.imgs[order[k]]) load(order[k]); if (k < order.length) setTimeout(next, 50); }; next();
+  }
+  near(i) { for (let d = 0; d < this.n; d++) for (const j of [i - d, i + d]) { const im = this.imgs[j]; if (im && im.complete && im.naturalWidth) return im; } return null; }
+  size() { const w = this.c.clientWidth, h = this.c.clientHeight; if (this.c.width !== Math.round(w * DPR) || this.c.height !== Math.round(h * DPR)) { this.c.width = Math.round(w * DPR); this.c.height = Math.round(h * DPR); this.last = -1; } return [w, h]; }
+  cover(w, h, im) { let s = Math.max(w / im.naturalWidth, h / im.naturalHeight); if (this.mz && h > w) s = Math.min(s, w / im.naturalWidth * this.mz); const dw = im.naturalWidth * s, dh = im.naturalHeight * s; return { ox: (w - dw) * this.fx, oy: (h - dh) / 2, dw, dh }; }
+  draw(p) {
+    const [w, h] = this.size(), i = Math.round(clamp(p) * (this.n - 1)); this.want = i;
+    if (i === this.last) return; const im = this.near(i); if (!im) return;
+    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); const c = this.cover(w, h, im);
+    if (c.dh < h) { const s2 = Math.max(w / im.naturalWidth, h / im.naturalHeight); this.x.drawImage(im, (w - im.naturalWidth * s2) / 2, (h - im.naturalHeight * s2) / 2, im.naturalWidth * s2, im.naturalHeight * s2); this.x.fillStyle = "rgba(6,6,8,.78)"; this.x.fillRect(0, 0, w, h); }
+    this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
+    if (im === this.imgs[i]) this.last = i;
+  }
+}
+
+/* 1. Hauptfilm mit Tacho */
+const hero = document.getElementById("hero"), f1 = new Film(document.getElementById("c1"), "film/drive", 1, 80, .5);
+const caps1 = [...hero.querySelectorAll(".cap")], kmh = document.getElementById("kmh"), hint = document.getElementById("hint");
+const gC = document.getElementById("gauge"), gx = gC.getContext("2d");
+function gauge(v) {
+  gx.clearRect(0, 0, 280, 280); const a0 = Math.PI * .75, a1 = Math.PI * 2.25, cx = 140, cy = 140, r = 120;
+  gx.lineCap = "round"; gx.lineWidth = 3; gx.strokeStyle = "rgba(255,255,255,.18)"; gx.beginPath(); gx.arc(cx, cy, r, a0, a1); gx.stroke();
+  for (let i = 0; i <= 40; i++) { const a = a0 + (a1 - a0) * i / 40, l = i % 5 ? 8 : 16; gx.strokeStyle = i / 40 <= v ? "rgba(243,201,139,.95)" : "rgba(255,255,255,.25)"; gx.lineWidth = i % 5 ? 2 : 3; gx.beginPath(); gx.moveTo(cx + Math.cos(a) * (r - 6), cy + Math.sin(a) * (r - 6)); gx.lineTo(cx + Math.cos(a) * (r - 6 - l), cy + Math.sin(a) * (r - 6 - l)); gx.stroke(); }
+  gx.strokeStyle = "#e0a85c"; gx.lineWidth = 6; gx.shadowColor = "rgba(224,168,92,.8)"; gx.shadowBlur = 14; gx.beginPath(); gx.arc(cx, cy, r, a0, a0 + (a1 - a0) * v); gx.stroke(); gx.shadowBlur = 0;
+}
+function drawHero() {
+  const p = progress(hero);
+  f1.draw(p);
+  caps1.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  const v = ease(clamp((p - .18) / .55)); gauge(v); kmh.textContent = Math.round(v * 320);
+  hint.style.opacity = p > .02 ? 0 : 1;
+}
+
+/* 2. Heller Erzählteil */
+const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], glide = document.getElementById("glide");
+function drawStory() {
+  const p = progress(story), k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const mob = innerWidth < 760, q = p * p * (3 - 2 * p);
+  const x = mob ? lerp(innerWidth, -glide.offsetWidth, q) : lerp(innerWidth * 1.02, innerWidth * .52, q);
+  const y = mob ? 0 : -glide.offsetHeight / 2 + lerp(60, -90, q);
+  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(3, -4, q)}deg)`;
+}
+
+/* 3. Frontfahrt mit Punkten zum Anklicken */
+const front = document.querySelector(".front"), c2 = document.getElementById("c2"), f2 = new Film(c2, "film/drive", 81, 164, .5, 1.75);
+const caps2 = [...front.querySelectorAll(".cap")], hots = [...front.querySelectorAll(".hot")];
+function drawFront() {
+  const p = progress(front);
+  f2.draw(clamp(p / .78));
+  caps2.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  const im = f2.near(f2.n - 1); if (im) { const c = f2.cover(c2.clientWidth, c2.clientHeight, im); hots.forEach(el => { el.style.left = (c.ox + +el.dataset.x * c.dw) + "px"; el.style.top = (c.oy + +el.dataset.y * c.dh) + "px"; }); }
+  front.classList.toggle("hotson", p > .8);
+}
+hots.forEach(el => el.querySelector("button").addEventListener("click", () => { const o = el.classList.contains("open"); hots.forEach(x => x.classList.remove("open")); if (!o) el.classList.add("open"); }));
+
+/* 4. Preisrechner */
+const BASE = 4900, days = document.getElementById("days"), dLbl = document.getElementById("dLbl"), dDisc = document.getElementById("dDisc");
+const total = document.getElementById("total"), per = document.getElementById("per"), lines = document.getElementById("lines");
+const place = document.getElementById("place"); let shown = 0, target = 0;
+place.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; place.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); calc(); });
+function calc() {
+  const d = +days.value, disc = d >= 7 ? .15 : d >= 3 ? .08 : 0;
+  dLbl.textContent = d + (d === 1 ? " Tag" : " Tage"); dDisc.textContent = disc ? `−${Math.round(disc * 100)} % Rabatt` : "";
+  const pl = place.querySelector('[aria-pressed="true"]');
+  const rows = [[`Hypercar · ${d} ${d === 1 ? "Tag" : "Tage"}`, BASE * d * (1 - disc)]];
+  if (+pl.dataset.v) rows.push([`Übergabe am Flughafen`, +pl.dataset.v]);
+  document.querySelectorAll(".opt input:checked").forEach(i => { const t = i.closest(".opt").querySelector("b").textContent; rows.push([t, i.dataset.day ? +i.dataset.day * d : +i.dataset.once]); });
+  target = rows.reduce((a, r) => a + r[1], 0);
+  lines.innerHTML = rows.map(r => `<li><span>${r[0]}</span><span>${euro(r[1])}</span></li>`).join("");
+  per.textContent = `entspricht ${euro(target / d)} pro Tag · Lieferung inklusive`;
+}
+days.addEventListener("input", calc); document.querySelectorAll(".opt input").forEach(i => i.addEventListener("change", calc)); calc();
+(function tick() { shown = lerp(shown, target, .12); if (Math.abs(shown - target) < 1) shown = target; total.textContent = euro(shown); requestAnimationFrame(tick); })();
+
+/* 5. Karte von Dubai (schematisch, Kilometer-Raster) */
+// Küste von Jebel Ali (Südwest) bis Deira (Nordost)
+const COAST = [[-6, -8], [0, -3], [6, 1], [11, 5], [15, 8], [19, 11], [23, 14], [27, 17.5], [31, 21], [34, 24], [37, 27], [40, 31], [44, 34], [49, 37]];
+const PLACES = [
+  ["Downtown", "Vor dem Hotel", 30, 15.5, 22], ["Dubai Marina", "Vor Ihrer Wohnung", 8, -1, 28], ["Palm Jumeirah", "Vor der Villa", 14.5, 9.5, 31],
+  ["Flughafen DXB", "Direkt am Terminal", 41, 22.5, 26], ["Burj Al Arab", "Am Hoteleingang", 18, 6.5, 19], ["Business Bay", "Vor dem Büro", 31.5, 13, 18],
+  ["Jumeirah Beach", "Am Strand", 24, 13, 15], ["Al Maktoum DWC", "Am Privatterminal", -4, -22, 42]
+];
+const GARAGE = [24, 6];
+const ROADS = [
+  [[-10, -14], [0, -8], [10, -2], [18, 3], [26, 8], [32, 12], [38, 17], [44, 22], [52, 27]],            // große Küstenstraße
+  [[-12, -20], [0, -14], [12, -7], [22, -1], [30, 4], [38, 10], [46, 16], [54, 22]],                    // zweite Schnellstraße
+  [[2, 2], [8, -4], [14, -10], [22, -16]], [[16, 6], [22, 0], [28, -6], [34, -12]], [[28, 13], [34, 8], [40, 2], [46, -4]],
+  [[34, 20], [40, 16], [46, 12]], [[-4, -22], [2, -14], [6, -6], [8, -1]], [[40, 22], [44, 26], [47, 30]]
+];
+const mapSec = document.getElementById("lieferung"), city = document.getElementById("city"), mx = city.getContext("2d");
+const mTitle = document.getElementById("mTitle"), mKm = document.getElementById("mKm"), mMin = document.getElementById("mMin"), tTo = document.getElementById("tTo"), tWhere = document.getElementById("tWhere");
+let curP = -1, cam = { x: 22, y: 6, z: 1 };
+// Lichterpunkte der Stadt
+const LIGHTS = []; let sd = 3; const rr = () => (sd = (sd * 9301 + 49297) % 233280) / 233280;
+for (let i = 0; i < 4200; i++) { const t = rr(), base = COAST[Math.floor(t * (COAST.length - 1))]; const off = rr() * 16; LIGHTS.push([base[0] + (rr() - .5) * 6 + off * .6, base[1] - off + (rr() - .5) * 3, rr()]); }
+function drawMap(now) {
+  const p = progress(mapSec), W = city.clientWidth, H = city.clientHeight, T = now / 1000;
+  if (city.width !== Math.round(W * DPR)) { city.width = Math.round(W * DPR); city.height = Math.round(H * DPR); }
+  mx.setTransform(DPR, 0, 0, DPR, 0, 0); mx.fillStyle = "#100e0c"; mx.fillRect(0, 0, W, H);
+  const pi = Math.min(PLACES.length - 1, Math.floor(p * PLACES.length)), seg = p * PLACES.length - pi, P = PLACES[pi];
+  if (pi !== curP) { curP = pi; mTitle.textContent = "nach " + P[0] + "."; tTo.textContent = P[0]; tWhere.textContent = P[1]; const km = Math.hypot(P[2] - GARAGE[0], P[3] - GARAGE[1]) * 1.25; mKm.textContent = km.toFixed(1).replace(".", ",") + " km"; mMin.textContent = P[4] + " Min."; }
+  const tx = (GARAGE[0] + P[2]) / 2, ty = (GARAGE[1] + P[3]) / 2;
+  cam.x = lerp(cam.x, tx, .05); cam.y = lerp(cam.y, ty, .05);
+  const S = Math.min(W, H) / (W < 760 ? 34 : 40);
+  const X = x => W * (W < 760 ? .5 : .42) + (x - cam.x) * S, Y = y => H * .52 - (y - cam.y) * S;
+  // Meer (über der Küste) dunkler, Land leicht heller
+  mx.beginPath(); mx.moveTo(X(-60), Y(80)); COAST.forEach(([x, y], i) => mx.lineTo(X(x), Y(y))); mx.lineTo(X(120), Y(80)); mx.closePath();
+  mx.fillStyle = "#0b1018"; mx.fill();
+  // Palme
+  mx.save(); mx.translate(X(14.5), Y(12)); mx.strokeStyle = "rgba(243,201,139,.25)"; mx.lineWidth = Math.max(1, S * .25);
+  mx.beginPath(); mx.moveTo(0, S * 3); mx.lineTo(0, -S * 2.6); mx.stroke();
+  for (let i = 0; i < 8; i++) { const yy = -S * 2 + i * S * .55; mx.beginPath(); mx.moveTo(0, yy); mx.lineTo(-S * 2.1, yy - S * .4); mx.moveTo(0, yy); mx.lineTo(S * 2.1, yy - S * .4); mx.stroke(); }
+  mx.beginPath(); mx.arc(0, -S * .6, S * 3, Math.PI * 1.05, Math.PI * 1.95); mx.stroke(); mx.restore();
+  // Küstenlinie
+  mx.strokeStyle = "rgba(243,201,139,.35)"; mx.lineWidth = 1.2; mx.beginPath(); COAST.forEach(([x, y], i) => i ? mx.lineTo(X(x), Y(y)) : mx.moveTo(X(x), Y(y))); mx.stroke();
+  // Stadtlichter
+  for (const [x, y, z] of LIGHTS) { const tw = .35 + .65 * (.5 + .5 * Math.sin(T * 1.5 + z * 40)); mx.fillStyle = `rgba(255,${190 + z * 50 | 0},${120 + z * 80 | 0},${(.3 + z * .5) * tw})`; mx.fillRect(X(x), Y(y), 1.8, 1.8); }
+  // Straßen mit fließendem Verkehr
+  ROADS.forEach((rd, ri) => {
+    mx.strokeStyle = ri < 2 ? "rgba(224,168,92,.42)" : "rgba(224,168,92,.18)"; mx.lineWidth = ri < 2 ? 2 : 1; mx.beginPath(); rd.forEach(([x, y], i) => i ? mx.lineTo(X(x), Y(y)) : mx.moveTo(X(x), Y(y))); mx.stroke();
+    const n = ri < 2 ? 14 : 4;
+    for (let k = 0; k < n; k++) { const t = ((T * (ri < 2 ? .06 : .04) + k / n + ri * .13) % 1) * (rd.length - 1), j = Math.floor(t), f = t - j, a = rd[j], b = rd[j + 1] || a; mx.fillStyle = k % 3 ? "rgba(255,232,196,.95)" : "rgba(255,80,60,.9)"; mx.beginPath(); mx.arc(X(lerp(a[0], b[0], f)), Y(lerp(a[1], b[1], f)), ri < 2 ? 1.8 : 1.3, 0, Math.PI * 2); mx.fill(); }
+  });
+  // alle Lieferorte
+  PLACES.forEach((pl, i) => { const act = i === pi; mx.fillStyle = act ? "#f3c98b" : "rgba(243,201,139,.55)"; mx.beginPath(); mx.arc(X(pl[2]), Y(pl[3]), act ? 4 : 2.6, 0, Math.PI * 2); mx.fill(); mx.font = `${act ? 600 : 500} ${act ? 12 : 10}px Manrope,sans-serif`; mx.fillStyle = act ? "#fff" : "rgba(255,255,255,.5)"; mx.fillText(pl[0].toUpperCase(), X(pl[2]) + 9, Y(pl[3]) - 7); });
+  // Lieferroute (über Straßenecken) wächst mit dem Scrollen
+  const pts = [GARAGE, [lerp(GARAGE[0], P[2], .5), GARAGE[1] + (P[3] - GARAGE[1]) * .15], [P[2], P[3]]];
+  const k = ease(clamp(seg * 2)), L = 60;
+  mx.strokeStyle = "#f3c98b"; mx.lineWidth = 2.6; mx.shadowColor = "rgba(243,201,139,.9)"; mx.shadowBlur = 12; mx.beginPath();
+  const bez = t => [(1 - t) ** 2 * pts[0][0] + 2 * (1 - t) * t * pts[1][0] + t * t * pts[2][0], (1 - t) ** 2 * pts[0][1] + 2 * (1 - t) * t * pts[1][1] + t * t * pts[2][1]];
+  for (let s = 0; s <= L * k; s++) { const [x, y] = bez(s / L); s ? mx.lineTo(X(x), Y(y)) : mx.moveTo(X(x), Y(y)); } mx.stroke(); mx.shadowBlur = 0;
+  const [cxp, cyp] = bez(k); mx.fillStyle = "#fff"; mx.beginPath(); mx.arc(X(cxp), Y(cyp), 4, 0, Math.PI * 2); mx.fill();
+  if (k >= 1) { const pu = (T % 1.6) / 1.6; mx.strokeStyle = `rgba(243,201,139,${1 - pu})`; mx.beginPath(); mx.arc(X(P[2]), Y(P[3]), 5 + pu * 18, 0, Math.PI * 2); mx.stroke(); }
+  // Garage
+  const pu2 = (T % 2) / 2; mx.strokeStyle = `rgba(224,168,92,${1 - pu2})`; mx.beginPath(); mx.arc(X(GARAGE[0]), Y(GARAGE[1]), 5 + pu2 * 20, 0, Math.PI * 2); mx.stroke();
+  mx.fillStyle = "#e0a85c"; mx.fillRect(X(GARAGE[0]) - 5, Y(GARAGE[1]) - 5, 10, 10); mx.font = "600 11px Manrope,sans-serif"; mx.fillStyle = "#fff"; mx.fillText("NOCTIS GARAGE · AL QUOZ", X(GARAGE[0]) + 12, Y(GARAGE[1]) + 18);
+  mx.font = "500 10px Manrope,sans-serif"; mx.fillStyle = "rgba(255,255,255,.3)"; mx.fillText("PERSISCHER GOLF", X(10), Y(26));
+}
+
+/* Einblenden */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+addEventListener("resize", () => { f1.last = -1; f2.last = -1; });
+function loop(now) {
+  if (visible(hero)) drawHero();
+  if (visible(story)) drawStory();
+  if (visible(front)) drawFront();
+  if (visible(mapSec)) drawMap(now);
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
