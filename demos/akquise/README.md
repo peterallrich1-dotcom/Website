@@ -282,3 +282,6 @@ Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präf
 
 ## Malermeister Jörn Michaelis, Neubrandenburg (24.11.2026)
 Peter hat angerufen, Interesse (arbeitet gerade selbst an einer Website). Entwurf: allrich-webdesign.com/michaelis/ (Texte, Fotos und Logo von malermeister-michaelis.de, Scroll-Film aus Peters KI-Video, Vorher-Nachher-Regler mit Beispielbildern). Mail mit Entwurf am 24.11. an Malermeister-jm@web.de gesendet (über Gmail, von Peter freigegeben). Offen: echte Vorher-Nachher-Fotos, aktuelle Fotos, gewünschte E-Mail-Adresse auf der Seite, Impressum/Datenschutz.
+
+
+**Haarstudio Ramazotti, Plauen (24.11.):** Marc Schröder, Tel. 03741 289 34 89, info@haarstudio-ramazotti.de. Am Telefon offen, möglicher Interessent. Entwurf /ramazotti/ gebaut (Bilder KI-generiert als Beispielbilder, so gekennzeichnet). Link erst schicken, wenn Peter Zustimmung hat.
