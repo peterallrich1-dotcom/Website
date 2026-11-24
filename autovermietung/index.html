@@ -151,6 +151,18 @@ button{font:inherit}
 .car .pr b{font:300 28px/1 var(--serif);color:var(--amber2)}
 .car .pr span{font-size:12px;color:var(--mute)}
 /* Galerie */
+.show{padding:clamp(80px,11vw,140px) 0 clamp(40px,6vw,80px);background:var(--ink)}
+.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.reel{margin:0;position:relative;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line);aspect-ratio:9/16}
+.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 58%,rgba(0,0,0,.78));pointer-events:none}
+.reel figcaption{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.reel figcaption .k{color:var(--amber);font-size:9px}
+.reel figcaption b{display:block;font:300 clamp(22px,2.2vw,30px)/1.05 var(--serif);margin-top:6px}
+.reel figcaption span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.reel button{flex:none;font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:rgba(6,6,8,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--amber2);border:1px solid rgba(243,201,139,.5);border-radius:999px;padding:10px 13px;cursor:pointer;transition:background .3s,color .3s}
+.reel button:hover{background:var(--amber);color:#1a1206}
+@media(max-width:860px){.reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 10px}.reels::-webkit-scrollbar{display:none}.reel{flex:0 0 72vw;scroll-snap-align:center}}
 .gal{padding:clamp(80px,11vw,140px) 0;background:var(--ink)}
 .bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:14px}
 .bento figure{margin:0;position:relative;border-radius:12px;overflow:hidden;background:#000}
@@ -210,7 +222,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <header class="top">
   <a class="brand" href="#">NOCTIS<small>LUXURY CAR RENTAL · DUBAI</small></a>
   <div class="cols">
-    <div><b>Entdecken</b><a href="#flotte">Flotte</a> · <a href="#wagen">Der Wagen</a> · <a href="#preise">Preise</a></div>
+    <div><b>Entdecken</b><a href="#showroom">Showroom</a> · <a href="#flotte">Flotte</a> · <a href="#wagen">Der Wagen</a> · <a href="#preise">Preise</a></div>
     <div><b>Standort</b>Dubai · Al Quoz</div>
     <div><b>Lieferung</b>Rund um die Uhr</div>
   </div>
@@ -236,6 +248,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="big" id="big">Sechzehn Zylinder, vier Turbolader und eine Karosserie aus Sichtcarbon. Wir übergeben ihn vollgetankt und gereinigt an Ihrem Hotel, am Flughafen oder vor Ihrer Villa. Sie fahren. Wir kümmern uns um alles andere.</p>
     </div>
     <img id="glide" src="film/drive-hd/f112.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+  </div>
+</section>
+
+<section class="show" id="showroom">
+  <div class="wrap">
+    <div class="ghead"><div><p class="k rv">Showroom</p><h2 class="rv">Drei Neuzugänge.<br><em>Im Rampenlicht.</em></h2></div><p class="lede rv">Rot, Schwarz und Titangrau, frisch in der Flotte. Ein kurzer Blick auf jedes Detail, dann gehört der Wagen Ihnen.</p></div>
+    <div class="reels">
+      <figure class="reel rv"><video src="clips/reel-rot.mp4" poster="clips/reel-rot.jpg" muted loop playsinline preload="none" aria-label="Video: roter Sportwagen im Lichtstudio"></video><figcaption><div><p class="k">V8 Biturbo</p><b>Rosso</b><span>ab 1.900 € pro Tag</span></div><button type="button" data-pick="gt">Wählen</button></figcaption></figure>
+      <figure class="reel rv"><video src="clips/reel-schwarz.mp4" poster="clips/reel-schwarz.jpg" muted loop playsinline preload="none" aria-label="Video: schwarzes Sportcoupé im Lichtstudio"></video><figcaption><div><p class="k">Sechszylinder</p><b>Nero</b><span>ab 1.300 € pro Tag</span></div><button type="button" data-pick="cabrio">Wählen</button></figcaption></figure>
+      <figure class="reel rv"><video src="clips/reel-grau.mp4" poster="clips/reel-grau.jpg" muted loop playsinline preload="none" aria-label="Video: titangrauer Supersportwagen im Lichtstudio"></video><figcaption><div><p class="k">V10 Saugmotor</p><b>Titanio</b><span>ab 2.400 € pro Tag</span></div><button type="button" data-pick="super">Wählen</button></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -444,24 +467,25 @@ function silSVG(k) {
 }
 const CARS = [
   { id: "hyper", name: "Hypercar W16", cat: "Hypersportwagen", ps: "1.500", acc: "2,4 s", vmax: "420", price: 4900, tag: "Im Film", video: true },
-  { id: "super", name: "Supersportwagen V12", cat: "Mittelmotor-Coupé", ps: "780", acc: "2,9 s", vmax: "350", price: 2400, sil: "super" },
-  { id: "gt", name: "Grand Tourer V12", cat: "2+2 Coupé", ps: "630", acc: "3,6 s", vmax: "330", price: 1600, sil: "gt" },
-  { id: "cabrio", name: "Cabrio V8", cat: "Offen unter Sternen", ps: "620", acc: "3,4 s", vmax: "315", price: 1300, sil: "cabrio" },
+  { id: "super", name: "Supersportwagen V10", cat: "Titangrau · Mittelmotor", ps: "640", acc: "2,9 s", vmax: "325", price: 2400, clip: "grau", tag: "Neu" },
+  { id: "gt", name: "Sportwagen V8", cat: "Rosso · Biturbo", ps: "670", acc: "3,0 s", vmax: "330", price: 1900, clip: "rot", tag: "Neu" },
+  { id: "cabrio", name: "Sportcoupé R6", cat: "Nero · Heckmotor", ps: "450", acc: "3,4 s", vmax: "308", price: 1300, clip: "schwarz", tag: "Neu" },
   { id: "suv", name: "Luxus-SUV V8", cat: "Für Wüste und Stadt", ps: "600", acc: "3,9 s", vmax: "300", price: 1100, sil: "suv" },
   { id: "limo", name: "Limousine mit Fahrer", cat: "Chauffeur inklusive", ps: "560", acc: "4,4 s", vmax: "250", price: 990, sil: "limo", tag: "Mit Fahrer" }
 ];
 let CUR = CARS[0];
 const frow = document.getElementById("frow"), carSeg = document.getElementById("carSeg"), sumVis = document.getElementById("sumVis");
-frow.innerHTML = CARS.map(c => `<button type="button" class="car" data-id="${c.id}" aria-pressed="${c === CUR}">${c.tag ? `<span class="tag">${c.tag}</span>` : ""}<div class="vis">${c.video ? `<video src="clips/seite.mp4" poster="clips/seite.jpg" muted loop playsinline preload="none"></video>` : silSVG(c.sil)}<span class="sweep"></span></div><p class="cat" style="margin-top:16px">${c.cat}</p><h3>${c.name}</h3><dl><div><dt>Leistung</dt><dd>${c.ps} PS</dd></div><div><dt>0–100</dt><dd>${c.acc}</dd></div><div><dt>Spitze</dt><dd>${c.vmax}</dd></div></dl><div class="pr"><b>${euro(c.price)}</b><span>pro Tag</span></div></button>`).join("");
+frow.innerHTML = CARS.map(c => `<button type="button" class="car" data-id="${c.id}" aria-pressed="${c === CUR}">${c.tag ? `<span class="tag">${c.tag}</span>` : ""}<div class="vis">${c.video ? `<video src="clips/seite.mp4" poster="clips/seite.jpg" muted loop playsinline preload="none"></video>` : c.clip ? `<video src="clips/karte-${c.clip}.mp4" poster="clips/karte-${c.clip}.jpg" muted loop playsinline preload="none"></video>` : silSVG(c.sil)}<span class="sweep"></span></div><p class="cat" style="margin-top:16px">${c.cat}</p><h3>${c.name}</h3><dl><div><dt>Leistung</dt><dd>${c.ps} PS</dd></div><div><dt>0–100</dt><dd>${c.acc}</dd></div><div><dt>Spitze</dt><dd>${c.vmax}</dd></div></dl><div class="pr"><b>${euro(c.price)}</b><span>pro Tag</span></div></button>`).join("");
 carSeg.innerHTML = CARS.map(c => `<button type="button" data-id="${c.id}" aria-pressed="${c === CUR}">${c.name.replace(" mit Fahrer", "")}</button>`).join("");
 function pickCar(id, scroll) {
   CUR = CARS.find(c => c.id === id);
   document.querySelectorAll(".car,#carSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
-  sumVis.innerHTML = CUR.video ? `<img src="film/drive-hd/f238.webp" alt="Das Hypercar von vorn">` : silSVG(CUR.sil);
+  sumVis.innerHTML = CUR.video ? `<img src="film/drive-hd/f238.webp" alt="Das Hypercar von vorn">` : CUR.clip ? `<img src="clips/karte-${CUR.clip}.jpg" alt="${CUR.name}">` : silSVG(CUR.sil);
   calc();
   if (scroll) document.getElementById("preise").scrollIntoView({ behavior: "smooth" });
 }
 frow.addEventListener("click", e => { const b = e.target.closest(".car"); if (b) pickCar(b.dataset.id, true); });
+document.querySelector(".reels").addEventListener("click", e => { const b = e.target.closest("[data-pick]"); if (b) pickCar(b.dataset.pick, true); });
 carSeg.addEventListener("click", e => { const b = e.target.closest("button"); if (b) pickCar(b.dataset.id, false); });
 
 /* 5. Preisrechner */
