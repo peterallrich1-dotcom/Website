@@ -195,7 +195,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="k">Das Flugzeug</p>
       <p class="big" id="big">Dreißig Meter Rumpf, gepfeilte Flügel und zwei Triebwerke am Heck. So bleibt die Kabine ruhig, während Sie über Bergdörfern und Ozeanen reisen. Bis zu vierzehn Gäste, ein eigenes Schlafzimmer und eine Bordküche, die kocht, was Sie möchten.</p>
     </div>
-    <img id="glide" src="film/ext/f012.webp" alt="Der Jet über den Wolken" decoding="async">
+    <img id="glide" src="film/ext-hd/f015.webp" alt="Der Jet über den Wolken" decoding="async">
   </div>
 </section>
 
@@ -316,7 +316,7 @@ splitWords(document.getElementById("big"));
 /* ---------- Scroll-Filme aus Videobildern ---------- */
 class Film {
   constructor(canvas, dir, n, fx = .5) {
-    this.c = canvas; this.x = canvas.getContext("2d"); this.n = n; this.fx = fx; this.imgs = new Array(n); this.last = -1;
+    this.c = canvas; this.x = canvas.getContext("2d", { alpha: false }); this.x.imageSmoothingQuality = "high"; this.n = n; this.fx = fx; this.imgs = new Array(n); this.last = -1;
     const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${dir}/f${String(i + 1).padStart(3, "0")}.webp`; im.onload = () => { if (Math.abs(i - this.want) < 2) this.last = -1; }; this.imgs[i] = im; };
     load(0); this.want = 0;
     const order = []; for (let st = 8; st >= 1; st = st >> 1) for (let i = 0; i < n; i += st) if (!order.includes(i)) order.push(i);
@@ -328,12 +328,13 @@ class Film {
   draw(p) {
     const [w, h] = this.size(), i = Math.round(clamp(p) * (this.n - 1)); this.want = i;
     if (i === this.last) return; const im = this.near(i); if (!im) return;
-    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); const c = this.cover(w, h, im); this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
+    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); this.x.imageSmoothingQuality = "high"; const c = this.cover(w, h, im); this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
     if (im === this.imgs[i]) this.last = i;
   }
 }
+const Q = Math.max(innerWidth, innerHeight) * DPR >= 1400 ? "hd" : "sd";
 const sky = document.getElementById("sky");
-const extFilm = new Film(sky, "film/ext", 85, .42);
+const extFilm = new Film(sky, "film/ext-" + Q, 96, .42);
 const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".hero .cap")];
 const altEl = document.getElementById("alt"), spdEl = document.getElementById("spd"), fade = document.getElementById("fade");
 function sizeR(r, c, cam) { const w = c.clientWidth, h = c.clientHeight; r.setSize(w, h, false); if (cam) { cam.aspect = w / h; cam.updateProjectionMatrix(); } }
@@ -347,18 +348,18 @@ function drawHero() {
 }
 
 /* Kabine: Fahrt durch den Innenraum, danach Punkte zum Anklicken */
-const cabC = document.getElementById("cab"), cabFilm = new Film(cabC, "film/cab", 41, .5);
+const cabC = document.getElementById("cab"), cabFilm = new Film(cabC, "film/cab-" + Q, 82, .5);
 const cabSec = document.querySelector(".cabin"), cabCaps = [...cabSec.querySelectorAll(".cap")], hots = [...cabSec.querySelectorAll(".hot")];
 function drawCab() {
   const p = progress(cabSec);
   cabFilm.draw(clamp(p / .78));
   cabCaps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
-  const im = cabFilm.near(40), [w, h] = [cabC.clientWidth, cabC.clientHeight];
+  const im = cabFilm.near(81), [w, h] = [cabC.clientWidth, cabC.clientHeight];
   if (im) { const c = cabFilm.cover(w, h, im); hots.forEach(el => { el.style.left = (c.ox + +el.dataset.x * c.dw) + "px"; el.style.top = (c.oy + +el.dataset.y * c.dh) + "px"; }); }
   cabSec.classList.toggle("hotson", p > .8);
 }
 /* Ankunft auf dem Rollfeld */
-const arrC = document.getElementById("arr"), arrFilm = new Film(arrC, "film/arr", 34, .55), arrSec = document.querySelector(".arrive"), arrCaps = [...arrSec.querySelectorAll(".cap")];
+const arrC = document.getElementById("arr"), arrFilm = new Film(arrC, "film/arr-" + Q, 66, .55), arrSec = document.querySelector(".arrive"), arrCaps = [...arrSec.querySelectorAll(".cap")];
 function drawArr() { const p = progress(arrSec); arrFilm.draw(clamp(p / .9)); arrCaps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b)); }
 hots.forEach(el => el.querySelector("button").addEventListener("click", () => { const o = el.classList.contains("open"); hots.forEach(x => x.classList.remove("open")); if (!o) el.classList.add("open"); }));
 

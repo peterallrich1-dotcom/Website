@@ -7,7 +7,7 @@
 <meta name="description" content="Beispielseite von Allrich Webdesign: Scroll-Film-Website für eine fiktive Luxus-Autovermietung in Dubai.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#060608">
-<link rel="preload" href="film/drive/f001.webp" as="image">
+
 <style>
 @font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
 @font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
@@ -201,7 +201,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="k">Der Wagen</p>
       <p class="big" id="big">Sechzehn Zylinder, vier Turbolader und eine Karosserie aus Sichtcarbon. Wir übergeben ihn vollgetankt und gereinigt an Ihrem Hotel, am Flughafen oder vor Ihrer Villa. Sie fahren. Wir kümmern uns um alles andere.</p>
     </div>
-    <img id="glide" src="film/drive/f070.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+    <img id="glide" src="film/drive-hd/f112.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
   </div>
 </section>
 
@@ -244,7 +244,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         </div>
       </div>
       <div class="sum rv">
-        <img src="film/drive/f150.webp" alt="Das Hypercar von vorn" loading="lazy">
+        <img src="film/drive-hd/f238.webp" alt="Das Hypercar von vorn" loading="lazy">
         <p class="k">Ihre Buchung</p>
         <div class="total" id="total">0 €</div>
         <div class="per" id="per">inkl. Lieferung</div>
@@ -293,7 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </section>
 
 <section class="end" id="kontakt">
-  <img src="film/drive/f030.webp" alt="Die Skyline von Dubai bei Nacht" loading="lazy">
+  <img src="film/drive-hd/f047.webp" alt="Die Skyline von Dubai bei Nacht" loading="lazy">
   <div class="wrap">
     <p class="k">Kontakt</p>
     <h2>Heute Nacht<br><em>noch frei.</em></h2>
@@ -327,7 +327,7 @@ splitWords(document.getElementById("big"));
 /* Scroll-Film aus Videobildern */
 class Film {
   constructor(canvas, dir, from, to, fx = .5, mobZoom = 0) {
-    this.mz = mobZoom; this.c = canvas; this.x = canvas.getContext("2d"); this.from = from; this.n = to - from + 1; this.fx = fx; this.imgs = []; this.last = -1; this.want = 0;
+    this.mz = mobZoom; this.c = canvas; this.x = canvas.getContext("2d", { alpha: false }); this.x.imageSmoothingQuality = "high"; this.from = from; this.n = to - from + 1; this.fx = fx; this.imgs = []; this.last = -1; this.want = 0;
     const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${dir}/f${String(from + i).padStart(3, "0")}.webp`; im.onload = () => { if (Math.abs(i - this.want) < 3) this.last = -1; }; this.imgs[i] = im; };
     load(0);
     const order = []; for (let st = 8; st >= 1; st >>= 1) for (let i = 0; i < this.n; i += st) if (!order.includes(i)) order.push(i);
@@ -339,7 +339,7 @@ class Film {
   draw(p) {
     const [w, h] = this.size(), i = Math.round(clamp(p) * (this.n - 1)); this.want = i;
     if (i === this.last) return; const im = this.near(i); if (!im) return;
-    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); const c = this.cover(w, h, im);
+    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); this.x.imageSmoothingQuality = "high"; const c = this.cover(w, h, im);
     if (c.dh < h) { const s2 = Math.max(w / im.naturalWidth, h / im.naturalHeight); this.x.drawImage(im, (w - im.naturalWidth * s2) / 2, (h - im.naturalHeight * s2) / 2, im.naturalWidth * s2, im.naturalHeight * s2); this.x.fillStyle = "rgba(6,6,8,.78)"; this.x.fillRect(0, 0, w, h); }
     this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
     if (im === this.imgs[i]) this.last = i;
@@ -347,7 +347,8 @@ class Film {
 }
 
 /* 1. Hauptfilm mit Tacho */
-const hero = document.getElementById("hero"), f1 = new Film(document.getElementById("c1"), "film/drive", 1, 80, .5);
+const Q = Math.max(innerWidth, innerHeight) * DPR >= 1400 ? "hd" : "sd";
+const hero = document.getElementById("hero"), f1 = new Film(document.getElementById("c1"), "film/drive-" + Q, 1, 128, .5);
 const caps1 = [...hero.querySelectorAll(".cap")], kmh = document.getElementById("kmh"), hint = document.getElementById("hint");
 const gC = document.getElementById("gauge"), gx = gC.getContext("2d");
 function gauge(v) {
@@ -376,7 +377,7 @@ function drawStory() {
 }
 
 /* 3. Frontfahrt mit Punkten zum Anklicken */
-const front = document.querySelector(".front"), c2 = document.getElementById("c2"), f2 = new Film(c2, "film/drive", 81, 164, .5, 1.75);
+const front = document.querySelector(".front"), c2 = document.getElementById("c2"), f2 = new Film(c2, "film/drive-" + Q, 129, 262, .5, 1.75);
 const caps2 = [...front.querySelectorAll(".cap")], hots = [...front.querySelectorAll(".hot")];
 function drawFront() {
   const p = progress(front);
