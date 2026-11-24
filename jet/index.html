@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aurelis 8 · Private Aviation (Beispielseite)</title>
+<meta name="description" content="Beispielseite von Allrich Webdesign: eine 3D-Scroll-Website für eine fiktive Private-Jet-Marke.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0d14">
+<style>
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
+:root{--ink:#0a0d14;--ink2:#111622;--paper:#f5f4f0;--text:#141a26;--mute:#7d8290;--mute-l:#a8adba;--navy:#16233d;--gold:#c8a86b;--gold2:#e2c993;--line:rgba(255,255,255,.14);--line-d:rgba(20,26,38,.13);
+  --serif:"Fraunces",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:clamp(16px,4.5vw,64px);--max:1280px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#eef0f4;font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.42em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font-size:9px;letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0a0d14}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 55%,rgba(5,8,14,.6) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(820px,88vw);pointer-events:none}
+.cap .k{color:var(--gold2);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.96 var(--serif);letter-spacing:-.025em;margin:14px 0 0}
+.cap em{font-style:italic;color:var(--gold2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cap.on .w{opacity:1;transform:none;filter:none}
+.fade{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none}
+.meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);text-align:right;font:500 10px/1.8 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.75)}
+.meter b{display:block;font:300 28px/1 var(--serif);letter-spacing:0;color:#fff}
+.loading{position:absolute;inset:0;display:grid;place-items:center;font:500 11px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .6s}
+@media(max-width:700px){.meter{display:none}}
+
+.paper{background:var(--paper);color:var(--text)}
+.story{position:relative;height:280vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(980px,62vw);padding:0 var(--gut)}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(20,26,38,.15);transition:color .25s}
+.story p.big span.on{color:var(--text)}
+.story .k{color:var(--navy)}
+#glide{position:absolute;left:0;top:50%;width:min(42vw,620px);will-change:transform;z-index:1}
+@media(max-width:760px){.story .txt{max-width:none}#glide{width:90vw;top:auto;bottom:8vh}.story .pin{align-items:flex-start;padding-top:16vh}}
+
+.routes{position:relative;height:300vh;background:var(--ink)}
+.routes .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#globe{position:absolute;inset:0;width:100%;height:100%}
+.routes .ov{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(80px,12vh,120px) var(--gut) clamp(40px,8vh,80px)}
+.routes .row1{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.routes .row1 .k{color:var(--mute-l)}
+.flap{display:flex;gap:3px;--n:10}
+.flap .c{width:min(34px,calc((100vw - 2 * var(--gut)) / (var(--n) + 4)));aspect-ratio:2/3;background:linear-gradient(180deg,#1b2130 0 49.5%,#121723 50.5% 100%);border-radius:3px;display:grid;place-items:center;font:500 clamp(12px,1.8vw,24px)/1 var(--sans);color:#eef0f4;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 2px 6px rgba(0,0,0,.4)}
+.flap .c::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
+.flap .c.f{animation:flip .09s linear}
+@keyframes flip{50%{transform:rotateX(70deg);filter:brightness(.6)}}
+.routes .stats{display:flex;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.routes .stats div{border-left:1px solid var(--line);padding-left:12px}
+.routes .stats b{display:block;font:300 clamp(26px,3vw,40px)/1 var(--serif)}
+.routes .stats span{font:600 9px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute-l)}
+.routes .big{font:300 clamp(70px,16vw,240px)/.8 var(--serif);letter-spacing:-.04em;color:rgba(255,255,255,.08);position:absolute;left:var(--gut);bottom:2vh;z-index:1;pointer-events:none;white-space:nowrap}
+.ticket{position:absolute;z-index:3;right:var(--gut);top:50%;transform:translateY(-50%);width:min(280px,78vw);background:var(--paper);color:var(--text);border-radius:10px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ticket .code{font:500 28px/1 var(--sans);letter-spacing:.03em}
+.ticket .code i{font-style:normal;color:var(--mute);font-size:16px;margin:0 6px}
+.ticket small{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ticket hr{border:0;border-top:1px dashed var(--line-d);margin:12px 0}
+.ticket a{display:block;margin-top:12px;text-align:center;background:#b3262f;background:var(--navy);color:#fff;text-decoration:none;border-radius:6px;padding:10px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:760px){.ticket{top:auto;bottom:18vh;transform:none}}
+
+.spec{position:relative;height:420vh}
+.spec .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#spec{position:absolute;inset:0;width:100%;height:100%}
+.spec .info{position:absolute;left:var(--gut);top:clamp(80px,13vh,130px);z-index:2;max-width:380px;transition:opacity .5s}
+.spec h2{font:300 clamp(56px,9vw,140px)/.86 var(--serif);letter-spacing:-.04em;margin:10px 0 18px}
+.spec .k{color:var(--navy)}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-size:13px}
+.spec dt{font:600 9px/2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.spec dd{margin:0;font-weight:500}
+.spec .info2{position:absolute;right:var(--gut);top:clamp(80px,13vh,130px);z-index:2;max-width:340px;text-align:right;opacity:0;transition:opacity .5s}
+.spec .info2 h3{font:300 clamp(30px,3.6vw,52px)/1 var(--serif);margin:10px 0 10px;letter-spacing:-.02em}
+.spec .info2 p{color:#5b6170;margin:0;font-size:15px}
+.lbl{position:absolute;z-index:3;transform:translate(-50%,-100%);opacity:0;transition:opacity .4s;pointer-events:none;text-align:center}
+.lbl span{display:inline-block;background:rgba(245,244,240,.96);color:var(--text);padding:6px 9px;border-radius:4px;font:600 9px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;box-shadow:0 8px 20px -8px rgba(0,0,0,.35);white-space:nowrap}
+.lbl i{display:block;width:1px;height:26px;background:var(--navy);margin:0 auto}
+.dims{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .5s}
+.dims .d{position:absolute;font:600 9px/1 var(--sans);letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+@media(max-width:760px){.spec .info{max-width:none;right:var(--gut)}.spec dl{display:none}.spec .info2{left:var(--gut);text-align:left;top:auto;bottom:10vh}}
+
+.ways{padding:clamp(80px,11vw,140px) 0}
+.ways h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 40px}
+.ways h2 em{font-style:italic;color:var(--navy)}
+.ways .k{color:var(--navy)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.way{border:1px solid var(--line-d);border-radius:10px;padding:26px 24px 28px;background:#fbfaf7;transition:transform .4s}
+.way:hover{transform:translateY(-4px)}
+.way .n{font:500 11px/1 var(--sans);letter-spacing:.22em;color:var(--mute)}
+.way h3{font:300 30px/1.1 var(--serif);margin:16px 0 8px}
+.way .pr{font:300 40px/1 var(--serif);margin:18px 0 4px;letter-spacing:-.02em}
+.way .pr small{font:500 12px var(--sans);color:var(--mute);letter-spacing:0;margin-left:6px}
+.way p{margin:0;color:#525868;font-size:15px}
+.way ul{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line-d)}
+.way li{padding:10px 0;border-bottom:1px solid var(--line-d);font-size:14px}
+.way.main{background:var(--navy);color:#eef0f4;border-color:var(--navy)}
+.way.main p,.way.main .n,.way.main .pr small{color:rgba(238,240,244,.7)}
+.way.main ul,.way.main li{border-color:rgba(255,255,255,.16)}
+.way.main .pr{color:var(--gold2)}
+.note{margin-top:18px;font-size:12px;color:var(--mute)}
+@media(max-width:900px){.wgrid{grid-template-columns:1fr}}
+
+.board{background:var(--ink);padding:clamp(80px,11vw,140px) 0}
+.board h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 30px}
+.board h2 em{font-style:italic;color:var(--gold2)}
+.board .k{color:var(--gold2)}
+.dep{border-top:1px solid var(--line)}
+.dep .r{display:grid;grid-template-columns:1.6fr .7fr .7fr 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.dep .h{font:600 9px/1 var(--sans);letter-spacing:.22em;color:var(--mute-l);text-transform:uppercase}
+.dep .flap{min-width:0}
+.dep .flap .c{width:min(22px,calc((100% - (var(--n) - 1) * 3px) / var(--n)));font-size:clamp(9px,1.15vw,15px)}
+.dep .ok{color:#8fd19e}
+@media(max-width:760px){.dep .r{grid-template-columns:1.4fr .8fr}.dep .r>:nth-child(3),.dep .r>:nth-child(4){display:none}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent}
+.btn.g{background:var(--gold);color:#16120a}
+.btn.o{border-color:var(--line);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute-l);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(10,13,20,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--gold2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#">AURELIS<small>PRIVATE AVIATION</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#routen">Routen</a> · <a href="#kabine">Kabine</a> · <a href="#eigentum">Eigentum</a></div>
+    <div><b>Basis</b>München · MUC</div>
+    <div><b>Charter</b>Rund um die Uhr</div>
+  </div>
+  <a class="call" href="#kontakt">Anfragen</a>
+</header>
+
+<section class="hero" id="hero">
+  <div class="stage">
+    <canvas id="sky" aria-label="3D-Animation: Business-Jet über den Wolken"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".22"><p class="k">Aurelis 8</p><h1>Ihr eigener Jet.<br><em>Ihre eigene Zeit.</em></h1></div>
+    <div class="cap" data-a=".24" data-b=".46"><p class="k">Reichweite</p><h2>8.000 km nonstop.<br><em>München bis überall.</em></h2></div>
+    <div class="cap" data-a=".48" data-b=".7"><p class="k">Reiseflug</p><h2>Über dem Wetter.<br><em>Mach 0,90.</em></h2></div>
+    <div class="cap" data-a=".72" data-b=".9"><p class="k">Kabine</p><h2>Leise wie ein Salon.<br><em>In 15.500 Metern.</em></h2></div>
+    <div class="meter"><span>Höhe</span><b id="alt">0 m</b><span style="margin-top:10px;display:block">Geschwindigkeit</span><b id="spd">Mach 0,00</b></div>
+    <div class="fade" id="fade"></div>
+    <div class="loading" id="loading">LÄDT 3D-MODELL</div>
+  </div>
+</section>
+
+<section class="paper story">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Das Flugzeug</p>
+      <p class="big" id="big">Dreißig Meter Rumpf, gepfeilte Flügel und zwei Triebwerke am Heck. So bleibt die Kabine ruhig, während Sie über Bergdörfern und Ozeanen reisen. Bis zu vierzehn Gäste, ein eigenes Schlafzimmer und eine Bordküche, die kocht, was Sie möchten.</p>
+    </div>
+    <img id="glide" alt="Der Aurelis 8 von der Seite" decoding="async">
+  </div>
+</section>
+
+<section class="routes" id="routen">
+  <div class="pin">
+    <canvas id="globe" aria-label="Erdkugel mit Flugrouten ab München"></canvas>
+    <div class="big" id="bigWord">Überall.</div>
+    <div class="ov">
+      <div>
+        <p class="k" style="color:var(--gold2)">Routen ab München</p>
+        <div class="row1" style="margin-top:14px"><span class="k">Fliegen Sie nach</span><div class="flap" id="dest"></div></div>
+      </div>
+      <div class="stats"><div><b id="sKm">0 km</b><span>Distanz</span></div><div><b id="sH">0 h 00</b><span>Flugzeit</span></div><div><b>14</b><span>Gäste</span></div></div>
+    </div>
+    <div class="ticket">
+      <div class="row"><small>Von</small><small>Nach</small></div>
+      <div class="row"><span class="code">MUC<i>→</i></span><span class="code" id="tCode">RAK</span></div>
+      <div class="row"><small>München</small><small id="tName">Marrakesch</small></div>
+      <hr>
+      <div class="row"><small>Flugzeug</small><small>Aurelis 8</small></div>
+      <div class="row"><small>Status</small><small style="color:#2e7d4f">Verfügbar</small></div>
+      <a href="#kontakt">Flug anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="paper spec" id="kabine">
+  <div class="pin">
+    <canvas id="spec" aria-label="3D-Ansicht des Jets von oben und als Schnitt durch die Kabine"></canvas>
+    <div class="info" id="info">
+      <p class="k">Technische Daten</p>
+      <h2>Aurelis<br>8</h2>
+      <dl><dt>Reichweite</dt><dd>8.000 km</dd><dt>Reisegeschwindigkeit</dt><dd>Mach 0,90</dd><dt>Max. Flughöhe</dt><dd>15.500 m</dd><dt>Gäste</dt><dd>bis 14</dd><dt>Länge</dt><dd>30,0 m</dd><dt>Spannweite</dt><dd>27,8 m</dd></dl>
+    </div>
+    <div class="info2" id="info2"><p class="k">Kabine</p><h3>Fünf Räume.<br>Ein Flug.</h3><p>Cockpit, Bordküche, Club-Lounge, Speisebereich und ein Schlafzimmer mit eigenem Bad.</p></div>
+    <div class="dims" id="dims"><span class="d" id="dL">30,0 m Länge</span><span class="d" id="dW">27,8 m Spannweite</span></div>
+  </div>
+</section>
+
+<section class="paper ways" id="eigentum">
+  <div class="wrap">
+    <p class="k rv">Eigentum</p>
+    <h2 class="rv">Drei Wege, ihn<br><em>zu Ihrem zu machen.</em></h2>
+    <div class="wgrid">
+      <div class="way rv"><span class="n">01</span><h3>Charter</h3><p>Sie buchen einzelne Flüge, wann immer Sie möchten.</p><div class="pr">9.800 €<small>pro Flugstunde</small></div><ul><li>Kurzfristig verfügbar</li><li>Crew und Catering inklusive</li></ul></div>
+      <div class="way main rv"><span class="n">02</span><h3>Jet Card</h3><p>Ein festes Stundenkonto zu festen Preisen.</p><div class="pr">245.000 €<small>für 25 Stunden</small></div><ul><li>Garantierte Verfügbarkeit</li><li>Fester Stundenpreis</li></ul></div>
+      <div class="way rv"><span class="n">03</span><h3>Anteil</h3><p>Ein Achtel eines Aurelis 8, mit allen Rechten.</p><div class="pr">2,9 Mio. €<small>für ein Achtel</small></div><ul><li>Rund 100 Flugstunden im Jahr</li><li>Wiederverkauf möglich</li></ul></div>
+    </div>
+    <p class="note rv">Beispielwerte einer fiktiven Marke.</p>
+  </div>
+</section>
+
+<section class="board" id="kontakt">
+  <div class="wrap">
+    <p class="k rv">Abflüge</p>
+    <h2 class="rv">Wohin geht<br><em>Ihre Reise?</em></h2>
+    <div class="dep" id="dep">
+      <div class="r h"><span>Ziel</span><span>Code</span><span>Flugzeit</span><span>Status</span></div>
+    </div>
+    <div class="cta rv"><a class="btn g" href="https://allrich-webdesign.com/#kontakt">Solche Website anfragen</a><a class="btn o" href="https://allrich-webdesign.com">Allrich Webdesign</a></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>Aurelis ist eine fiktive Marke. Beispielseite von Allrich Webdesign, Potsdam.</span><span>3D-Modell, Erdkugel und Animationen im Browser erzeugt</span></div></footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Beispielseite</b> von Allrich Webdesign</a>
+
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "./vendor/RoomEnvironment.js";
+import { buildJet, cloudTexture } from "./jet.js";
+
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+const visible = el => { const r = el.getBoundingClientRect(); return r.bottom > -50 && r.top < innerHeight + 50; };
+const DPR = Math.min(2, devicePixelRatio || 1);
+
+/* Wörter zerlegen */
+function splitWords(el, cls, delay) {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); if (cls) s.className = cls; if (delay) s.style.transitionDelay = (i++ * delay) + "ms"; s.textContent = p; f.append(s); });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(el);
+}
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => splitWords(h, "w", 70));
+splitWords(document.getElementById("big"));
+
+/* ---------- Szene 1: Jet über den Wolken ---------- */
+const sky = document.getElementById("sky");
+const r1 = new THREE.WebGLRenderer({ canvas: sky, antialias: true, powerPreference: "high-performance" });
+r1.setPixelRatio(DPR); r1.outputColorSpace = THREE.SRGBColorSpace; r1.toneMapping = THREE.ACESFilmicToneMapping; r1.toneMappingExposure = 1.05;
+const s1 = new THREE.Scene();
+const pm = new THREE.PMREMGenerator(r1);
+const envTex = pm.fromScene(new RoomEnvironment(), .04).texture;
+s1.environment = envTex;
+const cam1 = new THREE.PerspectiveCamera(35, 1, .1, 4000);
+
+// Himmel mit Verlauf und Sonne
+const skyMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide, depthWrite: false,
+  uniforms: { top: { value: new THREE.Color(0x1d3f78) }, mid: { value: new THREE.Color(0x7fa6d6) }, hor: { value: new THREE.Color(0xf6d6b0) }, sun: { value: new THREE.Vector3(-.5, .18, -.85).normalize() } },
+  vertexShader: "varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }",
+  fragmentShader: `uniform vec3 top,mid,hor,sun; varying vec3 vP;
+    void main(){ float h = vP.y; vec3 c = mix(hor, mid, smoothstep(-.02,.18,h)); c = mix(c, top, smoothstep(.18,.75,h));
+      float s = max(dot(normalize(vP), sun), 0.); c += vec3(1.,.85,.6) * pow(s, 220.) * 2.2 + vec3(1.,.75,.5) * pow(s, 8.) * .28;
+      gl_FragColor = vec4(c,1.); }`
+});
+s1.add(new THREE.Mesh(new THREE.SphereGeometry(2000, 48, 24), skyMat));
+
+const sunL = new THREE.DirectionalLight(0xfff0dc, 2.6); sunL.position.set(-60, 40, -80); s1.add(sunL);
+s1.add(new THREE.HemisphereLight(0xbfd6ff, 0xf3e6d6, .9));
+
+const jet1 = buildJet(); s1.add(jet1);
+
+// Wolkenmeer aus weichen Sprites
+const cloudTexs = [1, 2, 3, 4].map(cloudTexture);
+const clouds = new THREE.Group(); s1.add(clouds);
+const CL = [];
+for (let i = 0; i < 420; i++) {
+  const m = new THREE.SpriteMaterial({ map: cloudTexs[i % 4], transparent: true, depthWrite: false, opacity: .9, color: 0xffffff });
+  const sp = new THREE.Sprite(m);
+  const sc = 40 + Math.random() * 90;
+  sp.scale.set(sc * 1.8, sc, 1);
+  sp.position.set((Math.random() - .5) * 1400, -40 - Math.random() * 26, (Math.random() - .5) * 900);
+  clouds.add(sp); CL.push(sp);
+}
+// einzelne hohe Wolkenfetzen
+for (let i = 0; i < 60; i++) {
+  const m = new THREE.SpriteMaterial({ map: cloudTexs[i % 4], transparent: true, depthWrite: false, opacity: .35 });
+  const sp = new THREE.Sprite(m); const sc = 20 + Math.random() * 40; sp.scale.set(sc * 2, sc * .6, 1);
+  sp.position.set((Math.random() - .5) * 900, -5 + Math.random() * 30, (Math.random() - .5) * 600); clouds.add(sp); CL.push(sp);
+}
+s1.fog = new THREE.Fog(0xf4ebdf, 320, 1400);
+
+// Kamerafahrt: Position relativ zum Jet und Blickpunkt
+const KEYS = [
+  { p: 0,   pos: [26, 3.2, 16],   look: [4, -3.2, 0],  fov: 32 },
+  { p: .22, pos: [2, 1.2, 36],    look: [0, -4.5, 0],  fov: 34 },
+  { p: .45, pos: [-30, 9, 12],    look: [2, -4.5, 0],  fov: 36 },
+  { p: .68, pos: [-6, 24, 30],    look: [2, -6, 0],    fov: 38 },
+  { p: .86, pos: [34, -4, -18],   look: [0, -3, 0],    fov: 34 },
+  { p: 1,   pos: [60, -6, -40],   look: [30, 0, 0],  fov: 30 }
+];
+function camAt(p) {
+  let i = 0; while (i < KEYS.length - 2 && p > KEYS[i + 1].p) i++;
+  const a = KEYS[i], b = KEYS[i + 1], t = ease(clamp((p - a.p) / (b.p - a.p)));
+  return { pos: a.pos.map((v, k) => lerp(v, b.pos[k], t)), look: a.look.map((v, k) => lerp(v, b.look[k], t)), fov: lerp(a.fov, b.fov, t) };
+}
+const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".cap")];
+const altEl = document.getElementById("alt"), spdEl = document.getElementById("spd"), fade = document.getElementById("fade");
+let travel = 0, last = performance.now();
+function sizeR(r, c, cam) { const w = c.clientWidth, h = c.clientHeight; r.setSize(w, h, false); if (cam) { cam.aspect = w / h; cam.updateProjectionMatrix(); } }
+function drawHero(now) {
+  const dt = Math.min(.05, (now - last) / 1000); last = now;
+  const p = progress(hero);
+  travel += dt * (14 + p * 30);
+  // Wolken ziehen am Jet vorbei
+  for (const c of CL) { c.position.x -= dt * (60 + p * 60); if (c.position.x < -700) c.position.x += 1400; }
+  // sanftes Schaukeln und Querneigung
+  jet1.position.y = Math.sin(now / 1400) * .35;
+  jet1.rotation.x = Math.sin(now / 1900) * .025 + (p > .6 ? -ease(clamp((p - .6) / .3)) * .12 : 0);
+  jet1.rotation.z = Math.sin(now / 2300) * .015;
+  jet1.position.x = p > .86 ? ease(clamp((p - .86) / .14)) * 40 : 0;
+  const k = camAt(p);
+  cam1.position.set(...k.pos); cam1.lookAt(...k.look); cam1.fov = cam1.aspect < 1 ? k.fov * 1.75 : k.fov; cam1.updateProjectionMatrix();
+  r1.render(s1, cam1);
+  caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  altEl.textContent = Math.round(ease(clamp(p / .75)) * 15500).toLocaleString("de-DE") + " m";
+  spdEl.textContent = "Mach " + (ease(clamp(p / .6)) * .9).toFixed(2).replace(".", ",");
+  fade.style.opacity = clamp((p - .93) / .07);
+}
+
+/* ---------- Szene 2: Schnitt und Draufsicht ---------- */
+const specC = document.getElementById("spec");
+const r2 = new THREE.WebGLRenderer({ canvas: specC, antialias: true, alpha: true });
+r2.setPixelRatio(DPR); r2.outputColorSpace = THREE.SRGBColorSpace; r2.toneMapping = THREE.ACESFilmicToneMapping; r2.localClippingEnabled = true;
+const s2 = new THREE.Scene();
+s2.environment = new THREE.PMREMGenerator(r2).fromScene(new RoomEnvironment(), .04).texture;
+s2.add(new THREE.HemisphereLight(0xffffff, 0xe8e2d6, 1.1));
+const dl2 = new THREE.DirectionalLight(0xffffff, 1.6); dl2.position.set(10, 30, 15); s2.add(dl2);
+const cut = new THREE.Plane(new THREE.Vector3(0, -1, 0), 40);
+const jet2 = buildJet({ clippingPlanes: [cut], interior: true }); s2.add(jet2);
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.ShaderMaterial({ transparent: true, depthWrite: false, vertexShader: "varying vec2 vU; void main(){ vU = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }", fragmentShader: "varying vec2 vU; void main(){ float d = length((vU-.5)*vec2(1.,2.2)); gl_FragColor = vec4(.08,.1,.15, .22*smoothstep(.5,.0,d)); }" }));
+shadow.rotation.x = -Math.PI / 2; shadow.position.y = -3.2; s2.add(shadow);
+const cam2 = new THREE.PerspectiveCamera(30, 1, .1, 500);
+const LABELS = [["Cockpit", 12.3, 0], ["Bordküche", 10.2, .6], ["Club-Lounge", 7.6, 0], ["Speisebereich", 4.45, 0], ["Sofa", 1.0, .6], ["Schlafzimmer", -3.0, 0], ["Bad", -5.6, .3]];
+const lblEls = LABELS.map(([t]) => { const d = document.createElement("div"); d.className = "lbl"; d.innerHTML = `<span>${t}</span><i></i>`; specC.parentElement.append(d); return d; });
+const specSec = document.querySelector(".spec"), info = document.getElementById("info"), info2 = document.getElementById("info2"), dims = document.getElementById("dims");
+const dL = document.getElementById("dL"), dW = document.getElementById("dW");
+const v3 = new THREE.Vector3();
+function drawSpec() {
+  const p = progress(specSec);
+  const mob = specC.clientWidth < 760;
+  // 0–.35: Drehung von schräg zur Draufsicht, .35–.5 Maße, .5–1 Dach weg und Kabine
+  const a = ease(clamp(p / .35)), b = ease(clamp((p - .5) / .3));
+  const dist = (mob ? 74 : 58) - b * (mob ? 22 : 18);
+  const az = lerp(-.9, -Math.PI / 2, a) + lerp(0, .5, b);            // um die Hochachse
+  const el = lerp(.32, 1.52, a) - lerp(0, .62, b);                     // Höhenwinkel
+  cam2.position.set(Math.cos(az) * Math.cos(el) * dist, Math.sin(el) * dist, -Math.sin(az) * Math.cos(el) * dist);
+  cam2.lookAt(mob ? 0 : -3, 0, 0);
+  if (mob) cam2.up.set(0, 1, 0);
+  jet2.rotation.y = lerp(0, 0, a);
+  cut.constant = lerp(40, .45, b);
+  cam2.updateProjectionMatrix();
+  r2.render(s2, cam2);
+  info.style.opacity = 1 - clamp((p - .45) / .1);
+  info2.style.opacity = clamp((p - .62) / .1);
+  dims.style.opacity = clamp((p - .3) / .08) * (1 - clamp((p - .48) / .06));
+  // Maße über die projizierten Punkte legen
+  const w = specC.clientWidth, h = specC.clientHeight;
+  const pr = (x, y, z) => { v3.set(x, y, z).project(cam2); return [(v3.x + 1) / 2 * w, (1 - v3.y) / 2 * h]; };
+  const [ax, ay] = pr(15, 0, 0), [bx, by] = pr(-15, 0, 0); dL.style.left = Math.min(ax, bx) + "px"; dL.style.top = (Math.max(ay, by) + 30) + "px";
+  const [cx, cy] = pr(-1.5, 0, 11); dW.style.left = (cx + 10) + "px"; dW.style.top = cy + "px";
+  LABELS.forEach(([, x, z], i) => { const [lx, ly] = pr(x, .9, z); const e = lblEls[i]; e.style.left = lx + "px"; e.style.top = ly + "px"; e.style.opacity = clamp((p - .7 - i * .025) / .06); });
+}
+
+/* Seitenansicht als Bild für den hellen Erzählteil */
+function snapshotSide() {
+  const c = document.createElement("canvas"); c.width = 1600; c.height = 600;
+  const rr = new THREE.WebGLRenderer({ canvas: c, antialias: true, alpha: true, preserveDrawingBuffer: true });
+  rr.outputColorSpace = THREE.SRGBColorSpace; rr.toneMapping = THREE.ACESFilmicToneMapping;
+  const sc = new THREE.Scene(); sc.environment = s2.environment;
+  sc.add(new THREE.HemisphereLight(0xffffff, 0xe8e2d6, 1.1)); const d = new THREE.DirectionalLight(0xffffff, 1.5); d.position.set(10, 20, 30); sc.add(d);
+  const j = buildJet(); j.rotation.set(.05, .28, .04); sc.add(j);
+  const cm = new THREE.PerspectiveCamera(22, 1600 / 600, .1, 500); cm.position.set(3, 3, 46); cm.lookAt(0, 1.2, 0);
+  rr.render(sc, cm);
+  document.getElementById("glide").src = c.toDataURL("image/png");
+  rr.dispose();
+}
+const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], glide = document.getElementById("glide");
+function drawStory() {
+  const p = progress(story), k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const mob = innerWidth < 760, q = p * p * (3 - 2 * p);
+  const x = mob ? lerp(innerWidth, -glide.offsetWidth, q) : lerp(innerWidth * 1.02, innerWidth * .52, q);
+  const y = mob ? 0 : -glide.offsetHeight / 2 + lerp(60, -90, q);
+  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(3, -4, q)}deg)`;
+}
+
+/* ---------- Erdkugel mit Routen ---------- */
+const DEST = [["RAK", "Marrakesch", 31.6, -8.0], ["NCE", "Nizza", 43.66, 7.21], ["DXB", "Dubai", 25.25, 55.36], ["JFK", "New York", 40.64, -73.78], ["MLE", "Malediven", 4.19, 73.53], ["OLB", "Olbia", 40.9, 9.52], ["KEF", "Reykjavík", 63.98, -22.6]];
+const MUC = [48.35, 11.79];
+const gC = document.getElementById("globe"), gx = gC.getContext("2d");
+let LAND = [];
+fetch("land-dots.json").then(r => r.json()).then(d => LAND = d.map(([lo, la]) => toV(la, lo)));
+function toV(lat, lon) { const a = lat * Math.PI / 180, b = lon * Math.PI / 180; return [Math.cos(a) * Math.cos(b), Math.sin(a), Math.cos(a) * Math.sin(b)]; }
+function slerp(A, B, t) { const d = Math.acos(clamp(A[0] * B[0] + A[1] * B[1] + A[2] * B[2], -1, 1)); if (d < 1e-6) return A; const s = Math.sin(d), u = Math.sin((1 - t) * d) / s, v = Math.sin(t * d) / s; return [A[0] * u + B[0] * v, A[1] * u + B[1] * v, A[2] * u + B[2] * v]; }
+function gdist(a, b) { const A = toV(...a), B = toV(...b); return Math.acos(clamp(A[0] * B[0] + A[1] * B[1] + A[2] * B[2], -1, 1)) * 6371; }
+const routesSec = document.querySelector(".routes"), destEl = document.getElementById("dest");
+const CH = " ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ0123456789.-→:";
+function makeFlap(el, n) { el.innerHTML = ""; el.style.setProperty("--n", n); for (let i = 0; i < n; i++) { const c = document.createElement("span"); c.className = "c"; c.textContent = " "; el.append(c); } return [...el.children]; }
+function flapTo(cells, text, speed = 26) {
+  text = text.toUpperCase().padEnd(cells.length, " ").slice(0, cells.length);
+  cells.forEach((c, i) => { const target = text[i]; if (c.textContent === target) return; let steps = 4 + Math.floor(Math.random() * 6) + i % 3;
+    const tick = () => { c.classList.remove("f"); void c.offsetWidth; c.classList.add("f"); c.textContent = steps-- > 0 ? CH[Math.floor(Math.random() * CH.length)] : target; if (steps >= 0) setTimeout(tick, speed); };
+    setTimeout(tick, i * 18); });
+}
+const destCells = makeFlap(destEl, 10);
+let curD = -1;
+const sKm = document.getElementById("sKm"), sH = document.getElementById("sH"), tCode = document.getElementById("tCode"), tName = document.getElementById("tName"), bigWord = document.getElementById("bigWord");
+function drawGlobe(now) {
+  const p = progress(routesSec), W = gC.clientWidth, H = gC.clientHeight;
+  if (gC.width !== W * DPR) { gC.width = W * DPR; gC.height = H * DPR; }
+  gx.setTransform(DPR, 0, 0, DPR, 0, 0); gx.clearRect(0, 0, W, H);
+  const mob = W < 760, R = Math.min(W, H) * (mob ? .44 : .42), cx = mob ? W / 2 : W * .5, cy = H * (mob ? .46 : .54);
+  const di = Math.min(DEST.length - 1, Math.floor(p * DEST.length)), seg = p * DEST.length - di;
+  if (di !== curD) {
+    curD = di; const d = DEST[di]; flapTo(destCells, d[1]); tCode.textContent = d[0]; tName.textContent = d[1];
+    const km = gdist(MUC, [d[2], d[3]]), hrs = km / 880 + .4;
+    sKm.textContent = (Math.round(km / 10) * 10).toLocaleString("de-DE") + " km"; sH.textContent = Math.floor(hrs) + " h " + String(Math.round((hrs % 1) * 60)).padStart(2, "0");
+  }
+  // Drehung: Blick zwischen München und Ziel
+  const d = DEST[di], midLon = (MUC[1] + d[3]) / 2, midLat = (MUC[0] + d[2]) / 2 - 8;
+  drawGlobe.lon = lerp(drawGlobe.lon ?? midLon, midLon, .06); drawGlobe.lat = lerp(drawGlobe.lat ?? midLat, midLat, .06);
+  const lo = -drawGlobe.lon * Math.PI / 180 - Math.PI / 2 + now * .00002, la = drawGlobe.lat * Math.PI / 180;
+  const proj = v => { // Drehung um Y (Länge), dann um X (Breite)
+    const x1 = v[0] * Math.cos(lo) + v[2] * Math.sin(lo), z1 = -v[0] * Math.sin(lo) + v[2] * Math.cos(lo), y1 = v[1];
+    const y2 = y1 * Math.cos(la) - z1 * Math.sin(la), z2 = y1 * Math.sin(la) + z1 * Math.cos(la);
+    return [cx + x1 * R, cy - y2 * R, z2];
+  };
+  const g = gx.createRadialGradient(cx - R * .3, cy - R * .4, R * .1, cx, cy, R * 1.1); g.addColorStop(0, "#1a2335"); g.addColorStop(1, "#0b0f18");
+  gx.fillStyle = g; gx.beginPath(); gx.arc(cx, cy, R, 0, Math.PI * 2); gx.fill();
+  gx.strokeStyle = "rgba(200,168,107,.25)"; gx.lineWidth = 1; gx.beginPath(); gx.arc(cx, cy, R + 8, 0, Math.PI * 2); gx.stroke();
+  for (const v of LAND) { const [x, y, z] = proj(v); if (z < 0) continue; gx.fillStyle = `rgba(238,240,244,${.18 + z * .6})`; gx.fillRect(x - .9, y - .9, 1.8, 1.8); }
+  // alle Routen schwach, aktuelle hell und wachsend
+  const A = toV(...MUC);
+  DEST.forEach((dd, i) => {
+    const B = toV(dd[2], dd[3]), act = i === di, k = act ? ease(clamp(seg * 2.2)) : (i < di ? 1 : 0);
+    if (!k) return;
+    gx.strokeStyle = act ? "rgba(226,201,147,.95)" : "rgba(226,201,147,.28)"; gx.lineWidth = act ? 2 : 1; gx.beginPath();
+    let started = false;
+    for (let s = 0; s <= 60 * k; s++) { const t = s / 60, v = slerp(A, B, t), lift = 1 + Math.sin(t * Math.PI) * .12; const [x, y, z] = proj([v[0] * lift, v[1] * lift, v[2] * lift]); if (z < -.1) { started = false; continue; } started ? gx.lineTo(x, y) : gx.moveTo(x, y); started = true; }
+    gx.stroke();
+    if (k >= 1 || act) { const v = slerp(A, B, k), lift = 1 + Math.sin(k * Math.PI) * .12; const [x, y, z] = proj([v[0] * lift, v[1] * lift, v[2] * lift]); if (z > 0) { gx.fillStyle = act ? "#e2c993" : "rgba(226,201,147,.6)"; gx.beginPath(); gx.arc(x, y, act ? 3.5 : 2.2, 0, Math.PI * 2); gx.fill(); if (act && k >= 1) { gx.font = "600 11px Manrope,sans-serif"; gx.fillStyle = "#fff"; gx.fillText(dd[1].toUpperCase(), x + 8, y - 6); } } }
+  });
+  const [mx, my, mz] = proj(A); if (mz > 0) { const pu = (now / 1000) % 2 / 2; gx.strokeStyle = `rgba(226,201,147,${1 - pu})`; gx.beginPath(); gx.arc(mx, my, 4 + pu * 18, 0, Math.PI * 2); gx.stroke(); gx.fillStyle = "#e2c993"; gx.beginPath(); gx.arc(mx, my, 4, 0, Math.PI * 2); gx.fill(); gx.font = "600 11px Manrope,sans-serif"; gx.fillStyle = "#fff"; gx.fillText("MÜNCHEN", mx + 9, my + 16); }
+  bigWord.style.transform = `translateX(${-p * 30}vw)`;
+}
+
+/* Abflugtafel */
+const dep = document.getElementById("dep");
+const ROWS = DEST.slice(0, 6).map(d => { const km = gdist(MUC, [d[2], d[3]]), h = km / 880 + .4; return [d[1], d[0], Math.floor(h) + "H" + String(Math.round((h % 1) * 60)).padStart(2, "0"), "VERFÜGBAR"]; });
+const depCells = ROWS.map(r => { const row = document.createElement("div"); row.className = "r"; const cells = r.map((t, i) => { const f = document.createElement("div"); f.className = "flap" + (i === 3 ? " ok" : ""); f.dataset.t = t; row.append(f); return makeFlap(f, i === 0 ? 11 : i === 3 ? 9 : i === 1 ? 3 : 5); }); dep.append(row); return { cells, r }; });
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add("in"); io.unobserve(e.target); }), { threshold: .2 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+const io2 = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; depCells.forEach(({ cells, r }, k) => setTimeout(() => cells.forEach((c, i) => flapTo(c, r[i])), k * 220)); io2.disconnect(); }), { threshold: .3 });
+io2.observe(dep);
+
+/* Schleife */
+function resize() { sizeR(r1, sky, cam1); sizeR(r2, specC, cam2); }
+addEventListener("resize", resize); resize();
+snapshotSide();
+document.getElementById("loading").style.opacity = 0;
+function loop(now) {
+  if (visible(hero)) drawHero(now); else last = now;
+  if (visible(story)) drawStory();
+  if (visible(routesSec)) drawGlobe(now);
+  if (visible(specSec)) drawSpec();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
