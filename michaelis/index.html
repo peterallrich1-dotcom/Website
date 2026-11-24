@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Malermeister Jörn Michaelis · Neubrandenburg · Designentwurf</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Malermeister Jörn Michaelis aus Neubrandenburg: Maler- und Tapezierarbeiten, kreative Maltechniken, Bodenbeläge und Fassaden. Bekennen Sie Farbe!">
+<meta name="theme-color" content="#14182b">
+<style>
+@font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(../allrich/fonts/manrope-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:500;font-display:swap;src:url(../allrich/fonts/manrope-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Manrope";font-weight:600;font-display:swap;src:url(../allrich/fonts/manrope-latin-600-normal.woff2) format("woff2")}
+:root{
+  --red:#d9322e;--yellow:#f3bf1f;--blue:#20409a;--blue-d:#14182b;
+  --wall:#ebe7e0;--paper:#f7f4ee;--ink:#14182b;--mute:#5d6170;--line:rgba(20,24,43,.12);
+  --f:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;--r:22px;--gut:clamp(18px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:17px/1.6 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.draft{position:fixed;top:0;left:0;right:0;z-index:80;background:var(--blue-d);color:#fff;font:600 12.5px/1.3 var(--f);text-align:center;padding:7px 12px}
+.draft a{color:var(--yellow)}
+.draft .s{display:none}
+
+/* header */
+.hdr{position:fixed;top:30px;left:0;right:0;z-index:70;background:rgba(247,244,238,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.hdr.solid{background:rgba(247,244,238,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:52px;height:auto;flex:none}
+.logo b{display:block;font-weight:600;font-size:17px;line-height:1.1;letter-spacing:-.01em}
+.logo small{display:block;font-size:12px;color:var(--mute);font-weight:500}
+.nav{display:flex;gap:26px;font-weight:500;font-size:15px}
+.nav a{text-decoration:none;color:var(--mute)}
+.nav a:hover{color:var(--ink)}
+.call{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.call:hover{background:#c22a26}
+@media(max-width:900px){.nav{display:none}}
+@media(max-width:480px){.logo small{display:none}.call span{display:none}}
+
+/* hero: a roller paints the wall in the three colours of the logo while you scroll */
+.hero{height:300vh;position:relative;background:var(--wall)}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  background:var(--wall) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .28 0 0 0 0 .25 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.band{position:absolute;top:0;bottom:0;will-change:clip-path}
+.band::after{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.b1{left:0;width:33.4%;background:var(--red)}
+.b2{left:33.3%;width:33.4%;background:var(--yellow)}
+.b3{left:66.6%;width:33.4%;background:var(--blue)}
+.roller{position:absolute;left:0;top:0;will-change:transform;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}
+.hcard{position:absolute;left:var(--gut);bottom:clamp(28px,7vh,70px);max-width:560px;background:rgba(247,244,238,.96);border-radius:var(--r);padding:clamp(24px,3vw,38px);box-shadow:0 30px 60px -25px rgba(20,24,43,.45)}
+.hcard .kick{font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.hcard h1{font-weight:600;font-size:clamp(38px,5.6vw,72px);line-height:1;letter-spacing:-.03em;margin-top:10px}
+.hcard h1 span{background:linear-gradient(90deg,var(--red),var(--yellow) 50%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hcard p{color:var(--mute);margin-top:14px;font-size:clamp(16px,1.4vw,18px)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn.red{background:var(--red);color:#fff}
+.btn.red:hover{background:#c22a26}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--ink)}
+.hint{position:absolute;right:var(--gut);bottom:clamp(28px,7vh,70px);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,24,43,.55)}
+@media(max-width:700px){.hint{display:none}.hcard{right:var(--gut);bottom:20px;padding:22px}.hcard p{font-size:15px}.hcard .btn.ghost{display:none}}
+
+/* sections */
+.sec{padding:clamp(80px,11vw,140px) 0}
+.kick{font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.h2{font-weight:600;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.03em;margin-top:12px;max-width:17ch}
+.lead{color:var(--mute);font-size:clamp(17px,1.5vw,19px);max-width:58ch;margin-top:18px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+.facts{background:var(--blue-d);color:#fff}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.facts div{padding:26px 22px;border-left:1px solid rgba(255,255,255,.12)}
+.facts div:first-child{border-left:0}
+.facts b{display:block;font-size:19px;font-weight:600}
+.facts span{font-size:14.5px;color:rgba(255,255,255,.68)}
+.facts i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;transform:rotate(45deg)}
+@media(max-width:860px){.facts .wrap{grid-template-columns:1fr 1fr}.facts div:nth-child(3){border-left:0}}
+@media(max-width:480px){.facts .wrap{grid-template-columns:1fr}.facts div{border-left:0;border-top:1px solid rgba(255,255,255,.12)}.facts div:first-child{border-top:0}}
+
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:54px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:var(--c,var(--red))}
+.card .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--c,var(--red)) 14%,#fff);color:var(--c,var(--red))}
+.card .ic svg{width:24px;height:24px}
+.card h3{font-weight:600;font-size:21px;margin-top:18px;letter-spacing:-.01em}
+.card p{color:var(--mute);font-size:15.5px;margin-top:8px}
+.card ul{margin-top:12px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.card li{font-size:13px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--paper);color:var(--ink)}
+@media(max-width:980px){.svc{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.svc{grid-template-columns:1fr}}
+
+/* techniques with own photos */
+.tech{background:var(--wall)}
+.tgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;margin-top:56px}
+.tgrid+.tgrid{margin-top:clamp(50px,7vw,90px)}
+.tgrid.rev{grid-template-columns:1fr 1.2fr}
+.tgrid.rev .ph{order:2}
+.ph{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 60px -30px rgba(20,24,43,.5)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.ph:hover img{transform:scale(1.04)}
+.ph .tag{position:absolute;left:16px;top:16px;background:rgba(247,244,238,.95);font-weight:600;font-size:13px;padding:6px 12px;border-radius:999px}
+.tgrid h3{font-weight:600;font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;line-height:1.1}
+.tgrid p{color:var(--mute);margin-top:12px}
+.dots{display:flex;gap:8px;margin-top:20px}
+.dots img{width:74px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;opacity:.75;border:2px solid transparent;transition:opacity .2s,border-color .2s}
+.dots img:hover,.dots img.on{opacity:1;border-color:var(--ink)}
+@media(max-width:860px){.tgrid,.tgrid.rev{grid-template-columns:1fr}.tgrid.rev .ph{order:0}}
+
+.gal{columns:4 220px;column-gap:12px;margin-top:50px}
+.gal button{display:block;width:100%;margin:0 0 12px;padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:none;break-inside:avoid}
+.gal img{width:100%;height:auto;transition:transform .6s}
+.gal button:hover img{transform:scale(1.04)}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(10,12,22,.92);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb img{max-width:min(1000px,100%);max-height:86vh;border-radius:12px}
+.lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb .x{top:20px;right:20px}.lb .pv{left:20px;top:50%}.lb .nx{right:20px;top:50%}
+
+/* tax tip */
+.tax{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,50px);align-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(28px,4vw,48px)}
+.tax .big{font-weight:600;font-size:clamp(54px,7vw,90px);line-height:.9;letter-spacing:-.04em;color:var(--blue)}
+.tax .big small{display:block;font-size:14px;letter-spacing:0;color:var(--mute);font-weight:500;margin-top:8px}
+.tax h3{font-weight:600;font-size:clamp(22px,2.4vw,28px);letter-spacing:-.02em}
+.tax p{color:var(--mute);margin-top:8px;font-size:15.5px}
+@media(max-width:860px){.tax{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+.about .stack{position:relative;aspect-ratio:1}
+.about .stack .ph{position:absolute;width:72%;aspect-ratio:4/3}
+.about .stack .ph:nth-child(1){left:0;top:0}
+.about .stack .ph:nth-child(2){right:0;bottom:0;border:8px solid var(--paper)}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.vals div{border-top:3px solid var(--c);padding-top:12px}
+.vals b{display:block;font-weight:600}
+.vals span{color:var(--mute);font-size:15px}
+@media(max-width:860px){.about{grid-template-columns:1fr}.about .stack{max-width:520px}}
+
+.area{background:var(--blue-d);color:#fff}
+.area .lead{color:rgba(255,255,255,.7)}
+.area .h2{max-width:20ch}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chips span{padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.2);font-weight:600}
+.chips span.main{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.svc-x{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.svc-x div{flex:1 1 220px;background:rgba(255,255,255,.06);border-radius:18px;padding:22px}
+.svc-x b{display:block;font-weight:600}
+.svc-x span{color:rgba(255,255,255,.7);font-size:15px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px)}
+.cinfo a{text-decoration:none}
+.cl{display:grid;gap:12px;margin-top:30px}
+.cl a,.cl div{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.cl svg{width:22px;height:22px;flex:none;color:var(--red)}
+.cl small{display:block;color:var(--mute);font-size:13px}
+.cl b{font-weight:600}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,36px);display:grid;gap:14px}
+label{font-weight:600;font-size:14px;display:block;margin-bottom:6px}
+input,textarea,select{width:100%;font:16px var(--f);padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.small{font-size:13px;color:var(--mute)}
+@media(max-width:860px){.contact,.two{grid-template-columns:1fr}}
+
+footer{background:var(--blue-d);color:rgba(255,255,255,.7);padding:36px 0 44px;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:#fff}
+.fab{position:fixed;right:16px;bottom:16px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;display:none;place-items:center;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.fab svg{width:26px;height:26px}
+@media(max-width:700px){.fab{display:grid}}
+@media(max-width:600px){.draft .l{display:none}.draft .s{display:inline}}
+@media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="draft"><span class="l">Designentwurf für Malermeister Jörn Michaelis, kostenlos erstellt von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">ALLRICH Webdesign</a></span><span class="s">Entwurf von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">ALLRICH Webdesign</a></span></div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Malermeister Jörn Michaelis, zum Seitenanfang">
+      <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M0 58 L24 4 L44 58Z" fill="#d9322e"/><path d="M30 58 L54 4 L74 58Z" fill="#f3bf1f"/><path d="M58 58 L82 20 L104 58Z" fill="#20409a"/></svg>
+      <span><b>Malermeister Michaelis</b><small>Neubrandenburg · seit vielen Jahren</small></span>
+    </a>
+    <nav class="nav"><a href="#leistungen">Leistungen</a><a href="#techniken">Maltechniken</a><a href="#referenzen">Referenzen</a><a href="#ueber">Über mich</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="call" href="tel:+491723243808"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg><span>0172 3243808</span></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" id="hero" aria-label="Einleitung">
+  <div class="stage" id="stage">
+    <div class="band b1" id="b1"></div>
+    <div class="band b2" id="b2"></div>
+    <div class="band b3" id="b3"></div>
+    <svg class="roller" id="roller" viewBox="0 0 200 260" aria-hidden="true">
+      <rect x="92" y="70" width="16" height="170" rx="6" fill="#2a2d3a"/>
+      <rect x="86" y="200" width="28" height="60" rx="10" fill="#1b1d27"/>
+      <path d="M100 70 V40 H20 V22" stroke="#9aa0ad" stroke-width="7" fill="none" stroke-linejoin="round"/>
+      <rect id="rollerC" x="8" y="0" width="184" height="34" rx="17" fill="#d9322e"/>
+      <rect x="8" y="0" width="184" height="12" rx="6" fill="#fff" opacity=".18"/>
+    </svg>
+    <div class="hcard" id="hcard">
+      <p class="kick">Malermeister in Neubrandenburg</p>
+      <h1>Bekennen Sie <span>Farbe.</span></h1>
+      <p>Maler- und Tapezierarbeiten, kreative Maltechniken und Fassaden. Für Privat, Gewerbe und Objekt, innen wie außen. Vom Meister selbst, zuverlässig und termintreu.</p>
+      <div class="btns"><a class="btn red" href="#kontakt">Kostenlos anfragen</a><a class="btn ghost" href="#techniken">Maltechniken ansehen</a></div>
+    </div>
+    <div class="hint" id="hint">Scrollen ↓</div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Auf einen Blick">
+  <div class="wrap">
+    <div><b><i style="background:var(--red)"></i>Meisterbetrieb</b><span>Handwerkskammer Ostmecklenburg-Vorpommern</span></div>
+    <div><b><i style="background:var(--yellow)"></i>Innen &amp; außen</b><span>Privat, Gewerbe und Objekt</span></div>
+    <div><b><i style="background:var(--blue)"></i>Kreative Techniken</b><span>Wisch-, Spachtel-, Lasur- und Spritztechnik</span></div>
+    <div><b><i style="background:#fff"></i>Steuer sparen</b><span>Bis zu 1.200 € im Jahr absetzbar</span></div>
+  </div>
+</section>
+
+<section class="sec" id="leistungen">
+  <div class="wrap">
+    <p class="kick rv">Leistungen</p>
+    <h2 class="h2 rv">Alles rund um Farbe, Wand und Boden.</h2>
+    <p class="lead rv">Der gesamte Malerbereich aus einer Hand, von der kleinen Renovierung bis zum ganzen Objekt. Mit kompetenter Beratung vorab und sauberer Arbeit bis zum Schluss.</p>
+    <div class="svc">
+      <article class="card rv" style="--c:var(--red)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="15" height="6" rx="2"/><path d="M18 6h2v5h-8v3"/><rect x="10" y="14" width="4" height="7" rx="1"/></svg></div><h3>Maler- &amp; Tapezierarbeiten</h3><p>Wände und Decken streichen, tapezieren, Türen, Fenster und Heizkörper lackieren.</p><ul><li>Anstrich</li><li>Tapeten</li><li>Lackierungen</li></ul></article>
+      <article class="card rv" style="--c:#c99a00"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20c4-1 6-4 8-8s5-7 8-8"/><path d="M4 14c3 0 4-2 6-4"/><path d="M12 20c3 0 5-2 8-5"/></svg></div><h3>Kreative Maltechniken</h3><p>Klassisch bis modern: Oberflächen, die man nicht nur sieht, sondern spürt.</p><ul><li>Wischtechnik</li><li>Spachteltechnik</li><li>Lasur</li><li>Kellenputz</li></ul></article>
+      <article class="card rv" style="--c:var(--blue)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg></div><h3>Fassade &amp; Werterhaltung</h3><p>Schutz und Pflege der Bausubstanz, vom modernen Wohnbau bis zum Denkmal.</p><ul><li>Fassadenanstrich</li><li>Denkmalpflege</li><li>Objektbereich</li></ul></article>
+      <article class="card rv" style="--c:var(--blue)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h18M3 21h18"/><path d="M5 17V7h14v10"/></svg></div><h3>Bodenbelagsarbeiten</h3><p>Neue Böden verlegen, passend zu Wand und Raum. Alles aus einer Hand.</p><ul><li>Bodenbeläge</li><li>Renovierung</li></ul></article>
+      <article class="card rv" style="--c:var(--red)"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Urlaubs- &amp; Wochenendservice</h3><p>Ich renoviere, während Sie verreist sind, oder am Wochenende, wenn es Ihnen besser passt.</p><ul><li>Urlaubsservice</li><li>Wochenende</li></ul></article>
+      <article class="card rv" style="--c:#c99a00"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 6.5-7 11-7 11z"/></svg></div><h3>Seniorenservice</h3><p>Rücksichtsvoll, sauber und mit Zeit für Ihre Fragen. Möbel rücken inklusive.</p><ul><li>Beratung zu Hause</li><li>Sauber &amp; ruhig</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec tech" id="techniken">
+  <div class="wrap">
+    <p class="kick rv">Mein Know-how</p>
+    <h2 class="h2 rv">Wände mit Charakter.</h2>
+    <p class="lead rv">Dekorative Oberflächengestaltung ist meine Spezialität. Hier ein paar Arbeiten aus der Region.</p>
+
+    <div class="tgrid">
+      <div class="ph rv"><img id="t1" src="img/lasurtechnik-1.jpg" alt="Treppenhaus mit marmorierter Lasurtechnik in Creme und Grau" loading="lazy"><span class="tag">Lasurtechnik</span></div>
+      <div class="rv">
+        <h3>Lasurtechnik</h3>
+        <p>Mehrere hauchdünne Farbschichten übereinander ergeben eine Tiefe wie bei Marmor. Perfekt für Treppenhäuser, Flure und Wohnräume, die edel wirken sollen.</p>
+        <div class="dots" data-t="t1"><img class="on" src="img/lasurtechnik-1.jpg" alt=""><img src="img/lasurtechnik-2.jpg" alt=""><img src="img/lasurtechnik-3.jpg" alt=""></div>
+      </div>
+    </div>
+
+    <div class="tgrid rev">
+      <div class="ph rv"><img id="t2" src="img/kellenputz-lasur-1.jpg" alt="Treppenhaus mit warmem, gelbem Kellenputz und Lasur" loading="lazy"><span class="tag">Kellenputz + Lasur</span></div>
+      <div class="rv">
+        <h3>Kellenputz mit Lasur</h3>
+        <p>Strukturierter Putz, mit der Kelle aufgetragen und mit Lasur veredelt. Warm, mediterran und sehr robust, gerade dort, wo viel los ist.</p>
+        <div class="dots" data-t="t2"><img class="on" src="img/kellenputz-lasur-1.jpg" alt=""><img src="img/kellenputz-lasur-2.jpg" alt=""><img src="img/kellenputz-lasur-3.jpg" alt=""><img src="img/kellenputz-lasur-4.jpg" alt=""></div>
+      </div>
+    </div>
+
+    <div class="tgrid">
+      <div class="ph rv"><img id="t3" src="img/flur-farbakzent-1.jpg" alt="Flur mit roten und grauen Farbstreifen als Akzent" loading="lazy"><span class="tag">Farbakzente</span></div>
+      <div class="rv">
+        <h3>Farbakzente &amp; Wischtechnik</h3>
+        <p>Ein Streifen in der richtigen Farbe verändert einen ganzen Flur. Wischtechnik bringt Wärme in Küche und Esszimmer, ohne aufdringlich zu sein.</p>
+        <div class="dots" data-t="t3"><img class="on" src="img/flur-farbakzent-1.jpg" alt=""><img src="img/flur-farbakzent-2.jpg" alt=""><img src="img/esszimmer-wischtechnik.jpg" alt=""><img src="img/spachteltechnik.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="referenzen">
+  <div class="wrap">
+    <p class="kick rv">Referenzen</p>
+    <h2 class="h2 rv">Ein Blick in fertige Räume.</h2>
+    <div class="gal rv" id="gal">
+      <button type="button"><img src="img/esszimmer-wischtechnik.jpg" alt="Esszimmer mit Wischtechnik in warmem Gelb" loading="lazy"></button>
+      <button type="button"><img src="img/lasurtechnik-3.jpg" alt="Treppe mit Lasurtechnik" loading="lazy"></button>
+      <button type="button"><img src="img/kueche-2.jpg" alt="Küche mit Wischtechnik" loading="lazy"></button>
+      <button type="button"><img src="img/spachteltechnik.jpg" alt="Spachteltechnik in Orange und Weiß" loading="lazy"></button>
+      <button type="button"><img src="img/kellenputz-lasur-3.jpg" alt="Flur mit Kellenputz und Lasur" loading="lazy"></button>
+      <button type="button"><img src="img/dachzimmer-1.jpg" alt="Dachzimmer in Hellgrün" loading="lazy"></button>
+      <button type="button"><img src="img/flur-farbakzent-2.jpg" alt="Flur mit Farbstreifen" loading="lazy"></button>
+      <button type="button"><img src="img/kueche-3.jpg" alt="Küche, fertig renoviert" loading="lazy"></button>
+      <button type="button"><img src="img/lasurtechnik-2.jpg" alt="Treppenhaus mit Lasur" loading="lazy"></button>
+      <button type="button"><img src="img/kueche-1.jpg" alt="Küche und Esszimmer" loading="lazy"></button>
+      <button type="button"><img src="img/kellenputz-lasur-2.jpg" alt="Treppenhaus mit Dachfenster" loading="lazy"></button>
+      <button type="button"><img src="img/dachzimmer-2.jpg" alt="Dachzimmer, frisch gestrichen" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="tax rv">
+      <div class="big">20 %<small>der Arbeitskosten</small></div>
+      <div><h3>Tipp: Renovierung von der Steuer absetzen</h3><p>Malerarbeiten in Ihrer Wohnung oder Ihrem Haus zählen als Handwerkerleistung. 20 % der Arbeitskosten, bis zu 1.200 € im Jahr, ziehen Sie direkt von Ihrer Steuer ab. Wichtig: Rechnung aufheben und per Überweisung bezahlen.</p></div>
+      <a class="btn red" href="#kontakt">Angebot anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ueber" style="background:#fff">
+  <div class="wrap about">
+    <div class="stack rv">
+      <div class="ph"><img src="img/kueche-2.jpg" alt="Renovierte Küche" loading="lazy"></div>
+      <div class="ph"><img src="img/lasurtechnik-1.jpg" alt="Treppenhaus mit Lasurtechnik" loading="lazy"></div>
+    </div>
+    <div>
+      <p class="kick rv">Über mich</p>
+      <h2 class="h2 rv">Jörn Michaelis, Malermeister.</h2>
+      <p class="lead rv">Als Malerbetrieb in Neubrandenburg möchte ich Sie mit kreativen Maltechniken, kompetenter Beratung und neuen Ideen überzeugen. Aus vielen Schulungen und langjähriger Erfahrung ist ein fester und treuer Kundenstamm entstanden.</p>
+      <div class="vals">
+        <div class="rv" style="--c:var(--red)"><b>Handwerkliches Können</b><span>Meisterqualität bei jedem Auftrag</span></div>
+        <div class="rv" style="--c:var(--yellow)"><b>Zuverlässigkeit</b><span>Was vereinbart ist, gilt</span></div>
+        <div class="rv" style="--c:var(--blue)"><b>Termintreue</b><span>Pünktlich fertig, wie geplant</span></div>
+        <div class="rv" style="--c:var(--ink)"><b>Beratung</b><span>Ehrlich, auch bei der Farbwahl</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec area" id="gebiet">
+  <div class="wrap">
+    <p class="kick rv" style="color:var(--yellow)">Einsatzgebiet</p>
+    <h2 class="h2 rv">In Neubrandenburg zu Hause, in der ganzen Region unterwegs.</h2>
+    <p class="lead rv">Durch zahlreiche Aufträge in der Region kennen mich viele Kunden schon seit Jahren.</p>
+    <div class="chips rv"><span class="main">Neubrandenburg</span><span>Mecklenburg-Strelitz</span><span>Müritz</span><span>Uecker-Randow</span><span>Uckermark</span><span>und Umgebung</span></div>
+    <div class="svc-x rv">
+      <div><b>Privat</b><span>Wohnungen, Häuser, Treppenhäuser</span></div>
+      <div><b>Gewerbe</b><span>Büros, Praxen, Geschäfte</span></div>
+      <div><b>Objekt</b><span>Mehrfamilienhäuser, Hausverwaltungen, Denkmal</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="kontakt">
+  <div class="wrap contact">
+    <div class="cinfo">
+      <p class="kick rv">Kontakt</p>
+      <h2 class="h2 rv">Bekennen Sie Farbe. Ich berate Sie gern.</h2>
+      <p class="lead rv">Rufen Sie an oder schreiben Sie mir kurz, worum es geht. Sie bekommen ein klares Angebot.</p>
+      <div class="cl rv">
+        <a href="tel:+491723243808"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg><span><small>Mobil</small><b>0172 3243808</b></span></a>
+        <a href="mailto:info@malermeister-michaelis.de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span><small>E-Mail</small><b>info@malermeister-michaelis.de</b></span></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Philipp-M%C3%BCller-Str.+7%2C+17033+Neubrandenburg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span><small>Adresse</small><b>Philipp-Müller-Str. 7, 17033 Neubrandenburg</b></span></a>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg><span><small>Fax</small><b>0395 3599899</b></span></div>
+      </div>
+    </div>
+    <form class="rv" id="form" novalidate>
+      <div class="two">
+        <div><label for="fN">Name</label><input id="fN" autocomplete="name" placeholder="Vor- und Nachname"></div>
+        <div><label for="fT">Telefon</label><input id="fT" type="tel" autocomplete="tel" placeholder="Für den Rückruf"></div>
+      </div>
+      <div><label for="fM">E-Mail</label><input id="fM" type="email" autocomplete="email" placeholder="name@beispiel.de"></div>
+      <div><label for="fA">Was soll gemacht werden?</label><select id="fA"><option>Wände und Decken streichen</option><option>Tapezieren</option><option>Kreative Maltechnik</option><option>Fassade</option><option>Bodenbelag</option><option>Etwas anderes</option></select></div>
+      <div><label for="fX">Ihre Nachricht</label><textarea id="fX" placeholder="Zum Beispiel: 3 Zimmer, ca. 70 m², Wunschtermin im März"></textarea></div>
+      <button class="btn red" type="submit" style="justify-self:start">Anfrage senden</button>
+      <p class="small">Ihre Angaben werden nur zur Beantwortung Ihrer Anfrage verwendet. (Im Entwurf öffnet sich Ihr E-Mail-Programm.)</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Malermeister Jörn Michaelis · Philipp-Müller-Str. 7 · 17033 Neubrandenburg · <a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+    <span>Website von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">ALLRICH Webdesign</a></span>
+  </div>
+</footer>
+
+<a class="fab" href="tel:+491723243808" aria-label="Anrufen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+
+<div class="lb" id="lb" role="dialog" aria-label="Bild vergrößert"><img id="lbI" alt=""><button class="x" type="button" aria-label="Schließen">×</button><button class="pv" type="button" aria-label="Vorheriges Bild">‹</button><button class="nx" type="button" aria-label="Nächstes Bild">›</button></div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hdr = $("#hdr"); 
+  if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
+
+  /* hero: three strokes, red, yellow, blue, painted top to bottom with a roller */
+  const hero = $("#hero"), stage = $("#stage"), roller = $("#roller"), rc = $("#rollerC"), hint = $("#hint");
+  const B = [$("#b1"), $("#b2"), $("#b3")], COL = ["#d9322e", "#f3bf1f", "#20409a"];
+  const J = B.map(() => Array.from({ length: 13 }, () => Math.random() * 10 - 5)); /* uneven paint edge, in px */
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  let tgt = 0, cur = 0;
+  const read = () => { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1); };
+  function edge(i, y) { /* polygon: painted from top down to y, with a slightly ragged lower edge */
+    const pts = ["0 0", "100% 0"];
+    for (let k = 12; k >= 0; k--) pts.push((k / 12 * 100) + "% " + Math.max(0, y + J[i][k]) + "px");
+    return "polygon(" + pts.join(",") + ")";
+  }
+  function frame() {
+    cur += (tgt - cur) * (RM ? 1 : .12); if (Math.abs(tgt - cur) < .0005) cur = tgt;
+    const W = stage.clientWidth, H = stage.clientHeight, seg = .27;
+    let active = -1, ay = 0;
+    B.forEach((b, i) => {
+      const t = clamp((cur - i * seg) / seg, 0, 1), y0 = i === 0 ? 150 : 0, y = y0 + ease(t) * (H + 20 - y0);
+      b.style.clipPath = t >= 1 ? "none" : (t <= 0 && i > 0) ? "polygon(0 0,100% 0,100% 0,0 0)" : edge(i, y);
+      if ((t > 0 || i === 0) && t < 1 && active < 0) { active = i; ay = y; }
+    });
+    const bw = W / 3, rw = Math.min(bw * .92, 260), sc = rw / 184;
+    if (active < 0) { const done = cur >= seg * 3; active = done ? 2 : 0; ay = done ? H + 400 : -60; }
+    roller.style.width = (200 * sc) + "px";
+    roller.style.transform = "translate(" + (active * bw + (bw - 200 * sc) / 2) + "px," + (ay - 17 * sc) + "px)";
+    rc.setAttribute("fill", COL[active]);
+    hint.style.opacity = 1 - clamp(cur * 8, 0, 1);
+    requestAnimationFrame(frame);
+  }
+  addEventListener("scroll", read, { passive: true }); addEventListener("resize", read); read(); requestAnimationFrame(frame);
+
+  /* technique thumbnails */
+  $$(".dots").forEach(d => d.addEventListener("click", e => { const im = e.target.closest("img"); if (!im) return; $("#" + d.dataset.t).src = im.src; d.querySelectorAll("img").forEach(x => x.classList.toggle("on", x === im)); }));
+
+  /* lightbox */
+  const imgs = $$("#gal img"), lb = $("#lb"), lbI = $("#lbI"); let li = 0;
+  const show = i => { li = (i + imgs.length) % imgs.length; lbI.src = imgs[li].src; lbI.alt = imgs[li].alt; lb.classList.add("on"); };
+  imgs.forEach((im, i) => im.parentElement.addEventListener("click", () => show(i)));
+  lb.querySelector(".x").onclick = () => lb.classList.remove("on");
+  lb.querySelector(".pv").onclick = () => show(li - 1); lb.querySelector(".nx").onclick = () => show(li + 1);
+  lb.addEventListener("click", e => { if (e.target === lb) lb.classList.remove("on"); });
+  addEventListener("keydown", e => { if (!lb.classList.contains("on")) return; if (e.key === "Escape") lb.classList.remove("on"); if (e.key === "ArrowLeft") show(li - 1); if (e.key === "ArrowRight") show(li + 1); });
+
+  /* contact form (draft): opens the mail program */
+  $("#form").addEventListener("submit", e => {
+    e.preventDefault(); const v = id => $(id).value.trim();
+    const body = "Name: " + v("#fN") + "\nTelefon: " + v("#fT") + "\nE-Mail: " + v("#fM") + "\nArbeiten: " + v("#fA") + "\n\n" + v("#fX");
+    location.href = "mailto:info@malermeister-michaelis.de?subject=" + encodeURIComponent("Anfrage über die Website: " + v("#fA")) + "&body=" + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
