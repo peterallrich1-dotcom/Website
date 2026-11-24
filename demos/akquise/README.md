@@ -285,3 +285,5 @@ Peter hat angerufen, Interesse (arbeitet gerade selbst an einer Website). Entwur
 
 
 **Haarstudio Ramazotti, Plauen (24.11.):** Marc Schröder, Tel. 03741 289 34 89, info@haarstudio-ramazotti.de. Am Telefon offen, möglicher Interessent. Entwurf /ramazotti/ gebaut (Bilder KI-generiert als Beispielbilder, so gekennzeichnet). E-Mail mit Link am 24.11. an info@haarstudio-ramazotti.de gesendet (nach Telefonat, auf Peters Anweisung). Nach 2–3 Tagen nachfassen.
+
+**MB-Malermeister GmbH, Altheim/Wifling (24.11.):** Michael Börsch, info@mb-malermeister.de, Tel. 08703 9890315. Übergibt die Firma bald an seine Tochter, will selbst nichts mehr machen, sagte aber, Peter darf einen Entwurf schicken (für die Tochter später). Entwurf /mb-malermeister/ gebaut, ohne Fotos: Wandflächen und Techniken werden per Code gezeichnet. Mail erst auf Peters Anweisung.
