@@ -62,8 +62,12 @@ button{font:inherit}
 .story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
 .story p.big span{color:rgba(23,22,26,.14);transition:color .25s}
 .story p.big span.on{color:var(--ptext)}
-#glide{position:absolute;left:0;top:50%;width:min(40vw,600px);aspect-ratio:16/10;object-fit:cover;border-radius:8px;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);will-change:transform;z-index:1}
-@media(max-width:760px){.story .txt{max-width:none}#glide{width:88vw;top:auto;bottom:8vh}.story .pin{align-items:flex-start;padding-top:16vh}}
+#train{position:absolute;left:52vw;right:0;top:50%;transform:translateY(-50%);overflow:hidden;padding:40px 0 70px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%);mask-image:linear-gradient(90deg,transparent,#000 12%);pointer-events:none;z-index:1}
+#track{display:flex;align-items:center;gap:18px;width:max-content;will-change:transform}
+#glide,.story .fl{flex:none;height:min(46vh,30vw);object-fit:cover;border-radius:10px;box-shadow:0 40px 70px -30px rgba(0,0,0,.55);background:#0b0b0f;display:block}
+#glide{aspect-ratio:16/10}
+.story .fl{aspect-ratio:9/16}
+@media(max-width:760px){.story{height:360vh}.story .txt{max-width:none}.story .pin{align-items:flex-start;padding-top:16vh}#train{left:0;top:auto;bottom:calc(5vh - 40px);transform:none;-webkit-mask-image:none;mask-image:none;overflow:visible}#track{gap:12px}#glide,.story .fl{height:min(46vw,34vh)}}
 
 .hot{position:absolute;z-index:4;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .5s}
 .hotson .hot{opacity:1;pointer-events:auto}
@@ -172,6 +176,9 @@ button{font:inherit}
 .bento .b1 video{aspect-ratio:auto;min-height:100%}
 .bento .b2 video,.bento .b3 video{aspect-ratio:16/9}
 .bento .b4{grid-column:1/-1}
+.trio{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.trio video{aspect-ratio:3/4}
+@media(max-width:800px){.trio{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gut));padding:0 var(--gut)}.trio::-webkit-scrollbar{display:none}.trio figure{flex:0 0 62vw;scroll-snap-align:center}}
 .bento .b4 video{aspect-ratio:21/8}
 .bento figcaption{position:absolute;left:16px;bottom:14px;right:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .bento figcaption b{font:300 clamp(20px,2vw,28px)/1.1 var(--serif)}
@@ -247,7 +254,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <p class="k">Der Wagen</p>
       <p class="big" id="big">Sechzehn Zylinder, vier Turbolader und eine Karosserie aus Sichtcarbon. Wir übergeben ihn vollgetankt und gereinigt an Ihrem Hotel, am Flughafen oder vor Ihrer Villa. Sie fahren. Wir kümmern uns um alles andere.</p>
     </div>
-    <img id="glide" src="film/drive-hd/f112.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+    <div id="train"><div id="track">
+      <img id="glide" src="film/drive-hd/f112.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+      <video class="fl" src="clips/reel-rot.mp4" poster="clips/reel-rot.jpg" muted loop playsinline preload="none" aria-label="Video: roter Sportwagen"></video>
+      <video class="fl" src="clips/reel-grau.mp4" poster="clips/reel-grau.jpg" muted loop playsinline preload="none" aria-label="Video: titangrauer Supersportwagen"></video>
+      <video class="fl" src="clips/reel-schwarz.mp4" poster="clips/reel-schwarz.jpg" muted loop playsinline preload="none" aria-label="Video: schwarzes Sportcoupé"></video>
+    </div></div>
   </div>
 </section>
 
@@ -324,11 +336,16 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <section class="gal" id="nacht">
   <div class="wrap">
-    <div class="ghead"><div><p class="k rv">Nachtfahrt</p><h2 class="rv">Jedes Detail.<br><em>In Zeitlupe.</em></h2></div><p class="lede rv">Kurze Szenen aus einer Nacht auf dem Sheikh Zayed Road. So fühlt sich der Wagen an, bevor Sie einsteigen.</p></div>
+    <div class="ghead"><div><p class="k rv">Nachtfahrt</p><h2 class="rv">Jedes Detail.<br><em>In Zeitlupe.</em></h2></div><p class="lede rv">Kurze Szenen aus einer Nacht auf dem Sheikh Zayed Road und aus unserem Lichtstudio. So fühlt sich der Wagen an, bevor Sie einsteigen.</p></div>
     <div class="bento">
       <figure class="b1 rv"><video src="clips/seite.mp4" poster="clips/seite.jpg" muted loop playsinline preload="none"></video><figcaption><b>Die Linie</b><span>Seitenansicht · Zeitlupe</span></figcaption></figure>
       <figure class="b2 rv"><video src="clips/licht.mp4" poster="clips/licht.jpg" muted loop playsinline preload="none"></video><figcaption><b>Acht Scheinwerfer</b><span>Front · Zeitlupe</span></figcaption></figure>
       <figure class="b3 rv"><video src="clips/heck.mp4" poster="clips/heck.jpg" muted loop playsinline preload="none"></video><figcaption><b>Das Leuchtband</b><span>Heck · aus der Luft</span></figcaption></figure>
+      <div class="trio">
+        <figure class="rv"><video src="clips/detail-rot.mp4" poster="clips/detail-rot.jpg" muted loop playsinline preload="none"></video><figcaption><b>Rosso</b><span>Felge · Bremse</span></figcaption></figure>
+        <figure class="rv"><video src="clips/detail-schwarz.mp4" poster="clips/detail-schwarz.jpg" muted loop playsinline preload="none"></video><figcaption><b>Nero</b><span>Lichtspiel</span></figcaption></figure>
+        <figure class="rv"><video src="clips/detail-grau.mp4" poster="clips/detail-grau.jpg" muted loop playsinline preload="none"></video><figcaption><b>Titanio</b><span>Scheinwerfer</span></figcaption></figure>
+      </div>
       <figure class="b4 rv"><video src="clips/skyline.mp4" poster="clips/skyline.jpg" muted loop playsinline preload="none"></video><figcaption><b>Downtown Dubai</b><span>Anflug bei Nacht</span></figcaption></figure>
     </div>
   </div>
@@ -428,14 +445,12 @@ function drawHero() {
 }
 
 /* 2. Heller Erzählteil */
-const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], glide = document.getElementById("glide");
+const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], train = document.getElementById("train"), track = document.getElementById("track");
 function drawStory() {
   const p = progress(story), k = Math.floor(clamp(p * 1.25) * words.length);
   words.forEach((w, i) => w.classList.toggle("on", i < k));
-  const mob = innerWidth < 760, q = p * p * (3 - 2 * p);
-  const x = mob ? lerp(innerWidth, -glide.offsetWidth, q) : lerp(innerWidth * 1.02, innerWidth * .52, q);
-  const y = mob ? 0 : -glide.offsetHeight / 2 + lerp(60, -90, q);
-  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(3, -4, q)}deg)`;
+  const W = train.clientWidth, T = track.scrollWidth, q = clamp(p * 1.1);
+  track.style.transform = `translate3d(${lerp(W * (innerWidth < 760 ? 1 : .45), W - T - 20, q)}px,0,0)`;
 }
 
 /* 3. Frontfahrt mit Punkten zum Anklicken */
