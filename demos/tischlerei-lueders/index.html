@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Tischlerei Lüders</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Tischlerei Lüders in Nordhausen, seit 1871. Tischlermeister Peter Walther: Türen, Fenster, Innenausbau, Möbel nach Maß und Restauration.">
@@ -707,6 +708,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 
 const $ = (id) => document.getElementById(id);
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -752,7 +754,12 @@ const camera = new THREE.PerspectiveCamera(50, 1, .05, 900);
       void main(){ float y = vP.y; vec3 c = mix(hor, mid, smoothstep(-.02, .18, y)); c = mix(c, top, smoothstep(.18, .75, y));
         vec3 q = floor(vP*420.); float s = step(.9975, h(q))*smoothstep(.12,.5,y); c += s*.55;
         gl_FragColor = vec4(c,1.); }` });
-  scene.add(new THREE.Mesh(g, m));
+  const sky = new THREE.Mesh(g, m); scene.add(sky);
+  // Spiegelungen: Umgebung aus dem Himmel plus warmen Lichtflächen (wie Fenster im Raum)
+  const envScene = new THREE.Scene(); envScene.add(sky.clone());
+  const warmP = new THREE.Mesh(new THREE.PlaneGeometry(200, 60), new THREE.MeshBasicMaterial({ color: '#ffb46a', side: THREE.DoubleSide }));
+  warmP.position.set(0, 40, -300); envScene.add(warmP);
+  const pm = new THREE.PMREMGenerator(renderer); window.__env = pm.fromScene(envScene, .02).texture; pm.dispose();
 }
 
 /* Licht */
@@ -796,7 +803,7 @@ const M = {
   white: new THREE.MeshStandardMaterial({ color: '#d9d7d0', roughness: .9 }),
   dark: new THREE.MeshStandardMaterial({ color: '#1d2224', roughness: .7 }),
   frame: new THREE.MeshStandardMaterial({ color: '#202628', roughness: .5, metalness: .4 }),
-  glass: new THREE.MeshStandardMaterial({ color: '#203440', roughness: .05, metalness: .3, transparent: true, opacity: .28, depthWrite: false }),
+  glass: new THREE.MeshStandardMaterial({ color: '#1a2c36', roughness: .02, metalness: .9, envMapIntensity: 1.4, transparent: true, opacity: .32, depthWrite: false }),
   warm: new THREE.MeshBasicMaterial({ color: '#ffd59a' }),
   sofa: new THREE.MeshStandardMaterial({ color: '#4a5a52', roughness: .95 }),
   rug: new THREE.MeshStandardMaterial({ color: '#2f3a3a', roughness: 1 }),
@@ -807,6 +814,7 @@ const M = {
   pants: new THREE.MeshStandardMaterial({ color: '#2a2f36', roughness: .9 }),
   steel: new THREE.MeshStandardMaterial({ color: '#9aa3a8', roughness: .35, metalness: .8 })
 };
+['glass','oakTop','frame','steel'].forEach(k => { M[k].envMap = window.__env; M[k].needsUpdate = true; });
 function box(w, h, d, m, x = 0, y = 0, z = 0, parent = scene, cast = true){
   const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); o.castShadow = cast; o.receiveShadow = true; parent.add(o); return o;
 }
@@ -849,7 +857,7 @@ function nearPath(x, z){
 }
 {
   const r = rng(21), cone = new THREE.ConeGeometry(1, 1, 7), trunk = new THREE.CylinderGeometry(.12, .16, 1, 5);
-  const coneM = new THREE.MeshStandardMaterial({ color: '#1b2a20', roughness: 1, flatShading: true });
+  const coneM = new THREE.MeshStandardMaterial({ color: '#ffffff', roughness: .95, flatShading: true });
   const trunkM = new THREE.MeshStandardMaterial({ color: '#2a1f17', roughness: 1 });
   const COUNT = 2600, ic = new THREE.InstancedMesh(cone, coneM, COUNT*2), it = new THREE.InstancedMesh(trunk, trunkM, COUNT);
   ic.castShadow = true; ic.receiveShadow = true;
@@ -867,7 +875,9 @@ function nearPath(x, z){
     v.set(x, y + hgt*.78 + .6, z); s.set(w*.72, hgt*.6, w*.72); m4.compose(v, q, s); ic.setMatrixAt(k++, m4);
     v.set(x, y + .4, z); s.set(1, 1.2, 1); m4.compose(v, q, s); it.setMatrixAt(n++, m4);
   }
-  ic.count = k; it.count = n; scene.add(ic, it);
+  ic.count = k; it.count = n;
+  const col = new THREE.Color(); for (let i = 0; i < k; i++){ const v = .75 + r()*.45; col.setRGB(.11*v, .17*v, .12*v*(.9 + r()*.3)); ic.setColorAt(i, col); }
+  ic.material.color.set('#ffffff'); scene.add(ic, it);
 }
 
 /* Stadt im Tal mit Lichtern */
@@ -896,6 +906,12 @@ function nearPath(x, z){
     const lamp = new THREE.Mesh(new THREE.BoxGeometry(1.2, 2, .2), new THREE.MeshBasicMaterial({ color: '#ffcf8a', fog: false })); lamp.position.set(x, y + h - 3, z + 2.05); scene.add(lamp);
   });
 }
+/* Nebel im Tal */
+{ const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d'), g = x.createRadialGradient(64,64,0,64,64,64);
+  g.addColorStop(0, 'rgba(150,175,190,.55)'); g.addColorStop(1, 'rgba(150,175,190,0)'); x.fillStyle = g; x.fillRect(0,0,128,128);
+  const tex = new THREE.CanvasTexture(c), r = rng(9);
+  for (let i = 0; i < 30; i++){ const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false, opacity: .05 + r()*.08, fog: false }));
+    const xz = [(r() - .5)*260, -60 - r()*120]; sp.position.set(xz[0], height(xz[0], xz[1]) + 4 + r()*8, xz[1]); const sc = 40 + r()*60; sp.scale.set(sc*1.8, sc*.5, 1); scene.add(sp); } }
 setLoad(.65);
 
 /* ---------- Villa ---------- */
@@ -903,7 +919,13 @@ setLoad(.65);
 const villa = new THREE.Group(); scene.add(villa);
 const W = 16, H = 3.4, D = 10;
 box(W + 6, .3, D + 7, M.concrete, 0, -.15, 1.5, villa);              // Sockel
-box(W, .12, D, M.floor, 0, .06, 0, villa, false);                    // Boden innen
+{ const ft = plainWood(31, '#9c7348', '#4f3219'); ft.repeat.set(4, 6); ft.rotation = Math.PI/2; ft.center.set(.5, .5);
+  const fc = document.createElement('canvas'); fc.width = fc.height = 512; const fx = fc.getContext('2d'); fx.drawImage(ft.image, 0, 0);
+  fx.strokeStyle = 'rgba(30,18,8,.55)'; fx.lineWidth = 2; for (let i = 0; i <= 8; i++){ fx.beginPath(); fx.moveTo(0, i*64); fx.lineTo(512, i*64); fx.stroke(); }
+  for (let i = 0; i < 8; i++){ const x0 = (i*197) % 512; fx.beginPath(); fx.moveTo(x0, i*64); fx.lineTo(x0, i*64 + 64); fx.stroke(); }
+  const t = new THREE.CanvasTexture(fc); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(3, 2); t.anisotropy = 8;
+  M.floor = new THREE.MeshStandardMaterial({ map: t, roughness: .42, envMap: window.__env, envMapIntensity: .35 }); }
+box(W, .12, D, M.floor, 0, .06, 0, villa, false);                    // Boden innen (Eichendielen)
 box(W + .4, .35, D + .4, M.white, 0, H + .17, 0, villa);             // Decke EG
 // Seitenwände (massiv)
 box(.3, H, D, M.white, -W/2, H/2, 0, villa);
@@ -962,6 +984,13 @@ const fill1 = new THREE.PointLight('#ffb978', 9, 12, 1.8); fill1.position.set(-5
 const fill2 = new THREE.PointLight('#ffb978', 6, 12, 1.8); fill2.position.set(5, 2.6, -1); villa.add(fill2);
 // Lichtschein aus der Front aufs Deck
 const spill = new THREE.SpotLight('#ffbf7e', 22, 18, .9, .8, 1.4); spill.position.set(0, 2.8, 2); spill.target.position.set(0, 0, 9); villa.add(spill, spill.target);
+
+/* Pflanze und Bild an der Wand */
+{ const pot = new THREE.Mesh(new THREE.CylinderGeometry(.28, .22, .5, 20), M.dark); pot.position.set(-6.6, .37, 3.6); pot.castShadow = true; villa.add(pot);
+  const leafM = new THREE.MeshStandardMaterial({ color: '#2f4a33', roughness: .8, side: THREE.DoubleSide }), r = rng(4);
+  for (let i = 0; i < 18; i++){ const lf = new THREE.Mesh(new THREE.PlaneGeometry(.22, .9), leafM); lf.position.set(-6.6, 1.0 + r()*.5, 3.6); lf.rotation.set(-.3 - r()*.6, r()*6.3, 0, 'YXZ'); lf.translateY(.3); lf.castShadow = true; villa.add(lf); }
+  const art = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 1.0), new THREE.MeshStandardMaterial({ map: (() => { const c = document.createElement('canvas'); c.width = 320; c.height = 200; const x = c.getContext('2d'); const g = x.createLinearGradient(0,0,0,200); g.addColorStop(0,'#3d5560'); g.addColorStop(1,'#1b262a'); x.fillStyle = g; x.fillRect(0,0,320,200); x.fillStyle = '#c9a26b'; x.beginPath(); x.arc(220, 70, 26, 0, 6.3); x.fill(); x.fillStyle = '#121a1c'; x.beginPath(); x.moveTo(0,200); x.lineTo(90,110); x.lineTo(160,170); x.lineTo(240,100); x.lineTo(320,180); x.lineTo(320,200); x.fill(); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })(), roughness: .9 }));
+  art.position.set(7.84, 1.9, 1.6); art.rotation.y = -Math.PI/2; villa.add(art); }
 
 /* Der Tisch, der sich beim Scrollen zusammensetzt */
 const table = new THREE.Group(); villa.add(table);
@@ -1062,6 +1091,13 @@ composer.addPass(new RenderPass(scene, camera));
 const bloom = new UnrealBloomPass(new THREE.Vector2(1, 1), .5, .45, .9);
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
+const film = new ShaderPass({ uniforms: { tDiffuse: { value: null }, t: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+  fragmentShader: `uniform sampler2D tDiffuse; uniform float t; varying vec2 vUv;
+    float h(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233)) + t)*43758.5453); }
+    void main(){ vec4 c = texture2D(tDiffuse, vUv); vec2 d = vUv - .5; float v = smoothstep(.85, .25, length(d*vec2(1.1,1.)));
+      c.rgb *= mix(.62, 1., v); c.rgb += (h(vUv*800.) - .5)*.035; gl_FragColor = c; }` });
+composer.addPass(film);
 
 function resize(){
   const w = innerWidth, h = innerHeight;
@@ -1112,6 +1148,7 @@ function frame(now){
   const dt = Math.min(64, now - last); last = now;
   cur = reduce ? target : lerp(cur, target, 1 - Math.exp(-dt*.0042));
   apply(cur, now);
+  film.uniforms.t.value = (now*.001) % 100;
   composer.render();
   requestAnimationFrame(frame);
 }
