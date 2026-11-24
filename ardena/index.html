@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Ardena · Architektur & Bau an der Costa Blanca</title>
+<meta name="description" content="Beispielseite von Allrich Webdesign: Ardena baut Architektenhäuser an der Costa Blanca, mit deutscher Bauleitung und Festpreis. Scroll-Film vom Grundstück bis zur Schlüsselübergabe.">
+<meta name="theme-color" content="#1e211c">
+<link rel="preload" href="film/f001.webp" as="image">
+<link rel="preload" href="fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+
+/* Ardena: Kalkstein (limestone) and Olive (the hillside) as the two grounds, terracotta as the one accent,
+   sunset amber only inside the film. The house grows in the hero; everything below is built like the house:
+   plain blocks, thin lines, generous air. */
+:root{
+  --kalk:#f2ede4;--kalk-2:#e8e0d2;--kalk-3:#dcd1bf;
+  --oliv:#1e211c;--oliv-2:#272b24;--oliv-3:#33382f;
+  --ink:#201e1a;--ink-2:#5c554b;--ink-3:#8a8276;
+  --sand:#d9ccb6;--mute:#a7a091;
+  --terra:#b65a35;--terra-2:#d4774f;--sun:#eaa866;--pool:#5bb8c9;
+  --ld:rgba(242,237,228,.14);--ll:rgba(32,30,26,.14);
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gl:max(18px,env(safe-area-inset-left,0px));--gr:max(18px,env(safe-area-inset-right,0px));
+  --gb:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--oliv);color:var(--kalk);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lock{overflow:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--terra-2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1320px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.mono{font:400 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em;line-height:.98;text-wrap:balance}
+h2{font-size:clamp(44px,6.4vw,104px)}
+h2 em,h1 em,h3 em{font-style:italic;color:var(--sun)}
+.light h2 em,.light h3 em{color:var(--terra)}
+p{margin:0}
+.lead{font-size:clamp(17px,1.45vw,20px);line-height:1.6;max-width:56ch;color:var(--mute)}
+.light .lead{color:var(--ink-2)}
+.light{background:var(--kalk);color:var(--ink)}
+.light.alt{background:var(--kalk-2)}
+.sec{padding:clamp(90px,12vw,170px) 0}
+.kick{display:flex;align-items:center;gap:12px;color:var(--sand);margin-bottom:22px}
+.kick::before{content:"";width:28px;height:1px;background:currentColor}
+.light .kick{color:var(--terra)}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;border-radius:999px;border:1px solid currentColor;font:600 13px/1 var(--sans);letter-spacing:.06em;text-decoration:none;transition:background .3s,color .3s,border-color .3s,transform .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:15px;height:15px;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn.t{background:var(--terra);border-color:var(--terra);color:#fff}
+.btn.t:hover{background:var(--terra-2);border-color:var(--terra-2)}
+.btn.k{background:var(--kalk);border-color:var(--kalk);color:var(--ink)}
+.btn.l:hover{background:var(--kalk);color:var(--ink);border-color:var(--kalk)}
+.light .btn.l:hover{background:var(--ink);color:var(--kalk);border-color:var(--ink)}
+.num{font-variant-numeric:tabular-nums}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* header */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:60;padding-top:env(safe-area-inset-top,0px);transition:background .5s,border-color .5s,color .5s;border-bottom:1px solid transparent}
+.hdr.solid{background:rgba(30,33,28,.86);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-color:var(--ld)}
+.hdr.onlight{background:rgba(242,237,228,.9);color:var(--ink);border-color:var(--ll)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:30px;height:30px}
+.brand b{display:block;font:400 26px/1 var(--serif);letter-spacing:.02em}
+.brand span{display:block;font:400 9px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;opacity:.65;margin-top:5px}
+.nav{display:flex;gap:30px;align-items:center}
+.nav a{font-size:14px;text-decoration:none;opacity:.82;position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--terra-2);transition:right .35s}
+.nav a:hover{opacity:1}.nav a:hover::after{right:0}
+.hdr .btn{padding:12px 18px;font-size:12px}
+.burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.burger i{display:block;width:22px;height:1.5px;background:currentColor;box-shadow:0 7px 0 currentColor;transform:translateY(-3px)}
+.drawer{position:fixed;inset:0;z-index:80;background:var(--oliv);padding:calc(env(safe-area-inset-top,0px) + 18px) var(--gr) calc(var(--gb) + 24px) var(--gl);display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .6s cubic-bezier(.7,0,.2,1);overflow:auto}
+.drawer.open{transform:none}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.drawer a.big{font:400 42px/1.15 var(--serif);text-decoration:none;border-bottom:1px solid var(--ld);padding:8px 0;display:flex;justify-content:space-between;align-items:baseline}
+.drawer a.big small{font:400 11px var(--mono);letter-spacing:.14em;color:var(--mute)}
+.drawer .x{width:44px;height:44px;font-size:28px;line-height:1}
+.drawer .btn{margin-top:30px;align-self:flex-start}
+@media (max-width:1020px){.nav,.hdr .btn{display:none}.burger{display:flex}}
+@media (max-width:400px){.brand span{letter-spacing:.14em;font-size:8px}}
+
+/* ============ HERO FILM ============ */
+#film{position:relative;height:760vh;background:var(--oliv)}
+.pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(30,33,28,.55) 0%,rgba(30,33,28,0) 20%,rgba(30,33,28,0) 48%,rgba(30,33,28,.82) 100%)}
+.title{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 var(--gr) calc(var(--gb) + 7vh) var(--gl);pointer-events:none}
+.title .in{max-width:1320px;margin:0 auto;width:100%}
+.title .mono{color:var(--sand)}
+.title h1{font-size:clamp(54px,9vw,156px);line-height:.9;margin-top:16px;letter-spacing:-.025em}
+.title .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:26px}
+.title p{max-width:46ch;color:var(--kalk-2);font-size:17px;opacity:.9}
+.cue{display:flex;align-items:center;gap:14px;color:var(--sand)}
+.cue span{position:relative;width:1px;height:54px;background:var(--ld);overflow:hidden}
+.cue span::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--sun);animation:cue 2.2s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes cue{to{top:100%}}
+.chap{position:absolute;left:0;right:0;bottom:calc(var(--gb) + 9vh);padding:0 var(--gr) 0 var(--gl);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .45s,transform .6s cubic-bezier(.2,.7,.2,1),visibility .45s;transform:translateY(18px)}
+.chap.on{opacity:1;visibility:visible;transform:none}
+.chap .in{max-width:1320px;margin:0 auto}
+.chap .mono{color:var(--sun)}
+.chap h3{font-size:clamp(42px,5.8vw,92px);margin:14px 0 16px;max-width:12ch}
+.chap p{max-width:42ch;color:var(--kalk-2);font-size:16.5px}
+.facts{display:flex;gap:30px;margin-top:22px;flex-wrap:wrap}
+.facts div{border-left:1px solid var(--ld);padding-left:14px}
+.facts b{display:block;font:400 32px/1.05 var(--serif)}
+.facts span{font:400 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.chap.end{pointer-events:auto}
+.chap.end h3{max-width:16ch}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+/* Bautagebuch HUD */
+.hud{position:absolute;right:var(--gr);top:50%;transform:translateY(-50%);display:flex;gap:18px;align-items:stretch;opacity:0;transition:opacity .5s;pointer-events:none}
+.hud.on{opacity:1}
+.hud .bar{width:1px;background:var(--ld);position:relative}
+.hud .bar i{position:absolute;left:0;top:0;width:1px;background:var(--sun);height:var(--p,0%)}
+.hud ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:20px}
+.hud li{display:flex;flex-direction:column;align-items:flex-start;color:var(--mute);transition:color .4s}
+.hud li b{font:400 22px/1 var(--serif);color:inherit}
+.hud li span{font:400 9.5px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.hud li.on{color:var(--kalk)}
+.hud li.done{color:var(--sand)}
+.load{position:absolute;left:var(--gl);top:94px;color:var(--sand);opacity:.8;transition:opacity .6s}
+.load.done{opacity:0}
+@media (max-width:860px){
+  #film{height:640vh}
+  .hud{display:none}
+  .shade{background:linear-gradient(180deg,rgba(30,33,28,0) 0%,rgba(30,33,28,0) 30%,var(--oliv) calc(var(--imgB,60%) + 2px))}
+  .title{justify-content:flex-start;padding-top:calc(var(--imgB,60%) - 40px)}
+  .title h1{font-size:clamp(46px,13vw,72px)}
+  .title .row{margin-top:18px}
+  .title p{font-size:15.5px}
+  .chap{top:calc(var(--imgB,60%) - 20px);bottom:auto}
+  .chap h3{font-size:clamp(34px,9.6vw,50px);margin:8px 0 10px}
+  .chap p{font-size:14.5px;line-height:1.5}
+  .facts{gap:20px;margin-top:16px}
+  .facts b{font-size:26px}
+  .title .mono{font-size:10px}
+  .title p{font-size:14.5px;line-height:1.5}
+  .cue{display:none}
+  .mbar{position:absolute;left:var(--gl);right:var(--gr);top:calc(var(--imgB,60%) - 46px);height:2px;background:var(--ld);border-radius:2px;overflow:hidden}
+  .mbar i{display:block;height:100%;width:var(--p,0%);background:var(--sun)}
+}
+@media (min-width:861px){.mbar{display:none}}
+@media (max-width:860px) and (max-height:760px){.facts{display:none}.chap h3{font-size:clamp(32px,9vw,44px)}}
+
+/* ============ INTRO ============ */
+.intro .grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,7vw,120px);align-items:end}
+.intro h2{font-size:clamp(40px,5.2vw,84px)}
+.intro .lead{margin-top:26px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(60px,8vw,110px);border-top:1px solid var(--ll)}
+.stats div{padding:28px 24px 0 0;border-right:1px solid var(--ll);margin-right:24px}
+.stats div:last-child{border:0;margin:0}
+.stats b{display:block;font:400 clamp(52px,6vw,92px)/1 var(--serif);letter-spacing:-.02em}
+.stats b small{font-size:.45em;margin-left:4px}
+.stats>div>span{display:block;margin-top:10px;color:var(--ink-2);font-size:14.5px;max-width:22ch}
+.sig{display:flex;align-items:center;gap:16px;margin-top:32px}
+.sig .av{width:54px;height:54px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;font:italic 400 26px/1 var(--serif)}
+.sig b{display:block;font-weight:600}
+.sig span{font-size:14px;color:var(--ink-2)}
+@media (max-width:900px){.intro .grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr;row-gap:30px}.stats div:nth-child(2){border:0;margin:0}}
+
+/* ============ BAUTAGEBUCH (scrubber) ============ */
+.bau .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+.bau .head .lead{max-width:44ch}
+.scrub{display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(24px,3vw,44px);align-items:start}
+.screen{position:relative;border-radius:14px;overflow:hidden;background:#11130f;aspect-ratio:16/9;box-shadow:0 50px 100px -50px rgba(0,0,0,.8)}
+.screen canvas{position:absolute;inset:0;width:100%;height:100%}
+.screen .stamp{position:absolute;left:18px;top:16px;display:flex;gap:10px;align-items:center;background:rgba(20,22,18,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--ld);border-radius:999px;padding:8px 14px;color:var(--kalk)}
+.screen .stamp i{width:8px;height:8px;border-radius:50%;background:#e5533d;box-shadow:0 0 0 0 rgba(229,83,61,.6);animation:rec 1.6s infinite}
+@keyframes rec{70%{box-shadow:0 0 0 8px rgba(229,83,61,0)}100%{box-shadow:0 0 0 0 rgba(229,83,61,0)}}
+.screen .date{position:absolute;right:18px;top:16px;color:var(--kalk);background:rgba(20,22,18,.6);border:1px solid var(--ld);border-radius:999px;padding:8px 14px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ctrl{display:flex;align-items:center;gap:16px;margin-top:20px}
+.play{flex:none;width:52px;height:52px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;transition:background .3s,transform .3s}
+.play:hover{background:var(--terra-2);transform:scale(1.05)}
+.play svg{width:18px;height:18px}
+.track{position:relative;flex:1;height:52px;display:flex;align-items:center}
+.track input{width:100%;-webkit-appearance:none;appearance:none;background:transparent;height:52px;margin:0;position:relative;z-index:2;cursor:pointer}
+.track input::-webkit-slider-runnable-track{height:2px;background:transparent}
+.track input::-moz-range-track{height:2px;background:transparent}
+.track input::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--kalk);border:6px solid var(--terra);margin-top:-12px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.track input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--kalk);border:6px solid var(--terra)}
+.track .rail{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--ld);border-radius:2px}
+.track .rail i{position:absolute;left:0;top:0;bottom:0;background:var(--terra-2);width:var(--p,0%)}
+.track .ticks{position:absolute;left:13px;right:13px;top:calc(50% + 12px);height:20px}
+.track .ticks b{position:absolute;transform:translateX(-50%);font:400 10px var(--mono);letter-spacing:.1em;color:var(--mute);white-space:nowrap}
+.phases{list-style:none;margin:0;padding:0;border-top:1px solid var(--ld)}
+.phases li{border-bottom:1px solid var(--ld)}
+.phases button{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:baseline;width:100%;text-align:left;padding:18px 0;color:var(--mute);transition:color .3s}
+.phases button b{font:400 26px/1 var(--serif);color:inherit}
+.phases button .m{font:400 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.phases button .pc{font:400 12px var(--mono);color:var(--mute)}
+.phases li.on button{color:var(--kalk)}
+.phases li.on button .m{color:var(--sun)}
+.phases .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+.phases li.on .body{grid-template-rows:1fr}
+.phases .body>div{overflow:hidden}
+.phases .body p{color:var(--kalk-2);opacity:.85;font-size:15px;padding:0 0 10px 76px}
+.phases .body ul{list-style:none;margin:0;padding:0 0 20px 76px;display:flex;flex-wrap:wrap;gap:8px}
+.phases .body ul li{border:1px solid var(--ld);border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--sand)}
+.pay{margin-top:26px;padding:20px;border:1px solid var(--ld);border-radius:12px}
+.pay .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.pay .row b{font:400 30px/1 var(--serif)}
+.pay .bars{display:flex;gap:3px;height:8px}
+.pay .bars i{flex:var(--w);background:var(--oliv-3);border-radius:2px;transition:background .4s}
+.pay .bars i.on{background:var(--terra-2)}
+.pay small{display:block;margin-top:10px;color:var(--mute);font-size:12.5px}
+@media (max-width:980px){.scrub{grid-template-columns:1fr}.phases .body p,.phases .body ul{padding-left:0}}
+
+/* ============ ERKUNDEN (hotspots) ============ */
+.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--ll);border-radius:999px;margin:34px 0 26px;background:var(--kalk)}
+.tabs button{padding:11px 20px;border-radius:999px;font-weight:500;font-size:14px;color:var(--ink-2);transition:background .3s,color .3s}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--kalk)}
+.xp{display:grid;grid-template-columns:1fr 340px;gap:clamp(20px,3vw,40px);align-items:start}
+.view{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:var(--kalk-3);box-shadow:0 50px 90px -50px rgba(32,30,26,.55)}
+.view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.view img.out{opacity:0;transform:scale(1.04)}
+.hs{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.hs button{position:relative;width:34px;height:34px;border-radius:50%;background:rgba(242,237,228,.95);color:var(--ink);display:grid;place-items:center;font:500 18px/1 var(--sans);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .3s,background .3s,color .3s}
+.hs button::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px solid rgba(242,237,228,.85);animation:ping 2.4s cubic-bezier(.2,.7,.2,1) infinite}
+.hs:nth-child(2n) button::before{animation-delay:.8s}
+.hs:nth-child(3n) button::before{animation-delay:1.5s}
+@keyframes ping{0%{transform:scale(.7);opacity:1}80%,100%{transform:scale(1.6);opacity:0}}
+.hs button:hover{transform:scale(1.12)}
+.hs.on button{background:var(--terra);color:#fff;transform:rotate(45deg)}
+.hs.on button::before{animation:none;opacity:0}
+.hs .n{position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);font:400 9.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8);white-space:nowrap;pointer-events:none;transition:opacity .3s}
+.side{position:sticky;top:100px}
+.card{background:var(--ink);color:var(--kalk);border-radius:14px;padding:26px;min-height:260px}
+.card .mono{color:var(--sun)}
+.card h3{font-size:38px;margin:12px 0 12px}
+.card p{color:var(--kalk-2);opacity:.85;font-size:15px}
+.card dl{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 0;padding-top:16px;border-top:1px solid var(--ld)}
+.card dt{font:400 9.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.card dd{margin:3px 0 0;font:400 22px/1.1 var(--serif)}
+.card .nav2{display:flex;justify-content:space-between;align-items:center;margin-top:22px}
+.card .nav2 button{width:42px;height:42px;border-radius:50%;border:1px solid var(--ld);display:grid;place-items:center;transition:background .3s}
+.card .nav2 button:hover{background:var(--oliv-3)}
+.card .nav2 span{font:400 12px var(--mono);color:var(--mute)}
+.list{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.list button{border:1px solid var(--ll);border-radius:999px;padding:7px 12px;font-size:13px;color:var(--ink-2);transition:background .3s,color .3s,border-color .3s}
+.list button.on,.list button:hover{background:var(--ink);color:var(--kalk);border-color:var(--ink)}
+@media (max-width:980px){.xp{grid-template-columns:1fr}.side{position:static}.view{aspect-ratio:4/3}.hs .n{display:none}}
+
+/* ============ GALERIE ============ */
+.gal .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(150px,15vw,230px);gap:12px}
+.bento figure{margin:0;position:relative;overflow:hidden;border-radius:12px;cursor:zoom-in;background:#11130f}
+.bento img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.bento figure:hover img{transform:scale(1.05)}
+.bento figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(0,0,0,.55));pointer-events:none}
+.bento figcaption{position:absolute;left:16px;bottom:14px;right:16px;z-index:2;display:flex;justify-content:space-between;gap:10px;align-items:flex-end}
+.bento figcaption b{font:400 24px/1.05 var(--serif)}
+.bento figcaption span{font:400 9.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);white-space:nowrap}
+.g1{grid-column:span 7;grid-row:span 2}.g2{grid-column:span 5}.g3{grid-column:span 5}.g4{grid-column:span 4;grid-row:span 2}.g5{grid-column:span 4}.g6{grid-column:span 4}.g7{grid-column:span 8}.g8{grid-column:span 4}
+.g9{grid-column:span 12;grid-row:span 2}
+.g9 video{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:760px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:44vw}.bento figure{grid-column:span 1!important;grid-row:span 1!important}.g1,.g7,.g9{grid-column:span 2!important}.g9{grid-row:span 1!important}.bento figcaption b{font-size:19px}.bento figcaption span{display:none}}
+
+/* ============ LEISTUNGEN ============ */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start;margin-top:50px}
+.acc{border-top:1px solid var(--ll)}
+.acc details{border-bottom:1px solid var(--ll)}
+.acc summary{list-style:none;display:grid;grid-template-columns:44px 1fr 24px;gap:10px;align-items:center;padding:22px 0;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .mono{color:var(--terra)}
+.acc summary b{font:400 clamp(26px,2.6vw,36px)/1.05 var(--serif)}
+.acc summary i{width:24px;height:24px;position:relative}
+.acc summary i::before,.acc summary i::after{content:"";position:absolute;left:4px;right:4px;top:11px;height:1.5px;background:currentColor;transition:transform .35s}
+.acc summary i::after{transform:rotate(90deg)}
+.acc details[open] summary i::after{transform:rotate(0)}
+.acc .in{padding:0 0 24px 54px;color:var(--ink-2)}
+.acc .in ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.acc .in li{border:1px solid var(--ll);border-radius:999px;padding:5px 11px;font-size:13px}
+.svc .pic{position:sticky;top:100px;border-radius:14px;overflow:hidden;aspect-ratio:4/5;background:var(--kalk-3)}
+.svc .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s}
+.svc .pic .cap{position:absolute;left:18px;bottom:16px;right:18px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.6);z-index:2}
+@media (max-width:900px){.svc{grid-template-columns:1fr}.svc .pic{position:relative;top:0;aspect-ratio:16/10;order:-1}}
+
+/* ============ RECHNER ============ */
+.calc .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,60px);margin-top:50px;align-items:start}
+.form{display:flex;flex-direction:column;gap:34px}
+.fl label,.fl .lb{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.fl .lb b,.fl label b{font-weight:500}
+.fl output{font:400 30px/1 var(--serif)}
+.range{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;cursor:pointer}
+.range::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--terra-2) var(--p,50%),var(--ld) var(--p,50%))}
+.range::-moz-range-track{height:2px;background:var(--ld)}
+.range::-moz-range-progress{height:2px;background:var(--terra-2)}
+.range::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--kalk);border:6px solid var(--terra);margin-top:-11px}
+.range::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--kalk);border:6px solid var(--terra)}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg button{border:1px solid var(--ld);border-radius:12px;padding:14px;text-align:left;transition:border-color .3s,background .3s}
+.seg button b{display:block;font:400 22px/1.1 var(--serif)}
+.seg button span{display:block;font-size:12.5px;color:var(--mute);margin-top:4px}
+.seg button[aria-pressed="true"]{border-color:var(--terra-2);background:rgba(182,90,53,.14)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1px solid var(--ld);border-radius:999px;padding:10px 15px;font-size:14px;transition:background .3s,border-color .3s,color .3s}
+.chips button[aria-pressed="true"]{background:var(--kalk);color:var(--ink);border-color:var(--kalk)}
+.res{position:sticky;top:100px;background:var(--kalk);color:var(--ink);border-radius:16px;overflow:hidden}
+.res .vis{position:relative;aspect-ratio:16/8;overflow:hidden}
+.res .vis img{width:100%;height:100%;object-fit:cover}
+.res .vis span{position:absolute;left:16px;top:14px;background:rgba(242,237,228,.92);border-radius:999px;padding:6px 12px;font:400 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.res .in{padding:26px}
+.res .tot{font:400 clamp(46px,5vw,70px)/1 var(--serif);letter-spacing:-.02em;margin:10px 0 4px}
+.res .sub{color:var(--ink-2);font-size:14px}
+.res ul{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--ll)}
+.res li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--ll);font-size:14.5px}
+.res li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.res .time{display:flex;gap:4px;margin-top:20px}
+.res .time i{flex:1;height:22px;border-radius:3px;background:var(--kalk-3);position:relative}
+.res .time i.on{background:var(--terra)}
+.res .tl{display:flex;justify-content:space-between;margin-top:8px;font:400 10px var(--mono);color:var(--ink-3);letter-spacing:.1em}
+.res .btn{margin-top:22px;width:100%;justify-content:center}
+.res small{display:block;margin-top:12px;color:var(--ink-3);font-size:12px}
+@media (max-width:980px){.calc .grid{grid-template-columns:1fr}.res{position:relative;top:0}.seg{grid-template-columns:1fr}}
+
+/* ============ ABLAUF ============ */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:60px;border-top:1px solid var(--ll);counter-reset:s}
+.steps div{padding:26px 22px 0 0;position:relative}
+.steps div::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--terra)}
+.steps .mono{color:var(--terra)}
+.steps h3{font-size:30px;margin:12px 0 10px}
+.steps p{color:var(--ink-2);font-size:15px}
+.fest{margin-top:70px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--ink);color:var(--kalk);border-radius:16px;padding:clamp(24px,3vw,40px)}
+.fest .seal{width:96px;height:96px;border-radius:50%;border:1px solid var(--sun);display:grid;place-items:center;text-align:center;font:400 10px/1.3 var(--mono);letter-spacing:.12em;color:var(--sun);text-transform:uppercase}
+.fest h3{font-size:clamp(30px,3vw,44px)}
+.fest p{color:var(--mute);margin-top:8px;max-width:60ch}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr;row-gap:30px}.fest{grid-template-columns:1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ============ ORTE (map) ============ */
+.orte .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:20px}
+.map{position:relative;aspect-ratio:1/1;max-height:640px;width:100%}
+.map svg{width:100%;height:100%;overflow:visible}
+.map .sea{fill:#1a2a2c}
+.map .land{fill:var(--oliv-3);stroke:rgba(242,237,228,.25);stroke-width:1}
+.map .grid line{stroke:rgba(242,237,228,.05)}
+.map .pt{cursor:pointer}
+.map .pt circle.c{fill:var(--sand);transition:fill .3s,r .3s}
+.map .pt circle.h{fill:none;stroke:var(--sun);stroke-width:1.2;opacity:0}
+.map .pt.on circle.c{fill:var(--terra-2)}
+.map .pt.on circle.h{opacity:1}
+.map .pt text{fill:var(--kalk);font:400 13px var(--sans)}
+.map .pt text.s{fill:var(--mute);font:400 9px var(--mono);letter-spacing:.12em}
+.map .office circle{fill:var(--sun)}
+.places{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--ld)}
+.places li{border-bottom:1px solid var(--ld)}
+.places button{width:100%;display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:baseline;padding:16px 0;text-align:left;color:var(--mute);transition:color .3s}
+.places button b{font:400 26px/1 var(--serif);color:var(--kalk-2)}
+.places button span{font:400 11px var(--mono);letter-spacing:.1em}
+.places li.on button b{color:var(--sun)}
+.places li.on button{color:var(--kalk)}
+@media (max-width:900px){.orte .grid{grid-template-columns:1fr}.map{max-width:520px;margin:0 auto}}
+
+/* ============ STIMMEN ============ */
+.quotes{position:relative;margin-top:50px}
+.q{display:none;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,80px);align-items:center}
+.q.on{display:grid;animation:qin .8s cubic-bezier(.2,.7,.2,1)}
+@keyframes qin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.q img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.q blockquote{margin:0;font:400 clamp(28px,3.2vw,50px)/1.12 var(--serif)}
+.q blockquote em{color:var(--terra)}
+.q cite{display:block;margin-top:26px;font-style:normal;color:var(--ink-2)}
+.q cite b{color:var(--ink);font-weight:600;display:block}
+.qnav{display:flex;align-items:center;gap:14px;margin-top:36px}
+.qnav button.a{width:48px;height:48px;border-radius:50%;border:1px solid var(--ll);display:grid;place-items:center;transition:background .3s,color .3s}
+.qnav button.a:hover{background:var(--ink);color:var(--kalk)}
+.qnav .dots{display:flex;gap:8px;margin-left:8px}
+.qnav .dots button{width:28px;height:3px;border-radius:2px;background:var(--ll);transition:background .3s}
+.qnav .dots button.on{background:var(--terra)}
+@media (max-width:860px){.q{grid-template-columns:1fr}}
+
+/* ============ TEAM ============ */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+.tm{border:1px solid var(--ld);border-radius:14px;padding:26px;background:var(--oliv-2)}
+.tm .av{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;font:italic 400 34px/1 var(--serif);color:var(--oliv);background:var(--sand)}
+.tm:nth-child(2) .av{background:var(--terra-2);color:#fff}
+.tm:nth-child(3) .av{background:var(--pool);color:var(--oliv)}
+.tm .mono{color:var(--sun);margin-top:22px}
+.tm h3{font-size:34px;margin:8px 0 10px}
+.tm p{color:var(--mute);font-size:15px}
+.tm .lang{display:flex;gap:6px;margin-top:16px}
+.tm .lang span{border:1px solid var(--ld);border-radius:999px;padding:4px 10px;font:400 10.5px var(--mono);letter-spacing:.1em}
+@media (max-width:900px){.team{grid-template-columns:1fr}}
+
+/* ============ FAQ ============ */
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(30px,6vw,100px);align-items:start}
+.faq .acc summary{grid-template-columns:1fr 24px}
+.faq .acc summary b{font-size:clamp(22px,2vw,28px)}
+.faq .acc .in{padding-left:0}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+
+/* ============ KONTAKT ============ */
+.kontakt{position:relative;overflow:hidden;padding:clamp(100px,13vw,180px) 0}
+.kontakt video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.kontakt::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--oliv) 0%,rgba(30,33,28,.5) 35%,rgba(30,33,28,.85) 100%);z-index:1}
+.kontakt .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:start}
+.kontakt h2 em{color:var(--sun)}
+.offices{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.offices div{border-top:1px solid var(--ld);padding-top:16px}
+.offices b{display:block;font:400 26px/1.1 var(--serif)}
+.offices p{color:var(--mute);font-size:14.5px;margin-top:6px}
+.offices a{text-decoration:none;border-bottom:1px solid var(--ld)}
+.kf{background:var(--kalk);color:var(--ink);border-radius:16px;padding:clamp(22px,3vw,34px)}
+.kf .seg2{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:22px}
+.kf .seg2 button{border:1px solid var(--ll);border-radius:10px;padding:11px 6px;font-size:13.5px;font-weight:500;transition:background .3s,color .3s}
+.kf .seg2 button[aria-pressed="true"]{background:var(--ink);color:var(--kalk);border-color:var(--ink)}
+.kf label{display:block;font:400 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 6px}
+.kf input,.kf select,.kf textarea{width:100%;font:400 16px var(--sans);color:var(--ink);background:#fff;border:1px solid var(--ll);border-radius:10px;padding:13px 14px;outline:none;transition:border-color .3s}
+.kf input:focus,.kf select:focus,.kf textarea:focus{border-color:var(--terra)}
+.kf textarea{min-height:110px;resize:vertical}
+.kf .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kf .btn{margin-top:22px;width:100%;justify-content:center}
+.kf small{display:block;margin-top:12px;color:var(--ink-3);font-size:12px}
+.kf .ok{text-align:center;padding:40px 10px}
+.kf .ok b{display:block;font:400 40px/1.1 var(--serif);margin:14px 0 10px}
+.kf .ok .tick{width:64px;height:64px;border-radius:50%;background:var(--terra);color:#fff;display:grid;place-items:center;margin:0 auto;font-size:30px}
+@media (max-width:900px){.kontakt .wrap{grid-template-columns:1fr}.kf .two{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:#161814;color:var(--mute);padding:60px 0 calc(90px + var(--gb));font-size:14px}
+footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+footer .brand{color:var(--kalk);margin-bottom:16px}
+footer h4{font:400 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sand);margin:0 0 14px}
+footer a{display:block;text-decoration:none;padding:3px 0;color:var(--mute)}
+footer a:hover,footer button:hover{color:var(--kalk)}
+footer button{display:block;padding:3px 0;color:var(--mute);text-align:left}
+footer .bot{margin-top:50px;padding-top:20px;border-top:1px solid var(--ld);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px}
+@media (max-width:860px){footer .top{grid-template-columns:1fr 1fr}}
+.badge{position:fixed;left:14px;bottom:calc(14px + var(--gb));z-index:70;background:rgba(22,24,20,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--ld);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--sun);font-weight:600}
+
+/* dialogs */
+dialog{border:0;padding:0;max-width:none;max-height:none;width:100%;height:100%;background:transparent;color:var(--kalk)}
+dialog::backdrop{background:rgba(14,15,12,.9);backdrop-filter:blur(6px)}
+dialog .box{position:absolute;inset:0;display:grid;place-items:center;padding:60px var(--gr) 40px var(--gl)}
+dialog .x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:var(--gr);width:46px;height:46px;border-radius:50%;background:rgba(242,237,228,.12);font-size:26px;line-height:1;z-index:3}
+dialog video,dialog img{max-width:min(1400px,100%);max-height:82vh;border-radius:10px}
+#imgDlg figcaption{margin-top:14px;text-align:center;color:var(--sand)}
+#imgDlg .pn{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:rgba(242,237,228,.12);font-size:22px}
+#imgDlg .pv{left:var(--gl)}#imgDlg .nx{right:var(--gr)}
+.legal .box{place-items:start center;overflow:auto}
+.legal .doc{max-width:720px;background:var(--kalk);color:var(--ink);border-radius:14px;padding:clamp(22px,4vw,44px);margin:20px 0}
+.legal .doc h2{font-size:44px;margin-bottom:18px}
+.legal .doc h3{font:600 15px var(--sans);margin:22px 0 6px}
+.legal .doc p{color:var(--ink-2);margin-top:8px;font-size:15px}
+</style>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Ardena, zum Anfang">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 27h26M6 27V15l10-7 10 7v12" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 27v-7h8v7" fill="none" stroke="#d4774f" stroke-width="1.4"/><circle cx="23.5" cy="7" r="2.4" fill="#eaa866"/></svg>
+      <div><b>Ardena</b><span>Architektur &amp; Bau · Costa Blanca</span></div>
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#bau">Bautagebuch</a><a href="#erkunden">Das Haus</a><a href="#leistungen">Leistungen</a><a href="#rechner">Kosten</a><a href="#orte">Orte</a><a href="#team">Team</a>
+    </nav>
+    <a class="btn t" href="#kontakt">Projekt anfragen</a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="top"><span class="brand"><b>Ardena</b></span><button class="x" id="dx" aria-label="Menü schließen">×</button></div>
+  <a class="big" href="#bau">Bautagebuch <small>01</small></a>
+  <a class="big" href="#erkunden">Das Haus <small>02</small></a>
+  <a class="big" href="#galerie">Galerie <small>03</small></a>
+  <a class="big" href="#leistungen">Leistungen <small>04</small></a>
+  <a class="big" href="#rechner">Kosten <small>05</small></a>
+  <a class="big" href="#orte">Orte <small>06</small></a>
+  <a class="big" href="#team">Team <small>07</small></a>
+  <a class="btn t" href="#kontakt">Projekt anfragen</a>
+</div>
+
+<main id="top">
+<section id="film" aria-label="Film: Ein Haus entsteht vom leeren Grundstück bis zur Schlüsselübergabe">
+  <div class="pin">
+    <canvas id="cv" role="img" aria-label="Die Casa Mirador entsteht auf einem Hang über dem Meer"></canvas>
+    <div class="shade"></div>
+    <div class="mbar"><i id="mbar"></i></div>
+    <p class="load mono" id="load">Film lädt <span id="lp">0</span> %</p>
+    <div class="title" id="ttl">
+      <div class="in">
+        <p class="mono">Architektur &amp; Bau · Costa Blanca · seit 2009</p>
+        <h1>Vom Grundstück<br>zum <em>Zuhause.</em></h1>
+        <div class="row">
+          <p>Wir planen und bauen Architektenhäuser am Mittelmeer. Deutsche Bauleitung, spanisches Handwerk, ein Festpreis. Scrollen Sie, und das Haus entsteht.</p>
+          <div class="cue mono"><span></span>Scrollen</div>
+        </div>
+      </div>
+    </div>
+    <div class="chap" data-a="14" data-b="34"><div class="in"><p class="mono">Monat 0 · Das Grundstück</p><h3>Erst der Hang, <em>dann das Haus.</em></h3><p>2.400 m² über Benissa, Blick bis Ibiza. Wir prüfen Baurecht, Boden und Zufahrt, bevor Sie kaufen.</p><div class="facts"><div><b>2.400 m²</b><span>Grundstück</span></div><div><b>11 %</b><span>Hangneigung</span></div></div></div></div>
+    <div class="chap" data-a="34" data-b="56"><div class="in"><p class="mono">Monat 3 · Fundament</p><h3>Bodenplatte <em>und Stützmauer.</em></h3><p>Wasserdichter Beton, eine Stützmauer gegen den Hang. Unser Bauleiter ist jeden Tag vor Ort und schickt Ihnen jeden Freitag Fotos.</p><div class="facts"><div><b>186 m³</b><span>Beton</span></div><div><b>Freitags</b><span>Fotos aufs Handy</span></div></div></div></div>
+    <div class="chap" data-a="56" data-b="80"><div class="in"><p class="mono">Monat 6 · Rohbau</p><h3>Das Skelett <em>steht.</em></h3><p>Stahlbeton, Decken mit bis zu 3,2 m Auskragung. Hier entscheidet sich, wie leicht das Haus später wirkt.</p><div class="facts"><div><b>3,2 m</b><span>Auskragung</span></div><div><b>2</b><span>Geschosse + Dach</span></div></div></div></div>
+    <div class="chap" data-a="80" data-b="122"><div class="in"><p class="mono">Monat 10 · Glas, Stein, Garten</p><h3>Aus dem Rohbau <em>wird ein Haus.</em></h3><p>Rahmenlose Schiebefenster, Trockenmauern aus den Steinen des Grundstücks, Zypressen, Palmen und Lavendel. Der Pool kommt zuletzt.</p><div class="facts"><div><b>64 m²</b><span>Glasfläche</span></div><div><b>9 × 3,5 m</b><span>Salzwasserpool</span></div></div></div></div>
+    <div class="chap" data-a="122" data-b="158"><div class="in"><p class="mono">Monat 13 · Eingebettet</p><h3>Das Haus folgt <em>dem Hang.</em></h3><p>Von oben sieht man, worum es uns geht: Wir planieren nicht, wir terrassieren. Das Haus liegt im Gelände wie die alten Fincas.</p></div></div>
+    <div class="chap" data-a="158" data-b="186"><div class="in"><p class="mono">Die Terrasse</p><h3>Draußen ist <em>das halbe Haus.</em></h3><p>Pergola aus Iroko-Holz, Pool mit Salzwasser, Liegeflächen aus demselben Travertin wie innen.</p><div class="facts"><div><b>142 m²</b><span>Terrasse</span></div><div><b>Iroko</b><span>Pergola</span></div></div></div></div>
+    <div class="chap" data-a="186" data-b="224"><div class="in"><p class="mono">Innen</p><h3>Eine Treppe <em>wie eine Skulptur.</em></h3><p>Weißer Mikrozement, Stufen aus Eiche, ein Oberlicht darüber. Dahinter die Küche mit Insel aus Naturstein.</p><div class="facts"><div><b>5,8 m</b><span>Luftraum</span></div><div><b>238 m²</b><span>Wohnfläche</span></div></div></div></div>
+    <div class="chap end" data-a="224" data-b="999"><div class="in"><p class="mono">Monat 14 · Schlüsselübergabe</p><h3>Casa Mirador. <em>Pünktlich, zum Festpreis.</em></h3><div class="acts"><a class="btn t" href="#erkunden">Haus erkunden <svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><button class="btn l" type="button" data-film>Film ansehen</button></div></div></div>
+    <div class="hud" id="hud" aria-hidden="true">
+      <div class="bar"><i id="hudbar"></i></div>
+      <ol id="hudlist">
+        <li data-f="14"><b>0</b><span>Grundstück</span></li>
+        <li data-f="34"><b>3</b><span>Fundament</span></li>
+        <li data-f="56"><b>6</b><span>Rohbau</span></li>
+        <li data-f="80"><b>10</b><span>Ausbau</span></li>
+        <li data-f="122"><b>13</b><span>Garten</span></li>
+        <li data-f="186"><b>Innen</b><span>Wohnen</span></li>
+        <li data-f="224"><b>14</b><span>Schlüssel</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec light intro" id="ardena">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="kick mono rv">Ardena seit 2009</p>
+        <h2 class="rv">Wir bauen wenige Häuser. Jedes so, <em>als wäre es unser eigenes.</em></h2>
+      </div>
+      <div class="rv">
+        <p class="lead">Ardena ist ein Architekturbüro mit eigener Baufirma in Xàbia und einem Büro in München. Wir begleiten Sie von der Grundstückssuche bis zum letzten Olivenbaum. Sie haben einen Ansprechpartner, einen Vertrag und einen Preis, der am Ende auch stimmt.</p>
+        <div class="sig"><div class="av">K</div><div><b>Katrin Albers</b><span>Architektin, Gründerin</span></div></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="rv"><b class="num" data-count="64">0</b><span>Häuser übergeben, alle an der Costa Blanca</span></div>
+      <div class="rv"><b class="num"><span data-count="14">0</span><small>Mon.</small></b><span>durchschnittliche Bauzeit ab Baugenehmigung</span></div>
+      <div class="rv"><b class="num"><span data-count="0">0</span><small>€</small></b><span>Nachträge seit Einführung des Festpreises 2016</span></div>
+      <div class="rv"><b class="num"><span data-count="10">0</span><small>Jahre</small></b><span>Gewährleistung auf das Tragwerk</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec bau" id="bau">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="kick mono rv">Bautagebuch · Casa Mirador</p><h2 class="rv">Ziehen Sie <em>am Regler.</em></h2></div>
+      <p class="lead rv">So sehen unsere Bauherren ihr Haus wachsen: jeden Freitag neue Bilder, dazu ein kurzer Bericht vom Bauleiter. Hier im Zeitraffer, Phase für Phase.</p>
+    </div>
+    <div class="scrub">
+      <div class="rv">
+        <div class="screen"><canvas id="bcv"></canvas><div class="stamp mono"><i></i>Baustelle Benissa</div><div class="date mono" id="bdate">KW 01</div></div>
+        <div class="ctrl">
+          <button class="play" id="bplay" type="button" aria-label="Zeitraffer abspielen"><svg viewBox="0 0 18 18" id="bico"><path d="M5 3l10 6-10 6z" fill="currentColor"/></svg></button>
+          <div class="track"><div class="rail"><i id="brail"></i></div><input type="range" id="brange" min="0" max="121" value="0" step="1" aria-label="Bauphase wählen"><div class="ticks" id="bticks"></div></div>
+        </div>
+      </div>
+      <div class="rv">
+        <ol class="phases" id="phases"></ol>
+        <div class="pay"><div class="row"><span class="mono">Zahlungsplan</span><b id="paid">10 %</b></div><div class="bars" id="pbars"></div><small>Sie zahlen nur nach erreichtem Bauabschnitt, geprüft von einem unabhängigen Gutachter.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light alt" id="erkunden">
+  <div class="wrap">
+    <p class="kick mono rv">Das Haus erkunden</p>
+    <h2 class="rv">Tippen Sie <em>auf die Punkte.</em></h2>
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" aria-selected="true" data-v="aussen">Außen</button>
+      <button role="tab" aria-selected="false" data-v="terrasse">Terrasse</button>
+      <button role="tab" aria-selected="false" data-v="innen">Innen</button>
+    </div>
+    <div class="xp">
+      <div class="view" id="view"><img id="vimg" src="img/fertig.webp" alt="Casa Mirador mit Pool, Zypressen und Trockenmauer"></div>
+      <div class="side">
+        <div class="card" id="card"></div>
+        <ul class="list" id="hlist"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gal" id="galerie">
+  <div class="wrap">
+    <div class="head"><div><p class="kick mono rv">Galerie</p><h2 class="rv">Casa Mirador, <em>Benissa.</em></h2></div><p class="lead rv">Fertiggestellt im Frühjahr. 238 m² Wohnfläche, vier Schlafzimmer, ein Pool und eine Treppe, über die alle sprechen.</p></div>
+    <div class="bento">
+      <figure class="g1 rv" data-i="0"><img src="img/luft.webp" alt="Luftbild der Villa im terrassierten Hang mit Pool" loading="lazy"><figcaption><b>Im Hang</b><span>Luftbild</span></figcaption></figure>
+      <figure class="g2 rv" data-i="1"><img src="img/pool.webp" alt="Pool vor der Villa mit Palmen" loading="lazy"><figcaption><b>Der Pool</b><span>9 × 3,5 m</span></figcaption></figure>
+      <figure class="g3 rv" data-i="2"><img src="img/terrasse.webp" alt="Terrasse mit Pergola, Lounge und Pool" loading="lazy"><figcaption><b>Pergola</b><span>Iroko-Holz</span></figcaption></figure>
+      <figure class="g4 rv" data-i="3"><img src="img/treppe.webp" alt="Weiße Wendeltreppe mit Holzstufen neben der Küche" loading="lazy" style="object-position:62% 50%"><figcaption><b>Die Treppe</b><span>Mikrozement</span></figcaption></figure>
+      <figure class="g5 rv" data-i="4"><img src="img/glas.webp" alt="Blick durch die Glasfront in den Wohnraum" loading="lazy"><figcaption><b>Glasfront</b><span>Rahmenlos</span></figcaption></figure>
+      <figure class="g6 rv" data-i="5"><img src="img/kueche.webp" alt="Küche mit Kochinsel aus Naturstein" loading="lazy"><figcaption><b>Küche</b><span>Eiche · Naturstein</span></figcaption></figure>
+      <figure class="g7 rv" data-i="6"><img src="img/abend.webp" alt="Die Villa bei Sonnenuntergang über dem Meer" loading="lazy"><figcaption><b>Abends</b><span>Blick nach Westen</span></figcaption></figure>
+      <figure class="g8 rv" data-i="7"><img src="img/innen.webp" alt="Wohnraum mit Treppe, Essplatz und Sofa" loading="lazy"><figcaption><b>Wohnen</b><span>Travertin</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="leistungen">
+  <div class="wrap">
+    <p class="kick mono rv">Leistungen</p>
+    <h2 class="rv">Ein Vertrag, <em>vom Grundstück bis zum Schlüssel.</em></h2>
+    <div class="svc">
+      <div class="acc" id="acc">
+        <details open data-img="img/plot.webp" data-cap="Grundstück vor Baubeginn"><summary><span class="mono">01</span><b>Grundstück finden &amp; prüfen</b><i></i></summary><div class="in">Wir suchen mit Ihnen, prüfen Baurecht, Bebaubarkeit, Erschließung und Lasten im Grundbuch, bevor Sie unterschreiben.<ul><li>Baurechts-Check</li><li>Bodengutachten</li><li>Notar &amp; NIE</li></ul></div></details>
+        <details data-img="img/rohbau.webp" data-cap="Entwurf und Statik"><summary><span class="mono">02</span><b>Entwurf &amp; Genehmigung</b><i></i></summary><div class="in">Unsere Architektinnen entwerfen das Haus für Ihr Grundstück und Ihren Alltag. Wir reichen den Bauantrag ein und kümmern uns um die Licencia de Obra.<ul><li>3D-Planung</li><li>Bauantrag</li><li>Statik &amp; Energieausweis</li></ul></div></details>
+        <details data-img="img/fassade.webp" data-cap="Rohbau mit Decken und Stützen"><summary><span class="mono">03</span><b>Bau mit eigener Mannschaft</b><i></i></summary><div class="in">Rohbau, Fassade und Ausbau mit eigenen Leuten und festen Partnern, die wir seit Jahren kennen. Deutsche Bauleitung, jeden Tag auf der Baustelle.<ul><li>Festpreis</li><li>Wöchentlicher Bericht</li><li>Unabhängiger Gutachter</li></ul></div></details>
+        <details data-img="img/kueche.webp" data-cap="Küche und Innenausbau"><summary><span class="mono">04</span><b>Innenausbau &amp; Einrichtung</b><i></i></summary><div class="in">Küche, Bäder, Einbauschränke und auf Wunsch die komplette Einrichtung. Sie ziehen mit dem Koffer ein.<ul><li>Küchenplanung</li><li>Möbel &amp; Licht</li><li>Smart Home</li></ul></div></details>
+        <details data-img="img/garten.webp" data-cap="Garten mit Trockenmauer und Palme"><summary><span class="mono">05</span><b>Garten &amp; Pool</b><i></i></summary><div class="in">Mediterrane Gärten, die mit wenig Wasser auskommen. Trockenmauern aus den Steinen des Grundstücks, Pool mit Salzwasser und Wärmepumpe.<ul><li>Bewässerung</li><li>Poolbau</li><li>Außenküche</li></ul></div></details>
+        <details data-img="img/abend2.webp" data-cap="Das Haus nach der Übergabe"><summary><span class="mono">06</span><b>Nach dem Einzug</b><i></i></summary><div class="in">Hausbetreuung, wenn Sie nicht da sind: Garten, Pool, Lüften, Kontrolle nach Unwettern. Und ein fester Ansprechpartner für die Gewährleistung.<ul><li>Hausservice</li><li>Vermietung</li><li>10 Jahre Gewährleistung</li></ul></div></details>
+      </div>
+      <div class="pic rv"><img id="spic" src="img/plot.webp" alt="" loading="lazy"><p class="cap mono" id="scap">Grundstück vor Baubeginn</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec calc" id="rechner">
+  <div class="wrap">
+    <p class="kick mono rv">Kostenrechner</p>
+    <h2 class="rv">Was kostet <em>Ihr Haus?</em></h2>
+    <p class="lead rv" style="margin-top:24px">Eine erste Schätzung auf Basis unserer letzten zwölf Häuser. Den verbindlichen Festpreis bekommen Sie nach dem Entwurf.</p>
+    <div class="grid">
+      <div class="form">
+        <div class="fl"><label for="qm"><b>Wohnfläche</b><output id="qmo">220 m²</output></label><input class="range" type="range" id="qm" min="120" max="450" step="10" value="220"></div>
+        <div class="fl"><div class="lb"><b>Ausstattung</b></div><div class="seg" id="line">
+          <button type="button" data-v="2350" aria-pressed="false"><b>Klar</b><span>Weißer Putz, Feinsteinzeug, Alu-Fenster</span></button>
+          <button type="button" data-v="2900" aria-pressed="true"><b>Mediterran</b><span>Travertin, Holzfenster, Naturstein</span></button>
+          <button type="button" data-v="3650" aria-pressed="false"><b>Signatur</b><span>Rahmenlos, Mikrozement, Maßtischler</span></button>
+        </div></div>
+        <div class="fl"><div class="lb"><b>Pool</b></div><div class="chips" id="pool">
+          <button type="button" data-v="0" aria-pressed="false">Ohne</button>
+          <button type="button" data-v="48000" aria-pressed="true">8 × 4 m</button>
+          <button type="button" data-v="86000" aria-pressed="false">Infinity 12 × 4 m</button>
+        </div></div>
+        <div class="fl"><div class="lb"><b>Extras</b></div><div class="chips" id="extras">
+          <button type="button" data-v="21000" data-n="Fußbodenheizung &amp; Kühlung" aria-pressed="true">Fußbodenheizung &amp; Kühlung</button>
+          <button type="button" data-v="18000" data-n="Photovoltaik mit Speicher" aria-pressed="false">Photovoltaik mit Speicher</button>
+          <button type="button" data-v="14000" data-n="Smart Home" aria-pressed="false">Smart Home</button>
+          <button type="button" data-v="26000" data-n="Garten komplett" aria-pressed="true">Garten komplett</button>
+          <button type="button" data-v="32000" data-n="Einrichtung Basis" aria-pressed="false">Einrichtung</button>
+        </div></div>
+        <div class="fl"><label for="hang"><b>Hanglage</b><output id="hango">mittel</output></label><input class="range" type="range" id="hang" min="0" max="2" step="1" value="1"></div>
+      </div>
+      <div class="res">
+        <div class="vis"><img id="rimg" src="img/fertig.webp" alt=""><span>Ihre Schätzung</span></div>
+        <div class="in">
+          <p class="mono" style="color:var(--terra)">Festpreis ca.</p>
+          <div class="tot num" id="tot">0 €</div>
+          <p class="sub" id="tsub"></p>
+          <ul id="tlines"></ul>
+          <div class="time" id="ttime"></div>
+          <div class="tl"><span>Genehmigung</span><span id="tmo">Bauzeit 14 Monate</span></div>
+          <a class="btn t" href="#kontakt" id="tcta">Diese Schätzung besprechen</a>
+          <small>Ohne Grundstück, Steuern (IVA 10 %) und Notar. Unverbindlich.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light alt" id="ablauf">
+  <div class="wrap">
+    <p class="kick mono rv">Ablauf</p>
+    <h2 class="rv" style="max-width:15ch">In fünf Schritten <em>zum Schlüssel.</em></h2>
+    <div class="steps">
+      <div class="rv"><p class="mono">Woche 1</p><h3>Gespräch</h3><p>In München, Xàbia oder per Video. Wir hören zu: Wie wollen Sie wohnen, wie oft sind Sie da?</p></div>
+      <div class="rv"><p class="mono">Woche 2 bis 8</p><h3>Entwurf</h3><p>Erste Skizzen, dann ein 3D-Modell auf Ihrem Grundstück. Sie gehen virtuell durchs Haus.</p></div>
+      <div class="rv"><p class="mono">Monat 3 bis 6</p><h3>Festpreis</h3><p>Ausführungsplanung, alle Materialien gewählt, ein Preis im Vertrag. Danach Bauantrag.</p></div>
+      <div class="rv"><p class="mono">Ab Genehmigung</p><h3>Bau</h3><p>Rund 14 Monate. Jeden Freitag Fotos, alle sechs Wochen ein Termin auf der Baustelle.</p></div>
+      <div class="rv"><p class="mono">Übergabe</p><h3>Schlüssel</h3><p>Abnahme mit Gutachter, Einweisung in alle Technik, und eine Flasche Wein aus der Marina Alta.</p></div>
+    </div>
+    <div class="fest rv">
+      <div class="seal">Fest&shy;preis<br>seit<br>2016</div>
+      <div><h3>Der Preis im Vertrag ist der Preis <em style="color:var(--sun)">am Ende.</em></h3><p>Mehrkosten durch Material, Löhne oder Wetter tragen wir. Nur was Sie selbst ändern, kostet extra, und das sehen Sie vorher schwarz auf weiß.</p></div>
+      <a class="btn k" href="#kontakt">Erstgespräch</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec orte" id="orte">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="kick mono rv">Wo wir bauen</p>
+        <h2 class="rv">Zwischen Dénia <em>und Altea.</em></h2>
+        <p class="lead rv" style="margin-top:24px">Wir bauen nur dort, wo wir in einer Stunde auf der Baustelle sind. Tippen Sie auf einen Ort.</p>
+        <ul class="places" id="places"></ul>
+      </div>
+      <div class="map rv" id="map"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light" id="stimmen">
+  <div class="wrap">
+    <p class="kick mono rv">Bauherren</p>
+    <h2 class="rv">Was sie <em>sagen.</em></h2>
+    <div class="quotes" id="quotes">
+      <div class="q on"><img src="img/terrasse.webp" alt="Terrasse der Casa Mirador" loading="lazy"><div><blockquote>„Wir haben aus Hamburg gebaut und waren nur fünfmal vor Ort. Die Freitagsfotos waren <em>das Highlight unserer Woche.</em>“</blockquote><cite><b>Familie Brandes</b>Casa Mirador, Benissa · übergeben im Frühjahr</cite></div></div>
+      <div class="q"><img src="img/kueche.webp" alt="Küche" loading="lazy"><div><blockquote>„Der Festpreis war am Ende <em>auf den Euro genau</em> der Festpreis. Das hat uns vorher keiner geglaubt.“</blockquote><cite><b>Dr. Martin &amp; Ute Sieber</b>Casa Lentisco, Moraira</cite></div></div>
+      <div class="q"><img src="img/luft.webp" alt="Luftbild" loading="lazy"><div><blockquote>„Ardena hat uns <em>vom Grundstück abgeraten</em>, das wir unbedingt wollten. Das zweite war besser, und günstiger.“</blockquote><cite><b>Claudia Werner</b>Casa Alba, Xàbia</cite></div></div>
+    </div>
+    <div class="qnav"><button class="a" type="button" id="qp" aria-label="Vorherige Stimme">←</button><button class="a" type="button" id="qn" aria-label="Nächste Stimme">→</button><div class="dots" id="qd"></div></div>
+  </div>
+</section>
+
+<section class="sec" id="team">
+  <div class="wrap">
+    <p class="kick mono rv">Team</p>
+    <h2 class="rv">Menschen, <em>die bauen.</em></h2>
+    <div class="team">
+      <div class="tm rv"><div class="av">K</div><p class="mono">Gründerin · Architektin</p><h3>Katrin Albers</h3><p>Studierte in München, kam 2007 für ein Projekt nach Xàbia und blieb. Entwirft jedes Haus selbst.</p><div class="lang"><span>DE</span><span>ES</span><span>EN</span></div></div>
+      <div class="tm rv"><div class="av">J</div><p class="mono">Bauleitung</p><h3>Javier Morell</h3><p>Bauingenieur aus Dénia, seit 2011 dabei. Ist jeden Morgen um sieben auf der Baustelle und macht die Freitagsfotos.</p><div class="lang"><span>ES</span><span>DE</span><span>VAL</span></div></div>
+      <div class="tm rv"><div class="av">L</div><p class="mono">Büro München</p><h3>Lena Hofstetter</h3><p>Ihre Ansprechpartnerin in Deutschland: Finanzierung, Notar, Steuern, und alles, was zwischen den Terminen passiert.</p><div class="lang"><span>DE</span><span>EN</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec light alt" id="fragen">
+  <div class="wrap faq">
+    <div><p class="kick mono rv">Fragen</p><h2 class="rv">Was Bauherren <em>wissen wollen.</em></h2></div>
+    <div class="acc">
+      <details><summary><b>Kann ich aus Deutschland bauen?</b><i></i></summary><div class="in">Ja, die meisten unserer Bauherren tun das. Sie kommen zu wichtigen Terminen, alles andere läuft über unser Büro in München, die Freitagsfotos und Videocalls.</div></details>
+      <details><summary><b>Wie lange dauert die Baugenehmigung?</b><i></i></summary><div class="in">Je nach Gemeinde vier bis neun Monate. In dieser Zeit planen wir alle Details, damit der Bau am Tag der Genehmigung starten kann.</div></details>
+      <details><summary><b>Was ist im Festpreis enthalten?</b><i></i></summary><div class="in">Planung, Genehmigung, Bau, Ausbau nach der gewählten Linie, Anschlüsse, Garten und Pool, wenn vereinbart. Nicht enthalten: Grundstück, Steuern, Notar und Ihre eigenen Änderungswünsche.</div></details>
+      <details><summary><b>Brauche ich eine spanische Steuernummer?</b><i></i></summary><div class="in">Ja, die NIE. Wir beantragen sie mit Ihnen, meist an einem Vormittag beim Konsulat oder vor Ort.</div></details>
+      <details><summary><b>Bauen Sie auch auf meinem Grundstück?</b><i></i></summary><div class="in">Gerne. Wir prüfen es kostenlos, bevor wir einen Entwurf machen. Manchmal raten wir auch ab, wenn Hang, Zufahrt oder Baurecht nicht passen.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt">
+  <video src="media/loop-garten.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+  <div class="wrap">
+    <div>
+      <p class="kick mono rv">Kontakt</p>
+      <h2 class="rv">Sprechen wir über <em>Ihr Haus.</em></h2>
+      <p class="lead rv" style="margin-top:24px">Erzählen Sie uns von Ihrem Grundstück oder Ihrer Idee. Wir melden uns innerhalb von zwei Werktagen, auf Deutsch.</p>
+      <div class="offices rv">
+        <div><b>Xàbia</b><p>Avinguda del Pla 14<br>03730 Xàbia, Alicante<br><a href="#kontakt">+34 965 000 000</a></p></div>
+        <div><b>München</b><p>Maximilianstraße 31<br>80539 München<br><a href="#kontakt">089 000 000 00</a></p></div>
+      </div>
+    </div>
+    <form class="kf rv" id="kf" novalidate>
+      <div id="kfi">
+        <div class="seg2" id="kseg"><button type="button" aria-pressed="true">Neubau</button><button type="button" aria-pressed="false">Grundstück</button><button type="button" aria-pressed="false">Umbau</button></div>
+        <div class="two"><div><label for="kn">Name</label><input id="kn" autocomplete="name" placeholder="Vor- und Nachname"></div><div><label for="ke">E-Mail</label><input id="ke" type="email" autocomplete="email" placeholder="name@beispiel.de"></div></div>
+        <div class="two"><div><label for="kb">Budget</label><select id="kb"><option>bis 600.000 €</option><option selected>600.000 bis 1 Mio. €</option><option>1 bis 2 Mio. €</option><option>über 2 Mio. €</option></select></div><div><label for="kw">Wann</label><select id="kw"><option>so bald wie möglich</option><option selected>in 6 bis 12 Monaten</option><option>später</option></select></div></div>
+        <label for="km">Nachricht</label><textarea id="km" placeholder="Grundstück, Wünsche, Fragen"></textarea>
+        <button class="btn t" type="submit">Anfrage senden <svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <small>Beispielseite: Ihre Angaben werden nicht übertragen und nirgends gespeichert.</small>
+      </div>
+      <div class="ok" id="kfok" hidden><div class="tick">✓</div><b>Danke!</b><p style="color:var(--ink-2)">Dies ist eine Beispielseite. Ihre Angaben wurden nicht übertragen und nirgends gespeichert.</p></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div><span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true" width="30" height="30"><path d="M3 27h26M6 27V15l10-7 10 7v12" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M12 27v-7h8v7" fill="none" stroke="#d4774f" stroke-width="1.4"/><circle cx="23.5" cy="7" r="2.4" fill="#eaa866"/></svg><div><b>Ardena</b><span>Architektur &amp; Bau · Costa Blanca</span></div></span><p>Architektenhäuser zwischen Dénia und Altea. Deutsche Bauleitung, Festpreis, seit 2009.</p></div>
+      <div><h4>Seite</h4><a href="#bau">Bautagebuch</a><a href="#erkunden">Das Haus</a><a href="#galerie">Galerie</a><a href="#rechner">Kosten</a></div>
+      <div><h4>Büro</h4><a href="#leistungen">Leistungen</a><a href="#ablauf">Ablauf</a><a href="#team">Team</a><a href="#kontakt">Kontakt</a></div>
+      <div><h4>Rechtliches</h4><button type="button" data-legal="impressum">Impressum</button><button type="button" data-legal="datenschutz">Datenschutz</button><button type="button" data-legal="bild">Bildnachweis</button></div>
+    </div>
+    <div class="bot"><span>Ardena ist ein fiktives Unternehmen. Beispielseite von Allrich Webdesign, Potsdam.</span><span>Film: KI-Visualisierung, im Browser Bild für Bild abgespielt</span></div>
+  </div>
+</footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Beispielseite</b> von Allrich Webdesign</a>
+
+<dialog id="filmDlg" aria-label="Film"><div class="box"><button class="x" type="button" data-close aria-label="Schließen">×</button><video id="filmVid" src="media/casa-mirador.mp4" controls playsinline preload="none" poster="img/abend.webp"></video></div></dialog>
+<dialog id="imgDlg" aria-label="Bild"><div class="box"><button class="x" type="button" data-close aria-label="Schließen">×</button><button class="pn pv" type="button" id="ipv" aria-label="Vorheriges Bild">←</button><figure style="margin:0;text-align:center"><img id="iimg" src="" alt=""><figcaption id="icap" class="mono"></figcaption></figure><button class="pn nx" type="button" id="inx" aria-label="Nächstes Bild">→</button></div></dialog>
+<dialog id="legalDlg" class="legal" aria-label="Rechtliches"><div class="box"><button class="x" type="button" data-close aria-label="Schließen">×</button><div class="doc" id="ldoc"></div></div></dialog>
+
+<script>
+"use strict";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v)), lerp = (a, b, t) => a + (b - a) * t;
+const euro = n => new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 }).format(Math.round(n / 1000) * 1000) + " €";
+const mob = () => innerWidth <= 860;
+const DPR = Math.min(devicePixelRatio || 1, 2);
+
+/* ---------- frame cache (shared by hero film and Bautagebuch) ---------- */
+const N = 241, frames = new Array(N), ok = new Uint8Array(N);
+const src = i => "film/f" + String(i + 1).padStart(3, "0") + ".webp";
+let loaded = 0; const waiters = new Set();
+function nearest(k) { k = Math.round(clamp(k, 0, N - 1)); if (ok[k]) return frames[k]; for (let d = 1; d < N; d++) { if (k - d >= 0 && ok[k - d]) return frames[k - d]; if (k + d < N && ok[k + d]) return frames[k + d]; } return null; }
+(function load() {
+  const order = [], seen = new Uint8Array(N);
+  for (const step of [16, 8, 4, 2, 1]) for (let i = 0; i < N; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
+  if (!seen[N - 1]) order.splice(1, 0, N - 1);
+  let next = 0; const lp = $("#lp"), lb = $("#load");
+  function one() {
+    if (next >= order.length) return;
+    const i = order[next++], img = new Image(); img.decoding = "async";
+    img.onload = img.onerror = () => { if (img.naturalWidth) { frames[i] = img; ok[i] = 1; } loaded++; lp.textContent = Math.round(loaded / N * 100); if (loaded >= N) lb.classList.add("done"); waiters.forEach(f => f()); one(); };
+    img.src = src(i);
+  }
+  for (let c = 0; c < 6; c++) one();
+})();
+
+/* draw a frame into a canvas with "cover", optional focus point */
+function cover(ctx, img, w, h, fx = .5, fy = .5) {
+  const iw = img.naturalWidth, ih = img.naturalHeight, s = Math.max(w / iw, h / ih), dw = iw * s, dh = ih * s;
+  ctx.drawImage(img, (w - dw) * fx, (h - dh) * fy, dw, dh);
+}
+
+/* ---------- 1. hero film ---------- */
+const film = $("#film"), cv = $("#cv"), ctx = cv.getContext("2d"), ttl = $("#ttl"), chaps = $$(".chap"), hud = $("#hud"), hudItems = $$("#hudlist li");
+const FOCUS = [[0, .47], [60, .5], [122, .5], [158, .44], [190, .6], [224, .55], [240, .55]];
+function focusAt(k) { for (let i = 1; i < FOCUS.length; i++) if (k <= FOCUS[i][0]) { const [a, fa] = FOCUS[i - 1], [b, fb] = FOCUS[i]; return lerp(fa, fb, (k - a) / (b - a)); } return .55; }
+let cw = 0, ch = 0, imgB = 0, lastK = -1, curK = 0, tgtK = 0, raf = 0;
+function sizeFilm() {
+  cw = cv.clientWidth; ch = cv.clientHeight; cv.width = Math.round(cw * DPR); cv.height = Math.round(ch * DPR);
+  imgB = mob() ? Math.min(cw * .98, ch * .47) + 60 : 0;
+  film.style.setProperty("--imgB", imgB + "px"); lastK = -1;
+}
+function drawFilm(k) {
+  const img = nearest(k); if (!img) return;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  if (mob()) {
+    ctx.fillStyle = "#1e211c"; ctx.fillRect(0, 0, cw, ch);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, cw, imgB); ctx.clip(); cover(ctx, img, cw, imgB, focusAt(k), .5); ctx.restore();
+  } else cover(ctx, img, cw, ch, .5, .5);
+}
+function progress(el) { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+function onFilm() {
+  const p = progress(film); tgtK = p * (N - 1);
+  ttl.style.opacity = 1 - clamp(tgtK / 12); ttl.style.transform = `translateY(${-clamp(tgtK / 12) * 40}px)`;
+  chaps.forEach(c => c.classList.toggle("on", tgtK >= +c.dataset.a && tgtK < +c.dataset.b));
+  hud.classList.toggle("on", tgtK > 10 && tgtK < 236);
+  $("#hudbar").style.setProperty("--p", (clamp((tgtK - 14) / (224 - 14)) * 100) + "%");
+  $("#hudbar").style.height = (clamp((tgtK - 14) / (224 - 14)) * 100) + "%";
+  $("#mbar").style.width = (p * 100) + "%";
+  hudItems.forEach((li, i) => { const a = +li.dataset.f, b = hudItems[i + 1] ? +hudItems[i + 1].dataset.f : 999; li.classList.toggle("on", tgtK >= a && tgtK < b); li.classList.toggle("done", tgtK >= b); });
+  if (!raf) raf = requestAnimationFrame(tick);
+}
+function tick() {
+  raf = 0; curK += (tgtK - curK) * .22; if (Math.abs(tgtK - curK) < .05) curK = tgtK;
+  const k = Math.round(curK); if (k !== lastK || !ok[k]) { drawFilm(k); lastK = ok[k] ? k : -1; }
+  if (curK !== tgtK) raf = requestAnimationFrame(tick);
+}
+waiters.add(() => { if (lastK === -1) drawFilm(Math.round(curK)); });
+
+/* ---------- 2. counters + reveal ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add("in"); io.unobserve(e.target);
+  $$("[data-count]", e.target).forEach(n => { const to = +n.dataset.count, t0 = performance.now(); (function step(t) { const q = clamp((t - t0) / 1400); n.textContent = Math.round(to * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(step); })(t0); });
+}), { threshold: .14, rootMargin: "0px 0px -6% 0px" });
+$$(".rv").forEach(e => io.observe(e));
+
+/* ---------- 3. Bautagebuch ---------- */
+const PH = [
+  { f: 0, m: "Monat 0", t: "Grundstück", pc: 10, d: "Vermessung, Bodengutachten, Abstecken. Der Vertrag ist unterschrieben, die Genehmigung liegt vor.", i: ["Vermessung", "Bodengutachten", "Baustelleneinrichtung"] },
+  { f: 22, m: "Monat 2", t: "Aushub & Bodenplatte", pc: 20, d: "Hang terrassiert, Stützmauer betoniert, Bodenplatte mit Abdichtung. Ab hier steht die Lage des Hauses fest.", i: ["Erdarbeiten", "Stützmauer", "Abdichtung"] },
+  { f: 40, m: "Monat 4", t: "Stützen & Wände", pc: 15, d: "Stahlbetonstützen und tragende Wände im Erdgeschoss, Anschlüsse für Wasser und Strom in der Platte.", i: ["Stahlbeton", "Leerrohre", "Statik-Abnahme"] },
+  { f: 66, m: "Monat 7", t: "Decken & Fassade", pc: 20, d: "Zwei Decken mit Auskragung, Obergeschoss, Dachterrasse. Danach Putz und Dämmung.", i: ["Auskragung 3,2 m", "Dämmung", "Kalkputz"] },
+  { f: 95, m: "Monat 10", t: "Glas & Garten", pc: 20, d: "Rahmenlose Fenster, Innenausbau, Trockenmauern und die ersten Bäume. Palme und Zypressen kommen mit dem Kran.", i: ["64 m² Glas", "Trockenmauer", "Palme 7 m"] },
+  { f: 121, m: "Monat 14", t: "Übergabe", pc: 15, d: "Pool gefüllt, Lavendel gepflanzt, Abnahme mit Gutachter. Schlüsselübergabe auf der Terrasse.", i: ["Pool", "Abnahme", "Schlüssel"] }
+];
+const bcv = $("#bcv"), bctx = bcv.getContext("2d"), br = $("#brange"), phases = $("#phases");
+phases.innerHTML = PH.map((p, i) => `<li data-i="${i}"><button type="button"><b>${String(i + 1).padStart(2, "0")}</b><span><span class="m">${p.m}</span><br>${p.t}</span><span class="pc">${p.pc} %</span></button><div class="body"><div><p>${p.d}</p><ul>${p.i.map(x => `<li>${x}</li>`).join("")}</ul></div></div></li>`).join("");
+$("#bticks").innerHTML = PH.map(p => `<b style="left:${p.f / 121 * 100}%">${p.m.replace("Monat ", "M")}</b>`).join("");
+$("#pbars").innerHTML = PH.map(p => `<i style="--w:${p.pc}"></i>`).join("");
+let bw = 0, bh = 0, bk = 0, bphase = -1;
+function sizeB() { bw = bcv.clientWidth; bh = bcv.clientHeight; bcv.width = Math.round(bw * DPR); bcv.height = Math.round(bh * DPR); drawB(); }
+function drawB() { const img = nearest(bk); if (!img || !bw) return; bctx.setTransform(DPR, 0, 0, DPR, 0, 0); cover(bctx, img, bw, bh); }
+function setB(k) {
+  bk = clamp(k, 0, 121); br.value = Math.round(bk); $("#brail").style.width = (bk / 121 * 100) + "%"; drawB();
+  $("#bdate").textContent = "KW " + String(1 + Math.round(bk / 121 * 60)).padStart(2, "0");
+  let ph = 0; PH.forEach((p, i) => { if (bk >= p.f - 4) ph = i; });
+  if (ph !== bphase) { bphase = ph; $$("#phases > li").forEach((li, i) => li.classList.toggle("on", i === ph));
+    let s = 0; $$("#pbars i").forEach((b, i) => { b.classList.toggle("on", i <= ph); if (i <= ph) s += PH[i].pc; }); $("#paid").textContent = s + " %"; }
+}
+br.addEventListener("input", () => { stopPlay(); setB(+br.value); });
+phases.addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) { stopPlay(); animB(PH[+li.dataset.i].f); } });
+let banim = 0;
+function animB(to) { cancelAnimationFrame(banim); const from = bk, t0 = performance.now(), dur = 500 + Math.abs(to - from) * 12;
+  (function s(t) { const q = clamp((t - t0) / dur), e = q < .5 ? 2 * q * q : 1 - Math.pow(-2 * q + 2, 2) / 2; setB(lerp(from, to, e)); if (q < 1) banim = requestAnimationFrame(s); })(t0); }
+let playing = false, pT = 0;
+const ICO_PLAY = '<path d="M5 3l10 6-10 6z" fill="currentColor"/>', ICO_PAUSE = '<path d="M4 3h3.5v12H4zM10.5 3H14v12h-3.5z" fill="currentColor"/>';
+function stopPlay() { playing = false; $("#bico").innerHTML = ICO_PLAY; $("#bplay").setAttribute("aria-label", "Zeitraffer abspielen"); }
+$("#bplay").addEventListener("click", () => {
+  if (playing) return stopPlay();
+  cancelAnimationFrame(banim); playing = true; $("#bico").innerHTML = ICO_PAUSE; $("#bplay").setAttribute("aria-label", "Zeitraffer anhalten");
+  if (bk >= 121) setB(0); pT = performance.now();
+  (function s(t) { if (!playing) return; const dt = t - pT; pT = t; setB(bk + dt * .014); if (bk >= 121) return stopPlay(); requestAnimationFrame(s); })(pT);
+});
+waiters.add(drawB);
+// auto-play once when the section first comes into view
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { o.disconnect(); setTimeout(() => { if (!playing && bk === 0) $("#bplay").click(); }, 700); } }), { threshold: .55 }).observe($(".screen"));
+
+/* ---------- 4. hotspots ---------- */
+const VIEWS = {
+  aussen: { img: "img/fertig.webp", alt: "Casa Mirador mit Pool, Zypressen und Trockenmauer", pts: [
+    { x: .3, y: .27, t: "Dachterrasse", m: "Obergeschoss", d: "Über dem Schlafzimmer, mit Blick über den Hang bis zum Meer. Abends der beste Platz im Haus.", k: [["Fläche", "48 m²"], ["Blick", "Westen"]] },
+    { x: .42, y: .55, t: "Panoramaverglasung", m: "Fassade", d: "Schiebeelemente bis 5,6 m Breite, dreifach verglast. Komplett zu öffnen, das Wohnzimmer wird zur Terrasse.", k: [["Glas", "64 m²"], ["Uw-Wert", "0,8"]] },
+    { x: .37, y: .79, t: "Salzwasserpool", m: "Garten", d: "Auf der unteren Terrasse, mit Wärmepumpe von April bis November nutzbar. Salz statt Chlor.", k: [["Maße", "9 × 3,5 m"], ["Wasser", "26 °C"]] },
+    { x: .64, y: .3, t: "Zypressen", m: "Bepflanzung", d: "Sechs ausgewachsene Zypressen, mit dem Kran gesetzt. Sie geben dem Haus vom ersten Tag an Maßstab und Schatten.", k: [["Höhe", "bis 9 m"], ["Anzahl", "6"]] },
+    { x: .6, y: .88, t: "Trockenmauer", m: "Gelände", d: "Aus den Steinen, die beim Aushub gefunden wurden. Ohne Mörtel geschichtet wie die alten Terrassen der Marina Alta.", k: [["Länge", "62 m"], ["Stein", "vom Grundstück"]] },
+    { x: .8, y: .72, t: "Lavendelbeet", m: "Garten", d: "Lavendel, Rosmarin und Gräser mit Tropfbewässerung. Braucht im Sommer einmal pro Woche Wasser.", k: [["Pflanzen", "320"], ["Wasser", "−70 %"]] }
+  ]},
+  terrasse: { img: "img/terrasse.webp", alt: "Terrasse mit Pergola, Lounge und Pool", pts: [
+    { x: .25, y: .38, t: "Pergola", m: "Iroko-Holz", d: "Freitragend, ohne Stütze in der Mitte. Iroko vergraut silbern und hält ohne Anstrich Jahrzehnte.", k: [["Spannweite", "6 m"], ["Holz", "Iroko"]] },
+    { x: .27, y: .56, t: "Lounge", m: "Außen wohnen", d: "Im Schatten der Pergola, mit Strom und Licht im Boden. Abends der Treffpunkt.", k: [["Fläche", "22 m²"], ["Licht", "dimmbar"]] },
+    { x: .22, y: .86, t: "Pool mit Einstieg", m: "Wasser", d: "Breite Stufe zum Sitzen, Unterwasserlicht in Warmweiß, Abdeckung automatisch.", k: [["Tiefe", "1,2–1,6 m"], ["Licht", "3000 K"]] },
+    { x: .7, y: .42, t: "Schiebefenster", m: "Wohnzimmer", d: "Rahmenlose Schiebeelemente, im Boden versenkt geführt. Keine Schwelle zwischen innen und außen.", k: [["Breite", "5,6 m"], ["Schwelle", "0 mm"]] },
+    { x: .55, y: .1, t: "Auskragung", m: "Obergeschoss", d: "Das Obergeschoss schiebt sich 3,2 m über die Terrasse. Schatten im Sommer, Sonne im Winter.", k: [["Auskragung", "3,2 m"], ["Material", "Stahlbeton"]] },
+    { x: .86, y: .8, t: "Beete aus Travertin", m: "Bepflanzung", d: "Eingefasste Hochbeete aus demselben Stein wie der Terrassenboden.", k: [["Stein", "Travertin"], ["Pflege", "gering"]] }
+  ]},
+  innen: { img: "img/innen.webp", alt: "Wohnraum mit Wendeltreppe, Essplatz und Sofa", pts: [
+    { x: .6, y: .4, t: "Wendeltreppe", m: "Skulptur", d: "Eine freistehende Spirale aus weißem Mikrozement, gegossen vor Ort in einer Schalung aus 212 Einzelteilen.", k: [["Höhe", "5,8 m"], ["Bauzeit", "6 Wochen"]] },
+    { x: .52, y: .69, t: "Eichenstufen", m: "Detail", d: "Die untersten Stufen aus massiver Eiche, als Sitzbank zum Wohnraum hin.", k: [["Holz", "Eiche"], ["Stufen", "5"]] },
+    { x: .5, y: .17, t: "Oberlicht", m: "Luftraum", d: "Über der Treppe ein rundes Oberlicht. Mittags fällt ein Lichtkreis auf den Travertin.", k: [["Durchmesser", "2,4 m"], ["Glas", "begehbar"]] },
+    { x: .36, y: .62, t: "Essplatz", m: "Erdgeschoss", d: "Für zehn Personen, direkt an der Küche und mit Blick in den Garten.", k: [["Plätze", "10"], ["Tisch", "Olivenholz"]] },
+    { x: .07, y: .5, t: "Glasfront West", m: "Fassade", d: "Raumhohe Verglasung mit Leinenvorhängen. Abends kommt die Sonne direkt ins Wohnzimmer.", k: [["Höhe", "3,1 m"], ["Ausrichtung", "Westen"]] },
+    { x: .86, y: .76, t: "Wohnbereich", m: "Erdgeschoss", d: "Sofa auf Maß, Boden aus Travertin mit Fußbodenheizung und Kühlung.", k: [["Fläche", "64 m²"], ["Boden", "Travertin"]] }
+  ]}
+};
+let vk = "aussen", hi = 0;
+const view = $("#view"), vimg = $("#vimg"), card = $("#card"), hlist = $("#hlist");
+function renderView() {
+  const V = VIEWS[vk];
+  $$(".hs", view).forEach(n => n.remove());
+  V.pts.forEach((p, i) => { const d = document.createElement("div"); d.className = "hs"; d.style.left = p.x * 100 + "%"; d.style.top = p.y * 100 + "%";
+    d.innerHTML = `<button type="button" aria-label="${p.t}">+</button><span class="n">${p.t}</span>`; d.firstChild.addEventListener("click", () => pick(i)); view.appendChild(d); });
+  hlist.innerHTML = V.pts.map((p, i) => `<li><button type="button" data-i="${i}">${p.t}</button></li>`).join("");
+  pick(0, true);
+}
+function pick(i, quiet) {
+  const V = VIEWS[vk], p = V.pts[i]; hi = i;
+  $$(".hs", view).forEach((n, j) => n.classList.toggle("on", j === i));
+  $$("button", hlist).forEach((b, j) => b.classList.toggle("on", j === i));
+  card.innerHTML = `<p class="mono">${p.m}</p><h3>${p.t}</h3><p>${p.d}</p><dl>${p.k.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl><div class="nav2"><button type="button" data-d="-1" aria-label="Vorheriger Punkt">←</button><span>${i + 1} / ${V.pts.length}</span><button type="button" data-d="1" aria-label="Nächster Punkt">→</button></div>`;
+  if (!quiet && mob()) card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+card.addEventListener("click", e => { const b = e.target.closest("[data-d]"); if (b) { const n = VIEWS[vk].pts.length; pick((hi + +b.dataset.d + n) % n, true); } });
+hlist.addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) pick(+b.dataset.i, true); });
+$("#tabs").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b || b.dataset.v === vk) return; vk = b.dataset.v;
+  $$("#tabs button").forEach(t => t.setAttribute("aria-selected", String(t === b)));
+  vimg.classList.add("out"); setTimeout(() => { vimg.src = VIEWS[vk].img; vimg.alt = VIEWS[vk].alt; vimg.onload = () => vimg.classList.remove("out"); renderView(); }, 300); });
+renderView();
+
+/* ---------- 5. gallery lightbox ---------- */
+const gal = $$(".bento figure"); let gi = 0;
+function showImg(i) { gi = (i + gal.length) % gal.length; const f = gal[gi], im = $("img", f); $("#iimg").src = im.src; $("#iimg").alt = im.alt; $("#icap").textContent = $("b", f).textContent + " · " + ($("span", f) ? $("span", f).textContent : ""); }
+gal.forEach((f, i) => f.addEventListener("click", () => { showImg(i); openDlg("#imgDlg"); }));
+$("#ipv").addEventListener("click", () => showImg(gi - 1)); $("#inx").addEventListener("click", () => showImg(gi + 1));
+addEventListener("keydown", e => { if (!$("#imgDlg").open) return; if (e.key === "ArrowLeft") showImg(gi - 1); if (e.key === "ArrowRight") showImg(gi + 1); });
+
+/* ---------- 6. services accordion ---------- */
+const acc = $$("#acc details"), spic = $("#spic"), scap = $("#scap");
+acc.forEach(d => d.addEventListener("toggle", () => { if (!d.open) return; acc.forEach(o => { if (o !== d) o.open = false; });
+  spic.style.opacity = 0; setTimeout(() => { spic.src = d.dataset.img; scap.textContent = d.dataset.cap; spic.onload = () => spic.style.opacity = 1; }, 250); }));
+
+/* ---------- 7. calculator ---------- */
+const qm = $("#qm"), hang = $("#hang");
+function segPick(wrap, multi) { wrap.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
+  if (multi) b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); else $$("button", wrap).forEach(x => x.setAttribute("aria-pressed", String(x === b))); calc(); }); }
+segPick($("#line")); segPick($("#pool")); segPick($("#extras"), true);
+const HANG = [["flach", 0], ["mittel", .06], ["steil", .14]];
+let shownTot = 0, tAnim = 0;
+function calc() {
+  const m2 = +qm.value, line = $("#line [aria-pressed=true]"), pool = $("#pool [aria-pressed=true]"), ex = $$("#extras [aria-pressed=true]"), h = HANG[+hang.value];
+  [qm, hang].forEach(r => r.style.setProperty("--p", ((r.value - r.min) / (r.max - r.min) * 100) + "%"));
+  $("#qmo").textContent = m2 + " m²"; $("#hango").textContent = h[0];
+  const base = m2 * +line.dataset.v, hz = base * h[1], pl = +pool.dataset.v, exs = ex.reduce((s, b) => s + +b.dataset.v, 0), plan = (base + hz) * .09;
+  const tot = base + hz + pl + exs + plan;
+  const lines = [[`Haus ${m2} m² · Linie ${$("b", line).textContent}`, base], ["Planung, Genehmigung, Bauleitung", plan]];
+  if (hz) lines.push([`Hanglage ${h[0]} (Stützmauern)`, hz]);
+  if (pl) lines.push([`Pool ${pool.textContent}`, pl]);
+  ex.forEach(b => lines.push([b.dataset.n.replace("&amp;", "&"), +b.dataset.v]));
+  $("#tlines").innerHTML = lines.map(([a, b]) => `<li><span>${a}</span><span>${euro(b)}</span></li>`).join("");
+  const months = Math.round(11 + m2 / 110 + (+hang.value) + (pl ? 1 : 0));
+  $("#tsub").textContent = `entspricht ${euro(tot / m2).replace(" €", "")} € pro m² Wohnfläche`;
+  $("#tmo").textContent = `Bauzeit ca. ${months} Monate`;
+  $("#ttime").innerHTML = Array.from({ length: 20 }, (_, i) => `<i class="${i >= 6 && i < 6 + months * 14 / 20 ? "on" : ""}"></i>`).join("");
+  $("#rimg").src = +line.dataset.v > 3000 ? "img/terrasse.webp" : +line.dataset.v < 2500 ? "img/garten.webp" : "img/fertig.webp";
+  cancelAnimationFrame(tAnim); const from = shownTot, t0 = performance.now();
+  (function s(t) { const q = clamp((t - t0) / 600); shownTot = lerp(from, tot, 1 - Math.pow(1 - q, 3)); $("#tot").textContent = euro(shownTot); if (q < 1) tAnim = requestAnimationFrame(s); })(t0);
+}
+qm.addEventListener("input", calc); hang.addEventListener("input", calc); calc();
+
+/* ---------- 8. map ---------- */
+const PLACES = [
+  { n: "Dénia", x: 255, y: 120, s: "9 Häuser", p: "Casa Montgó", d: "Am Fuß des Montgó, zehn Minuten zum Hafen." },
+  { n: "Xàbia", x: 360, y: 210, s: "18 Häuser · Büro", p: "Casa Alba", d: "Unser Hauptsitz. Hier sind wir in zehn Minuten auf jeder Baustelle.", office: 1 },
+  { n: "Moraira", x: 345, y: 330, s: "12 Häuser", p: "Casa Lentisco", d: "Steile Hänge über kleinen Buchten. Unsere Spezialität: Häuser über drei Ebenen." },
+  { n: "Benissa", x: 270, y: 395, s: "11 Häuser", p: "Casa Mirador", d: "Das Haus aus dem Film. Ruhige Hügel mit Mandel- und Olivenbäumen." },
+  { n: "Calp", x: 250, y: 475, s: "8 Häuser", p: "Casa Penyal", d: "Mit Blick auf den Peñón de Ifach, dem Felsen im Meer." },
+  { n: "Altea", x: 140, y: 560, s: "6 Häuser", p: "Casa Blanca", d: "Das weiße Dorf auf dem Hügel. Hier bauen wir gerade zwei Häuser." }
+];
+$("#map").innerHTML = `<svg viewBox="0 0 520 640" role="img" aria-label="Schematische Karte der Costa Blanca zwischen Dénia und Altea">
+  <rect class="sea" x="0" y="0" width="520" height="640" rx="18"/>
+  <g class="grid">${Array.from({ length: 12 }, (_, i) => `<line x1="${i * 48}" y1="0" x2="${i * 48}" y2="640"/><line x1="0" y1="${i * 58}" x2="520" y2="${i * 58}"/>`).join("")}</g>
+  <path class="land" d="M0 0 H200 C215 40 230 80 262 102 C300 128 330 150 352 170 C380 186 410 196 432 214 C420 236 392 246 380 262 C372 284 384 300 372 322 C356 344 330 352 316 372 C300 392 292 408 286 430 C280 448 262 456 262 470 C274 478 286 476 290 488 C284 500 262 500 246 506 C220 520 198 538 170 552 C144 566 118 582 100 606 C92 620 88 632 86 640 H0 Z"/>
+  <text x="440" y="120" fill="rgba(242,237,228,.35)" style="font:italic 400 22px var(--serif)">Mittelmeer</text>
+  <text x="40" y="300" fill="rgba(242,237,228,.3)" style="font:400 9px var(--mono);letter-spacing:.16em">MARINA ALTA</text>
+  <text x="380" y="610" fill="rgba(242,237,228,.3)" style="font:400 9px var(--mono);letter-spacing:.14em">SCHEMATISCH</text>
+  ${PLACES.map((p, i) => `<g class="pt${p.office ? " office" : ""}" data-i="${i}" tabindex="0" role="button" aria-label="${p.n}"><circle class="h" cx="${p.x}" cy="${p.y}" r="14"/><circle class="c" cx="${p.x}" cy="${p.y}" r="6"/><text x="${p.x - 14}" y="${p.y + 4}" text-anchor="end">${p.n}</text><text class="s" x="${p.x - 14}" y="${p.y + 18}" text-anchor="end">${p.s.toUpperCase()}</text></g>`).join("")}
+</svg>`;
+$("#places").innerHTML = PLACES.map((p, i) => `<li data-i="${i}"><button type="button"><b>${p.n}</b><span>${p.p}</span><span>${p.s}</span></button></li>`).join("");
+function place(i) { $$("#map .pt").forEach((g, j) => g.classList.toggle("on", j === i)); $$("#places li").forEach((l, j) => l.classList.toggle("on", j === i)); }
+$("#map").addEventListener("click", e => { const g = e.target.closest(".pt"); if (g) place(+g.dataset.i); });
+$("#map").addEventListener("keydown", e => { const g = e.target.closest(".pt"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); place(+g.dataset.i); } });
+$("#places").addEventListener("click", e => { const l = e.target.closest("li"); if (l) place(+l.dataset.i); });
+place(3);
+
+/* ---------- 9. quotes ---------- */
+const qs = $$(".q"); let qi = 0, qt;
+$("#qd").innerHTML = qs.map((_, i) => `<button type="button" aria-label="Stimme ${i + 1}"></button>`).join("");
+function showQ(i) { qi = (i + qs.length) % qs.length; qs.forEach((q, j) => q.classList.toggle("on", j === qi)); $$("#qd button").forEach((b, j) => b.classList.toggle("on", j === qi)); clearTimeout(qt); qt = setTimeout(() => showQ(qi + 1), 8000); }
+$("#qp").addEventListener("click", () => showQ(qi - 1)); $("#qn").addEventListener("click", () => showQ(qi + 1));
+$("#qd").addEventListener("click", e => { const b = e.target.closest("button"); if (b) showQ($$("#qd button").indexOf(b)); });
+showQ(0);
+
+/* ---------- 10. contact ---------- */
+$("#kseg").addEventListener("click", e => { const b = e.target.closest("button"); if (b) $$("#kseg button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); });
+$("#kf").addEventListener("submit", e => { e.preventDefault(); $("#kfi").hidden = true; $("#kfok").hidden = false; });
+$("#tcta").addEventListener("click", () => { $("#km").value = `Schätzung aus dem Kostenrechner: ${$("#tot").textContent}, ${$("#qmo").textContent}, Linie ${$("#line [aria-pressed=true] b").textContent}.`; });
+
+/* ---------- 11. videos play only in view ---------- */
+const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { v.preload = "auto"; v.play().catch(() => {}); } else v.pause(); }), { threshold: .2 });
+$$("video[loop]").forEach(v => vio.observe(v));
+
+/* ---------- 12. header, drawer, dialogs ---------- */
+const hdr = $("#hdr"), lights = $$(".light");
+function onHdr() { const y = scrollY; hdr.classList.toggle("solid", y > innerHeight * .5);
+  const onL = lights.some(s => { const r = s.getBoundingClientRect(); return r.top <= 74 && r.bottom > 74; }); hdr.classList.toggle("onlight", onL); }
+const drawer = $("#drawer");
+function drw(open) { drawer.classList.toggle("open", open); drawer.setAttribute("aria-hidden", String(!open)); $("#burger").setAttribute("aria-expanded", String(open)); document.body.classList.toggle("lock", open); }
+$("#burger").addEventListener("click", () => drw(true)); $("#dx").addEventListener("click", () => drw(false)); $$("a", drawer).forEach(a => a.addEventListener("click", () => drw(false)));
+function openDlg(s) { const d = $(s); d.showModal(); document.body.classList.add("lock"); }
+$$("dialog").forEach(d => { d.addEventListener("close", () => { document.body.classList.remove("lock"); const v = $("video", d); if (v) v.pause(); });
+  d.addEventListener("click", e => { if (e.target.matches("[data-close]") || e.target.classList.contains("box")) d.close(); }); });
+$$("[data-film]").forEach(b => b.addEventListener("click", () => { openDlg("#filmDlg"); $("#filmVid").play().catch(() => {}); }));
+const LEGAL = {
+  impressum: `<h2>Impressum</h2><p><b>Hinweis:</b> Ardena ist ein fiktives Unternehmen. Diese Seite ist eine Beispielseite von Allrich Webdesign und zeigt, wie eine Website für ein Architektur- und Bauunternehmen aussehen kann. Adressen, Telefonnummern, Personen und Projekte sind erfunden.</p><h3>Verantwortlich für diese Beispielseite</h3><p>Allrich Webdesign, Potsdam. Kontakt über allrich-webdesign.com.</p>`,
+  datenschutz: `<h2>Datenschutz</h2><p><b>Hinweis:</b> Mustertext für eine Beispielseite. Diese Seite überträgt keine Formulardaten und setzt keine Cookies. Für eine Besucherstatistik ohne Cookies wird Cloudflare Web Analytics genutzt (Details in der Datenschutzerklärung auf allrich-webdesign.com).</p>`,
+  bild: `<h2>Bildnachweis</h2><p>Der Film und alle Bilder der Casa Mirador sind eine computergenerierte Visualisierung (KI-Video). Das Haus existiert nicht. Die Standbilder sind Einzelbilder aus diesem Film.</p><p>Schriften: Instrument Serif, Inter Tight und IBM Plex Mono (SIL Open Font License), selbst gehostet.</p>`
+};
+$$("[data-legal]").forEach(b => b.addEventListener("click", () => { $("#ldoc").innerHTML = LEGAL[b.dataset.legal]; openDlg("#legalDlg"); }));
+
+/* ---------- boot ---------- */
+function onScroll() { onFilm(); onHdr(); }
+addEventListener("scroll", onScroll, { passive: true });
+addEventListener("resize", () => { sizeFilm(); sizeB(); onScroll(); });
+sizeFilm(); sizeB(); setB(0); onScroll();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26d7010577e84ed5a8bb366f4ad75dd1"}'></script><!-- End Cloudflare Web Analytics -->
+</html>

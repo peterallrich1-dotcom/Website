@@ -139,6 +139,8 @@ img,canvas{display:block;max-width:100%}
 .tile.next h3{font-size:clamp(34px,3.6vw,54px)}
 .tile.next p{color:rgba(255,255,255,.88);font-size:15px;max-width:34ch}
 .tile.next .go{background:#fff;color:var(--blue)}
+.tile.next{grid-column:1/-1;min-height:220px}
+.tile .new{position:absolute;top:16px;right:16px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:99px;background:var(--blue);color:#fff}
 .note{font-size:12.5px;color:var(--mute);margin-top:16px}
 @media (max-width:860px){.bento{grid-template-columns:1fr}.tile.big{grid-row:auto;min-height:420px}}
 
@@ -316,10 +318,15 @@ img,canvas{display:block;max-width:100%}
   <div class="wrap">
     <div class="intro">
       <div class="rv"><p class="kicker">Arbeiten</p><h2 class="h h2">So fühlt sich<br>das <em>an.</em></h2></div>
-      <p class="lead2 rv">Vier Konzeptseiten aus verschiedenen Branchen. Öffnen Sie sie am besten auf dem Handy und scrollen Sie langsam.</p>
+      <p class="lead2 rv">Fünf Konzeptseiten aus verschiedenen Branchen. Öffnen Sie sie am besten auf dem Handy und scrollen Sie langsam.</p>
     </div>
     <div class="bento">
-      <a class="tile big rv" href="velaro/" target="_blank" rel="noopener">
+      <a class="tile big rv" href="ardena/" target="_blank" rel="noopener">
+        <img src="allrich/img-ardena.jpg" alt="Moderne Villa mit Pool, Zypressen und Trockenmauer im Hang" loading="lazy">
+        <span class="tag">Architektur &amp; Bau · Scroll-Film</span><span class="new">Neu</span>
+        <div class="info"><div><h3>Ardena</h3><p>Beim Scrollen entsteht ein Haus, vom leeren Grundstück bis zur Schlüsselübergabe. Mit Bautagebuch zum Ziehen, Klickpunkten im Haus und Kostenrechner.</p></div><span class="go" aria-hidden="true">→</span></div>
+      </a>
+      <a class="tile rv" href="velaro/" target="_blank" rel="noopener">
         <img src="allrich/img-velaro.jpg" alt="Blick in eine moderne Villa mit offener Treppe" loading="lazy">
         <span class="tag">Immobilien · Scroll-Film</span>
         <div class="info"><div><h3>Velaro Private Estates</h3><p>Beim Scrollen fliegt man wie eine Drohne durch eine Villa am Meer.</p></div><span class="go" aria-hidden="true">→</span></div>
@@ -344,7 +351,7 @@ img,canvas{display:block;max-width:100%}
         <div class="info" style="position:static"><div><h3>Ihre Branche</h3><p>Schicken Sie mir Ihre Website-Adresse. Sie erhalten einen kostenlosen Entwurf mit Ihren Inhalten.</p></div><span class="go" aria-hidden="true">→</span></div>
       </a>
     </div>
-    <p class="note rv">Velaro, Milla, Aurelis und Noctis sind Beispielmarken zur Veranschaulichung.</p>
+    <p class="note rv">Ardena, Velaro, Milla, Aurelis und Noctis sind Beispielmarken zur Veranschaulichung.</p>
   </div>
 </section>
 
