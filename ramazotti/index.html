@@ -45,13 +45,14 @@ img{display:block;max-width:100%}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
 #film{position:absolute;inset:0;width:100%;height:100%}
 .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 48%,rgba(0,0,0,.75) 100%);pointer-events:none}
-.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(800px,88vw);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(800px,88vw);pointer-events:none;visibility:hidden;opacity:0;transition:opacity .45s,visibility 0s linear .45s;transform:translateZ(0)}
+.cap.on{visibility:visible;opacity:1;transition:opacity .45s,visibility 0s}
 .cap .k{color:var(--c2);opacity:0;transition:opacity .5s}
 .cap.on .k{opacity:1}
 .cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.98 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
 .cap h1 em,.cap h2 em{font-style:italic;color:var(--c2)}
-.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
-.cap.on .w{opacity:1;transform:none;filter:none}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.cap.on .w{opacity:1;transform:none}
 .cap p{margin:18px 0 0;max-width:470px;color:rgba(255,255,255,.78);font-size:clamp(15px,1.3vw,18px);opacity:0;transition:opacity .6s .35s}
 .cap.on p{opacity:1}
 .meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.7)}
@@ -348,7 +349,8 @@ function render() {
   const g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .35, W / 2, H / 2, Math.max(W, H) * .75);
   g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,.45)");
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  let cur = -1; caps.forEach((c, k) => { if (p >= +c.dataset.a && p < +c.dataset.b) cur = k; });
+  caps.forEach((c, k) => { const on = k === cur; if (c.classList.contains("on") !== on) c.classList.toggle("on", on); });
   bar.style.width = (p * 100) + "%";
   shotEl.textContent = String(i + 1).padStart(2, "0") + " / 05";
   hint.style.opacity = p > .02 ? 0 : 1;
