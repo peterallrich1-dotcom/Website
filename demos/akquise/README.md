@@ -276,6 +276,8 @@ Aufbau (nach Peters Video, 22.11.): 2+ Zusatz-Domains (z. B. try-/get-/use-Präf
 
 **Kaya (23.11.):** hat aus persönlichen Gründen vorerst abgesagt. Freundliche Antwort gesendet. NICHT nachhaken, er meldet sich selbst. Entwurf /yk/ bleibt online.
 
+**Kaya (24.11.):** Stil gefällt ihm sehr („passt voll und ganz“), weiterhin interessiert. Meldet sich selbst, sobald es bei ihm wieder geht. NICHT nachhaken, nicht in Nachfass-Erinnerungen aufnehmen. Wenn er sich meldet: Angebot vorbereiten.
+
 **Google-Bewertungen (23.11.):** Die 5 Bewertungen vom 22./23.11. sind von Freunden, NICHT von Kunden. Nicht auf der Website verwenden, keine Antworten dazu vorschlagen. Erst Bewertungen echter Kunden einbauen.
 
 ## Malermeister Jörn Michaelis, Neubrandenburg (24.11.2026)
