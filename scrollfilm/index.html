@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Allrich Scroll-Film</title>
+<meta name="description" content="Websites mit Scroll-Film für Betriebe jeder Branche. Eigenes Design, perfekt auf dem Handy. Kostenloser Entwurf vorab. Ab 990 €.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/*
+  Scroll-Film-Hero.
+  #film ist sehr hoch (Scrollweg), darin klebt .stage mit dem Canvas.
+  Scrollfortschritt 0..1 wählt das Einzelbild und blendet die Textbeats (.beat) ein und aus.
+  Der Film selbst enthält keine Schrift: alle Texte sind echtes HTML.
+*/
+:root{
+  --navy:#05070f; --navy-2:#0a1230; --fg:#f4f6fb; --mute:#a3acc2; --blue:#5b8dff; --blue-2:#3f74f5;
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif; --f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:max(16px,env(safe-area-inset-left,0px));
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--navy);color:var(--fg);font-family:var(--f-b);-webkit-font-smoothing:antialiased}
+
+#film{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--navy)}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(5,7,15,.75) 100%),
+    linear-gradient(180deg,rgba(5,7,15,.55) 0%,transparent 22%,transparent 62%,rgba(5,7,15,.85) 100%)}
+
+/* Kopfzeile */
+.top{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;
+  padding:max(18px,env(safe-area-inset-top,0px)) var(--gutter) 0;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-h);font-size:22px;letter-spacing:.04em;color:var(--fg);text-decoration:none}
+.brand i{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue)}
+.top .cta{font-weight:600;font-size:14px;color:#fff;background:var(--blue-2);padding:10px 16px;border-radius:99px;text-decoration:none;
+  box-shadow:0 6px 24px rgba(63,116,245,.35)}
+
+/* Textbeats */
+.beat{position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(64px,13vh,140px);max-width:760px;
+  opacity:0;transform:translateY(24px);will-change:opacity,transform;z-index:4;pointer-events:none}
+.beat.on{pointer-events:auto}
+.beat.center{left:50%;right:auto;width:min(1180px,calc(100% - 32px));transform:translate(-50%,calc(-50% + 24px));text-align:center;bottom:auto;top:52%}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+.kicker::before{content:"";width:22px;height:2px;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.beat{text-shadow:0 2px 24px rgba(5,7,15,.55)}
+h1,h2{font-family:var(--f-h);font-weight:400;line-height:.95;letter-spacing:.01em;margin:.25em 0 .3em;text-wrap:balance;text-transform:uppercase}
+h1{font-size:clamp(46px,9vw,124px)}
+h2{font-size:clamp(38px,6.4vw,88px)}
+h1 em,h2 em{font-style:normal;color:var(--blue)}
+.beat p{font-size:clamp(16px,1.6vw,20px);line-height:1.5;color:var(--mute);margin:0;max-width:34em}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border-radius:16px;background:rgba(10,18,48,.62);
+  border:1px solid rgba(91,141,255,.28);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);min-width:150px}
+.chip b{font-family:var(--f-h);font-weight:400;font-size:30px;letter-spacing:.02em;color:var(--fg)}
+.chip span{font-size:13px;color:var(--mute)}
+.chip.hl{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue) inset,0 10px 40px rgba(91,141,255,.22)}
+.list{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.list li{display:flex;gap:10px;align-items:center;font-size:clamp(15px,1.5vw,18px);color:var(--fg)}
+.list li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px}
+.btn{font-weight:600;font-size:clamp(16px,1.6vw,20px);padding:15px 26px;border-radius:99px;text-decoration:none}
+.btn.p{background:var(--blue-2);color:#fff;box-shadow:0 10px 36px rgba(63,116,245,.45)}
+.btn.s{background:#fff;color:#14215a}
+
+/* Kapitel-Leiste */
+.rail{position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;z-index:5}
+.rail button{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:transparent;transition:color .3s}
+.rail button::after{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(244,246,251,.5);transition:all .3s}
+.rail button.on{color:var(--fg)}
+.rail button.on::after{background:var(--blue);border-color:var(--blue);box-shadow:0 0 12px var(--blue);transform:scale(1.25)}
+.rail button:hover{color:var(--mute)}
+.rail button:focus-visible{outline:2px solid var(--blue);outline-offset:4px;border-radius:4px}
+.bar{position:absolute;left:0;bottom:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue-2),var(--blue));box-shadow:0 0 12px var(--blue);z-index:5}
+
+.hint{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);z-index:4;transition:opacity .4s}
+.hint i{width:22px;height:34px;border:2px solid rgba(244,246,251,.45);border-radius:12px;position:relative}
+.hint i::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--fg);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+
+.loader{position:absolute;left:var(--gutter);bottom:20px;font-size:12px;color:var(--mute);z-index:5;transition:opacity .5s}
+.badge{position:absolute;left:50%;top:max(70px,calc(env(safe-area-inset-top,0px) + 60px));transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:#f0a63a;background:rgba(240,166,58,.12);border:1px solid rgba(240,166,58,.35);padding:5px 10px;border-radius:99px;z-index:5;white-space:nowrap}
+
+/* Fortsetzung der Seite */
+.after{position:relative;padding:120px var(--gutter);max-width:1100px;margin:0 auto}
+.after h2{font-size:clamp(34px,5vw,64px)}
+.after p{color:var(--mute);font-size:18px;line-height:1.6;max-width:40em}
+
+@media (max-width:760px){
+  .rail{display:none}
+  .beat{bottom:clamp(54px,10vh,96px)}
+  .chip{min-width:0;flex:1 1 140px}
+  .top .cta{padding:9px 13px;font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  #film{height:auto}
+  .stage{position:relative;height:auto;min-height:100svh;padding:110px 0 80px}
+  canvas,.shade{position:absolute}
+  .beat,.beat.center{position:relative;inset:auto;left:auto;right:auto;top:auto;bottom:auto;margin:0 var(--gutter) 56px;transform:none!important;opacity:1!important;width:auto;text-align:left}
+  .btns{justify-content:flex-start}
+  .rail,.hint,.bar{display:none}
+}
+</style>
+</head>
+<body>
+
+<section id="film" aria-label="Scroll-Film: Drohnenflug ins Studio von Allrich Webdesign">
+  <div class="stage">
+    <canvas id="cv" aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <header class="top">
+      <a class="brand" href="#"><i></i>ALLRICH</a>
+      <a class="cta" href="#kontakt">Kostenloser Entwurf</a>
+    </header>
+    <div class="badge" id="badge" hidden>Vorschau · Higgsfield-Film folgt</div>
+
+    <!-- Beats: data-in/data-out = Scrollfortschritt 0..1 -->
+    <div class="beat" data-in="0" data-out=".14">
+      <span class="kicker">Webdesign aus Potsdam</span>
+      <h1>Websites, die man <em>nicht vergisst.</em></h1>
+      <p>Beim Scrollen läuft ein Film über Ihren Betrieb. Genau wie hier.</p>
+    </div>
+
+    <div class="beat" data-in=".2" data-out=".38">
+      <span class="kicker">Scroll-Film</span>
+      <h2>Ihr Betrieb als <em>Film</em></h2>
+      <p>Statt einer Bildergalerie fliegt die Kamera durch Ihre Werkstatt, Ihr Restaurant oder Ihr Objekt. Gesteuert vom Daumen Ihrer Besucher.</p>
+    </div>
+
+    <div class="beat" data-in=".44" data-out=".6">
+      <span class="kicker">Was Sie bekommen</span>
+      <h2>Eigenes Design. <em>Jedes Gerät.</em></h2>
+      <ul class="list">
+        <li>Gestaltet in Ihren Farben, kein Baukasten</li>
+        <li>Zuerst fürs Handy gebaut, schnell geladen</li>
+        <li>Kontaktformular, Impressum und Datenschutz inklusive</li>
+        <li>Für jede Branche, in ganz Deutschland</li>
+      </ul>
+    </div>
+
+    <div class="beat" data-in=".66" data-out=".8">
+      <span class="kicker">Klare Preise</span>
+      <h2>Einmal zahlen. <em>Fertig.</em></h2>
+      <div class="chips">
+        <div class="chip"><span>Start</span><b>990 €</b><span>komplette Website mit Film</span></div>
+        <div class="chip hl"><span>Premium</span><b>1.490 €</b><span>mehr Seiten, mehr Film</span></div>
+        <div class="chip"><span>Hosting &amp; Pflege</span><b>29 €</b><span>pro Monat, optional</span></div>
+      </div>
+    </div>
+
+    <div class="beat center" data-in=".87" data-out="1.01">
+      <h1>Ihre Website<br>mit <em>Scroll-Film</em></h1>
+      <p style="margin:0 auto">Sie sehen den Entwurf, bevor Sie sich entscheiden. Kostenlos und unverbindlich.</p>
+      <div class="btns">
+        <a class="btn p" href="#kontakt">Kostenloser Entwurf</a>
+        <a class="btn s" href="#preise">ab 990 €</a>
+      </div>
+    </div>
+
+    <nav class="rail" aria-label="Kapitel">
+      <button type="button" data-go="0">Anflug</button>
+      <button type="button" data-go=".29">Studio</button>
+      <button type="button" data-go=".52">Design</button>
+      <button type="button" data-go=".73">Preise</button>
+      <button type="button" data-go=".95">Ihre Website</button>
+    </nav>
+    <div class="hint" id="hint"><i></i>Scrollen</div>
+    <div class="loader" id="loader"></div>
+    <div class="bar" id="bar"></div>
+  </div>
+</section>
+
+<section class="after" id="kontakt">
+  <span class="kicker">Hier geht deine bestehende Seite weiter</span>
+  <h2>Ab hier folgt der Rest der Website.</h2>
+  <p>Der Film endet auf dem dunklen Navy deiner Seite, deshalb geht er ohne Kante in die Inhalte darunter über.</p>
+</section>
+
+<script>
+(() => {
+  const FILM = document.getElementById("film");
+  const cv = document.getElementById("cv");
+  const ctx = cv.getContext("2d");
+  const bar = document.getElementById("bar");
+  const hint = document.getElementById("hint");
+  const loader = document.getElementById("loader");
+  const beats = [...document.querySelectorAll(".beat")];
+  const rail = [...document.querySelectorAll(".rail button")];
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let frames = [];         // Image | undefined je Index
+  let count = 0;
+  let mode = "frames";     // "frames" oder "poster" (Vorschau ohne Film)
+  let poster = null;
+  let progress = 0, shown = -1, dirty = true;
+
+  // ---------- Canvas-Größe ----------
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(cv.clientWidth * dpr);
+    cv.height = Math.round(cv.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // Bild wie object-fit: cover zeichnen; fx/fy = Fokuspunkt, zoom >= 1
+  function cover(img, fx = .5, fy = .5, zoom = 1) {
+    const cw = cv.width, ch = cv.height;
+    const s = Math.max(cw / img.width, ch / img.height) * zoom;
+    const w = img.width * s, h = img.height * s;
+    const x = Math.min(0, Math.max(cw - w, cw / 2 - fx * w));
+    const y = Math.min(0, Math.max(ch - h, ch / 2 - fy * h));
+    ctx.drawImage(img, x, y, w, h);
+  }
+
+  // ---------- Film-Bilder laden ----------
+  // manifest.json: { "count": 480, "desktop": "frames/desktop/f_{n}.webp", "mobile": "frames/mobile/f_{n}.webp", "pad": 4 }
+  async function loadFrames() {
+    const m = await fetch("frames/manifest.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw 0; return r.json(); });
+    count = m.count;
+    const portrait = innerHeight > innerWidth && m.mobile;
+    const pat = portrait ? m.mobile : m.desktop;
+    const url = i => pat.replace("{n}", String(i + 1).padStart(m.pad || 4, "0"));
+    frames = new Array(count);
+
+    // Erst grob (jedes 8. Bild), dann verfeinern: der Film ist sofort scrollbar.
+    const order = [];
+    for (const step of [8, 4, 2, 1]) for (let i = 0; i < count; i += step) if (!order.includes(i)) order.push(i);
+    let done = 0;
+    const one = i => new Promise(res => {
+      const im = new Image();
+      im.decoding = "async";
+      im.onload = () => { frames[i] = im; done++; dirty = true; res(); };
+      im.onerror = () => { done++; res(); };
+      im.src = url(i);
+    });
+    await one(0);
+    const queue = order.slice(1);
+    const worker = async () => { while (queue.length) { await one(queue.shift()); loader.textContent = `Film lädt … ${Math.round(done / count * 100)} %`; } };
+    await Promise.all(Array.from({ length: 6 }, worker));
+    loader.style.opacity = 0;
+  }
+
+  // nächstes geladenes Bild zum Index
+  function nearest(i) {
+    if (frames[i]) return frames[i];
+    for (let d = 1; d < count; d++) {
+      if (frames[i - d]) return frames[i - d];
+      if (frames[i + d]) return frames[i + d];
+    }
+    return null;
+  }
+
+  // ---------- Vorschau ohne Film: Kamerafahrt ins Logo ----------
+  function drawPoster(p) {
+    const cw = cv.width, ch = cv.height;
+    ctx.fillStyle = "#05070f"; ctx.fillRect(0, 0, cw, ch);
+    if (!poster) return;
+    const e = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    const zoom = 1 + e * 2.6;
+    ctx.globalAlpha = 1 - Math.min(1, Math.max(0, (p - .62) / .3)) * .92;
+    cover(poster, .5 + e * .05, .45, zoom);
+    ctx.globalAlpha = 1;
+  }
+
+  // ---------- Scroll → Fortschritt ----------
+  function measure() {
+    const r = FILM.getBoundingClientRect();
+    const total = FILM.offsetHeight - innerHeight;
+    progress = Math.min(1, Math.max(0, -r.top / total));
+  }
+
+  const ease = t => t * t * (3 - 2 * t);
+  function updateBeats(p) {
+    const fade = .035;
+    for (const b of beats) {
+      const a = +b.dataset.in, z = +b.dataset.out;
+      let o = 0;
+      if (p >= a && p <= z) o = Math.min(1, (p - a) / fade, (z - p) / fade);
+      if (a === 0 && p < fade) o = 1;
+      o = ease(Math.max(0, Math.min(1, o)));
+      const y = (1 - o) * 24;
+      b.style.opacity = o;
+      b.style.transform = b.classList.contains("center") ? `translate(-50%,calc(-50% + ${y}px))` : `translateY(${y}px)`;
+      b.classList.toggle("on", o > .5);
+    }
+    const marks = rail.map(r => +r.dataset.go);
+    let cur = 0; marks.forEach((m, i) => { if (p >= m - .06) cur = i; });
+    rail.forEach((r, i) => r.classList.toggle("on", i === cur));
+    bar.style.transform = `scaleX(${p})`;
+    hint.style.opacity = p > .02 ? 0 : 1;
+  }
+
+  // ---------- Render-Schleife ----------
+  let smooth = 0;
+  function tick() {
+    measure();
+    smooth += (progress - smooth) * .18;          // leichtes Nachziehen, wirkt wie eine Drohne
+    if (Math.abs(progress - smooth) < .0005) smooth = progress;
+    if (mode === "frames" && count) {
+      const i = Math.round(smooth * (count - 1));
+      if (i !== shown || dirty) {
+        const im = nearest(i);
+        if (im) { cover(im); shown = i; dirty = false; }
+      }
+    } else {
+      drawPoster(smooth);
+    }
+    updateBeats(smooth);
+    requestAnimationFrame(tick);
+  }
+
+  rail.forEach(btn => btn.addEventListener("click", () => {
+    const total = FILM.offsetHeight - innerHeight;
+    scrollTo({ top: FILM.offsetTop + +btn.dataset.go * total + 2, behavior: reduced ? "auto" : "smooth" });
+  }));
+
+  addEventListener("resize", resize);
+  resize();
+
+  poster = new Image();
+  poster.src = "assets/logo-poster.jpg";
+  poster.onload = () => { dirty = true; };
+
+  loadFrames().catch(() => {
+    mode = "poster";
+    document.getElementById("badge").hidden = false;
+    loader.style.opacity = 0;
+  });
+
+  if (reduced) {
+    // Ohne Bewegung: Schlussbild zeigen, Texte untereinander.
+    const still = () => { if (mode === "frames" && count) { const im = nearest(count - 1); if (im) cover(im); } else drawPoster(.35); };
+    setTimeout(still, 300); setTimeout(still, 1500);
+    addEventListener("resize", () => setTimeout(still, 50));
+  } else {
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>
