@@ -1016,9 +1016,9 @@ function placeFhs() {
   const ox = (W - dw) * .5, oy = (H - dh) * .5;
   fhsEls.forEach((el, i) => {
     const h = FHS[i], u = (h.x - crop.x0) / crop.w, px = ox + u * dw, py = oy + h.y * dh;
-    const inside = u > .02 && u < .98 && py > (m ? 70 : 90) && py < H - (m ? 20 : 40) && px > 18 && px < W - 18;
+    const inside = u > .02 && u < .98 && py > (m ? 96 : 100) && py < H - (m ? 20 : 40) && px > 18 && px < W - 18;
     el.style.left = px + "px"; el.style.top = py + "px"; el.dataset.in = inside ? 1 : 0;
-    const pop = $(".pop", el); pop.classList.toggle("below", py < H * .42); pop.classList.toggle("l", px < 140); pop.classList.toggle("r", px > W - 140);
+    const pop = $(".pop", el); pop.classList.toggle("below", m || py < H * .42); pop.classList.toggle("l", px < 140); pop.classList.toggle("r", px > W - 140);
     if (m && h.desk) el.dataset.in = 0;
     if (!m && !(px > W * .48 || py < H * .55)) el.dataset.in = 0; // keep clear of the end title on desktop
   });
