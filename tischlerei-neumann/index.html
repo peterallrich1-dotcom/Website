@@ -225,6 +225,22 @@ footer{background:linear-gradient(90deg,#3d2c10,#6e5320);color:#e9dcc0;border:0}
 .draft{background:rgba(255,250,240,.95);color:var(--mute)}.draft b{color:var(--white)}
 .faq summary::after{color:#a07a2a}
 .checks svg{stroke:#a07a2a}
+/* Drohnenflug durch die Villa (Scroll-Film) */
+.fly{position:relative;height:460vh;background:#120c06}
+.fly-st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.fly-st canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fly-sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,12,6,.55) 0%,rgba(18,12,6,0) 22%,rgba(18,12,6,0) 46%,rgba(18,12,6,.78) 100%);pointer-events:none}
+.fly-cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(48px,10vh,110px);max-width:640px;pointer-events:none;visibility:hidden;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .6s,visibility 0s linear .5s}
+.fly-cap.on{visibility:visible;opacity:1;transform:none;transition:opacity .5s,transform .6s,visibility 0s}
+.fly-cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#e8b978}
+.fly-cap h2{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6.4vw,88px);line-height:.98;margin:10px 0 0;color:#fff8ea;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.fly-cap h2 .w{display:inline-block;opacity:0;transform:translateY(.3em);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.fly-cap.on h2 .w{opacity:1;transform:none}
+.fly-cap p{margin:14px 0 0;color:rgba(255,248,234,.84);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.fly-tag{position:absolute;top:calc(env(safe-area-inset-top) + 84px);right:var(--gut);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,248,234,.8);background:rgba(18,12,6,.4);padding:7px 11px;border-radius:99px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fly-bar{position:absolute;right:var(--gut);bottom:clamp(48px,10vh,110px);width:120px;height:2px;background:rgba(255,248,234,.25)}
+.fly-bar i{position:absolute;inset:0 auto 0 0;width:0;background:#e8b978}
+@media(max-width:700px){.fly-bar{display:none}}
 /* Film im Holz-Look */
 .stage{background:#f3e3c2 url(img/holz.webp) center/900px repeat}
 .bgs i{opacity:0}.bgs i.on{opacity:.22;mix-blend-mode:multiply}
@@ -257,6 +273,18 @@ footer{background:linear-gradient(90deg,#3d2c10,#6e5320);color:#e9dcc0;border:0}
   </div>
 </div>
 <div class="trust"><div class="wrap"><span><b>Meisterbetrieb</b> seit 2003</span><span><b>5,0</b> ★ bei Google</span><span><b>100 km</b> rund um Lübeck</span><span><b>Kostenlose</b> Beratung</span></div></div>
+
+<div class="fly" id="flug">
+  <div class="fly-st">
+    <canvas id="flycv" aria-label="Drohnenflug in ein Haus: Ein Tischler baut einen Einbauschrank aus Eiche, dahinter eine fertige Holzküche"></canvas>
+    <div class="fly-sh"></div>
+    <span class="fly-tag">Beispielvideo</span>
+    <div class="fly-cap" data-a="0" data-b=".3"><div class="k">Möbel nach Maß</div><h2>Gebaut für Ihr Zuhause.</h2><p>Wir fertigen fach- und sachgerecht nach Ihren Wünschen, nach unserer Beratung oder nach Ihren eigenen Zeichnungen.</p></div>
+    <div class="fly-cap" data-a=".34" data-b=".66"><div class="k">Einbaumöbel</div><h2>Millimetergenau eingepasst.</h2><p>Einbauschränke, Möbel unter der Dachschräge und individuelle Maßanfertigungen, direkt bei Ihnen vor Ort montiert.</p></div>
+    <div class="fly-cap" data-a=".7" data-b="1.1"><div class="k">Küchen</div><h2>Holz, das bleibt.</h2><p>Küchenzeilen und Vitrinen aus der Tischlerei J.A. Neumann, in Lübeck und 100 km rundherum.</p></div>
+    <div class="fly-bar"><i id="flybar"></i></div>
+  </div>
+</div>
 
 <section id="leistungen">
   <div class="wrap">
@@ -361,6 +389,7 @@ footer{background:linear-gradient(90deg,#3d2c10,#6e5320);color:#e9dcc0;border:0}
   <div class="wrap">
     <span>© Tischlerei Jan A. Neumann · Neuland 6 · 23560 Lübeck</span>
     <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+    <span style="flex-basis:100%;opacity:.75;font-size:12px">Designentwurf, nicht die offizielle Website. Der Drohnenflug ist ein KI-generiertes Beispielvideo und wird gern durch Aufnahmen Ihrer eigenen Arbeiten ersetzt.</span>
   </div>
 </footer>
 
@@ -410,6 +439,24 @@ document.getElementById('lbx').onclick=close;document.getElementById('lbp').oncl
 lb.addEventListener('click',e=>{if(e.target===lb)close();});
 addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
 let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(k+(dx<0?1:-1));});
+})();
+
+/* Drohnenflug: Einzelbilder, hd am Computer, sd im Hochformat */
+(()=>{
+const fly=document.getElementById('flug'),cv=document.getElementById('flycv'),cx=cv.getContext('2d'),caps=[...fly.querySelectorAll('.fly-cap')],bar=document.getElementById('flybar');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,N=119,DIR=innerWidth/innerHeight<1?'film/sd/':'film/hd/',fr=new Array(N),ok=new Uint8Array(N);
+let W=0,H=0,tgt=0,cur=0,drawn=-1,started=false;
+caps.forEach(c=>{const h=c.querySelector('h2');let i=0;h.innerHTML=h.textContent.split(/(\s+)/).map(t=>/^\s+$/.test(t)?t:`<span class="w" style="transition-delay:${(i++)*70}ms">${t}</span>`).join('');});
+function size(){const d=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);cx.imageSmoothingQuality='high';drawn=-1;}
+function near(i){if(ok[i])return i;for(let k=1;k<N;k++){if(i-k>=0&&ok[i-k])return i-k;if(i+k<N&&ok[i+k])return i+k;}return -1;}
+function draw(x){const i0=Math.floor(x),f=x-i0,key=i0+Math.round(f*8)/8,k=near(i0);if(k<0||key===drawn)return;const im=fr[k],sc=Math.max(W/im.naturalWidth,H/im.naturalHeight),dw=im.naturalWidth*sc,dh=im.naturalHeight*sc,ox=(W-dw)/2,oy=(H-dh)/2;cx.globalAlpha=1;cx.drawImage(im,ox,oy,dw,dh);const i1=Math.min(N-1,i0+1);if(k===i0&&f>.05&&ok[i1]){cx.globalAlpha=f;cx.drawImage(fr[i1],ox,oy,dw,dh);cx.globalAlpha=1;}drawn=k===i0?key:k;}
+const order=[],seen=new Uint8Array(N);for(const st of [30,15,8,4,2,1])for(let i=0;i<N;i+=st)if(!seen[i]){seen[i]=1;order.push(i);}
+let q=0;function pump(){if(q>=order.length)return;const i=order[q++],im=new Image();im.decoding='async';im.onload=()=>{fr[i]=im;ok[i]=1;drawn=-1;pump();};im.onerror=pump;im.src=DIR+'f'+String(i+1).padStart(3,'0')+'.webp';}
+/* erst laden, wenn der Film in die Nähe kommt, damit der Start der Seite schnell bleibt */
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!started){started=true;for(let c=0;c<4;c++)pump();o.disconnect();}},{rootMargin:'150% 0px'}).observe(fly);
+function read(){const r=fly.getBoundingClientRect();tgt=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));let c=-1;caps.forEach((el,k)=>{if(tgt>=+el.dataset.a&&tgt<+el.dataset.b)c=k;});caps.forEach((el,k)=>{const on=k===c;if(el.classList.contains('on')!==on)el.classList.toggle('on',on);});bar.style.width=(tgt*100)+'%';}
+(function loop(){cur+=(tgt-cur)*(RM?1:.12);if(Math.abs(tgt-cur)<.0005)cur=tgt;draw(cur*(N-1));requestAnimationFrame(loop);})();
+addEventListener('resize',()=>{size();read();});addEventListener('scroll',read,{passive:true});size();read();
 })();
 </script>
 </body>
