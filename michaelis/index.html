@@ -43,16 +43,11 @@ img{display:block;max-width:100%}
 @media(max-width:480px){.logo small{display:none}.call span{display:none}}
 
 /* hero: a roller paints the wall in the three colours of the logo while you scroll */
-.hero{height:300vh;position:relative;background:var(--wall)}
+.hero{height:220vh;position:relative;background:var(--wall)}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
   background:var(--wall) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .28 0 0 0 0 .25 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.band{position:absolute;top:0;bottom:0;will-change:clip-path}
-.band::after{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02 .6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.b1{left:0;width:33.4%;background:var(--red)}
-.b2{left:33.3%;width:33.4%;background:var(--yellow)}
-.b3{left:66.6%;width:33.4%;background:var(--blue)}
-.roller{position:absolute;left:0;top:0;will-change:transform;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.25))}
-.hcard{position:absolute;left:var(--gut);bottom:clamp(28px,7vh,70px);max-width:560px;background:rgba(247,244,238,.96);border-radius:var(--r);padding:clamp(24px,3vw,38px);box-shadow:0 30px 60px -25px rgba(20,24,43,.45)}
+.hcard{will-change:opacity,transform;position:absolute;left:var(--gut);bottom:clamp(28px,7vh,70px);max-width:560px;background:rgba(247,244,238,.96);border-radius:var(--r);padding:clamp(24px,3vw,38px);box-shadow:0 30px 60px -25px rgba(20,24,43,.45)}
 .hcard .kick{font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
 .hcard h1{font-weight:600;font-size:clamp(38px,5.6vw,72px);line-height:1;letter-spacing:-.03em;margin-top:10px}
 .hcard h1 span{background:linear-gradient(90deg,var(--red),var(--yellow) 50%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -123,6 +118,17 @@ img{display:block;max-width:100%}
 .lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
 .lb .x{top:20px;right:20px}.lb .pv{left:20px;top:50%}.lb .nx{right:20px;top:50%}
 
+
+/* before / after */
+.ba{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;max-width:900px;margin:50px auto 0;box-shadow:0 30px 60px -30px rgba(20,24,43,.5);user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .bef{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 6px 20px rgba(0,0,0,.3);pointer-events:none;font-weight:600;color:var(--ink)}
+.ba .lab{position:absolute;top:16px;font-weight:600;font-size:13px;padding:6px 12px;border-radius:999px;background:rgba(20,24,43,.75);color:#fff;pointer-events:none}
+.ba .lab.l{left:16px}.ba .lab.r{right:16px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.banote{text-align:center;color:var(--mute);font-size:14px;margin-top:14px}
 /* tax tip */
 .tax{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,50px);align-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:clamp(28px,4vw,48px)}
 .tax .big{font-weight:600;font-size:clamp(54px,7vw,90px);line-height:.9;letter-spacing:-.04em;color:var(--blue)}
@@ -198,16 +204,7 @@ footer a{color:#fff}
 <main id="top">
 <section class="hero" id="hero" aria-label="Einleitung">
   <div class="stage" id="stage">
-    <div class="band b1" id="b1"></div>
-    <div class="band b2" id="b2"></div>
-    <div class="band b3" id="b3"></div>
-    <svg class="roller" id="roller" viewBox="0 0 200 260" aria-hidden="true">
-      <rect x="92" y="70" width="16" height="170" rx="6" fill="#2a2d3a"/>
-      <rect x="86" y="200" width="28" height="60" rx="10" fill="#1b1d27"/>
-      <path d="M100 70 V40 H20 V22" stroke="#9aa0ad" stroke-width="7" fill="none" stroke-linejoin="round"/>
-      <rect id="rollerC" x="8" y="0" width="184" height="34" rx="17" fill="#d9322e"/>
-      <rect x="8" y="0" width="184" height="12" rx="6" fill="#fff" opacity=".18"/>
-    </svg>
+    <canvas id="cv" aria-hidden="true"></canvas>
     <div class="hcard" id="hcard">
       <p class="kick">Malermeister in Neubrandenburg</p>
       <h1>Bekennen Sie <span>Farbe.</span></h1>
@@ -275,6 +272,22 @@ footer a{color:#fff}
         <div class="dots" data-t="t3"><img class="on" src="img/flur-farbakzent-1.jpg" alt=""><img src="img/flur-farbakzent-2.jpg" alt=""><img src="img/esszimmer-wischtechnik.jpg" alt=""><img src="img/spachteltechnik.jpg" alt=""></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="vorher-nachher" style="padding-bottom:0">
+  <div class="wrap">
+    <p class="kick rv">Vorher &amp; nachher</p>
+    <h2 class="h2 rv">Schieben Sie selbst.</h2>
+    <p class="lead rv">Ziehen Sie den Regler nach links und rechts und sehen Sie, was frische Farbe aus einer Wand macht.</p>
+    <div class="ba rv" id="ba">
+      <img src="img/vn-nachher.jpg" alt="Nachher: Wand mit frischem gelbem Anstrich">
+      <img class="bef" src="img/vn-vorher.jpg" alt="Vorher: weiße Wand">
+      <span class="lab l">Vorher</span><span class="lab r">Nachher</span>
+      <span class="line"></span><span class="knob">⇆</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler">
+    </div>
+    <p class="banote rv">Beispielbilder. Hier zeigen wir Ihre eigenen Vorher-nachher-Fotos aus echten Aufträgen.</p>
   </div>
 </section>
 
@@ -389,36 +402,43 @@ footer a{color:#fff}
   const hdr = $("#hdr"); 
   if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
 
-  /* hero: three strokes, red, yellow, blue, painted top to bottom with a roller */
-  const hero = $("#hero"), stage = $("#stage"), roller = $("#roller"), rc = $("#rollerC"), hint = $("#hint");
-  const B = [$("#b1"), $("#b2"), $("#b3")], COL = ["#d9322e", "#f3bf1f", "#20409a"];
-  const J = B.map(() => Array.from({ length: 13 }, () => Math.random() * 10 - 5)); /* uneven paint edge, in px */
-  const clamp = (v, a, b) => Math.min(b, Math.max(a, v)), ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-  let tgt = 0, cur = 0;
+  /* hero: scroll film of a roller painting a yellow stripe (landscape frames, portrait crop on phones) */
+  const hero = $("#hero"), cv = $("#cv"), ctx = cv.getContext("2d"), hint = $("#hint"), card = $("#hcard");
+  const portrait = innerWidth / innerHeight < 1, N = 119, dir = portrait ? "film/p/" : "film/l/";
+  const fr = new Array(N), ok = new Uint8Array(N);
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  let tgt = 0, cur = 0, W = 0, H = 0, drawn = -1;
   const read = () => { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1); };
-  function edge(i, y) { /* polygon: painted from top down to y, with a slightly ragged lower edge */
-    const pts = ["0 0", "100% 0"];
-    for (let k = 12; k >= 0; k--) pts.push((k / 12 * 100) + "% " + Math.max(0, y + J[i][k]) + "px");
-    return "polygon(" + pts.join(",") + ")";
+  function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
+  function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
+  function draw(x) {
+    const i0 = Math.floor(x), f = x - i0, key = i0 + Math.round(f * 8) / 8, k = near(i0);
+    if (k < 0 || key === drawn) return;
+    const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight, sc = Math.max(W / iw, H / ih);
+    /* landscape: keep the stripe right of centre so the text card never covers it */
+    const fx = portrait ? .5 : .62, ox = clamp(W * fx - iw * sc * .54, W - iw * sc, 0), oy = (H - ih * sc) / 2;
+    ctx.globalAlpha = 1; ctx.drawImage(im, ox, oy, iw * sc, ih * sc);
+    const i1 = Math.min(N - 1, i0 + 1);
+    if (k === i0 && f > .05 && ok[i1]) { ctx.globalAlpha = f; ctx.drawImage(fr[i1], ox, oy, iw * sc, ih * sc); ctx.globalAlpha = 1; }
+    drawn = k === i0 ? key : k;
   }
+  const order = [], seen = new Uint8Array(N); for (const st of [30, 15, 8, 4, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
+  let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = dir + "f" + String(i + 1).padStart(3, "0") + ".webp"; }
+  for (let c = 0; c < 4; c++) pump();
   function frame() {
-    cur += (tgt - cur) * (RM ? 1 : .12); if (Math.abs(tgt - cur) < .0005) cur = tgt;
-    const W = stage.clientWidth, H = stage.clientHeight, seg = .27;
-    let active = -1, ay = 0;
-    B.forEach((b, i) => {
-      const t = clamp((cur - i * seg) / seg, 0, 1), y0 = i === 0 ? 150 : 0, y = y0 + ease(t) * (H + 20 - y0);
-      b.style.clipPath = t >= 1 ? "none" : (t <= 0 && i > 0) ? "polygon(0 0,100% 0,100% 0,0 0)" : edge(i, y);
-      if ((t > 0 || i === 0) && t < 1 && active < 0) { active = i; ay = y; }
-    });
-    const bw = W / 3, rw = Math.min(bw * .92, 260), sc = rw / 184;
-    if (active < 0) { const done = cur >= seg * 3; active = done ? 2 : 0; ay = done ? H + 400 : -60; }
-    roller.style.width = (200 * sc) + "px";
-    roller.style.transform = "translate(" + (active * bw + (bw - 200 * sc) / 2) + "px," + (ay - 17 * sc) + "px)";
-    rc.setAttribute("fill", COL[active]);
+    cur += (tgt - cur) * (RM ? 1 : .1); if (Math.abs(tgt - cur) < .0005) cur = tgt;
+    draw(cur * (N - 1));
+    /* the text card steps aside while the stripe is painted (on phones) and comes back at the end */
+    const a = portrait ? (cur < .06 ? 1 : cur < .16 ? 1 - (cur - .06) / .1 : cur > .84 ? Math.min(1, (cur - .84) / .1) : 0) : 1;
+    card.style.opacity = a; card.style.transform = "translateY(" + ((1 - a) * 24) + "px)"; card.style.pointerEvents = a < .3 ? "none" : "";
     hint.style.opacity = 1 - clamp(cur * 8, 0, 1);
     requestAnimationFrame(frame);
   }
+  addEventListener("resize", size); size();
   addEventListener("scroll", read, { passive: true }); addEventListener("resize", read); read(); requestAnimationFrame(frame);
+
+  /* before / after slider */
+  const ba = $("#ba"), bi = ba.querySelector("input"); const setX = () => ba.style.setProperty("--x", bi.value + "%"); bi.addEventListener("input", setX); setX();
 
   /* technique thumbnails */
   $$(".dots").forEach(d => d.addEventListener("click", e => { const im = e.target.closest("img"); if (!im) return; $("#" + d.dataset.t).src = im.src; d.querySelectorAll("img").forEach(x => x.classList.toggle("on", x === im)); }));
