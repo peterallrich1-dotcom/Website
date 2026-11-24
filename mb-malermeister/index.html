@@ -39,7 +39,7 @@ canvas{display:block}
 .call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
 @media(max-width:860px){.cols{display:none}}
 
-/* Film: eine Wand wird gestrichen */
+/* Film: Drohnenflug über die Villa */
 .hero{position:relative;height:560vh}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#cfcac0}
 #film{position:absolute;inset:0;width:100%;height:100%}
@@ -55,6 +55,20 @@ canvas{display:block}
 .meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.8)}
 .meter .bar{width:120px;height:1px;background:rgba(255,255,255,.3);position:relative}
 .meter .bar i{position:absolute;inset:0 auto 0 0;background:var(--o);width:0}
+.bsp{position:absolute;top:calc(env(safe-area-inset-top) + 86px);right:var(--gut);font:600 9px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(16,20,22,.38);padding:7px 10px;border-radius:99px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.clips{background:var(--ink);padding:clamp(80px,11vw,140px) 0}
+.clips .k{color:var(--o2)}
+.clips h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 14px}
+.clips h2 em{font-style:italic;color:var(--o2)}
+.clips .lede{max-width:560px;color:rgba(243,239,231,.72)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,28px);margin-top:clamp(30px,4vw,54px)}
+.clip{position:relative;margin:0;border-radius:18px;overflow:hidden;background:#000;aspect-ratio:16/10}
+.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.clip.in video{transform:none}
+.clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0));display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.clip figcaption b{font:300 clamp(22px,2.4vw,34px)/1.05 var(--serif)}
+.clip figcaption span{font:600 9px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.7);white-space:nowrap}
+@media(max-width:760px){.cgrid{grid-template-columns:1fr}}
 .swatch{display:flex;gap:6px;margin-top:4px}
 .swatch i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.5);opacity:.35;transition:opacity .3s,transform .3s}
 .swatch i.on{opacity:1;transform:scale(1.25)}
@@ -205,13 +219,14 @@ footer .demo{flex-basis:100%;color:#85817a;font-size:12px}
 
 <section class="hero" id="hero">
   <div class="stage">
-    <canvas id="film" aria-label="Eine Wand wird Bahn für Bahn mit der Rolle gestrichen"></canvas>
+    <canvas id="film" aria-label="Drohnenflug: Maler streichen die Fassade einer Villa, dann geht es ins frisch gestrichene Wohnzimmer"></canvas>
     <div class="shade"></div>
+    <span class="bsp">Beispielvideo</span>
     <div class="cap" data-a="0" data-b=".23"><p class="k">MB-Malermeister · seit 2002</p><h1>Farbe ist<br><em>unser Handwerk.</em></h1><p>Meisterbetrieb für Malerarbeiten innen und außen.</p></div>
-    <div class="cap" data-a=".25" data-b=".48"><p class="k">Innen</p><h2>Räume, die<br><em>zu Ihnen passen.</em></h2><p>Streichen, Tapezieren, Lackieren und edle Techniken wie Marmor oder Spachtel.</p></div>
-    <div class="cap" data-a=".5" data-b=".73"><p class="k">Außen</p><h2>Fassaden, die<br><em>lange halten.</em></h2><p>Reinigen, ausbessern, beschichten. Mit eigenem Gerüst.</p></div>
+    <div class="cap" data-a=".25" data-b=".5"><p class="k">Außen</p><h2>Fassaden, die<br><em>lange halten.</em></h2><p>Reinigen, ausbessern, beschichten. Mit eigenem Gerüst.</p></div>
+    <div class="cap" data-a=".52" data-b=".75"><p class="k">Innen</p><h2>Räume, die<br><em>zu Ihnen passen.</em></h2><p>Streichen, Tapezieren, Lackieren und edle Techniken wie Marmor oder Spachtel.</p></div>
     <div class="cap" data-a=".75" data-b="1.1"><p class="k">München · Erding · Landshut</p><h2>Ein Meisterbetrieb<br><em>in Ihrer Nähe.</em></h2><p>Mit zwei Standorten in Altheim und Wifling.</p></div>
-    <div class="meter"><div class="swatch" id="sw"><i></i><i></i><i></i><i></i></div><span id="shot">FARBE 01 / 04</span><div class="bar"><i id="bar"></i></div></div>
+    <div class="meter"><div class="swatch" id="sw"><i></i><i></i><i></i><i></i></div><span id="shot">SZENE 01 / 04</span><div class="bar"><i id="bar"></i></div></div>
     <div class="hint" id="hint">SCROLLEN</div>
   </div>
 </section>
@@ -263,6 +278,18 @@ footer .demo{flex-basis:100%;color:#85817a;font-size:12px}
         <div class="tlist" id="tlist"></div>
         <div class="colors" id="colors"><span>Farbe:</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="clips" id="handwerk">
+  <div class="wrap">
+    <p class="k rv">Handwerk in Bewegung</p>
+    <h2 class="rv">Mit Rolle<br><em>und Kelle.</em></h2>
+    <p class="lede rv">Vom satten Anstrich bis zur polierten Marmorwand: So sieht unsere Arbeit aus, wenn sie entsteht.</p>
+    <div class="cgrid">
+      <figure class="clip rv"><video src="clips/roller.mp4" poster="clips/roller.webp" muted loop playsinline preload="none" aria-label="Eine Wand wird mit der Rolle in Terrakotta gestrichen"></video><figcaption><b>Streichen mit<br>der Rolle</b><span>Beispielvideo</span></figcaption></figure>
+      <figure class="clip rv"><video src="clips/marmor.mp4" poster="clips/marmor.webp" muted loop playsinline preload="none" aria-label="Italienischer Marmorputz wird mit der Kelle aufgetragen"></video><figcaption><b>Italienischer<br>Marmorputz</b><span>Beispielvideo</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -329,7 +356,7 @@ footer .demo{flex-basis:100%;color:#85817a;font-size:12px}
   </div>
 </section>
 
-<footer><div class="wrap"><span>© MB-Malermeister GmbH · Geschäftsführer Michael Börsch · Dorfstraße 17, 84051 Altheim</span><span>Impressum · Datenschutz</span><span class="demo">Designentwurf, nicht die offizielle Website. Die Wandflächen und Techniken sind vom Computer gezeichnete Beispiele und werden gern durch Fotos Ihrer Arbeiten ergänzt.</span></div></footer>
+<footer><div class="wrap"><span>© MB-Malermeister GmbH · Geschäftsführer Michael Börsch · Dorfstraße 17, 84051 Altheim</span><span>Impressum · Datenschutz</span><span class="demo">Designentwurf, nicht die offizielle Website. Die Videos sind KI-generierte Beispielvideos, die Wandflächen und Techniken vom Computer gezeichnet. Beides wird gern durch Fotos und Videos Ihrer Arbeiten ersetzt.</span></div></footer>
 <a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Kostenloser Entwurf</b> von Allrich Webdesign</a>
 
 <script>
@@ -389,79 +416,42 @@ document.querySelectorAll(".cap h1,.cap h2").forEach(h => {
   walk(h);
 });
 
-/* ---------- Film: Wand wird Bahn für Bahn gerollt ---------- */
+/* ---------- Film: Drohnenflug über die Villa (Einzelbilder, hd am Computer, sd im Hochformat) ---------- */
 const COLS = ["#f1ebdf", "#c99a4b", "#2d5560", "#b5603f"];
 const cv = document.getElementById("film"), ctx = cv.getContext("2d");
 const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".cap")];
 const bar = document.getElementById("bar"), shotEl = document.getElementById("shot"), hint = document.getElementById("hint"), sw = [...document.querySelectorAll("#sw i")];
 sw.forEach((s, i) => s.style.background = COLS[i]);
-let W = 0, H = 0, DPR = 1, layers = [], grain = null;
-function buildLayers() {
-  /* Putzstruktur einmal klein rechnen, dann für jede Farbe einfärben */
-  const gw = 480, gh = Math.round(gw * H / Math.max(1, W));
-  grain = document.createElement("canvas"); grain.width = gw; grain.height = gh;
-  const g = grain.getContext("2d"), im = g.createImageData(gw, gh), d = im.data;
-  for (let y = 0; y < gh; y++) for (let x = 0; x < gw; x++) { const n = vn(x * .7, y * .7) * .6 + fbm(x / 90, y / 90, 4) * .4; const i = (y * gw + x) * 4; const v = n * 255; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
-  g.putImageData(im, 0, 0);
-  layers = ["#cfcac0", ...COLS].map(col => {
-    const c = document.createElement("canvas"); c.width = gw; c.height = gh; const x = c.getContext("2d");
-    x.fillStyle = col; x.fillRect(0, 0, gw, gh);
-    x.globalCompositeOperation = "overlay"; x.globalAlpha = .55; x.drawImage(grain, 0, 0);
-    x.globalCompositeOperation = "source-over"; x.globalAlpha = 1;
-    return c;
-  });
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const N = 119, DIR = innerWidth / innerHeight < 1 ? "film/sd/" : "film/hd/";
+const fr = new Array(N), ok = new Uint8Array(N);
+let W = 0, H = 0, DPR = 1, tgt = 0, cur = 0, drawn = -1;
+function size() { DPR = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
+function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
+function drawFilm(x) {
+  const i0 = Math.floor(x), f = x - i0, key = i0 + Math.round(f * 8) / 8, k = near(i0);
+  if (k < 0 || key === drawn) return;
+  const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight, sc = Math.max(W / iw, H / ih), dw = iw * sc, dh = ih * sc, ox = (W - dw) / 2, oy = (H - dh) / 2;
+  ctx.globalAlpha = 1; ctx.drawImage(im, ox, oy, dw, dh);
+  const i1 = Math.min(N - 1, i0 + 1);
+  if (k === i0 && f > .05 && ok[i1]) { ctx.globalAlpha = f; ctx.drawImage(fr[i1], ox, oy, dw, dh); ctx.globalAlpha = 1; }
+  drawn = k === i0 ? key : k;
 }
-function size() { DPR = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; buildLayers(); }
-const BANDS = 5; /* Rollbahnen pro Farbe */
-function edgeX(y, e, seed) { return e + (vn(y * .012 + seed, seed) - .5) * 26 + (vn(y * .08, seed * 3) - .5) * 6; }
-function drawRoller(x, y, col) {
-  const rh = Math.min(220, H * .28), rw = Math.max(26, rh * .16);
-  ctx.save(); ctx.translate(x, y);
-  ctx.strokeStyle = "#3a3a38"; ctx.lineWidth = 5; ctx.lineCap = "round";
-  ctx.beginPath(); ctx.moveTo(rw * .5, -rh * .5 - 6); ctx.lineTo(rw * 1.6, -rh * .5 - 6); ctx.lineTo(rw * 1.6, rh * .1); ctx.lineTo(rw * 2.6, rh * .35); ctx.stroke();
-  ctx.lineWidth = 14; ctx.strokeStyle = "#1d1f20"; ctx.beginPath(); ctx.moveTo(rw * 2.6, rh * .35); ctx.lineTo(rw * 4.2, rh * 1.05); ctx.stroke();
-  ctx.lineWidth = 3; ctx.strokeStyle = "#3a3a38"; ctx.beginPath(); ctx.moveTo(rw * .5, rh * .5 + 6); ctx.lineTo(rw * 1.6, rh * .5 + 6); ctx.lineTo(rw * 1.6, rh * .1); ctx.stroke();
-  const gr = ctx.createLinearGradient(-rw / 2, 0, rw / 2, 0);
-  const c = hex(col); const dk = `rgb(${mix(c, -.35).join(",")})`, lt = `rgb(${mix(c, .25).join(",")})`;
-  gr.addColorStop(0, dk); gr.addColorStop(.45, lt); gr.addColorStop(1, dk);
-  ctx.fillStyle = gr; ctx.beginPath(); ctx.roundRect ? ctx.roundRect(-rw / 2, -rh / 2, rw, rh, rw / 2.4) : ctx.rect(-rw / 2, -rh / 2, rw, rh); ctx.fill();
-  ctx.restore();
-}
+/* grob zuerst, dann verfeinern: so ist der Film sofort scrollbar */
+const order = [], seen = new Uint8Array(N); for (const st of [30, 15, 8, 4, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
+let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = DIR + "f" + String(i + 1).padStart(3, "0") + ".webp"; }
+for (let c = 0; c < 4; c++) pump();
 function heroP() { const r = hero.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
 function render() {
-  const p = heroP(), n = COLS.length;
-  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  const seg = Math.min(n - 1e-6, p * n), li = Math.floor(seg), t = seg - li; /* li = aktuelle Farbe, t = Fortschritt */
-  ctx.imageSmoothingEnabled = true;
-  ctx.drawImage(layers[li], 0, 0, W, H);
-  /* neue Farbe in senkrechten Rollbahnen von links nach rechts, jede Bahn von oben nach unten */
-  const bw = W / BANDS, prog = clamp(t / .86) * BANDS, full = Math.floor(prog), part = prog - full;
-  ctx.save(); ctx.beginPath();
-  if (full > 0) { const ex = full * bw; ctx.moveTo(-40, -10); for (let y = -10; y <= H + 10; y += 12) ctx.lineTo(edgeX(y, ex, li + 1), y); ctx.lineTo(-40, H + 10); ctx.closePath(); }
-  let rx = 0, ry = 0;
-  if (full < BANDS) {
-    const x0 = full * bw, x1 = x0 + bw * 1.04, yb = lerp(-H * .1, H * 1.1, ease(part));
-    ctx.moveTo(x0 - 30, -10); ctx.lineTo(x1, -10);
-    for (let y = -10; y <= yb; y += 12) ctx.lineTo(edgeX(y, x1, li + 7), y);
-    for (let x = x1; x >= x0 - 30; x -= 12) ctx.lineTo(x, yb + (vn(x * .03, li) - .5) * 30);
-    ctx.closePath();
-    rx = x0 + bw * .52; ry = yb;
-  }
-  ctx.clip(); ctx.drawImage(layers[li + 1], 0, 0, W, H);
-  /* Rollspuren */
-  ctx.globalAlpha = .07; ctx.fillStyle = "#fff";
-  for (let k = 0; k < BANDS; k++) ctx.fillRect(k * bw + bw * .08, 0, 3, H), ctx.fillRect(k * bw + bw * .9, 0, 2, H);
-  ctx.restore();
-  if (full < BANDS && t > .001) drawRoller(rx, clamp(ry, H * .12, H * .88), COLS[li]);
-  /* leichte Vignette */
-  const g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .35, W / 2, H / 2, Math.max(W, H) * .8);
-  g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,.28)"); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  let cur = -1; caps.forEach((c, k) => { if (p >= +c.dataset.a && p < +c.dataset.b) cur = k; });
-  caps.forEach((c, k) => { const on = k === cur; if (c.classList.contains("on") !== on) c.classList.toggle("on", on); });
+  const p = heroP(); tgt = p;
+  const li = Math.min(3, Math.floor(p * 4));
+  let c = -1; caps.forEach((el, k) => { if (p >= +el.dataset.a && p < +el.dataset.b) c = k; });
+  caps.forEach((el, k) => { const on = k === c; if (el.classList.contains("on") !== on) el.classList.toggle("on", on); });
   sw.forEach((s, k) => s.classList.toggle("on", k === li));
-  bar.style.width = (p * 100) + "%"; shotEl.textContent = "FARBE " + String(li + 1).padStart(2, "0") + " / 04";
+  bar.style.width = (p * 100) + "%"; shotEl.textContent = "SZENE " + String(li + 1).padStart(2, "0") + " / 04";
   hint.style.opacity = p > .02 ? 0 : 1;
 }
+(function loop() { cur += (tgt - cur) * (RM ? 1 : .12); if (Math.abs(tgt - cur) < .0005) cur = tgt; drawFilm(cur * (N - 1)); requestAnimationFrame(loop); })();
 
 /* ---------- Erzählteil ---------- */
 const big = document.getElementById("big");
@@ -531,11 +521,14 @@ const lazy = new IntersectionObserver(es => es.forEach(e => {
   else paintTex(e.target, e.target.dataset.tex, e.target.dataset.col, 480);
 }), { rootMargin: "600px 0px" });
 document.querySelectorAll(".card canvas,#chipc,#techniken").forEach(el => lazy.observe(el));
+/* Clips nur abspielen, solange sie zu sehen sind */
+const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { v.preload = "auto"; const pr = v.play(); if (pr) pr.catch(() => {}); } else v.pause(); }), { threshold: .25 });
+document.querySelectorAll(".clip video").forEach(v => vio.observe(v));
 
-let ticking = false, lastW = innerWidth;
+let ticking = false;
 function frame() { ticking = false; render(); renderStory(); renderSvc(); }
 addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
-addEventListener("resize", () => { if (Math.abs(innerWidth - lastW) > 40 || !layers.length) { lastW = innerWidth; size(); } else { DPR = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; } frame(); });
+addEventListener("resize", () => { size(); frame(); });
 size(); frame();
 })();
 </script>
