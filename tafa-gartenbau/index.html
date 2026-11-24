@@ -3,295 +3,540 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex">
 <title>TAFA Garten- &amp; Landschaftsbau · Heilbronn</title>
-<meta name="description" content="TAFA Garten- und Landschaftsbau aus Heilbronn: Gartengestaltung, Natursteinbau, Wege, Terrassen, Brunnen und Teiche.">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="preload" as="image" href="img/f1.webp">
+<meta name="description" content="TAFA Garten- und Landschaftsbau in Heilbronn: Natursteinmauern, Gabionen, Wege, Terrassen und Bepflanzung. Beratung vor Ort in Heilbronn und Umgebung.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0d0a">
+<link rel="preload" href="img/f1.webp" as="image">
 <style>
-@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
-@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
-@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
-@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
 :root{
-  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
-  --or:#9bd264;--or2:#b7e38a;--or-soft:rgba(155,210,100,.13);--sand:#e6c88f;--line:rgba(245,244,241,.12);
-  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+  --ink:#0b0d0a;--ink2:#141811;--paper:#f3f1ea;--paper2:#e9e6dc;--text:#1b2216;--mute:#7c8274;--mute-l:#a9ad9f;
+  --g:#9bd264;--g2:#c3e89c;--gd:#2f4a1c;--sand:#d9bf8a;--line:rgba(255,255,255,.14);--line-d:rgba(27,34,22,.14);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1280px
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#f2f2ec;font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-img,svg{display:block}
+img{display:block;max-width:100%}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
-/* Kopfzeile */
-.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
-.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
-.logo svg{width:16px;height:24px;margin:0 2px}
-.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
-.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
-.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
-.hdr nav a:hover{color:var(--white)}
-.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
-.btn:active{transform:scale(.97)}
-.btn.or{background:var(--or);color:#0d1a06}
-.btn.or:hover{background:var(--or2)}
-.btn.ghost{border-color:var(--line);color:var(--white)}
-.btn.ghost:hover{background:rgba(255,255,255,.06)}
-.btn svg{width:18px;height:18px}
-@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+
+/* Kopfzeile im Stil einer Infoleiste */
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.32em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font-size:9px;letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
 /* Film */
-.hero{position:relative;height:620vh}
-.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hero{position:relative;height:640vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
 #film{position:absolute;inset:0;width:100%;height:100%}
-.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
-.cap.on{opacity:1;transform:none}
-.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
-.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
-.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
-.cap.end{pointer-events:auto}
-.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
-.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
-@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
-.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
-/* Abschnitte */
-section{padding:clamp(72px,11vw,140px) 0}
-.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
-.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
-.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
-.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.card:hover{border-color:rgba(155,210,100,.5);transform:translateY(-3px)}
-.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
-.card .ic svg{width:24px;height:24px;stroke:var(--or)}
-.card h3{margin:0;font-size:20px;font-weight:600}
-.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
-.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
-/* Eine Hand */
-.one{background:linear-gradient(180deg,var(--bg),#0a0e08 50%,var(--bg))}
-.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
-@media(max-width:860px){.split{grid-template-columns:1fr}}
-.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
-.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
-.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
-.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
-.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
-.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
-.stars svg{width:26px;height:26px;fill:var(--or)}
-.big p{margin:6px 0 0;color:var(--mute)}
-/* Stimmen */
-.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
-.q .stars{justify-content:flex-start;margin:0}
-.q .stars svg{width:18px;height:18px}
-.q blockquote{margin:0;font-size:18px;line-height:1.55}
-.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
-.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
-.src a{color:var(--mute)}
-/* Ablauf */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
-.step{border-top:2px solid var(--or);padding-top:18px}
-.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
-.step span{color:var(--mute);font-size:15px}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 52%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(780px,86vw);pointer-events:none}
+.cap .k{color:var(--g);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.4vw,108px)/.98 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.cap h1 em,.cap h2 em{font-style:italic;color:var(--g2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cap.on .w{opacity:1;transform:none;filter:none}
+.cap p{margin:18px 0 0;max-width:460px;color:rgba(255,255,255,.75);font-size:clamp(15px,1.3vw,18px);opacity:0;transition:opacity .6s .35s}
+.cap.on p{opacity:1}
+.meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.7)}
+.meter .bar{width:120px;height:1px;background:rgba(255,255,255,.25);position:relative}
+.meter .bar i{position:absolute;inset:0 auto 0 0;background:var(--g);width:0}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .4s}
+@media(max-width:700px){.meter{display:none}}
+
+/* Heller Erzählteil */
+.paper{background:var(--paper);color:var(--text)}
+.story{position:relative;height:300vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(1000px,60vw);padding:0 var(--gut)}
+@media(max-width:760px){.story .txt{max-width:none}}
+.story .k{color:var(--gd)}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(27,34,22,.16);transition:color .25s}
+.story p.big span.on{color:var(--text)}
+.story p.big em{font-style:italic}
+.glide{position:absolute;z-index:1;left:0;top:50%;width:min(34vw,480px);aspect-ratio:4/3;border-radius:6px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(27,34,22,.45);will-change:transform}
+.glide img{width:100%;height:100%;object-fit:cover}
+.glide .tag{position:absolute;left:14px;bottom:12px;background:rgba(243,241,234,.92);color:var(--text);padding:8px 12px;border-radius:4px;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:760px){.glide{width:78vw;top:auto;bottom:6vh}.story .pin{align-items:flex-start;padding-top:18vh}}
+
+/* Anzeigetafel + Region */
+.board{position:relative;background:var(--ink);padding:clamp(80px,12vw,150px) 0;overflow:hidden}
+.board .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,70px);align-items:center}
+.board h2{font:300 clamp(34px,4.4vw,62px)/1.04 var(--serif);letter-spacing:-.015em;margin:16px 0 26px}
+.board h2 em{font-style:italic;color:var(--g2)}
+.board .k{color:var(--g)}
+.flap{display:flex;flex-wrap:nowrap;gap:4px;margin:0 0 18px;--n:16;width:100%}
+.flap .c{flex:0 0 auto;width:min(38px,calc((100% - (var(--n) - 1) * 4px) / var(--n)));aspect-ratio:2/3;background:linear-gradient(180deg,#1b1f18 0 49.5%,#0f120d 50.5% 100%);border-radius:4px;display:grid;place-items:center;font:500 clamp(12px,1.9vw,28px)/1 var(--sans);color:#f2f2ec;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 2px 6px rgba(0,0,0,.4)}
+.flap .c::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.65)}
+.flap .c.f{animation:flip .09s linear}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(70deg);filter:brightness(.6)}100%{transform:rotateX(0)}}
+.board .lede{color:var(--mute-l);max-width:520px}
+.mapbox{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;justify-self:end}
+#map{width:100%;height:100%}
+.ticket{position:absolute;right:0;bottom:4%;width:min(270px,70%);background:var(--paper);color:var(--text);border-radius:10px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ticket .code{font:500 26px/1 var(--sans);letter-spacing:.04em}
+.ticket .code i{font-style:normal;color:var(--mute);font-size:16px;margin:0 6px}
+.ticket small{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ticket hr{border:0;border-top:1px dashed var(--line-d);margin:12px 0}
+.ticket a{display:block;margin-top:12px;text-align:center;background:var(--gd);color:#fff;text-decoration:none;border-radius:6px;padding:10px;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){.board .grid{grid-template-columns:1fr}.mapbox{justify-self:center}}
+
+/* Technische Ansicht */
+.spec{padding:clamp(80px,11vw,140px) 0}
+.spec .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.spec h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 0}
+.spec .k{color:var(--gd)}
+.spec .nums{display:flex;gap:clamp(18px,4vw,48px)}
+.spec .nums div{border-left:1px solid var(--line-d);padding-left:14px}
+.spec .nums b{display:block;font:300 34px/1 var(--serif)}
+.spec .nums span{font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.plan{position:relative;border-radius:6px;overflow:hidden}
+.plan img{width:100%;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) contrast(1.02)}
+.plan::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(243,241,234,.0),rgba(243,241,234,0))}
+.pt{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--g);box-shadow:0 0 0 6px rgba(155,210,100,.28);opacity:0;transform:scale(.4);transition:opacity .5s,transform .5s}
+.pt .lb{position:absolute;left:18px;top:50%;transform:translateY(-50%);white-space:nowrap;background:rgba(243,241,234,.95);color:var(--text);padding:8px 11px;border-radius:4px;font:600 10px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 24px -10px rgba(0,0,0,.4)}
+.pt .lb small{display:block;font:400 11px/1.3 var(--sans);letter-spacing:0;text-transform:none;color:var(--mute);margin-top:3px}
+.pt.l .lb{left:auto;right:18px}
+.plan.in .pt{opacity:1;transform:none}
+@media(max-width:700px){.pt .lb small{display:none}.pt .lb{font-size:8px;padding:6px 8px}}
+
+/* Vorher / Nachher */
+.ba{padding:0 0 clamp(80px,11vw,140px)}
+.ba .k{color:var(--gd)}
+.ba h3{font:300 clamp(30px,3.6vw,50px)/1.05 var(--serif);margin:12px 0 24px;letter-spacing:-.015em}
+.cmp{position:relative;aspect-ratio:4/3;max-height:80vh;width:100%;border-radius:6px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:ew-resize}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cmp .after{clip-path:inset(0 0 0 50%)}
+.cmp .hd{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px)}
+.cmp .hd i{position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;display:grid;place-items:center;font:600 14px var(--sans);color:var(--text)}
+.cmp .t{position:absolute;top:14px;padding:7px 11px;border-radius:4px;background:rgba(0,0,0,.55);color:#fff;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+.cmp .t.a{left:14px}.cmp .t.b{right:14px}
+
+/* Projekte horizontal */
+.proj{position:relative;height:340vh;background:var(--ink)}
+.proj .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.proj .head{padding:0 var(--gut);margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.proj h2{font:300 clamp(36px,5vw,74px)/1 var(--serif);margin:12px 0 0;letter-spacing:-.02em}
+.proj .k{color:var(--g)}
+.proj .cnt{font:500 12px/1 var(--sans);letter-spacing:.2em;color:var(--mute-l)}
+.track{display:flex;gap:clamp(12px,1.6vw,22px);padding:0 var(--gut);will-change:transform}
+.card{flex:0 0 auto;width:clamp(240px,30vw,420px)}
+.card .im{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111}
+.card img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform .8s}
+.card:hover img{transform:scale(1)}
+.card b{display:block;margin-top:12px;font:300 22px/1.2 var(--serif)}
+.card span{font:600 9px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute-l)}
+
+/* Drei Wege */
+.ways{padding:clamp(80px,11vw,140px) 0}
+.ways h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 40px}
+.ways h2 em{font-style:italic;color:var(--gd)}
+.ways .k{color:var(--gd)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.way{border:1px solid var(--line-d);border-radius:10px;padding:26px 24px 28px;background:#fbfaf6;transition:transform .4s}
+.way:hover{transform:translateY(-4px)}
+.way .n{font:500 11px/1 var(--sans);letter-spacing:.22em;color:var(--mute)}
+.way h3{font:300 30px/1.1 var(--serif);margin:16px 0 10px;letter-spacing:-.01em}
+.way p{margin:0;color:#4f5647;font-size:15px}
+.way ul{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line-d)}
+.way li{padding:10px 0;border-bottom:1px solid var(--line-d);font-size:14px;display:flex;justify-content:space-between;gap:10px}
+.way li b{font-weight:600}
+.way.main{background:var(--gd);color:#f2f2ec;border-color:var(--gd)}
+.way.main p,.way.main .n{color:rgba(242,242,236,.72)}
+.way.main ul,.way.main li{border-color:rgba(255,255,255,.16)}
+@media(max-width:900px){.wgrid{grid-template-columns:1fr}}
+
 /* Kontakt */
-.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(155,210,100,.12),transparent 70%),var(--bg)}
-.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
-@media(max-width:860px){.cbox{grid-template-columns:1fr}}
-.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
-a.tile:hover{border-color:var(--or)}
-.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
-.tile .ic svg{width:24px;height:24px;stroke:#0d1a06}
-.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
-.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
-.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
-@media(max-width:860px){.area{grid-template-columns:1fr}}
-.area .map{min-height:280px;position:relative;background:#0e0e10}
-.area .map svg{position:absolute;inset:0;width:100%;height:100%}
-.area .txt{padding:28px 26px}
-.area h3{margin:0;font-size:22px}
-.area p{margin:10px 0 0;color:var(--mute)}
-footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
-footer a{color:var(--mute);text-decoration:none}
-.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
-.draft b{color:var(--white);font-weight:600}
-.draft a{color:var(--or);text-decoration:none}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.contact{background:var(--ink);padding:clamp(80px,11vw,140px) 0}
+.contact h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 18px}
+.contact h2 em{font-style:italic;color:var(--g2)}
+.contact .k{color:var(--g)}
+.contact .lede{color:var(--mute-l);max-width:560px;margin:0 0 34px}
+.rows{border-top:1px solid var(--line)}
+.rw{display:grid;grid-template-columns:180px 1fr auto;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.rw .k{color:var(--mute-l)}
+.rw .flap{margin:0;gap:3px;min-width:0}
+.rw .flap{gap:3px}.rw .flap .c{width:min(24px,calc((100% - (var(--n) - 1) * 3px) / var(--n)));font-size:clamp(9px,1.25vw,17px);border-radius:3px}
+.rw .go{font:600 11px/1 var(--sans);letter-spacing:.2em;color:var(--g)}
+@media(max-width:760px){.rw{grid-template-columns:1fr}.rw .go{display:none}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent}
+.btn.g{background:var(--g);color:#0f1a07}
+.btn.o{border-color:var(--line);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute-l);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(11,13,10,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--g)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
-</style>
-<style>
-.logo .lf{width:22px;height:22px;margin-right:8px}
-.logo small{letter-spacing:.2em}
-#film{background:#050605}
-.tag{position:absolute;top:calc(84px + env(safe-area-inset-top));right:var(--gut);font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:8px 14px;border-radius:999px;background:rgba(10,10,11,.6);border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity .4s}
-.tag b{color:var(--or);font-weight:600}
-.bar{position:absolute;left:var(--gut);right:var(--gut);bottom:14px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--or)}
-.gal{columns:3 260px;column-gap:14px;margin-top:44px}
-.gal figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);position:relative}
-.gal img{width:100%;height:auto;display:block;transition:transform .6s}
-.gal figure:hover img{transform:scale(1.04)}
-.gal figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(10,10,11,.7);backdrop-filter:blur(6px)}
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:44px}
-.ba figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:4/3}
-.ba img{width:100%;height:100%;object-fit:cover}
-.ba figcaption{position:absolute;left:14px;top:14px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:rgba(10,10,11,.7)}
-.ba figure:last-child figcaption{background:var(--or);color:#0d1a06}
-@media(max-width:700px){.ba{grid-template-columns:1fr}}
-.cap{text-shadow:0 2px 24px rgba(0,0,0,.6)}
-.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,6,5,.55) 0%,rgba(5,6,5,0) 22%,rgba(5,6,5,0) 45%,rgba(5,6,5,.85) 100%)}
-@media(orientation:landscape){.shade{background:linear-gradient(90deg,rgba(5,6,5,.85) 0%,rgba(5,6,5,.35) 45%,rgba(5,6,5,0) 70%),linear-gradient(180deg,rgba(5,6,5,.5),rgba(5,6,5,0) 20%)}}
+@media(prefers-reduced-motion:reduce){.w,.rv{transition:none;opacity:1;transform:none;filter:none}}
 </style>
 </head>
 <body>
 
-<header class="hdr" id="hdr">
-  <a class="logo" href="#top" aria-label="TAFA Garten- und Landschaftsbau, zum Anfang"><svg class="lf" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C9 3 4 9 4 15c0 2 .6 3.6 1.4 4.6C7 13 12 9 17 7c-4 3-8 7-10.4 13.4C8 21.4 9.6 22 11.5 22 17.5 22 21 15 20 3z" fill="#9bd264"/></svg>TAFA<small>GARTEN- &amp; LANDSCHAFTSBAU</small></a>
-  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#referenzen">Referenzen</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a></nav>
-  <a class="btn or" href="tel:+491778660721"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+<header class="top">
+  <a class="brand" href="#">TAFA<small>GARTEN- &amp; LANDSCHAFTSBAU</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#leistungen">Leistungen</a> · <a href="#projekte">Projekte</a> · <a href="#ablauf">Ablauf</a></div>
+    <div><b>Zuhause in</b>Heilbronn-Böckingen</div>
+    <div><b>Beratung vor Ort</b><a href="tel:+491778660721">0177 866 07 21</a></div>
+  </div>
+  <a class="call" href="tel:+491778660721">Anrufen</a>
 </header>
 
-<div class="hero" id="top">
+<section class="hero" id="hero">
   <div class="stage">
-    <canvas id="film" aria-label="Ein Garten entsteht: von der Baustelle bis zum fertigen Garten" role="img"></canvas>
+    <canvas id="film" aria-label="Kamerafahrt durch einen Garten von TAFA"></canvas>
     <div class="shade"></div>
-    <div class="tag" id="tag"><b>Vorher</b></div>
-    <div class="cap" data-a="0" data-b=".2"><div class="k">TAFA Garten- &amp; Landschaftsbau · Heilbronn</div><h1>Aus Erde wird Ihr Garten.</h1><p>Ihr Partner für natürlichen Gartenbau in Heilbronn und Umgebung.</p></div>
-    <div class="cap" data-a=".24" data-b=".44"><div class="k">Natursteinbau</div><h2>Stein für Stein.</h2><p>Natursteinmauern, Gabionen und Stufen, gesetzt für viele Jahre.</p></div>
-    <div class="cap" data-a=".48" data-b=".64"><div class="k">Wege- &amp; Terrassenbau</div><h2>Wege und Terrassen.</h2><p>Platten, Pflaster und Natursteinwege, sauber verlegt und eben.</p></div>
-    <div class="cap" data-a=".68" data-b=".82"><div class="k">Nachher</div><h2>Fertig zum Genießen.</h2><p>Bepflanzt, gestaltet und bereit für den ersten Sommerabend.</p></div>
-    <div class="cap end" data-a=".86" data-b="1.1"><div class="k">Jetzt anfragen</div><h2>Ihr Gartenbauer in Heilbronn.</h2><div class="row"><a class="btn or" href="tel:+491778660721">0177 866 07 21</a><a class="btn ghost" href="#referenzen">Referenzen ansehen</a></div></div>
-    <div class="hint" id="hint">Scrollen<i></i></div>
-    <div class="bar"><i id="pbar"></i></div>
+    <div class="cap" data-a="0" data-b=".2"><p class="k">TAFA · Heilbronn</p><h1>Aus Erde wird<br><em>Ihr Garten.</em></h1><p>Garten- und Landschaftsbau für Heilbronn und Umgebung.</p></div>
+    <div class="cap" data-a=".22" data-b=".42"><p class="k">Natursteinbau</p><h2>Stein für Stein<br><em>gesetzt.</em></h2><p>Mauern aus Natursteinblöcken, Gabionen und Stufen für viele Jahre.</p></div>
+    <div class="cap" data-a=".44" data-b=".62"><p class="k">Terrassenbau</p><h2>Eine Fläche,<br><em>die bleibt.</em></h2><p>Terrassen eben verlegt, mit sauberem Abschluss.</p></div>
+    <div class="cap" data-a=".64" data-b=".8"><p class="k">Gestaltung</p><h2>Grün, das<br><em>Form hat.</em></h2><p>Formgehölze, Kies und Licht, aufeinander abgestimmt.</p></div>
+    <div class="cap" data-a=".82" data-b="1.1"><p class="k">Ihr Eingang</p><h2>Willkommen<br><em>zu Hause.</em></h2><p>Sandsteinstufen und Polygonalwege vor der Haustür.</p></div>
+    <div class="meter"><span id="shot">01 / 05</span><div class="bar"><i id="bar"></i></div></div>
+    <div class="hint" id="hint">SCROLLEN</div>
   </div>
-</div>
+</section>
 
-<section id="leistungen">
-  <div class="wrap">
-    <div class="rv"><div class="kick">Unser Angebot</div><h2 class="h">Was wir für Sie bauen</h2><p class="lead">Von der ersten Idee bis zur letzten Pflanze: Wir gestalten Gärten, die zu Ihnen und Ihrem Haus passen.</p></div>
-    <div class="grid">
-      <div class="card rv"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 8 4 3 4c0 5 4 8 9 8z"/><path d="M12 14c0-4 3-7 8-7 0 4-3 7-8 7z"/></svg></div><h3>Gartengestaltung &amp; Bepflanzung</h3><p>Neue Gärten planen und anlegen, Beete, Rasen, Hecken und Formgehölze.</p></div>
-      <div class="card rv"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="6" rx="1"/><rect x="13" y="4" width="8" height="6" rx="1"/><rect x="7" y="12" width="10" height="6" rx="1"/><path d="M3 21h18"/></svg></div><h3>Natursteinbau</h3><p>Natursteinmauern, Gabionen, Blockstufen und Einfassungen aus echtem Stein.</p></div>
-      <div class="card rv"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21 11 3M16 21 13 3"/><path d="M9 9h6M8.5 15h7"/></svg></div><h3>Wegebau</h3><p>Gartenwege, Hofeinfahrten und Zugänge aus Pflaster, Platten oder Naturstein.</p></div>
-      <div class="card rv"><span class="n">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15h18M3 19h18M5 15V9l7-5 7 5v6"/></svg></div><h3>Terrassenbau</h3><p>Terrassen aus Naturstein oder Platten, eben verlegt und mit sauberem Abschluss.</p></div>
-      <div class="card rv"><span class="n">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.2 4.5 5.8 4.5 8.5a4.5 4.5 0 0 1-9 0C7.5 8.8 9.5 6.2 12 3z"/><path d="M3 20c2 1.3 4 1.3 6 0s4-1.3 6 0 4 1.3 6 0"/></svg></div><h3>Brunnen- &amp; Teichbau</h3><p>Wasser im Garten: Brunnen, Quellsteine und Teiche, die Ruhe bringen.</p></div>
-      <div class="card rv"><span class="n">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></div><h3>Ihr Projekt</h3><p>Etwas anderes geplant? Rufen Sie an, wir beraten Sie gern vor Ort.</p></div>
+<section class="paper story" id="leistungen">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Was wir bauen</p>
+      <p class="big" id="big">Von der ersten Idee bis zur letzten Pflanze. Wir setzen <em>Natursteinmauern</em>, bauen Wege und Terrassen, stellen Gabionen und bepflanzen Ihren Garten so, dass er zu Ihrem Haus passt. Ein Team, ein Ansprechpartner, sauber aufgeräumt.</p>
+    </div>
+    <div class="glide" id="glide"><img src="img/g09.webp" alt="Weg aus polygonalen Natursteinplatten" loading="lazy"><span class="tag">Polygonalweg · Heilbronn</span></div>
+  </div>
+</section>
+
+<section class="board">
+  <div class="wrap grid">
+    <div class="rv">
+      <p class="k">Unsere Leistungen</p>
+      <h2>Wir bauen für Sie<br><em>jeden Tag etwas Neues.</em></h2>
+      <div class="flap" id="flap1" aria-live="polite"></div>
+      <p class="lede">Gartengestaltung und Bepflanzung, Natursteinbau, Wegebau, Terrassenbau, Brunnen und Teiche. Wir sind in Heilbronn zu Hause und kommen zur Beratung zu Ihnen, in der ganzen Region.</p>
+    </div>
+    <div class="mapbox rv">
+      <canvas id="map" aria-label="Karte: Einsatzgebiet rund um Heilbronn"></canvas>
+      <div class="ticket">
+        <div class="row"><small>Von</small><small>Nach</small></div>
+        <div class="row"><span class="code">HN<i>→</i></span><span class="code" id="tCode">NSU</span></div>
+        <div class="row"><small>Böckingen</small><small id="tName">Neckarsulm</small></div>
+        <hr>
+        <div class="row"><small>Beratung</small><small>Vor Ort bei Ihnen</small></div>
+        <a href="tel:+491778660721">Beratung anfragen</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="one" id="vorher-nachher">
+<section class="paper spec" id="ablauf">
   <div class="wrap">
-    <div class="rv"><div class="kick">Vorher &amp; Nachher</div><h2 class="h">Derselbe Garten. Ein paar Wochen später.</h2><p class="lead">Ein echtes Projekt von uns: aus einer Fläche voller Erde wird ein Garten mit Natursteinstufen, Gabionen und Terrasse.</p></div>
-    <div class="ba">
-      <figure class="rv"><img src="img/f1.webp" alt="Garten vorher: unbefestigte Erdfläche hinter Reihenhäusern" loading="lazy"><figcaption>Vorher</figcaption></figure>
-      <figure class="rv"><img src="img/f4.webp" alt="Garten nachher: Terrasse mit Gabionen, Formgehölzen und Leuchtkugel" loading="lazy"><figcaption>Nachher</figcaption></figure>
+    <div class="head rv">
+      <div><p class="k">Ein Projekt im Detail</p><h2>Terrasse<br>Böckingen</h2></div>
+      <div class="nums"><div><b>6</b><span>Leistungen</span></div><div><b>1</b><span>Ansprechpartner</span></div><div><b>HN</b><span>und Umgebung</span></div></div>
+    </div>
+    <div class="plan" id="plan">
+      <img src="img/f3.webp" alt="Terrasse mit Gabionen, Natursteinblöcken und Formgehölzen" loading="lazy">
+      <div class="pt" style="left:62%;top:36%"><div class="lb">Gabionen<small>Sichtschutz aus Stein</small></div></div>
+      <div class="pt l" style="left:11%;top:74%"><div class="lb">Natursteinblöcke<small>als Mauer gesetzt</small></div></div>
+      <div class="pt" style="left:55%;top:78%"><div class="lb">Terrassenplatten<small>eben verlegt</small></div></div>
+      <div class="pt l" style="left:89%;top:58%"><div class="lb">Formgehölze<small>in Form geschnitten</small></div></div>
+      <div class="pt" style="left:32%;top:52%"><div class="lb">Zierkies<small>pflegeleichte Beete</small></div></div>
     </div>
   </div>
 </section>
 
-<section id="referenzen">
+<section class="paper ba">
   <div class="wrap">
-    <div class="rv"><div class="kick">Referenzen</div><h2 class="h">Gärten, die wir gebaut haben</h2><p class="lead">Eine Auswahl unserer Arbeiten in Heilbronn und Umgebung.</p></div>
-    <div class="gal">
-      <figure class="rv"><img src="img/g01.webp" alt="Treppe aus Natursteinblöcken mit Gabionen" loading="lazy" width="900" height="675"><figcaption>Natursteintreppe</figcaption></figure>
-      <figure class="rv"><img src="img/g10.webp" alt="Halbrunde Sandsteinstufen vor einer Haustür" loading="lazy" width="900" height="675"><figcaption>Eingang aus Sandstein</figcaption></figure>
-      <figure class="rv"><img src="img/g04.webp" alt="Runder Pflasterplatz mit Einfassung" loading="lazy" width="900" height="675"><figcaption>Runder Sitzplatz</figcaption></figure>
-      <figure class="rv"><img src="img/g09.webp" alt="Polygonale Natursteinplatten als Weg" loading="lazy" width="900" height="675"><figcaption>Polygonalweg</figcaption></figure>
-      <figure class="rv"><img src="img/g03.webp" alt="Terrasse mit Gabionen und Holzzaun" loading="lazy" width="900" height="675"><figcaption>Terrasse mit Gabionen</figcaption></figure>
-      <figure class="rv"><img src="img/g05.webp" alt="Trittplatten im Rasen am Hang" loading="lazy" width="900" height="675"><figcaption>Trittplatten im Rasen</figcaption></figure>
-      <figure class="rv"><img src="img/g08.webp" alt="Natursteinmauer vor einem Haus" loading="lazy" width="900" height="675"><figcaption>Natursteinmauer</figcaption></figure>
-      <figure class="rv"><img src="img/g02.webp" alt="Stufen aus Naturstein mit Formgehölzen" loading="lazy" width="900" height="675"><figcaption>Stufen &amp; Formgehölze</figcaption></figure>
-      <figure class="rv"><img src="img/g11.webp" alt="Vorgarten mit Natursteinweg und Beeten" loading="lazy" width="900" height="675"><figcaption>Vorgarten</figcaption></figure>
-      <figure class="rv"><img src="img/g07.webp" alt="Granitplatten-Terrasse" loading="lazy" width="900" height="600"><figcaption>Granitterrasse</figcaption></figure>
-      <figure class="rv"><img src="img/g12.webp" alt="Weg aus Klinker zwischen Mauern" loading="lazy" width="900" height="675"><figcaption>Zugang mit Mauer</figcaption></figure>
-      <figure class="rv"><img src="img/g13.webp" alt="Kiesbeet mit Gräsern" loading="lazy" width="900" height="675"><figcaption>Kiesbeet</figcaption></figure>
+    <p class="k rv">Vorher &amp; Nachher</p>
+    <h3 class="rv">Derselbe Garten. Ein paar Wochen später.</h3>
+    <div class="cmp rv" id="cmp">
+      <img src="img/f1.webp" alt="Garten vorher: offene Erdfläche" loading="lazy">
+      <img class="after" src="img/f2.webp" alt="Garten nachher: Natursteinblöcke, Gabionen und Rasen" loading="lazy">
+      <span class="t a">Vorher</span><span class="t b">Nachher</span>
+      <div class="hd"><i>↔</i></div>
     </div>
   </div>
 </section>
 
-<section id="ablauf" style="padding-top:0">
+<section class="proj" id="projekte">
+  <div class="pin">
+    <div class="head"><div><p class="k">Referenzen</p><h2>Gärten, die wir gebaut haben</h2></div><span class="cnt" id="cnt">01 / 12</span></div>
+    <div class="track" id="track">
+      <div class="card"><div class="im"><img src="img/g01.webp" alt="Treppe aus Natursteinblöcken mit Gabionen" loading="lazy"></div><b>Natursteintreppe</b><span>Blöcke &amp; Gabionen</span></div>
+      <div class="card"><div class="im"><img src="img/g10.webp" alt="Halbrunde Sandsteinstufen vor einer Haustür" loading="lazy"></div><b>Eingang aus Sandstein</b><span>Stufen</span></div>
+      <div class="card"><div class="im"><img src="img/g04.webp" alt="Runder Pflasterplatz mit Einfassung" loading="lazy"></div><b>Runder Sitzplatz</b><span>Pflaster</span></div>
+      <div class="card"><div class="im"><img src="img/g09.webp" alt="Polygonale Natursteinplatten als Weg" loading="lazy"></div><b>Polygonalweg</b><span>Naturstein</span></div>
+      <div class="card"><div class="im"><img src="img/g03.webp" alt="Terrasse mit Gabionen und Holzzaun" loading="lazy"></div><b>Terrasse mit Gabionen</b><span>Terrassenbau</span></div>
+      <div class="card"><div class="im"><img src="img/g05.webp" alt="Trittplatten im Rasen am Hang" loading="lazy"></div><b>Trittplatten im Rasen</b><span>Wegebau</span></div>
+      <div class="card"><div class="im"><img src="img/g08.webp" alt="Natursteinmauer vor einem Haus" loading="lazy"></div><b>Natursteinmauer</b><span>Natursteinbau</span></div>
+      <div class="card"><div class="im"><img src="img/g02.webp" alt="Stufen aus Naturstein mit Formgehölzen" loading="lazy"></div><b>Stufen &amp; Formgehölze</b><span>Gestaltung</span></div>
+      <div class="card"><div class="im"><img src="img/g11.webp" alt="Vorgarten mit Natursteinweg und Beeten" loading="lazy"></div><b>Vorgarten</b><span>Bepflanzung</span></div>
+      <div class="card"><div class="im"><img src="img/g07.webp" alt="Granitplatten-Terrasse" loading="lazy"></div><b>Granitterrasse</b><span>Terrassenbau</span></div>
+      <div class="card"><div class="im"><img src="img/g12.webp" alt="Weg aus Klinker zwischen Mauern" loading="lazy"></div><b>Zugang mit Mauer</b><span>Wegebau</span></div>
+      <div class="card"><div class="im"><img src="img/g13.webp" alt="Kiesbeet mit Gräsern" loading="lazy"></div><b>Kiesbeet</b><span>Bepflanzung</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper ways">
   <div class="wrap">
-    <div class="rv"><div class="kick">So einfach geht's</div><h2 class="h">In drei Schritten</h2></div>
-    <div class="steps">
-      <div class="step rv"><b>1. Anrufen</b><span>Sie erzählen uns kurz, was Sie sich für Ihren Garten wünschen.</span></div>
-      <div class="step rv"><b>2. Beratung vor Ort</b><span>Wir schauen uns alles an, planen mit Ihnen und erstellen ein Angebot.</span></div>
-      <div class="step rv"><b>3. Ihr Garten</b><span>Wir bauen, pflanzen und räumen auf. Sie genießen.</span></div>
+    <p class="k rv">So einfach geht's</p>
+    <h2 class="rv">Drei Schritte zu<br><em>Ihrem Garten.</em></h2>
+    <div class="wgrid">
+      <div class="way rv"><span class="n">01</span><h3>Anrufen</h3><p>Sie erzählen uns kurz, was Sie sich für Ihren Garten wünschen.</p><ul><li>Telefon <b>0177 866 07 21</b></li><li>Rückruf <b>wenn wir auf der Baustelle sind</b></li></ul></div>
+      <div class="way main rv"><span class="n">02</span><h3>Beratung vor Ort</h3><p>Wir schauen uns alles bei Ihnen an, planen mit Ihnen und erstellen ein Angebot.</p><ul><li>Wo <b>bei Ihnen zu Hause</b></li><li>Region <b>Heilbronn und Umgebung</b></li></ul></div>
+      <div class="way rv"><span class="n">03</span><h3>Ihr Garten</h3><p>Wir bauen, pflanzen und räumen auf. Sie genießen.</p><ul><li>Aus einer Hand <b>Planung bis Pflanze</b></li><li>Danach <b>sauber aufgeräumt</b></li></ul></div>
     </div>
   </div>
 </section>
 
 <section class="contact" id="kontakt">
   <div class="wrap">
-    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Sprechen Sie uns an</h2><p class="lead">Sie haben Fragen oder möchten eine Beratung? Rufen Sie an oder schreiben Sie uns. Tagsüber sind wir oft auf der Baustelle, wir rufen Sie gern zurück.</p></div>
-    <div class="cbox">
-      <a class="tile rv" href="tel:+491778660721"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span><span><small>Mobil</small><strong>0177 866 07 21</strong></span></a>
-      <a class="tile rv" href="tel:+4971312791718"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon &amp; Fax</small><strong>07131 279 17 18</strong></span></a>
-      <a class="tile rv" href="mailto:info@tafa-gartenbau.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>info@tafa-gartenbau.de</strong></span></a>
-      <a class="tile rv" href="https://www.google.com/maps/dir/?api=1&destination=Gro%C3%9Fgartacher+Str.+260,+74080+Heilbronn" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Adresse</small><strong>Großgartacher Str. 260, 74080 Heilbronn</strong></span></a>
+    <p class="k rv">Kontakt</p>
+    <h2 class="rv">Sprechen Sie<br><em>mit uns.</em></h2>
+    <p class="lede rv">Tagsüber sind wir oft auf der Baustelle. Rufen Sie an oder schreiben Sie uns, wir melden uns gern zurück.</p>
+    <div class="rows">
+      <a class="rw" href="tel:+491778660721"><span class="k">Mobil</span><div class="flap" data-text="0177 866 07 21"></div><span class="go">ANRUFEN →</span></a>
+      <a class="rw" href="tel:+4971312791718"><span class="k">Telefon &amp; Fax</span><div class="flap" data-text="07131 279 17 18"></div><span class="go">ANRUFEN →</span></a>
+      <a class="rw" href="mailto:info@tafa-gartenbau.de"><span class="k">E-Mail</span><div class="flap" data-text="INFO@TAFA-GARTENBAU.DE"></div><span class="go">SCHREIBEN →</span></a>
+      <a class="rw" href="https://maps.google.com/?q=Gro%C3%9Fgartacher+Str.+260,+74080+Heilbronn" target="_blank" rel="noopener"><span class="k">Adresse</span><div class="flap" data-text="GROSSGARTACHER STR. 260"></div><span class="go">KARTE →</span></a>
     </div>
-    <div class="area rv">
-      <div class="map" aria-hidden="true">
-        <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
-          <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#9bd264" stop-opacity=".3"/><stop offset="1" stop-color="#9bd264" stop-opacity="0"/></radialGradient></defs>
-          <g stroke="rgba(245,244,241,.08)" fill="none"><path d="M0 80 600 60M0 160 600 190M0 260 600 240M120 0 90 340M260 0 300 340M430 0 400 340M520 0 560 340"/><path d="M380 0C360 90 420 170 380 340" stroke="rgba(120,170,255,.25)" stroke-width="6"/></g>
-          <circle cx="400" cy="150" r="7" fill="rgba(245,244,241,.5)"/><text x="410" y="140" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="13">Heilbronn</text>
-          <circle cx="250" cy="170" r="130" fill="url(#g)"/>
-          <circle cx="250" cy="170" r="9" fill="#9bd264"/><circle cx="250" cy="170" r="18" fill="none" stroke="#9bd264" stroke-opacity=".5"/>
-          <text x="80" y="210" fill="#f5f4f1" font-family="Manrope,sans-serif" font-size="15" font-weight="600">TAFA Gartenbau</text>
-          <text x="80" y="230" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Heilbronn-Böckingen</text>
-        </svg>
-      </div>
-      <div class="txt"><h3>Für Heilbronn und Umgebung</h3><p>Wir sind in Heilbronn zu Hause und arbeiten in der ganzen Region. Rufen Sie einfach an, wir kommen zur Beratung zu Ihnen.</p><p style="margin-top:18px"><a class="btn or" href="tel:+491778660721">Jetzt anrufen</a></p></div>
-    </div>
+    <div class="cta rv"><a class="btn g" href="tel:+491778660721">Jetzt anrufen</a><a class="btn o" href="https://wa.me/491778660721" target="_blank" rel="noopener">WhatsApp</a></div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <span>© TAFA Garten- &amp; Landschaftsbau · Tafa Sadrijaj · Heilbronn</span>
-    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
-  </div>
-</footer>
-
-<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+<footer><div class="wrap"><span>© TAFA Garten- &amp; Landschaftsbau · Tafa Sadrijaj · Großgartacher Str. 260, 74080 Heilbronn</span><span>Impressum · Datenschutz</span></div></footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Kostenloser Entwurf</b> von Allrich Webdesign</a>
 
 <script>
-const hdr=document.getElementById('hdr');
-addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*5.6),{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+(() => {
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Scroll-Film aus echten Projektfotos: Überblendung mit langsamer Kamerafahrt */
-(()=>{
-const draft=document.querySelector('.draft'),cv=document.getElementById('film'),cx=cv.getContext('2d'),hero=document.querySelector('.hero'),caps=[...document.querySelectorAll('.cap')],hint=document.getElementById('hint'),tag=document.getElementById('tag'),pbar=document.getElementById('pbar');
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-// Szenen: Bild, Start, Ende, Zoom von/bis, Fokuspunkt
-const SC=[{s:'img/f1.webp',a:0,b:.24,z:[1.04,1.14],f:[.5,.55],t:'Vorher'},{s:'img/f2.webp',a:.2,b:.46,z:[1.02,1.12],f:[.55,.5],t:'Bauphase'},{s:'img/f3.webp',a:.42,b:.68,z:[1.0,1.1],f:[.7,.6],t:'Bauphase'},{s:'img/f4.webp',a:.64,b:.86,z:[1.02,1.12],f:[.45,.6],t:'Nachher'},{s:'img/f5.webp',a:.82,b:1.01,z:[1.0,1.08],f:[.5,.55],t:'Nachher'}];
-SC.forEach(o=>{o.im=new Image();o.im.decoding='async';o.im.src=o.s;});
-let W=0,H=0,D=1,cur=0,tgt=0;
-function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;}
-size();addEventListener('resize',size);
-const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
-function drawImg(o,k,alpha){const im=o.im;if(!im.complete||!im.naturalWidth||alpha<=0)return;
-  const z=o.z[0]+(o.z[1]-o.z[0])*k,sc=Math.max(W/im.naturalWidth,H/im.naturalHeight)*z,w=im.naturalWidth*sc,h=im.naturalHeight*sc;
-  const x=(W-w)*o.f[0],y=(H-h)*o.f[1];cx.globalAlpha=alpha;cx.drawImage(im,x,y,w,h);}
-function draw(p){cx.setTransform(D,0,0,D,0,0);cx.globalAlpha=1;cx.fillStyle='#050605';cx.fillRect(0,0,W,H);
-  let label='Vorher';
-  SC.forEach((o,i)=>{if(p<o.a-.001||p>o.b)return;const k=cl((p-o.a)/(o.b-o.a));const next=SC[i+1];let al=1;
-    if(i>0){const prev=SC[i-1];al=ease(cl((p-o.a)/(prev.b-o.a)));}drawImg(o,k,al);if(al>.5)label=o.t;});
-  cx.globalAlpha=1;
-  // leichte Vignette
-  const g=cx.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.45)');cx.fillStyle=g;cx.fillRect(0,0,W,H);
-  tag.innerHTML='<b>'+label+'</b>';}
-function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
-function frame(){tgt=prog();cur+=(tgt-cur)*(reduce?1:.1);draw(cur);caps.forEach(c=>c.classList.toggle('on',cur>=+c.dataset.a&&cur<+c.dataset.b));hint.style.opacity=cur>.02?0:1;pbar.style.width=(cur*100)+'%';draft.classList.toggle('hide',tgt<.995);tag.style.opacity=cur>.9?0:1;requestAnimationFrame(frame);}
-requestAnimationFrame(frame);
+/* Wörter für die Einblendung zerlegen */
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => {
+        if (!p) return;
+        if (/^\s+$/.test(p)) { f.append(p); return; }
+        const s = document.createElement("span"); s.className = "w"; s.textContent = p; s.style.transitionDelay = (i++ * 70) + "ms"; f.append(s);
+      });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(h);
+});
+
+/* Kamerafahrten aus Fotos: jede Einstellung hat Start und Ziel für Zoom, Position und Neigung */
+const SHOTS = [
+  { src: "img/f1.webp", a: { s: 1.55, x: .08, y: -.22, r: -.035 }, b: { s: 1.08, x: -.02, y: .02, r: 0 } },
+  { src: "img/f2.webp", a: { s: 1.12, x: .10, y: .02, r: .01 }, b: { s: 1.34, x: -.08, y: -.03, r: -.012 } },
+  { src: "img/f3.webp", a: { s: 1.45, x: -.06, y: -.14, r: -.02 }, b: { s: 1.1, x: .04, y: .04, r: .006 } },
+  { src: "img/f4.webp", a: { s: 1.08, x: -.08, y: .03, r: .012 }, b: { s: 1.38, x: .06, y: -.05, r: -.01 } },
+  { src: "img/f5.webp", a: { s: 1.5, x: .04, y: .16, r: .02 }, b: { s: 1.12, x: 0, y: 0, r: 0 } }
+];
+const imgs = SHOTS.map(s => { const im = new Image(); im.src = s.src; im.decoding = "async"; return im; });
+const cv = document.getElementById("film"), ctx = cv.getContext("2d");
+const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".cap")];
+const bar = document.getElementById("bar"), shotEl = document.getElementById("shot"), hint = document.getElementById("hint");
+let W = 0, H = 0, DPR = 1;
+function size() { DPR = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; }
+function drawShot(i, t, alpha, blur) {
+  const im = imgs[i]; if (!im.complete || !im.naturalWidth) return;
+  const sh = SHOTS[i], e = ease(t);
+  const s = lerp(sh.a.s, sh.b.s, e), x = lerp(sh.a.x, sh.b.x, e), y = lerp(sh.a.y, sh.b.y, e), r = lerp(sh.a.r, sh.b.r, e);
+  const cover = Math.max(W / im.naturalWidth, H / im.naturalHeight) * s;
+  const dw = im.naturalWidth * cover, dh = im.naturalHeight * cover;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  if (blur > .2 && "filter" in ctx) ctx.filter = `blur(${blur.toFixed(1)}px) brightness(${1 + blur * .02})`;
+  ctx.translate(W / 2 + x * W, H / 2 + y * H); ctx.rotate(r);
+  ctx.drawImage(im, -dw / 2, -dh / 2, dw, dh);
+  ctx.restore();
+}
+function heroP() { const r = hero.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+function render() {
+  const p = heroP(), n = SHOTS.length, seg = 1 / n, ov = seg * .16; /* Überblendung */
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+  const i = Math.min(n - 1, Math.floor(p * n));
+  for (let j = 0; j < n; j++) {
+    const st = j * seg - ov, en = (j + 1) * seg + ov;
+    if (p < st || p > en) continue;
+    const t = (p - st) / (en - st), a = j === 0 ? 1 : ease(clamp((p - st) / (2 * ov)));
+    drawShot(j, t, a, (1 - a) * 10);
+  }
+  /* leichte Vignette */
+  const g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .35, W / 2, H / 2, Math.max(W, H) * .75);
+  g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,.45)");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  bar.style.width = (p * 100) + "%";
+  shotEl.textContent = String(i + 1).padStart(2, "0") + " / 05";
+  hint.style.opacity = p > .02 ? 0 : 1;
+}
+
+/* Heller Erzählteil: Wörter färben sich, Bild gleitet durchs Bild */
+const big = document.getElementById("big");
+(() => {
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); s.textContent = p; f.append(s); });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1) walk(c);
+  });
+  walk(big);
+})();
+const words = [...big.querySelectorAll("span")], story = document.querySelector(".story"), glide = document.getElementById("glide");
+function renderStory() {
+  const r = story.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
+  const k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const mob = innerWidth < 760;
+  const q = p * p * (3 - 2 * p), x = mob ? lerp(innerWidth * .9, -glide.offsetWidth * .9, q) : lerp(innerWidth * 1.02, innerWidth * .6, q);
+  const y = mob ? 0 : lerp(-.5, -.5, p) * glide.offsetHeight + Math.sin(p * Math.PI) * -30;
+  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(4, -3, p)}deg)`;
+}
+
+/* Projekte horizontal */
+const proj = document.querySelector(".proj"), track = document.getElementById("track"), cnt = document.getElementById("cnt");
+function renderProj() {
+  const r = proj.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
+  const max = track.scrollWidth - innerWidth;
+  track.style.transform = `translate3d(${-max * ease(p)}px,0,0)`;
+  cnt.textContent = String(Math.min(12, 1 + Math.round(p * 11))).padStart(2, "0") + " / 12";
+}
+
+/* Anzeigetafel */
+const CH = " ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ0123456789.-@&/→";
+function makeFlap(el, len) { el.innerHTML = ""; el.style.setProperty("--n", len); for (let i = 0; i < len; i++) { const c = document.createElement("span"); c.className = "c"; c.textContent = " "; el.append(c); } return [...el.children]; }
+function flapTo(cells, text, speed = 28) {
+  text = text.toUpperCase().padEnd(cells.length, " ").slice(0, cells.length);
+  cells.forEach((c, i) => {
+    const target = text[i]; if (c.textContent === target) return;
+    let steps = 4 + Math.floor(Math.random() * 6) + i % 3;
+    const tick = () => {
+      c.classList.remove("f"); void c.offsetWidth; c.classList.add("f");
+      c.textContent = steps-- > 0 ? CH[Math.floor(Math.random() * CH.length)] : target;
+      if (steps >= 0) setTimeout(tick, speed);
+    };
+    setTimeout(tick, i * 18);
+  });
+}
+const SERV = ["NATURSTEINMAUERN", "TERRASSEN", "GARTENWEGE", "GABIONEN", "BEPFLANZUNG", "BRUNNEN & TEICHE", "HOFEINFAHRTEN"];
+const flap1 = document.getElementById("flap1");
+const cells1 = makeFlap(flap1, 16);
+let si = 0, flapRun = false;
+function nextServ() { const t = SERV[si % SERV.length]; flapTo(cells1, t.padStart(t.length + Math.floor((16 - t.length) / 2)).slice(0, 16)); si++; }
+document.querySelectorAll(".rw .flap").forEach(el => { el._cells = makeFlap(el, el.dataset.text.length); });
+
+/* Region um Heilbronn: Punkte und Bögen */
+const TOWNS = [
+  ["NSU", "Neckarsulm", 49.192, 9.225], ["WBG", "Weinsberg", 49.151, 9.285], ["LEI", "Leingarten", 49.146, 9.116],
+  ["BRA", "Bad Rappenau", 49.238, 9.103], ["LAU", "Lauffen", 49.073, 9.142], ["BRH", "Brackenheim", 49.078, 9.066],
+  ["EPP", "Eppingen", 49.137, 8.911], ["OEH", "Öhringen", 49.2, 9.502], ["BFH", "Bad Friedrichshall", 49.231, 9.214],
+  ["FLE", "Flein", 49.103, 9.212], ["UGR", "Untergruppenbach", 49.088, 9.276], ["SCH", "Schwaigern", 49.144, 9.053]
+];
+const HN = [49.142, 9.218];
+const map = document.getElementById("map"), mx = map.getContext("2d");
+let MW = 0, MD = 1, mapT0 = 0, mapOn = false, cur = 0;
+function proj2(lat, lon) { const sc = MW * 1.45; return [MW / 2 + (lon - HN[1]) * sc * Math.cos(HN[0] * Math.PI / 180), MW / 2 - (lat - HN[0]) * sc]; }
+const dots = [];
+for (let i = 0; i < 1400; i++) { const a = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()); dots.push([Math.cos(a) * r, Math.sin(a) * r, Math.random()]); }
+function drawMap(now) {
+  if (!MW) return;
+  mx.setTransform(MD, 0, 0, MD, 0, 0); mx.clearRect(0, 0, MW, MW);
+  const R = MW * .47, cx = MW / 2, cy = MW / 2, t = (now - mapT0) / 1000;
+  /* gepunktete Scheibe mit sanfter Drehung */
+  const rot = t * .04;
+  for (const [x, y, z] of dots) {
+    const xr = x * Math.cos(rot) - y * Math.sin(rot), yr = x * Math.sin(rot) + y * Math.cos(rot);
+    const d = Math.hypot(xr, yr);
+    mx.fillStyle = `rgba(242,242,236,${(.08 + .22 * (1 - d)) * (.6 + .4 * z)})`;
+    mx.fillRect(cx + xr * R, cy + yr * R, 1.4, 1.4);
+  }
+  mx.strokeStyle = "rgba(242,242,236,.12)"; mx.lineWidth = 1;
+  [1, .66, .33].forEach(k => { mx.beginPath(); mx.arc(cx, cy, R * k, 0, Math.PI * 2); mx.stroke(); });
+  const [hx, hy] = proj2(HN[0], HN[1]);
+  TOWNS.forEach((tw, i) => {
+    const [x, y] = proj2(tw[2], tw[3]);
+    const delay = i * .35, k = clamp((t - delay) / 1.1);
+    const active = i === cur;
+    const mxp = (hx + x) / 2, myp = (hy + y) / 2 - Math.hypot(x - hx, y - hy) * .35;
+    mx.strokeStyle = active ? "rgba(155,210,100,.95)" : "rgba(155,210,100,.32)"; mx.lineWidth = active ? 1.6 : 1;
+    mx.beginPath();
+    for (let s = 0; s <= 40 * k; s++) { const u = s / 40; const px = (1 - u) * (1 - u) * hx + 2 * (1 - u) * u * mxp + u * u * x, py = (1 - u) * (1 - u) * hy + 2 * (1 - u) * u * myp + u * u * y; s ? mx.lineTo(px, py) : mx.moveTo(px, py); }
+    mx.stroke();
+    if (k >= 1) {
+      mx.fillStyle = active ? "#9bd264" : "rgba(242,242,236,.8)";
+      mx.beginPath(); mx.arc(x, y, active ? 3.6 : 2.2, 0, Math.PI * 2); mx.fill();
+      mx.font = `${active ? 600 : 500} ${Math.max(9, MW * .021)}px Manrope, sans-serif`;
+      mx.fillStyle = active ? "#c3e89c" : "rgba(242,242,236,.55)";
+      mx.fillText(tw[1].toUpperCase(), x + 7, y - 6);
+    }
+  });
+  const pulse = (t % 2) / 2;
+  mx.strokeStyle = `rgba(155,210,100,${1 - pulse})`; mx.beginPath(); mx.arc(hx, hy, 5 + pulse * 22, 0, Math.PI * 2); mx.stroke();
+  mx.fillStyle = "#9bd264"; mx.beginPath(); mx.arc(hx, hy, 5, 0, Math.PI * 2); mx.fill();
+  mx.font = `600 ${Math.max(10, MW * .025)}px Manrope, sans-serif`; mx.fillStyle = "#fff"; mx.fillText("HEILBRONN", hx + 10, hy + 18);
+}
+function sizeMap() { MD = Math.min(2, devicePixelRatio || 1); MW = map.clientWidth; map.width = MW * MD; map.height = MW * MD; }
+const tCode = document.getElementById("tCode"), tName = document.getElementById("tName");
+function nextTown() { cur = (cur + 1) % TOWNS.length; tCode.textContent = TOWNS[cur][0]; tName.textContent = TOWNS[cur][1]; }
+
+/* Vorher / Nachher */
+const cmp = document.getElementById("cmp"), after = cmp.querySelector(".after"), hd = cmp.querySelector(".hd");
+function setCmp(x) { const r = cmp.getBoundingClientRect(), p = clamp((x - r.left) / r.width, .02, .98) * 100; after.style.clipPath = `inset(0 0 0 ${p}%)`; hd.style.left = p + "%"; }
+let drag = false;
+cmp.addEventListener("pointerdown", e => { drag = true; cmp.setPointerCapture(e.pointerId); setCmp(e.clientX); });
+cmp.addEventListener("pointermove", e => { if (drag) setCmp(e.clientX); });
+cmp.addEventListener("pointerup", () => drag = false);
+
+/* Einblenden beim Scrollen */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("in");
+  if (e.target.classList.contains("mapbox")) { mapOn = true; mapT0 = performance.now(); }
+  if (e.target === flap1.parentElement && !flapRun) { flapRun = true; nextServ(); setInterval(nextServ, 2600); }
+  io.unobserve(e.target);
+}), { threshold: .2 });
+document.querySelectorAll(".rv,#plan").forEach(el => io.observe(el));
+const io2 = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { flapTo(e.target._cells, e.target.dataset.text, 24); io2.unobserve(e.target); } }), { threshold: .6 });
+document.querySelectorAll(".rw .flap").forEach(el => io2.observe(el));
+setInterval(nextTown, 2200);
+
+let ticking = false;
+function frame() { ticking = false; render(); renderStory(); renderProj(); }
+addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+addEventListener("resize", () => { size(); sizeMap(); frame(); });
+imgs.forEach(im => im.addEventListener("load", frame));
+size(); sizeMap(); frame();
+(function loop(now) { if (mapOn) drawMap(now); requestAnimationFrame(loop); })(performance.now());
 })();
 </script>
 </body>
