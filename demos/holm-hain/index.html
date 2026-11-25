@@ -190,15 +190,9 @@ p{margin:0}
 
 .ticker{display:none}
 @media (max-width:700px){
-  #hero,#anfahrt{height:auto}
-  .film .stage{position:relative;top:auto;height:100vh;height:100svh;min-height:560px}
-  #hero .beat{display:none}
-  #hero .beat:first-child{display:block;opacity:1;transform:none;pointer-events:auto}
-  #hero .chap,#hero .loadbar{display:none}
-  .ticker{display:block;position:absolute;left:var(--gl);right:var(--gr);top:calc(var(--head) + var(--st) + 18px);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);opacity:.9;padding-right:110px;transition:opacity .4s}
-  .ticker b{color:var(--ember);font-weight:500}
-  .ticker.fade{opacity:0}
-  #hero .shade{background:linear-gradient(180deg,rgba(12,17,14,.62) 0%,rgba(12,17,14,.28) 30%,rgba(12,17,14,.5) 55%,rgba(12,17,14,.9) 100%)}
+  #hero{height:460vh}
+  #anfahrt{height:340vh}
+  #hero .chap span{display:none}
 }
 
 /* ---------- haltung ---------- */
@@ -418,8 +412,8 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
 }
 .msum{display:none}
 @media (max-width:900px){
-  .msum{position:fixed;left:8px;right:8px;bottom:calc(var(--tab) + var(--sb) + 8px);z-index:74;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--ink);color:var(--paper);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 18px 40px -12px rgba(0,0,0,.55);transform:translateY(170%);transition:transform .45s var(--ease)}
-  .msum.show{transform:none}
+  .msum{position:fixed;left:8px;right:8px;bottom:calc(var(--tab) + var(--sb) + 8px);z-index:74;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--ink);color:var(--paper);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 18px 40px -12px rgba(0,0,0,.55);transform:translateY(170%);opacity:0;visibility:hidden;transition:transform .45s var(--ease),opacity .3s,visibility .45s}
+  .msum.show{transform:none;opacity:1;visibility:visible}
   .msum .pl{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#9aa39b}
   .msum .price{font-family:var(--f-display);font-size:1.5rem;line-height:1.05;font-variant-numeric:tabular-nums}
   .msum .btn{padding:.8em 1em;font-size:.86rem}
@@ -1223,7 +1217,9 @@ class Seq {
         im.onload = () => {
           this.sheets[k] = im;
           for (let i = k * per; i < Math.min(this.count, (k + 1) * per); i++) { this.imgs[i] = im; this.ok[i] = 1; this.loaded++; }
-          this.dirty = true; if (k === 0) this.stage.classList.add('live'); next();
+          this.dirty = true; if (k === 0) this.stage.classList.add('live');
+          if (this.loadEl) { this.loadEl.firstElementChild.style.transform = `scaleX(${this.loaded / this.count})`; if (this.loaded >= this.count) this.loadEl.classList.add('done'); }
+          next();
         };
         im.onerror = next; im.src = `${this.base}-${String(k + 1).padStart(2, '0')}.webp`;
       };
@@ -1301,12 +1297,12 @@ function heroTick(p){
 }
 if (!RM) {
   const hero = PHONE
-    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/am', count:120, dur:15, tc: $('#heroTc'), auto:true, loop:true, onTick: heroTick, sheet:{ cols:4, rows:3, w:360, h:640 } })
+    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/am', count:120, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad'), sheet:{ cols:4, rows:3, w:360, h:640 } })
     : new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/a', count:226, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') });
   hero.start(); films.push(hero);
   $$('#heroChap button').forEach(b => b.addEventListener('click', () => hero.jump(+b.dataset.at)));
   films.push(PHONE
-    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/bm', count:80, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), auto:true, sheet:{ cols:4, rows:3, w:360, h:640 } })
+    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/bm', count:80, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), sheet:{ cols:4, rows:3, w:360, h:640 } })
     : new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/b', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), focus:.42 }));
 } else $('#heroLoad').classList.add('done');
 
