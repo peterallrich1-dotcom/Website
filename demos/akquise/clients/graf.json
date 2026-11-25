@@ -1,0 +1,202 @@
+{
+ "name": "Immobilienverwaltung Graf",
+ "brand": "Graf",
+ "brandSub": "Immobilienverwaltung · Berchtesgadener Land",
+ "accent": "#f0b888",
+ "accentDark": "#b05a14",
+ "source": "iv-graf.de",
+ "sourceUrl": "https://www.iv-graf.de",
+ "cta": "Angebot anfordern",
+ "hero": {
+  "eyebrow": "WEG- und Mietverwaltung · Piding · Bad Reichenhall",
+  "head": "Wir verwalten, was Ihnen\n*gehört.*",
+  "intro": "WEG-, Miet-, Sondereigentums- und BHKW-Verwaltung seit über 30 Jahren. Im fertigen Auftritt fliegt dieser Film durch eine der Wohnanlagen, die Sie betreuen.",
+  "geo": "47°46′N · 12°55′E · Piding",
+  "ch": [
+   [
+    "Hausverwaltung",
+    "Verwaltung ist mehr als *Vermietung.*",
+    "Kaufmännisch und technisch, für Gemeinschaften, Vermieter und Gewerbe."
+   ],
+   [
+    "Werterhalt",
+    "Instandhaltung, Wartung, *Verkehrssicherheit.*",
+    "Damit das Gemeinschaftseigentum in zwanzig Jahren noch so aussieht."
+   ],
+   [
+    "Versammlung",
+    "Präsenz, hybrid, online oder *im Umlauf.*",
+    "Beschlüsse rechtssicher vorbereiten, umsetzen und digital dokumentieren."
+   ],
+   [
+    "Zertifiziert",
+    "Zertifizierter Verwalter (IHK) nach *§ 26a WEG.*",
+    "Seit Dezember 2023 Voraussetzung für ordnungsmäßige Verwaltung."
+   ],
+   [
+    "Immobilienverwaltung Graf",
+    "Verwaltungsangebot *anfordern*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Verwalter, Betriebswirt und *Sachverständiger.*",
+  "text": [
+   "Wolfgang Graf, Diplom-Betriebswirt (FH), ist seit über 30 Jahren als Hausverwalter im Berchtesgadener Land tätig. Er ist zertifizierter Verwalter (IHK) nach § 26a Wohnungseigentumsgesetz und Immobiliensachverständiger.",
+   "Für private Eigentümer, Gemeinschaften und Geschäftskunden: Wir arbeiten eng mit unseren Kunden und heimischen Handwerksbetrieben zusammen und handeln grundsätzlich namens, in Vollmacht und für Rechnung unserer Gemeinschaften.",
+   "Zugesichert werden die zuverlässige kaufmännische und technische Betreuung, eine transparente und rechtskonforme Abrechnung und die Erreichbarkeit auch außerhalb der normalen Geschäftszeiten."
+  ],
+  "facts": [
+   ["30+", "Jahre Hausverwaltung im Berchtesgadener Land"],
+   ["§ 26a", "zertifizierter Verwalter nach WEG (IHK)"],
+   ["5", "Verwaltungsarten: WEG, Miete, Sondereigentum, BHKW/PV, Gewerbe"],
+   ["§ 34c", "GewO, Aufsicht IHK München und Oberbayern"]
+  ]
+ },
+ "detail": {
+  "nav": "Verwaltung",
+  "eyebrow": "Leistungsspektrum im Detail",
+  "head": "Was wir für Ihr Objekt *übernehmen*",
+  "tabs": [
+   {
+    "name": "WEG-Verwaltung",
+    "intro": "Alle Leistungen nach dem Wohnungseigentumsgesetz, für Eigentümergemeinschaften jeder Größe.",
+    "groups": [
+     ["Kaufmännisch", ["Vorbereitung und Leitung der Eigentümerversammlungen", "Beschlussumsetzung und digitale Beschluss-Sammlung", "Durchsetzung der Hausordnung", "Vertretung in Rechtsfragen", "Vertragsverhandlungen mit Dienstleistern und Hausmeister"]],
+     ["Werterhalt und Technik", ["Instandhaltungs- und Sanierungspläne", "Ausschreibungen und Rahmenverträge", "Reparaturabwicklung und laufende Wartung", "Energieversorgung und -optimierung", "Überwachung der Verkehrssicherungspflichten"]],
+     ["Rechnungslegung", ["Hausgeldinkasso per SEPA-Lastschrift, Mahnwesen", "Laufende Buchhaltung und Rechnungsprüfung", "Jahresabrechnung, Wirtschaftsplan, Vermögensbericht", "Heiz- und Warmwasserkostenabrechnung", "Verwaltung der Erhaltungsrücklage, Sonderumlagen"]],
+     ["Versicherung und Energie", ["Rahmenverträge für Energie und Brennstoffe", "Optimierung von Wohngebäude-, Haftpflicht-, Elementar- und Feuerversicherung", "Gute Schadenquote im Bestand als Argument bei Prämien"]]
+    ]
+   },
+   {
+    "name": "Mietverwaltung",
+    "intro": "Für Eigentumswohnung, Einliegerwohnung oder Haus, auch im Umgang mit schwierigen Mietern.",
+    "groups": [
+     ["Vermietung", ["Mietersuche mit Bonitätsprüfung", "Besichtigungen und Vertragsabschluss", "Wohnungsabnahme mit Übergabeprotokoll", "Kautionsverwaltung", "Mieterhöhungen nach Vertrag und Gesetz"]],
+     ["Werterhalt", ["Instandhaltungspläne", "Ausschreibung und Abwicklung von Reparaturen", "Bausanierungen durch eigene Bauingenieure", "Überwachung der Verkehrssicherungspflichten"]],
+     ["Rechnungslegung", ["Mietinkasso und Mahnwesen", "Betriebskostenabrechnung", "Ausweis nach § 35a EStG", "Gesamtabrechnung über mehrere Objekte", "Belege für Finanzamt und Steuerberater"]],
+     ["Für den Eigentümer", ["Vertretung gegenüber den Mietern", "Vermietung in Abstimmung mit Ihnen", "Online-Datendienst"]]
+    ]
+   },
+   {
+    "name": "BHKW und PV",
+    "intro": "Seit vielen Jahren betreuen wir Blockheizkraftwerke und Photovoltaikanlagen von Eigentümergemeinschaften.",
+    "groups": [
+     ["Betreuung", ["Kaufmännische und technische Betreuung der Anlagen", "Abstimmung mit der Steuerkanzlei für die steuerlichen Erklärungen"]],
+     ["Abrechnung", ["Rechtskonforme Abrechnung von Strom und Wärme", "Jährlicher Antrag beim Zollamt zur Rückerstattung bei BHKW-Anlagen"]],
+     ["Energierecht", ["GEG, Heizkostenverordnung, fernablesbare Geräte", "Mieterstrom und PV im Mehrparteienhaus", "Fördermittel für energetische Modernisierung"]]
+    ]
+   },
+   {
+    "name": "Sondereigentum und Gewerbe",
+    "intro": "Einzelne Wohnungen im Auftrag der Eigentümer, dazu Gewerbeimmobilien und Facility Management.",
+    "groups": [
+     ["Sondereigentum", ["Verwaltung einzelner Einheiten im Auftrag der Eigentümer", "Abstimmung mit der WEG-Verwaltung"]],
+     ["Gewerbe", ["Gewerbeimmobilien-Verwaltung", "Facility Management im Rahmen einer festen Budgetvorgabe"]],
+     ["Aufbewahrung", ["Unterlagen nach § 147 AO und GoBD", "Datenschutzgerecht nach DSGVO und BDSG"]]
+    ]
+   }
+  ]
+ },
+ "record": {
+  "nav": "Bilanz",
+  "eyebrow": "Track Record",
+  "head": "Was wir zuletzt *vermittelt* haben",
+  "lead": "Ein Auszug der Vermietungen aus den letzten Jahren, so wie er auf iv-graf.de steht. Im fertigen Auftritt ergänzen wir hier Ihre Zahlen, Objekte und Fotos.",
+  "facts": [
+   ["12", "Vermietungen 2021 bis 2023 laut Website"],
+   ["4", "Orte: Piding, Bad Reichenhall, Bayerisch Gmain, Anger"],
+   ["Ihre Zahl", "verwaltete Einheiten", true],
+   ["Ihre Zahl", "betreute Eigentümergemeinschaften", true]
+  ],
+  "items": [
+   ["11 / 2023", "Wohnung Bayerisch Gmain", "ca. 40 m², Balkon, Stellplatz. Vermietet."],
+   ["10 / 2023", "Tiefgarage Bad Reichenhall", "Kfz-Stellplatz Frühlingstraße / Schillerstraße. Vermietet."],
+   ["01 / 2023", "Einzelgarage Bayerisch Gmain", "Nähe Reichenhaller Straße. Vermietet."],
+   ["2022", "Doppelhaushälfte Piding-Dorf", "110 m², Garten, Balkon, Stellplatz, Keller. Vermietet."],
+   ["09 / 2022", "2-Zimmer-Wohnung Bayerisch Gmain", "70 m², 1. OG, zwei Balkone. Vermietet."],
+   ["09 / 2022", "1-Zimmer-Wohnung Bayerisch Gmain", "40 m², Balkon, Einbauküche. Vermietet."],
+   ["2022", "Erstbezug Piding", "140 m², 5 Zimmer, Glasfaser mit 1.000 Mbit/s. Vermietet."],
+   ["02 / 2022", "Eigentumswohnung Bad Reichenhall", "ca. 160 m², Sauna, großer Garten, Doppelgarage. Vermietet."],
+   ["02 / 2022", "Wohnung Piding-Mauthausen", "51 m², 2 Zimmer, neu saniert. Vermietet."],
+   ["01 / 2022", "Wohnung Aufham", "60 m², 2 Zimmer, möbliert, überdachter Balkon. Vermietet."],
+   ["11 / 2021", "Lagerraum Anger", "50 m², trocken und beheizbar. Vermietet."],
+   ["10 / 2021", "Dachgeschosswohnung Piding", "47 m², Balkon, Einbauküche. Vermietet."]
+  ],
+  "src": "Alle Einträge laut News-Seite auf iv-graf.de (Stand April 2024). Mieten bewusst nicht gezeigt."
+ },
+ "projects": {
+  "nav": "Objekte",
+  "eyebrow": "Aktuelle Objekte",
+  "head": "Zu verkaufen, zu *vermieten*",
+  "lead": "Jedes Objekt mit eigener Seite, Fotos, Grundriss und Anfrage. Hier mit den Angaben von Ihrer Website.",
+  "items": [
+   {
+    "status": "Verkauf",
+    "name": "Einfamilienhaus nahe Chiemsee",
+    "place": "Zwischen Traunstein und Traunreut",
+    "text": "Einmalige Gelegenheit: großes Grundstück mit ca. 1.000 m², nur 5 km zum Chiemsee."
+   },
+   {
+    "status": "Neubau",
+    "name": "Dachgeschosswohnung Piding-Dorf",
+    "place": "Piding",
+    "text": "Exklusive Neubau-DG-Wohnung mit ca. 50 m² und Balkon."
+   },
+   {
+    "status": "Ihr Objekt",
+    "name": "Platz für Ihr nächstes Angebot",
+    "place": "Berchtesgadener Land",
+    "text": "Neue Objekte stellen Sie selbst ein, mit Bildern statt langer Textliste."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Zusage",
+  "quote": "Jederzeit *erreichbar*, auch außerhalb der Geschäftszeiten.",
+  "points": [
+   ["Kaufmännisch", "Transparente, rechtskonforme und übersichtliche Abrechnung."],
+   ["Technisch", "Instandhaltung, Wartung und Energie mit heimischen Handwerksbetrieben."],
+   ["Persönlich", "Der Inhaber ist direkter Ansprechpartner."]
+  ]
+ },
+ "services": {
+  "head": "Für Eigentümer im *Berchtesgadener Land.*",
+  "lead": "Von der einzelnen Wohnung bis zur großen Gemeinschaft.",
+  "items": [
+   ["WEG-Verwaltung", "Versammlungen, Beschlüsse, Hausgeld, Wirtschaftsplan, Jahresabrechnung und Werterhalt."],
+   ["Mietverwaltung", "Mietersuche mit Bonitätsprüfung, Inkasso, Betriebskosten und technische Betreuung."],
+   ["Sondereigentumsverwaltung", "Einzelne Einheiten im Auftrag der Eigentümer."],
+   ["BHKW- und PV-Verwaltung", "Betreuung, Abrechnung und Rückerstattung beim Zollamt."],
+   ["Gewerbe und Facility Management", "Gewerbeimmobilien im Rahmen einer festen Budgetvorgabe."],
+   ["Vermietung und Verkauf", "Wohnungen, Häuser, Garagen und Stellplätze in Piding, Bad Reichenhall und Bayerisch Gmain."]
+  ]
+ },
+ "change": {
+  "nav": "Verwalterwechsel",
+  "eyebrow": "Verwalterwechsel",
+  "head": "In vier Schritten zu *uns.*",
+  "lead": "Seit Dezember 2023 muss der Verwalter einer Gemeinschaft zertifiziert sein. Wer wechseln will oder muss, findet hier den Ablauf.",
+  "steps": [
+   ["Anfrage", "Sie schicken uns die Eckdaten: Ort, Anzahl der Einheiten, Baujahr, besondere Technik wie BHKW oder PV."],
+   ["Angebot", "Sie erhalten ein schriftliches Angebot, auf Wunsch stellen wir uns in der Versammlung vor."],
+   ["Bestellung", "Die Gemeinschaft beschließt die Bestellung, präsenz, hybrid oder im Umlaufverfahren."],
+   ["Übergabe", "Wir übernehmen Unterlagen, Konten und Verträge vom bisherigen Verwalter und kümmern uns um alles Weitere."]
+  ],
+  "faq": [
+   ["Was ändert der zertifizierte Verwalter für unsere Gemeinschaft?", "Seit Dezember 2023 entspricht die Bestellung eines Verwalters nur noch dann ordnungsmäßiger Verwaltung, wenn er nach § 26a WEG zertifiziert ist. Wolfgang Graf führt den Titel seit August 2023."],
+   ["Können Versammlungen online stattfinden?", "Ja. Wir führen Präsenz-, hybride und Online-Versammlungen durch, dazu Umlauf- und Mehrheitsumlaufverfahren nach § 23 WEG."],
+   ["Ein Eigentümer möchte eine E-Ladestation. Was nun?", "Seit Dezember 2020 besteht ein Rechtsanspruch darauf. Wir wissen, was rechtlich, planerisch und technisch zu beachten ist, und fassen die Beschlüsse rechtssicher."],
+   ["Wie gehen Sie mit baulichen Veränderungen um?", "Die Beschlussquoren wurden gesenkt. Wir planen die Fortentwicklung der Wohnanlage so, dass finanzschwächere Eigentümer nicht überfordert werden."],
+   ["Was bedeutet das neue Energierecht für unser Haus?", "GEG, Heizkostenverordnung, CO₂-Preis-Verteilung, Mieterstrom: Wir behalten die Vorgaben im Blick und beraten zu Fördermitteln."]
+  ]
+ },
+ "contact": {
+  "head": "Fordern Sie Ihr *Verwaltungsangebot* an.",
+  "address": ["Berchtesgadener Str. 10", "83451 Piding"],
+  "phone": "0176 232 968 49",
+  "email": "IMMOBILIENVERWALTUNG-GRAF@eMail.de",
+  "topics": ["Angebot WEG-Verwaltung", "Verwalterwechsel", "Angebot Mietverwaltung", "BHKW- oder PV-Verwaltung", "Objekt verkaufen oder vermieten", "Allgemeine Anfrage"]
+ }
+}

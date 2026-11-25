@@ -1,0 +1,159 @@
+{
+ "name": "YK Architektur",
+ "brand": "YK Architektur",
+ "brandSub": "Architekt & Sachverständiger · Kornwestheim",
+ "accent": "#c8d4c0",
+ "accentDark": "#4a5a3a",
+ "source": "yk-architektur.de",
+ "sourceUrl": "https://www.yk-architektur.de",
+ "cta": "Projekt besprechen",
+ "hero": {
+  "eyebrow": "Architekt und Sachverständiger · Kornwestheim",
+  "head": "Vom Wintergarten bis zum\n*Geschäftshaus.*",
+  "intro": "Neubau, Umbau, Sanierung und Nutzungsänderung im Raum Ludwigsburg und Stuttgart. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°52′N · 9°11′E · Kornwestheim",
+  "ch": [
+   [
+    "Neubau",
+    "Wohn- und Geschäftshäuser, *neu gebaut.*",
+    "Ihre Projekte mit Bildern statt als Liste mit Jahreszahlen."
+   ],
+   [
+    "Visualisierung",
+    "Entwürfe, die man *sehen* kann.",
+    "Ihre Visualisierungen verdienen einen großen Auftritt."
+   ],
+   [
+    "Umbau",
+    "Aus der Garage wird ein *Imbiss.*",
+    "Nutzungsänderungen, die Sie für Familien und Betriebe begleiten."
+   ],
+   [
+    "Sanierung",
+    "Dach, Fassade, *Wohnung.*",
+    "Sanierungen in Stuttgart, Feuerbach und Kornwestheim."
+   ],
+   [
+    "YK Architektur",
+    "Leistungsphasen *1 bis 8*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Büro",
+  "head": "Architekt und *Sachverständiger.*",
+  "text": [
+   "Dipl.-Ing. (FH) Yunus Emre Kaya plant in Kornwestheim Neubauten, Umbauten und Sanierungen für Familien und Unternehmen im Raum Ludwigsburg und Stuttgart.",
+   "Die Bandbreite reicht vom Wintergarten in Ludwigsburg über ein Wohn- und Geschäftshaus in Kornwestheim bis zum Speditions-, Büro- und Wohngebäude für GIGA Logistics."
+  ],
+  "facts": [
+   [
+    "2019",
+    "Neubau Speditions-, Büro- und Wohngebäude GIGA Logistics"
+   ],
+   [
+    "2012",
+    "Villa in Baden-Baden"
+   ],
+   [
+    "1–8",
+    "Leistungsphasen beim Neubau in Dettingen unter Teck"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Projekte",
+  "eyebrow": "Aktuelle Projekte",
+  "head": "Neubau, Umbau, *Sanierung*",
+  "lead": "Projektnamen und Jahre laut yk-architektur.de.",
+  "items": [
+   {
+    "status": "Neubau",
+    "name": "Die Badgestalter",
+    "place": "Dettingen unter Teck",
+    "text": "Neubau für Familie S., Leistungsphasen 1 bis 8."
+   },
+   {
+    "status": "Neubau",
+    "name": "Speditions-, Büro- und Wohngebäude",
+    "place": "GIGA Logistics · 2019",
+    "text": "Neubau für ein Logistikunternehmen."
+   },
+   {
+    "status": "Neubau",
+    "name": "Wohn- und Geschäftshaus",
+    "place": "Kornwestheim · 2013",
+    "text": "Neubau im Ortskern."
+   },
+   {
+    "status": "Neubau",
+    "name": "Villa",
+    "place": "Baden-Baden · 2012",
+    "text": "Wohnhaus in Baden-Baden."
+   },
+   {
+    "status": "Umbau",
+    "name": "Wintergarten und Dachterrasse",
+    "place": "Ludwigsburg",
+    "text": "Neubau für Familie B."
+   },
+   {
+    "status": "Sanierung",
+    "name": "Dach- und Fassadensanierung",
+    "place": "Senefelderstraße 9 · Stuttgart",
+    "text": "Sanierung im Bestand."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Bandbreite",
+  "quote": "Vom Baugesuch bis zur *Bauleitung.*",
+  "points": [
+   [
+    "Für Familien",
+    "Anbauten, Garagen, Aufteilungen, Sanierungen."
+   ],
+   [
+    "Für Betriebe",
+    "Ladenumbau, Nutzungsänderung, Fertigungshalle."
+   ],
+   [
+    "Gutachten",
+    "Tätigkeit als Sachverständiger."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Planen, umbauen, *sanieren.*",
+  "lead": "Im Raum Ludwigsburg und Stuttgart.",
+  "items": [
+   [
+    "Neubau",
+    "Wohnhäuser, Geschäftshäuser und Gewerbebauten."
+   ],
+   [
+    "Umbau und Nutzungsänderung",
+    "Baugesuche für Läden, Imbisse und Wohnhäuser."
+   ],
+   [
+    "Visualisierung",
+    "Darstellungen der Entwürfe."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen wir über Ihr *Projekt.*",
+  "address": [
+   "Blücherstraße 7",
+   "70806 Kornwestheim"
+  ],
+  "phone": "0172 62 69 952",
+  "email": "Info@YK-Architektur.de",
+  "topics": [
+   "Neubau",
+   "Umbau",
+   "Sanierung",
+   "Nutzungsänderung"
+  ]
+ }
+}

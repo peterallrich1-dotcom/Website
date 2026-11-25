@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Tischlerei J.A. Neumann · Ihr Tischler in Lübeck</title>
+<meta name="description" content="Tischlerei J.A. Neumann, Meisterbetrieb in Lübeck seit 2003: Innenausbau, Dachausbau, Einbaumöbel nach Maß, Fenster, Türen, Treppen, Parkett und Ladenbau im Umkreis von 100 km.">
+<meta name="theme-color" content="#f7efdf">
+<style>
+@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
+  --or:#d9a05b;--or2:#e8b978;--or-soft:rgba(217,160,91,.14);--line:rgba(245,244,241,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+/* Kopfzeile */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
+.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
+.logo svg{width:16px;height:24px;margin:0 2px}
+.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
+.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.or{background:var(--or);color:#1d1206}
+.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:var(--line);color:var(--white)}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cap.on{opacity:1;transform:none}
+.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.cap.end{pointer-events:auto}
+.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
+.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
+.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
+/* Abschnitte */
+section{padding:clamp(72px,11vw,140px) 0}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
+.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(217,160,91,.5);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--or)}
+.card h3{margin:0;font-size:20px;font-weight:600}
+.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
+/* Eine Hand */
+.one{background:linear-gradient(180deg,var(--bg),#110c07 50%,var(--bg))}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
+.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
+.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
+.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.stars svg{width:26px;height:26px;fill:var(--or)}
+.big p{margin:6px 0 0;color:var(--mute)}
+/* Stimmen */
+.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .stars{justify-content:flex-start;margin:0}
+.q .stars svg{width:18px;height:18px}
+.q blockquote{margin:0;font-size:18px;line-height:1.55}
+.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
+.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
+.src a{color:var(--mute)}
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
+.step{border-top:2px solid var(--or);padding-top:18px}
+.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.step span{color:var(--mute);font-size:15px}
+/* Kontakt */
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(217,160,91,.14),transparent 70%),var(--bg)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+@media(max-width:860px){.cbox{grid-template-columns:1fr}}
+.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
+a.tile:hover{border-color:var(--or)}
+.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
+.tile .ic svg{width:24px;height:24px;stroke:#1d1206}
+.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
+.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:860px){.area{grid-template-columns:1fr}}
+.area .map{min-height:280px;position:relative;background:#0e0e10}
+.area .map svg{position:absolute;inset:0;width:100%;height:100%}
+.area .txt{padding:28px 26px}
+.area h3{margin:0;font-size:22px}
+.area p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--mute);text-decoration:none}
+.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
+.draft b{color:var(--white);font-weight:600}
+.draft a{color:var(--or);text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
+
+.hero{height:560vh}
+.stage{background:#0b0805}
+.bgs i{position:absolute;inset:-6%;background-size:cover;background-position:center;opacity:0;transition:opacity .8s;filter:saturate(1.1)}
+.bgs i.on{opacity:1}
+.veil{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 66% 45%,rgba(11,8,5,.15),rgba(11,8,5,.82) 70%),linear-gradient(180deg,rgba(11,8,5,.6),rgba(11,8,5,0) 20%,rgba(11,8,5,0) 70%,rgba(11,8,5,.9))}
+.deck{position:absolute;left:66%;top:47%;width:min(40vw,640px);height:min(62vh,600px);transform:translate(-50%,-50%);perspective:1400px}
+.fr{position:absolute;inset:0;margin:0;display:flex;align-items:center;justify-content:center;will-change:transform,opacity}
+.fr img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);background:#1a120a}
+.fr figcaption{position:absolute;left:50%;bottom:-6px;transform:translate(-50%,100%);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--or);white-space:nowrap;opacity:0;transition:opacity .3s}
+.fr.front figcaption{opacity:.9}
+.logo-card{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transform:scale(.9);transition:none;pointer-events:none}
+.logo-card span{font-weight:600;letter-spacing:.3em;color:var(--or);font-size:clamp(13px,1.3vw,18px)}
+.logo-card b{font-family:var(--f-h);font-weight:400;font-size:clamp(64px,9vw,140px);line-height:1;letter-spacing:.02em;margin-top:6px}
+.logo-card em{display:block;width:70%;height:6px;margin:14px 0 12px;border-radius:3px;background:linear-gradient(90deg,#b97a3c,#e8b978,#b97a3c)}
+.logo-card small{font-weight:600;letter-spacing:.28em;font-size:clamp(11px,1vw,14px);color:var(--mute)}
+.cap{max-width:min(44vw,560px)}
+.cap.on{transition-delay:.05s}
+.dots{position:absolute;left:var(--gut);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}
+.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.25);transition:height .3s,background .3s}
+.dots i.on{height:22px;background:var(--or)}
+@media(orientation:portrait),(max-width:860px){.deck{left:50%;top:36%;width:86vw;height:46vh}.cap{max-width:none}.dots{display:none}.veil{background:linear-gradient(180deg,rgba(11,8,5,.55),rgba(11,8,5,.1) 25%,rgba(11,8,5,.2) 50%,rgba(11,8,5,.95) 72%)}}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#110c07}
+.trust .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:20px;padding-bottom:20px;font-size:15px;color:var(--mute)}
+.trust b{color:var(--or);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.chips button{font:600 14px var(--f-b);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mute);cursor:pointer}
+.chips button.on{background:var(--or);border-color:var(--or);color:#1d1206}
+.gal{margin-top:24px}
+.gal figure button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.gal figure.hide{display:none}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(6,5,4,.94);display:flex;align-items:center;justify-content:center;padding:60px 16px}
+.lb[hidden]{display:none}
+.lb img{max-width:min(1100px,100%);max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--white);width:48px;height:48px;border-radius:50%;font-size:28px;line-height:1;cursor:pointer}
+.lbx{top:max(14px,env(safe-area-inset-top));right:16px}
+.lbp{left:16px;top:50%;transform:translateY(-50%)}.lbn{right:16px;top:50%;transform:translateY(-50%)}
+.lbc{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:var(--mute);font-size:14px}
+</style>
+<style>
+.logo{gap:10px}
+.logo .ja{font-family:var(--f-b);font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--or);border:1px solid rgba(217,160,91,.5);border-radius:6px;padding:4px 6px;line-height:1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.stats div{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+.stats b{display:block;font-family:var(--f-h);font-weight:400;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--or)}
+.stats span{font-size:13px;color:var(--mute)}
+@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}.stats div:last-child{grid-column:span 2}}
+.person{display:flex;gap:18px;align-items:center;margin-top:26px;padding:18px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
+.person .av{flex:none;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8b978,#9a6630);display:grid;place-items:center;font-family:var(--f-h);font-size:24px;color:#1d1206}
+.person b{display:block;font-size:17px}
+.person span{color:var(--mute);font-size:14px}
+.gal{columns:3 240px;column-gap:14px;margin-top:44px}
+.gal figure{margin:0 0 14px;break-inside:avoid;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--bg2);position:relative}
+.gal img{width:100%;height:auto;display:block;transition:transform .6s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:10px;bottom:10px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(10,10,11,.72);backdrop-filter:blur(6px)}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:30px}
+.refs div{border-left:2px solid var(--or);padding:6px 0 6px 16px}
+.refs b{display:block;font-size:16px}
+.refs span{color:var(--mute);font-size:14px}
+.faq{margin-top:40px;display:grid;gap:12px}
+.faq details{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--or);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mute);margin:12px 0 0}
+.note{font-size:13px;color:var(--mute-d);margin-top:14px}
+
+/* === Farben wie auf der bisherigen Website: helles Ahorn, Dunkelbraun-Gold, Rostbraun === */
+:root{--bg:#f7efdf;--bg2:#fffaf0;--bg3:#efe2c8;--white:#2b1d10;--mute:#6b5640;--mute-d:#97806a;--or:#8a3b12;--or2:#a54a1c;--or-soft:rgba(138,59,18,.1);--line:rgba(70,45,20,.14);--gold:linear-gradient(90deg,#3d2c10 0%,#7a5d22 45%,#c9ad55 100%)}
+body{background:var(--bg) url(img/holz.webp) center/756px repeat;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:rgba(250,244,232,.86);pointer-events:none;z-index:-1}
+section,.trust{background:transparent}
+.hdr.solid{background:rgba(251,246,236,.92);border-bottom:1px solid var(--line)}
+.btn.or{background:var(--gold);color:#fff8e6;box-shadow:0 6px 18px rgba(80,50,15,.25)}
+.btn.or:hover{filter:brightness(1.1);background:var(--gold)}
+.btn.ghost{border-color:rgba(70,45,20,.3);color:var(--white)}
+.btn.ghost:hover{background:rgba(70,45,20,.06)}
+.logo .ja{color:#fff8e6;background:var(--gold);border:0}
+.h,.cap h1,.cap h2{color:var(--or)}
+.card,.q,.tile,.big,.stats div,.faq details,.person,.area,.gal figure{background:var(--bg2);box-shadow:0 10px 30px rgba(90,60,25,.08)}
+.card .ic{background:var(--or-soft)}
+.card .n{color:rgba(138,59,18,.08)}
+.tile .ic{background:var(--gold)}.tile .ic svg{stroke:#fff8e6}
+.one{background:linear-gradient(180deg,transparent,rgba(201,173,85,.12) 50%,transparent)}
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(201,173,85,.22),transparent 70%)}
+.area .map{background:#efe2c8}
+.area .map svg [fill="#f5f4f1"]{fill:#2b1d10}
+.area .map svg g{stroke:rgba(70,45,20,.15)}
+.person .av{background:var(--gold);color:#fff8e6}
+.big .num,.stats b,.trust b{color:var(--or)}
+.stats b{white-space:nowrap;font-size:clamp(26px,3vw,40px)}
+.stars svg{fill:#c9952e}
+.trust{background:linear-gradient(90deg,#3d2c10,#7a5d22 55%,#b59a48);border:0}
+.trust .wrap{color:#f6ead0}.trust b{color:#fff}
+.chips button{border-color:rgba(70,45,20,.25)}
+.chips button.on{background:var(--gold);color:#fff8e6;border-color:transparent}
+.gal figcaption{background:rgba(255,250,240,.92);color:var(--or)}
+footer{background:linear-gradient(90deg,#3d2c10,#6e5320);color:#e9dcc0;border:0}footer a{color:#fff3d6}
+.draft{background:rgba(255,250,240,.95);color:var(--mute)}.draft b{color:var(--white)}
+.faq summary::after{color:#a07a2a}
+.checks svg{stroke:#a07a2a}
+/* Drohnenflug durch die Villa (Scroll-Film) */
+.fly{position:relative;height:460vh;background:#120c06}
+.fly-st{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.fly-st canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fly-sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,12,6,.55) 0%,rgba(18,12,6,0) 22%,rgba(18,12,6,0) 46%,rgba(18,12,6,.78) 100%);pointer-events:none}
+.fly-cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(48px,10vh,110px);max-width:640px;pointer-events:none;visibility:hidden;opacity:0;transform:translateY(18px);transition:opacity .5s,transform .6s,visibility 0s linear .5s}
+.fly-cap.on{visibility:visible;opacity:1;transform:none;transition:opacity .5s,transform .6s,visibility 0s}
+.fly-cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#e8b978}
+.fly-cap h2{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(40px,6.4vw,88px);line-height:.98;margin:10px 0 0;color:#fff8ea;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.fly-cap h2 .w{display:inline-block;opacity:0;transform:translateY(.3em);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.fly-cap.on h2 .w{opacity:1;transform:none}
+.fly-cap p{margin:14px 0 0;color:rgba(255,248,234,.84);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.fly-tag{position:absolute;top:calc(env(safe-area-inset-top) + 84px);right:var(--gut);font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,248,234,.8);background:rgba(18,12,6,.4);padding:7px 11px;border-radius:99px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.fly-bar{position:absolute;right:var(--gut);bottom:clamp(48px,10vh,110px);width:120px;height:2px;background:rgba(255,248,234,.25)}
+.fly-bar i{position:absolute;inset:0 auto 0 0;width:0;background:#e8b978}
+@media(max-width:700px){.fly-bar{display:none}}
+/* Film im Holz-Look */
+.stage{background:#f3e3c2 url(img/holz.webp) center/900px repeat}
+.bgs i{opacity:0}.bgs i.on{opacity:.22;mix-blend-mode:multiply}
+.veil{background:linear-gradient(90deg,rgba(251,244,230,.96) 0%,rgba(251,244,230,.82) 34%,rgba(251,244,230,.1) 62%,rgba(251,244,230,0) 100%),linear-gradient(180deg,rgba(251,244,230,.55),rgba(251,244,230,0) 18%)}
+.cap{text-shadow:none}.cap p{color:var(--mute)}.cap .k{color:#8a6a24}
+.fr img{box-shadow:0 30px 70px rgba(70,40,10,.35),0 0 0 8px #fffaf0,0 0 0 9px rgba(70,45,20,.15)}
+.fr figcaption{color:#8a6a24;bottom:-14px}
+.logo-card b{color:var(--or)}.logo-card span{color:#8a6a24}.logo-card small{color:var(--mute)}
+.dots i{background:rgba(70,45,20,.25)}.dots i.on{background:#8a6a24}
+.hint{color:var(--mute)}.hint i{background:linear-gradient(#8a6a24,transparent)}
+@media(orientation:portrait),(max-width:860px){.veil{background:linear-gradient(180deg,rgba(251,244,230,.6),rgba(251,244,230,0) 18%,rgba(251,244,230,0) 52%,rgba(251,244,230,.95) 70%)}}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="logo" href="#top" aria-label="Tischlerei J.A. Neumann, zum Anfang"><span class="ja">J.A.</span>NEUMANN<small>TISCHLEREI · LÜBECK</small></a>
+  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#arbeiten">Arbeiten</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn or" href="tel:+494512929626"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+</header>
+
+<div class="hero" id="top">
+  <div class="stage">
+    <div class="bgs" aria-hidden="true"><i style="background-image:url(img/bg_dachausbau_12.webp)"></i><i style="background-image:url(img/bg_einbaumobel_3.webp)"></i><i style="background-image:url(img/bg_kucheneinrichtung_0.webp)"></i><i style="background-image:url(img/bg_praxiseinrichtungen_3.webp)"></i><i style="background-image:url(img/bg_mobelstucke_0.webp)"></i></div>
+    <div class="veil" aria-hidden="true"></div>
+    <div class="deck" id="deck"><figure class="fr" data-bg="img/bg_dachausbau_12.webp"><img src="img/dachausbau_12.webp" alt="Dachausbau" width="880" height="660" fetchpriority="high"><figcaption>Dachausbau</figcaption></figure><figure class="fr" data-bg="img/bg_einbaumobel_3.webp"><img src="img/einbaumobel_3.webp" alt="Einbaumöbel" width="880" height="587" loading="eager"><figcaption>Einbaumöbel</figcaption></figure><figure class="fr" data-bg="img/bg_kucheneinrichtung_0.webp"><img src="img/kucheneinrichtung_0.webp" alt="Küchen" width="640" height="853" loading="eager"><figcaption>Küchen</figcaption></figure><figure class="fr" data-bg="img/bg_praxiseinrichtungen_3.webp"><img src="img/praxiseinrichtungen_3.webp" alt="Praxis- & Ladenbau" width="880" height="660" loading="eager"><figcaption>Praxis- & Ladenbau</figcaption></figure><figure class="fr" data-bg="img/bg_mobelstucke_0.webp"><img src="img/mobelstucke_0.webp" alt="Möbel nach Maß" width="640" height="1058" loading="eager"><figcaption>Möbel nach Maß</figcaption></figure><div class="logo-card" id="lc" aria-hidden="true"><span>J . A .</span><b>NEUMANN</b><em></em><small>TISCHLEREI · LÜBECK · SEIT 2003</small></div></div>
+    <div class="cap on" data-i="0"><div class="k">Tischlerei J.A. Neumann · Lübeck</div><h1>Holz. Handwerk. Maß.</h1><p>Ihr Meisterbetrieb für Innenausbau und Möbel nach Maß, seit 2003 in Lübeck.</p></div><div class="cap" data-i="1"><div class="k">Dachausbau</div><h2>Aus Dachboden wird Wohnraum.</h2><p>Balken, Dielen, Dachfenster: Wir bauen Ihr Dachgeschoss komplett aus.</p></div><div class="cap" data-i="2"><div class="k">Einbaumöbel</div><h2>Jede Nische genutzt.</h2><p>Einbauschränke nach Maß, auch unter der Dachschräge.</p></div><div class="cap" data-i="3"><div class="k">Küchen</div><h2>Küchen, die passen.</h2><p>Küchenzeilen und Vitrinen, millimetergenau für Ihren Raum gefertigt.</p></div><div class="cap" data-i="4"><div class="k">Praxis- & Ladenbau</div><h2>Arbeitsplätze mit Stil.</h2><p>Empfangstresen, Schreibtische und Einrichtungen für Praxen und Geschäfte.</p></div><div class="cap" data-i="5"><div class="k">Möbel nach Maß</div><h2>Einzelstücke aus Holz.</h2><p>Vom Möbelstück bis zur Vitrine, gebaut für viele Jahre.</p></div><div class="cap end" data-i="6"><div class="k">Jetzt anfragen</div><h2>Ihr Tischler in Lübeck.</h2><div class="row"><a class="btn or" href="tel:+494512929626">0451 2 92 96 26</a><a class="btn ghost" href="#arbeiten">Alle Arbeiten ansehen</a></div></div>
+    <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hint" id="hint">Scrollen<i></i></div>
+  </div>
+</div>
+<div class="trust"><div class="wrap"><span><b>Meisterbetrieb</b> seit 2003</span><span><b>5,0</b> ★ bei Google</span><span><b>100 km</b> rund um Lübeck</span><span><b>Kostenlose</b> Beratung</span></div></div>
+
+<div class="fly" id="flug">
+  <div class="fly-st">
+    <canvas id="flycv" aria-label="Drohnenflug in ein Haus: Ein Tischler baut einen Einbauschrank aus Eiche, dahinter eine fertige Holzküche"></canvas>
+    <div class="fly-sh"></div>
+    <span class="fly-tag">Beispielvideo</span>
+    <div class="fly-cap" data-a="0" data-b=".3"><div class="k">Möbel nach Maß</div><h2>Gebaut für Ihr Zuhause.</h2><p>Wir fertigen fach- und sachgerecht nach Ihren Wünschen, nach unserer Beratung oder nach Ihren eigenen Zeichnungen.</p></div>
+    <div class="fly-cap" data-a=".34" data-b=".66"><div class="k">Einbaumöbel</div><h2>Millimetergenau eingepasst.</h2><p>Einbauschränke, Möbel unter der Dachschräge und individuelle Maßanfertigungen, direkt bei Ihnen vor Ort montiert.</p></div>
+    <div class="fly-cap" data-a=".7" data-b="1.1"><div class="k">Küchen</div><h2>Holz, das bleibt.</h2><p>Küchenzeilen und Vitrinen aus der Tischlerei J.A. Neumann, in Lübeck und 100 km rundherum.</p></div>
+    <div class="fly-bar"><i id="flybar"></i></div>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Unsere Leistungen</div><h2 class="h">Alles rund ums Holz</h2><p class="lead">Wir sind Ihr Ansprechpartner für Innenausbau und Möbelfertigung in Lübeck und im Umkreis von 100 km, für Privatkunden ebenso wie für Hausverwaltungen.</p></div>
+    <div class="grid">
+      <div class="card rv"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div><h3>Innen- &amp; Dachausbau</h3><p>Dachgeschossausbau, Wand- und Deckenverkleidungen, Trockenbau.</p></div>
+      <div class="card rv"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/></svg></div><h3>Fenster &amp; Türen</h3><p>Planung, Lieferung und Montage in Holz und Kunststoff, Innentüren und Trennwände.</p></div>
+      <div class="card rv"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4v-4h4v-4h4V8h4"/></svg></div><h3>Treppen</h3><p>Planung, Lieferung und Montage von Treppen, auch Aufarbeitung alter Holztreppen.</p></div>
+      <div class="card rv"><span class="n">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12z"/><path d="M12 9v12M8 14v2M16 14v2"/></svg></div><h3>Einbaumöbel nach Maß</h3><p>Einbauschränke, Möbel unter der Dachschräge und individuelle Maßanfertigungen.</p></div>
+      <div class="card rv"><span class="n">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h18"/><path d="M8 7v5M15 12v5M11 17v4M17 3v4"/></svg></div><h3>Parkett &amp; Laminat</h3><p>Fertigparkett und Laminat, fachgerecht verlegt, mit ehrlicher Beratung zur Holzart.</p></div>
+      <div class="card rv"><span class="n">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div><h3>Altbau &amp; Reparaturen</h3><p>Altbausanierung, Restaurierung, Instandsetzung und Reparaturen im Bau- und Möbelbereich.</p></div>
+      <div class="card rv"><span class="n">07</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 14h18M7 6h10l2 4H5z"/></svg></div><h3>Laden- &amp; Praxisbau</h3><p>Empfangstresen, Arbeitsplätze und Einrichtungen für Praxen und Geschäfte.</p></div>
+      <div class="card rv"><span class="n">08</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="16" cy="15" r="5"/></svg></div><h3>Alles aus einer Hand</h3><p>Durch Kooperation mit Betrieben der Nebengewerke bekommen Sie alles von einem Ansprechpartner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="one" id="ueber-uns">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="kick">Über uns</div>
+      <h2 class="h">Meisterbetrieb<br>aus Lübeck.</h2>
+      <p class="lead">Die Tischlerei J.A. Neumann wurde am 1. August 2003 gegründet. Unser Team bringt jahrzehntelange Berufserfahrung mit und fertigt fach- und sachgerecht nach Ihren ganz persönlichen Wünschen, ob nach unserer Beratung oder nach Ihren eigenen Zeichnungen.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Höchster Qualitätsanspruch</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Freundliches und kompetentes Auftreten</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Zuverlässige und termingerechte Ausführung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d9a05b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kostenlose Beratung im persönlichen Gespräch</li>
+      </ul>
+      <div class="person"><div class="av">JN</div><div><b>Jan Neumann</b><span>Tischlermeister, Inhaber und Gründer. Meisterbetrieb für das holz- und kunststoffverarbeitende Handwerk.</span></div></div>
+    </div>
+    <div class="rv">
+      <div class="big">
+        <div class="num">5,0</div>
+        <div class="stars" aria-label="5 von 5 Sternen"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.6 7.2.7-5.4 4.8 1.6 7L12 17.5 5.6 21l1.6-7L1.8 9.3 9 8.6z"/></svg></div>
+        <p style="font-size:18px;color:var(--white);margin-top:14px">„Hat super tolle Arbeit gemacht, sind total zufrieden, Herr Neumann ist einfach weiter zu empfehlen. Dankeschön!“</p>
+        <p style="font-size:13px">Google-Bewertung · weitere Stimme: Pünktlichkeit, Qualität, Professionalität</p>
+      </div>
+      <div class="stats">
+        <div><b>2003</b><span>gegründet</span></div>
+        <div><b>100 km</b><span>Einsatzgebiet</span></div>
+        <div><b>7–18</b><span>Uhr, Mo bis Fr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="arbeiten">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Arbeiten</div><h2 class="h">Aus unserer Werkstatt</h2><p class="lead">Über 50 Einblicke in unsere Projekte: Dachausbau, Einbaumöbel, Küchen, Praxiseinrichtungen und Möbelstücke. Tippen Sie ein Bild an, um es groß zu sehen.</p></div>
+    <div class="chips" id="chips"><button class="on" data-c="">Alle (50)</button><button data-c="Dachausbau">Dachausbau (17)</button><button data-c="Einbaumöbel">Einbaumöbel (12)</button><button data-c="Küchen">Küchen (5)</button><button data-c="Praxis & Laden">Praxis & Laden (14)</button><button data-c="Möbel">Möbel (2)</button></div>
+    <div class="gal" id="gal"><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="0" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_3.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="880" height="587"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="1" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_12.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Küchen"><button type="button" data-k="2" aria-label="Küche nach Maß groß ansehen"><img src="img/kucheneinrichtung_0.webp" alt="Küche nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Küchen</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="3" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_7.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="959"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="4" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_3.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Möbel"><button type="button" data-k="5" aria-label="Möbelstück aus Holz groß ansehen"><img src="img/mobelstucke_0.webp" alt="Möbelstück aus Holz" loading="lazy" width="640" height="1058"></button><figcaption>Möbel</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="6" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_6.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="585"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="7" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_5.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="959"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Küchen"><button type="button" data-k="8" aria-label="Küche nach Maß groß ansehen"><img src="img/kucheneinrichtung_1.webp" alt="Küche nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Küchen</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="9" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_7.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="10" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_0.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="585"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="11" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_0.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="12" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_1.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="585"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="13" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_10.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="14" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_11.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="15" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_13.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="16" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_14.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="640" height="853"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="17" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_15.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="640" height="853"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="18" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_16.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="640" height="853"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="19" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_2.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="585"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="20" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_3.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="585"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="21" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_4.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="640" height="934"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="22" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_5.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="23" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_7.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="24" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_8.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Dachausbau"><button type="button" data-k="25" aria-label="Ausgebautes Dachgeschoss groß ansehen"><img src="img/dachausbau_9.webp" alt="Ausgebautes Dachgeschoss" loading="lazy" width="880" height="660"></button><figcaption>Dachausbau</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="26" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_1.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="27" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_10.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="880" height="660"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="28" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_11.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="880" height="658"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="29" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_2.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="30" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_4.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="880" height="587"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="31" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_6.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="959"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="32" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_8.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="959"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Einbaumöbel"><button type="button" data-k="33" aria-label="Einbaumöbel nach Maß groß ansehen"><img src="img/einbaumobel_9.webp" alt="Einbaumöbel nach Maß" loading="lazy" width="640" height="959"></button><figcaption>Einbaumöbel</figcaption></figure><figure class="rv" data-c="Küchen"><button type="button" data-k="34" aria-label="Küche nach Maß groß ansehen"><img src="img/kucheneinrichtung_2.webp" alt="Küche nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Küchen</figcaption></figure><figure class="rv" data-c="Küchen"><button type="button" data-k="35" aria-label="Küche nach Maß groß ansehen"><img src="img/kucheneinrichtung_3.webp" alt="Küche nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Küchen</figcaption></figure><figure class="rv" data-c="Küchen"><button type="button" data-k="36" aria-label="Küche nach Maß groß ansehen"><img src="img/kucheneinrichtung_4.webp" alt="Küche nach Maß" loading="lazy" width="640" height="853"></button><figcaption>Küchen</figcaption></figure><figure class="rv" data-c="Möbel"><button type="button" data-k="37" aria-label="Möbelstück aus Holz groß ansehen"><img src="img/mobelstucke_1.webp" alt="Möbelstück aus Holz" loading="lazy" width="640" height="1708"></button><figcaption>Möbel</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="38" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_0.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="39" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_1.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="40" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_10.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="41" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_11.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="42" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_12.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="43" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_13.webp" alt="Praxiseinrichtung" loading="lazy" width="640" height="856"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="44" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_2.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="45" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_4.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="46" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_5.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="658"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="47" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_6.webp" alt="Praxiseinrichtung" loading="lazy" width="640" height="853"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="48" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_8.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="660"></button><figcaption>Praxis & Laden</figcaption></figure><figure class="rv" data-c="Praxis & Laden"><button type="button" data-k="49" aria-label="Praxiseinrichtung groß ansehen"><img src="img/praxiseinrichtungen_9.webp" alt="Praxiseinrichtung" loading="lazy" width="880" height="658"></button><figcaption>Praxis & Laden</figcaption></figure></div>
+    <p class="note rv">Bilder aus früheren Projekten. Aktuelle Fotos folgen.</p>
+    <div class="refs">
+      <div class="rv"><b>Praxiseinrichtung</b><span>Möbel und Fußboden für eine Ergotherapie-Praxis in Plön</span></div>
+      <div class="rv"><b>Dachgeschossausbau</b><span>Kompletter Ausbau für eine Familie im Raum Hamburg</span></div>
+      <div class="rv"><b>Einbauschränke</b><span>Maßanfertigungen für Familien in Lübeck und Umgebung</span></div>
+      <div class="rv"><b>Fenster &amp; Altbausanierung</b><span>Umbau und Sanierung im Lübecker Umland</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="fragen" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Gut zu wissen</div><h2 class="h">Häufige Fragen</h2></div>
+    <div class="faq">
+      <details class="rv"><summary>Parkett aus Ahorn oder Eiche?</summary><p>Eiche ist unproblematischer als Ahorn, weil sie weniger zu Fugenbildung neigt. Ohne Fußbodenheizung und bei ausgeglichenem Raumklima funktioniert aber auch Ahorn völlig problemlos. Wir beraten Sie gern, welche Holzart zu Ihrem Haus passt.</p></details>
+      <details class="rv"><summary>Lässt sich eine alte Holztreppe wieder aufarbeiten?</summary><p>Ja, oft lohnt sich das. Je nach Lack und Profil arbeiten wir mit Abbeizer, Schleifen oder der Ziehklinge. Wir schauen uns Ihre Treppe gern vor Ort an.</p></details>
+      <details class="rv"><summary>Können Sie nach meiner eigenen Zeichnung bauen?</summary><p>Natürlich. Sie können uns Ihre Ideen beschreiben oder genaue Zeichnungen mitbringen. Gemeinsam finden wir die beste Lösung für Ihr Möbel oder Ihren Ausbau.</p></details>
+      <details class="rv"><summary>Wie weit fahren Sie?</summary><p>Wir arbeiten in Lübeck und im Umkreis von rund 100 km, also auch in Schleswig-Holstein und im Raum Hamburg.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Sprechen Sie uns an</h2><p class="lead">Für eine kostenlose Beratung erreichen Sie uns Montag bis Freitag von 7 bis 18 Uhr telefonisch oder jederzeit per E-Mail.</p></div>
+    <div class="cbox">
+      <a class="tile rv" href="tel:+494512929626"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon</small><strong>0451 2 92 96 26</strong></span></a>
+      <a class="tile rv" href="mailto:info@tischlerei-jan.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>info@tischlerei-jan.de</strong></span></a>
+      <div class="tile rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Geschäftszeiten</small><strong>Mo bis Fr, 7 bis 18 Uhr</strong></span></div>
+      <a class="tile rv" href="https://www.google.com/maps/search/Tischlerei+Jan+A.+Neumann+L%C3%BCbeck" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Adresse</small><strong>Neuland 6, 23560 Lübeck</strong></span></a>
+    </div>
+    <div class="area rv">
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d9a05b" stop-opacity=".3"/><stop offset="1" stop-color="#d9a05b" stop-opacity="0"/></radialGradient></defs>
+          <g stroke="rgba(245,244,241,.08)" fill="none"><path d="M0 80 600 60M0 160 600 190M0 260 600 240M120 0 90 340M260 0 300 340M430 0 400 340M520 0 560 340"/><path d="M180 0C200 120 160 220 230 340" stroke="rgba(245,244,241,.2)" stroke-width="5"/><path d="M380 0C420 80 470 120 600 140" stroke="rgba(120,170,255,.25)" stroke-width="7"/></g>
+          <text x="192" y="30" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">A1</text>
+          <circle cx="300" cy="170" r="130" fill="url(#g)"/>
+          <circle cx="300" cy="170" r="9" fill="#d9a05b"/><circle cx="300" cy="170" r="18" fill="none" stroke="#d9a05b" stroke-opacity=".5"/>
+          <text x="318" y="162" fill="#2b1d10" font-family="Manrope,sans-serif" font-size="15" font-weight="600">Tischlerei J.A. Neumann</text>
+          <text x="318" y="182" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Lübeck-Moisling</text>
+        </svg>
+      </div>
+      <div class="txt"><h3>Lübeck und 100 km Umkreis</h3><p>Sie finden uns nahe der A1, Abfahrt Lübeck-Moisling. Wir kommen für Beratung und Aufmaß zu Ihnen, in ganz Schleswig-Holstein und im Raum Hamburg.</p><p style="margin-top:18px"><a class="btn or" href="tel:+494512929626">Jetzt anrufen</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Tischlerei Jan A. Neumann · Neuland 6 · 23560 Lübeck</span>
+    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+    <span style="flex-basis:100%;opacity:.75;font-size:12px">Designentwurf, nicht die offizielle Website. Der Drohnenflug ist ein KI-generiertes Beispielvideo und wird gern durch Aufnahmen Ihrer eigenen Arbeiten ersetzt.</span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Bildansicht"><button class="lbx" id="lbx" aria-label="Schließen">×</button><button class="lbp" id="lbp" aria-label="Vorheriges Bild">‹</button><img id="lbi" alt=""><button class="lbn" id="lbn" aria-label="Nächstes Bild">›</button><div class="lbc" id="lbc"></div></div>
+<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*4.6),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Film: echte Projektfotos fliegen nacheinander ins Bild */
+(()=>{
+const draft=document.querySelector('.draft'),hero=document.querySelector('.hero'),frs=[...document.querySelectorAll('.fr')],bgs=[...document.querySelectorAll('.bgs i')],caps=[...document.querySelectorAll('.cap')],dots=[...document.querySelectorAll('#dots i')],hint=document.getElementById('hint'),lc=document.getElementById('lc');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,N=frs.length,END=.86;
+let cur=0,tgt=0,last=-1;
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=x=>1-Math.pow(1-x,3);
+function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
+function render(p){
+  const raw=cl(p/END)*(N-1+.999),ip=Math.floor(raw),fp=raw-ip,sm=fp<.35?0:fp>.75?1:(t=>t*t*(3-2*t))((fp-.35)/.4);const pos=Math.min(N-1+.999,ip+sm); // Bild steht, dann kurzer Wechsel
+  frs.forEach((f,i)=>{const d=pos-i;let x=0,y=0,r=0,s=1,o=1,z=0;
+    const side=i%2?1:-1;
+    if(d<-1){y=110;o=0;r=10*side;}
+    else if(d<0){const t=ease(1+d);y=(1-t)*105;r=(1-t)*12*side+t*(side*2);s=.92+.08*t;o=t;}
+    else{const t=cl(d);r=side*2-t*side*6;x=-t*9;s=1-t*.1;o=d<1?1-t*.45:d<2?.55-(d-1)*.4:0;y=-t*3;z=-t;}
+    if(p>END){const e=ease(cl((p-END)/.1));s*=1-.25*e;o*=1-e;}
+    f.style.transform=`translate(${x}%,${y}%) rotate(${r}deg) scale(${s})`;f.style.opacity=o;f.style.zIndex=50+Math.round(z*10)+i;f.classList.toggle('front',i===Math.min(N-1,Math.round(pos))&&p<=END);});
+  const e=ease(cl((p-END)/.1));lc.style.opacity=e;lc.style.transform=`scale(${.9+.1*e})`;
+  const idx=p>END+.03?N:Math.min(N-1,Math.round(pos));
+  if(idx!==last){last=idx;bgs.forEach((g,k)=>g.classList.toggle('on',k===Math.min(idx,N-1)));
+    caps.forEach(c=>c.classList.toggle('on',+c.dataset.i===(p<.04?0:idx+1)));dots.forEach((d,k)=>d.classList.toggle('on',k===idx));}
+  if(p<.04&&!caps[0].classList.contains('on')){caps.forEach(c=>c.classList.toggle('on',c.dataset.i==='0'));}
+}
+function frame(){tgt=prog();cur+=(tgt-cur)*(reduce?1:.12);render(cur);hint.style.opacity=cur>.02?0:1;draft.classList.toggle('hide',tgt<.995);requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();
+/* Galerie: Filter und Großansicht */
+(()=>{
+const figs=[...document.querySelectorAll('#gal figure')],chips=[...document.querySelectorAll('#chips button')],lb=document.getElementById('lb'),li=document.getElementById('lbi'),lcap=document.getElementById('lbc');
+let vis=figs,k=0;
+chips.forEach(b=>b.onclick=()=>{chips.forEach(x=>x.classList.toggle('on',x===b));const c=b.dataset.c;figs.forEach(f=>{const h=c&&f.dataset.c!==c;f.classList.toggle('hide',h);if(!h)f.classList.add('in');});vis=figs.filter(f=>!f.classList.contains('hide'));});
+function show(n){k=(n+vis.length)%vis.length;const im=vis[k].querySelector('img');li.src=im.src;li.alt=im.alt;lcap.textContent=vis[k].dataset.c+' · '+(k+1)+' / '+vis.length;}
+figs.forEach(f=>f.querySelector('button').onclick=()=>{show(vis.indexOf(f));lb.hidden=false;document.body.style.overflow='hidden';});
+const close=()=>{lb.hidden=true;document.body.style.overflow='';};
+document.getElementById('lbx').onclick=close;document.getElementById('lbp').onclick=()=>show(k-1);document.getElementById('lbn').onclick=()=>show(k+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close();});
+addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(k+(dx<0?1:-1));});
+})();
+
+/* Drohnenflug: Einzelbilder, hd am Computer, sd im Hochformat */
+(()=>{
+const fly=document.getElementById('flug'),cv=document.getElementById('flycv'),cx=cv.getContext('2d'),caps=[...fly.querySelectorAll('.fly-cap')],bar=document.getElementById('flybar');
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,N=119,DIR=innerWidth/innerHeight<1?'film/sd/':'film/hd/',fr=new Array(N),ok=new Uint8Array(N);
+let W=0,H=0,tgt=0,cur=0,drawn=-1,started=false;
+caps.forEach(c=>{const h=c.querySelector('h2');let i=0;h.innerHTML=h.textContent.split(/(\s+)/).map(t=>/^\s+$/.test(t)?t:`<span class="w" style="transition-delay:${(i++)*70}ms">${t}</span>`).join('');});
+function size(){const d=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);cx.imageSmoothingQuality='high';drawn=-1;}
+function near(i){if(ok[i])return i;for(let k=1;k<N;k++){if(i-k>=0&&ok[i-k])return i-k;if(i+k<N&&ok[i+k])return i+k;}return -1;}
+function draw(x){const i0=Math.floor(x),f=x-i0,key=i0+Math.round(f*8)/8,k=near(i0);if(k<0||key===drawn)return;const im=fr[k],sc=Math.max(W/im.naturalWidth,H/im.naturalHeight),dw=im.naturalWidth*sc,dh=im.naturalHeight*sc,ox=(W-dw)/2,oy=(H-dh)/2;cx.globalAlpha=1;cx.drawImage(im,ox,oy,dw,dh);const i1=Math.min(N-1,i0+1);if(k===i0&&f>.05&&ok[i1]){cx.globalAlpha=f;cx.drawImage(fr[i1],ox,oy,dw,dh);cx.globalAlpha=1;}drawn=k===i0?key:k;}
+const order=[],seen=new Uint8Array(N);for(const st of [30,15,8,4,2,1])for(let i=0;i<N;i+=st)if(!seen[i]){seen[i]=1;order.push(i);}
+let q=0;function pump(){if(q>=order.length)return;const i=order[q++],im=new Image();im.decoding='async';im.onload=()=>{fr[i]=im;ok[i]=1;drawn=-1;pump();};im.onerror=pump;im.src=DIR+'f'+String(i+1).padStart(3,'0')+'.webp';}
+/* erst laden, wenn der Film in die Nähe kommt, damit der Start der Seite schnell bleibt */
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!started){started=true;for(let c=0;c<4;c++)pump();o.disconnect();}},{rootMargin:'150% 0px'}).observe(fly);
+function read(){const r=fly.getBoundingClientRect();tgt=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));let c=-1;caps.forEach((el,k)=>{if(tgt>=+el.dataset.a&&tgt<+el.dataset.b)c=k;});caps.forEach((el,k)=>{const on=k===c;if(el.classList.contains('on')!==on)el.classList.toggle('on',on);});bar.style.width=(tgt*100)+'%';}
+(function loop(){cur+=(tgt-cur)*(RM?1:.12);if(Math.abs(tgt-cur)<.0005)cur=tgt;draw(cur*(N-1));requestAnimationFrame(loop);})();
+addEventListener('resize',()=>{size();read();});addEventListener('scroll',read,{passive:true});size();read();
+})();
+</script>
+</body>
+</html>

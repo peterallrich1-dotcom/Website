@@ -1,0 +1,392 @@
+in_liste_N,score,rubrik,ort,name,telefon,website,befund
+ja,5,elektriker,werder-havel,Plamann Ralf Elektro-Anlagen-Tiefbau,033207 7 06 77,http://www.plamann-elektro.de,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,gartenbau,teltow,Robert Kurtz Garten- und Landschaftsbau,030 77 20 89 90,http://kurtzundgut.berlin,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,tischler,kleinmachnow,OPTIMAL Holz- & Ausbau GbR,0331 7 48 16 53,http://www.optimalbau-potsdam.de/,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,physiotherapie,nauen,"Tierarztpraxis Neu-Amerika Kleintiere u. Pferde Dr. Regine Beythien, FTÄ für Chirurgie u. Augenheilkunde ZB",033970 5 19 19,http://www.neu-amerika.de,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,tischler,hennigsdorf,Möbel-Schwarz Tischlermeister Gustav Schwarz GmbH,030 4 03 20 41,http://www.schwarz-einrichtungen.de,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,4,elektriker,werder-havel,Modrach Haustechnik GmbH,03327 56 99 99,http://www.solar-potsdam.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,fahrschule,werder-havel,Handke Andreas Fahrschule,0331 52 02 14,http://fahrschule-handke.com,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,werder-havel,Unruh Wolfgang KFZ-Reparaturwerkstatt,03327 4 23 03,http://www.auto-unruh.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,werder-havel,Baufirma Mario Neumann,03385 5 17 88 30,http://www.baufirma-neumann.de,"kein https, nicht mobil, Stand 2017"
+,4,gartenbau,werder-havel,"Georg Schulz Garten-, Landschafts- und Sportplatzbau GmbH & Co. Kommanditgesellschaft",033701 7 40 90,http://www.georg-schulz-galabau.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,teltow,Tischlerei Risse,030 8 31 17 52,https://www.tischlerei-tr.de,"nicht mobil, NetObjects, kaum Inhalt"
+ja,4,elektriker,teltow,Heinel Frank,0177 6 87 30 30,http://www.elektroheinel.de,"kein https, nicht mobil, Jimdo"
+,4,elektriker,teltow,Anlagentechnik Schwarz GmbH,030 8 01 83 06,http://www.anlagentechnik-schwarz.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,teltow,Ästhetik Am Rathausmarkt Verbena Meyer,033203 88 72 30,http://www.apotheken-in-kleinmachnow.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,teltow,Kfz-Instandsetzung Möllendorf GbR,03328 4 16 58,http://www.kfz-moellendorf.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,teltow,Sani-Schmidt,030 56 82 77 37,http://www.sani-schmidt.de,"kein https, nicht mobil, NetObjects"
+ja,4,friseur,falkensee,Classic Hair Inh. Natalia Müller,030 35 38 90 19,http://www.classic-hair.net,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,falkensee,Tischlerei und Möbelhandlung Walter Bartsch GmbH,030 3 35 26 90,http://tischlereibartsch.de,"kein https, nicht mobil, Stand 2019"
+ja,4,elektriker,falkensee,SETIS Cine Elektronik GmbH,03322 24 48 48,http://www.setis.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,falkensee,Allroundhandwerk Spandau,0157 74 30 01 95,http://www.allroundhandwerk-spandau.de,"kein https, nicht mobil, Stand 2014"
+,4,elektriker,falkensee,E-Team Elektroinstallationen GmbH,0171 4 21 07 82,http://www.e-team-online.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,falkensee,"Praxis Rückenwind Völcker Susanne Logopädie, Ergotherapie, Physiotherapie",03322 1 26 52 05,http://www.mein-rueckenwind.de,"kein https, nicht mobil, kaum Inhalt"
+,4,dachdecker,falkensee,Wolter Bedachung GmbH Dachdeckerei,03322 21 63 69,http://www.wolterbedachung.de,"nicht mobil, FrontPage, kaum Inhalt"
+,4,kfz-werkstatt,falkensee,Maistro Kfz-Werkstatt und Handels-GmbH,030 3 36 65 59,http://maistro.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,falkensee,Hasenbalg Uwe Innen- und Trockenbau,03322 23 17 67,http://www.uwe-hasenbalg.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,falkensee,Dirk Stobbe Alles im grünen Bereich,030 4 32 10 42,http://www.allesimgruenenbereich.info/kontakt.html,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,falkensee,Kampowski K & K Kampowski Peter & Sohn GmbH Sanitär- Heizung- Gasanlagen,03322 4 24 78 98,http://www.kampowski-peter.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,elektriker,oranienburg,Elektro Fritz - Matthias Fritz,03304 20 62 33,http://www.elektro-fritz-leegebruch.de,"kein https, nicht mobil, NetObjects"
+ja,4,restaurant,oranienburg,Carollis Restaurant & Cafe Ayse,03301 68 91 44,http://www.carollis.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,oranienburg,Restaurant Bellino,03304 20 93 35,http://www.bellino-leegebruch.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,oranienburg,Baumpflege und Landschaftsbau Jens Lauktien,03301 52 93 76,http://www.mgs-lauktien.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,bernau-bei-berlin,Deutschmann Daniel Friseursalon,03338 70 27 09,http://www.friseur-deutschmann.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,bernau-bei-berlin,Schelske Annett Friseur,03338 7 05 74 26,http://www.friseur-schelske.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,bernau-bei-berlin,Hanert Peter Tischlerei,030 9 44 40 19,http://www.tischlerei-hanert.de,"kein https, nicht mobil, Jimdo"
+,4,tischler,bernau-bei-berlin,Staubach Christian,03338 75 92 32,http://www.wand-boden-decke.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,bernau-bei-berlin,Tischlerei Templin GmbH,030 94 10 92-0,http://www.tischlerei-templin.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,bernau-bei-berlin,Sven Tischler Baumdienst,0172 3 19 94 88,http://sven-tischler.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,bernau-bei-berlin,Jens Dammköhler Tischler- Jens,03338 76 77 00,http://www.tischler-jens.de,"nicht mobil, Stand 2008, kaum Inhalt"
+,4,elektriker,bernau-bei-berlin,Elektro Jebens,03338 75 39 35,http://www.elektro-jebens.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,bernau-bei-berlin,Anders Elektro,0171 2 76 82 89,http://www.anders-elektro.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,bernau-bei-berlin,HSDM Gesellschaft für Elektroanlagen mbH,030 84 41 75 96,http://www.hsdm-gmbh.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,bernau-bei-berlin,Hofgeflüster Pension & Restaurant,03338 3 38 98 98,http://www.pension-hofgefluester.de,"nicht mobil, Stand 2016, Jimdo"
+,4,kfz-werkstatt,bernau-bei-berlin,KFZ-Selbsthile u.Werkstatt Inh.R.Weiher,03338 70 95 43,http://www.kfz-selbsthilfe.net,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,bernau-bei-berlin,Bedrich Roland Fliesenlegerfachbetrieb,03338 76 94 31,http://www.bedrich-bau.de,"kein https, nicht mobil, im Aufbau"
+,4,fliesenleger,bernau-bei-berlin,Arne Schaub Fliesenleger,0163 8 44 34 89,http://arneschaub.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,bernau-bei-berlin,Dames Mario Gartengestaltung,03338 76 45 25,http://www.dames-bernau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,bernau-bei-berlin,Rohr Designer,033398 8 71 57,http://www.rohr-designer.de/,"kein https, nicht mobil, NetObjects"
+,4,sanitaer,bernau-bei-berlin,Marquardt GmbH Sanitär Heizung Klima,03338 20 23,http://www.marquardt-gmbh.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,elektriker,koenigs-wusterhausen,ets Holding GmbH,03375 21 46 34,http://www.ets-krueger.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,koenigs-wusterhausen,Bernhard Brendel und Michael Brendel Elektrotechnik,033762 82 57 72,http://www.eltec-brendel.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,koenigs-wusterhausen,Elektro-Brendel,033762 82 57 72,http://www.elektrobrendel.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,koenigs-wusterhausen,Reda Restaurant Osteria Forio Abbas,03375 52 44 15,http://www.osteriaforio.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,gartenbau,koenigs-wusterhausen,Kernchen-Bau,0171 6 18 39 96,http://www.kernchen-bau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,koenigs-wusterhausen,HOLZ- & SPEZIALBAU Schadly GmbH & Co. KG,033765 13 90 56,http://www.holz-spezialbau.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,brandenburg-an-der-havel,Haarzauberei,03381 3 25 27 22,http://www.haarzauberei.com,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,brandenburg-an-der-havel,Malerbetrieb Mario Sckmelzer GmbH,0173 5 77 93 16,http://www.maler-schmelzer.de,"kein https, nicht mobil, NetObjects"
+ja,4,maler,brandenburg-an-der-havel,NeoConstruct GmbH,03381 79 69 26,http://www.neoconstruct.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,brandenburg-an-der-havel,Butt Thomas Möbel- und Bautischlerei,033837 2 09 77,http://www.freiraumlandschaft.de,"kein https, nicht mobil, Jimdo"
+,4,elektriker,brandenburg-an-der-havel,Elektro-Brüggemann,03381 22 74 32,http://elektro-brueggemann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,brandenburg-an-der-havel,Physiotherapie am Quenz,03381 3 27 97 97,http://www.physiotherapie-am-quenz.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,brandenburg-an-der-havel,REHBRA,03381 66 32 83,http://www.rehbra.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,brandenburg-an-der-havel,Matthias Gärtnerhof,03381 52 47 15,http://www.gaertnerhof.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,sanitaer,ludwigsfelde,Rohrreinigung Jürgen Timptner,03378 80 37 68,http://www.rohrreinigung-timptner.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,kleinmachnow,Elektro Diederichs,0331 62 52 86,http://www.elektro-diederichs.de,"kein https, nicht mobil, Jimdo"
+ja,4,restaurant,kleinmachnow,Villa Medici,030 8 02 11 43,https://www.villa-medici-berlin.de,"nicht mobil, Stand 2018, kaum Inhalt"
+ja,4,dachdecker,kleinmachnow,AMH Flachdach-Sicherungs GmbH Absturzsicherung,030 93 95 36-0,http://www.amh-berlin.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,michendorf,Maler- und Lackierermeister Schall Thomas,033205 25 62 31,http://www.malermeisterschall.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,michendorf,Michael Krause Maler und Lackierer,033200 5 16 13,http://michael-krause.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,michendorf,Artschwager Elektro,033200 55 44 33,http://www.artschwager-elektro.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,michendorf,Michendorfer Sonnenmühle,033205 2 15 02,http://www.sonnen-muehle.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,michendorf,Landhaus Zu Stücken Wildgaststätte,033204 6 10 50,http://www.landhaus-stuecken.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,michendorf,Autoservice Noack,0331 6 01 24 80,http://www.noack-autoservice.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,michendorf,grünschnitt GmbH Garten- und Landschaftsbau,033205 22 72 06,http://www.gruenschnitt.eu/,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,michendorf,Baum- und Landschaftspflege GmbH,0331 6 00 46 71,http://www.balagmbh.de/,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kfz-werkstatt,nauen,J & P Fahrzeuginstandsetzungs GmbH KFZ-Vertragswerkstatt,03321 45 57 90,http://www.jundp-werkstatt.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,hennigsdorf,Maler Hennigsdorf GmbH,03302 22 44 20,http://maler-hennigsdorf.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,hennigsdorf,Presser Detlef Malermeister,03304 3 13 82,https://www.detlef-presser.de,"nicht mobil, im Aufbau, kaum Inhalt"
+,4,maler,hennigsdorf,Witzmann Malerei & Beschichtungstechnik UG (haftungsbeschränkt),030 4 04 42 92,http://www.malereiwitzmann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,hennigsdorf,Eckardt Ekkehart Tischlermeister,030 40 53 33 11,http://www.tischlerei-eckardt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,hennigsdorf,Wannicke Klaus Elektromeister,030 4 33 99 81,http://www.elektro-wannicke.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,hennigsdorf,Beauty& Wellness Köhler,0173 8 13 98 27,http://www.koehler-cosmetic.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,hennigsdorf,Kosmetik Institut Kurtzyk Ilona Andrag,030 4 33 43 55,http://www.bvs-1990.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,hennigsdorf,Pizzaiolo Pizzaimbiss,030 40 10 77 94,http://www.pizzaiolo-frohnau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,hennigsdorf,China Restaurant Lucky Chinese,030 4 33 50 33,http://www.lucky-chinese.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,hennigsdorf,O-C-Holz,030 4 31 59 38,http://www.oc-holz.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,hennigsdorf,Jage Martin,030 43 40 87 24,http://www.physiotherapie-jage.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,hennigsdorf,Gartenbaubetrieb Carmen Damer,03302 4 94 91 12,http://www.aqua-pflanzen.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,hennigsdorf,Wrobel Landschaftsbau GmbH,03302 4 98 80 70,http://wrobel-gmbh.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,eberswalde,Hübner GmbH Malerei u. Gestaltung,03334 4 21 38,http://www.malermeister-huebner.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,eberswalde,Eiscafé Venezia Piazza,03334 28 90 86,http://www.eiscafe-venezia-piazza.de/,"kein https, nicht mobil, kaum Inhalt"
+ja,4,fahrschule,eberswalde,Witte Ralf,0160 99 11 71 08,http://www.fahrschule-ralf-witte.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,physiotherapie,fuerstenwalde-spree,"Reich, Physiotherapiepraxis",03361 69 34 08,http://www.physiotherapie-reich.de,"kein https, nicht mobil, Stand 2010"
+ja,4,dachdecker,fuerstenwalde-spree,Wobring Ralf,033633 6 59 80,http://www.dachbau-wobring.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,dachdecker,fuerstenwalde-spree,Balewski Michael Dachdecker,0152 04 19 03 94,http://www.balewski-dach.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,fuerstenwalde-spree,Schulze Michael,0173 2 06 63 59,http://www.bad24-los.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,strausberg,Streidt Oliver Tischlerei,03341 2 36 57,http://www.tischler-streidt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,strausberg,Hardy Baskiro Tischlerei,03341 49 72 08,http://www.baskiro.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,strausberg,GSI Gässler Service Industriemontagen GmbH,03341 3 08 27 57,http://www.gsi-gmbh.info,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,strausberg,Kosmetik-Häschen,03341 4 82 25,http://www.kosmetik-haeschen.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,strausberg,Athos,03341 39 06 50,http://www.athos-strausberg.de,"kein https, nicht mobil, Stand 2011"
+ja,4,dachdecker,strausberg,Günther Joachim Dachdeckerei,033439 64 84,http://www.dachdeckerei-guenther.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,strausberg,Dräger Enrico Fliesenlegermeister,03341 39 05 82,http://www.fliesendraeger.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,strausberg,Angermünder Fachhandel GmbH,033434 14 91-0,http://www.afh24.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,zossen,Jaeger Malerbetrieb,03377 20 42 28,http://www.jaeger-malerei.de,"kein https, nicht mobil, Stand 2011"
+ja,4,gartenbau,zossen,Carsten Börjes Garten- und Landschaftsbau,0172 3 26 44 07,http://gruen-stein-wasser.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,rathenow,Zur alten Schmiede,03385 4 99 38 70,http://www.gastro-rathenow.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,rathenow,Märkische Bierstuben Speisegaststätte,03385 51 28 86,http://www.maerkische-bierstuben.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,luckenwalde,Werlitz Malerbetrieb,03371 61 20 18,http://www.malerbetrieb-werlitz.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,luckenwalde,Hochmal-Elektro-Service,03371 61 15 44,http://www.hochmal.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,luckenwalde,Jochen Hesse,03371 61 02 68,http://www.jochen-hesse.com,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,luckenwalde,Dennis Reichardt Elektrotechnik,0172 6 03 85 88,http://www.reichardt-elektro.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kfz-werkstatt,luckenwalde,Stephan Kfz-Meisterbetrieb,03371 6 98 98 26,http://www.stephan-kfz.de,"kein https, nicht mobil, Jimdo"
+,3,maler,werder-havel,Malermeister Thiele GbR,0162 1 02 21 80,http://www.maler-thiele.de/,"nicht mobil, kaum Inhalt"
+,3,maler,werder-havel,Brose Andreas u. Schäfer Stefanie,0331 5 81 13 50,https://www.malermeister-brose.de/,"nicht mobil, kaum Inhalt"
+,3,elektriker,werder-havel,Elektro-Kuhberg Inh. Dennis Kuhberg,0331 50 46 32,https://www.elektro-kuhberg.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,werder-havel,Elektro Walter Inh. Mathias Walter Elektroinstallateurmeister,03327 4 32 11,http://www.elektro-walter.de,"nicht mobil, kaum Inhalt"
+,3,fahrschule,werder-havel,Fahrschule Philipp Fahrschule,0162 6 49 42 00,http://www.fahrschule-philipp-werder.de,"kein https, nicht mobil"
+,3,fahrschule,werder-havel,Fahrschule Borchardt,0331 96 42 05,http://www.fahrschule-borchardt.com,"nicht mobil, kaum Inhalt"
+,3,gartenbau,werder-havel,Polz Ilona Baumsanierung,03327 4 27 51,http://www.polz-galabau.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,werder-havel,Geidel Haustechnik,033209 43 96 98,https://www.geidelhaustechnik.de,"nicht mobil, Jimdo"
+,3,sanitaer,werder-havel,Günter Herold - Installateurmeister,0331 96 14 64,http://www.klempner-herold.de,"kein https, nicht mobil"
+,3,sanitaer,werder-havel,Schlüter Sanitärinstallationen Zentralheizungsbau Gas Wasser,0331 97 03 01,http://www.schlueter-potsdam.de,"kein https, nicht mobil"
+,3,maler,teltow,Stefanie Meier,030 8 11 62 66,https://www.malermeisterin-meier.de,"nicht mobil, Jimdo"
+,3,maler,teltow,Erhard Zimmermann Malerei GmbH,030 7 12 78 76,http://www.ez-malerei.de,"nicht mobil, Jimdo"
+,3,tischler,teltow,Kuhlmay Jörg Tischlerei,03329 61 15 63,https://www.tischlerei-kuhlmay.de,"nicht mobil, kaum Inhalt"
+,3,tischler,teltow,Tischlerei Stadie und Strobl GmbH,030 8 17 31 47,http://stadie-strobl.de,"kein https, nicht mobil"
+,3,kosmetik,teltow,Melanie Schmiedel - Praxis für Podologie in Teltow -,03328 30 79 74,http://physiotherapie-memando.de/podologie-teltow-melanie-schmiedel,"nicht mobil, kaum Inhalt"
+,3,kosmetik,teltow,Jürgen Kerstin Kosmetikinstitut,030 86 20 09 59,http://www.2-4-u.de,"kein https, nicht mobil"
+,3,restaurant,teltow,TIM GmbH,03329 61 29 29,https://www.tim-service.gmbh,"nicht mobil, Jimdo"
+,3,fahrschule,teltow,Fahrschule Uwe Heinrich,030 8 33 06 87,http://fahrschule-heinrich.rocks/,"kein https, nicht mobil"
+,3,fahrschule,teltow,Fahrschule Ouart,030 8 14 10 72,http://www.fahrschule-ouart.de/,"kein https, nicht mobil"
+,3,dachdecker,teltow,Avant Dachbau GmbH,030 77 39 50 56,http://www.avant-dachbau.de,"nicht mobil, kaum Inhalt"
+,3,gartenbau,teltow,"Jörn Busse, Garten- und Landschaftsbau, Winterdienst GmbH",030 8 15 21 30,http://www.busse-winterdienst.de,"nicht mobil, kaum Inhalt"
+,3,gartenbau,teltow,Wir im Garten GmbH,03328 3 54 81 95,http://wirimgarten.jimdofree.com,"nicht mobil, Jimdo"
+,3,friseur,falkensee,Friseursalon Nicole Kleiner,03322 23 72 93,http://salon-nicole-falkensee.de,"nicht mobil, kaum Inhalt"
+,3,friseur,falkensee,ines schwarz FRISEURE,03322 12 81 60,https://www.inesschwarzfriseure.de/,"nicht mobil, Stand 2014"
+,3,tischler,falkensee,Schwanke Michael Tischlerei,03322 28 80 86,https://www.tischlerei-schwanke.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,falkensee,ELFA Elektrotechnik GmbH,03322 2 51 30,http://www.elfa-falkensee.de,"nicht mobil, FrontPage"
+,3,kosmetik,falkensee,Outlook Kosmetikstudio,0173 7 08 82 18,http://www.outlook-kosmetik.de,"kein https, nicht mobil"
+,3,restaurant,falkensee,Eiscafé Millefiori,030 3 33 76 40,http://eiscafemillefiori.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,falkensee,Airstream Gourmet,030 36 40 31 62,http://airstream-gourmet.com,"kein https, nicht mobil"
+,3,fahrschule,falkensee,Fahrschule Dormann,03322 20 43 75,http://dormanns-fahrschule.de/,"kein https, nicht mobil"
+,3,dachdecker,falkensee,Hardtke GmbH Dach + Fassade,033201 2 13 83,http://hardtke-gmbh.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,falkensee,Dachdeckerei Gerald Schulz,03322 2 73 98 30,https://www.ddm-schulz.de/,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,falkensee,abs Autodienst Buchholz & Schneider GmbH Autoreparatur,030 3 31 50 51,https://www.abs-autodienst.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,falkensee,Auto- & Zweiradhof Handels - GmbH,030 51 06 73 60,http://www.autoundzweiradhof.de,"kein https, nicht mobil"
+,3,kfz-werkstatt,falkensee,Kemper Lackreparaturen - Ihr Lackdoktor KFZ-Lackiererei,03322 2 86 76 14,http://www.lackreparatur-kemper.de,"kein https, nicht mobil"
+,3,sanitaer,falkensee,Kruschke Sanitär- und Gasheizungsbau GmbH Gasheizungswartungen,030 3 75 09 30,https://www.diebadprofis.de,"nicht mobil, Jimdo"
+,3,sanitaer,falkensee,badgerecht GmbH,030 35 13 11 70,http://www.badgerecht.de,"nicht mobil, im Aufbau"
+,3,maler,oranienburg,"MLB GmbH Maler-, Lackierer- und Bodenbelagsarbeiten",03391 65 58 20,http://www.mlb-gmbh-opr.de/,"kein https, nicht mobil"
+,3,maler,oranienburg,Manfred Karsunke-Urmersbach - Malermeister -,03301 2 00 88 88,http://malermeister-karsunke.de,"kein https, nicht mobil"
+,3,maler,oranienburg,Wirth Thomas Malermeister,03303 50 15 40,http://www.thomas-wirth-web.de,"kein https, nicht mobil"
+,3,maler,oranienburg,FRB-Fassadenrenovierung GmbH,03301 6 89 68 80,https://www.frb-berlin.de,"nicht mobil, kaum Inhalt"
+,3,tischler,oranienburg,SJS Ausbau GmbH,033053 9 00 99,https://www.sjs-ausbau.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,oranienburg,Elektro-Service Thomas Schaffran,0171 6 49 08 88,http://www.elektroservice-oranienburg.de,"kein https, nicht mobil"
+,3,elektriker,oranienburg,Elektro Grieben,03301 58 21 81,http://www.elektro-grieben.de,"kein https, nicht mobil"
+,3,restaurant,oranienburg,Ristorante Paganini Mia Ha Meyer,03301 20 20 25,http://www.ristorante-paganini.de,"kein https, nicht mobil"
+,3,restaurant,oranienburg,MIRA Indisches Restaurant,03301 6 87 19 60,https://www.mira-restaurant.de,"nicht mobil, Stand 2016"
+,3,kfz-werkstatt,oranienburg,Abel Christian Autowerkstatt,03303 50 24 13,https://www.abel-kfz.de/,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,oranienburg,Jörg Dohnke Kfz-Meisterwerkstatt,0173 2 18 99 06,http://www.jd-motors.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,oranienburg,NÜRNBERGER Versicherung - Herbert Cyranka,03301 6 81 82 14,https://www.nuernberger.de,"nicht mobil, kaum Inhalt"
+,3,friseur,bernau-bei-berlin,Salon Christel Inh. A.Weimann,030 94 41 65 92,https://www.salon-christel.de,"nicht mobil, Jimdo"
+,3,maler,bernau-bei-berlin,Lutat Jürgen Malermeister,030 94 41 43 81,https://www.malermeister-lutat.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,bernau-bei-berlin,Elektro Bechert GmbH,030 4 49 54 79,http://www.elektro-bechert.de,"kein https, nicht mobil"
+,3,kosmetik,bernau-bei-berlin,Kluike Sibylle Kosmetikmeisterin,03338 75 95 85,http://www.kosmetik-mobil.homepage.t-online.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,bernau-bei-berlin,Gasthaus Lindow,03338 70 82 35,https://www.gasthaus-lindow.de,"nicht mobil, Stand 2017"
+,3,restaurant,bernau-bei-berlin,Pizza Dorado,030 9 44 67 22,https://www.pizza-dorado.de,"nicht mobil, Stand 2013"
+,3,restaurant,bernau-bei-berlin,Gasthaus Leiterwagen,03338 45 90 90,http://www.leiterwagen.com,"kein https, nicht mobil"
+,3,restaurant,bernau-bei-berlin,Zum Tender,033398 91 88 33,https://www.xn--tendermen-y9a.de/,"nicht mobil, Jimdo"
+,3,physiotherapie,bernau-bei-berlin,Physiotherapie Andrea Scharf,030 94 41 45 25,https://physiotherapie-scharf.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,bernau-bei-berlin,Pohl Erik Meisterbetrieb Dachdeckerei & Zimmerei,03342 21 24 21,http://www.pohl-dachdeckerei.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,bernau-bei-berlin,Speed - Autodienst GmbH Bernau,03338 76 97 88,http://www.speed-autodienst-bernau.de,"kein https, nicht mobil"
+,3,kfz-werkstatt,bernau-bei-berlin,TyreGarage Reifendienst,03338 3 43 49 77,http://www.tyregarage.de,"kein https, nicht mobil"
+,3,gartenbau,bernau-bei-berlin,Gartenbau Hoppe,03338 44 66,http://www.galabau-hoppe.de,"nicht mobil, Jimdo"
+,3,sanitaer,bernau-bei-berlin,Fliesen & Sanitär Steffen Blasendorff,03338 75 59 50,http://www.flisani.info,"nicht mobil, Jimdo"
+,3,sanitaer,bernau-bei-berlin,Fink GmbH,033398 91 19 82,http://www.fink-gmbh-bernau.de,"nicht mobil, Stand 2018"
+,3,friseur,koenigs-wusterhausen,Figaro e.G. Verwaltung,03375 29 48 71,http://www.friseurhandwerk-figaro.sutterpages.de/,"kein https, nicht mobil"
+,3,maler,koenigs-wusterhausen,Beutel Frank Maler/Grafiker,033762 2 15 12,http://www.fb55.de,"nicht mobil, kaum Inhalt"
+,3,tischler,koenigs-wusterhausen,Trost Stefan Tischlerei,03375 50 00 26,http://www.tischlereitrost.de,"kein https, nicht mobil"
+,3,tischler,koenigs-wusterhausen,Schreiber Jörg Tischlermeister,03375 52 52 60,http://www.tischlermeister-schreiber.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,koenigs-wusterhausen,JK Electronic,03375 92 09 75,http://www.jkelectronic.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,koenigs-wusterhausen,Veit Heckendorf,033762 22 82 63,https://www.veit-heckendorf.de,"nicht mobil, NetObjects"
+,3,restaurant,koenigs-wusterhausen,Bowlingkeller Bestensee Inh. Münch u. Pöschk GbR,033763 21 15 03,http://www.bowlingkeller-bestensee.de,"nicht mobil, Jimdo"
+,3,physiotherapie,koenigs-wusterhausen,Trowitzsch Frank Physiotherapie,0173 8 04 15 15,http://www.physiotherapie-bestensee.de,"kein https, nicht mobil"
+,3,fahrschule,koenigs-wusterhausen,Fahrschule Wilde,03375 21 83 16,https://www.fahrschule-wilde.de/,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,koenigs-wusterhausen,A 10 Fahrzeugservice Wildau UG (haftungsbeschränkt),03375 2 12 25 02,http://www.afw-wildau.de,"kein https, nicht mobil"
+,3,fliesenleger,koenigs-wusterhausen,TVBau Fliesenleger,033762 4 02 17,http://www.tvbau.de,"kein https, nicht mobil"
+,3,gartenbau,koenigs-wusterhausen,Taxus Garten- und Landschaftsbau,033764 2 10 29,http://www.taxus-gartenbau.de,"kein https, nicht mobil"
+,3,gartenbau,koenigs-wusterhausen,Garten & Landschaftsbau Torsten Braun Landschaftsbau,033762 7 03 96,http://www.baumdienst-braun.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,koenigs-wusterhausen,Böhler Wärme- & Haustechnik GmbH,0800  0 85 08 51,http://www.boehler-hssr.de,"kein https, nicht mobil"
+,3,friseur,brandenburg-an-der-havel,Friseursalon Kupko Der Friseur,03381 66 18 22,http://www.kupko.de,"kein https, nicht mobil"
+,3,tischler,brandenburg-an-der-havel,Felchow Martin Tischlerei,03381 52 21 75,http://www.tischlerei-felchow.de,"kein https, nicht mobil"
+,3,elektriker,brandenburg-an-der-havel,DYNALECTRO Gebäudetechnik und Industrieanlagen GmbH,03381 30 09 99,http://www.kuest.eu,"nicht mobil, Jimdo"
+,3,restaurant,brandenburg-an-der-havel,IQ-Studentenkeller,0152 53 92 41 05,http://iq-studentenkeller.com,"kein https, nicht mobil"
+,3,physiotherapie,brandenburg-an-der-havel,Physiotherapeutische Praxis Dorothea Sydow,03381 22 92 22,https://www.sydow-brb.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,brandenburg-an-der-havel,Auto Punkt GmbH,0172 3 00 46 05,http://www.auto-punkt.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,brandenburg-an-der-havel,VAZ-Autoteile,03381 5 51 47 50,http://www.vaz-autoteile.de,"kein https, nicht mobil"
+,3,sanitaer,brandenburg-an-der-havel,"PERKER SHS Sanitär,Heizung,Schlosserei GmbH",03381 33 50-30,http://www.perker-shs.de,"kein https, nicht mobil"
+,3,sanitaer,brandenburg-an-der-havel,Ralf Dieckmann Heizung Sanitär Solar,03381 30 33 06,http://heizung-ost.de,"kein https, nicht mobil"
+,3,sanitaer,brandenburg-an-der-havel,Albert Dirk Heizungsbauermeister,03381 31 06 70,http://www.trocha-haustechnik-brandenburg.de,"kein https, nicht mobil"
+,3,restaurant,ludwigsfelde,Forsthaus Siethen,03378 20 61 99,https://www.forsthaus-siethen.de/,"nicht mobil, Jimdo"
+,3,restaurant,ludwigsfelde,AHJ GbR,03378 5 19 75 22,http://www.all-in-lu.de,"kein https, nicht mobil"
+,3,elektriker,kleinmachnow,Ahnert Elektrotechnik,03328 35 49 50,https://www.ahnert-elektrotechnik.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,kleinmachnow,Praxis für Physiotherapie,033203 88 51 95,https://www.physio-heilmann.de,"nicht mobil, NetObjects"
+,3,kfz-werkstatt,kleinmachnow,TUNICAR GmbH,033203 86 88 83,http://tunicar.de,"nicht mobil, kaum Inhalt"
+,3,friseur,michendorf,Haartaxi Potsdam,0331 64 74 53 06,https://www.haartaxi-potsdam.de,"nicht mobil, Jimdo"
+,3,elektriker,michendorf,Smockman Sound,033205 2 25 56,http://www.smockman-sound.de,"kein https, nicht mobil"
+,3,physiotherapie,michendorf,Physiotherapie Tabea Burkhardt und Manon Zoschke GbR,033205 60 90 58,https://physio-neuseddin.jimdofree.com,"nicht mobil, Jimdo"
+,3,gartenbau,michendorf,GartenBildt,0178 4 01 91 90,http://www.gartenbildt.de,"kein https, nicht mobil"
+,3,sanitaer,michendorf,Andrè Rebouillon u. Ingmar Buchelt / SHG GbR,0331 87 39 02,http://www.shg-potsdam.de,"kein https, nicht mobil"
+,3,elektriker,nauen,Elektrotechnik Langusch,033232 23 36 15,https://www.langusch.com,"nicht mobil, Jimdo"
+,3,elektriker,nauen,GTB Gerätetechnik Brieselang GmbH,03321 7 47 92-0,http://www.geraetetechnik-brieselang.de,"kein https, nicht mobil"
+ja,3,kosmetik,nauen,Kosmetikstudio FeinSchliff Inh. Dajana Meller,03321 7 48 74 60,http://www.feinschliff-nauen.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,nauen,Dachdeckerei M. Fahnow,0173 6 06 42 05,http://www.dachdeckerei-fahnow.de,"kein https, nicht mobil"
+,3,dachdecker,nauen,Zimmerei Michael Thiele GmbH,0172 3 27 72 52,https://www.zimmerei-falkensee.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,nauen,Ganzer Joachim KFZ-Werkstatttechnik,03321 44 66-0,http://www.ganzer-nauen.de/,"kein https, nicht mobil"
+,3,gartenbau,nauen,Mario Thiele Wassertechnik Thiele,0163 7 81 81 56,http://wassertechnik-thiele.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,nauen,Heizung-Sanitär Michael Zusset,032 3 48 82 08,https://www.michael-zusset.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,nauen,LHS-Solar,03321 45 25 50,http://www.waermepumpen-heizungsbau.de,"kein https, nicht mobil"
+ja,3,kosmetik,stahnsdorf,Anke Wiesner Kosmetik,030 75 51 93 63,https://www.ankewiesnerkosmetik.de,"nicht mobil, Jimdo"
+,3,friseur,hennigsdorf,Friseur 'kurz oder lang',03302 49 88 66,https://www.friseur-kurz-oder-lang.de,"nicht mobil, Jimdo"
+,3,elektriker,hennigsdorf,Paul & David Elektroinstallation GmbH,030 4 52 27 31,http://www.paulunddavid.de,"nicht mobil, im Aufbau"
+,3,elektriker,hennigsdorf,Elektrotechnik Lavrenz,03303 2 14 77 01,http://www.elektrotechnik-lavrenz.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,hennigsdorf,Frank Retschlag Landhaus Heiligensee,030 74 92 08 85,http://landhaus-heiligensee.de,"nicht mobil, Stand 2011"
+,3,physiotherapie,hennigsdorf,Physio Team Katrin Tiede Physiotherapie,03302 79 15 28,http://www.physioteam-hennigsdorf.de,"kein https, nicht mobil"
+,3,dachdecker,hennigsdorf,Erichsen Dachdeckerei-Dachklempnerei GmbH,03302 4 94 03 64,http://www.erichsen-dachdeckerei.de,"nicht mobil, kaum Inhalt"
+,3,fliesenleger,hennigsdorf,Jens Kahrau Fliesenleger,0176 74 38 25 02,http://www.home-fliesenleger.de,"nicht mobil, kaum Inhalt"
+,3,gartenbau,hennigsdorf,Vogel Thomas Garten- und Landschaftsbau,03303 50 01 35,http://www.galabau-vogel.de,"kein https, nicht mobil"
+,3,sanitaer,hennigsdorf,Hirtz Heizung Sanitär,03303 40 66 76,https://www.hirtz-heizung-sanitaer.de/,"nicht mobil, Jimdo"
+,3,sanitaer,hennigsdorf,Axel Gehrmann,0171 3 02 00 82,http://www.gehrmann-sanitaer-berlin.de,"kein https, nicht mobil"
+,3,sanitaer,hennigsdorf,Kramer & Gajewski GmbH Heizung- und Sanitärinstallation,03303 40 63 52,https://www.sanikramer.de,"nicht mobil, kaum Inhalt"
+,3,tischler,eberswalde,Killermann Lutz Tischlerei,03334 21 91 08,http://www.tischlerei-killermann.de,"kein https, nicht mobil"
+,3,elektriker,eberswalde,David Sebök Elektrohandel-Finow,03334 38 39 22,http://elektrohandel-finow.de,"kein https, nicht mobil"
+,3,restaurant,eberswalde,Märkische Bauernstube,03334 2 91 85,https://www.maerkische-bauernstube.de,"nicht mobil, kaum Inhalt"
+ja,3,kfz-werkstatt,eberswalde,Frank Wolf & Co GmbH Typenoffene Werkstatt - Anhängervermietung,03334 2 28 59,http://www.firma-wolf-eberswalde.de,"nicht mobil, Jimdo"
+,3,gartenbau,eberswalde,Gartenarchitekturbüro plantasie,03334 23 57 33,http://www.plantasie.de/,"nicht mobil, Stand 2014"
+,3,restaurant,fuerstenwalde-spree,Cafe und Restaurant Seestern,033631 22 57,https://www.seestern-bad-saarow.de,"nicht mobil, Jimdo"
+,3,physiotherapie,fuerstenwalde-spree,Praxis für Physiotherapie Peggy Schüler,03361 71 15 71,https://www.physiotherapie-schueler.de,"nicht mobil, kaum Inhalt"
+,3,fahrschule,fuerstenwalde-spree,Fahrschule Diercks,03361 34 20 80,https://www.fahrschule-diercks.de/,"nicht mobil, kaum Inhalt"
+,3,dachdecker,fuerstenwalde-spree,Dachbau Geller GmbH,03364 80 07 68,http://www.dachbau-geller.de,"kein https, nicht mobil"
+,3,kfz-werkstatt,fuerstenwalde-spree,Köhler & Lehmann GmbH Autoservice,03361 30 67 98,https://www.kl24.net/,"nicht mobil, kaum Inhalt"
+,3,friseur,strausberg,p-haar neutral,03341 21 50 83,http://www.phaarneutral.de,"kein https, nicht mobil"
+,3,kosmetik,strausberg,FishSpa & Trendkosmetik,03341 3 56 63 21,http://www.fishspa-trendkosmetik.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,strausberg,Altstadt-Physio,03341 2 04 93 54,http://www.altstadt-physio.com,"nicht mobil, Stand 2014"
+,3,physiotherapie,strausberg,"Thurk, Mais Physiotherapie",03341 30 43 50,http://www.kerstinmais.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,strausberg,B & B Dachkonzept GmbH,03341 4 20 89 36,http://b-bdachkonzept.de,"kein https, nicht mobil"
+,3,dachdecker,strausberg,Keck Dirk Dachdeckermeister,033435 7 58 06,http://www.dachdeckerei-keck.de,"kein https, nicht mobil"
+,3,sanitaer,strausberg,Nest - Wärme,03341 47 25 11,https://www.nest-waerme.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,zossen,IBGS solar,03377 30 32 35,https://www.ibgs-solar.de,"nicht mobil, Jimdo"
+ja,3,gartenbau,zossen,Garten- & Landschaftsbau Zossen Sven Rattarius,03377 34 21-0,https://www.galabau-zossen.de/,"nicht mobil, Stand 2009"
+ja,3,gartenbau,zossen,Kreutzenstein Frank Erd- und Gartenbau,033708 7 32 43,https://www.erdundgartenbau.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,rathenow,Restaurant AKROPOLIS,03385 49 80 10,http://www.akropolisrathenow.de,"kein https, nicht mobil"
+ja,3,physiotherapie,rathenow,Rauser-Kosalla,03385 50 31 18,http://physiotherapie-rathenow.de,"nicht mobil, kaum Inhalt"
+ja,3,friseur,luckenwalde,Cutpoint - DIE FRISEURE GmbH,03371 63 29 27,http://www.cutpoint-die-friseure.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,luckenwalde,Kuhle Elektro- und Blitzschutzanlagenbau,03371 61 19 57,http://www.kuhle-elektro.de,"kein https, nicht mobil"
+,3,restaurant,luckenwalde,Linden Cafe,03371 63 12 58,https://www.pension-lindencafe.de,"nicht mobil, Jimdo"
+,3,physiotherapie,luckenwalde,Physiotherapie Federleicht,03371 6 19 95 01,http://www.physiotherapie-federleicht.de,"nicht mobil, Stand 2014"
+,3,sanitaer,luckenwalde,BLOCK Heizung-Lüftung-Sanitär,03371 61 13 07,https://www.block-hls.de,"nicht mobil, Stand 2013"
+,2,friseur,werder-havel,Cut & Care Family - Salon Haarkosmetik,0331 90 12 30,https://cut-care-family.de,nicht mobil
+,2,elektriker,werder-havel,Christian Schmidt Elektro GmbH Elektroinstallation,03327 73 40-0,http://www.schmidt-glindow.de,"kein https, Stand 2018"
+,2,elektriker,werder-havel,Elektrotechnik Dilla,033209 44 99 90,https://www.elektrotechnik-dilla.de,nicht mobil
+,2,elektriker,werder-havel,TGM GmbH,0331 5 50 62 30,http://tgm-potsdam.com,"kein https, Stand 2017"
+,2,restaurant,werder-havel,COLONIAL CAFÉ Inh. Christian Heinze,03327 7 10 07,http://www.colonial-cafe.de,nicht mobil
+,2,gartenbau,werder-havel,Oestergarten GmbH,030 8 11 92 50,https://www.oestergarten.de,nicht mobil
+,2,sanitaer,werder-havel,ms CREATEX,03327 56 71 29,https://www.ms-createx.de,"Stand 2018, im Aufbau"
+,2,sanitaer,werder-havel,SHS - Sanitär-Hygiene-Service,0331 29 24 35,https://www.shs-hygiene-service.de/,nicht mobil
+,2,sanitaer,werder-havel,Brauer Solar Haustechnik GmbH,03327 57 27 64,http://www.solar-werder.de,"kein https, kaum Inhalt"
+,2,sanitaer,werder-havel,Haustechnik Potsdam GmbH,0331 2 80 92-0,http://www.haustechnik-potsdam.de,"Stand 2018, im Aufbau"
+,2,friseur,teltow,Long Lasting Dauerhaft Schön,0163 1 59 36 54,https://www.long-lasting.de,nicht mobil
+,2,maler,teltow,Christian Bach Malermeister,03328 3 13 51 44,http://www.malermeisterbach.de,nicht mobil
+,2,maler,teltow,Malereibetrieb Frank Michelis GmbH,030 84 70 80 08,https://maler-michelis.de,nicht mobil
+,2,tischler,teltow,Tischlerei Wollenberg GmbH,030 8 86 69 57-00,https://sicher-wollenberg.de/,nicht mobil
+,2,tischler,teltow,Tischlerei Niehus,030 5 31 10 50,https://www.niehus-tischlerei.de,nicht mobil
+,2,elektriker,teltow,Grapp Elektroanlagen GmbH,030 76 90 30 69,http://www.elektro-grapp.de,nicht mobil
+,2,elektriker,teltow,ESTI-Apparatebau,030 8 59 41 41,https://www.esti-berlin.de,nicht mobil
+,2,restaurant,teltow,Ristorante Casa Mia,03328 30 98 30,http://www.casamia-teltow.de,"kein https, kaum Inhalt"
+,2,restaurant,teltow,Gasthaus zur Schleuse,033203 2 47 70,http://www.waldschaenke-stahnsdorf.de,nicht mobil
+,2,fahrschule,teltow,Bocher Uwe Fahrschule,030 8 34 55 55,http://die-ffb.de,"kein https, Stand 2017"
+,2,dachdecker,teltow,Volker Schmidt-GmbH,030 7 91 72 57,http://www.volker-schmidt-gmbh.de,nicht mobil
+,2,gartenbau,teltow,Joschi Garten- und Landschaftsbau GmbH,030 7 95 80 53,http://www.joschigala.de,nicht mobil
+,2,sanitaer,teltow,Bock GmbH Versorgungstechnik,030 67 06 69 60,https://www.bock-versorgungstechnik.de,"Stand 2018, im Aufbau"
+,2,maler,falkensee,Lepczynski Malereibetrieb e. Kfm. Inh. Stefan Waller,030 3 73 18 90,http://www.malermeister-lepczynski.de,"kein https, im Aufbau"
+,2,elektriker,falkensee,Elektro Installation H. Ochtendung,030 36 71 05 07,https://www.ochtendung-elektro.de/,nicht mobil
+,2,elektriker,falkensee,World Electronic,030 95 59 19 28,https://www.world-electronic.de,nicht mobil
+,2,elektriker,falkensee,Krause Fernsehdienst in Spandau,030 3 63 22 23,http://www.gutachten-elektronik.de,"kein https, kaum Inhalt"
+,2,restaurant,falkensee,Evergreen,030 3 63 34 91,https://www.restaurant-evergreen.de/,nicht mobil
+,2,physiotherapie,falkensee,AH PHYSIOS UG (haftungsbeschränkt),03322 28 77 99,https://www.physiotherapeut-falkensee.de,nicht mobil
+,2,dachdecker,falkensee,Gulich Alfred Dachdeckerei,03322 24 40 35,http://www.gulich-und-sohn.de,"kein https, Jimdo"
+,2,dachdecker,falkensee,Hofmann Maik Dachdeckerei & Bauklempnerei,033232 22 31 33,http://www.dachdeckermeister-hofmann.de,nicht mobil
+,2,kfz-werkstatt,falkensee,Lars Spengeler Auto Mobil Meisterwerkstatt KFZ-Meisterwerkstatt,03322 21 35 39,http://www.amw-spengeler.de,"kein https, Jimdo"
+,2,kfz-werkstatt,falkensee,B-S-L Car Service GmbH,03322 12 95 95,http://www.bsl-carservice.de,nicht mobil
+,2,gartenbau,falkensee,Norbert Nitschke Dach & Garten,030 35 50 34 60,http://dachundgarten.de,"kein https, kaum Inhalt"
+,2,sanitaer,falkensee,Haffner Stephan GmbH Heizungsbau und Installationen,030 35 13 78 30,https://www.stephan-haffner.de,"Stand 2000, im Aufbau"
+,2,maler,oranienburg,MEGA eG Oranienburg,03301 5 76 80,https://stores.mega.de/mega-eg-oranienburg-dbcd2fb8b4a6,"Stand 2018, im Aufbau"
+,2,tischler,oranienburg,Tischlerei Tinus GmbH,03301 5 23 80,http://tischlerei-tinus.de,nicht mobil
+,2,elektriker,oranienburg,Rinn Thomas Elektromeister,03301 2 06 10 50,http://www.elektroinstallation-rinn.de,nicht mobil
+,2,elektriker,oranienburg,Elektro Bendin,0173 5 90 50 14,https://www.elektro-oranienburg.de,"Stand 2017, im Aufbau"
+,2,elektriker,oranienburg,SASS INGENIEURE GmbH,03303 5 35 90,https://www.sass-ingenieure.de,nicht mobil
+,2,restaurant,oranienburg,Zum Lindenwirt,03301 53 01 90,http://www.gaststaette-zum-lindenwirt.de,"kein https, kaum Inhalt"
+,2,restaurant,oranienburg,Pizzeria La Villa,03301 53 50 25,https://www.lavilla-oranienburg.de,nicht mobil
+,2,restaurant,oranienburg,KÖNIGLICHER GENUSS,0171 4 64 48 79,http://www.egon-crepe.de,"kein https, kaum Inhalt"
+,2,dachdecker,oranienburg,Dachdeckerei & Zimmerei Suchland-Pöhl GmbH,03391 4 00 21 81,http://www.dachdeckerei-neuruppin.de,"kein https, Stand 2019"
+,2,kfz-werkstatt,oranienburg,Pegas mobile und Handels GmbH,03301 57 99 76,http://www.ohv-schilderwerkstatt.de,"kein https, Stand 2016"
+,2,friseur,bernau-bei-berlin,Mobile Friseurfee Team,0173 6 23 79 67,https://www.mobile-friseurfee.de,nicht mobil
+,2,elektriker,bernau-bei-berlin,Gromer Elektrotechnik,033394 4 31,http://www.gromer-elektrotechnik.de,"kein https, FrontPage"
+,2,elektriker,bernau-bei-berlin,Bublik Adam Sachverständiger f. Elektrotechnik,030 23 91 28 14,https://www.elektrotechnik-gutachter.de,"Stand 2015, im Aufbau"
+,2,kosmetik,bernau-bei-berlin,Simone Bartelt Podologie,030 2 83 45 00,http://www.podologie-bartelt.de,"kein https, Jimdo"
+,2,restaurant,bernau-bei-berlin,Lindenhof Bernau,03338 22 85,http://www.lindenhof-bernau.de,"kein https, Jimdo"
+,2,dachdecker,bernau-bei-berlin,Klettke & Spitz Dachdeckerei GmbH,030 91 20 26 68,http://www.klettke-spitz.de,"kein https, kaum Inhalt"
+,2,kfz-werkstatt,bernau-bei-berlin,Lack Professional Meisterbetrieb Karosserie & Lack Iunusso Jamal,03338 9 09 02 19,http://www.lackiererei-berlin.de,nicht mobil
+,2,sanitaer,bernau-bei-berlin,BS Versorgungstechnik e.K.,030 4 02 52 32,http://www.bs-versorgungstechnik.de,"Stand 2018, im Aufbau"
+,2,elektriker,koenigs-wusterhausen,Gas Neumann Service GmbH,033763 2 47 80,http://gas-neumann.de,"Stand 2018, im Aufbau"
+,2,elektriker,koenigs-wusterhausen,Elektro-Krüger,033763 6 15 78,http://www.elektro-krueger.net,"kein https, kaum Inhalt"
+,2,kosmetik,koenigs-wusterhausen,Hautgeschichten Medizinische Kosmetikerin,03375 46 99 46,http://www.wellvitals.de,"kein https, Jimdo"
+,2,kosmetik,koenigs-wusterhausen,M. Thierbach TherapieZentrum,03375 29 08 33,http://www.physiothierbach.de,nicht mobil
+,2,physiotherapie,koenigs-wusterhausen,DIE FRAUENÄRZTINNEN,03375 21 80 80 30,https://die-frauenaerztinnen.com,nicht mobil
+,2,dachdecker,koenigs-wusterhausen,Dach-Klempner GmbH Thiele & Thiele,035365 24 44,http://www.thiele-thiele.de,nicht mobil
+,2,gartenbau,koenigs-wusterhausen,Torsten Kühne RCrave,0160 96 66 99 03,http://rcrave.com,nicht mobil
+,2,sanitaer,koenigs-wusterhausen,Rohls GmbH,03375 29 08 58,http://www.rohls.de,"kein https, Stand 2015"
+,2,sanitaer,koenigs-wusterhausen,Instal - Udo Itzeck,033762 7 11 88,http://www.instal-udoitzeck.de,"kein https, Stand 2015"
+,2,restaurant,brandenburg-an-der-havel,Restaurant Malabar,03381 79 40 67,http://www.restaurant-malabar.de/,nicht mobil
+,2,restaurant,brandenburg-an-der-havel,Trattoria Del Corso,03381 3 27 98 01,https://delcorso-brandenburg.de.tl,nicht mobil
+,2,kfz-werkstatt,brandenburg-an-der-havel,Heymann Automobilservice Robert,03381 31 57 77,http://www.automobilservice-brb.de,nicht mobil
+,2,friseur,ludwigsfelde,Meine Perücke,03378 52 90 36,https://www.meineperuecke.de,nicht mobil
+,2,kosmetik,ludwigsfelde,Thomas Carmen Permanent Kosmetik,03378 80 15 52,https://www.carmen-thomas.de,nicht mobil
+,2,fahrschule,ludwigsfelde,Sandra´s Fahrschule,03378 81 19 15,https://www.fahrschule-ludwigsfelde.de/37,nicht mobil
+,2,sanitaer,ludwigsfelde,Schroeber GmbH,03378 20 46 40,https://www.schroeber.de,"Stand 2018, im Aufbau"
+,2,maler,kleinmachnow,V.-Company Gesellschaft für Fassadenges. mbH,030 36 28 71 73,http://www.v-company.de,"kein https, Jimdo"
+,2,sanitaer,kleinmachnow,Firma Fiedler GmbH,030 3 65 70 00,https://www.fiedler-berlin.com,nicht mobil
+,2,sanitaer,kleinmachnow,Schornsteinfegermeister Heim-Richter,030 80 40 92 05,https://www.heim-richter.de,nicht mobil
+,2,physiotherapie,michendorf,Physiotherapie Karstaedt Physiotherapie,033205 25 13 34,http://www.physiocentrum-sportzentrum.de,"kein https, kaum Inhalt"
+,2,fahrschule,michendorf,Fahrschule Syring Potsdam,0331 81 02 21,https://www.fahrschule-syring.de/,nicht mobil
+,2,kfz-werkstatt,michendorf,PNC Potsdamer Nutzfahrzeug Center GmbH,033205 2 48 98,http://www.pnc-potsdam.de,"kein https, kaum Inhalt"
+,2,gartenbau,michendorf,Gartenträume Becker GmbH,033200 87 10 00,http://www.gartentraeume-becker.de,nicht mobil
+,2,gartenbau,michendorf,Zilinski Nick Seerosenfarm,0172 3 06 40 84,http://www.seerosenfarm.de,"kein https, FrontPage"
+,2,sanitaer,michendorf,RohrStar Potsdam - Rohrreinigung,0331 60 15 25 52,https://www.rohrstar.de,nicht mobil
+,2,sanitaer,michendorf,Platz Heizungsbau,0331 86 20 86,https://www.platz-heizungsbau.de/,nicht mobil
+,2,maler,nauen,Fischer Dennis Malermeister,0177 6 37 44 04,https://www.malermeister-df.de,"Jimdo, kaum Inhalt"
+,2,elektriker,nauen,Vieregg Norbert,0171 5 29 27 59,http://www.vieregg-elektro.de,"kein https, Stand 2019"
+,2,elektriker,nauen,Meyer Andreas Elektro-Installationsbetrieb,03321 4 77 70,http://www.elektrofirma-meyer.de,"kein https, Stand 2018"
+,2,elektriker,nauen,Elektro Portal,033232 45 49 76,https://www.elektriker-portal.de,nicht mobil
+,2,elektriker,nauen,Planungsbüro GRUMAU,033230 2 09 76,https://www.grumau.de,nicht mobil
+,2,kosmetik,nauen,Neumann Cornelia Kosmetikstudio,03321 46 07 22,http://www.creativ-kosmetik-neumann.de,"kein https, kaum Inhalt"
+,2,restaurant,nauen,Gaststätte Zur Quelle,03321 4 83 77,http://www.bpp98.de,nicht mobil
+,2,gartenbau,nauen,Pflaster-Concepte Sven Krause,0172 3 27 35 56,http://www.pflaster-concepte.de,"kein https, Jimdo"
+,2,elektriker,stahnsdorf,Firma Pollack,03329 6 28 37,https://www.pollack-elektro.de,nicht mobil
+,2,kosmetik,stahnsdorf,Kosmetik Melzer,030 83 22 04 89,http://www.kosmetikmelzer.de,"kein https, Stand 2018"
+,2,friseur,hennigsdorf,Make Up Artist Team,0177 2 05 76 99,http://makeupartistteam.com,"kein https, Stand 2017"
+,2,elektriker,hennigsdorf,ESM Elektroinstallation GmbH,03304 38 49 33,http://www.esm-elektroservice.de,nicht mobil
+,2,physiotherapie,hennigsdorf,Sabrina Schumann Physiowelt Heiligensee,030 67 93 90 33,https://physiowerk-blankenese.de,nicht mobil
+,2,dachdecker,hennigsdorf,Dachdeckerei Ziemann GmbH,030 41 74 41 22,http://www.dachdeckerei-ziemann.de,nicht mobil
+,2,kfz-werkstatt,hennigsdorf,Auto Hoffmann GmbH,03303 50 45 90,http://autohoffmann.de,nicht mobil
+,2,kfz-werkstatt,hennigsdorf,Monnin Automotive GmbH,03303 50 42 00,http://www.kfz-monnin.de,"kein https, Jimdo"
+,2,kfz-werkstatt,hennigsdorf,Autodienst Kalka GmbH,030 4 04 80 40,http://www.autodienst-kalka.de,nicht mobil
+,2,gartenbau,hennigsdorf,Frohnauer Baumschulen Preiss GmbH,030 4 01 10 28,http://www.preiss-gartencenter.de,nicht mobil
+,2,elektriker,eberswalde,Gesellschaft für Wildökologie und Naturschutz e.V.,03334 65 72 80,https://www.gwn.de,nicht mobil
+,2,elektriker,eberswalde,Brendel GmbH Elektroinstallation,03334 21 91 84,http://www.elektro-brendel.de,nicht mobil
+,2,elektriker,eberswalde,Alarmtechnik Sieber,03334 35 49 99,https://www.alarmtechnik-sieber.de,nicht mobil
+,2,physiotherapie,eberswalde,Physiotherapie Doreen Arndt,03334 3 85 80 05,https://www.physio-schillertreppe.de,nicht mobil
+,2,sanitaer,eberswalde,Bernhard Kappes Heizung Sanitär Klempner,03334 4 21 39,https://www.bernhard-kappes.de,nicht mobil
+,2,sanitaer,eberswalde,Dahms Frank Heizung- und Sanitärinstallation,03334 30 47-0,http://www.frank-dahms.de,"Stand 2018, im Aufbau"
+,2,maler,fuerstenwalde-spree,Miller Gerry Morton,0152 27 67 78 44,http://www.gerry-miller.de,"kein https, Jimdo"
+,2,elektriker,fuerstenwalde-spree,Waschmaschinen Fritze,03361 7 52 99 39,https://waschmaschinen-fritze.regional.de,nicht mobil
+,2,restaurant,fuerstenwalde-spree,As am See,033631 59 92 43,http://www.asamsee.de,"kein https, kaum Inhalt"
+,2,physiotherapie,fuerstenwalde-spree,Physiotherapie Bettina Krüger,033631 35 90,https://www.wellness-physio.de/,nicht mobil
+,2,dachdecker,fuerstenwalde-spree,Dachdeckermeister Schulz Heiko,0335 60 67 95 08,http://www.dachdeckerschulz.de,nicht mobil
+,2,dachdecker,fuerstenwalde-spree,Blankenfeld Fred,033475 5 02 89,http://www.dach-blankenfeld.de,"kein https, im Aufbau"
+,2,kfz-werkstatt,fuerstenwalde-spree,Vogt Reinhard KFZ Meisterbetrieb,03361 37 74 10,http://www.vogt-oldtimer-restauration.de/,"kein https, kaum Inhalt"
+,2,sanitaer,fuerstenwalde-spree,Hartmann & Felsmann Heizung-Lüftung-Sanitär,03361 31 20 17,https://heizung-lueftung-sanitaer.regional.de,nicht mobil
+,2,sanitaer,fuerstenwalde-spree,Heizungen - Bäder - Sanitär Reiner Tödt,033633 4 17,http://www.baeder-toedt.de,"Stand 2018, im Aufbau"
+,2,sanitaer,fuerstenwalde-spree,Heinrich Heizung-Klima-Sanitär,033631 20 79,http://www.heinrich-heizung-sanitaer.de,"kein https, kaum Inhalt"
+,2,friseur,strausberg,Marens Haarstudio Friseur,03341 47 18 97,http://www.marens-haarstudio.de,nicht mobil
+,2,friseur,strausberg,Haarschmidt Friseur,03341 4 68 94 08,http://www.friseur-strausberg.de,"kein https, kaum Inhalt"
+,2,elektriker,strausberg,Elektroanlagen Schmidt,03341 47 61 78,http://www.elektroanlagen-schmidt.de,"kein https, kaum Inhalt"
+,2,kosmetik,strausberg,Luther Thomas Eine Welt und Bio Laden,03341 30 57 91,http://www.eine-welt-und-bio-laden.de,"Stand 2014, FrontPage"
+,2,restaurant,strausberg,Das gefleckte Schwein,03341 4 84 86,https://www.das-gefleckte-schwein.de/,nicht mobil
+,2,kfz-werkstatt,strausberg,Perske Maik Autoservice,03341 4 70 96 80,http://www.perske-autoservice.regional.de,nicht mobil
+,2,fliesenleger,strausberg,Müller Frank Fliesenverlegungen,03341 2 07 20 91,http://www.fliesenleger-frankmueller.de,"kein https, Jimdo"
+,2,sanitaer,strausberg,TGA Heinemann,03341 3 61 00,https://www.tgaheinemann.de,nicht mobil
+,2,sanitaer,strausberg,STIRNAT HAUSTECHNIK,03341 31 27 42,http://www.stirnat-haustechnik.de,nicht mobil
+,2,elektriker,zossen,WindMW GmbH,03377 2 01 92 57,https://www.windmw.de,nicht mobil
+,2,sanitaer,zossen,Dopatka GmbH,03377 30 00 25,https://dopatka-gmbh.de/,"Stand 2018, im Aufbau"
+,2,physiotherapie,rathenow,Physiotherapie Detlef Gugat,033872 9 07 63,https://www.rhinow.de,nicht mobil
+,2,kfz-werkstatt,rathenow,Peters Garage GmbH,03385 51 51 75,http://peters-garage.com,nicht mobil
+,2,maler,luckenwalde,Brügge Eckhardt Malermeister,03371 63 73 33,http://www.bruegge-malermeister.de,"kein https, kaum Inhalt"
+,2,tischler,luckenwalde,Seifert Lutz Treppenbau u. Tischlerei,03371 61 61 63,http://www.treppenbau-seifert.de,nicht mobil
+,2,elektriker,luckenwalde,Holiday Pool Hirsch UG (haftungsbeschränkt),033748 1 55 48,https://www.holiday-pool.de/,nicht mobil
+,2,physiotherapie,luckenwalde,Therapiezentrum SBB GmbH,03371 61 61 30,https://www.therapiezentrum-sbb.de,nicht mobil
+,2,dachdecker,luckenwalde,Göbel & Schalk GbR Dachdeckerei,0174 9 21 81 86,https://www.dachdecker-luckenwalde.de,nicht mobil
+,2,dachdecker,luckenwalde,Dachdeckerei Thomas Niederschuh GmbH,03371 4 06 98 44,http://dachdeckerei-niederschuh.de,nicht mobil
+,2,gartenbau,luckenwalde,"Gartenbau""Zum Grünen Weg"" Berndt Meyer",03371 61 02 67,http://www.flaeminggruen.de,nicht mobil

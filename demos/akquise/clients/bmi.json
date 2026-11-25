@@ -1,0 +1,147 @@
+{
+ "name": "BMI Immobilienmanagement GmbH",
+ "brand": "BMI",
+ "brandSub": "Immobilienmanagement",
+ "accent": "#b8c8e6",
+ "accentDark": "#1c3566",
+ "source": "bmi-im.de",
+ "sourceUrl": "https://www.bmi-im.de",
+ "cta": "Gespräch vereinbaren",
+ "hero": {
+  "eyebrow": "Immobilienmanagement · Münsing · Metropolregion München",
+  "head": "Der verlängerte Arm\nIhrer *Interessen.*",
+  "intro": "Bauland- und Projektentwicklung, Asset Management und Transaktionen über den ganzen Lebenszyklus einer Immobilie. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°54′N · 11°22′E · Münsing",
+  "ch": [
+   [
+    "Entwicklung",
+    "Vom Grundstück zum *Baurecht.*",
+    "Was aus einer Fläche werden kann, lässt sich zeigen."
+   ],
+   [
+    "Management",
+    "Jede Immobilie ist *anders.*",
+    "Ihr Ansatz, kompetent und flexibel, mit Beispielen belegt."
+   ],
+   [
+    "Transaktion",
+    "An- und Verkauf als *Eckpunkte.*",
+    "Referenzen statt langer Texte."
+   ],
+   [
+    "Restrukturierung",
+    "Wenn ein Projekt *aus dem Ruder* läuft.",
+    "Claim Management verständlich erklärt."
+   ],
+   [
+    "BMI Immobilienmanagement",
+    "Den ganzen *Lebenszyklus* begleiten"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Unternehmen",
+  "head": "Unabhängig und *eigentümergeführt.*",
+  "text": [
+   "BMI begleitet den gesamten Lebenszyklus einer Immobilie: vom Ankauf über Entwicklung, Optimierung und Werterhalt bis zum Verkauf.",
+   "Das Team versteht sich als verlängerter Arm der Auftraggeber, übernimmt Projektleitungsverantwortung und vertritt ausschließlich deren Interessen. Schwerpunkte sind die Metropolregion München und Bayern."
+  ],
+  "facts": [
+   [
+    "4",
+    "Leistungsfelder von der Baulandentwicklung bis zur Restrukturierung"
+   ],
+   [
+    "München",
+    "Schwerpunkt Metropolregion und Bayern"
+   ],
+   [
+    "1",
+    "Ansprechpartner mit Projektleitungsverantwortung"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Spektrum",
+  "eyebrow": "Leistungsspektrum",
+  "head": "Vom Ankauf bis zum *Verkauf*",
+  "lead": "Für Immobilienunternehmen, Privatpersonen und Unternehmen ohne eigenes Immobilien-Know-how.",
+  "items": [
+   {
+    "status": "Entwicklung",
+    "name": "Bauland- und Projektentwicklung",
+    "place": "Bindeglied zwischen Eigentümern und Verwaltung",
+    "text": "Grundstücks- und Baurechtsanalyse, Businessplan, Budgetcontrolling, Steuerung der Baulandentwicklung."
+   },
+   {
+    "status": "Bestand",
+    "name": "Asset- und Property Management",
+    "place": "Integriert",
+    "text": "Verwalten, Vermieten und Vermarkten aus einer Hand."
+   },
+   {
+    "status": "Transaktion",
+    "name": "Transaktionsmanagement",
+    "place": "An- und Verkauf",
+    "text": "Begleitung der beiden Eckpunkte in der Wertschöpfungskette einer Immobilie."
+   },
+   {
+    "status": "Sanierung",
+    "name": "Claim Management und Restrukturierung",
+    "place": "Für Projekte in Schieflage",
+    "text": "Wenn Kosten und Termine aus dem Plan geraten."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Devise",
+  "quote": "Kompetent, flexibel, *kundenorientiert.*",
+  "points": [
+   [
+    "Kompetent",
+    "Erfahrene Spezialisten und ausgesuchte Partner."
+   ],
+   [
+    "Flexibel",
+    "Jede Immobilie hat ihre eigenen Eigenheiten."
+   ],
+   [
+    "Unabhängig",
+    "Ausschließlich den Interessen der Auftraggeber verpflichtet."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Über den ganzen *Lebenszyklus.*",
+  "lead": "Für Eigentümer, die keinen eigenen Immobilienbereich haben.",
+  "items": [
+   [
+    "Bauland- und Projektentwicklung",
+    "Von der Baurechtsanalyse bis zur Umlegung."
+   ],
+   [
+    "Asset- und Property Management",
+    "Werterhalt und Optimierung im Bestand."
+   ],
+   [
+    "Transaktion und Restrukturierung",
+    "An- und Verkauf, Claim Management."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen Sie mit *uns.*",
+  "address": [
+   "Seeuferstraße 29",
+   "82541 Münsing"
+  ],
+  "phone": "+49 8177 92 97 47",
+  "email": "info@bmi-im.de",
+  "topics": [
+   "Baulandentwicklung",
+   "Asset Management",
+   "Transaktion",
+   "Restrukturierung"
+  ]
+ }
+}

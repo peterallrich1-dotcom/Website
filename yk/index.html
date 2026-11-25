@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>YK Architektur · Architekt &amp; Sachverständiger in Kornwestheim</title>
+<meta name="description" content="YK Architektur, Dipl.-Ing. (FH) Yunus Emre Kaya: Architekt und Sachverständiger für Schäden an Gebäuden in Kornwestheim. Neubau, Umbau, Sanierung, Gutachten.">
+<meta name="theme-color" content="#1b1814">
+<link rel="preload" as="image" href="img/h1.webp">
+<style>
+@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
+  --or:#ff7a1a;--or2:#ffa04d;--or-soft:rgba(255,122,26,.13);--line:rgba(245,244,241,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+/* Kopfzeile */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
+.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
+.logo svg{width:16px;height:24px;margin:0 2px}
+.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
+.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.or{background:var(--or);color:#140a02}
+.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:var(--line);color:var(--white)}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cap.on{opacity:1;transform:none}
+.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.cap.end{pointer-events:auto}
+.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
+.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
+.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
+/* Abschnitte */
+section{padding:clamp(72px,11vw,140px) 0}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
+.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(255,122,26,.5);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--or)}
+.card h3{margin:0;font-size:20px;font-weight:600}
+.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
+/* Eine Hand */
+.one{background:linear-gradient(180deg,var(--bg),#100b07 50%,var(--bg))}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
+.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
+.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
+.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.stars svg{width:26px;height:26px;fill:var(--or)}
+.big p{margin:6px 0 0;color:var(--mute)}
+/* Stimmen */
+.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .stars{justify-content:flex-start;margin:0}
+.q .stars svg{width:18px;height:18px}
+.q blockquote{margin:0;font-size:18px;line-height:1.55}
+.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
+.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
+.src a{color:var(--mute)}
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
+.step{border-top:2px solid var(--or);padding-top:18px}
+.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.step span{color:var(--mute);font-size:15px}
+/* Kontakt */
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(255,122,26,.16),transparent 70%),var(--bg)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+@media(max-width:860px){.cbox{grid-template-columns:1fr}}
+.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
+a.tile:hover{border-color:var(--or)}
+.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
+.tile .ic svg{width:24px;height:24px;stroke:#140a02}
+.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
+.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:860px){.area{grid-template-columns:1fr}}
+.area .map{min-height:280px;position:relative;background:#0e0e10}
+.area .map svg{position:absolute;inset:0;width:100%;height:100%}
+.area .txt{padding:28px 26px}
+.area h3{margin:0;font-size:22px}
+.area p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--mute);text-decoration:none}
+.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
+.draft b{color:var(--white);font-weight:600}
+.draft a{color:var(--or);text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
+</style>
+<style>
+/* Farben wie sein Auftritt: Warmgrau, Gold der Architektenkammer, Weiß */
+:root{--bg:#f5f3ef;--bg2:#ffffff;--bg3:#ebe7df;--white:#1e1a15;--mute:#6b6155;--mute-d:#9a8f81;--or:#9c8448;--or2:#b39b5f;--or-soft:rgba(156,132,72,.12);--line:rgba(60,50,35,.13);--grey:#766a5b}
+body{background:var(--bg)}
+.hdr{color:#fff}.hdr .logo,.hdr nav a{color:rgba(255,255,255,.85)}
+.hdr.solid{background:rgba(250,248,244,.93);border-bottom:1px solid var(--line)}
+.hdr.solid .logo{color:var(--white)}.hdr.solid nav a{color:var(--mute)}
+.logo .mk{width:30px;height:30px;margin-right:10px}
+.logo small{color:inherit;opacity:.7}
+.btn.or{background:var(--or);color:#fff}.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:rgba(255,255,255,.4);color:#fff}
+section .btn.ghost{border-color:var(--line);color:var(--white)}
+.h{color:var(--white)}
+.card,.tile,.big,.area{background:#fff;box-shadow:0 12px 34px rgba(60,45,25,.07)}
+.card .n{color:rgba(156,132,72,.12)}
+.tile .ic{background:var(--or)}.tile .ic svg{stroke:#fff}
+.one{background:var(--bg3)}
+.contact{background:linear-gradient(180deg,var(--bg),#ece6db)}
+.area .map{background:#e9e3d8}
+.area .map svg g{stroke:rgba(60,50,35,.15)}
+footer{background:#1b1814;color:#a89d8e;border:0}footer a{color:#e7dcc7}
+.draft{background:rgba(255,255,255,.95);color:var(--mute)}.draft b{color:var(--white)}
+/* Film */
+.hero{height:600vh}
+.stage{background:#0e0c0a}
+#film{background:#0e0c0a}
+.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(14,12,10,.88) 0%,rgba(14,12,10,.45) 42%,rgba(14,12,10,0) 70%),linear-gradient(180deg,rgba(14,12,10,.55),rgba(14,12,10,0) 22%)}
+@media(orientation:portrait),(max-width:860px){.shade{background:linear-gradient(180deg,rgba(14,12,10,.6),rgba(14,12,10,0) 22%,rgba(14,12,10,0) 45%,rgba(14,12,10,.92) 75%)}}
+.cap{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.5)}.cap h1,.cap h2{color:#fff}.cap p{color:rgba(255,255,255,.78)}.cap .k{color:#d8c28a}
+.ptag{position:absolute;top:calc(86px + env(safe-area-inset-top));right:var(--gut);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px;border-radius:999px;color:#fff;background:rgba(14,12,10,.55);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity .4s}
+.ptag b{color:#d8c28a;font-weight:600}
+.pbar{position:absolute;left:var(--gut);right:var(--gut);bottom:14px;height:2px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden}.pbar i{display:block;height:100%;width:0;background:#d8c28a}
+.hint{color:rgba(255,255,255,.6)}
+/* Vertrauen */
+.trust{background:#1b1814;color:#cfc4b3}
+.trust .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 26px;padding-top:20px;padding-bottom:20px;font-size:15px}
+.trust b{color:#d8c28a;font-weight:600}
+/* Leistungen in 3 Säulen */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+@media(max-width:900px){.cols3{grid-template-columns:1fr}}
+.col{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;box-shadow:0 12px 34px rgba(60,45,25,.07)}
+.col .no{font-family:var(--f-h);font-size:48px;line-height:1;color:var(--or)}
+.col h3{margin:10px 0 14px;font-size:21px}
+.col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.col li{display:flex;gap:10px;font-size:15px;color:var(--mute)}
+.col li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--or)}
+/* Projekte */
+.proj{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;margin-top:clamp(48px,7vw,90px)}
+.proj:nth-child(even){grid-template-columns:1fr 1.2fr}.proj:nth-child(even) .pics{order:2}
+@media(max-width:860px){.proj,.proj:nth-child(even){grid-template-columns:1fr}.proj:nth-child(even) .pics{order:0}}
+.pics{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;aspect-ratio:4/3}
+.pics button{padding:0;border:0;background:#ddd;border-radius:14px;overflow:hidden;cursor:zoom-in;position:relative}
+.pics button:first-child{grid-row:span 2}
+.pics img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pics button:hover img{transform:scale(1.05)}
+.pics.one-pic{grid-template-columns:1fr;grid-template-rows:1fr}.pics.one-pic button:first-child{grid-row:auto}
+.proj .meta{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+.proj h3{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(30px,3.6vw,46px);line-height:1.02;margin:10px 0 0}
+.proj p{color:var(--mute);margin:14px 0 0;font-size:16.5px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.facts span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--or-soft);color:#6f5c2c}
+/* Liste */
+.list{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 32px}
+.list div{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.list b{flex:none;width:52px;color:var(--or);font-weight:600}
+/* Visualisierungen */
+.renders{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:40px}
+.renders button{padding:0;border:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:#ddd;aspect-ratio:4/3;position:relative}
+.renders img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.renders button:hover img{transform:scale(1.05)}
+.renders span{position:absolute;left:8px;bottom:8px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--white)}
+/* Sachverständiger */
+.sv{background:#1b1814;color:#e9e1d3}
+.sv .h{color:#fff}.sv .lead{color:#b8ad9c}.sv .kick{color:#d8c28a}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips span{padding:10px 16px;border-radius:999px;border:1px solid rgba(216,194,138,.4);color:#f0e6d2;font-weight:600;font-size:15px}
+.sv ul{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.sv li{display:flex;gap:12px;color:#d6ccbc}
+.sv li svg{flex:none;width:22px;height:22px;margin-top:2px}
+.sv .pics button{background:#2a251f}
+/* Über mich */
+.bio{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,70px);align-items:start}
+@media(max-width:860px){.bio{grid-template-columns:1fr}}
+.me{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;text-align:center;box-shadow:0 12px 34px rgba(60,45,25,.07)}
+.me img.pt{width:170px;height:170px;border-radius:50%;object-fit:cover;object-position:62% 30%;margin:0 auto;filter:grayscale(1) contrast(1.05)}
+.me h3{margin:16px 0 2px;font-size:22px}.me p{margin:0;color:var(--mute)}
+.me img.ak{width:min(260px,100%);margin:18px auto 0;opacity:.9}
+.tl{position:relative;margin:30px 0 0;padding-left:26px;border-left:2px solid rgba(156,132,72,.35);display:grid;gap:22px}
+.tl div{position:relative}
+.tl div::before{content:"";position:absolute;left:-33px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--or);box-shadow:0 0 0 4px var(--bg3)}
+.tl b{display:block;color:var(--or);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.tl span{font-size:16px}
+.office{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.office img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px}
+/* Lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,9,8,.95);display:flex;align-items:center;justify-content:center;padding:60px 16px}
+.lb[hidden]{display:none}
+.lb img{max-width:min(1200px,100%);max-height:100%;border-radius:10px}
+.lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;width:48px;height:48px;border-radius:50%;font-size:28px;line-height:1;cursor:pointer}
+.lbx{top:max(14px,env(safe-area-inset-top));right:16px}.lbp{left:16px;top:50%;transform:translateY(-50%)}.lbn{right:16px;top:50%;transform:translateY(-50%)}
+.lbc{position:absolute;bottom:max(16px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#bbb;font-size:14px}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="logo" href="#top" aria-label="YK Architektur, zum Anfang"><svg class="mk" viewBox="0 0 30 30" aria-hidden="true"><g fill="#b39b5f"><path d="M2 2h11v3H5v8H2zM28 2v11h-3V5h-8V2zM2 28V17h3v8h8v3zM28 28H17v-3h8v-8h3z"/><path d="M9 9h5v2h-3v3H9zM21 9v5h-2v-3h-3V9zM9 21v-5h2v3h3v2zM21 21h-5v-2h3v-3h2z"/></g></svg>YK ARCHITEKTUR<small>KORNWESTHEIM</small></a>
+  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#projekte">Projekte</a><a href="#sachverstaendiger">Sachverständiger</a><a href="#ueber-mich">Über mich</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn or" href="tel:+491726269952"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+</header>
+
+<div class="hero" id="top">
+  <div class="stage">
+    <canvas id="film" role="img" aria-label="Ein Projekt von YK Architektur: vom Plan über die Baustelle zum fertigen Gebäude"></canvas>
+    <div class="shade"></div>
+    <div class="ptag" id="ptag"><b>Plan</b></div>
+    <div class="cap" data-a="0" data-b=".2"><div class="k">YK Architektur · Kornwestheim</div><h1>Vom ersten Strich zum fertigen Haus.</h1><p>Dipl.-Ing. (FH) Yunus Emre Kaya, Architekt und Sachverständiger für Schäden an Gebäuden.</p></div>
+    <div class="cap" data-a=".24" data-b=".42"><div class="k">Leistungsphasen 1 bis 9</div><h2>Planung, die durchdacht ist.</h2><p>Von der Grundlagenermittlung bis zur Objektbetreuung, alles aus einer Hand.</p></div>
+    <div class="cap" data-a=".45" data-b=".62"><div class="k">Bauüberwachung</div><h2>Auf der Baustelle dabei.</h2><p>Wir begleiten Ihr Projekt Tag für Tag, bis zur Übergabe.</p></div>
+    <div class="cap" data-a=".66" data-b=".82"><div class="k">Schurr · Die Badgestalter, Dettingen unter Teck</div><h2>Gebaut. Übergeben.</h2><p>Neubau, Erweiterung, Ausstellungs- und Lagergebäude, Leistungsphasen 1 bis 8.</p></div>
+    <div class="cap end" data-a=".86" data-b="1.1"><div class="k">Jetzt anfragen</div><h2>Ihr Architekt in Kornwestheim.</h2><div class="row"><a class="btn or" href="tel:+491726269952">0172 62 69 952</a><a class="btn ghost" href="#projekte">Projekte ansehen</a></div></div>
+    <div class="hint" id="hint">Scrollen<i></i></div>
+    <div class="pbar"><i id="pbar"></i></div>
+  </div>
+</div>
+<div class="trust"><div class="wrap"><span><b>Dipl.-Ing. (FH)</b> Architekt</span><span><b>Mitglied</b> der Architektenkammer Baden-Württemberg</span><span><b>Büro</b> seit 2009</span><span><b>Sachverständiger</b> seit 2013</span></div></div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Leistungen</div><h2 class="h">Was wir für Sie tun</h2><p class="lead">Vom Einfamilienhaus bis zum Gewerbebau, vom Neubau bis zur Sanierung im Denkmalschutz: Wir planen, begleiten und bewerten.</p></div>
+    <div class="cols3">
+      <div class="col rv"><div class="no">01</div><h3>Klassische Architektur&shy;leistungen</h3><ul><li>Grundlagenermittlung und Beratung</li><li>Vorplanung mit Kostenschätzung</li><li>Entwurfsplanung und Kostenberechnung</li><li>Genehmigungsplanung</li><li>Ausführungsplanung</li><li>Vergabe, Leistungsverzeichnisse, Kostenanschlag</li><li>Bauüberwachung und Dokumentation</li><li>Objektbetreuung</li></ul></div>
+      <div class="col rv"><div class="no">02</div><h3>Baubegleitende Dienstleistungen</h3><ul><li>Baumanagement für Neubau, Umbau, Sanierung und Modernisierung</li><li>Denkmalschutz</li><li>Barrierefreies, behinderten- und seniorengerechtes Bauen</li><li>Beratung vom Wohnungs- bis zum Gewerbebau</li><li>Innenarchitektur und Außenraumgestaltung</li><li>Bauzeichnungen und Architekturmodellbau</li></ul></div>
+      <div class="col rv"><div class="no">03</div><h3>Sachverständigen&shy;leistungen</h3><ul><li>Gutachterliche Stellungnahmen zu Bauschäden und Baumängeln</li><li>Zeitwertermittlung für Gebäude und Gebäudeteile</li><li>Schadenaufnahme, Kostenermittlung und Sanierungskonzepte</li><li>Regulierung von Versicherungsfällen</li><li>Für Versicherungen und Privatpersonen</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="one" id="projekte">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Projekte</div><h2 class="h">Ausgewählte Arbeiten</h2><p class="lead">Neubauten, Sanierungen und Umbauten aus über 15 Jahren, geplant und begleitet von YK Architektur.</p></div>
+    <div>
+      <article class="proj rv"><div class="pics" data-g="schurr"><button data-src="img/p17_00.webp" aria-label="Bild groß ansehen"><img src="img/p17_00.webp" alt="Neubau Schurr Die Badgestalter mit großer Glasfront" loading="lazy"></button><button data-src="img/p17_01.webp" aria-label="Bild groß ansehen"><img src="img/p17_01.webp" alt="Gebäude Schurr von der Seite" loading="lazy"></button><button data-src="img/p17_06.webp" aria-label="Bild groß ansehen"><img src="img/p17_06.webp" alt="Baustelle mit Gerüst und Bauschild YK Architektur" loading="lazy"></button></div>
+        <div><div class="meta">Neubau · Dettingen unter Teck</div><h3>Schurr – Die Badgestalter</h3><p>Neubau, Erweiterung sowie Ausstellungs- und Lagergebäude für einen Badausstatter. Von der ersten Planung bis zur Bauüberwachung aus einer Hand.</p><div class="facts"><span>Leistungsphasen 1–8</span><span>Gewerbebau</span><span>Ausstellung</span></div></div></article>
+      <article class="proj rv"><div class="pics" data-g="schw"><button data-src="img/p39_05.webp" aria-label="Bild groß ansehen"><img src="img/p39_05.webp" alt="Revitalisiertes Wohnhaus in Schwieberdingen" loading="lazy"></button><button data-src="img/p39_01.webp" aria-label="Bild groß ansehen"><img src="img/p39_01.webp" alt="Straßenansicht der Revitalisierung" loading="lazy"></button><button data-src="img/p39_06.webp" aria-label="Bild groß ansehen"><img src="img/p39_06.webp" alt="Ansichten der Planung" loading="lazy"></button></div>
+        <div><div class="meta">Revitalisierung · Schwieberdingen</div><h3>Denkmal wird Zuhause</h3><p>Ein denkmalgeschütztes Anwesen aus Wohnhaus und Scheune wurde revitalisiert und ausgebaut. Entstanden sind 18 Einheiten, davon 9 senioren- und behindertengerechte Wohnungen in der ehemaligen Scheune mit innenliegendem Aufzug.</p><div class="facts"><span>18 Einheiten</span><span>Denkmalschutz</span><span>Barrierefrei</span></div></div></article>
+      <article class="proj rv"><div class="pics" data-g="kern"><button data-src="img/p74_00.webp" aria-label="Bild groß ansehen"><img src="img/p74_00.webp" alt="Heller Wohnraum mit indirekter Deckenbeleuchtung" loading="lazy"></button><button data-src="img/p74_10.webp" aria-label="Bild groß ansehen"><img src="img/p74_10.webp" alt="Modernes Bad mit Marmoroptik" loading="lazy"></button><button data-src="img/p74_04.webp" aria-label="Bild groß ansehen"><img src="img/p74_04.webp" alt="Zimmer mit Parkett und Lichtvoute" loading="lazy"></button></div>
+        <div><div class="meta">Innenarchitektur · 2019</div><h3>Kern Innenarchitektur</h3><p>Moderne Innenräume mit Lichtvouten, Parkett und einem großzügigen Bad. Innenarchitektur, die Wohnen spürbar besser macht.</p><div class="facts"><span>Innenarchitektur</span><span>Bad</span><span>Lichtplanung</span></div></div></article>
+      <article class="proj rv"><div class="pics" data-g="stgt"><button data-src="img/p64_18.webp" aria-label="Bild groß ansehen"><img src="img/p64_18.webp" alt="Sanierte Fassade in Gelb mit roten Fenstern" loading="lazy"></button><button data-src="img/p64_07.webp" aria-label="Bild groß ansehen"><img src="img/p64_07.webp" alt="Neue Dachdeckung mit Dachfenstern" loading="lazy"></button><button data-src="img/p64_15.webp" aria-label="Bild groß ansehen"><img src="img/p64_15.webp" alt="Fassade nach der Sanierung" loading="lazy"></button></div>
+        <div><div class="meta">Sanierung · Stuttgart</div><h3>Dach- und Fassaden&shy;sanierung</h3><p>Komplette Erneuerung von Dach und Fassade eines Wohnhauses in der Senefelderstraße in Stuttgart, mit neuer Dachdeckung und frischer Farbgestaltung.</p><div class="facts"><span>Dach</span><span>Fassade</span><span>Bestand</span></div></div></article>
+      <article class="proj rv"><div class="pics" data-g="feu"><button data-src="img/p71_00.webp" aria-label="Bild groß ansehen"><img src="img/p71_00.webp" alt="Altbau aus Sichtmauerwerk in Feuerbach" loading="lazy"></button><button data-src="img/p71_01.webp" aria-label="Bild groß ansehen"><img src="img/p71_01.webp" alt="Altbau eingerüstet während der Sanierung" loading="lazy"></button><button data-src="img/p71_02.webp" aria-label="Bild groß ansehen"><img src="img/p71_02.webp" alt="Sanierung mit Gerüst" loading="lazy"></button></div>
+        <div><div class="meta">Sanierung · Stuttgart-Feuerbach</div><h3>Altbau von 1920</h3><p>Ein 4-Familienhaus bekam neue Leitungen, Bäder und Küchen. Die Dachbühne wurde zur 2-Zimmer-Wohnung, die Sichtmauerwerk-Fassade saniert und das Dach nach EnEV gedämmt und neu gedeckt.</p><div class="facts"><span>Altbau</span><span>Dachausbau</span><span>Energetisch</span></div></div></article>
+      <article class="proj rv"><div class="pics" data-g="lidl"><button data-src="img/p18_01.webp" aria-label="Bild groß ansehen"><img src="img/p18_01.webp" alt="Lidl Markt und Bürogebäude in Tübingen" loading="lazy"></button><button data-src="img/p18_00.webp" aria-label="Bild groß ansehen"><img src="img/p18_00.webp" alt="Lidl Tübingen Ansicht" loading="lazy"></button><button data-src="img/p27_00.webp" aria-label="Bild groß ansehen"><img src="img/p27_00.webp" alt="Fertigungshalle in Vaihingen an der Enz" loading="lazy"></button></div>
+        <div><div class="meta">Gewerbebau · Tübingen &amp; Vaihingen/Enz</div><h3>Lidl Tübingen &amp; Fertigungshalle</h3><p>Pilotprojekt mit Wärmerückgewinnung, Photovoltaik, Fußbodenheizung und bis zu 4 m Raumhöhe, als Projektleiter der Phasen 1 bis 8. Dazu eine Fertigungshalle in Vaihingen an der Enz.</p><div class="facts"><span>Projektleitung</span><span>Photovoltaik</span><span>Gewerbe</span></div></div></article>
+    </div>
+
+    <div class="rv" style="margin-top:clamp(56px,8vw,100px)"><div class="kick">Weitere Projekte</div><h2 class="h" style="font-size:clamp(30px,4vw,48px)">Eine Auswahl aus der Projektliste</h2></div>
+    <div class="list rv">
+      <div><b>2019</b><span>Neubau Speditions-, Büro- und Wohngebäude GIGA Logistics</span></div>
+      <div><b>2018</b><span>Sanierung 4-Familienwohnhaus in Feuerbach</span></div>
+      <div><b>2016</b><span>Umbau Friseurgeschäft in Ludwigsburg</span></div>
+      <div><b>2016</b><span>Sanierung 4-Zimmerwohnung und Außenanlagen in Kornwestheim</span></div>
+      <div><b>2016</b><span>Planung Fachgeschäft im Bosch-Areal Stuttgart</span></div>
+      <div><b>2015</b><span>Sanierung 4-Zimmerwohnung in Kornwestheim</span></div>
+      <div><b>2014</b><span>Behindertengerechter Umbau in Gerlingen</span></div>
+      <div><b>2014</b><span>Revitalisierung in Schwieberdingen</span></div>
+      <div><b>2013</b><span>Wohn- und Geschäftshaus in Kornwestheim</span></div>
+      <div><b>2012</b><span>Villa in Baden-Baden</span></div>
+      <div><b>2012</b><span>Neubau 3-Familienhaus in Möglingen</span></div>
+      <div><b>2012</b><span>Fertigungshalle in Vaihingen an der Enz</span></div>
+      <div><b>2009</b><span>Lidl Lebensmittelmarkt und Bürogebäude in Tübingen</span></div>
+      <div><b>Aktuell</b><span>Wintergarten und Dachterrasse in Ludwigsburg</span></div>
+      <div><b>Aktuell</b><span>Nutzungsänderungen: Garage zu Imbiss in Remseck, Bäckerei zu Imbiss in Waiblingen</span></div>
+      <div><b>Aktuell</b><span>Balkon- und Wohnraumanbau, Garagenneubau in Stuttgart</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="visualisierungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Visualisierungen</div><h2 class="h">Ideen, bevor sie gebaut sind</h2><p class="lead">Eigene Renderings aus Wettbewerben, Studium und Planung: So sehen Bauherren ihr Projekt schon vor dem ersten Spatenstich.</p></div>
+    <div class="renders">
+      <button data-src="img/r15_00.webp" aria-label="Turm groß ansehen"><img src="img/r15_00.webp" alt="Rendering Turm" loading="lazy"><span>Turm</span></button>
+      <button data-src="img/r05_05.webp" aria-label="Endless Tower groß ansehen"><img src="img/r05_05.webp" alt="Wettbewerb Endless Tower Berlin" loading="lazy"><span>Endless Tower, Berlin</span></button>
+      <button data-src="img/r12_01.webp" aria-label="Pavillon groß ansehen"><img src="img/r12_01.webp" alt="Pavillon an der Hochschule für Technik Stuttgart" loading="lazy"><span>Pavillon, HFT Stuttgart</span></button>
+      <button data-src="img/r10_02.webp" aria-label="Diplom groß ansehen"><img src="img/r10_02.webp" alt="Diplomarbeit Institutsgebäude Seewiesen" loading="lazy"><span>Diplom, Seewiesen</span></button>
+      <button data-src="img/r10_05.webp" aria-label="Innenraum groß ansehen"><img src="img/r10_05.webp" alt="Innenraum Diplomarbeit" loading="lazy"><span>Innenraum</span></button>
+      <button data-src="img/r11_00.webp" aria-label="Lidl groß ansehen"><img src="img/r11_00.webp" alt="Wettbewerb Lidl Stuttgart-Weilimdorf" loading="lazy"><span>Lidl, Weilimdorf</span></button>
+      <button data-src="img/r13_00.webp" aria-label="Wendeltreppe groß ansehen"><img src="img/r13_00.webp" alt="Wendeltreppe Rendering" loading="lazy"><span>Wendeltreppe</span></button>
+      <button data-src="img/r40_00.webp" aria-label="Krankenhaus groß ansehen"><img src="img/r40_00.webp" alt="Krankenhaus in Didyma" loading="lazy"><span>Krankenhaus, Didyma</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="sv" id="sachverstaendiger">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="kick">Sachverständiger</div>
+      <h2 class="h">Wenn am Haus etwas passiert ist.</h2>
+      <p class="lead">Seit 2013 bin ich Sachverständiger für Schäden an Gebäuden, unter anderem im Auftrag der SV SparkassenVersicherung. Ich nehme Schäden auf, bewerte sie und erstelle Sanierungskonzepte, für Versicherungen und für Privatpersonen.</p>
+      <div class="chips"><span>Hagel</span><span>Brand</span><span>Hochwasser</span><span>Leitungswasser</span><span>Sturm</span><span>Einbruch</span><span>Hausrat</span></div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d8c28a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bauschäden und Baumängel in Alt- und Neubauten</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d8c28a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Zeitwertermittlung und Kosten der Schadensbeseitigung</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#d8c28a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Unterstützung bei der Regulierung von Versicherungsfällen</li>
+      </ul>
+      <p style="margin-top:24px"><a class="btn or" href="tel:+491726269952">Schaden melden: 0172 62 69 952</a></p>
+    </div>
+    <div class="pics rv" data-g="sv"><button data-src="img/p52_01.webp" aria-label="Bild groß ansehen"><img src="img/p52_01.webp" alt="Begutachtung an einer Hausfassade" loading="lazy"></button><button data-src="img/p52_02.webp" aria-label="Bild groß ansehen"><img src="img/p52_02.webp" alt="Schadenaufnahme am Eingang" loading="lazy"></button><button data-src="img/p52_04.webp" aria-label="Bild groß ansehen"><img src="img/p52_04.webp" alt="Detail eines Bauschadens" loading="lazy"></button></div>
+  </div>
+</section>
+
+<section id="ueber-mich">
+  <div class="wrap bio">
+    <div class="rv">
+      <div class="me"><img class="pt" src="img/portrait.webp" alt="Yunus Emre Kaya" loading="lazy"><h3>Yunus Emre Kaya</h3><p>Dipl.-Ing. (FH) · Freier Architekt &amp; Sachverständiger</p><img class="ak" src="img/akbw.png" alt="Mitglied der Architektenkammer Baden-Württemberg" loading="lazy"></div>
+      <div class="office"><img src="img/p43_02.webp" alt="Büro von YK Architektur" loading="lazy"><img src="img/p43_01.webp" alt="City Office YK Architektur in Kornwestheim" loading="lazy"></div>
+    </div>
+    <div class="rv">
+      <div class="kick">Über mich</div>
+      <h2 class="h">Architekt aus Kornwestheim.</h2>
+      <p class="lead">Vom Bauzeichner über das Architekturstudium bis zum eigenen Büro: Ich kenne das Bauen von der Zeichnung bis zur Baustelle. Bei mir haben Sie einen persönlichen Ansprechpartner für Ihr Projekt.</p>
+      <div class="tl">
+        <div><b>2017</b><span>Eröffnung des City Office in Kornwestheim</span></div>
+        <div><b>Seit 2013</b><span>Sachverständiger für Schäden an Gebäuden</span></div>
+        <div><b>2009</b><span>Gründung von YK Architektur in Kornwestheim</span></div>
+        <div><b>2007 – 2009</b><span>Architekt bei der bau werk stadt Stuttgart, Projektleiter Lidl Tübingen</span></div>
+        <div><b>2002 – 2006</b><span>Architekturstudium an der Hochschule für Technik Stuttgart, Diplom</span></div>
+        <div><b>2004</b><span>Büropraktikum bei Behnisch, Behnisch und Partner, Stuttgart</span></div>
+        <div><b>1998 – 2001</b><span>Ausbildung zum Bauzeichner in Kornwestheim</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Sprechen wir über Ihr Projekt</h2><p class="lead">Rufen Sie mich an oder schreiben Sie mir. Ich melde mich schnell bei Ihnen zurück.</p></div>
+    <div class="cbox">
+      <a class="tile rv" href="tel:+491726269952"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></span><span><small>Mobil</small><strong>0172 62 69 952</strong></span></a>
+      <a class="tile rv" href="tel:+4971541899910"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon</small><strong>07154 18 999 10</strong></span></a>
+      <a class="tile rv" href="mailto:info@yk-architektur.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>info@yk-architektur.de</strong></span></a>
+      <a class="tile rv" href="https://www.google.com/maps/dir/?api=1&destination=Bl%C3%BCcherstra%C3%9Fe+7,+70806+Kornwestheim" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Büro</small><strong>Blücherstraße 7, 70806 Kornwestheim</strong></span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© YK Architektur · Dipl.-Ing. (FH) Yunus Emre Kaya · Kornwestheim</span>
+    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Bildansicht"><button class="lbx" id="lbx" aria-label="Schließen">×</button><button class="lbp" id="lbp" aria-label="Vorheriges Bild">‹</button><img id="lbi" alt=""><button class="lbn" id="lbn" aria-label="Nächstes Bild">›</button><div class="lbc" id="lbc"></div></div>
+<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*5),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Film: Plan, Baustelle, Rohbau, fertiges Gebäude, Innenraum */
+(()=>{
+const draft=document.querySelector('.draft'),cv=document.getElementById('film'),cx=cv.getContext('2d'),hero=document.querySelector('.hero'),caps=[...document.querySelectorAll('.cap')],hint=document.getElementById('hint'),tag=document.getElementById('ptag'),pbar=document.getElementById('pbar');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SC=[{s:'img/h1.webp',a:0,b:.24,z:[1.0,1.12],f:[.5,.5],t:'Plan',bg:'#fff'},{s:'img/h2.webp',a:.2,b:.46,z:[1.04,1.14],f:[.5,.5],t:'Baubeginn'},{s:'img/h3.webp',a:.42,b:.68,z:[1.02,1.12],f:[.6,.5],t:'Rohbau'},{s:'img/h4.webp',a:.64,b:.88,z:[1.02,1.12],f:[.5,.45],t:'Fertig'},{s:'img/h5.webp',a:.84,b:1.01,z:[1.0,1.08],f:[.5,.5],t:'Innenraum'}];
+SC.forEach(o=>{o.im=new Image();o.im.decoding='async';o.im.src=o.s;});
+let W=0,H=0,D=1,cur=0,tgt=0;
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;}
+size();addEventListener('resize',size);
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+function drawImg(o,k,al){const im=o.im;if(!im.complete||!im.naturalWidth||al<=0)return;
+  const port=H>W,fit=o.bg?Math.min(W/im.naturalWidth,H/im.naturalHeight)*(port?.95:.72):Math.max(W/im.naturalWidth,H/im.naturalHeight);
+  const z=o.z[0]+(o.z[1]-o.z[0])*k,sc=fit*z,w=im.naturalWidth*sc,h=im.naturalHeight*sc;
+  let x=(W-w)*o.f[0],y=(H-h)*o.f[1];if(o.bg){x=port?(W-w)/2:W*.66-w/2;y=port?H*.32-h/2:(H-h)/2;}
+  cx.globalAlpha=al;if(o.bg){cx.fillStyle='#f4f1ea';cx.fillRect(0,0,W,H);}cx.drawImage(im,x,y,w,h);}
+function draw(p){cx.setTransform(D,0,0,D,0,0);cx.globalAlpha=1;cx.fillStyle='#0e0c0a';cx.fillRect(0,0,W,H);let label=SC[0].t;
+  SC.forEach((o,i)=>{if(p<o.a-.001||p>o.b)return;const k=cl((p-o.a)/(o.b-o.a));let al=1;if(i>0){const prev=SC[i-1];al=ease(cl((p-o.a)/(prev.b-o.a)));}drawImg(o,k,al);if(al>.5)label=o.t;});
+  cx.globalAlpha=1;const g=cx.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(0,0,0,.4)');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  tag.innerHTML='<b>'+label+'</b>';}
+function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
+function frame(){tgt=prog();cur+=(tgt-cur)*(reduce?1:.1);draw(cur);caps.forEach(c=>c.classList.toggle('on',cur>=+c.dataset.a&&cur<+c.dataset.b));hint.style.opacity=cur>.02?0:1;pbar.style.width=(cur*100)+'%';draft.classList.toggle('hide',tgt<.995);tag.style.opacity=cur>.9?0:1;requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();
+/* Großansicht für alle Bilder */
+(()=>{
+const btns=[...document.querySelectorAll('[data-src]')],lb=document.getElementById('lb'),li=document.getElementById('lbi'),lc=document.getElementById('lbc');let k=0;
+function show(n){k=(n+btns.length)%btns.length;const b=btns[k];li.src=b.dataset.src;li.alt=b.querySelector('img').alt;lc.textContent=b.querySelector('img').alt;}
+btns.forEach((b,i)=>b.onclick=()=>{show(i);lb.hidden=false;document.body.style.overflow='hidden';});
+const close=()=>{lb.hidden=true;document.body.style.overflow='';};
+document.getElementById('lbx').onclick=close;document.getElementById('lbp').onclick=()=>show(k-1);document.getElementById('lbn').onclick=()=>show(k+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close();});
+addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)show(k+(dx<0?1:-1));});
+})();
+</script>
+</body>
+</html>

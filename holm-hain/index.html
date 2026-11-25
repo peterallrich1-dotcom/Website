@@ -1,0 +1,1779 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holm &amp; Hain Tischlerei</title>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Holm & Hain · Tischlerei am Waldrand">
+<meta property="og:description" content="Ein Flug durch die Glaswand in die Werkstatt, Tür-Konfigurator, Projekt-Planer und Holz-Labor. Beispielseite von Allrich Webdesign.">
+<meta property="og:image" content="https://allrich-webdesign.com/holm-hain/thumb.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Beispielseite von Allrich Webdesign: Holm &amp; Hain ist eine fiktive Tischlerei am Waldrand. Scroll-Film durch die Werkstatt, Tür-Konfigurator, Projekt-Planer und Holz-Labor.">
+<link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="seq/a/001.webp" as="image">
+<style>
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-full-normal.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-full-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+
+/* Layout: a film that flies through the glass wall into the workshop, then the page alternates
+   between forest-night bands (film, craft, projects) and pale sage "bench" bands where the
+   visitor works: project planner, door configurator, wood lab. It ends by flying back out to
+   the building for the visit. */
+:root{
+  color-scheme:dark;
+  --night:#0c110e;      /* pine forest at blue hour */
+  --night-2:#121a15;
+  --moss:#1b261f;
+  --pine:#2f4a3b;
+  --mist:#efebe3;       /* text on night */
+  --dim:#a2aaa2;
+  --ember:#f0a85c;      /* 2700 K workshop glow */
+  --ember-2:#ffc489;
+  --ember-deep:#b06a26;
+  --sage:#e7e9e2;       /* bench bands */
+  --sage-2:#d9ddd3;
+  --sage-3:#cdd2c6;
+  --paper:#f6f6f1;
+  --ink:#131714;
+  --ink-dim:#5c645d;
+  --line:rgba(239,235,227,.13);
+  --line-2:rgba(239,235,227,.24);
+  --line-ink:rgba(19,23,20,.14);
+  --line-ink-2:rgba(19,23,20,.26);
+  --f-display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"Geist","Helvetica Neue",Arial,system-ui,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --gl:max(16px, env(safe-area-inset-left, 0px));
+  --gr:max(16px, env(safe-area-inset-right, 0px));
+  --sb:env(safe-area-inset-bottom, 0px);
+  --st:env(safe-area-inset-top, 0px);
+  --wrap:1340px;
+  --head:72px;
+  --tab:0px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+}
+@media (max-width:900px){:root{--head:58px;--tab:62px}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--mist);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--st);z-index:80;background:var(--night)}
+img,canvas{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:6px}
+::selection{background:var(--ember);color:var(--night)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+@media (min-width:900px){.wrap{padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px))}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* type */
+.eyebrow{display:inline-flex;align-items:center;gap:.7em;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ember)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.7}
+.bench .eyebrow{color:var(--ember-deep)}
+h1,h2,h3{font-family:var(--f-display);font-weight:350;font-variation-settings:"opsz" 144,"SOFT" 50,"WONK" 0;letter-spacing:-.028em;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.3rem,5.2vw,4.7rem)}
+h3{font-size:clamp(1.35rem,2vw,1.8rem);letter-spacing:-.015em;line-height:1.12}
+.it{font-style:italic;color:var(--ember);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+.bench .it{color:var(--ember-deep)}
+p{margin:0}
+.lede{font-size:clamp(1.04rem,1.35vw,1.2rem);color:var(--dim);max-width:56ch}
+.bench .lede{color:var(--ink-dim)}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.sec-head h2{margin-top:18px}
+@media (max-width:900px){.sec-head{grid-template-columns:1fr}}
+
+/* buttons + chips */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:.92em 1.4em;border-radius:999px;border:1px solid transparent;font-weight:500;font-size:.95rem;line-height:1.2;text-decoration:none;transition:background .3s var(--ease),color .3s,border-color .3s,transform .3s var(--ease),box-shadow .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:1.05em;height:1.05em;flex:none}
+.btn-ember{background:var(--ember);color:#1a1209;box-shadow:0 10px 30px -12px rgba(240,168,92,.7)}
+.btn-ember:hover{background:var(--ember-2)}
+.btn-glass{border-color:var(--line-2);background:rgba(12,17,14,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn-glass:hover{border-color:var(--mist)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#000}
+.btn-line{border-color:var(--line-ink-2);background:transparent;color:var(--ink)}
+.btn-line:hover{border-color:var(--ink)}
+.btn-sm{padding:.65em 1.05em;font-size:.86rem}
+.chip{display:inline-flex;align-items:center;gap:.5em;border:1px solid var(--line-2);background:rgba(12,17,14,.3);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:.62em 1.05em;font-size:.9rem;transition:background .25s,border-color .25s,color .25s,transform .25s var(--ease)}
+.chip:hover{border-color:var(--mist)}
+.chip[aria-pressed="true"]{background:var(--mist);color:var(--night);border-color:var(--mist)}
+.bench .chip,.k-form .chip{border-color:var(--line-ink-2);background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;color:var(--ink)}
+.bench .chip:hover,.k-form .chip:hover{border-color:var(--ink)}
+.bench .chip[aria-pressed="true"],.k-form .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:disabled{opacity:.35;cursor:not-allowed}
+
+/* ---------- header ---------- */
+.progress{position:fixed;top:var(--st);left:0;right:0;height:2px;z-index:72;pointer-events:none}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--ember-deep),var(--ember));transform-origin:left;transform:scaleX(0)}
+.head{position:fixed;top:var(--st);left:0;right:0;z-index:70;transition:background .4s var(--ease),border-color .4s,color .3s;border-bottom:1px solid transparent}
+.head.solid{background:rgba(12,17,14,.8);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-color:var(--line)}
+.head.light{background:rgba(231,233,226,.9);color:var(--ink);border-color:var(--line-ink)}
+.head-in{display:flex;align-items:center;gap:18px;height:var(--head)}
+.logo{display:flex;align-items:baseline;gap:.55em;text-decoration:none;margin-right:auto}
+.logo b{font-family:var(--f-display);font-weight:420;font-size:1.42rem;letter-spacing:-.02em;font-variation-settings:"opsz" 72,"SOFT" 80}
+.logo b i{color:var(--ember);font-variation-settings:"opsz" 72,"SOFT" 100,"WONK" 1}
+.head.light .logo b i{color:var(--ember-deep)}
+.logo small{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.nav{display:flex;gap:2px;align-items:center}
+.nav a{text-decoration:none;font-size:.9rem;padding:.5em .8em;border-radius:999px;opacity:.8;transition:opacity .2s,background .2s}
+.nav a:hover,.nav a.on{opacity:1;background:rgba(239,235,227,.09)}
+.head.light .nav a:hover,.head.light .nav a.on{background:rgba(19,23,20,.07)}
+.status{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:#7a8a7e}
+.status.open i{background:#7ac98c;animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(122,201,140,.55)}70%{box-shadow:0 0 0 8px rgba(122,201,140,0)}100%{box-shadow:0 0 0 0 rgba(122,201,140,0)}}
+.demo-pill{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:.25em .7em;opacity:.55}
+.head .btn{padding:.68em 1.15em;font-size:.88rem}
+@media (max-width:1180px){.nav a.opt{display:none}}
+@media (max-width:900px){.nav,.head .btn,.head .status{display:none}}
+
+/* mobile tab bar */
+.tabs{display:none}
+@media (max-width:900px){
+  .tabs{position:fixed;left:0;right:0;bottom:0;z-index:75;display:grid;grid-template-columns:repeat(5,1fr);padding:6px var(--gr) calc(6px + var(--sb)) var(--gl);background:rgba(12,17,14,.92);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border-top:1px solid var(--line)}
+  .tabs a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;font-size:.64rem;letter-spacing:.02em;color:var(--dim);padding:5px 0;border-radius:12px;position:relative}
+  .tabs a svg{width:22px;height:22px}
+  .tabs a.on{color:var(--ember)}
+  .tabs .badge{position:absolute;top:0;left:calc(50% + 6px);min-width:17px;height:17px;border-radius:9px;background:var(--ember);color:#1a1209;font-size:.62rem;font-weight:600;display:grid;place-items:center;padding:0 4px}
+}
+
+/* ---------- films ---------- */
+.film{position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night)}
+.stage canvas,.stage .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage.live canvas{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none}
+#hero{height:640vh}
+#hero .shade{background:linear-gradient(180deg,rgba(12,17,14,.6) 0%,rgba(12,17,14,0) 24%,rgba(12,17,14,0) 46%,rgba(12,17,14,.86) 100%),radial-gradient(90% 70% at 0% 100%,rgba(12,17,14,.6),transparent 60%)}
+.beats{position:absolute;left:0;right:0;bottom:0;padding-bottom:calc(clamp(40px,9vh,100px) + var(--tab) + var(--sb))}
+.beats>.wrap{position:relative;min-height:56vh}
+.beat{position:absolute;left:0;right:0;bottom:0;padding-left:inherit;padding-right:inherit;opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);pointer-events:none}
+.beat.on{opacity:1;transform:none;pointer-events:auto}
+.beat .eyebrow{margin-bottom:1.1rem}
+.hello{display:block;font-family:var(--f-display);font-style:italic;font-weight:340;font-size:clamp(1.2rem,2vw,1.6rem);color:var(--ember-2);margin-bottom:.5rem;font-variation-settings:"opsz" 48,"SOFT" 100,"WONK" 1}
+.hero-title{font-size:clamp(3.8rem,12vw,11.5rem);font-weight:320;line-height:.86;letter-spacing:-.048em;font-variation-settings:"opsz" 144,"SOFT" 30}
+.hero-title i{font-weight:290;color:var(--ember);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+.beat .sub{margin-top:1.3rem;font-size:clamp(1.02rem,1.5vw,1.25rem);max-width:42ch;opacity:.92}
+.big{font-family:var(--f-display);font-weight:330;font-size:clamp(2rem,4.8vw,4.3rem);line-height:1.04;letter-spacing:-.028em;max-width:16ch;font-variation-settings:"opsz" 144,"SOFT" 50;text-wrap:balance}
+.big em{font-style:italic;color:var(--ember);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+.beat .note{margin-top:1rem;max-width:44ch;opacity:.85;font-size:clamp(.98rem,1.3vw,1.12rem)}
+.pick{margin-top:1.8rem;display:grid;gap:.7rem}
+.pick .mono{color:var(--dim)}
+.pick-row{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:640px){.pick-row{flex-wrap:nowrap;overflow-x:auto;margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding-left:var(--gl);padding-right:var(--gr);scrollbar-width:none}.pick-row::-webkit-scrollbar{display:none}.pick-row .chip{flex:none}}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.8rem}
+.chapters{position:absolute;right:var(--gr);top:calc(var(--head) + var(--st) + 24px);display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+@media (min-width:900px){.chapters{right:max(48px,env(safe-area-inset-right,0px))}}
+.tc{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;font-variant-numeric:tabular-nums;opacity:.85}
+.chap{list-style:none;margin:0;padding:0;display:grid;gap:2px;justify-items:end}
+.chap button{background:none;border:0;padding:5px 0;display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);opacity:.45;transition:opacity .3s}
+.chap button::after{content:"";width:18px;height:2px;border-radius:2px;background:currentColor;transition:width .4s var(--ease),background .3s}
+.chap button.on{opacity:1}
+.chap button.on::after{width:36px;background:var(--ember)}
+.chap button:hover{opacity:.9}
+@media (max-width:640px){.chap span{display:none}.chapters{gap:10px}}
+.loadbar{width:120px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;transition:opacity .6s}
+.loadbar i{display:block;height:100%;background:var(--mist);transform-origin:left;transform:scaleX(0);transition:transform .3s}
+.loadbar.done{opacity:0}
+.cue{position:absolute;left:50%;bottom:calc(18px + var(--tab) + var(--sb));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;opacity:.75;transition:opacity .4s;pointer-events:none}
+.cue::after{content:"";width:1px;height:34px;background:linear-gradient(var(--mist),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:900px){.cue{display:none}}
+
+.ticker{display:none}
+@media (max-width:700px){
+  #hero{height:460vh}
+  #anfahrt{height:340vh}
+  #hero .chap span{display:none}
+}
+
+/* ---------- haltung ---------- */
+.haltung{padding-block:clamp(110px,15vw,210px) clamp(80px,10vw,140px)}
+.h-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,6vw,96px);align-items:center}
+@media (max-width:900px){.h-grid{grid-template-columns:1fr}}
+.statement{font-family:var(--f-display);font-weight:330;font-size:clamp(1.85rem,3.9vw,3.5rem);line-height:1.14;letter-spacing:-.022em;font-variation-settings:"opsz" 144,"SOFT" 50;text-wrap:pretty;margin-top:26px}
+.statement span{color:rgba(239,235,227,.3);transition:color .5s}
+.statement span.lit{color:var(--mist)}
+.statement span.lit.warm{color:var(--ember)}
+.h-photo{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;background:var(--moss);margin:0}
+.h-photo img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.h-photo figcaption{position:absolute;left:14px;bottom:14px;right:14px;display:flex;justify-content:space-between;gap:10px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+@media (max-width:900px){.h-photo{aspect-ratio:4/3}}
+.facts{margin-top:clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.fact{padding:22px 22px 0 0;display:grid;gap:6px;align-content:start}
+.fact+.fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact b{font-family:var(--f-display);font-weight:330;font-size:clamp(2.2rem,3.5vw,3.2rem);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;font-variation-settings:"opsz" 144}
+.fact b small{font-size:.45em;letter-spacing:0}
+.fact span{color:var(--dim);font-size:.9rem}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line);margin-top:22px}}
+
+/* ---------- bench (light bands) ---------- */
+.bench{background:var(--sage);color:var(--ink);color-scheme:light}
+.band{padding-block:clamp(96px,12vw,170px)}
+
+/* ---------- planner ---------- */
+.finder{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr);gap:clamp(20px,3vw,40px);align-items:start}
+@media (max-width:1000px){.finder{grid-template-columns:1fr}}
+.f-card{background:var(--paper);border:1px solid var(--line-ink);border-radius:18px;padding:clamp(18px,3vw,34px);box-shadow:0 30px 60px -40px rgba(19,23,20,.35);min-width:0}
+.f-steps{display:flex;gap:6px;margin-bottom:22px}
+.f-steps i{flex:1;height:3px;border-radius:3px;background:var(--sage-3);transition:background .4s}
+.f-steps i.on{background:var(--ink)}
+.f-q{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+.f-q h3{font-size:clamp(1.35rem,2.2vw,1.9rem)}
+.f-q .mono{color:var(--ink-dim);flex:none}
+.f-pane{animation:fadeUp .5s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.kinds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.kinds{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kind{position:relative;border:0;padding:0;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--sage-2);text-align:left;color:var(--mist);transition:transform .35s var(--ease),box-shadow .35s}
+.kind img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.kind::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,17,14,.8),rgba(12,17,14,0) 62%)}
+.kind span{position:absolute;left:12px;bottom:10px;right:12px;z-index:1;font-weight:500;font-size:.98rem;line-height:1.2}
+.kind small{display:block;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-top:3px}
+.kind:hover img{transform:scale(1.06)}
+.kind[aria-pressed="true"]{box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--ink)}
+.kind[aria-pressed="true"]::before{content:"✓";position:absolute;top:10px;right:10px;z-index:2;width:26px;height:26px;border-radius:50%;background:var(--ember);color:#1a1209;display:grid;place-items:center;font-size:.8rem;font-weight:700}
+.range-wrap{display:grid;gap:14px}
+.range-val{font-family:var(--f-display);font-weight:340;font-size:clamp(2.6rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.range-val small{font-family:var(--f-body);font-size:1rem;letter-spacing:0;color:var(--ink-dim);margin-left:.3em}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;touch-action:pan-y;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--ink) var(--p,50%),var(--sage-3) var(--p,50%))}
+input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:var(--sage-3)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);margin-top:-12px;box-shadow:0 4px 14px rgba(19,23,20,.25)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+.range-scale{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.66rem;color:var(--ink-dim)}
+.opts-list{display:grid;gap:8px}
+.opt-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line-ink);background:transparent;border-radius:12px;padding:14px 16px;text-align:left;transition:border-color .25s,background .25s}
+.opt-row:hover{border-color:var(--ink)}
+.opt-row[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.opt-row small{opacity:.65;font-size:.82rem;text-align:right}
+.field{display:grid;gap:6px}
+.field label,.field .lbl-t{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+.field input,.field select,.field textarea{font-size:1rem;color:var(--ink);background:#fff;border:1px solid var(--line-ink-2);border-radius:10px;padding:.8em .95em;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ember-deep);outline-offset:1px;border-color:transparent}
+.field textarea{min-height:110px;resize:vertical}
+.zone{font-size:.9rem;padding:10px 12px;border-radius:10px;background:var(--sage);display:flex;gap:10px;align-items:flex-start}
+.zone b{font-weight:600}
+.f-nav{display:flex;justify-content:space-between;gap:10px;margin-top:24px}
+.f-result{position:sticky;top:calc(var(--head) + var(--st) + 20px);background:var(--ink);color:var(--paper);border-radius:18px;overflow:hidden;min-width:0}
+@media (max-width:1000px){.f-result{position:relative;top:0}}
+.f-result .ph{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--moss)}
+.f-result .ph img{width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.f-result .ph .tagline{position:absolute;left:14px;top:14px;background:rgba(12,17,14,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:.4em .85em;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
+.f-res-body{padding:22px 24px 24px;display:grid;gap:16px}
+.f-res-body h3{font-size:1.5rem}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:.94rem;margin:0}
+.kv dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:#9aa39b;padding-top:.3em}
+.kv dd{margin:0;font-variant-numeric:tabular-nums}
+.kv dd b{font-family:var(--f-display);font-weight:360;font-size:1.6rem;letter-spacing:-.02em}
+.f-res-body .acts{display:flex;flex-wrap:wrap;gap:8px}
+.f-res-body .btn-line{color:var(--paper);border-color:rgba(246,246,241,.3)}
+.f-res-body .btn-line:hover{border-color:var(--paper)}
+.f-res-body .small{font-size:.8rem;color:#9aa39b}
+
+/* ---------- craft rail ---------- */
+.craft{padding-block:clamp(110px,14vw,190px);overflow:hidden}
+.rail-ctl{display:flex;align-items:center;gap:14px;justify-content:flex-end}
+.rail-ctl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:transparent;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.rail-ctl button:hover{border-color:var(--mist);background:rgba(239,235,227,.06)}
+.rail-ctl svg{width:18px;height:18px}
+.rail-bar{flex:1;max-width:220px;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.rail-bar i{display:block;height:100%;width:30%;background:var(--ember);transition:transform .15s}
+@media (max-width:900px){.rail-ctl{justify-content:flex-start}.rail-ctl button{display:none}.rail-bar{max-width:none}}
+.rail{display:flex;gap:clamp(14px,1.8vw,24px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:max(48px,calc((100vw - var(--wrap))/2 + 48px));padding-right:var(--gr);scroll-padding-left:max(48px,calc((100vw - var(--wrap))/2 + 48px));cursor:grab;overscroll-behavior-x:contain}
+@media (max-width:900px){.rail{padding-left:var(--gl);scroll-padding-left:var(--gl)}}
+.rail::-webkit-scrollbar{display:none}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.rail.drag *{pointer-events:none}
+.card{flex:0 0 auto;width:clamp(250px,28vw,400px);scroll-snap-align:start;margin:0;user-select:none}
+@media (max-width:640px){.card{width:76vw}}
+.card .ph{position:relative;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--moss)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);-webkit-user-drag:none}
+.card:hover img{transform:scale(1.04)}
+.card .zoom{position:absolute;right:12px;bottom:12px;width:42px;height:42px;border-radius:50%;border:0;background:rgba(12,17,14,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;color:var(--mist);pointer-events:auto}
+.card .zoom svg{width:17px;height:17px}
+.card .idx{position:absolute;left:12px;top:12px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;background:rgba(12,17,14,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:.35em .7em;border-radius:999px}
+.card figcaption{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding-top:14px;margin-top:14px;border-top:1px solid var(--line)}
+.card b{font-weight:500}
+.card .mono{color:var(--ember);padding-top:.25em}
+.card p{grid-column:1/-1;color:var(--dim);font-size:.92rem}
+
+/* ---------- configurator ---------- */
+.k-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,5vw,80px);align-items:start}
+@media (max-width:900px){.k-grid{grid-template-columns:1fr;gap:22px}}
+.preview{position:sticky;top:calc(var(--head) + var(--st) + 18px)}
+.drawing{display:grid;grid-template-columns:30px minmax(0,1fr);grid-template-rows:auto 30px;gap:8px;max-width:calc(60vh * .75 + 38px)}
+.door{position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;background:var(--sage-2);touch-action:pan-y;user-select:none}
+.door img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s var(--ease);-webkit-user-drag:none}
+.door .back{opacity:0}
+.door .lay{position:absolute;inset:0;transition:transform .7s var(--ease-io)}
+.door.mirror .lay{transform:scaleX(-1)}
+.door .cmp{position:absolute;inset:0;clip-path:inset(0 0 0 50%);display:none}
+.door.comparing .cmp{display:block}
+.door.comparing{cursor:ew-resize;touch-action:none}
+.door .split{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--paper);display:none;transform:translateX(-1px);box-shadow:0 0 0 1px rgba(19,23,20,.15)}
+.door.comparing .split{display:block}
+.door .split::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-size:1.1rem;box-shadow:0 8px 24px rgba(19,23,20,.25)}
+.door .lbl{position:absolute;top:12px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(246,246,241,.92);color:var(--ink);padding:.4em .75em;border-radius:999px;display:none}
+.door.comparing .lbl{display:block}
+.door .lbl.l{left:12px}.door .lbl.r{right:12px}
+.door .tag{position:absolute;left:12px;bottom:12px;background:rgba(246,246,241,.92);color:var(--ink);padding:.4em .75em;border-radius:999px;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase}
+.handle{position:absolute;right:12px;bottom:12px;width:clamp(70px,24%,120px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--paper);box-shadow:0 10px 30px rgba(19,23,20,.28);background:var(--sage-2);transition:transform .4s var(--ease)}
+.handle img{position:static;width:100%;height:100%;object-fit:cover}
+.door.comparing .handle{transform:scale(0)}
+.dim-v,.dim-h{position:relative;font-family:var(--f-mono);font-size:.66rem;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.dim-v{grid-row:1;grid-column:1}.dim-h{grid-row:2;grid-column:2}
+.dim-v::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid var(--ink-dim)}
+.dim-h::before{content:"";position:absolute;top:50%;left:0;right:0;border-top:1px solid var(--ink-dim)}
+.dim-v::after{content:"";position:absolute;left:calc(50% - 6px);top:0;bottom:0;width:12px;border-top:1px solid var(--ink-dim);border-bottom:1px solid var(--ink-dim)}
+.dim-h::after{content:"";position:absolute;top:calc(50% - 6px);left:0;right:0;height:12px;border-left:1px solid var(--ink-dim);border-right:1px solid var(--ink-dim)}
+.dim-v span,.dim-h span{position:absolute;left:50%;top:50%;background:var(--sage);padding:3px 6px;white-space:nowrap;z-index:1}
+.dim-v span{transform:translate(-50%,-50%) rotate(-90deg)}
+.dim-h span{transform:translate(-50%,-50%)}
+.pv-meta{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:16px 0 0 38px;flex-wrap:wrap}
+.pv-meta h3{font-size:1.55rem}
+.pv-meta p{color:var(--ink-dim);font-size:.9rem}
+.pv-tools{display:flex;gap:8px;margin:14px 0 0 38px;flex-wrap:wrap;align-items:center}
+.cmp-pick{margin:12px 0 0 38px;display:none;gap:6px;flex-wrap:wrap;align-items:center}
+.cmp-pick.on{display:flex}
+.cmp-pick .mono{color:var(--ink-dim);margin-right:4px}
+.k-opts{display:grid;grid-template-columns:minmax(0,1fr);gap:30px;min-width:0}
+.k-opt,.row2>*{min-width:0}
+.k-opt h4{margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--f-mono);font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase}
+.k-opt h4 small{font-family:var(--f-body);font-size:.82rem;letter-spacing:0;text-transform:none;color:var(--ink-dim);font-weight:400;text-align:right}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tiles.h{grid-template-columns:repeat(5,minmax(0,1fr))}
+.tile{border:1px solid var(--line-ink);background:rgba(255,255,255,.4);border-radius:10px;padding:6px 6px 10px;text-align:left;display:flex;flex-direction:column;gap:7px;transition:border-color .25s,background .25s,transform .3s var(--ease);min-width:0}
+.tile:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tile[aria-pressed="true"]{border-color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.tile img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;background:var(--sage-2)}
+.tiles.h .tile img{aspect-ratio:1}
+.tile b{font-weight:500;font-size:.84rem;line-height:1.2;padding-inline:3px}
+.tile span{font-family:var(--f-mono);font-size:.62rem;color:var(--ink-dim);padding-inline:3px;letter-spacing:.03em}
+@media (max-width:900px){
+  .tiles,.tiles.h,.seg.scroll{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding:2px var(--gr) 6px var(--gl);gap:8px}
+  .tiles::-webkit-scrollbar,.seg.scroll::-webkit-scrollbar{display:none}
+  .tile{flex:0 0 30%;scroll-snap-align:start}
+  .tiles.h .tile{flex-basis:26%}
+  .seg.scroll .chip{flex:none}
+}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line-ink-2);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.4)}
+.stepper button{width:46px;height:46px;background:transparent;border:0;font-size:1.2rem}
+.stepper button:hover{background:rgba(19,23,20,.06)}
+.stepper output{min-width:40px;text-align:center;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.row2{display:flex;gap:28px;flex-wrap:wrap}
+.row2>*{flex:1 1 180px}
+.hint{font-size:.85rem;color:var(--ink-dim);margin-top:10px}
+.hint.warm{color:var(--ember-deep);margin-top:-14px}
+.rooms{border-top:1px solid var(--line-ink-2);padding-top:26px;display:grid;gap:14px}
+.rooms-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.rooms-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.room{display:grid;grid-template-columns:44px minmax(0,1fr) auto auto;gap:12px;align-items:center;background:rgba(255,255,255,.55);border:1px solid var(--line-ink);border-radius:12px;padding:8px 6px 8px 8px;animation:fadeUp .4s var(--ease);cursor:pointer}
+.room.cur{border-color:var(--ink)}
+.room img{width:44px;height:58px;object-fit:cover;border-radius:6px}
+.room b{display:block;font-weight:500;font-size:.95rem}
+.room span{display:block;font-size:.8rem;color:var(--ink-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room .p{font-family:var(--f-mono);font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+.room button{background:none;border:0;width:36px;height:36px;border-radius:50%;color:var(--ink-dim);font-size:1.15rem}
+.room button:hover{background:rgba(19,23,20,.07);color:var(--ink)}
+.rooms-empty{font-size:.9rem;color:var(--ink-dim);border:1px dashed var(--line-ink-2);border-radius:12px;padding:14px 16px}
+.sum{margin-top:20px;background:var(--ink);color:var(--paper);border-radius:16px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 18px;align-items:center;box-shadow:0 26px 60px -28px rgba(19,23,20,.6)}
+.sum .pl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#9aa39b;margin-bottom:4px}
+.sum .price{font-family:var(--f-display);font-weight:350;font-size:clamp(1.8rem,2.8vw,2.4rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sum .line{grid-column:1/-1;font-size:.84rem;color:#b9c0ba}
+.sum .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.sum .btn-line{color:var(--paper);border-color:rgba(246,246,241,.3)}
+.sum .btn-line:hover{border-color:var(--paper)}
+@media (max-width:900px){
+  .preview{top:calc(var(--head) + var(--st));z-index:4;background:rgba(231,233,226,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding:10px var(--gr) 12px var(--gl);border-bottom:1px solid var(--line-ink);display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:center}
+  .drawing{grid-row:1/span 3;grid-template-columns:16px auto;grid-template-rows:auto 16px;gap:4px;max-width:none}
+  .door{height:min(28svh,230px);width:auto}
+  .dim-v span,.dim-h span{font-size:.54rem;padding:1px 3px;background:rgba(231,233,226,1)}
+  .handle{width:42%;border-width:2px;right:5px;bottom:5px}
+  .door .tag,.door .lbl{display:none!important}
+  .pv-meta{margin:0;display:block;align-self:end}
+  .pv-meta h3{font-size:1.3rem}
+  .pv-meta p{font-size:.8rem;line-height:1.35;margin-top:2px}
+  .pv-meta .mono{display:none}
+  .pv-tools{margin:0}
+  .cmp-pick{margin:0;grid-column:2;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .cmp-pick .chip{flex:none;padding:.45em .8em;font-size:.78rem}
+  .preview .sum{display:none}
+}
+.msum{display:none}
+@media (max-width:900px){
+  .msum{position:fixed;left:8px;right:8px;bottom:calc(var(--tab) + var(--sb) + 8px);z-index:74;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;background:var(--ink);color:var(--paper);border-radius:16px;padding:10px 10px 10px 16px;box-shadow:0 18px 40px -12px rgba(0,0,0,.55);transform:translateY(170%);opacity:0;visibility:hidden;transition:transform .45s var(--ease),opacity .3s,visibility .45s}
+  .msum.show{transform:none;opacity:1;visibility:visible}
+  .msum .pl{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#9aa39b}
+  .msum .price{font-family:var(--f-display);font-size:1.5rem;line-height:1.05;font-variant-numeric:tabular-nums}
+  .msum .btn{padding:.8em 1em;font-size:.86rem}
+  .konf{padding-bottom:150px}
+}
+
+/* ---------- projects viewer ---------- */
+.projekte{padding-block:clamp(110px,14vw,190px)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+@media (max-width:640px){.filters{flex-wrap:nowrap;overflow-x:auto;margin-left:calc(-1 * var(--gl));margin-right:calc(-1 * var(--gr));padding-left:var(--gl);padding-right:var(--gr);scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filters .chip{flex:none}}
+.viewer{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,.85fr);gap:clamp(18px,2.6vw,36px);align-items:start}
+@media (max-width:1000px){.viewer{grid-template-columns:1fr}}
+.v-main{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:16/9;background:var(--moss)}
+.v-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s var(--ease),transform 1.2s var(--ease)}
+.v-main img.out{opacity:0;transform:scale(1.03)}
+.hs{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:0;background:rgba(246,246,241,.94);color:var(--ink);display:grid;place-items:center;font-family:var(--f-mono);font-size:.72rem;font-weight:500;box-shadow:0 6px 20px rgba(0,0,0,.35);transition:transform .3s var(--ease),background .3s,color .3s;z-index:2;animation:pop .5s var(--ease) backwards}
+.hs:nth-child(2){animation-delay:.08s}.hs:nth-child(3){animation-delay:.16s}.hs:nth-child(4){animation-delay:.24s}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.hs::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px solid rgba(246,246,241,.75);animation:ring 2.4s var(--ease) infinite}
+@keyframes ring{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.5);opacity:0}}
+.hs:hover,.hs.on{transform:scale(1.12);background:var(--ember);color:#1a1209}
+.hs-tip{position:absolute;z-index:3;width:min(280px,46%);background:rgba(246,246,241,.97);color:var(--ink);border-radius:12px;padding:14px 16px;box-shadow:0 20px 50px -10px rgba(0,0,0,.5);font-size:.9rem;line-height:1.45;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s var(--ease)}
+.hs-tip.on{opacity:1;transform:none}
+.hs-tip b{display:block;font-weight:600;margin-bottom:3px}
+@media (max-width:640px){.hs-tip{display:none}.hs{width:30px;height:30px;margin:-15px 0 0 -15px}}
+.v-full{position:absolute;right:12px;top:12px;z-index:3}
+.v-nav{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;z-index:3;pointer-events:none}
+.v-nav button{pointer-events:auto;width:44px;height:44px;border-radius:50%;border:0;background:rgba(12,17,14,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:grid;place-items:center;color:var(--mist)}
+.v-nav svg{width:18px;height:18px}
+.v-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.v-side .match{align-self:flex-start;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:var(--ember);color:#1a1209;padding:.4em .8em;border-radius:999px}
+.v-side h3{font-size:clamp(1.8rem,2.8vw,2.5rem)}
+.v-side .where{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.v-side p.t{color:var(--dim)}
+.spots{list-style:none;margin:6px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
+.spots li button{width:100%;display:grid;grid-template-columns:30px 1fr;gap:10px;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 0;transition:color .2s}
+.spots .n{font-family:var(--f-mono);font-size:.7rem;color:var(--ember);padding-top:.2em}
+.spots b{font-weight:500;display:block}
+.spots .d{color:var(--dim);font-size:.88rem;display:block;max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.spots button.on .d{max-height:7em}
+@media (max-width:1000px){.spots .d{max-height:7em}}
+.thumbs{display:flex;gap:10px;margin-top:18px;overflow-x:auto;scrollbar-width:none;padding:3px 3px 4px}
+.thumbs::-webkit-scrollbar{display:none}
+.thumb{flex:0 0 auto;width:clamp(110px,14vw,170px);border:0;padding:0;background:none;text-align:left;opacity:.55;transition:opacity .3s}
+.thumb img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px}
+.thumb span{display:block;font-size:.8rem;margin-top:6px}
+.thumb.on,.thumb:hover{opacity:1}
+.thumb.on img{box-shadow:0 0 0 2px var(--ember)}
+
+/* ---------- wood lab ---------- */
+.lab-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(20px,3vw,44px);align-items:start}
+@media (max-width:1000px){.lab-grid{grid-template-columns:1fr}}
+.lab{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--sage-2);touch-action:none;cursor:none;box-shadow:0 30px 70px -40px rgba(19,23,20,.6)}
+@media (max-width:640px){.lab{aspect-ratio:1/1}}
+.lab img,.lab canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lab .rag{position:absolute;left:-200px;width:116px;height:116px;margin:-58px 0 0 -58px;border-radius:50%;border:1.5px dashed rgba(19,23,20,.55);pointer-events:none;opacity:0;transition:opacity .2s;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 70%)}
+.lab:hover .rag{opacity:1}
+@media (hover:none){.lab .rag{display:none}}
+.lab .lab-hint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(19,23,20,.8);color:var(--paper);padding:.8em 1.25em;border-radius:999px;font-size:.92rem;pointer-events:none;transition:opacity .4s;white-space:nowrap}
+.lab.touched .lab-hint{opacity:0}
+.lab .meter{position:absolute;left:14px;top:14px;background:rgba(246,246,241,.92);color:var(--ink);padding:.45em .85em;border-radius:999px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.lab-side{display:grid;gap:18px;min-width:0}
+.surf{display:grid;gap:8px}
+.surf button{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:center;text-align:left;border:1px solid var(--line-ink);background:rgba(255,255,255,.4);border-radius:12px;padding:8px 14px 8px 8px;transition:border-color .25s,background .25s}
+.surf button:hover{border-color:var(--ink)}
+.surf button[aria-pressed="true"]{border-color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.surf img{width:52px;height:52px;border-radius:8px;object-fit:cover}
+.surf b{display:block;font-weight:500}
+.surf span span{display:block;font-size:.84rem;color:var(--ink-dim)}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:.92rem;border-top:1px solid var(--line-ink-2);padding-top:16px;margin:0}
+.specs dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);padding-top:.3em}
+.specs dd{margin:0}
+.lab-acts{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- process ---------- */
+.ablauf{padding-block:clamp(110px,14vw,190px);position:relative;overflow:hidden}
+.ab-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+@media (max-width:900px){.ab-grid{grid-template-columns:1fr}}
+.ab-photo{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--moss)}
+.ab-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s var(--ease)}
+.ab-photo img.out{opacity:0}
+.ab-photo .when{position:absolute;left:14px;top:14px;background:rgba(12,17,14,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:.45em .9em;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
+.ab-body{display:grid;gap:18px;min-width:0}
+.ab-stage{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+.ab-body h3{font-size:clamp(2rem,3.4vw,3rem)}
+.ab-body p{color:var(--dim);max-width:46ch}
+.ab-date{display:inline-flex;flex-wrap:wrap;gap:.2em .6em;align-items:baseline;border:1px solid var(--line-2);border-radius:12px;padding:12px 16px;font-size:.95rem;justify-self:start}
+.ab-date b{font-family:var(--f-display);font-weight:380;font-size:1.3rem}
+.ab-track{margin-top:clamp(36px,5vw,64px)}
+.ab-dots{display:grid;grid-template-columns:repeat(5,1fr);margin-top:6px}
+.ab-dots button{background:none;border:0;text-align:left;padding:10px 6px 0 0;color:var(--dim);font-size:.86rem;transition:color .3s;line-height:1.3}
+.ab-dots button b{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400;opacity:.8}
+.ab-dots button.on{color:var(--mist)}
+@media (max-width:640px){.ab-dots button{font-size:.7rem}.ab-dots button b{display:none}}
+.ablauf input[type=range]::-webkit-slider-runnable-track{background:linear-gradient(90deg,var(--ember) var(--p,0%),var(--line-2) var(--p,0%))}
+.ablauf input[type=range]::-moz-range-track{background:var(--line-2)}
+.ablauf input[type=range]::-moz-range-progress{background:var(--ember)}
+.ablauf input[type=range]::-webkit-slider-thumb{background:var(--ember);border-color:var(--night);box-shadow:0 0 0 6px rgba(240,168,92,.2)}
+.ablauf input[type=range]::-moz-range-thumb{background:var(--ember);border-color:var(--night)}
+
+/* ---------- arrival film ---------- */
+#anfahrt{height:420vh}
+#anfahrt .shade{background:linear-gradient(0deg,rgba(12,17,14,.9) 0%,rgba(12,17,14,.2) 45%,rgba(12,17,14,.35) 100%)}
+
+/* ---------- contact ---------- */
+.kontakt{position:relative;overflow:hidden}
+.kontakt>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kontakt::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(12,17,14,.88) 0%,rgba(12,17,14,.55) 50%,rgba(12,17,14,.2) 100%)}
+.kontakt .wrap{position:relative;z-index:2;padding-block:clamp(110px,13vw,180px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:48px;align-items:center}
+@media (max-width:900px){.kontakt .wrap{grid-template-columns:1fr}.kontakt::before{background:rgba(12,17,14,.74)}}
+.k-info h2{margin:18px 0 22px;max-width:12ch}
+.k-info dl{margin:30px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 26px}
+.k-info dt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding-top:.3em}
+.k-info dd{margin:0}
+.copy{background:none;border:0;padding:0 0 0 .5em;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ember);text-decoration:underline;text-underline-offset:3px}
+.k-status{display:inline-flex;align-items:center;gap:.6em;margin-top:22px;padding:.55em .95em;border-radius:999px;background:rgba(239,235,227,.08);border:1px solid var(--line);font-size:.92rem}
+form.k-form{background:var(--paper);color:var(--ink);color-scheme:light;border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;gap:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);min-width:0}
+.k-form h3{font-size:1.6rem}
+.k-pref{display:flex;gap:10px;align-items:flex-start;background:var(--sage);border-radius:10px;padding:10px 12px;font-size:.88rem}
+.k-pref p{flex:1;min-width:0}
+.k-pref button{background:none;border:0;color:var(--ink-dim);font-size:1.1rem;padding:0 4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+.when-row{display:flex;flex-wrap:wrap;gap:6px}
+.form-ok{background:var(--ink);color:var(--paper);border-radius:10px;padding:12px 14px;font-size:.92rem}
+.small{font-size:.8rem;color:var(--ink-dim)}
+
+/* ---------- faq ---------- */
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 80px}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+.faq-search{margin:26px 0 0;position:relative;display:block;max-width:360px}
+.faq-search input{width:100%;font-size:1rem;background:#fff;border:1px solid var(--line-ink-2);border-radius:999px;padding:.85em 1.1em .85em 2.6em;color:var(--ink)}
+.faq-search svg{position:absolute;left:1em;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-dim)}
+.faq-none{color:var(--ink-dim);padding:20px 0}
+.faq details{border-top:1px solid var(--line-ink)}
+.faq details:last-of-type{border-bottom:1px solid var(--line-ink)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-family:var(--f-display);font-weight:400;font-size:clamp(1.12rem,1.6vw,1.38rem);letter-spacing:-.01em;font-variation-settings:"opsz" 36}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:1.1rem;color:var(--ink-dim);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--ink-dim);max-width:62ch}
+mark{background:rgba(240,168,92,.38);color:inherit;border-radius:2px;padding:0}
+
+/* ---------- footer, dialogs, toast ---------- */
+footer{background:var(--night);border-top:1px solid var(--line);padding-block:56px calc(40px + var(--tab) + var(--sb))}
+.foot{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+.foot h5{margin:0 0 12px;font-family:var(--f-mono);font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}
+.foot a,.foot .link{text-decoration:none;opacity:.85;background:none;border:0;padding:0;font-size:.92rem;text-align:left}
+.foot a:hover,.foot .link:hover{opacity:1;text-decoration:underline}
+.foot .brand{font-family:var(--f-display);font-size:2rem;font-weight:380;letter-spacing:-.02em}
+.foot .brand i{color:var(--ember);font-variation-settings:"opsz" 72,"SOFT" 100,"WONK" 1}
+.foot-base{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:.82rem}
+dialog.lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;color:var(--mist)}
+dialog.lb::backdrop{background:rgba(6,9,7,.95)}
+.lb-in{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:calc(64px + var(--st)) var(--gr) calc(76px + var(--sb)) var(--gl);touch-action:pan-y}
+.lb-in img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.lb-close{position:absolute;top:calc(14px + var(--st));right:calc(14px + env(safe-area-inset-right,0px));z-index:2}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(24px + var(--sb));text-align:center;color:var(--dim);font-size:.9rem;padding-inline:76px}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:rgba(12,17,14,.5);display:grid;place-items:center;color:var(--mist);z-index:2}
+.lb-prev{left:calc(12px + env(safe-area-inset-left,0px))}.lb-next{right:calc(12px + env(safe-area-inset-right,0px))}
+.lb-prev svg,.lb-next svg{width:18px;height:18px}
+@media (max-width:640px){.lb-prev,.lb-next{top:auto;bottom:calc(12px + var(--sb));transform:none}}
+dialog.legal{border:0;border-radius:16px;padding:0;width:min(720px,calc(100vw - 32px));max-height:min(86vh,900px);background:var(--paper);color:var(--ink);color-scheme:light}
+dialog.legal::backdrop{background:rgba(6,9,7,.75)}
+.legal-in{padding:clamp(24px,4vw,44px);display:grid;gap:12px}
+.legal-in h3{font-size:2rem;margin-bottom:6px}
+.legal-in h4{margin:14px 0 0;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.legal-in p{font-size:.95rem;color:#3b4240}
+.legal-in .x{justify-self:end;position:sticky;top:0}
+.toast{position:fixed;left:50%;bottom:calc(var(--tab) + var(--sb) + 24px);transform:translate(-50%,20px);background:var(--mist);color:var(--night);padding:.8em 1.2em;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:90;width:max-content;max-width:calc(100vw - 32px);text-align:center;box-shadow:0 14px 40px -10px rgba(0,0,0,.5)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:900px){.toast{bottom:calc(var(--tab) + var(--sb) + 90px);border-radius:14px}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
+</style>
+
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+
+<header class="head" id="head">
+  <div class="wrap head-in">
+    <a class="logo" href="#top" aria-label="Holm und Hain, zum Seitenanfang"><b>Holm <i>&amp;</i> Hain</b><small>Tischlerei</small></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#planer" data-sec="planer">Projekt planen</a>
+      <a href="#handwerk" data-sec="handwerk" class="opt">Handwerk</a>
+      <a href="#konfigurator" data-sec="konfigurator">Türen</a>
+      <a href="#projekte" data-sec="projekte">Projekte</a>
+      <a href="#holz" data-sec="holz" class="opt">Holz-Labor</a>
+      <a href="#kontakt" data-sec="kontakt">Kontakt</a>
+    </nav>
+    <span class="status" id="hStatus"><i></i><span>Werkstatt</span></span>
+    <a class="btn btn-ember" href="#planer" id="hCta">Projekt planen</a>
+    <a class="demo-pill" href="https://allrich-webdesign.com" target="_blank" rel="noopener" title="Beispielseite von Allrich Webdesign" style="text-decoration:none">Beispielseite</a>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Schnellnavigation">
+  <a href="#top" data-sec="hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Start</a>
+  <a href="#planer" data-sec="planer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 20h16M6 16l9.5-9.5 3 3L9 19H6z"/><path d="m13.5 8.5 3 3"/></svg>Planen</a>
+  <a href="#konfigurator" data-sec="konfigurator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="1"/><circle cx="15" cy="12" r=".9" fill="currentColor"/></svg>Türen<span class="badge" id="tabBadge" hidden>0</span></a>
+  <a href="#projekte" data-sec="projekte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/></svg>Projekte</a>
+  <a href="#kontakt" data-sec="kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>Kontakt</a>
+</nav>
+
+<main id="top">
+
+  <!-- ============ HERO FILM ============ -->
+  <section class="film" id="hero" aria-label="Flug durch die Glaswand in die Werkstatt">
+    <div class="stage" id="heroStage">
+      <img class="poster" src="seq/a/001.webp" alt="Die Glasfront der Werkstatt zur blauen Stunde, dahinter warm beleuchtete Werkbänke" fetchpriority="high">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="shade"></div>
+      <div class="chapters">
+        <span class="tc" id="heroTc" aria-hidden="true">00:00 / 00:15</span>
+        <ol class="chap" id="heroChap" aria-label="Kapitel des Films">
+          <li><button type="button" data-at="0"><span>Ankommen</span></button></li>
+          <li><button type="button" data-at=".24"><span>Werkstatt</span></button></li>
+          <li><button type="button" data-at=".47"><span>Der Tisch</span></button></li>
+          <li><button type="button" data-at=".7"><span>Die Stühle</span></button></li>
+          <li><button type="button" data-at=".93"><span>Ihr Projekt</span></button></li>
+        </ol>
+        <div class="loadbar" id="heroLoad" aria-hidden="true"><i></i></div>
+      </div>
+      <p class="ticker" id="heroTicker" aria-hidden="true"><b>Ankommen</b> · Durch die Glaswand in die Werkstatt</p>
+      <div class="beats">
+        <div class="wrap">
+          <div class="beat on rm" data-from="-1" data-to=".17">
+            <span class="hello" id="hello">Guten Tag.</span>
+            <h1 class="hero-title">Holm <i>&amp;</i><br>Hain</h1>
+            <p class="sub">Tischlerei am Waldrand bei Templin. Türen, Küchen, Treppen und Einbaumöbel aus Eiche, seit 1987.</p>
+            <div class="pick">
+              <span class="mono">Was planen Sie? Wir zeigen Ihnen das Passende.</span>
+              <div class="pick-row" id="heroPick" role="group" aria-label="Ihr Vorhaben"></div>
+            </div>
+          </div>
+          <div class="beat" data-from=".22" data-to=".42">
+            <span class="eyebrow">Die Werkstatt</span>
+            <p class="big">Elf Meter Glas, <em>dahinter</em> warmes Licht.</p>
+            <p class="note">Vierzehn Leute, zwei CNC-Fräsen und ein Holzlager mit drei Jahren Vorlauf. Jede Bohle hat unter 10 % Restfeuchte, bevor wir sie bearbeiten.</p>
+          </div>
+          <div class="beat" data-from=".46" data-to=".66">
+            <span class="eyebrow">Der Tisch</span>
+            <p class="big">Gefügt, <em>nicht</em> geschraubt.</p>
+            <p class="note">Beine, Zargen und Platte halten durch Zapfen und Leim. So bleibt ein Tisch über Generationen fest.</p>
+          </div>
+          <div class="beat" data-from=".7" data-to=".88">
+            <span class="eyebrow">Die Stühle</span>
+            <p class="big">Aus <em>demselben</em> Stamm.</p>
+            <p class="note">Tisch und Stühle bekommen dieselbe Maserung. Das sieht man erst beim zweiten Blick und dann jeden Tag.</p>
+          </div>
+          <div class="beat rm" data-from=".92" data-to="2">
+            <span class="eyebrow" id="endEyebrow">Ihr Projekt</span>
+            <p class="big" id="endLine">Was dürfen wir für Sie <em>bauen?</em></p>
+            <div class="actions">
+              <a class="btn btn-ember" href="#planer" id="endCta"><span id="endCtaT">Projekt in 30 Sekunden planen</span> <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+              <a class="btn btn-glass" href="#konfigurator">Tür konfigurieren</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cue" id="cue" aria-hidden="true">Scrollen</div>
+    </div>
+  </section>
+
+  <!-- ============ HALTUNG ============ -->
+  <section class="haltung" aria-labelledby="hT">
+    <div class="wrap">
+      <div class="h-grid">
+        <div>
+          <span class="eyebrow" id="hT">Was wir machen</span>
+          <p class="statement" id="statement">Wir bauen Dinge, die man jeden Tag anfasst. Türen, Tische, Treppen und Schränke aus Eiche, millimetergenau für Ihre Räume gefertigt und von denselben Händen eingebaut.</p>
+        </div>
+        <figure class="h-photo">
+          <img id="hPhoto" src="img/glass-close-s.webp" alt="Blick von außen durch die Glaswand in die beleuchtete Werkstatt mit Tisch und Stühlen in Arbeit" loading="lazy">
+          <figcaption><span>Werkhalle · Templin</span><span>Blaue Stunde</span></figcaption>
+        </figure>
+      </div>
+      <div class="facts">
+        <div class="fact"><b data-count="1987">1987</b><span>gegründet von Hinrich Holm</span></div>
+        <div class="fact"><b data-count="14">14</b><span>Leute in Werkstatt und Montage</span></div>
+        <div class="fact"><b>±0,5<small> mm</small></b><span>Toleranz an der CNC-Fräse</span></div>
+        <div class="fact"><b data-count="2400">2.400</b><span>Türen seit 2010 eingebaut</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PLANNER ============ -->
+  <section class="bench band" id="planer" aria-labelledby="pT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Projekt-Planer</span><h2 id="pT">Ihr Vorhaben in <span class="it">30 Sekunden.</span></h2></div>
+        <p class="lede">Vier kurze Fragen. Danach sehen Sie einen Preisrahmen, einen Zeitplan mit echten Kalenderwochen und ob wir zu Ihnen kommen. Ihre Antworten bleiben in Ihrem Browser.</p>
+      </div>
+      <div class="finder">
+        <div class="f-card">
+          <div class="f-steps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+          <div class="f-pane" data-step="0">
+            <div class="f-q"><h3>Was möchten Sie bauen lassen?</h3><span class="mono">1 / 4</span></div>
+            <div class="kinds" id="kinds" role="group" aria-label="Art des Projekts"></div>
+          </div>
+          <div class="f-pane" data-step="1" hidden>
+            <div class="f-q"><h3 id="sizeQ">Wie viele Türen?</h3><span class="mono">2 / 4</span></div>
+            <div class="range-wrap">
+              <div class="range-val" id="sizeVal">4<small>Türen</small></div>
+              <input type="range" id="sizeRange" min="1" max="15" step="1" value="4" aria-label="Umfang">
+              <div class="range-scale"><span id="sizeMin">1</span><span id="sizeMax">15</span></div>
+              <p class="hint" id="sizeHint"></p>
+            </div>
+          </div>
+          <div class="f-pane" data-step="2" hidden>
+            <div class="f-q"><h3>Wann soll es losgehen?</h3><span class="mono">3 / 4</span></div>
+            <div class="opts-list" id="whenList" role="group" aria-label="Zeitpunkt">
+              <button type="button" class="opt-row" data-v="asap" aria-pressed="false"><span>So bald wie möglich</span><small>nächster freier Aufmaßtermin</small></button>
+              <button type="button" class="opt-row" data-v="3m" aria-pressed="false"><span>In etwa drei Monaten</span><small>passend zum Umbau</small></button>
+              <button type="button" class="opt-row" data-v="year" aria-pressed="false"><span>Innerhalb eines Jahres</span><small>Neubau oder Sanierung</small></button>
+              <button type="button" class="opt-row" data-v="ideas" aria-pressed="false"><span>Ich sammle erst Ideen</span><small>ganz unverbindlich</small></button>
+            </div>
+          </div>
+          <div class="f-pane" data-step="3" hidden>
+            <div class="f-q"><h3>Wohin kommen wir?</h3><span class="mono">4 / 4</span></div>
+            <div style="display:grid;gap:14px">
+              <div class="two">
+                <div class="field"><label for="fPlz">Postleitzahl</label><input id="fPlz" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="z. B. 17268"></div>
+                <div class="field"><label for="fName">Ihr Name (optional)</label><input id="fName" autocomplete="name" placeholder="Für die Anrede"></div>
+              </div>
+              <div class="zone" id="zone" hidden></div>
+            </div>
+          </div>
+          <div class="f-nav">
+            <button type="button" class="btn btn-line btn-sm" id="fBack" hidden>Zurück</button>
+            <span></span>
+            <button type="button" class="btn btn-ink btn-sm" id="fNext" hidden>Weiter</button>
+          </div>
+        </div>
+        <aside class="f-result" aria-live="polite">
+          <div class="ph"><img id="frImg" src="img/door-shaker4-s.webp" alt="" loading="lazy"><span class="tagline" id="frTag">Beispiel</span></div>
+          <div class="f-res-body">
+            <h3 id="frTitle">Innentüren aus Eiche</h3>
+            <dl class="kv">
+              <dt>Preisrahmen</dt><dd><b id="frPrice">–</b><br><span class="small">inkl. Einbau und MwSt., Richtwert</span></dd>
+              <dt>Aufmaß</dt><dd id="frMeasure">–</dd>
+              <dt>Fertig</dt><dd id="frDone">–</dd>
+              <dt>Gebiet</dt><dd id="frZone">Postleitzahl eingeben</dd>
+            </dl>
+            <div class="acts">
+              <a class="btn btn-ember btn-sm" href="#kontakt" id="frSend">Anfrage vorbereiten</a>
+              <a class="btn btn-line btn-sm" href="#konfigurator" id="frAlt">Türen einzeln planen</a>
+            </div>
+            <p class="small">Unverbindliche Richtwerte aus unseren Projekten der letzten zwei Jahre. Das genaue Angebot gibt es nach dem Aufmaß.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CRAFT ============ -->
+  <section class="craft" id="handwerk" aria-labelledby="cT">
+    <div class="wrap sec-head">
+      <div><span class="eyebrow">Handwerk</span><h2 id="cT">Maschine, wo sie <span class="it">genauer</span> ist. Hand, wo sie besser ist.</h2></div>
+      <div style="display:grid;gap:22px">
+        <p class="lede">Ziehen oder wischen. Ein Tipp auf die Lupe zeigt jedes Bild in voller Auflösung.</p>
+        <div class="rail-ctl"><div class="rail-bar"><i id="railBar"></i></div>
+          <button type="button" id="railPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 20 20" fill="none"><path d="M12 4 6 10l6 6" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          <button type="button" id="railNext" aria-label="Nächstes Bild"><svg viewBox="0 0 20 20" fill="none"><path d="m8 4 6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+      </div>
+    </div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <!-- ============ CONFIGURATOR ============ -->
+  <section class="bench band konf" id="konfigurator" aria-labelledby="kT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Tür-Konfigurator</span><h2 id="kT">Ihre Türen, <span class="it">Raum für Raum.</span></h2></div>
+        <p class="lede">Raum wählen, Tür zusammenstellen, zur Liste hinzufügen. So planen Sie die ganze Wohnung und schicken uns alles in einer Nachricht. Mit „Vergleichen“ legen Sie zwei Modelle übereinander.</p>
+      </div>
+      <div class="k-grid">
+        <div class="preview" id="preview">
+          <div class="drawing">
+            <div class="dim-v" aria-hidden="true"><span>1985 mm</span></div>
+            <div class="door" id="door">
+              <div class="lay"><img id="doorA" src="img/door-shaker4.webp" alt="Vorschau der gewählten Tür"><img id="doorB" class="back" src="img/door-shaker4.webp" alt="" aria-hidden="true"></div>
+              <div class="cmp"><img id="cmpImg" src="img/door-flush.webp" alt=""></div>
+              <div class="split" id="split"></div>
+              <span class="lbl l" id="lblL">Hain 4</span><span class="lbl r" id="lblR">Glatt</span>
+              <span class="tag" id="doorTag" hidden>Abbildung in Eiche</span>
+              <div class="handle"><img id="handleImg" src="img/handle-black-s.webp" alt="Gewählter Drücker"></div>
+            </div>
+            <div class="dim-h" aria-hidden="true"><span id="dimW">860 mm</span></div>
+          </div>
+          <div class="pv-meta">
+            <div><h3 id="pvName">Hain 4</h3><p id="pvDesc">Vier waagerechte Füllungen im Shaker-Stil</p></div>
+            <span class="mono" id="pvCode">HH-T-04 · DIN links</span>
+          </div>
+          <div class="pv-tools"><button type="button" class="chip" id="cmpBtn" aria-pressed="false">Vergleichen</button></div>
+          <div class="cmp-pick" id="cmpPick"><span class="mono">Mit</span></div>
+          <div class="sum" id="sum">
+            <div><div class="pl" id="sumLabel">Richtpreis inkl. MwSt.</div><div class="price" id="price">0 €</div></div>
+            <div class="acts"><button type="button" class="btn btn-line btn-sm" id="copyCfg">Kopieren</button><a class="btn btn-ember btn-sm" id="waBtn" href="#" target="_blank" rel="noopener">Per WhatsApp</a></div>
+            <p class="line" id="sumLine"></p>
+          </div>
+        </div>
+
+        <div class="k-opts">
+          <div class="k-opt"><h4>Für welchen Raum? <small>✓ = schon in der Liste</small></h4>
+            <div class="seg scroll" id="roomSeg" role="group" aria-label="Raum"></div>
+          </div>
+          <div class="k-opt"><h4>Modell <small id="modelCount"></small></h4>
+            <div class="tiles" id="modelTiles" role="group" aria-label="Türmodell"></div>
+          </div>
+          <div class="k-opt"><h4>Oberfläche</h4>
+            <div class="seg" data-key="finish" role="group" aria-label="Oberfläche">
+              <button type="button" class="chip" data-v="oak">Eiche furniert, geölt</button>
+              <button type="button" class="chip" data-v="primed">Weiß grundiert, lackierfertig</button>
+            </div>
+          </div>
+          <div class="k-opt"><h4>Drücker <small>Rosettengarnitur</small></h4>
+            <div class="tiles h" id="handleTiles" role="group" aria-label="Drücker"></div>
+          </div>
+          <div class="k-opt"><h4>Baurichtmaß <small>Wandöffnung nach DIN 18101</small></h4>
+            <div class="seg" data-key="size" role="group" aria-label="Baurichtmaß">
+              <button type="button" class="chip" data-v="635">635 × 2010</button>
+              <button type="button" class="chip" data-v="760">760 × 2010</button>
+              <button type="button" class="chip" data-v="885">885 × 2010</button>
+              <button type="button" class="chip" data-v="1010">1010 × 2010</button>
+            </div>
+            <p class="hint">885 mm ist die häufigste Breite. Unsicher? Beim Aufmaß messen wir jede Öffnung nach.</p>
+          </div>
+          <div class="row2">
+            <div class="k-opt"><h4>Anschlag</h4>
+              <div class="seg" data-key="hand" role="group" aria-label="Anschlag">
+                <button type="button" class="chip" data-v="L">DIN links</button>
+                <button type="button" class="chip" data-v="R">DIN rechts</button>
+              </div>
+            </div>
+            <div class="k-opt"><h4>Leistung</h4>
+              <div class="seg" data-key="service" role="group" aria-label="Leistung">
+                <button type="button" class="chip" data-v="fit">Mit Einbau</button>
+                <button type="button" class="chip" data-v="supply">Nur Lieferung</button>
+              </div>
+            </div>
+          </div>
+          <div class="k-opt"><h4>Zarge und Bekleidung</h4>
+            <div class="seg" data-key="frame" role="group" aria-label="Zarge und Bekleidung">
+              <button type="button" class="chip" data-v="keep">Vorhandene behalten</button>
+              <button type="button" class="chip" data-v="new">Neue Zarge mit Bekleidung</button>
+              <button type="button" class="chip" data-v="unsure">Weiß ich nicht</button>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="k-opt"><h4>Anzahl</h4><div class="stepper"><button type="button" data-step="qty" data-d="-1" aria-label="Eine Tür weniger">−</button><output id="qtyOut">1</output><button type="button" data-step="qty" data-d="1" aria-label="Eine Tür mehr">+</button></div></div>
+            <div class="k-opt"><h4>Bad- und WC-Schloss</h4><div class="stepper"><button type="button" data-step="locks" data-d="-1" aria-label="Ein Schloss weniger">−</button><output id="locksOut">0</output><button type="button" data-step="locks" data-d="1" aria-label="Ein Schloss mehr">+</button></div></div>
+          </div>
+          <p class="hint warm" id="roomTip" hidden></p>
+          <div class="rooms">
+            <div class="rooms-head">
+              <h4 class="mono" style="margin:0;font-weight:500">Ihre Raumliste <span id="roomsCount"></span></h4>
+              <button type="button" class="btn btn-ink btn-sm" id="addRoom">Flur zur Liste hinzufügen</button>
+            </div>
+            <ul class="rooms-list" id="roomsList"></ul>
+            <p class="rooms-empty" id="roomsEmpty">Noch leer. Stellen Sie eine Tür zusammen und fügen Sie den Raum hinzu. Danach springt die Auswahl zum nächsten Raum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="msum" id="msum" aria-hidden="true"><div><div class="pl" id="mLabel">Richtpreis</div><div class="price" id="mPrice">0 €</div></div><a class="btn btn-ember" id="mWa" href="#" target="_blank" rel="noopener">Per WhatsApp</a></div>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="projekte" id="projekte" aria-labelledby="prT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Projekte</span><h2 id="prT">Räume, die wir <span class="it">fertig</span> gebaut haben.</h2></div>
+        <p class="lede">Tippen Sie auf die Punkte im Bild. Jeder zeigt ein Detail, das man auf den ersten Blick nicht sieht. Wischen wechselt das Projekt.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Projekte filtern"></div>
+      <div class="viewer">
+        <div class="v-main" id="vMain">
+          <img id="vImg" src="img/proj-kitchen-s.webp" alt="">
+          <div id="vSpots"></div>
+          <div class="hs-tip" id="vTip"></div>
+          <button type="button" class="btn btn-glass btn-sm v-full" id="vFull">Vollbild</button>
+          <div class="v-nav"><button type="button" id="vPrev" aria-label="Vorheriges Projekt"><svg viewBox="0 0 20 20" fill="none"><path d="M12 4 6 10l6 6" stroke="currentColor" stroke-width="1.6"/></svg></button><button type="button" id="vNext" aria-label="Nächstes Projekt"><svg viewBox="0 0 20 20" fill="none"><path d="m8 4 6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+        </div>
+        <div class="v-side">
+          <span class="match" id="vMatch" hidden>Passt zu Ihrem Vorhaben</span>
+          <span class="where" id="vWhere"></span>
+          <h3 id="vTitle"></h3>
+          <p class="t" id="vText"></p>
+          <ul class="spots" id="vList"></ul>
+        </div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </section>
+
+  <!-- ============ WOOD LAB ============ -->
+  <section class="bench band" id="holz" aria-labelledby="lT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Holz-Labor</span><h2 id="lT">Ölen Sie die Eiche <span class="it">selbst.</span></h2></div>
+        <p class="lede">Wischen Sie mit Maus oder Finger über das rohe Holz. Darunter kommt die fertige Oberfläche zum Vorschein, so wie wir sie in der Werkstatt auftragen. Rechts wählen Sie das Finish.</p>
+      </div>
+      <div class="lab-grid">
+        <div class="lab" id="lab">
+          <img id="labUnder" src="img/tex-oak-oiled-s.webp" alt="Geölte Eichenoberfläche">
+          <canvas id="labCanvas" aria-label="Rohes Holz, zum Ölen darüber wischen"></canvas>
+          <span class="meter" id="labMeter">0 % geölt</span>
+          <span class="lab-hint">Hier wischen</span>
+          <span class="rag" id="rag"></span>
+        </div>
+        <div class="lab-side">
+          <div class="surf" id="surf" role="group" aria-label="Oberfläche wählen"></div>
+          <dl class="specs" id="specs"></dl>
+          <div class="lab-acts"><button type="button" class="btn btn-line btn-sm" id="labReset">Wieder roh</button><button type="button" class="btn btn-ink btn-sm" id="labAll">Ganz ölen</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="ablauf" id="ablauf" aria-labelledby="aT">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Ablauf</span><h2 id="aT">Wenn Sie <span class="it">heute</span> anfragen.</h2></div>
+        <p class="lede">Ziehen Sie den Regler. Die Termine rechnen wir ab dem heutigen Tag, passend zu Ihrem Vorhaben.</p>
+      </div>
+      <div class="ab-grid">
+        <div class="ab-photo"><img id="abImg" src="img/hero-blue-s.webp" alt=""><span class="when" id="abWhen">Heute</span></div>
+        <div class="ab-body">
+          <span class="ab-stage" id="abStage">Schritt 1 von 5</span>
+          <h3 id="abTitle">Anfrage</h3>
+          <p id="abText"></p>
+          <span class="ab-date"><span id="abDateL">Heute</span><b id="abDate"></b></span>
+        </div>
+      </div>
+      <div class="ab-track">
+        <input type="range" id="abRange" min="0" max="4" step="1" value="0" aria-label="Schritt im Ablauf">
+        <div class="ab-dots" id="abDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARRIVAL FILM ============ -->
+  <section class="film" id="anfahrt" aria-label="Anfahrt zur Werkstatt">
+    <div class="stage" id="anStage">
+      <img class="poster" src="seq/b/001.webp" alt="Die Werkhalle am Waldrand im Nebel zur blauen Stunde" loading="lazy">
+      <canvas id="anCanvas" aria-hidden="true"></canvas>
+      <div class="shade"></div>
+      <div class="chapters"><span class="tc" id="anTc" aria-hidden="true">00:00 / 00:10</span></div>
+      <div class="beats">
+        <div class="wrap">
+          <div class="beat on rm" data-from="-1" data-to=".3">
+            <span class="eyebrow">Besuch</span>
+            <p class="big">Kommen Sie <em>vorbei.</em></p>
+            <p class="note">Am Kiefernhain 4, 17268 Templin. Rund 75 Minuten von Berlin-Mitte, Parkplätze direkt an der Halle.</p>
+          </div>
+          <div class="beat" data-from=".36" data-to=".66">
+            <span class="eyebrow">Die Musterwand</span>
+            <p class="big">Alle Türen, alle <em>Drücker</em> zum Anfassen.</p>
+          </div>
+          <div class="beat" data-from=".72" data-to="2">
+            <span class="eyebrow" id="anStatus">Werkstatt</span>
+            <p class="big">Die Tür steht <em>offen.</em></p>
+            <div class="actions"><a class="btn btn-ember" href="#kontakt">Termin vereinbaren</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="kontakt" id="kontakt" aria-labelledby="koT">
+    <img src="img/day-exterior-s.webp" srcset="img/day-exterior-s.webp 1100w, img/day-exterior.webp 2400w" sizes="100vw" alt="Die Werkhalle bei Tageslicht mit Morgennebel" loading="lazy">
+    <div class="wrap">
+      <div class="k-info">
+        <span class="eyebrow">Kontakt</span>
+        <h2 id="koT">Wir rufen Sie <span class="it">zurück.</span></h2>
+        <p class="lede" style="color:var(--mist);opacity:.85">Sagen Sie uns, wann es Ihnen passt. Ein Tischler meldet sich, kein Callcenter.</p>
+        <span class="k-status"><span class="status" id="kDot"><i></i></span><span id="kStatusText">Werkstatt</span></span>
+        <dl>
+          <dt>Adresse</dt><dd>Am Kiefernhain 4<br>17268 Templin <span style="color:var(--dim)">(fiktiv)</span></dd>
+          <dt>Telefon</dt><dd>03987 000 00 00<button class="copy" type="button" data-copy="03987 000 00 00">kopieren</button></dd>
+          <dt>E-Mail</dt><dd>werkstatt@holm-hain.example<button class="copy" type="button" data-copy="werkstatt@holm-hain.example">kopieren</button></dd>
+          <dt>Werkstatt</dt><dd>Mo bis Fr 7 bis 16 Uhr<br>Sa nach Termin</dd>
+        </dl>
+      </div>
+      <form class="k-form" id="kForm" novalidate>
+        <h3 id="kHello">Rückruf anfragen</h3>
+        <div class="k-pref" id="kPref" hidden><p id="kPrefText"></p><button type="button" id="kPrefX" aria-label="Auswahl entfernen">×</button></div>
+        <div class="two">
+          <div class="field"><label for="cName">Name</label><input id="cName" autocomplete="name" required placeholder="Vor- und Nachname"></div>
+          <div class="field"><label for="cTel">Telefon</label><input id="cTel" type="tel" autocomplete="tel" required placeholder="Für den Rückruf"></div>
+        </div>
+        <div class="field"><label for="cTopic">Worum geht es?</label>
+          <select id="cTopic"><option value="tueren">Innentüren</option><option value="kueche">Küche</option><option value="treppe">Treppe</option><option value="schrank">Einbauschrank</option><option value="regal">Regal oder Bibliothek</option><option value="bad">Badmöbel</option><option value="anderes">Etwas anderes</option></select></div>
+        <div class="field"><span class="lbl-t">Wann sollen wir anrufen?</span>
+          <div class="when-row" id="cWhen" role="group" aria-label="Rückrufzeit">
+            <button type="button" class="chip" data-v="Vormittag" aria-pressed="true">Vormittag</button>
+            <button type="button" class="chip" data-v="Mittag" aria-pressed="false">Mittag</button>
+            <button type="button" class="chip" data-v="Nachmittag" aria-pressed="false">Nachmittag</button>
+          </div></div>
+        <div class="field"><label for="cMsg">Nachricht</label><textarea id="cMsg" placeholder="Zum Beispiel: 4 Türen im Altbau, Raumhöhe 3,20 m"></textarea></div>
+        <button class="btn btn-ink" type="submit">Rückruf anfragen</button>
+        <p class="form-ok" id="formOk" hidden>Danke. Das ist eine Demo-Seite, deshalb wurde nichts versendet. Auf der echten Website ginge Ihre Anfrage jetzt direkt an die Werkstatt.</p>
+        <p class="small">Wir nutzen Ihre Angaben nur für den Rückruf.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="bench band faq" aria-labelledby="fqT">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="eyebrow">Fragen</span><h2 id="fqT" style="margin-top:18px">Was oft gefragt wird.</h2>
+        <label class="faq-search"><span class="sr">Fragen durchsuchen</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m14 14 4 4" stroke="currentColor" stroke-width="1.6"/></svg><input id="faqQ" type="search" placeholder="Suchen, z. B. Zarge"></label>
+      </div>
+      <div id="faqList">
+        <details><summary><span class="q">Kann ich meine alten Zargen behalten?</span></summary><p>Oft ja, wenn sie gerade sitzen und das Maß nach DIN passt. Beim Aufmaß prüfen wir das. Passen sie nicht, fertigen wir neue Zargen mit Bekleidung im selben Holz wie das Türblatt.</p></details>
+        <details><summary><span class="q">Wie verbindlich sind die Richtpreise?</span></summary><p>Sie gelten für Standardmaße, ebene Böden und Wandstärken bis 125 mm. Das verbindliche Angebot bekommen Sie nach dem Aufmaß, kostenlos und schriftlich.</p></details>
+        <details><summary><span class="q">Was bedeutet DIN links und DIN rechts?</span></summary><p>Stellen Sie sich auf die Seite, zu der die Tür aufgeht. Sind die Bänder links, ist es eine DIN-links-Tür. Sind sie rechts, ist es DIN rechts.</p></details>
+        <details><summary><span class="q">Bauen Sie auch Sondermaße und Altbautüren?</span></summary><p>Ja. Ein großer Teil unserer Arbeit sind Altbauten mit Raumhöhen über drei Metern. Sondermaße kosten je nach Aufwand etwa 15 bis 30 Prozent mehr.</p></details>
+        <details><summary><span class="q">Wie lange hält eine geölte Oberfläche?</span></summary><p>Bei Türen und Möbeln viele Jahre. Tischplatten frischen Sie alle ein bis zwei Jahre mit Pflegeöl auf. Das Pflegeset geben wir bei der Übergabe mit.</p></details>
+        <details><summary><span class="q">In welchem Gebiet arbeiten Sie?</span></summary><p>Uckermark, Barnim, Oberhavel, Berlin und Potsdam ohne Anfahrtskosten. Darüber hinaus auf Anfrage mit kleiner Pauschale.</p></details>
+        <details><summary><span class="q">Kann ich die Werkstatt besuchen?</span></summary><p>Gern. Nach Termin zeigen wir Ihnen Holzlager, Fräse und die Musterwand mit allen Türmodellen und Drückern.</p></details>
+        <p class="faq-none" id="faqNone" hidden>Dazu steht hier noch nichts. Rufen Sie uns einfach an.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><p class="brand">Holm <i>&amp;</i> Hain</p><p style="color:var(--dim);margin-top:8px;max-width:32ch">Tischlerei am Waldrand. Türen, Küchen, Treppen und Einbaumöbel aus Eiche.</p></div>
+      <div><h5>Planen</h5><ul><li><a href="#planer">Projekt-Planer</a></li><li><a href="#konfigurator">Tür-Konfigurator</a></li><li><a href="#holz">Holz-Labor</a></li><li><a href="#ablauf">Ablauf</a></li></ul></div>
+      <div><h5>Werkstatt</h5><ul><li>Am Kiefernhain 4</li><li>17268 Templin</li><li>Mo bis Fr 7 bis 16 Uhr</li></ul></div>
+      <div><h5>Rechtliches</h5><ul><li><button class="link" type="button" data-legal="impressum">Impressum</button></li><li><button class="link" type="button" data-legal="datenschutz">Datenschutz</button></li><li><button class="link" type="button" data-legal="nachweis">Bild- und Schriftnachweis</button></li><li><button class="link" type="button" id="forget">Meine Angaben löschen</button></li></ul></div>
+    </div>
+    <div class="foot-base"><span>Holm &amp; Hain ist ein fiktives Unternehmen. <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Beispielseite von Allrich Webdesign</a>, Potsdam.</span><span>Bilder und Filme: KI-Visualisierung, im Browser Bild für Bild abgespielt</span></div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Bild vergrößert">
+  <div class="lb-in" id="lbIn"><img id="lbImg" src="" alt="">
+    <button class="btn btn-glass btn-sm lb-close" type="button" id="lbClose">Schließen</button>
+    <button class="lb-prev" type="button" id="lbPrev" aria-label="Vorheriges Bild"><svg viewBox="0 0 20 20" fill="none"><path d="M12 4 6 10l6 6" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <button class="lb-next" type="button" id="lbNext" aria-label="Nächstes Bild"><svg viewBox="0 0 20 20" fill="none"><path d="m8 4 6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    <p class="lb-cap" id="lbCap"></p></div>
+</dialog>
+<dialog class="legal" id="legal" aria-labelledby="legalT"><div class="legal-in" id="legalBody"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE = () => innerWidth <= 900;
+const vh = () => innerHeight;
+const eur = n => new Intl.NumberFormat('de-DE', { style:'currency', currency:'EUR', maximumFractionDigits:0 }).format(n);
+const round100 = n => Math.round(n / 100) * 100;
+
+/* ================= store ================= */
+const store = {
+  get(k, d){ try { const v = localStorage.getItem('hh-' + k); return v == null ? d : JSON.parse(v); } catch(_){ return d; } },
+  set(k, v){ try { localStorage.setItem('hh-' + k, JSON.stringify(v)); } catch(_){} },
+  clear(){ try { Object.keys(localStorage).filter(k => k.startsWith('hh-')).forEach(k => localStorage.removeItem(k)); } catch(_){} }
+};
+
+/* ================= toast + copy ================= */
+const toastEl = $('#toast'); let tT;
+function toast(m){ toastEl.textContent = m; toastEl.classList.add('on'); clearTimeout(tT); tT = setTimeout(() => toastEl.classList.remove('on'), 2800); }
+async function copyText(t){
+  try { await navigator.clipboard.writeText(t); toast('In die Zwischenablage kopiert'); }
+  catch(_){ const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch(e){} ta.remove(); toast(ok ? 'In die Zwischenablage kopiert' : 'Bitte den Text markieren und kopieren'); }
+}
+$$('.copy').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
+
+/* ================= time in Templin ================= */
+function berlinNow(){
+  const parts = new Intl.DateTimeFormat('en-GB', { timeZone:'Europe/Berlin', weekday:'short', hour:'2-digit', minute:'2-digit', hour12:false }).formatToParts(new Date());
+  const g = t => parts.find(p => p.type === t).value;
+  return { d: { Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6, Sun:0 }[g('weekday')], h: +g('hour') % 24, m: +g('minute') };
+}
+function openState(){
+  const { d, h, m } = berlinNow(); const t = h + m / 60, work = d >= 1 && d <= 5;
+  if (work && t >= 7 && t < 16) { const left = 16 - t; return { open:true, text: left < 1 ? `Geöffnet, noch ${Math.round(left * 60)} Minuten` : 'Jetzt geöffnet bis 16 Uhr' }; }
+  const next = work && t < 7 ? 'heute um 7 Uhr' : d >= 1 && d <= 4 ? 'morgen um 7 Uhr' : 'Montag um 7 Uhr';
+  return { open:false, text:`Geschlossen, öffnet ${next}` };
+}
+function greeting(){ const { h } = berlinNow(); return h < 5 ? 'Gute Nacht' : h < 11 ? 'Guten Morgen' : h < 18 ? 'Guten Tag' : 'Guten Abend'; }
+function paintStatus(){
+  const s = openState();
+  $('#hStatus').classList.toggle('open', s.open); $('#hStatus span').textContent = s.open ? 'Geöffnet' : 'Geschlossen';
+  $('#kDot').classList.toggle('open', s.open); $('#kStatusText').textContent = s.text;
+  $('#anStatus').textContent = s.open ? 'Jetzt geöffnet' : 'Besuch nach Termin';
+}
+paintStatus(); setInterval(paintStatus, 60000);
+
+/* ================= dates ================= */
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+function isoWeek(d){ const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const y0 = new Date(Date.UTC(t.getUTCFullYear(), 0, 1)); return Math.ceil(((t - y0) / 864e5 + 1) / 7); }
+const fmtDay = d => new Intl.DateTimeFormat('de-DE', { day:'numeric', month:'long' }).format(d);
+const nextWorkday = d => { let x = new Date(d); while (x.getDay() === 0 || x.getDay() === 6) x = addDays(x, 1); return x; };
+
+/* ================= personalisation ================= */
+const KINDS = [
+  { id:'tueren', label:'Innentüren', short:'Türen', img:'img/door-shaker4-s.webp', unit:'Türen', min:1, max:15, def:4, lo:650, hi:1100, base:0, weeks:6, hint:'Eine typische Altbauwohnung hat 5 bis 7 Innentüren.', q:'Wie viele Türen?' },
+  { id:'kueche', label:'Küche', short:'Küche', img:'img/proj-kitchen-s.webp', unit:'Meter Front', min:2, max:9, def:5, lo:2600, hi:4400, base:1500, weeks:10, hint:'Gemessen wird die Länge aller Unterschränke. Eine Kochinsel zählt mit.', q:'Wie lang wird die Küche?' },
+  { id:'treppe', label:'Treppe', short:'Treppe', img:'img/proj-stair-s.webp', unit:'Stufen', min:10, max:18, def:15, lo:620, hi:980, base:2600, weeks:12, hint:'Bei 2,75 m Geschosshöhe sind es meist 15 bis 16 Stufen.', q:'Wie viele Stufen?' },
+  { id:'schrank', label:'Einbauschrank', short:'Schrank', img:'img/proj-attic-s.webp', unit:'Meter Breite', min:1, max:8, def:3, lo:1400, hi:2400, base:400, weeks:7, hint:'Dachschrägen und Nischen kosten kaum mehr. Wir fertigen ohnehin nach Maß.', q:'Wie breit wird der Schrank?' },
+  { id:'regal', label:'Regal & Bibliothek', short:'Regal', img:'img/proj-library-s.webp', unit:'Meter Breite', min:1, max:10, def:4, lo:900, hi:1600, base:300, weeks:6, hint:'Raumhohe Regale bekommen bei uns Fachböden mit Stahleinlage.', q:'Wie breit wird das Regal?' },
+  { id:'bad', label:'Badmöbel', short:'Bad', img:'img/proj-vanity-s.webp', unit:'cm Waschtisch', min:60, max:220, def:120, step:10, lo:24, hi:38, base:900, weeks:6, hint:'Einzelwaschtische sind meist 80 bis 120 cm breit, doppelte ab 140 cm.', q:'Wie breit wird der Waschtisch?' },
+];
+const P = Object.assign({ kind:null, size:null, when:null, plz:'', name:'' }, store.get('profile', {}));
+const kindOf = id => KINDS.find(k => k.id === id);
+const saveProfile = () => store.set('profile', P);
+function fitSize(){ const k = kindOf(P.kind); if (k && (P.size == null || P.size < k.min || P.size > k.max)) P.size = k.def; }
+
+function applyProfile(){
+  const g = greeting();
+  $('#hello').textContent = P.name ? `${g}, ${P.name}.` : `${g}.`;
+  $('#kHello').textContent = P.name ? `Rückruf für ${P.name}` : 'Rückruf anfragen';
+  if (P.name && !$('#cName').value) $('#cName').value = P.name;
+  $$('#heroPick .chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.k === P.kind)));
+  const k = kindOf(P.kind);
+  if (k) {
+    $('#endEyebrow').textContent = 'Ihr Projekt: ' + k.label;
+    $('#endLine').innerHTML = { tueren:'Ihre neuen Türen, <em>Raum für Raum.</em>', kueche:'Ihre Küche aus <em>einem Stamm.</em>', treppe:'Ihre Treppe, <em>Stufe für Stufe.</em>', schrank:'Ihr Schrank, <em>auf den Zentimeter.</em>', regal:'Ihre Bibliothek, <em>bis unter die Decke.</em>', bad:'Ihr Bad mit <em>Eiche.</em>' }[k.id];
+    const doors = k.id === 'tueren';
+    $('#endCtaT').textContent = doors ? 'Türen Raum für Raum planen' : `${k.short} planen`;
+    $('#endCta').href = doors ? '#konfigurator' : '#planer';
+    $('#hCta').textContent = doors ? 'Türen planen' : `${k.short} planen`;
+    $('#hCta').href = doors ? '#konfigurator' : '#planer';
+    if (!$('#cTopic').dataset.touched) $('#cTopic').value = k.id;
+  } else {
+    $('#endEyebrow').textContent = 'Ihr Projekt'; $('#endLine').innerHTML = 'Was dürfen wir für Sie <em>bauen?</em>';
+    $('#endCtaT').textContent = 'Projekt in 30 Sekunden planen'; $('#endCta').href = '#planer';
+    $('#hCta').textContent = 'Projekt planen'; $('#hCta').href = '#planer';
+  }
+  renderFilters(); finderRender();
+}
+$('#heroPick').innerHTML = KINDS.map(k => `<button type="button" class="chip" data-k="${k.id}" aria-pressed="false">${k.short}</button>`).join('');
+$('#heroPick').addEventListener('click', e => {
+  const b = e.target.closest('[data-k]'); if (!b) return;
+  P.kind = P.kind === b.dataset.k ? null : b.dataset.k; fitSize(); saveProfile();
+  pFilter = 'alle'; pIdx = 0; applyProfile(); showProj(0, true);
+  if (P.kind) toast(`Gemerkt: ${kindOf(P.kind).label}. Die Seite zeigt Ihnen jetzt Passendes zuerst.`);
+});
+
+/* ================= header, tabs, progress ================= */
+const head = $('#head'), prog = $('#prog'), navLinks = $$('[data-sec]');
+const secIds = ['hero','planer','handwerk','konfigurator','projekte','holz','ablauf','anfahrt','kontakt'];
+const lightBands = $$('.bench');
+function chrome(){
+  const y = scrollY, H = document.documentElement.scrollHeight - vh();
+  prog.style.transform = `scaleX(${clamp(y / H, 0, 1)})`;
+  head.classList.toggle('solid', y > vh() * .5);
+  let light = false;
+  for (const b of lightBands){ const r = b.getBoundingClientRect(); if (r.top < 30 && r.bottom > 30) { light = true; break; } }
+  head.classList.toggle('light', light);
+  let cur = 'hero';
+  for (const id of secIds){ const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < vh() * .45) cur = id; }
+  if (cur === 'anfahrt') cur = 'kontakt';
+  navLinks.forEach(a => a.classList.toggle('on', a.dataset.sec === cur));
+}
+
+/* ================= image-sequence film ================= */
+class Seq {
+  constructor({ section, stage, canvas, base, count, beats, chap, tc, dur, load, focus = .5, auto = false, loop = false, onTick = null, sheet = null }){
+    Object.assign(this, { section, stage, canvas, base, count, beats, chap, tc, dur, loadEl: load, focus, auto, loop, onTick, sheet });
+    this.t0 = 0; this.lastT = 0;
+    this.ctx = canvas.getContext('2d', { alpha:false });
+    this.imgs = new Array(count); this.ok = new Uint8Array(count);
+    this.p = 0; this.cur = 0; this.dirty = true; this.started = false; this.loaded = 0; this.lastKey = -1;
+    this.resize(); addEventListener('resize', () => this.resize());
+  }
+  src(i){ return `${this.base}/${String(i + 1).padStart(3, '0')}.webp`; }
+  start(){
+    if (this.started) return; this.started = true; this.t0 = performance.now();
+    if (this.sheet) {
+      const per = this.sheet.cols * this.sheet.rows, n = Math.ceil(this.count / per);
+      this.sheets = new Array(n);
+      let q = 0;
+      const next = () => {
+        if (q >= n) return;
+        const k = q++; const im = new Image(); im.decoding = 'async';
+        im.onload = () => {
+          this.sheets[k] = im;
+          for (let i = k * per; i < Math.min(this.count, (k + 1) * per); i++) { this.imgs[i] = im; this.ok[i] = 1; this.loaded++; }
+          this.dirty = true; if (k === 0) this.stage.classList.add('live');
+          if (this.loadEl) { this.loadEl.firstElementChild.style.transform = `scaleX(${this.loaded / this.count})`; if (this.loaded >= this.count) this.loadEl.classList.add('done'); }
+          next();
+        };
+        im.onerror = next; im.src = `${this.base}-${String(k + 1).padStart(2, '0')}.webp`;
+      };
+      next(); next(); next();
+      return;
+    }
+    const order = [], seen = new Uint8Array(this.count);
+    for (const step of [24, 12, 6, 3, 1]) for (let i = 0; i < this.count; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
+    for (let i = 0; i < this.count; i++) if (!seen[i]) order.push(i);
+    let q = 0;
+    const next = () => {
+      if (q >= order.length) return;
+      const i = order[q++]; const im = new Image(); im.decoding = 'async';
+      im.onload = () => {
+        this.imgs[i] = im; this.ok[i] = 1; this.loaded++; this.dirty = true;
+        if (this.loadEl) { this.loadEl.firstElementChild.style.transform = `scaleX(${this.loaded / this.count})`; if (this.loaded >= this.count) this.loadEl.classList.add('done'); }
+        if (i === 0) this.stage.classList.add('live');
+        next();
+      };
+      im.onerror = next; im.src = this.src(i);
+    };
+    for (let k = 0; k < 6; k++) next();
+  }
+  resize(){ const dpr = Math.min(devicePixelRatio || 1, 2); const r = this.stage.getBoundingClientRect(); this.canvas.width = Math.max(1, Math.round(r.width * dpr)); this.canvas.height = Math.max(1, Math.round(r.height * dpr)); this.dirty = true; }
+  nearest(i){ if (this.ok[i]) return i; for (let d = 1; d < this.count; d++){ if (i - d >= 0 && this.ok[i - d]) return i - d; if (i + d < this.count && this.ok[i + d]) return i + d; } return -1; }
+  draw(im, alpha, i){
+    const c = this.canvas, cw = c.width, ch = c.height;
+    let sx = 0, sy = 0, iw = im.naturalWidth, ih = im.naturalHeight;
+    if (this.sheet) { const per = this.sheet.cols * this.sheet.rows, k = i % per; iw = this.sheet.w; ih = this.sheet.h; sx = (k % this.sheet.cols) * iw; sy = Math.floor(k / this.sheet.cols) * ih; }
+    const s = Math.max(cw / iw, ch / ih), w = iw * s, h = ih * s;
+    this.ctx.globalAlpha = alpha; this.ctx.drawImage(im, sx, sy, iw, ih, (cw - w) * this.focus, (ch - h) / 2, w, h);
+  }
+  measure(){
+    const r = this.section.getBoundingClientRect(), span = this.section.offsetHeight - vh();
+    if (!this.started && r.top < vh() * 3) this.start();
+    if (!this.auto) this.p = clamp(-r.top / Math.max(1, span), 0, 1);
+    return r.bottom > 0 && r.top < vh();
+  }
+  frame(visible){
+    const now = performance.now(), dt = Math.min(.1, (now - (this.lastT || now)) / 1000); this.lastT = now;
+    if (this.auto) {
+      const ready = this.loaded >= this.count || (this.started && now - this.t0 > 5000 && this.loaded > 8);
+      if (visible && ready) { this.p += dt / this.dur; if (this.p >= 1) this.p = this.loop ? 0 : 1; }
+      if (!visible && !this.loop && this.p >= 1) this.p = 0;
+      this.cur = this.p * (this.count - 1);
+      if (this.onTick) this.onTick(this.p);
+    } else {
+      const target = this.p * (this.count - 1), d = target - this.cur;
+      this.cur = Math.abs(d) < .01 ? target : this.cur + d * .28;
+    }
+    if (this.beats) this.beats.forEach(b => b.classList.toggle('on', this.p >= +b.dataset.from && this.p < +b.dataset.to));
+    if (this.chap) { let on = 0; this.chap.forEach((b, k) => { if (this.p >= +b.dataset.at - .02) on = k; }); this.chap.forEach((b, k) => b.classList.toggle('on', k === on)); }
+    if (this.tc) { const s = Math.floor(this.cur / (this.count - 1) * this.dur); this.tc.textContent = `00:${String(s).padStart(2,'0')} / 00:${String(this.dur).padStart(2,'0')}`; }
+    if (!visible) return;
+    const key = Math.round(this.cur * 100);
+    if (!this.dirty && key === this.lastKey) return;
+    this.lastKey = key; this.dirty = false;
+    const i = Math.floor(this.cur), f = this.cur - i, a = this.nearest(i);
+    if (a < 0) return;
+    this.draw(this.imgs[a], 1, a);
+    if (f > .02 && a === i && i + 1 < this.count && this.ok[i + 1]) this.draw(this.imgs[i + 1], f, i + 1);
+    this.ctx.globalAlpha = 1;
+  }
+  jump(at){ const span = this.section.offsetHeight - vh(); scrollTo({ top: this.section.offsetTop + span * at + 2, behavior: RM ? 'auto' : 'smooth' }); }
+}
+const films = [];
+const PHONE = matchMedia('(max-width: 700px)').matches;
+const TICKS = [[0,'Ankommen','Durch die Glaswand in die Werkstatt'],[.22,'Die Werkstatt','Elf Meter Glas, dahinter warmes Licht'],[.46,'Der Tisch','Gefügt, nicht geschraubt'],[.7,'Die Stühle','Aus demselben Stamm']];
+let tickOn = 0;
+function heroTick(p){
+  let k = 0; TICKS.forEach((t, i) => { if (p >= t[0]) k = i; });
+  if (k === tickOn) return; tickOn = k;
+  const el = $('#heroTicker'); el.classList.add('fade');
+  setTimeout(() => { el.innerHTML = '<b>' + TICKS[k][1] + '</b> · ' + TICKS[k][2]; el.classList.remove('fade'); }, 300);
+}
+/* Die Filme laufen immer: sie bewegen sich nur, wenn man selbst scrollt (auch bei "Bewegung reduzieren"). */
+{
+  const hero = PHONE
+    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/m', count:181, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') })
+    : new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/a', count:226, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') });
+  hero.start(); films.push(hero);
+  $$('#heroChap button').forEach(b => b.addEventListener('click', () => hero.jump(+b.dataset.at)));
+  films.push(PHONE
+    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/n', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc') })
+    : new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/b', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), focus:.42 }));
+}
+
+/* ================= haltung ================= */
+const stmt = $('#statement'), warm = new Set(['Eiche,','millimetergenau','denselben']);
+stmt.innerHTML = stmt.textContent.trim().split(/\s+/).map(w => `<span${warm.has(w) ? ' data-w' : ''}>${w}</span>`).join(' ');
+const words = $$('span', stmt); if (RM) words.forEach(w => w.classList.add('lit'));
+const hPhoto = $('#hPhoto');
+function haltungFrame(){
+  if (RM) return;
+  const r = stmt.getBoundingClientRect(); if (r.bottom < -300 || r.top > vh() + 300) return;
+  const p = clamp((vh() * .85 - r.top) / (r.height + vh() * .3), 0, 1), n = Math.round(p * words.length);
+  words.forEach((w, i) => { const on = i < n; w.classList.toggle('lit', on); w.classList.toggle('warm', on && w.hasAttribute('data-w')); });
+  const pr = hPhoto.parentElement.getBoundingClientRect(), pp = clamp((vh() - pr.top) / (vh() + pr.height), 0, 1);
+  hPhoto.style.transform = `translate3d(0,${(-pp * 15).toFixed(2)}%,0)`;
+}
+const nf = new Intl.NumberFormat('de-DE');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting || RM) return; io.unobserve(e.target);
+  const el = e.target, to = +el.dataset.count, from = to === 1987 ? 1947 : 0, t0 = performance.now(), sep = to >= 2100;
+  const tick = now => { const k = clamp((now - t0) / 1500, 0, 1), e2 = 1 - Math.pow(1 - k, 3), v = Math.round(from + (to - from) * e2); el.textContent = sep ? nf.format(v) : String(v); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}), { threshold:.6 });
+$$('[data-count]').forEach(c => io.observe(c));
+
+/* ================= planner ================= */
+let fStep = 0;
+const kindsEl = $('#kinds');
+kindsEl.innerHTML = KINDS.map(k => `<button type="button" class="kind" data-k="${k.id}" aria-pressed="false"><img src="${k.img}" alt="" loading="lazy"><span>${k.label}<small>ab ${eur(round100(k.base + k.lo * k.min))}</small></span></button>`).join('');
+function setStep(n){
+  fStep = clamp(n, 0, 3);
+  $$('.f-pane').forEach(p => p.hidden = +p.dataset.step !== fStep);
+  $$('.f-steps i').forEach((s, i) => s.classList.toggle('on', i <= fStep));
+  $('#fBack').hidden = fStep === 0;
+  $('#fNext').hidden = !((fStep === 0 && P.kind) || fStep === 1 || (fStep === 2 && P.when));
+}
+kindsEl.addEventListener('click', e => {
+  const b = e.target.closest('[data-k]'); if (!b) return;
+  P.kind = b.dataset.k; fitSize(); saveProfile(); pFilter = 'alle'; pIdx = 0; applyProfile(); showProj(0, true);
+  setTimeout(() => setStep(1), 260);
+});
+const sizeRange = $('#sizeRange');
+sizeRange.addEventListener('input', () => { P.size = +sizeRange.value; saveProfile(); finderRender(); });
+$('#whenList').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b) return; P.when = b.dataset.v; saveProfile(); finderRender(); setTimeout(() => setStep(3), 240); });
+$('#fBack').addEventListener('click', () => setStep(fStep - 1));
+$('#fNext').addEventListener('click', () => setStep(fStep + 1));
+$('#fPlz').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 5); P.plz = e.target.value; saveProfile(); finderRender(); });
+$('#fName').addEventListener('change', e => { P.name = e.target.value.trim().slice(0, 40); saveProfile(); applyProfile(); if (P.name) toast(`Danke, ${P.name}. Die Seite spricht Sie ab jetzt mit Namen an.`); });
+function zoneOf(plz){
+  if (!/^\d{5}$/.test(plz)) return null;
+  const n = +plz.slice(0, 2);
+  if (n === 16 || n === 17) return { ok:2, t:'Uckermark und Barnim', d:'Keine Anfahrtskosten, Aufmaß meist innerhalb einer Woche.' };
+  if (n >= 10 && n <= 14) return { ok:2, t:'Berlin und Potsdam', d:'Anfahrt inklusive. Wir sind jede Woche in der Stadt.' };
+  if (n === 15 || n === 18 || n === 19) return { ok:1, t:'Brandenburg und Mecklenburg', d:'Gern, mit kleiner Anfahrtspauschale ab 60 €.' };
+  return { ok:0, t:'Außerhalb unseres Gebiets', d:'Wir empfehlen Ihnen gern eine Tischlerei in Ihrer Nähe.' };
+}
+function plan(){
+  const k = kindOf(P.kind) || KINDS[0], size = P.kind && P.size != null ? clamp(P.size, k.min, k.max) : k.def;
+  const lo = round100(k.base + k.lo * size), hi = round100(k.base * 1.3 + k.hi * size);
+  const lead = { asap:5, '3m':80, year:150, ideas:5 }[P.when || 'asap'];
+  const measure = nextWorkday(addDays(new Date(), lead)), done = nextWorkday(addDays(measure, k.weeks * 7));
+  return { k, size, lo, hi, measure, done, zone: zoneOf(P.plz) };
+}
+function finderRender(){
+  const r = plan(), k = r.k;
+  $$('.kind', kindsEl).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === P.kind)));
+  sizeRange.min = k.min; sizeRange.max = k.max; sizeRange.step = k.step || 1; sizeRange.value = r.size;
+  sizeRange.style.setProperty('--p', ((r.size - k.min) / (k.max - k.min) * 100) + '%');
+  $('#sizeQ').textContent = k.q; $('#sizeVal').innerHTML = `${r.size}<small>${k.unit}</small>`; $('#sizeMin').textContent = k.min; $('#sizeMax').textContent = k.max; $('#sizeHint').textContent = k.hint;
+  $$('#whenList [data-v]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.v === P.when)));
+  if ($('#fPlz').value !== (P.plz || '')) $('#fPlz').value = P.plz || '';
+  if (!$('#fName').value && P.name) $('#fName').value = P.name;
+  const zEl = $('#zone');
+  if (r.zone) { zEl.hidden = false; zEl.innerHTML = `<span aria-hidden="true">${['✕','◐','✓'][r.zone.ok]}</span><span><b>${r.zone.t}.</b> ${r.zone.d}</span>`; } else zEl.hidden = true;
+  const img = $('#frImg'); if (img.getAttribute('src') !== k.img) { img.style.opacity = 0; setTimeout(() => { img.src = k.img; img.style.opacity = 1; }, 180); }
+  $('#frTag').textContent = P.kind ? `${r.size} ${k.unit}` : 'Beispiel: 4 Türen';
+  $('#frTitle').textContent = { tueren:'Innentüren aus Eiche', kueche:'Küche nach Maß', treppe:'Treppe aus Eiche massiv', schrank:'Einbauschrank nach Maß', regal:'Regal und Bibliothek', bad:'Waschtisch und Badmöbel' }[k.id];
+  $('#frPrice').textContent = `${eur(r.lo)} – ${eur(r.hi)}`;
+  $('#frMeasure').innerHTML = P.when === 'ideas' ? 'Wann Sie möchten' : `KW ${isoWeek(r.measure)} <span class="small">· ab ${fmtDay(r.measure)}</span>`;
+  $('#frDone').innerHTML = P.when === 'ideas' ? `rund ${k.weeks} Wochen nach dem Aufmaß` : `KW ${isoWeek(r.done)} <span class="small">· um den ${fmtDay(r.done)}</span>`;
+  $('#frZone').textContent = r.zone ? r.zone.t : 'Postleitzahl eingeben';
+  $('#frAlt').hidden = k.id !== 'tueren';
+  if (fStep === 0 || fStep === 2) $('#fNext').hidden = !(fStep === 0 ? P.kind : P.when);
+}
+$('#frSend').addEventListener('click', () => {
+  const r = plan();
+  setPref(`${r.k.label}: ${r.size} ${r.k.unit}, Richtwert ${eur(r.lo)} bis ${eur(r.hi)}${P.plz ? ', PLZ ' + P.plz : ''}${P.when ? ', ' + { asap:'so bald wie möglich', '3m':'in etwa drei Monaten', year:'innerhalb eines Jahres', ideas:'erst Ideen sammeln' }[P.when] : ''}.`);
+  $('#cTopic').value = r.k.id;
+});
+
+/* ================= craft rail ================= */
+const CRAFT = [
+  { img:'craft-shaving', t:'Hobeln', m:'0,1 mm Span', d:'Der Handhobel bringt eine Fläche, die keine Schleifmaschine schafft.' },
+  { img:'craft-dovetail', t:'Schwalbenschwanz', m:'von Hand', d:'Für Schubkästen, die auch nach dreißig Jahren nicht wackeln.' },
+  { img:'craft-cnc', t:'CNC-Fräse', m:'±0,5 mm', d:'Füllungen und Profile entstehen direkt aus Ihren Aufmaßdaten.' },
+  { img:'craft-bench', t:'Die Bank', m:'Werkzeug', d:'Japanische Zugsägen, Stechbeitel, Zollstock. Alles hat seinen Platz.' },
+  { img:'craft-timber', t:'Holzlager', m:'3 Jahre Vorlauf', d:'Luftgetrocknet, dann in der Kammer auf unter 10 % Restfeuchte.' },
+  { img:'craft-hand', t:'Endkontrolle', m:'mit der Hand', d:'Jede Fläche wird gefühlt, bevor sie die Werkstatt verlässt.' },
+];
+const rail = $('#rail');
+rail.innerHTML = CRAFT.map((c, i) => `<figure class="card"><div class="ph"><img src="img/${c.img}-s.webp" alt="${c.t}: ${c.d}" loading="lazy" draggable="false"><span class="idx">${String(i + 1).padStart(2,'0')} / ${String(CRAFT.length).padStart(2,'0')}</span><button type="button" class="zoom" data-i="${i}" aria-label="${c.t} groß anzeigen"><svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="m13 13 4 4M9 6.5v5M6.5 9h5" stroke="currentColor" stroke-width="1.6"/></svg></button></div><figcaption><b>${c.t}</b><span class="mono">${c.m}</span><p>${c.d}</p></figcaption></figure>`).join('');
+const railStep = () => (rail.querySelector('.card')?.offsetWidth || 300) + 20;
+$('#railPrev').addEventListener('click', () => rail.scrollBy({ left: -railStep(), behavior:'smooth' }));
+$('#railNext').addEventListener('click', () => rail.scrollBy({ left: railStep(), behavior:'smooth' }));
+function railBar(){ const max = rail.scrollWidth - rail.clientWidth, vis = rail.clientWidth / rail.scrollWidth, bar = $('#railBar'); bar.style.width = (vis * 100) + '%'; bar.style.transform = `translateX(${max > 0 ? (rail.scrollLeft / max) * (1 / vis - 1) * 100 : 0}%)`; }
+rail.addEventListener('scroll', railBar, { passive:true }); addEventListener('resize', railBar); railBar();
+(() => {
+  let down = false, sx = 0, sl = 0, moved = 0, v = 0, lx = 0, lt = 0, raf;
+  rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' || e.target.closest('.zoom')) return; down = true; moved = 0; sx = lx = e.clientX; sl = rail.scrollLeft; lt = performance.now(); cancelAnimationFrame(raf); });
+  addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx)); if (moved > 4) rail.classList.add('drag'); rail.scrollLeft = sl - dx; const now = performance.now(); v = (e.clientX - lx) / Math.max(1, now - lt); lx = e.clientX; lt = now; });
+  addEventListener('pointerup', () => { if (!down) return; down = false; rail.classList.remove('drag'); let vel = v * 16; const glide = () => { if (Math.abs(vel) < .5) return; rail.scrollLeft -= vel; vel *= .94; raf = requestAnimationFrame(glide); }; glide(); });
+})();
+rail.addEventListener('click', e => { const z = e.target.closest('.zoom'); if (z) openLb(CRAFT.map(c => ({ src:`img/${c.img}.webp`, low:`img/${c.img}-s.webp`, cap:`${c.t} · ${c.m}`, alt:c.d })), +z.dataset.i); });
+
+/* ================= door configurator ================= */
+const MODELS = [
+  { id:'shaker4', name:'Hain 4', code:'HH-T-04', desc:'Vier waagerechte Füllungen im Shaker-Stil', price:489, primed:true },
+  { id:'3panel', name:'Hain 3', code:'HH-T-03', desc:'Drei waagerechte Füllungen, ruhiger Rahmen', price:469 },
+  { id:'raised4', name:'Kassette 4', code:'HH-K-04', desc:'Vier Kassetten mit Profilkante, für den Altbau', price:529 },
+  { id:'grooved', name:'Rille', code:'HH-R-01', desc:'Glattes Türblatt mit feinen senkrechten Rillen', price:649 },
+  { id:'flush', name:'Glatt', code:'HH-G-01', desc:'Flächenbündig, stehende Jahresringe im Furnier', price:419 },
+  { id:'glazed', name:'Lichtband', code:'HH-L-01', desc:'Schmaler Klarglas-Streifen, ESG 6 mm', price:599 },
+  { id:'ledged', name:'Landhaus', code:'HH-B-01', desc:'Rustikale Eiche, Bretter mit Riegel und Strebe', price:579, noPrimed:true },
+];
+const HANDLES = [
+  { id:'black', name:'Bogen', finish:'Mattschwarz', price:39 },
+  { id:'chrome', name:'Welle', finish:'Chrom poliert', price:34 },
+  { id:'steel', name:'Linie', finish:'Edelstahl gebürstet', price:45 },
+  { id:'nickel', name:'Schwung', finish:'Nickel satiniert', price:42 },
+  { id:'brass', name:'Rändel', finish:'Messing antik', price:79 },
+];
+const ROOMS = ['Flur','Wohnzimmer','Küche','Schlafzimmer','Kinderzimmer','Bad','Arbeitszimmer','Gäste-WC'];
+const SIZES = { 635:{ leaf:610, add:-20 }, 760:{ leaf:735, add:0 }, 885:{ leaf:860, add:0 }, 1010:{ leaf:985, add:65 } };
+const PR = { fit:149, frameNew:289, lock:38, primed:-55 };
+const DEF = { room:'Flur', model:'shaker4', finish:'oak', handle:'black', size:'885', hand:'L', service:'fit', frame:'keep', qty:1, locks:0 };
+const S = Object.assign({}, DEF, store.get('door', {}));
+let LIST = store.get('rooms', []);
+let cmpOn = false, cmpModel = 'flush', cmpX = 50;
+const wet = r => /Bad|WC/.test(r);
+
+$('#roomSeg').innerHTML = ROOMS.map(r => `<button type="button" class="chip" data-room="${r}">${r}</button>`).join('');
+$('#modelTiles').innerHTML = MODELS.map(m => `<button type="button" class="tile" data-model="${m.id}"><img src="img/door-${m.id}-s.webp" alt="" loading="lazy"><b>${m.name}</b><span>ab ${eur(m.price)}</span></button>`).join('');
+$('#handleTiles').innerHTML = HANDLES.map(h => `<button type="button" class="tile" data-handle="${h.id}"><img src="img/handle-${h.id}-s.webp" alt="" loading="lazy"><b>${h.name}</b><span>${h.finish}</span></button>`).join('');
+$('#modelCount').textContent = MODELS.length + ' Modelle';
+$('#cmpPick').insertAdjacentHTML('beforeend', MODELS.map(m => `<button type="button" class="chip" data-cmp="${m.id}">${m.name}</button>`).join(''));
+
+const unitPrice = c => { const m = MODELS.find(x => x.id === c.model), h = HANDLES.find(x => x.id === c.handle); return m.price + h.price + SIZES[c.size].add + (c.finish === 'primed' ? PR.primed : 0) + (c.frame === 'new' ? PR.frameNew : 0) + (c.service === 'fit' ? PR.fit : 0); };
+const cfgPrice = c => unitPrice(c) * c.qty + c.locks * PR.lock;
+const cfgShort = c => { const m = MODELS.find(x => x.id === c.model), h = HANDLES.find(x => x.id === c.handle); return `${c.qty} × ${m.name}, ${c.finish === 'oak' ? 'Eiche' : 'weiß grundiert'}, ${h.name} ${h.finish.toLowerCase()}, ${c.size} × 2010, DIN ${c.hand === 'L' ? 'links' : 'rechts'}${c.locks ? `, ${c.locks} × WC-Schloss` : ''}`; };
+const doorImg = c => `img/door-${c.finish === 'primed' && c.model === 'shaker4' ? 'shaker4-primed' : c.model}`;
+
+$('#roomSeg').addEventListener('click', e => {
+  const b = e.target.closest('[data-room]'); if (!b) return;
+  const existing = LIST.find(x => x.room === b.dataset.room);
+  if (existing) { Object.assign(S, existing); toast(`${S.room} geladen. Änderungen mit „Aktualisieren“ übernehmen.`); }
+  else { S.room = b.dataset.room; S.locks = wet(S.room) ? S.qty : 0; }
+  renderK();
+});
+$$('.seg[data-key]').forEach(g => g.addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b || b.disabled) return; S[g.dataset.key] = b.dataset.v; renderK(); }));
+$('#modelTiles').addEventListener('click', e => { const b = e.target.closest('[data-model]'); if (b){ S.model = b.dataset.model; if (cmpModel === S.model) cmpModel = MODELS.find(m => m.id !== S.model).id; renderK(); } });
+$('#handleTiles').addEventListener('click', e => { const b = e.target.closest('[data-handle]'); if (b){ S.handle = b.dataset.handle; renderK(); } });
+$$('[data-step]').forEach(b => b.addEventListener('click', () => { const k = b.dataset.step, d = +b.dataset.d; S[k] = k === 'qty' ? clamp(S[k] + d, 1, 20) : clamp(S[k] + d, 0, S.qty); if (S.locks > S.qty) S.locks = S.qty; renderK(); }));
+$('#cmpBtn').addEventListener('click', () => { cmpOn = !cmpOn; if (cmpModel === S.model) cmpModel = MODELS.find(m => m.id !== S.model).id; cmpX = 50; renderK(); if (cmpOn) toast('Ziehen Sie die Trennlinie über die Tür.'); });
+$('#cmpPick').addEventListener('click', e => { const b = e.target.closest('[data-cmp]'); if (b && b.dataset.cmp !== S.model){ cmpModel = b.dataset.cmp; renderK(); } });
+(() => {
+  const door = $('#door'); let drag = false;
+  const setX = e => { const r = door.getBoundingClientRect(); cmpX = clamp((e.clientX - r.left) / r.width * 100, 3, 97); paintCmp(); };
+  door.addEventListener('pointerdown', e => { if (!cmpOn) return; drag = true; door.setPointerCapture(e.pointerId); setX(e); });
+  door.addEventListener('pointermove', e => { if (drag) setX(e); });
+  const up = () => drag = false; door.addEventListener('pointerup', up); door.addEventListener('pointercancel', up);
+})();
+function paintCmp(){ $('#door .cmp').style.clipPath = `inset(0 0 0 ${cmpX}%)`; $('#split').style.left = cmpX + '%'; }
+
+let front = $('#doorA'), back = $('#doorB'), curSrc = front.getAttribute('src');
+function setDoor(src, alt){
+  front.alt = alt; if (src === curSrc) return; curSrc = src;
+  const img = back; img.onload = () => { img.classList.remove('back'); front.classList.add('back'); img.alt = alt; img.removeAttribute('aria-hidden'); front.setAttribute('aria-hidden','true'); front.alt = ''; [front, back] = [img, front]; };
+  img.src = src;
+}
+let shownPrice = 0, priceRaf;
+function animatePrice(to){
+  const els = [$('#price'), $('#mPrice')]; cancelAnimationFrame(priceRaf);
+  if (RM) { els.forEach(e => e.textContent = eur(to)); shownPrice = to; return; }
+  const from = shownPrice, t0 = performance.now();
+  const tick = now => { const k = clamp((now - t0) / 520, 0, 1), v = from + (to - from) * (1 - Math.pow(1 - k, 3)); els.forEach(e => e.textContent = eur(v)); shownPrice = v; if (k < 1) priceRaf = requestAnimationFrame(tick); };
+  priceRaf = requestAnimationFrame(tick);
+}
+function waText(){
+  const items = LIST.length ? LIST : [S];
+  const lines = ['Hallo Holm & Hain, ich interessiere mich für neue Innentüren:'];
+  items.forEach(c => lines.push(`• ${c.room}: ${cfgShort(c)}, ${c.frame === 'new' ? 'neue Zarge' : c.frame === 'keep' ? 'Zarge vorhanden' : 'Zarge klären'}, ${c.service === 'fit' ? 'mit Einbau' : 'nur Lieferung'} (${eur(cfgPrice(c))})`));
+  lines.push(`Richtpreis gesamt laut Website: ${eur(items.reduce((a, c) => a + cfgPrice(c), 0))} inkl. MwSt.`);
+  if (P.plz) lines.push(`PLZ: ${P.plz}`);
+  lines.push('Bitte melden Sie sich für einen Aufmaßtermin.' + (P.name ? ` Viele Grüße, ${P.name}` : ''));
+  return lines.join('\n');
+}
+function renderK(){
+  const m = MODELS.find(x => x.id === S.model) || MODELS[0], h = HANDLES.find(x => x.id === S.handle) || HANDLES[0];
+  if (m.noPrimed && S.finish === 'primed') S.finish = 'oak';
+  $$('#roomSeg [data-room]').forEach(b => { const has = LIST.some(x => x.room === b.dataset.room); b.setAttribute('aria-pressed', String(b.dataset.room === S.room)); b.textContent = b.dataset.room + (has ? ' ✓' : ''); });
+  $$('.seg[data-key]').forEach(g => $$('[data-v]', g).forEach(b => b.setAttribute('aria-pressed', String(S[g.dataset.key] === b.dataset.v))));
+  $('.seg[data-key="finish"] [data-v="primed"]').disabled = !!m.noPrimed;
+  $$('#modelTiles [data-model]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.model === S.model)));
+  $$('#handleTiles [data-handle]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.handle === S.handle)));
+  setDoor(doorImg(S) + '.webp', `${m.name}, ${S.finish === 'oak' ? 'Eiche' : 'weiß grundiert'}, DIN ${S.hand === 'L' ? 'links' : 'rechts'}`);
+  $('#doorTag').hidden = !(S.finish === 'primed' && !m.primed); $('#doorTag').textContent = 'Abbildung in Eiche, Lieferung weiß grundiert';
+  $('#door').classList.toggle('mirror', S.hand === 'R');
+  $('#handleImg').src = `img/handle-${h.id}-s.webp`; $('#handleImg').alt = `Drücker ${h.name}, ${h.finish}`;
+  $('#dimW').textContent = `Türblatt ${SIZES[S.size].leaf} mm`;
+  $('#pvName').textContent = m.name; $('#pvDesc').textContent = m.desc; $('#pvCode').textContent = `${m.code} · DIN ${S.hand === 'L' ? 'links' : 'rechts'}`;
+  $('#qtyOut').textContent = S.qty; $('#locksOut').textContent = S.locks;
+  $('#door').classList.toggle('comparing', cmpOn); $('#cmpBtn').setAttribute('aria-pressed', String(cmpOn)); $('#cmpPick').classList.toggle('on', cmpOn);
+  const cm = MODELS.find(x => x.id === cmpModel);
+  $('#cmpImg').src = `img/door-${cm.id}.webp`; $('#lblL').textContent = m.name; $('#lblR').textContent = cm.name;
+  $$('#cmpPick [data-cmp]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.cmp === cmpModel)); b.disabled = b.dataset.cmp === S.model; });
+  paintCmp();
+  const tip = $('#roomTip');
+  if (wet(S.room) && S.locks === 0) { tip.hidden = false; tip.textContent = `Für ${S.room === 'Bad' ? 'das Bad' : 'das WC'} empfehlen wir ein Bad- und WC-Schloss mit Notöffnung von außen.`; }
+  else if (S.model === 'glazed' && /Bad|WC|Schlafzimmer/.test(S.room)) { tip.hidden = false; tip.textContent = `Lichtband im ${S.room}? Gern mit satiniertem statt klarem Glas, ohne Aufpreis.`; }
+  else if (S.model === 'raised4' && S.room === 'Flur') { tip.hidden = false; tip.textContent = 'Kassette 4 ist unser Altbau-Modell. Bei Raumhöhen über 3 m fertigen wir das Türblatt gern höher.'; }
+  else tip.hidden = true;
+  const inList = LIST.findIndex(x => x.room === S.room);
+  $('#addRoom').textContent = inList >= 0 ? `${S.room} aktualisieren` : `${S.room} zur Liste hinzufügen`;
+  $('#roomsList').innerHTML = LIST.map((c, i) => `<li class="room${c.room === S.room ? ' cur' : ''}" data-i="${i}"><img src="${doorImg(c)}-s.webp" alt=""><div style="min-width:0"><b>${c.room}</b><span>${cfgShort(c)}</span></div><span class="p">${eur(cfgPrice(c))}</span><button type="button" data-del="${i}" aria-label="${c.room} entfernen">×</button></li>`).join('');
+  $('#roomsEmpty').hidden = LIST.length > 0;
+  $('#roomsCount').textContent = LIST.length ? `· ${LIST.length} ${LIST.length === 1 ? 'Raum' : 'Räume'}` : '';
+  $('#tabBadge').hidden = !LIST.length; $('#tabBadge').textContent = LIST.length;
+  const total = LIST.length ? LIST.reduce((a, c) => a + cfgPrice(c), 0) : cfgPrice(S);
+  animatePrice(total);
+  const lbl = LIST.length ? `Gesamt, ${LIST.length} ${LIST.length === 1 ? 'Raum' : 'Räume'}` : 'Richtpreis inkl. MwSt.';
+  $('#sumLabel').textContent = lbl; $('#mLabel').textContent = LIST.length ? lbl : `${S.room} · Richtpreis`;
+  $('#sumLine').textContent = LIST.length ? LIST.map(c => `${c.room} ${eur(cfgPrice(c))}`).join(' · ') : `${S.room}: ${cfgShort(S)}`;
+  const wa = 'https://wa.me/?text=' + encodeURIComponent(waText());
+  $('#waBtn').href = wa; $('#mWa').href = wa;
+  store.set('door', S); store.set('rooms', LIST);
+}
+$('#addRoom').addEventListener('click', () => {
+  const i = LIST.findIndex(x => x.room === S.room), item = Object.assign({}, S);
+  if (i >= 0) { LIST[i] = item; toast(`${S.room} aktualisiert`); }
+  else {
+    LIST.push(item);
+    const nextRoom = ROOMS.find(r => !LIST.some(x => x.room === r));
+    toast(`${S.room} gespeichert.${nextRoom ? ` Weiter mit ${nextRoom}.` : ''}`);
+    if (nextRoom) { S.room = nextRoom; S.locks = wet(nextRoom) ? S.qty : 0; }
+  }
+  renderK();
+});
+$('#roomsList').addEventListener('click', e => {
+  const d = e.target.closest('[data-del]'); if (d) { const c = LIST.splice(+d.dataset.del, 1)[0]; toast(`${c.room} entfernt`); renderK(); return; }
+  const li = e.target.closest('.room'); if (li) { Object.assign(S, LIST[+li.dataset.i]); renderK(); }
+});
+const prefDoors = () => setPref((LIST.length ? LIST : [S]).map(c => `${c.room}: ${cfgShort(c)}`).join('; ') + '.', 'tueren');
+$('#copyCfg').addEventListener('click', () => copyText(waText()));
+$('#waBtn').addEventListener('click', prefDoors); $('#mWa').addEventListener('click', prefDoors);
+renderK();
+(window.requestIdleCallback || (f => setTimeout(f, 2000)))(() => MODELS.forEach(m => { const i = new Image(); i.src = `img/door-${m.id}.webp`; }));
+
+/* ================= projects ================= */
+const PROJ = [
+  { id:'kitchen', cat:'kueche', title:'Küche am See', where:'Lychen · 2025', text:'Eine offene Küche für eine Familie mit vier Kindern. Insel mit Natursteinplatte, Hochschränke bis unter die Decke, Esstisch aus demselben Stamm.',
+    spots:[ { x:38, y:76, t:'Grifflose Fronten', d:'Eiche im Riftschnitt mit gefräster Griffmulde. Nichts steht über.' }, { x:69, y:62, t:'Natursteinplatte', d:'30 mm Quarzit, an der Ecke auf Gehrung verklebt, damit sie massiv wirkt.' }, { x:8, y:42, t:'Geräteschrank', d:'Backofen und Dampfgarer auf Augenhöhe. Kein Bücken mehr.' }, { x:84, y:63, t:'Esstisch', d:'Aus demselben Stamm wie die Fronten. Die Maserung läuft weiter.' } ] },
+  { id:'corridor', cat:'tueren', title:'Altbauflur', where:'Berlin-Pankow · 2024', text:'Fünf Kassettentüren nach historischem Vorbild für eine Wohnung von 1904. Raumhöhe 3,40 m, kein Boden ist gerade.',
+    spots:[ { x:80, y:38, t:'Kassette 4, Sondermaß', d:'Türblatt 2,40 m hoch, Kassetten nach dem Original nachgefräst.' }, { x:75, y:59, t:'Drücker Rändel', d:'Messing antik. Wird mit den Jahren dunkler und schöner.' }, { x:89, y:16, t:'Bekleidung', d:'Profil vom alten Türrahmen abgenommen und neu gefräst.' }, { x:66, y:86, t:'Schiefer Boden', d:'Bis 14 mm Gefälle. Jede Zarge einzeln angepasst.' } ] },
+  { id:'stair', cat:'treppe', title:'Schwebende Treppe', where:'Potsdam · 2025', text:'Kragstufen aus massiver Eiche, die scheinbar aus der Wand wachsen. Dazu ein Glasgeländer ohne einen einzigen Pfosten.',
+    spots:[ { x:58, y:62, t:'Kragstufen', d:'80 mm Eiche massiv, mit Stahlankern 30 cm tief in der Wand.' }, { x:60, y:28, t:'Ganzglas-Geländer', d:'VSG 17,52 mm, unten in einer Bodenschiene geklemmt.' }, { x:20, y:33, t:'Podest', d:'Mit eingelassenem Pflanzkasten. Wunsch der Bauherrin.' }, { x:45, y:14, t:'Handlauf', d:'Flachstahl, schwarz pulverbeschichtet, ohne sichtbare Schrauben.' } ] },
+  { id:'attic', cat:'schrank', title:'Dachschräge', where:'Templin · 2024', text:'Ein Schlafzimmer unter dem Dach, das vorher nur Schräge war. Jetzt sind es 4,8 Meter Stauraum.',
+    spots:[ { x:22, y:44, t:'Auf die Neigung geschnitten', d:'Fronten exakt auf 38 Grad Dachneigung, Fugen 3 mm.' }, { x:55, y:47, t:'Offenes Fach', d:'Mit Kleiderstange und Fachböden in massiver Eiche.' }, { x:44, y:68, t:'Schubkästen', d:'Vollauszug mit Dämpfung, innen mit Eichenböden.' }, { x:17, y:76, t:'Push-to-open', d:'Die Eichenfronten unten öffnen auf Druck, ohne Griff.' } ] },
+  { id:'library', cat:'regal', title:'Bibliothekswand', where:'Berlin-Mitte · 2023', text:'Sechs Meter Regal für über 2.000 Bücher. Massiv genug, dass sich kein Fachboden durchbiegt.',
+    spots:[ { x:56, y:29, t:'Fachböden mit Stahl', d:'32 mm Eiche mit verdeckter Stahleinlage. Biegt sich auch voll beladen nicht.' }, { x:48, y:11, t:'Raumhoch', d:'Bis an die Decke, oben mit 5 mm Schattenfuge.' }, { x:38, y:52, t:'Leseecke', d:'Ein Fach haben wir bewusst offen gelassen, für den Sessel.' } ] },
+  { id:'vanity', cat:'bad', title:'Waschtisch', where:'Prenzlau · 2025', text:'Eiche im Bad, geölt und für Feuchträume versiegelt. Wandhängend, damit der Boden frei bleibt.',
+    spots:[ { x:46, y:63, t:'Wildeiche', d:'Mit Ästen und Rissen, bewusst ausgewählt und mit Harz gefüllt.' }, { x:72, y:49, t:'Naturstein', d:'Kalkstein, imprägniert. Fugenlos zum Aufsatzbecken.' }, { x:60, y:86, t:'Wandhängend', d:'Unsichtbare Aufhängung, trägt 120 kg.' } ] },
+];
+const CATS = [ ['alle','Alle'], ['tueren','Türen'], ['kueche','Küche'], ['treppe','Treppe'], ['schrank','Schrank'], ['regal','Regal'], ['bad','Bad'] ];
+let pFilter = 'alle', pIdx = 0, spotOn = -1;
+function visibleProj(){
+  let arr = PROJ.filter(p => pFilter === 'alle' || p.cat === pFilter);
+  if (P.kind && pFilter === 'alle') arr = [...arr.filter(p => p.cat === P.kind), ...arr.filter(p => p.cat !== P.kind)];
+  return arr;
+}
+function renderFilters(){ $('#filters').innerHTML = CATS.map(([id, l]) => `<button type="button" class="chip" data-f="${id}" aria-pressed="${id === pFilter}">${l}</button>`).join(''); renderThumbs(); }
+function renderThumbs(){ $('#thumbs').innerHTML = visibleProj().map((p, i) => `<button type="button" class="thumb${i === pIdx ? ' on' : ''}" data-i="${i}"><img src="img/proj-${p.id}-s.webp" alt="" loading="lazy"><span>${p.title}</span></button>`).join(''); }
+function showProj(i, instant){
+  const arr = visibleProj(); pIdx = (i + arr.length) % arr.length; const p = arr[pIdx]; spotOn = -1;
+  const img = $('#vImg');
+  const apply = () => {
+    img.src = `img/proj-${p.id}-s.webp`; img.alt = `${p.title}, ${p.where}`; img.classList.remove('out');
+    $('#vSpots').innerHTML = p.spots.map((s, k) => `<button type="button" class="hs" style="left:${s.x}%;top:${s.y}%" data-s="${k}" aria-label="Detail ${k + 1}: ${s.t}">${k + 1}</button>`).join('');
+  };
+  if (instant) apply(); else { img.classList.add('out'); setTimeout(apply, 260); }
+  $('#vTitle').textContent = p.title; $('#vWhere').textContent = p.where; $('#vText').textContent = p.text;
+  $('#vMatch').hidden = !(P.kind && p.cat === P.kind);
+  $('#vList').innerHTML = p.spots.map((s, k) => `<li><button type="button" data-s="${k}"><span class="n">${String(k + 1).padStart(2,'0')}</span><span><b>${s.t}</b><span class="d">${s.d}</span></span></button></li>`).join('');
+  $('#vTip').classList.remove('on');
+  renderThumbs();
+  const th = $$('#thumbs .thumb')[pIdx]; if (th && !instant) th.scrollIntoView({ block:'nearest', inline:'nearest', behavior:'smooth' });
+}
+function spot(k){
+  const p = visibleProj()[pIdx]; spotOn = k;
+  $$('#vSpots .hs').forEach(b => b.classList.toggle('on', +b.dataset.s === k));
+  $$('#vList button').forEach(b => b.classList.toggle('on', +b.dataset.s === k));
+  const tip = $('#vTip'); if (k < 0) { tip.classList.remove('on'); return; }
+  const s = p.spots[k], right = s.x > 52; tip.innerHTML = `<b>${s.t}</b>${s.d}`;
+  tip.style.left = right ? 'auto' : `calc(${s.x}% + 28px)`; tip.style.right = right ? `calc(${100 - s.x}% + 28px)` : 'auto';
+  tip.style.top = `clamp(12px, calc(${s.y}% - 40px), calc(100% - 140px))`; tip.classList.add('on');
+}
+$('#filters').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if (!b) return; pFilter = b.dataset.f; pIdx = 0; renderFilters(); showProj(0); });
+$('#thumbs').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b) showProj(+b.dataset.i); });
+$('#vSpots').addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (b) { const k = +b.dataset.s; spot(spotOn === k ? -1 : k); } });
+$('#vSpots').addEventListener('mouseover', e => { const b = e.target.closest('[data-s]'); if (b && matchMedia('(hover:hover)').matches) spot(+b.dataset.s); });
+$('#vList').addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (b) spot(+b.dataset.s); });
+$('#vList').addEventListener('mouseover', e => { const b = e.target.closest('[data-s]'); if (b && matchMedia('(hover:hover)').matches) spot(+b.dataset.s); });
+$('#vPrev').addEventListener('click', () => showProj(pIdx - 1));
+$('#vNext').addEventListener('click', () => showProj(pIdx + 1));
+$('#vFull').addEventListener('click', () => openLb(visibleProj().map(p => ({ src:`img/proj-${p.id}.webp`, low:`img/proj-${p.id}-s.webp`, cap:`${p.title} · ${p.where}`, alt:p.text })), pIdx));
+(() => { let x0 = null, y0 = 0; const m = $('#vMain'); m.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive:true }); m.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) showProj(pIdx + (dx < 0 ? 1 : -1)); x0 = null; }); })();
+
+/* ================= lightbox ================= */
+const lb = $('#lb'), lbImg = $('#lbImg'); let lbSet = [], lbI = 0;
+function lbShow(i){ lbI = (i + lbSet.length) % lbSet.length; const it = lbSet[lbI]; lbImg.src = it.low; lbImg.alt = it.alt || ''; $('#lbCap').textContent = it.cap; const f = new Image(); f.onload = () => { if (lb.open && lbSet[lbI] === it) lbImg.src = it.src; }; f.src = it.src; }
+function openLb(set, i){ lbSet = set; lbShow(i); lb.showModal(); }
+$('#lbClose').addEventListener('click', () => lb.close());
+$('#lbPrev').addEventListener('click', () => lbShow(lbI - 1));
+$('#lbNext').addEventListener('click', () => lbShow(lbI + 1));
+lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbIn') lb.close(); });
+lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') lbShow(lbI - 1); if (e.key === 'ArrowRight') lbShow(lbI + 1); });
+(() => { let x0 = null; $('#lbIn').addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive:true }); $('#lbIn').addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) lbShow(lbI + (dx < 0 ? 1 : -1)); x0 = null; }); })();
+
+/* ================= wood lab ================= */
+const SURF = [
+  { id:'oiled', name:'Eiche, geölt', sub:'Hartwachsöl, seidenmatt', under:'tex-oak-oiled', raw:'tex-oak-raw', specs:[['Holz','Europäische Eiche'],['Rohdichte','ca. 690 kg/m³'],['Öl','Hartwachsöl, 2 Schichten'],['Pflege','alle 1 bis 2 Jahre auffrischen']] },
+  { id:'white', name:'Eiche, weiß geölt', sub:'hell, nordisch, matt', under:'tex-oak-white', raw:'tex-oak-raw', specs:[['Holz','Europäische Eiche'],['Öl','Hartwachsöl mit Weißpigment'],['Wirkung','bleibt hell, vergilbt nicht'],['Passt zu','weißen Wänden, Kalkputz']] },
+  { id:'smoked', name:'Räuchereiche', sub:'begast, durch und durch dunkel', under:'tex-smoked', raw:'tex-smoked-raw', specs:[['Verfahren','begast mit Ammoniak, kein Farbstoff'],['Ton','im ganzen Holz, nicht nur oben'],['Öl','Hartwachsöl, farblos'],['Einsatz','Fronten, Tische, Akzente']] },
+];
+let surf = SURF[0];
+const lab = $('#lab'), labC = $('#labCanvas'), lctx = labC.getContext('2d'), rag = $('#rag');
+const GRID = 30; const cells = new Uint8Array(GRID * GRID); let wiped = 0, rawImg = null, done = false, last = null, wiping = false;
+$('#surf').innerHTML = SURF.map(s => `<button type="button" data-s="${s.id}" aria-pressed="false"><img src="img/${s.under}-s.webp" alt="" loading="lazy"><span><b>${s.name}</b><span>${s.sub}</span></span></button>`).join('');
+function labSize(){ const r = lab.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2); labC.width = Math.max(1, Math.round(r.width * dpr)); labC.height = Math.max(1, Math.round(r.height * dpr)); paintRaw(); }
+function paintRaw(){
+  cells.fill(0); wiped = 0; done = false; $('#labMeter').textContent = '0 % geölt';
+  if (!rawImg || !rawImg.complete || !rawImg.naturalWidth) return;
+  const cw = labC.width, ch = labC.height, iw = rawImg.naturalWidth, ih = rawImg.naturalHeight, s = Math.max(cw / iw, ch / ih);
+  lctx.globalCompositeOperation = 'source-over'; lctx.globalAlpha = 1; lctx.clearRect(0, 0, cw, ch);
+  lctx.drawImage(rawImg, (cw - iw * s) / 2, (ch - ih * s) / 2, iw * s, ih * s);
+}
+function loadSurf(s){
+  surf = s; const sfx = innerWidth > 1100 ? '' : '-s';
+  $$('#surf [data-s]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === s.id)));
+  $('#specs').innerHTML = s.specs.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join('');
+  $('#labUnder').src = `img/${s.under}${sfx}.webp`; $('#labUnder').alt = s.name;
+  rawImg = new Image(); rawImg.onload = paintRaw; rawImg.src = `img/${s.raw}${sfx}.webp`;
+}
+$('#surf').addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (b) loadSurf(SURF.find(s => s.id === b.dataset.s)); });
+function brush(x, y){
+  const dpr = labC.width / Math.max(1, lab.clientWidth), R = (MOBILE() ? 46 : 60) * dpr;
+  lctx.globalCompositeOperation = 'destination-out';
+  const steps = last ? Math.max(1, Math.ceil(Math.hypot(x - last.x, y - last.y) / (R * .3))) : 1;
+  for (let k = 1; k <= steps; k++){
+    const px = last ? last.x + (x - last.x) * k / steps : x, py = last ? last.y + (y - last.y) * k / steps : y;
+    const g = lctx.createRadialGradient(px, py, 0, px, py, R); g.addColorStop(0, 'rgba(0,0,0,.6)'); g.addColorStop(.6, 'rgba(0,0,0,.3)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    lctx.fillStyle = g; lctx.beginPath(); lctx.arc(px, py, R, 0, Math.PI * 2); lctx.fill();
+    const cx = Math.floor(px / labC.width * GRID), cy = Math.floor(py / labC.height * GRID), rr = Math.max(1, Math.ceil(R / labC.width * GRID * .7));
+    for (let a = -rr; a <= rr; a++) for (let b = -rr; b <= rr; b++){ const gx = cx + a, gy = cy + b; if (gx < 0 || gy < 0 || gx >= GRID || gy >= GRID || a * a + b * b > rr * rr) continue; const id = gy * GRID + gx; if (cells[id] < 3) { cells[id]++; if (cells[id] === 2) wiped++; } }
+  }
+  last = { x, y };
+  const pct = Math.min(100, Math.round(wiped / (GRID * GRID) * 100 / .85));
+  $('#labMeter').textContent = `${pct} % geölt`;
+  if (pct >= 100 && !done) { done = true; lctx.globalCompositeOperation = 'destination-out'; lctx.fillStyle = '#000'; lctx.fillRect(0, 0, labC.width, labC.height); toast(`Fertig geölt. So sieht ${surf.name} bei Ihnen aus.`); }
+}
+const toCanvas = e => { const r = labC.getBoundingClientRect(), dpr = labC.width / r.width; return { x:(e.clientX - r.left) * dpr, y:(e.clientY - r.top) * dpr }; };
+labC.addEventListener('pointerdown', e => { wiping = true; last = null; lab.classList.add('touched'); try { labC.setPointerCapture(e.pointerId); } catch(_){} const p = toCanvas(e); brush(p.x, p.y); });
+labC.addEventListener('pointermove', e => { const r = lab.getBoundingClientRect(); rag.style.left = (e.clientX - r.left) + 'px'; rag.style.top = (e.clientY - r.top) + 'px'; if (wiping) { const p = toCanvas(e); brush(p.x, p.y); } });
+const stopWipe = () => { wiping = false; last = null; };
+labC.addEventListener('pointerup', stopWipe); labC.addEventListener('pointercancel', stopWipe);
+$('#labReset').addEventListener('click', paintRaw);
+$('#labAll').addEventListener('click', () => {
+  lab.classList.add('touched'); const W = labC.width, H = labC.height, rows = 6; let t = 0; last = null;
+  const run = () => { const k = t / 54, row = Math.floor(k * rows); if (row >= rows || done) { if (!done) brush(W / 2, H / 2); return; } const f = (k * rows) % 1; brush(row % 2 ? W * (1.05 - f * 1.1) : W * (f * 1.1 - .05), (row + .5) / rows * H); t++; requestAnimationFrame(run); };
+  run();
+});
+loadSurf(SURF[0]); labSize();
+addEventListener('resize', () => { clearTimeout(labSize.t); labSize.t = setTimeout(labSize, 200); });
+const labIO = new IntersectionObserver(es => { if (!es[0].isIntersecting || RM) return; labIO.disconnect(); setTimeout(() => { if (lab.classList.contains('touched')) return; const W = labC.width, H = labC.height; let t = 0; last = null; const run = () => { if (lab.classList.contains('touched') || t > 46) { last = null; return; } const f = t / 46; brush(W * (.16 + f * .66), H * (.5 + Math.sin(f * Math.PI * 2) * .12)); t++; requestAnimationFrame(run); }; run(); }, 600); }, { threshold:.5 });
+labIO.observe(lab);
+
+/* ================= process ================= */
+const STAGES = [
+  { t:'Anfrage', img:'hero-blue', d:'Sie schicken uns Ihre Auswahl aus Planer oder Konfigurator, oder rufen an. Ein Tischler meldet sich innerhalb eines Werktags.' },
+  { t:'Aufmaß vor Ort', img:'craft-hand', d:'Wir messen jede Öffnung, prüfen Wände und Boden und bringen Muster von Holz, Öl und Drückern mit. Danach bekommen Sie ein festes Angebot.' },
+  { t:'Fertigung', img:'craft-cnc', d:'Ihre Teile entstehen in unserer Werkstatt bei Templin. Die Fräse arbeitet direkt mit den Daten vom Aufmaß.' },
+  { t:'Oberfläche', img:'craft-shaving', d:'Schleifen, zwei Schichten Hartwachsöl, Zwischenschliff. Jedes Teil wird mit der Hand geprüft.' },
+  { t:'Einbau', img:'proj-corridor', d:'Pro Etage meist an einem Tag. Wir nehmen Altes mit, saugen hinter uns und erklären Ihnen die Pflege.' },
+];
+$('#abDots').innerHTML = STAGES.map((s, i) => `<button type="button" data-i="${i}"><b>${String(i + 1).padStart(2,'0')}</b>${s.t}</button>`).join('');
+function abDates(){ const k = kindOf(P.kind) || KINDS[0], start = new Date(), measure = nextWorkday(addDays(start, 5)), end = nextWorkday(addDays(measure, k.weeks * 7)); return [start, measure, nextWorkday(addDays(measure, 9)), nextWorkday(addDays(end, -10)), end]; }
+let abCur = -1;
+function abShow(i){
+  const s = STAGES[i], d = abDates()[i], k = kindOf(P.kind);
+  $('#abRange').value = i; $('#abRange').style.setProperty('--p', (i / 4 * 100) + '%');
+  if (abCur !== i) { const img = $('#abImg'); img.classList.add('out'); setTimeout(() => { img.src = `img/${s.img}-s.webp`; img.alt = s.t; img.classList.remove('out'); }, 220); }
+  abCur = i;
+  $('#abStage').textContent = `Schritt ${i + 1} von 5${k ? ' · ' + k.label : ''}`; $('#abTitle').textContent = s.t; $('#abText').textContent = s.d;
+  $('#abWhen').textContent = i === 0 ? 'Heute' : `KW ${isoWeek(d)}`;
+  $('#abDateL').textContent = i === 0 ? 'Heute ist' : i === 4 ? 'Fertig um den' : 'ab etwa';
+  $('#abDate').textContent = new Intl.DateTimeFormat('de-DE', i === 0 ? { weekday:'long', day:'numeric', month:'long' } : { day:'numeric', month:'long' }).format(d);
+  $$('#abDots button').forEach((b, k2) => b.classList.toggle('on', k2 <= i));
+}
+$('#abRange').addEventListener('input', e => abShow(+e.target.value));
+$('#abDots').addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b) abShow(+b.dataset.i); });
+
+/* ================= contact ================= */
+function setPref(text, topic){ store.set('pref', { text }); if (topic) $('#cTopic').value = topic; paintPref(); }
+function paintPref(){ const p = store.get('pref', null); $('#kPref').hidden = !p; if (p) { $('#kPrefText').innerHTML = `<b>Ihre Auswahl:</b> ${p.text}`; if (!$('#cMsg').dataset.touched) $('#cMsg').value = p.text; } }
+$('#kPrefX').addEventListener('click', () => { store.set('pref', null); $('#kPref').hidden = true; if (!$('#cMsg').dataset.touched) $('#cMsg').value = ''; });
+$('#cMsg').addEventListener('input', e => e.target.dataset.touched = '1');
+$('#cTopic').addEventListener('change', e => e.target.dataset.touched = '1');
+$('#cWhen').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if (!b) return; $$('#cWhen [data-v]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
+$('#kForm').addEventListener('submit', e => {
+  e.preventDefault(); let ok = true;
+  ['cName','cTel'].forEach(id => { const el = $('#' + id), bad = !el.value.trim(); el.setAttribute('aria-invalid', bad); if (bad) ok = false; });
+  if (!ok) { toast('Bitte Name und Telefonnummer eintragen'); return; }
+  if (!P.name) { P.name = $('#cName').value.trim().split(/\s+/)[0]; saveProfile(); applyProfile(); }
+  $('#formOk').hidden = false;
+});
+
+/* ================= faq search ================= */
+const faqs = $$('#faqList details');
+faqs.forEach(d => { d.dataset.s = d.querySelector('summary .q').textContent; d.dataset.p = d.querySelector('p').textContent; });
+$('#faqQ').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase(); let n = 0;
+  const esc = s => s.replace(/[&<>]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[c]));
+  const re = q ? new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi') : null;
+  const hl = s => re ? esc(s).replace(re, '<mark>$1</mark>') : esc(s);
+  faqs.forEach(d => { const hit = !q || (d.dataset.s + ' ' + d.dataset.p).toLowerCase().includes(q); d.hidden = !hit; if (hit) n++; d.querySelector('summary .q').innerHTML = hl(d.dataset.s); d.querySelector('p').innerHTML = hl(d.dataset.p); d.open = !!q && hit && n <= 2; });
+  $('#faqNone').hidden = n > 0;
+});
+
+/* ================= legal ================= */
+const LEGAL = {
+  impressum:`<h3 id="legalT">Impressum</h3><p><b>Hinweis:</b> Holm &amp; Hain ist ein fiktives Unternehmen. Diese Seite ist eine Beispielseite von Allrich Webdesign und zeigt, wie eine Website für eine Tischlerei aussehen kann. Adressen, Telefonnummern, Personen, Preise und Projekte sind erfunden.</p><h4>Verantwortlich für diese Beispielseite</h4><p>Allrich Webdesign, Potsdam. Kontakt über allrich-webdesign.com.</p>`,
+  datenschutz:`<h3 id="legalT">Datenschutz</h3><p><b>Hinweis:</b> Mustertext für eine Beispielseite. Diese Seite überträgt keine Formulardaten und setzt keine Cookies.</p><h4>Was im Browser bleibt</h4><p>Ihr Vorhaben, Ihr Name (falls angegeben), die Raumliste und Ihre Tür-Auswahl werden nur in Ihrem eigenen Browser gespeichert (localStorage). Über „Meine Angaben löschen“ im Fußbereich entfernen Sie alles sofort.</p><h4>Besucherstatistik</h4><p>Für eine Besucherstatistik ohne Cookies wird Cloudflare Web Analytics genutzt. Details stehen in der Datenschutzerklärung auf allrich-webdesign.com.</p>`,
+  nachweis:`<h3 id="legalT">Bild- und Schriftnachweis</h3><h4>Bilder und Filme</h4><p>Alle Fotos und beide Filme wurden mit KI erzeugt (Higgsfield, Modelle Nano Banana 2 und Seedance 2.0). Sie zeigen keinen realen Ort und keinen realen Betrieb.</p><h4>Schriften</h4><p>Fraunces von Undercase Type sowie Geist und Geist Mono von Vercel, jeweils SIL Open Font License 1.1, selbst gehostet.</p><h4>Preise</h4><p>Alle Preise und Termine auf dieser Seite sind erfundene Beispielwerte.</p>`
+};
+const legal = $('#legal');
+$$('[data-legal]').forEach(b => b.addEventListener('click', () => { $('#legalBody').innerHTML = `<button class="btn btn-line btn-sm x" type="button" id="legalX">Schließen</button>` + LEGAL[b.dataset.legal]; $('#legalX').addEventListener('click', () => legal.close()); legal.showModal(); }));
+legal.addEventListener('click', e => { if (e.target === legal) legal.close(); });
+$('#forget').addEventListener('click', () => { store.clear(); Object.assign(P, { kind:null, size:null, when:null, plz:'', name:'' }); LIST = []; Object.assign(S, DEF); $('#fName').value = ''; $('#cName').value = ''; $('#cMsg').value = ''; delete $('#cMsg').dataset.touched; pFilter = 'alle'; pIdx = 0; applyProfile(); renderK(); paintPref(); setStep(0); showProj(0, true); abShow(0); toast('Alle gespeicherten Angaben gelöscht'); });
+
+/* ================= mobile summary, cue, loop ================= */
+const msum = $('#msum'), konf = $('#konfigurator'), cue = $('#cue');
+function ui(){
+  cue.style.opacity = scrollY > 60 ? 0 : '';
+  const r = konf.getBoundingClientRect(), show = MOBILE() && r.top < vh() * .5 && r.bottom > vh() * .85;
+  msum.classList.toggle('show', show); msum.setAttribute('aria-hidden', String(!show));
+}
+let running = true;
+function loop(){
+  chrome(); ui(); haltungFrame();
+  films.forEach(f => f.frame(f.measure()));
+  if (running) requestAnimationFrame(loop);
+}
+document.addEventListener('visibilitychange', () => { const was = running; running = !document.hidden; if (running && !was) requestAnimationFrame(loop); });
+
+applyProfile(); setStep(0); showProj(0, true); abShow(0); paintPref();
+requestAnimationFrame(loop);
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26d7010577e84ed5a8bb366f4ad75dd1"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
