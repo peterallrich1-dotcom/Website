@@ -188,6 +188,19 @@ p{margin:0}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media (max-width:900px){.cue{display:none}}
 
+.ticker{display:none}
+@media (max-width:700px){
+  #hero,#anfahrt{height:auto}
+  .film .stage{position:relative;top:auto;height:100vh;height:100svh;min-height:560px}
+  #hero .beat{display:none}
+  #hero .beat:first-child{display:block;opacity:1;transform:none;pointer-events:auto}
+  #hero .chap,#hero .loadbar{display:none}
+  .ticker{display:block;position:absolute;left:var(--gl);right:var(--gr);top:calc(var(--head) + var(--st) + 18px);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);opacity:.9;padding-right:110px;transition:opacity .4s}
+  .ticker b{color:var(--ember);font-weight:500}
+  .ticker.fade{opacity:0}
+  #hero .shade{background:linear-gradient(180deg,rgba(12,17,14,.62) 0%,rgba(12,17,14,.28) 30%,rgba(12,17,14,.5) 55%,rgba(12,17,14,.9) 100%)}
+}
+
 /* ---------- haltung ---------- */
 .haltung{padding-block:clamp(110px,15vw,210px) clamp(80px,10vw,140px)}
 .h-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(40px,6vw,96px);align-items:center}
@@ -640,6 +653,7 @@ dialog.legal::backdrop{background:rgba(6,9,7,.75)}
         </ol>
         <div class="loadbar" id="heroLoad" aria-hidden="true"><i></i></div>
       </div>
+      <p class="ticker" id="heroTicker" aria-hidden="true"><b>Ankommen</b> · Durch die Glaswand in die Werkstatt</p>
       <div class="beats">
         <div class="wrap">
           <div class="beat on rm" data-from="-1" data-to=".17">
@@ -1188,8 +1202,9 @@ function chrome(){
 
 /* ================= image-sequence film ================= */
 class Seq {
-  constructor({ section, stage, canvas, base, count, beats, chap, tc, dur, load, focus = .5 }){
-    Object.assign(this, { section, stage, canvas, base, count, beats, chap, tc, dur, loadEl: load, focus });
+  constructor({ section, stage, canvas, base, count, beats, chap, tc, dur, load, focus = .5, auto = false, loop = false, onTick = null, sheet = null }){
+    Object.assign(this, { section, stage, canvas, base, count, beats, chap, tc, dur, loadEl: load, focus, auto, loop, onTick, sheet });
+    this.t0 = 0; this.lastT = 0;
     this.ctx = canvas.getContext('2d', { alpha:false });
     this.imgs = new Array(count); this.ok = new Uint8Array(count);
     this.p = 0; this.cur = 0; this.dirty = true; this.started = false; this.loaded = 0; this.lastKey = -1;
@@ -1197,7 +1212,24 @@ class Seq {
   }
   src(i){ return `${this.base}/${String(i + 1).padStart(3, '0')}.webp`; }
   start(){
-    if (this.started) return; this.started = true;
+    if (this.started) return; this.started = true; this.t0 = performance.now();
+    if (this.sheet) {
+      const per = this.sheet.cols * this.sheet.rows, n = Math.ceil(this.count / per);
+      this.sheets = new Array(n);
+      let q = 0;
+      const next = () => {
+        if (q >= n) return;
+        const k = q++; const im = new Image(); im.decoding = 'async';
+        im.onload = () => {
+          this.sheets[k] = im;
+          for (let i = k * per; i < Math.min(this.count, (k + 1) * per); i++) { this.imgs[i] = im; this.ok[i] = 1; this.loaded++; }
+          this.dirty = true; if (k === 0) this.stage.classList.add('live'); next();
+        };
+        im.onerror = next; im.src = `${this.base}-${String(k + 1).padStart(2, '0')}.webp`;
+      };
+      next(); next(); next();
+      return;
+    }
     const order = [], seen = new Uint8Array(this.count);
     for (const step of [24, 12, 6, 3, 1]) for (let i = 0; i < this.count; i += step) if (!seen[i]) { seen[i] = 1; order.push(i); }
     for (let i = 0; i < this.count; i++) if (!seen[i]) order.push(i);
@@ -1217,20 +1249,31 @@ class Seq {
   }
   resize(){ const dpr = Math.min(devicePixelRatio || 1, 2); const r = this.stage.getBoundingClientRect(); this.canvas.width = Math.max(1, Math.round(r.width * dpr)); this.canvas.height = Math.max(1, Math.round(r.height * dpr)); this.dirty = true; }
   nearest(i){ if (this.ok[i]) return i; for (let d = 1; d < this.count; d++){ if (i - d >= 0 && this.ok[i - d]) return i - d; if (i + d < this.count && this.ok[i + d]) return i + d; } return -1; }
-  draw(im, alpha){
-    const c = this.canvas, cw = c.width, ch = c.height, iw = im.naturalWidth, ih = im.naturalHeight;
+  draw(im, alpha, i){
+    const c = this.canvas, cw = c.width, ch = c.height;
+    let sx = 0, sy = 0, iw = im.naturalWidth, ih = im.naturalHeight;
+    if (this.sheet) { const per = this.sheet.cols * this.sheet.rows, k = i % per; iw = this.sheet.w; ih = this.sheet.h; sx = (k % this.sheet.cols) * iw; sy = Math.floor(k / this.sheet.cols) * ih; }
     const s = Math.max(cw / iw, ch / ih), w = iw * s, h = ih * s;
-    this.ctx.globalAlpha = alpha; this.ctx.drawImage(im, (cw - w) * this.focus, (ch - h) / 2, w, h);
+    this.ctx.globalAlpha = alpha; this.ctx.drawImage(im, sx, sy, iw, ih, (cw - w) * this.focus, (ch - h) / 2, w, h);
   }
   measure(){
     const r = this.section.getBoundingClientRect(), span = this.section.offsetHeight - vh();
     if (!this.started && r.top < vh() * 3) this.start();
-    this.p = clamp(-r.top / Math.max(1, span), 0, 1);
+    if (!this.auto) this.p = clamp(-r.top / Math.max(1, span), 0, 1);
     return r.bottom > 0 && r.top < vh();
   }
   frame(visible){
-    const target = this.p * (this.count - 1), d = target - this.cur;
-    this.cur = Math.abs(d) < .01 ? target : this.cur + d * .16;
+    const now = performance.now(), dt = Math.min(.1, (now - (this.lastT || now)) / 1000); this.lastT = now;
+    if (this.auto) {
+      const ready = this.loaded >= this.count || (this.started && now - this.t0 > 5000 && this.loaded > 8);
+      if (visible && ready) { this.p += dt / this.dur; if (this.p >= 1) this.p = this.loop ? 0 : 1; }
+      if (!visible && !this.loop && this.p >= 1) this.p = 0;
+      this.cur = this.p * (this.count - 1);
+      if (this.onTick) this.onTick(this.p);
+    } else {
+      const target = this.p * (this.count - 1), d = target - this.cur;
+      this.cur = Math.abs(d) < .01 ? target : this.cur + d * .16;
+    }
     if (this.beats) this.beats.forEach(b => b.classList.toggle('on', this.p >= +b.dataset.from && this.p < +b.dataset.to));
     if (this.chap) { let on = 0; this.chap.forEach((b, k) => { if (this.p >= +b.dataset.at - .02) on = k; }); this.chap.forEach((b, k) => b.classList.toggle('on', k === on)); }
     if (this.tc) { const s = Math.floor(this.cur / (this.count - 1) * this.dur); this.tc.textContent = `00:${String(s).padStart(2,'0')} / 00:${String(this.dur).padStart(2,'0')}`; }
@@ -1240,18 +1283,31 @@ class Seq {
     this.lastKey = key; this.dirty = false;
     const i = Math.floor(this.cur), f = this.cur - i, a = this.nearest(i);
     if (a < 0) return;
-    this.draw(this.imgs[a], 1);
-    if (f > .02 && a === i && i + 1 < this.count && this.ok[i + 1]) this.draw(this.imgs[i + 1], f);
+    this.draw(this.imgs[a], 1, a);
+    if (f > .02 && a === i && i + 1 < this.count && this.ok[i + 1]) this.draw(this.imgs[i + 1], f, i + 1);
     this.ctx.globalAlpha = 1;
   }
   jump(at){ const span = this.section.offsetHeight - vh(); scrollTo({ top: this.section.offsetTop + span * at + 2, behavior: RM ? 'auto' : 'smooth' }); }
 }
 const films = [];
+const PHONE = matchMedia('(max-width: 700px)').matches;
+const TICKS = [[0,'Ankommen','Durch die Glaswand in die Werkstatt'],[.22,'Die Werkstatt','Elf Meter Glas, dahinter warmes Licht'],[.46,'Der Tisch','Gefügt, nicht geschraubt'],[.7,'Die Stühle','Aus demselben Stamm']];
+let tickOn = 0;
+function heroTick(p){
+  let k = 0; TICKS.forEach((t, i) => { if (p >= t[0]) k = i; });
+  if (k === tickOn) return; tickOn = k;
+  const el = $('#heroTicker'); el.classList.add('fade');
+  setTimeout(() => { el.innerHTML = '<b>' + TICKS[k][1] + '</b> · ' + TICKS[k][2]; el.classList.remove('fade'); }, 300);
+}
 if (!RM) {
-  const hero = new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/a', count:226, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') });
+  const hero = PHONE
+    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/am', count:120, dur:15, tc: $('#heroTc'), auto:true, loop:true, onTick: heroTick, sheet:{ cols:4, rows:3, w:360, h:640 } })
+    : new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/a', count:226, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') });
   hero.start(); films.push(hero);
   $$('#heroChap button').forEach(b => b.addEventListener('click', () => hero.jump(+b.dataset.at)));
-  films.push(new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/b', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), focus:.42 }));
+  films.push(PHONE
+    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/bm', count:80, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), auto:true, sheet:{ cols:4, rows:3, w:360, h:640 } })
+    : new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/b', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), focus:.42 }));
 } else $('#heroLoad').classList.add('done');
 
 /* ================= haltung ================= */
