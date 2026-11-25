@@ -1,0 +1,1043 @@
+<meta charset="utf-8">
+<title>Holm &amp; Hain Tischlerei</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Holm &amp; Hain – Tischlerei am Waldrand bei Templin. Innentüren, Möbel und Innenausbau aus Eiche. Demo-Website eines fiktiven Betriebs.">
+<link rel="preload" href="fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="media/approach-first.webp" as="image">
+<link rel="preload" href="media/approach.mp4" as="fetch" crossorigin>
+<style>
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-full-normal.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-latin-full-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Geist";src:url(fonts/geist-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/geist-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+
+/* Layout: a blue-hour film that flies into the workshop, then a light "workbench" band
+   where the door configurator reads like a shop drawing with real DIN 18101 dimensions. */
+:root{
+  color-scheme:dark;
+  --night:#0c1214;      /* blue hour, teal-black */
+  --night-2:#121a1d;
+  --night-3:#1a2427;
+  --mist:#e7e3dc;       /* fog, warm-grey text on night */
+  --dim:#8c9899;        /* teal-grey secondary text */
+  --amber:#e6a65d;      /* 2700 K workshop light */
+  --amber-deep:#b9772f;
+  --bench:#e4e3de;      /* light band: primer-grey wall from the door photos */
+  --bench-2:#d8d6cf;
+  --ink:#15191a;
+  --ink-dim:#5f6664;
+  --line:rgba(231,227,220,.14);
+  --line-ink:rgba(21,25,26,.16);
+  --f-display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --f-body:"Geist","Helvetica Neue",Arial,system-ui,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --wrap:1320px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--mist);font-family:var(--f-body);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+::selection{background:var(--amber);color:var(--night)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+@media (min-width:900px){.wrap{padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber)}
+h1,h2,h3{font-family:var(--f-display);font-weight:360;font-variation-settings:"opsz" 144,"SOFT" 60,"WONK" 0;letter-spacing:-.025em;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.3rem,5.4vw,4.6rem)}
+h3{font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.015em;line-height:1.12}
+em.am{font-style:italic;color:var(--amber);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--dim);max-width:58ch}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.4em;border-radius:999px;border:1px solid transparent;font-weight:500;font-size:.95rem;text-decoration:none;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s,transform .3s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn-amber{background:var(--amber);color:var(--night)}
+.btn-amber:hover{background:#f0b671}
+.btn-ghost{border-color:rgba(231,227,220,.35);color:var(--mist);background:rgba(12,18,20,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--mist)}
+.btn-ink{background:var(--ink);color:var(--bench)}
+.btn-ink:hover{background:#000}
+.btn-line{border-color:var(--line-ink);color:var(--ink);background:transparent}
+.btn-line:hover{border-color:var(--ink)}
+.btn svg{width:1.05em;height:1.05em}
+
+/* ---------- demo ribbon + header ---------- */
+.ribbon{position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;justify-content:center;pointer-events:none;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+.ribbon span{pointer-events:auto;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(12,18,20,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);color:var(--dim);padding:.45em 1em;border-radius:999px}
+.ribbon.hide{opacity:0;transition:opacity .4s}
+
+.site-head{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s var(--ease),border-color .4s,transform .5s var(--ease);border-bottom:1px solid transparent}
+.site-head.solid{background:rgba(12,18,20,.78);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-color:var(--line)}
+.site-head.on-light{background:rgba(228,227,222,.86);color:var(--ink);border-color:var(--line-ink)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.logo{display:flex;align-items:baseline;gap:.5em;text-decoration:none}
+.logo b{font-family:var(--f-display);font-weight:420;font-size:1.45rem;letter-spacing:-.02em;font-variation-settings:"opsz" 72,"SOFT" 80}
+.logo b i{color:var(--amber);font-variation-settings:"opsz" 72,"SOFT" 100,"WONK" 1}
+.on-light .logo b i{color:var(--amber-deep)}
+.logo small{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{text-decoration:none;font-size:.9rem;padding:.5em .85em;border-radius:999px;opacity:.82;transition:opacity .2s,background .2s}
+.nav a:hover{opacity:1;background:rgba(231,227,220,.08)}
+.on-light .nav a:hover{background:rgba(21,25,26,.06)}
+.nav .btn{margin-left:10px;padding:.7em 1.15em;opacity:1}
+.menu-btn{display:none;background:none;border:1px solid currentColor;border-radius:999px;padding:.5em 1em;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;opacity:.85}
+@media (max-width:920px){
+  .menu-btn{display:block}
+  .nav{position:fixed;inset:calc(72px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--night);padding:12px var(--gut-r) 24px var(--gut);border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+  .on-light .nav{background:var(--bench)}
+  .nav.open{opacity:1;transform:none;pointer-events:auto}
+  .nav a{font-size:1.15rem;padding:.8em 0;border-bottom:1px solid var(--line);border-radius:0}
+  .on-light .nav a{border-color:var(--line-ink)}
+  .nav .btn{margin:16px 0 0;justify-content:center;border-bottom:0;border-radius:999px}
+}
+
+/* ---------- scroll film (shared) ---------- */
+.film{position:relative;height:520vh}
+.film-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--night)}
+.film-stage video,.film-stage .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film-stage .poster{transition:opacity .6s}
+.film-stage.ready .poster{opacity:0}
+.shade{position:absolute;inset:0;pointer-events:none}
+#film .shade{background:
+  linear-gradient(180deg,rgba(12,18,20,.55) 0%,rgba(12,18,20,0) 22%,rgba(12,18,20,0) 52%,rgba(12,18,20,.78) 100%),
+  radial-gradient(120% 80% at 0% 100%,rgba(12,18,20,.55),transparent 60%)}
+.cap{position:absolute;left:0;right:0;bottom:0;padding-bottom:calc(clamp(56px,10vh,110px) + env(safe-area-inset-bottom,0px))}
+.cap>.wrap{position:relative;min-height:46vh}
+.beat{position:absolute;left:0;right:0;bottom:0;padding-left:inherit;padding-right:inherit;opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .9s var(--ease);pointer-events:none}
+.beat.on{opacity:1;transform:none;pointer-events:auto}
+.beat .eyebrow{display:block;margin-bottom:1.1rem}
+.hero-title{font-size:clamp(3.6rem,12.5vw,11.5rem);font-weight:330;line-height:.88;letter-spacing:-.045em;font-variation-settings:"opsz" 144,"SOFT" 40,"WONK" 0}
+.hero-title i{font-weight:300;color:var(--amber);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+.beat .sub{margin-top:1.4rem;font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:40ch;color:var(--mist);opacity:.9}
+.beat .big{font-family:var(--f-display);font-weight:340;font-size:clamp(2rem,4.6vw,4.1rem);line-height:1.06;letter-spacing:-.025em;max-width:17ch;font-variation-settings:"opsz" 144,"SOFT" 50;text-wrap:balance}
+.beat .big .hl{color:var(--amber);font-style:italic;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+.beat .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:2rem}
+.film-meta{position:absolute;right:var(--gut-r);top:calc(96px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;align-items:flex-end;gap:10px;color:var(--mist);opacity:.85}
+@media (min-width:900px){.film-meta{right:max(48px,env(safe-area-inset-right,0px))}}
+.rail{width:2px;height:120px;background:var(--line);position:relative;border-radius:2px;overflow:hidden}
+.rail i{position:absolute;left:0;right:0;top:0;height:100%;background:var(--amber);transform-origin:top;transform:scaleY(0)}
+.tc{font-variant-numeric:tabular-nums}
+.hint{transition:opacity .4s;display:flex;align-items:center;gap:.6em}
+.hint::after{content:"";width:1px;height:28px;background:linear-gradient(var(--mist),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- haltung ---------- */
+.haltung{padding-block:clamp(110px,16vw,220px) clamp(80px,10vw,140px);background:var(--night)}
+.statement{font-family:var(--f-display);font-weight:330;font-size:clamp(1.9rem,4.4vw,3.9rem);line-height:1.12;letter-spacing:-.022em;max-width:22ch;font-variation-settings:"opsz" 144,"SOFT" 50;text-wrap:pretty}
+.statement span{color:rgba(231,227,220,.32);transition:color .5s}
+.statement span.lit{color:var(--mist)}
+.statement span.lit.warm{color:var(--amber)}
+.facts{margin-top:clamp(64px,8vw,110px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.fact{padding:24px 24px 0 0;display:flex;flex-direction:column;gap:6px}
+.fact+.fact{padding-left:24px;border-left:1px solid var(--line)}
+.fact b{font-family:var(--f-display);font-weight:340;font-size:clamp(2.2rem,3.6vw,3.2rem);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;font-variation-settings:"opsz" 144}
+.fact span{color:var(--dim);font-size:.92rem}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(3){padding-left:0;border-left:0}.fact:nth-child(n+3){border-top:1px solid var(--line);margin-top:24px}}
+
+/* ---------- werkstück film ---------- */
+#werkstueck{height:460vh}
+#werkstueck .shade{background:linear-gradient(90deg,rgba(12,18,20,.86) 0%,rgba(12,18,20,.45) 34%,rgba(12,18,20,0) 60%),linear-gradient(0deg,rgba(12,18,20,.6),transparent 30%)}
+.ws-panel{position:absolute;inset:0;display:flex;align-items:center}
+.ws-panel .wrap{width:100%}
+.ws-panel h2{font-size:clamp(2.1rem,4.6vw,4rem);max-width:11ch}
+.steps{list-style:none;margin:2.4rem 0 0;padding:0;display:grid;gap:2px;max-width:420px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:14px 0;border-top:1px solid var(--line);opacity:.42;transition:opacity .5s}
+.step.on{opacity:1}
+.step .n{font-family:var(--f-mono);font-size:.74rem;color:var(--amber);padding-top:.25em}
+.step b{font-weight:500}
+.step p{grid-column:2;color:var(--dim);font-size:.92rem;max-height:0;overflow:hidden;transition:max-height .6s var(--ease)}
+.step.on p{max-height:5em}
+.spec{position:absolute;right:var(--gut-r);bottom:calc(36px + env(safe-area-inset-bottom,0px));text-align:right;color:var(--mist);opacity:.85;display:grid;gap:4px}
+@media (min-width:900px){.spec{right:max(48px,env(safe-area-inset-right,0px))}}
+@media (max-width:760px){
+  #werkstueck .shade{background:linear-gradient(0deg,rgba(12,18,20,.92) 0%,rgba(12,18,20,.55) 45%,rgba(12,18,20,.1) 75%)}
+  .ws-panel{align-items:flex-end;padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+  .steps{margin-top:1.2rem}.step{padding:10px 0}
+  .spec{display:none}
+}
+
+/* ---------- handwerk (horizontal track) ---------- */
+.handwerk{position:relative;background:var(--night)}
+.hw-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,4vh,48px);padding-top:72px}
+.hw-head{width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.hw-head h2{max-width:16ch;font-size:clamp(2.1rem,4vw,3.6rem)}
+.hw-head p{max-width:40ch;color:var(--dim)}
+.track{display:flex;gap:clamp(16px,2vw,28px);padding-left:max(var(--gut),calc((100vw - var(--wrap))/2 + 48px));padding-right:var(--gut-r);will-change:transform}
+.card{flex:0 0 auto;width:clamp(220px,min(26vw,(100svh - 470px) * .76),380px);margin:0}
+.card .ph{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--night-3)}
+.card img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.2s var(--ease)}
+.card:hover img{transform:scale(1.0)}
+.card figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px solid var(--line);margin-top:14px}
+.card figcaption b{font-weight:500;font-size:.98rem}
+.card figcaption span{color:var(--dim);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding-top:.2em}
+.card .note{color:var(--dim);font-size:.9rem;margin-top:6px}
+@media (max-width:760px){
+  .handwerk{height:auto!important}
+  .hw-stage{position:static;height:auto;padding-block:96px}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-left:var(--gut);scrollbar-width:none}
+  .track::-webkit-scrollbar{display:none}
+  .card{width:78vw;scroll-snap-align:start}
+}
+
+/* ---------- light band: konfigurator ---------- */
+.bench{background:var(--bench);color:var(--ink);color-scheme:light}
+.bench .eyebrow{color:var(--amber-deep)}
+.bench .lede{color:var(--ink-dim)}
+.konf{padding-block:clamp(96px,12vw,170px)}
+.konf-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px 64px;align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.konf-head h2 em{font-style:italic;color:var(--amber-deep);font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1}
+@media (max-width:900px){.konf-head{grid-template-columns:1fr}}
+.konf-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+@media (max-width:900px){.konf-grid{grid-template-columns:1fr}}
+
+.preview{position:sticky;top:96px}
+@media (max-width:900px){.preview{position:relative;top:0}.drawing{max-width:none}}
+.drawing{max-width:calc(58vh * .75 + 44px);display:grid;grid-template-columns:34px minmax(0,1fr);grid-template-rows:minmax(0,1fr) 34px;gap:10px}
+.door-view{position:relative;aspect-ratio:3/4;border-radius:4px;overflow:hidden;background:var(--bench-2);max-width:100%}
+.door-view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .55s var(--ease),transform .7s var(--ease)}
+.door-view img.back{opacity:0}
+.door-view.mirror img{transform:scaleX(-1)}
+.door-view .tag{position:absolute;left:14px;top:14px;background:rgba(228,227,222,.9);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:.45em .8em;border-radius:999px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.door-view .tag[hidden]{display:none}
+.handle-chip{position:absolute;right:14px;bottom:14px;width:clamp(84px,22%,128px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--bench);box-shadow:0 10px 30px rgba(21,25,26,.25);background:var(--bench-2)}
+.handle-chip img{width:100%;height:100%;object-fit:cover;position:static}
+.dim-v,.dim-h{position:relative;font-family:var(--f-mono);font-size:.7rem;color:var(--ink-dim);font-variant-numeric:tabular-nums}
+.dim-v{grid-row:1;grid-column:1}
+.dim-h{grid-row:2;grid-column:2}
+.dim-v::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px solid var(--ink-dim)}
+.dim-h::before{content:"";position:absolute;top:50%;left:0;right:0;border-top:1px solid var(--ink-dim)}
+.dim-v::after,.dim-h::after{content:"";position:absolute}
+.dim-v::after{left:calc(50% - 6px);top:0;bottom:0;width:12px;border-top:1px solid var(--ink-dim);border-bottom:1px solid var(--ink-dim)}
+.dim-h::after{top:calc(50% - 6px);left:0;right:0;height:12px;border-left:1px solid var(--ink-dim);border-right:1px solid var(--ink-dim)}
+.dim-v span,.dim-h span{position:absolute;background:var(--bench);padding:4px 6px;white-space:nowrap;z-index:1}
+.dim-v span{left:50%;top:50%;transform:translate(-50%,-50%) rotate(-90deg)}
+.dim-h span{left:50%;top:50%;transform:translate(-50%,-50%)}
+.preview-meta{display:flex;justify-content:space-between;gap:16px;margin:18px 0 0 44px;flex-wrap:wrap}
+.preview-meta h3{font-size:1.6rem}
+.preview-meta p{color:var(--ink-dim);font-size:.92rem}
+
+.opts{display:grid;gap:34px;min-width:0}
+.opt h4{margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.opt h4 small{font-family:var(--f-body);font-size:.82rem;letter-spacing:0;text-transform:none;color:var(--ink-dim);font-weight:400}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1px solid var(--line-ink);background:transparent;border-radius:999px;padding:.7em 1.15em;font-size:.92rem;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.seg button:hover{border-color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bench);border-color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.tiles.h{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:560px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.tiles.h{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{border:1px solid var(--line-ink);background:rgba(255,255,255,.35);border-radius:6px;padding:6px 6px 10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.tile:hover{border-color:var(--ink);transform:translateY(-2px)}
+.tile[aria-pressed="true"]{border-color:var(--ink);background:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.tile img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px;background:var(--bench-2)}
+.tiles.h .tile img{aspect-ratio:1}
+.tile b{font-weight:500;font-size:.84rem;line-height:1.25;padding-inline:4px}
+.tile span{font-family:var(--f-mono);font-size:.66rem;color:var(--ink-dim);padding-inline:4px;letter-spacing:.04em}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line-ink);border-radius:999px;overflow:hidden}
+.stepper button{width:44px;height:44px;background:transparent;border:0;cursor:pointer;font-size:1.15rem}
+.stepper button:hover{background:rgba(21,25,26,.06)}
+.stepper output{min-width:44px;text-align:center;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.row2{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-end}
+.row2 .opt{flex:1 1 200px}
+.note-s{font-size:.85rem;color:var(--ink-dim);margin-top:10px}
+
+.sum{margin-top:22px;background:var(--ink);color:var(--bench);border-radius:14px;padding:20px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 20px;align-items:center;box-shadow:0 24px 60px -20px rgba(21,25,26,.55);z-index:3}
+.sum .price{font-family:var(--f-display);font-weight:360;font-size:clamp(1.9rem,3vw,2.5rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.sum .price-l{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:#9ea6a4;margin-bottom:6px}
+.sum .line{font-size:.85rem;color:#b8bfbd;grid-column:1/-1}
+.sum .acts{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.sum .btn{padding:.8em 1.15em;font-size:.9rem}
+.sum .btn-line{color:var(--bench);border-color:rgba(228,227,222,.3)}
+.sum .btn-line:hover{border-color:var(--bench)}
+@media (max-width:900px){
+  .sum{position:fixed;left:0;right:0;bottom:0;margin:0;border-radius:16px 16px 0 0;padding:14px var(--gut-r) calc(14px + env(safe-area-inset-bottom,0px)) var(--gut);grid-template-columns:minmax(0,1fr) auto;transform:translateY(110%);transition:transform .45s var(--ease);z-index:56}
+  .sum.show{transform:none}
+  .sum .line,.sum #copyCfg{display:none}
+  .sum .price{font-size:1.7rem}
+  .konf{padding-bottom:140px}
+}
+@media (max-width:560px){.sum .acts .btn{padding:.8em 1em}}
+@media (max-width:0px){.sum{grid-template-columns:1fr}.sum .acts{justify-content:stretch}.sum .acts .btn{flex:1;justify-content:center}}
+.toast{position:fixed;left:50%;bottom:calc(64px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bench);padding:.8em 1.2em;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);z-index:70;max-width:calc(100vw - 32px)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- projekte ---------- */
+.projekte{padding-block:clamp(110px,14vw,190px);background:var(--night)}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(48px,6vw,80px)}
+.proj-head h2{max-width:13ch}
+.proj-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(20px,2.4vw,36px) clamp(16px,2vw,28px)}
+.proj{margin:0;grid-column:span 6;cursor:zoom-in}
+.proj:nth-child(1){grid-column:1/-1}
+.proj:nth-child(2){grid-column:span 7}
+.proj:nth-child(3){grid-column:span 5;align-self:end}
+.proj:nth-child(4){grid-column:span 5}
+.proj:nth-child(5){grid-column:span 7}
+.proj:nth-child(6){grid-column:3/span 8}
+@media (max-width:760px){.proj,.proj:nth-child(n){grid-column:1/-1}}
+.proj .ph{overflow:hidden;border-radius:6px;aspect-ratio:16/9;background:var(--night-3)}
+.proj:nth-child(1) .ph{aspect-ratio:21/9}
+@media (max-width:760px){.proj:nth-child(1) .ph{aspect-ratio:16/9}}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.proj:hover img{transform:scale(1.035)}
+.proj figcaption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;padding-top:16px}
+.proj figcaption b{font-family:var(--f-display);font-weight:380;font-size:1.35rem;letter-spacing:-.01em;font-variation-settings:"opsz" 48}
+.proj figcaption span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding-top:.5em}
+.proj figcaption p{grid-column:1/-1;color:var(--dim);font-size:.94rem}
+
+dialog.lb{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;color:var(--mist)}
+dialog.lb::backdrop{background:rgba(6,9,10,.93)}
+.lb-in{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:calc(56px + env(safe-area-inset-top,0px)) var(--gut-r) calc(56px + env(safe-area-inset-bottom,0px)) var(--gut)}
+.lb-in img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px}
+.lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(14px + env(safe-area-inset-right,0px));background:rgba(231,227,220,.1);border:1px solid var(--line);border-radius:999px;padding:.6em 1.1em;cursor:pointer;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+.lb-cap{position:absolute;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));text-align:center;color:var(--dim);font-size:.9rem;padding-inline:16px}
+
+/* ---------- hölzer ---------- */
+.hoelzer{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--night-2)}
+.hoelzer .tex{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s var(--ease),transform 8s linear;transform:scale(1.08)}
+.hoelzer .tex.on{opacity:1;transform:scale(1)}
+.hoelzer::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,18,20,.9) 0%,rgba(12,18,20,.35) 55%,rgba(12,18,20,.15) 100%);pointer-events:none}
+.hz-in{position:relative;z-index:1;width:100%;padding-block:clamp(90px,12vw,150px)}
+.hz-in h2{max-width:14ch;margin-bottom:clamp(36px,5vw,64px)}
+.woods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(231,227,220,.25)}
+@media (max-width:760px){.woods{grid-template-columns:1fr}}
+.wood{background:none;border:0;border-right:1px solid rgba(231,227,220,.18);text-align:left;padding:22px 24px 6px 0;cursor:pointer;display:grid;gap:8px;opacity:.55;transition:opacity .4s}
+.wood+.wood{padding-left:24px}
+.wood:last-child{border-right:0}
+@media (max-width:760px){.wood,.wood+.wood{border-right:0;border-bottom:1px solid rgba(231,227,220,.18);padding:18px 0}}
+.wood[aria-pressed="true"],.wood:hover{opacity:1}
+.wood b{font-family:var(--f-display);font-weight:360;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05}
+.wood dl{margin:4px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:.86rem}
+.wood dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);padding-top:.25em}
+.wood dd{margin:0;font-variant-numeric:tabular-nums}
+
+/* ---------- ablauf ---------- */
+.ablauf{position:relative;padding-block:clamp(110px,14vw,190px);background:var(--night) url(img/tex-floor-s.webp) center/cover no-repeat}
+.ablauf::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--night) 0%,rgba(12,18,20,.82) 30%,rgba(12,18,20,.88) 100%)}
+.ablauf .wrap{position:relative}
+.ablauf h2{max-width:14ch}
+.timeline{list-style:none;padding:0;margin:clamp(48px,6vw,80px) 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+@media (max-width:900px){.timeline{grid-template-columns:1fr 1fr;row-gap:40px}}
+@media (max-width:560px){.timeline{grid-template-columns:1fr}}
+.timeline li{position:relative;padding:28px 28px 0 0;border-top:1px solid rgba(231,227,220,.25);display:grid;gap:10px;align-content:start}
+.timeline li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(230,166,93,.15)}
+.timeline .when{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.timeline b{font-family:var(--f-display);font-weight:380;font-size:1.5rem;letter-spacing:-.015em}
+.timeline p{color:var(--dim);font-size:.95rem;max-width:30ch}
+
+/* ---------- faq ---------- */
+.faq{padding-block:clamp(96px,12vw,160px)}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 80px}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+.faq h2{max-width:10ch}
+.faq details{border-top:1px solid var(--line-ink)}
+.faq details:last-child{border-bottom:1px solid var(--line-ink)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font-family:var(--f-display);font-weight:400;font-size:clamp(1.15rem,1.7vw,1.4rem);letter-spacing:-.01em;font-variation-settings:"opsz" 36}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:1.1rem;color:var(--ink-dim);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;color:var(--ink-dim);max-width:62ch}
+
+/* ---------- kontakt ---------- */
+.kontakt{position:relative;overflow:hidden;background:var(--night)}
+.kontakt>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kontakt::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,18,20,.82) 0%,rgba(12,18,20,.45) 50%,rgba(12,18,20,.1) 100%);z-index:1}
+.kontakt .wrap{position:relative;z-index:2;padding-block:clamp(110px,13vw,180px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:48px;align-items:center}
+@media (max-width:900px){.kontakt .wrap{grid-template-columns:1fr}.kontakt::before{background:rgba(12,18,20,.7)}}
+.k-info h2{max-width:12ch;margin-bottom:24px}
+.k-info dl{margin:36px 0 0;display:grid;grid-template-columns:auto 1fr;gap:12px 28px}
+.k-info dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding-top:.3em}
+.k-info dd{margin:0}
+.copy{background:none;border:0;padding:0 0 0 .5em;cursor:pointer;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);text-decoration:underline;text-underline-offset:3px}
+form.k-form{background:rgba(228,227,222,.96);color:var(--ink);color-scheme:light;border-radius:14px;padding:clamp(22px,3vw,34px);display:grid;gap:16px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.k-form h3{font-size:1.6rem}
+.field{display:grid;gap:6px}
+.field label{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-dim)}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;color:var(--ink);background:#f4f3ef;border:1px solid var(--line-ink);border-radius:8px;padding:.75em .9em;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--amber-deep);outline-offset:1px;border-color:transparent}
+.field textarea{min-height:110px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.two{grid-template-columns:1fr}}
+.form-ok{background:var(--ink);color:var(--bench);border-radius:8px;padding:12px 14px;font-size:.92rem}
+.small{font-size:.8rem;color:var(--ink-dim)}
+
+/* ---------- footer + legal ---------- */
+footer{background:var(--night);border-top:1px solid var(--line);padding-block:56px calc(80px + env(safe-area-inset-bottom,0px))}
+.foot{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}}
+.foot h5{margin:0 0 12px;font-family:var(--f-mono);font-weight:500;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}
+.foot a,.foot button.link{text-decoration:none;opacity:.85;background:none;border:0;padding:0;cursor:pointer;font-size:.92rem;text-align:left}
+.foot a:hover,.foot button.link:hover{opacity:1;text-decoration:underline}
+.foot .big{font-family:var(--f-display);font-size:2rem;font-weight:380;letter-spacing:-.02em}
+.foot .big i{color:var(--amber);font-variation-settings:"opsz" 72,"SOFT" 100,"WONK" 1}
+.foot-base{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--dim);font-size:.82rem}
+dialog.legal{border:0;border-radius:14px;padding:0;width:min(720px,calc(100vw - 32px));max-height:min(86vh,900px);background:var(--bench);color:var(--ink);color-scheme:light}
+dialog.legal::backdrop{background:rgba(6,9,10,.75)}
+.legal-in{padding:clamp(24px,4vw,44px);display:grid;gap:14px}
+.legal-in h3{font-size:2rem;margin-bottom:6px}
+.legal-in h4{margin:14px 0 0;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.legal-in p,.legal-in li{font-size:.95rem;color:#3b4140}
+.legal-in .x{justify-self:end;position:sticky;top:0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .film,#werkstueck{height:auto}
+  .film-stage{position:relative;height:auto;aspect-ratio:16/9;min-height:80svh}
+  .film-stage video{display:none}
+  .film-stage .poster{opacity:1!important}
+  .beat{position:relative;opacity:1;transform:none;display:none}
+  .beat.rm{display:block}
+  .cap>.wrap{min-height:0}
+  .handwerk{height:auto!important}.hw-stage{position:static;height:auto;padding-block:96px}.track{overflow-x:auto;transform:none!important}
+  *{transition-duration:.01ms!important;animation:none!important}
+}
+</style>
+
+<div class="ribbon" id="ribbon"><span>Demo-Website · fiktiver Betrieb · Bilder und Filme KI-generiert</span></div>
+
+<header class="site-head" id="head">
+  <div class="wrap head-in">
+    <a class="logo" href="#top" aria-label="Holm und Hain, zum Seitenanfang"><b>Holm <i>&amp;</i> Hain</b><small>Tischlerei</small></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menü</button>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#werkstueck">Werkstatt</a>
+      <a href="#handwerk">Handwerk</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn btn-amber" href="#konfigurator">Tür konfigurieren</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 1 · Anflug -->
+  <section class="film" id="film" aria-label="Anflug auf die Werkstatt">
+    <div class="film-stage" id="filmStage">
+      <img class="poster" src="media/approach-first.webp" alt="Die Werkstatt von Holm und Hain am Waldrand zur blauen Stunde, Nebel über der Wiese" fetchpriority="high">
+      <video id="filmVideo" muted playsinline preload="none" aria-hidden="true">
+        <source src="media/approach.mp4" type="video/mp4">
+      </video>
+      <div class="shade"></div>
+      <div class="film-meta mono" aria-hidden="true">
+        <span class="tc" id="filmTc">00:00 / 00:10</span>
+        <div class="rail"><i id="filmRail"></i></div>
+        <span class="hint">Scrollen</span>
+      </div>
+      <div class="cap">
+        <div class="wrap">
+          <div class="beat on rm" data-from="0" data-to=".2">
+            <span class="eyebrow">Tischlerei · Meisterbetrieb · seit 1987</span>
+            <h1 class="hero-title">Holm <i>&amp;</i><br>Hain</h1>
+            <p class="sub">Innentüren, Möbel und Innenausbau aus Eiche. Gebaut am Waldrand bei Templin.</p>
+          </div>
+          <div class="beat" data-from=".27" data-to=".52">
+            <span class="eyebrow">Die Werkstatt</span>
+            <p class="big h2like"><span class="hl">Elf Meter Glas.</span> Dahinter vierzehn Leute, zwei CNC-Fräsen und ein Holzlager mit drei Jahren Vorlauf.</p>
+          </div>
+          <div class="beat" data-from=".58" data-to=".8">
+            <span class="eyebrow">2700 Kelvin</span>
+            <p class="big h2like">Warmes Licht, trockenes Holz. Jede Bohle hat unter 10&nbsp;% Restfeuchte, bevor wir sie anfassen.</p>
+          </div>
+          <div class="beat rm" data-from=".86" data-to="1.01">
+            <span class="eyebrow">Ihre Tür</span>
+            <p class="big h2like">Ihre neue Tür beginnt <em class="am">hier.</em></p>
+            <div class="actions">
+              <a class="btn btn-amber" href="#konfigurator">Tür konfigurieren <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6"/></svg></a>
+              <a class="btn btn-ghost" href="#werkstueck">Werkstatt ansehen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Haltung -->
+  <section class="haltung" aria-labelledby="haltungT">
+    <div class="wrap">
+      <p class="eyebrow" id="haltungT" style="margin-bottom:28px">Was wir machen</p>
+      <p class="statement" id="statement">Wir bauen Dinge, die man jeden Tag anfasst. Türen, Tische, Treppen und Schränke aus Eiche, millimetergenau für Ihre Räume gefertigt und von denselben Händen eingebaut.</p>
+      <div class="facts">
+        <div class="fact"><b data-count="1987">1987</b><span>gegründet von Hinrich Holm</span></div>
+        <div class="fact"><b data-count="14">14</b><span>Leute in Werkstatt und Montage</span></div>
+        <div class="fact"><b>±0,5<small style="font-size:.5em"> mm</small></b><span>Fertigungstoleranz an der Fräse</span></div>
+        <div class="fact"><b data-count="6">6</b><span>Wochen von Aufmaß bis Einbau, im Schnitt</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Werkstück -->
+  <section class="film" id="werkstueck" aria-label="Vom Brett zum Tisch">
+    <div class="film-stage" id="wsStage">
+      <img class="poster" src="media/assembly-first.webp" alt="Blick durch die Glasfront in die warm beleuchtete Werkstatt" loading="lazy">
+      <video id="wsVideo" muted playsinline preload="none" aria-hidden="true">
+        <source src="media/assembly.mp4" type="video/mp4">
+      </video>
+      <div class="shade"></div>
+      <div class="ws-panel">
+        <div class="wrap">
+          <p class="eyebrow" style="margin-bottom:18px">Vom Brett zum Tisch</p>
+          <h2>Ein Werkstück, <em class="am">vier</em> Schritte.</h2>
+          <ol class="steps" id="steps">
+            <li class="step on"><span class="n">01</span><b>Bohle wählen</b><p>Wir suchen die Eiche nach Maserung aus. Eine Tischplatte kommt immer aus einem Stamm.</p></li>
+            <li class="step"><span class="n">02</span><b>Zuschnitt und Fräsen</b><p>Die CNC fräst Zapfen und Schlitze auf einen halben Millimeter genau.</p></li>
+            <li class="step"><span class="n">03</span><b>Fügen ohne Schrauben</b><p>Beine, Zargen und Platte halten durch Holzverbindungen und Leim. Das bleibt über Jahrzehnte fest.</p></li>
+            <li class="step"><span class="n">04</span><b>Ölen und Übergabe</b><p>Zwei Schichten Hartwachsöl, dazwischen ein Zwischenschliff. Dann liefern wir selbst aus.</p></li>
+          </ol>
+        </div>
+      </div>
+      <div class="spec mono" aria-hidden="true">
+        <span class="tc" id="wsTc">00:00 / 00:15</span>
+        <span>Esstisch Hain · Eiche massiv</span>
+        <span>2200 × 950 × 750 mm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · Handwerk -->
+  <section class="handwerk" id="handwerk" aria-labelledby="hwT">
+    <div class="hw-stage">
+      <div class="wrap hw-head">
+        <div>
+          <p class="eyebrow" style="margin-bottom:18px">Handwerk</p>
+          <h2 id="hwT">Maschine, wo sie <em class="am">genauer</em> ist. Hand, wo sie besser ist.</h2>
+        </div>
+        <p>Die Fräse schafft Wiederholgenauigkeit. Den letzten Schliff, die Kanten und das Öl macht bei uns ein Mensch.</p>
+      </div>
+      <div class="track" id="track">
+        <figure class="card"><div class="ph"><img src="img/craft-shaving-s.webp" alt="Ein Hobelspan rollt sich von einem Eichenbrett, Gegenlicht" loading="lazy"></div><figcaption><b>Hobeln</b><span>0,1 mm Span</span></figcaption><p class="note">Der Handhobel bringt die Fläche, die keine Schleifmaschine schafft.</p></figure>
+        <figure class="card"><div class="ph"><img src="img/craft-dovetail-s.webp" alt="Sauber gestemmte Schwalbenschwanz-Verbindung an einem Eichenkasten" loading="lazy"></div><figcaption><b>Schwalbenschwanz</b><span>von Hand</span></figcaption><p class="note">Für Schubkästen, die auch nach 30 Jahren nicht wackeln.</p></figure>
+        <figure class="card"><div class="ph"><img src="img/craft-cnc-s.webp" alt="CNC-Fräse fräst eine Füllung in ein Türblatt aus Eiche" loading="lazy"></div><figcaption><b>CNC-Fräse</b><span>±0,5 mm</span></figcaption><p class="note">Füllungen und Profile entstehen aus Ihren Aufmaßdaten.</p></figure>
+        <figure class="card"><div class="ph"><img src="img/craft-bench-s.webp" alt="Werkbank mit japanischen Sägen, Stechbeiteln und Zollstock" loading="lazy"></div><figcaption><b>Die Bank</b><span>Werkzeug</span></figcaption><p class="note">Japanische Zugsägen, Stechbeitel, Zollstock. Alles hat seinen Platz.</p></figure>
+        <figure class="card"><div class="ph"><img src="img/craft-timber-s.webp" alt="Gestapelte Eichenbohlen im Holzlager" loading="lazy"></div><figcaption><b>Holzlager</b><span>3 Jahre Vorlauf</span></figcaption><p class="note">Luftgetrocknet, dann in der Kammer auf unter 10 % Restfeuchte.</p></figure>
+        <figure class="card"><div class="ph"><img src="img/craft-hand-s.webp" alt="Eine Hand prüft eine frisch geölte Eichenoberfläche" loading="lazy"></div><figcaption><b>Prüfen</b><span>Endkontrolle</span></figcaption><p class="note">Jede Fläche wird mit der Hand geprüft, bevor sie das Haus verlässt.</p></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Konfigurator -->
+  <section class="bench konf" id="konfigurator" aria-labelledby="konfT">
+    <div class="wrap">
+      <div class="konf-head">
+        <div>
+          <p class="eyebrow" style="margin-bottom:18px">Tür-Konfigurator</p>
+          <h2 id="konfT">Stellen Sie Ihre Tür <em>zusammen.</em></h2>
+        </div>
+        <p class="lede">Modell, Drücker, Maß und Anschlag wählen. Sie sehen sofort einen Richtpreis und schicken uns Ihre Auswahl per WhatsApp. Das genaue Angebot gibt es nach dem Aufmaß bei Ihnen vor Ort.</p>
+      </div>
+
+      <div class="konf-grid">
+        <div class="preview">
+          <div class="drawing">
+            <div class="dim-v" aria-hidden="true"><span id="dimH">1985 mm</span></div>
+            <div class="door-view" id="doorView">
+              <img id="doorA" src="img/door-shaker4.webp" alt="Vorschau der gewählten Tür">
+              <img id="doorB" class="back" src="img/door-shaker4.webp" alt="" aria-hidden="true">
+              <span class="tag" id="doorTag" hidden>Abbildung in Eiche</span>
+              <div class="handle-chip"><img id="handleImg" src="img/handle-black-s.webp" alt="Gewählter Drücker"></div>
+            </div>
+            <div class="dim-h" aria-hidden="true"><span id="dimW">Türblatt 860 mm</span></div>
+          </div>
+          <div class="preview-meta">
+            <div><h3 id="pvName">Hain 4</h3><p id="pvDesc">Vier waagerechte Füllungen im Shaker-Stil</p></div>
+            <p class="mono" id="pvCode" style="align-self:flex-end">HH-T-04 · DIN links</p>
+          </div>
+          <div class="sum" id="sum">
+            <div>
+              <div class="price-l">Richtpreis inkl. MwSt.</div>
+              <div class="price" id="price" aria-live="polite">0 €</div>
+            </div>
+            <div class="acts">
+              <button type="button" class="btn btn-line" id="copyCfg">Auswahl kopieren</button>
+              <a class="btn btn-amber" id="waBtn" href="#" target="_blank" rel="noopener">Per WhatsApp anfragen</a>
+            </div>
+            <p class="line" id="sumLine">1 × Hain 4, Eiche, mit Einbau</p>
+          </div>
+        </div>
+
+        <div class="opts">
+          <div class="opt"><h4>Leistung</h4>
+            <div class="seg" data-key="service" role="group" aria-label="Leistung">
+              <button type="button" data-v="fit" aria-pressed="true">Liefern und einbauen</button>
+              <button type="button" data-v="supply" aria-pressed="false">Nur liefern</button>
+            </div>
+          </div>
+          <div class="opt"><h4>Oberfläche</h4>
+            <div class="seg" data-key="finish" role="group" aria-label="Oberfläche">
+              <button type="button" data-v="oak" aria-pressed="true">Eiche furniert, geölt</button>
+              <button type="button" data-v="primed" aria-pressed="false">Weiß grundiert, lackierfertig</button>
+            </div>
+          </div>
+          <div class="opt"><h4>Modell <small id="modelCount">7 Modelle</small></h4>
+            <div class="tiles" id="modelTiles" role="group" aria-label="Türmodell"></div>
+          </div>
+          <div class="opt"><h4>Drücker <small>Rosettengarnitur</small></h4>
+            <div class="tiles h" id="handleTiles" role="group" aria-label="Drücker"></div>
+          </div>
+          <div class="opt"><h4>Baurichtmaß <small>nach DIN 18101</small></h4>
+            <div class="seg" data-key="size" role="group" aria-label="Baurichtmaß">
+              <button type="button" data-v="635" aria-pressed="false">635 × 2010</button>
+              <button type="button" data-v="760" aria-pressed="false">760 × 2010</button>
+              <button type="button" data-v="885" aria-pressed="true">885 × 2010</button>
+              <button type="button" data-v="1010" aria-pressed="false">1010 × 2010</button>
+            </div>
+            <p class="note-s">Das Baurichtmaß ist die Wandöffnung. Unsicher? Wir messen beim Aufmaß nach.</p>
+          </div>
+          <div class="opt"><h4>Anschlag <small>Bänder von Ihnen aus gesehen</small></h4>
+            <div class="seg" data-key="hand" role="group" aria-label="Anschlag">
+              <button type="button" data-v="L" aria-pressed="true">DIN links</button>
+              <button type="button" data-v="R" aria-pressed="false">DIN rechts</button>
+            </div>
+          </div>
+          <div class="opt"><h4>Zarge und Bekleidung</h4>
+            <div class="seg" data-key="frame" role="group" aria-label="Zarge und Bekleidung">
+              <button type="button" data-v="keep" aria-pressed="true">Vorhandene behalten</button>
+              <button type="button" data-v="new" aria-pressed="false">Neue Zarge mit Bekleidung</button>
+              <button type="button" data-v="unsure" aria-pressed="false">Weiß ich nicht</button>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="opt"><h4>Bad- und WC-Schloss</h4>
+              <div class="stepper"><button type="button" data-step="locks" data-d="-1" aria-label="Ein Bad- und WC-Schloss weniger">−</button><output id="locksOut" aria-live="polite">0</output><button type="button" data-step="locks" data-d="1" aria-label="Ein Bad- und WC-Schloss mehr">+</button></div>
+            </div>
+            <div class="opt"><h4>Anzahl Türen</h4>
+              <div class="stepper"><button type="button" data-step="qty" data-d="-1" aria-label="Eine Tür weniger">−</button><output id="qtyOut" aria-live="polite">1</output><button type="button" data-step="qty" data-d="1" aria-label="Eine Tür mehr">+</button></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · Projekte -->
+  <section class="projekte" id="projekte" aria-labelledby="projT">
+    <div class="wrap">
+      <div class="proj-head">
+        <div><p class="eyebrow" style="margin-bottom:18px">Projekte</p><h2 id="projT">Räume, die wir <em class="am">fertig</em> gebaut haben.</h2></div>
+        <p class="lede" style="max-width:36ch">Eine Auswahl aus Berlin, Potsdam und der Uckermark. Zum Vergrößern auf ein Bild tippen.</p>
+      </div>
+      <div class="proj-grid" id="projGrid">
+        <figure class="proj" data-full="img/proj-kitchen.webp"><div class="ph"><img src="img/proj-kitchen-s.webp" alt="Maßgefertigte Eichenküche mit grifflosen Fronten und Kochinsel" loading="lazy"></div><figcaption><b>Küche am See</b><span>Lychen · 2025</span><p>Grifflose Fronten, Insel mit Natursteinplatte, Hochschränke bis unter die Decke.</p></figcaption></figure>
+        <figure class="proj" data-full="img/proj-corridor.webp"><div class="ph"><img src="img/proj-corridor-s.webp" alt="Langer Altbauflur mit Fischgrätparkett und neuen Eichentüren" loading="lazy"></div><figcaption><b>Altbauflur</b><span>Berlin-Pankow · 2024</span><p>Fünf Kassettentüren nach historischem Vorbild, Zargen angepasst an 3,40 m Raumhöhe.</p></figcaption></figure>
+        <figure class="proj" data-full="img/proj-stair.webp"><div class="ph"><img src="img/proj-stair-s.webp" alt="Schwebende Eichentreppe an weißer Wand mit Glasgeländer" loading="lazy"></div><figcaption><b>Schwebende Treppe</b><span>Potsdam · 2025</span><p>Massive Stufen, unsichtbar in der Wand verankert, Glas ohne Pfosten.</p></figcaption></figure>
+        <figure class="proj" data-full="img/proj-attic.webp"><div class="ph"><img src="img/proj-attic-s.webp" alt="Einbauschrank in einer Dachschräge, Eiche und Weiß" loading="lazy"></div><figcaption><b>Dachschräge</b><span>Templin · 2024</span><p>Jeder Zentimeter unter dem Dach als Stauraum genutzt.</p></figcaption></figure>
+        <figure class="proj" data-full="img/proj-library.webp"><div class="ph"><img src="img/proj-library-s.webp" alt="Raumhohes Bücherregal aus Eiche mit Leseecke" loading="lazy"></div><figcaption><b>Bibliothekswand</b><span>Berlin-Mitte · 2023</span><p>Sechs Meter Regal, Fachböden mit verdeckter Stahleinlage gegen Durchbiegen.</p></figcaption></figure>
+        <figure class="proj" data-full="img/proj-vanity.webp"><div class="ph"><img src="img/proj-vanity-s.webp" alt="Waschtisch-Unterschrank aus Eiche mit Natursteinplatte" loading="lazy"></div><figcaption><b>Waschtisch</b><span>Prenzlau · 2025</span><p>Eiche im Bad, geölt und feuchtraumtauglich versiegelt.</p></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · Hölzer -->
+  <section class="hoelzer" aria-labelledby="hzT">
+    <img class="tex on" data-wood="oak" src="img/tex-oak-s.webp" data-src="img/tex-oak.webp" alt="" aria-hidden="true">
+    <img class="tex" data-wood="smoked" src="img/tex-smoked-s.webp" data-src="img/tex-smoked.webp" alt="" aria-hidden="true" loading="lazy">
+    <img class="tex" data-wood="concrete" src="img/tex-concrete-s.webp" data-src="img/tex-concrete.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="hz-in wrap">
+      <p class="eyebrow" style="margin-bottom:18px">Material</p>
+      <h2 id="hzT">Zwei Hölzer und eine Halle aus Beton.</h2>
+      <div class="woods" role="group" aria-label="Material ansehen">
+        <button class="wood" type="button" data-wood="oak" aria-pressed="true"><b>Eiche, geölt</b><dl><dt>Rohdichte</dt><dd>ca. 690 kg/m³</dd><dt>Herkunft</dt><dd>Uckermark, Spessart</dd><dt>Oberfläche</dt><dd>Hartwachsöl, 2 Schichten</dd></dl></button>
+        <button class="wood" type="button" data-wood="smoked" aria-pressed="false"><b>Räuchereiche</b><dl><dt>Verfahren</dt><dd>Begast, ohne Farbstoff</dd><dt>Ton</dt><dd>durch und durch dunkel</dd><dt>Einsatz</dt><dd>Fronten, Tische, Akzente</dd></dl></button>
+        <button class="wood" type="button" data-wood="concrete" aria-pressed="false"><b>Sichtbeton</b><dl><dt>Wo</dt><dd>Sockel unserer Werkhalle</dd><dt>Schalung</dt><dd>sägeraue Bretter</dd><dt>Warum</dt><dd>Hält Feuchte vom Holzlager fern</dd></dl></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · Ablauf -->
+  <section class="ablauf" id="ablauf" aria-labelledby="abT">
+    <div class="wrap">
+      <p class="eyebrow" style="margin-bottom:18px">Ablauf</p>
+      <h2 id="abT">Von der Anfrage bis zur fertigen Tür.</h2>
+      <ol class="timeline">
+        <li><span class="when">Tag 1</span><b>Anfrage</b><p>Sie schicken Ihre Konfiguration oder rufen an. Wir melden uns innerhalb eines Werktags.</p></li>
+        <li><span class="when">Woche 1</span><b>Aufmaß vor Ort</b><p>Ein Tischler misst jede Öffnung, prüft Wandstärke und Boden und zeigt Muster.</p></li>
+        <li><span class="when">Woche 2 bis 5</span><b>Fertigung</b><p>Türblätter, Zargen und Bekleidungen entstehen in unserer Werkstatt bei Templin.</p></li>
+        <li><span class="when">Woche 6</span><b>Einbau</b><p>Pro Etage meist an einem Tag. Wir nehmen Altes mit und lassen keinen Staub zurück.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9 · FAQ -->
+  <section class="bench faq" aria-labelledby="faqT">
+    <div class="wrap faq-grid">
+      <div><p class="eyebrow" style="margin-bottom:18px">Fragen</p><h2 id="faqT">Was oft gefragt wird.</h2></div>
+      <div>
+        <details><summary>Kann ich meine alten Zargen behalten?</summary><p>Oft ja, wenn sie gerade sitzen und das Maß nach DIN passt. Beim Aufmaß prüfen wir das. Passen sie nicht, fertigen wir neue Zargen mit Bekleidung im selben Holz wie das Türblatt.</p></details>
+        <details><summary>Wie verbindlich ist der Richtpreis?</summary><p>Er gilt für Standardmaße, ebene Böden und normale Wandstärken bis 125 mm. Das verbindliche Angebot bekommen Sie nach dem Aufmaß, kostenlos und schriftlich.</p></details>
+        <details><summary>Was bedeutet DIN links und DIN rechts?</summary><p>Stellen Sie sich auf die Seite, zu der die Tür aufgeht. Sind die Bänder links, ist es eine DIN-links-Tür. Sind sie rechts, ist es DIN rechts.</p></details>
+        <details><summary>Bauen Sie auch Sondermaße und Altbautüren?</summary><p>Ja. Ein großer Teil unserer Arbeit sind Altbauten mit Raumhöhen über drei Metern. Sondermaße kosten je nach Aufwand etwa 15 bis 30 Prozent mehr.</p></details>
+        <details><summary>In welchem Gebiet arbeiten Sie?</summary><p>Uckermark, Barnim, Oberhavel, Berlin und Potsdam. Darüber hinaus auf Anfrage, dann mit Anfahrtspauschale.</p></details>
+        <details><summary>Kann ich die Werkstatt besuchen?</summary><p>Gern. Nach Termin zeigen wir Ihnen Holzlager, Fräse und Musterwand mit allen Türmodellen und Drückern.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · Kontakt -->
+  <section class="kontakt" id="kontakt" aria-labelledby="kT">
+    <img src="img/day-exterior-s.webp" srcset="img/day-exterior-s.webp 1100w, img/day-exterior.webp 2400w" sizes="100vw" alt="Die Werkhalle von Holm und Hain bei Tageslicht mit Morgennebel" loading="lazy">
+    <div class="wrap">
+      <div class="k-info">
+        <p class="eyebrow" style="margin-bottom:18px">Kontakt</p>
+        <h2 id="kT">Kommen Sie vorbei oder schreiben Sie uns.</h2>
+        <p class="lede" style="color:var(--mist);opacity:.85">Die Musterwand mit allen Türen und Drückern steht in der Werkstatt. Bitte vorher kurz anrufen.</p>
+        <dl>
+          <dt>Adresse</dt><dd>Am Kiefernhain 4<br>17268 Templin <span style="color:var(--dim)">(fiktiv)</span></dd>
+          <dt>Telefon</dt><dd><span id="tel">03987 000 00 00</span><button class="copy" type="button" data-copy="03987 000 00 00">kopieren</button></dd>
+          <dt>E-Mail</dt><dd><span>werkstatt@holm-hain.example</span><button class="copy" type="button" data-copy="werkstatt@holm-hain.example">kopieren</button></dd>
+          <dt>Werkstatt</dt><dd>Mo bis Fr 7 bis 16 Uhr<br>Sa nach Termin</dd>
+        </dl>
+      </div>
+      <form class="k-form" id="kForm" novalidate>
+        <h3>Rückruf anfragen</h3>
+        <div class="two">
+          <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required placeholder="Vor- und Nachname"></div>
+          <div class="field"><label for="fTel">Telefon</label><input id="fTel" name="tel" type="tel" autocomplete="tel" required placeholder="Für den Rückruf"></div>
+        </div>
+        <div class="field"><label for="fTopic">Worum geht es?</label>
+          <select id="fTopic" name="topic"><option>Innentüren</option><option>Küche</option><option>Treppe</option><option>Einbauschrank oder Regal</option><option>Etwas anderes</option></select></div>
+        <div class="field"><label for="fMsg">Nachricht</label><textarea id="fMsg" name="msg" placeholder="Zum Beispiel: 4 Türen im Altbau, Raumhöhe 3,20 m"></textarea></div>
+        <button class="btn btn-ink" type="submit" style="justify-content:center">Rückruf anfragen</button>
+        <p class="form-ok" id="formOk" hidden>Danke. Das ist eine Demo-Seite, deshalb wurde nichts versendet. Auf der echten Website ginge Ihre Anfrage jetzt an die Werkstatt.</p>
+        <p class="small">Wir nutzen Ihre Angaben nur für den Rückruf.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><p class="big">Holm <i>&amp;</i> Hain</p><p style="color:var(--dim);margin-top:8px;max-width:30ch">Tischlerei am Waldrand. Innentüren, Möbel und Innenausbau aus Eiche.</p></div>
+      <div><h5>Seiten</h5><ul><li><a href="#konfigurator">Tür-Konfigurator</a></li><li><a href="#projekte">Projekte</a></li><li><a href="#ablauf">Ablauf</a></li><li><a href="#kontakt">Kontakt</a></li></ul></div>
+      <div><h5>Werkstatt</h5><ul><li>Am Kiefernhain 4</li><li>17268 Templin</li><li>Mo bis Fr 7 bis 16 Uhr</li></ul></div>
+      <div><h5>Rechtliches</h5><ul><li><button class="link" type="button" data-legal="impressum">Impressum</button></li><li><button class="link" type="button" data-legal="datenschutz">Datenschutz</button></li><li><button class="link" type="button" data-legal="nachweis">Bild- und Schriftnachweis</button></li></ul></div>
+    </div>
+    <div class="foot-base"><span>© 2026 Holm &amp; Hain Tischlerei (fiktiv)</span><span>Demo-Website. Alle Namen, Adressen und Preise sind erfunden.</span></div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="Bild vergrößert">
+  <div class="lb-in"><img id="lbImg" src="" alt=""><button class="lb-close" type="button" id="lbClose">Schließen</button><p class="lb-cap" id="lbCap"></p></div>
+</dialog>
+
+<dialog class="legal" id="legal" aria-labelledby="legalT">
+  <div class="legal-in" id="legalBody"></div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vh = () => window.innerHeight;
+
+/* ---------- toast + copy ---------- */
+const toastEl = $('#toast'); let tT;
+function toast(msg){ toastEl.textContent = msg; toastEl.classList.add('on'); clearTimeout(tT); tT = setTimeout(() => toastEl.classList.remove('on'), 2600); }
+async function copyText(text){
+  try { await navigator.clipboard.writeText(text); toast('In die Zwischenablage kopiert'); return true; }
+  catch(e){
+    const ta = document.createElement('textarea'); ta.value = text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand('copy'); } catch(_){}
+    ta.remove(); toast(ok ? 'In die Zwischenablage kopiert' : 'Kopieren nicht möglich, bitte Text markieren'); return ok;
+  }
+}
+$$('.copy').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy)));
+
+/* ---------- header + menu ---------- */
+const head = $('#head'), nav = $('#nav'), menuBtn = $('#menuBtn'), ribbon = $('#ribbon');
+menuBtn.addEventListener('click', () => { const o = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); menuBtn.textContent = o ? 'Schließen' : 'Menü'; });
+$$('a', nav).forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); menuBtn.textContent = 'Menü'; }));
+const lightBands = $$('.bench');
+function headState(){
+  const y = scrollY;
+  head.classList.toggle('solid', y > vh() * 0.6);
+  let onLight = false;
+  for (const b of lightBands){ const r = b.getBoundingClientRect(); if (r.top < 40 && r.bottom > 40) { onLight = true; break; } }
+  head.classList.toggle('on-light', onLight);
+  ribbon.classList.toggle('hide', y > vh() * 0.9 && y < document.body.scrollHeight - vh() * 1.6);
+}
+
+/* ---------- scroll-scrubbed films ---------- */
+function makeFilm(section, video, opts){
+  const stage = section.querySelector('.film-stage');
+  const st = { p: 0, t: 0, cur: 0, dur: opts.dur, ready: false, near: false };
+  const markReady = () => { if (st.ready) return; st.ready = true; st.dur = video.duration || opts.dur; stage.classList.add('ready'); };
+  video.addEventListener('loadeddata', markReady);
+  video.addEventListener('canplay', markReady);
+  // Fetch the whole file once and play it from memory: seeking then works on any host,
+  // with or without HTTP range support, and scrubbing never waits on the network.
+  const load = () => {
+    if (st.near) return; st.near = true;
+    const src = video.querySelector('source').getAttribute('src');
+    fetch(src).then(r => { if (!r.ok) throw 0; return r.blob(); })
+      .then(b => { video.src = URL.createObjectURL(b); video.load(); })
+      .catch(() => { video.preload = 'auto'; video.load(); });
+  };
+  // iOS decodes frames only after a user-initiated play
+  const unlock = () => { const pr = video.play(); if (pr && pr.then) pr.then(() => video.pause()).catch(() => {}); };
+  window.addEventListener('touchstart', unlock, { once: true, passive: true });
+  function measure(){
+    const r = section.getBoundingClientRect();
+    const span = section.offsetHeight - vh();
+    st.p = clamp(-r.top / span, 0, 1);
+    if (!st.near && r.top < vh() * 2.5) load();
+    return r;
+  }
+  function frame(){
+    st.t = st.p * Math.max(0, st.dur - 0.05);
+    st.cur += (st.t - st.cur) * 0.14;
+    if (Math.abs(st.t - st.cur) < 0.002) st.cur = st.t;
+    if (st.ready && !video.seeking && Math.abs(video.currentTime - st.cur) > 0.012) {
+      try { video.currentTime = st.cur; } catch(_){}
+    }
+    opts.onFrame && opts.onFrame(st);
+  }
+  return { measure, frame, st, load };
+}
+const fmt = s => '00:' + String(Math.floor(s)).padStart(2, '0');
+
+const films = [];
+if (!RM) {
+  const beats = $$('#film .beat');
+  const tc = $('#filmTc'), rail = $('#filmRail');
+  films.push(makeFilm($('#film'), $('#filmVideo'), { dur: 10, onFrame(st){
+    beats.forEach(b => b.classList.toggle('on', st.p >= +b.dataset.from && st.p < +b.dataset.to));
+    tc.textContent = fmt(st.cur) + ' / ' + fmt(st.dur);
+    rail.style.transform = 'scaleY(' + st.p.toFixed(4) + ')';
+  }}));
+  const steps = $$('#steps .step'), wsTc = $('#wsTc');
+  films.push(makeFilm($('#werkstueck'), $('#wsVideo'), { dur: 15, onFrame(st){
+    const i = Math.min(3, Math.floor(st.p * 4));
+    steps.forEach((s, k) => s.classList.toggle('on', k === i));
+    wsTc.textContent = fmt(st.cur) + ' / ' + fmt(st.dur);
+  }}));
+  films[0].load();
+}
+
+/* ---------- statement words light up ---------- */
+const stmt = $('#statement');
+const warmWords = new Set(['Eiche,', 'millimetergenau', 'denselben']);
+stmt.innerHTML = stmt.textContent.trim().split(/\s+/).map(w => `<span${warmWords.has(w) ? ' data-warm' : ''}>${w}</span>`).join(' ');
+const words = $$('span', stmt);
+if (RM) words.forEach(w => w.classList.add('lit'));
+function statementFrame(){
+  if (RM) return;
+  const r = stmt.getBoundingClientRect();
+  const p = clamp((vh() * 0.85 - r.top) / (r.height + vh() * 0.35), 0, 1);
+  const n = Math.round(p * words.length);
+  words.forEach((w, i) => { const on = i < n; w.classList.toggle('lit', on); w.classList.toggle('warm', on && w.hasAttribute('data-warm')); });
+}
+
+/* ---------- facts count up (only once, from visible values) ---------- */
+const counters = $$('[data-count]');
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting || RM) return; io.unobserve(e.target);
+  const el = e.target, to = +el.dataset.count, from = to > 1000 ? to - 38 : 0, t0 = performance.now();
+  const tick = now => { const k = clamp((now - t0) / 1400, 0, 1), ez = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (to - from) * ez); if (k < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}), { threshold: .6 });
+counters.forEach(c => io.observe(c));
+
+/* ---------- horizontal craft track ---------- */
+const hw = $('#handwerk'), track = $('#track');
+const wide = () => innerWidth > 760 && !RM;
+function sizeTrack(){
+  if (!wide()) { hw.style.height = ''; track.style.transform = ''; return; }
+  const over = Math.max(0, track.scrollWidth - innerWidth);
+  hw.style.height = (vh() + over) + 'px';
+}
+function trackFrame(){
+  if (!wide()) return;
+  const r = hw.getBoundingClientRect(), span = hw.offsetHeight - vh();
+  const p = clamp(-r.top / Math.max(1, span), 0, 1);
+  const over = Math.max(0, track.scrollWidth - innerWidth);
+  track.style.transform = `translate3d(${(-p * over).toFixed(1)}px,0,0)`;
+}
+
+/* ---------- main loop ---------- */
+let running = true;
+const hintEl = $('.hint'), sumEl = $('#sum'), konf = $('#konfigurator');
+function uiFrame(){
+  if (hintEl) hintEl.style.opacity = scrollY > 40 ? 0 : '';
+  const r = konf.getBoundingClientRect();
+  sumEl.classList.toggle('show', r.top < vh() * 0.55 && r.bottom > vh() * 0.7);
+}
+function loop(){
+  uiFrame();
+  films.forEach(f => { f.measure(); f.frame(); });
+  statementFrame(); trackFrame(); headState();
+  if (running) requestAnimationFrame(loop);
+}
+document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(loop); });
+addEventListener('resize', sizeTrack);
+addEventListener('load', sizeTrack);
+sizeTrack(); requestAnimationFrame(loop);
+
+/* ---------- configurator ---------- */
+const MODELS = [
+  { id:'shaker4', name:'Hain 4', code:'HH-T-04', desc:'Vier waagerechte Füllungen im Shaker-Stil', price:489, primed:true },
+  { id:'3panel', name:'Hain 3', code:'HH-T-03', desc:'Drei waagerechte Füllungen, ruhiger Rahmen', price:469 },
+  { id:'raised4', name:'Kassette 4', code:'HH-K-04', desc:'Vier Kassetten mit Profilkante, für den Altbau', price:529 },
+  { id:'grooved', name:'Rille', code:'HH-R-01', desc:'Glattes Türblatt mit feinen senkrechten Rillen', price:649 },
+  { id:'flush', name:'Glatt', code:'HH-G-01', desc:'Flächenbündig, stehende Jahresringe im Furnier', price:419 },
+  { id:'glazed', name:'Lichtband', code:'HH-L-01', desc:'Schmaler Klarglas-Streifen, ESG 6 mm', price:599 },
+  { id:'ledged', name:'Landhaus', code:'HH-B-01', desc:'Rustikale Eiche, Bretter mit Riegel und Strebe', price:579, noPrimed:true },
+];
+const HANDLES = [
+  { id:'black', name:'Bogen', finish:'Mattschwarz', price:39 },
+  { id:'chrome', name:'Welle', finish:'Chrom poliert', price:34 },
+  { id:'steel', name:'Linie', finish:'Edelstahl gebürstet', price:45 },
+  { id:'nickel', name:'Schwung', finish:'Nickel satiniert', price:42 },
+  { id:'brass', name:'Rändel', finish:'Messing antik', price:79 },
+];
+const SIZES = { 635:{ leaf:610, add:-20 }, 760:{ leaf:735, add:0 }, 885:{ leaf:860, add:0 }, 1010:{ leaf:985, add:65 } };
+const P = { fit:149, frameNew:289, lock:38, primedDiff:-55 };
+const S = { service:'fit', finish:'oak', model:'shaker4', handle:'black', size:'885', hand:'L', frame:'keep', locks:0, qty:1 };
+try { const saved = JSON.parse(localStorage.getItem('hh-cfg') || 'null'); if (saved) Object.assign(S, saved); } catch(_){}
+
+const eur = n => new Intl.NumberFormat('de-DE', { style:'currency', currency:'EUR', maximumFractionDigits:0 }).format(n);
+const mTiles = $('#modelTiles'), hTiles = $('#handleTiles');
+mTiles.innerHTML = MODELS.map(m => `<button type="button" class="tile" data-model="${m.id}" aria-pressed="false"><img src="img/door-${m.id}-s.webp" alt="" loading="lazy"><b>${m.name}</b><span>ab ${eur(m.price)}</span></button>`).join('');
+hTiles.innerHTML = HANDLES.map(h => `<button type="button" class="tile" data-handle="${h.id}" aria-pressed="false"><img src="img/handle-${h.id}-s.webp" alt="" loading="lazy"><b>${h.name}</b><span>${h.finish}</span></button>`).join('');
+$('#modelCount').textContent = MODELS.length + ' Modelle';
+
+$$('.seg').forEach(g => g.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; S[g.dataset.key] = b.dataset.v; render(); }));
+mTiles.addEventListener('click', e => { const b = e.target.closest('[data-model]'); if (b){ S.model = b.dataset.model; render(); } });
+hTiles.addEventListener('click', e => { const b = e.target.closest('[data-handle]'); if (b){ S.handle = b.dataset.handle; render(); } });
+$$('[data-step]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.step, d = +b.dataset.d;
+  S[k] = k === 'qty' ? clamp(S[k] + d, 1, 30) : clamp(S[k] + d, 0, S.qty);
+  if (S.locks > S.qty) S.locks = S.qty; render();
+}));
+
+const doorView = $('#doorView'); let front = $('#doorA'), back = $('#doorB'), curSrc = front.getAttribute('src');
+function setDoor(src){
+  if (src === curSrc) return; curSrc = src;
+  const img = back; img.onload = () => { img.classList.remove('back'); front.classList.add('back'); img.removeAttribute('aria-hidden'); img.alt = front.alt; front.setAttribute('aria-hidden','true'); front.alt=''; [front, back] = [img, front]; };
+  img.src = src;
+}
+let shown = 0;
+function animatePrice(to){
+  const el = $('#price'), from = shown, t0 = performance.now();
+  if (RM) { el.textContent = eur(to); shown = to; return; }
+  const tick = now => { const k = clamp((now - t0) / 500, 0, 1), ez = 1 - Math.pow(1 - k, 3); const v = from + (to - from) * ez; el.textContent = eur(v); if (k < 1) requestAnimationFrame(tick); else shown = to; };
+  requestAnimationFrame(tick);
+}
+function cfgText(m, h, total){
+  const sz = SIZES[S.size];
+  return [
+    'Hallo Holm & Hain, ich interessiere mich für folgende Tür:',
+    `• Modell: ${m.name} (${m.code})`,
+    `• Oberfläche: ${S.finish === 'oak' ? 'Eiche furniert, geölt' : 'Weiß grundiert, lackierfertig'}`,
+    `• Drücker: ${h.name}, ${h.finish}`,
+    `• Baurichtmaß: ${S.size} × 2010 mm (Türblatt ${sz.leaf} × 1985 mm), DIN ${S.hand === 'L' ? 'links' : 'rechts'}`,
+    `• Zarge: ${{ keep:'vorhandene behalten', new:'neue Zarge mit Bekleidung', unsure:'bitte beim Aufmaß klären' }[S.frame]}`,
+    `• Anzahl: ${S.qty}${S.locks ? `, davon ${S.locks} mit Bad-/WC-Schloss` : ''}`,
+    `• Leistung: ${S.service === 'fit' ? 'Liefern und einbauen' : 'Nur liefern'}`,
+    `Richtpreis laut Website: ${eur(total)} inkl. MwSt.`,
+    'Bitte melden Sie sich für einen Aufmaßtermin.'
+  ].join('\n');
+}
+function render(){
+  const m = MODELS.find(x => x.id === S.model) || MODELS[0];
+  const h = HANDLES.find(x => x.id === S.handle) || HANDLES[0];
+  if (m.noPrimed && S.finish === 'primed') S.finish = 'oak';
+  $$('.seg').forEach(g => $$('button', g).forEach(b => b.setAttribute('aria-pressed', String(S[g.dataset.key] === b.dataset.v))));
+  $('.seg[data-key="finish"] [data-v="primed"]').disabled = !!m.noPrimed;
+  $$('[data-model]', mTiles).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.model === m.id)));
+  $$('[data-handle]', hTiles).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.handle === h.id)));
+  const primedImg = S.finish === 'primed' && m.primed;
+  setDoor(`img/door-${primedImg ? 'shaker4-primed' : m.id}.webp`);
+  front.alt = `${m.name}, ${S.finish === 'oak' ? 'Eiche' : 'weiß grundiert'}, DIN ${S.hand === 'L' ? 'links' : 'rechts'}`;
+  const tag = $('#doorTag'); tag.hidden = !(S.finish === 'primed' && !m.primed); tag.textContent = 'Abbildung in Eiche, Lieferung weiß grundiert';
+  doorView.classList.toggle('mirror', S.hand === 'R');
+  $('#handleImg').src = `img/handle-${h.id}-s.webp`; $('#handleImg').alt = `Drücker ${h.name}, ${h.finish}`;
+  const sz = SIZES[S.size];
+  $('#dimW').textContent = `Türblatt ${sz.leaf} mm`;
+  $('#pvName').textContent = m.name; $('#pvDesc').textContent = m.desc;
+  $('#pvCode').textContent = `${m.code} · DIN ${S.hand === 'L' ? 'links' : 'rechts'}`;
+  $('#qtyOut').textContent = S.qty; $('#locksOut').textContent = S.locks;
+  const unit = m.price + h.price + sz.add + (S.finish === 'primed' ? P.primedDiff : 0) + (S.frame === 'new' ? P.frameNew : 0) + (S.service === 'fit' ? P.fit : 0);
+  const total = unit * S.qty + S.locks * P.lock;
+  animatePrice(total);
+  $('#sumLine').textContent = `${S.qty} × ${m.name}, ${S.finish === 'oak' ? 'Eiche' : 'weiß grundiert'}, Drücker ${h.name}, ${S.size} × 2010 mm, ${S.service === 'fit' ? 'mit Einbau' : 'nur Lieferung'}${S.frame === 'unsure' ? '. Zarge klären wir beim Aufmaß.' : ''}`;
+  const txt = cfgText(m, h, total);
+  $('#waBtn').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+  $('#copyCfg').onclick = () => copyText(txt);
+  try { localStorage.setItem('hh-cfg', JSON.stringify(S)); } catch(_){}
+}
+render();
+// warm the cache with full-size door images once idle
+(window.requestIdleCallback || (f => setTimeout(f, 1500)))(() => MODELS.forEach(m => { const i = new Image(); i.src = `img/door-${m.id}.webp`; }));
+
+/* ---------- lightbox ---------- */
+const lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap');
+$$('.proj').forEach(f => { f.tabIndex = 0; f.setAttribute('role','button');
+  const open = () => { const im = $('img', f); lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = $('b', f).textContent + ' · ' + $('span', f).textContent; lb.showModal(); const full = new Image(); full.onload = () => { if (lb.open) lbImg.src = full.src; }; full.src = f.dataset.full; };
+  f.addEventListener('click', open); f.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+});
+$('#lbClose').addEventListener('click', () => lb.close());
+lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-in')) lb.close(); });
+
+/* ---------- woods ---------- */
+const texs = $$('.hoelzer .tex');
+$$('.wood').forEach(b => {
+  const pick = () => { $$('.wood').forEach(x => x.setAttribute('aria-pressed', String(x === b))); texs.forEach(t => { const on = t.dataset.wood === b.dataset.wood; t.classList.toggle('on', on); if (on && t.dataset.src && innerWidth > 1100) { const s = t.dataset.src; delete t.dataset.src; const i = new Image(); i.onload = () => t.src = s; i.src = s; } }); };
+  b.addEventListener('click', pick); b.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) pick(); });
+});
+
+/* ---------- form ---------- */
+$('#kForm').addEventListener('submit', e => {
+  e.preventDefault(); const f = e.target; let ok = true;
+  ['fName','fTel'].forEach(id => { const el = $('#' + id); const bad = !el.value.trim(); el.setAttribute('aria-invalid', bad); if (bad) ok = false; });
+  if (!ok) { toast('Bitte Name und Telefonnummer eintragen'); return; }
+  $('#formOk').hidden = false;
+});
+
+/* ---------- legal ---------- */
+const LEGAL = {
+  impressum: `<h3 id="legalT">Impressum</h3><p><b>Muster.</b> Holm &amp; Hain ist ein erfundener Betrieb. Diese Angaben dienen nur als Vorlage.</p>
+    <h4>Angaben gemäß § 5 DDG</h4><p>Holm &amp; Hain Tischlerei GmbH (fiktiv)<br>Am Kiefernhain 4<br>17268 Templin</p>
+    <h4>Vertreten durch</h4><p>Geschäftsführung: Muster Holm, Tischlermeisterin</p>
+    <h4>Kontakt</h4><p>Telefon: 03987 000 00 00<br>E-Mail: werkstatt@holm-hain.example</p>
+    <h4>Registereintrag</h4><p>Handelsregister: Amtsgericht Neuruppin, HRB 00000 (Platzhalter)</p>
+    <h4>Handwerksrolle</h4><p>Eingetragen bei der Handwerkskammer Frankfurt (Oder), Gewerk Tischler (Platzhalter)</p>
+    <h4>Umsatzsteuer-ID</h4><p>DE000000000 (Platzhalter)</p>`,
+  datenschutz: `<h3 id="legalT">Datenschutz</h3><p><b>Muster.</b> Diese Erklärung ist eine Vorlage für den echten Betrieb und muss vor Livegang geprüft werden.</p>
+    <h4>Verantwortlich</h4><p>Holm &amp; Hain Tischlerei GmbH (fiktiv), Am Kiefernhain 4, 17268 Templin.</p>
+    <h4>Was diese Seite speichert</h4><p>Ihre Auswahl im Tür-Konfigurator wird nur in Ihrem eigenen Browser gespeichert (localStorage), damit sie beim nächsten Besuch noch da ist. Sie wird nicht an uns übertragen.</p>
+    <h4>Schriften und Medien</h4><p>Alle Schriften, Bilder und Videos liegen auf demselben Server wie diese Seite. Es werden keine Inhalte von Drittanbietern nachgeladen und keine Tracking-Dienste eingesetzt.</p>
+    <h4>WhatsApp</h4><p>Wenn Sie „Per WhatsApp anfragen“ wählen, öffnet sich WhatsApp mit Ihrem Text. Erst wenn Sie dort auf Senden tippen, gelangt die Nachricht zu WhatsApp (Meta). Es gelten dann deren Datenschutzbestimmungen.</p>
+    <h4>Ihre Rechte</h4><p>Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit nach Art. 15 bis 21 DSGVO sowie Beschwerde bei der Landesbeauftragten für den Datenschutz Brandenburg.</p>`,
+  nachweis: `<h3 id="legalT">Bild- und Schriftnachweis</h3>
+    <h4>Bilder und Filme</h4><p>Alle Fotos und beide Filme wurden mit KI erzeugt (Higgsfield, Modelle Nano Banana 2 und Seedance 2.0). Sie zeigen keinen realen Ort und keinen realen Betrieb.</p>
+    <h4>Schriften</h4><p>Fraunces von Undercase Type, SIL Open Font License 1.1.<br>Geist und Geist Mono von Vercel, SIL Open Font License 1.1.<br>Selbst gehostet, Lizenztexte liegen im Ordner fonts.</p>
+    <h4>Preise</h4><p>Alle Preise im Konfigurator sind erfundene Beispielwerte.</p>`
+};
+const legal = $('#legal'), legalBody = $('#legalBody');
+$$('[data-legal]').forEach(b => b.addEventListener('click', () => {
+  legalBody.innerHTML = `<button class="btn btn-line x" type="button" id="legalX">Schließen</button>` + LEGAL[b.dataset.legal];
+  $('#legalX').addEventListener('click', () => legal.close());
+  legal.showModal();
+}));
+legal.addEventListener('click', e => { if (e.target === legal) legal.close(); });
+})();
+</script>
