@@ -4,7 +4,45 @@ Für die Website: allrich-webdesign.com/limitless/ (Ordner `limitless/` im Repo)
 
 **Warum ich das nicht selbst machen konnte:** Das Higgsfield-Konto zeigt 0 Credits und hat keine unbegrenzten Generierungen. Sobald Credits drauf sind, kann ich es auch selbst machen. Sag einfach Bescheid.
 
-## So gehst du vor
+## Schnellster Weg: diesen Text in Claude Chat einfügen (Testphase bis 27.11.)
+
+Die unbegrenzte Testphase funktioniert nur in Claude Chat, Cowork oder ChatGPT, nicht in Claude Code. In Claude Chat muss die Higgsfield-Verbindung aktiv sein. Dann alles im Kasten kopieren und abschicken:
+
+```
+Bitte erzeuge mit Higgsfield 6 Videos für die Website eines Kunden (Sportwagenvermietung). Nutze meine unbegrenzte Testphase (use_unlim: true), keine Credits.
+
+Einstellungen für ALLE Videos: Modell seedance_2_0, mode "fast", resolution "720p", duration 10, generate_audio false. Es läuft immer nur 1 Video gleichzeitig, also nacheinander erzeugen und jeweils warten, bis es fertig ist.
+
+Importiere zuerst die Fotos mit media_import_url und nutze die media_ids. Bei Film A und C ist das erste Foto start_image, die anderen image_references. Bei Film B alle Fotos als image_references (kein start_image).
+
+FILM A (Lamborghini Revuelto) – einmal aspect_ratio "16:9", einmal "9:16"
+Fotos:
+https://cdn1.site-media.eu/images/1920/29296183/D75_3144-K-NEL7eQM3bN7VwjsPXbCg.jpg
+https://cdn1.site-media.eu/images/1920/29296186/D75_3193-1ZLgZBoAScexSBb1O-LbzA.jpg
+https://cdn1.site-media.eu/images/1920/29296195/D75_3157-iCajpRoiQHHU9HeYQ4tWcA.jpg
+Prompt: One continuous cinematic shot, no cuts. The exact yellow Lamborghini Revuelto from the reference images stands on the stone plaza in front of the Berlin Olympiastadion with its two tall pillars and the Olympic rings, scissor doors open, licence plate reading LIMITLESS. The scissor doors slowly close. The headlights and the Y-shaped daytime running lights switch on. The camera starts at the exact framing of the start image and moves in one smooth, slow, constant motion: a low dolly-in combined with a 60 degree orbit to the right, ending on a low, close side profile of the car with the stadium behind it. Dramatic overcast sky, clouds drifting slowly, light breaking through, reflections on the stone tiles. Photorealistic, high-end automotive commercial, shallow depth of field, rich contrast. The car's design, colour, wheels and plate stay identical to the references the entire time. No people, no text, no extra cars, no camera shake.
+
+FILM B (Rolls-Royce Cullinan Black Badge) – einmal "16:9", einmal "9:16"
+Fotos:
+https://cdn1.site-media.eu/images/1920/28245432/D75_2252-MyJWp3G1gA-F-SiBGaW3iw.jpg
+https://cdn1.site-media.eu/images/1920/28245467/D75_2185-V2gOK23yPblMuSzXOaBqQA.jpg
+https://cdn1.site-media.eu/images/1920/28245462/D75_2255-KJIsUBavxBwWBCnph55bnA.jpg
+Prompt: One continuous cinematic tracking shot, no cuts. The exact black Rolls-Royce Cullinan Black Badge from the reference images, with orange interior accents and licence plate LIMITLESS, glides slowly along a wide Berlin city boulevard at blue hour, the illuminated Kaiser-Wilhelm-Gedaechtniskirche and city lights in the background. The camera travels smoothly alongside the car at the same speed, starting at the rear three-quarter view and slowly overtaking it to end on a front three-quarter view as the car rolls to a gentle stop at the kerb in front of an elegant building entrance. Wet asphalt with long reflections of street lights, soft bokeh, calm and luxurious mood, photorealistic high-end automotive commercial. The car stays identical to the references the whole time. No people, no readable signs, no text, no other cars close to the camera, no camera shake.
+
+FILM C (Ferrari SF90 Stradale) – nur "16:9"
+Fotos:
+https://cdn1.site-media.eu/images/1920/27641827/D75_2503-eIYrdVg7YHlRNjonauL2KA.jpg
+https://cdn1.site-media.eu/images/1920/27641835/D75_2470-xVESv_Ks-RJkzI-BlyMDSw.jpg
+https://cdn1.site-media.eu/images/1920/27641801/D75_2551-3LqiN9EE6KNEH05immeFtg.jpg
+Prompt: One continuous cinematic shot, no cuts. The exact black Ferrari SF90 Stradale with yellow brake calipers and licence plate LIMITLESS from the reference images stands on the stone plaza in front of the Berlin Olympiastadion. Day slowly turns into night: the sky darkens to deep blue, the stadium lights come on, the car's headlights glow. The camera performs one slow, steady, low orbit of 90 degrees around the front of the car, from front three-quarter left to front three-quarter right. Subtle mist on the ground, reflections on the tiles, moody premium automotive commercial look, photorealistic. The car stays identical to the references the whole time. No people, no text, no extra cars, no camera shake.
+
+Wenn ein Video nicht gut aussieht (Auto verändert sich, Schnitt, Schrift im Bild), erzeuge es einmal neu.
+Gib mir am Ende eine Liste mit den direkten Download-Links (mp4) aller fertigen Videos, jeweils mit Name, z. B. "A 16:9", "A 9:16", "B 16:9" usw.
+```
+
+Die Liste mit den Links schickst du dann einfach mir. Ich lade die Videos herunter, mache daraus die Scroll-Filme und baue sie ein.
+
+## So gehst du vor (manuell in der Higgsfield-App)
 
 1. In Higgsfield (oder per Claude-Chat mit Higgsfield-Verbindung) **Seedance 2.5** wählen, Modus **Omni Reference**.
 2. Die Fotos unten **per Link importieren** (die Links sind seine Original-Fotos in 1920 px).
