@@ -1,8 +1,8 @@
 /* Scroll-Filme: Bildfolgen f001.webp ... (n Bilder). "mob" = Hochformat fürs Handy.
    Sobald die Higgsfield-Videos da sind, werden hier nur Ordner und Bildanzahl ersetzt. */
 window.FILMS = {
-  hero:  { dir: "film/hero",  n: 120, mob: { dir: "film/hero-m",  n: 120 } },
-  drive: { dir: "film/drive", n: 90,  mob: { dir: "film/drive-m", n: 90 } }
+  hero:  { dir: "film/a", sd: "film/a-sd", n: 241, mob: { dir: "film/a-m", n: 241 } },
+  drive: { dir: "film/b", sd: "film/b-sd", n: 241, mob: { dir: "film/b-m", n: 241 } }
 };
 
 /* Highlights (horizontaler Teil): Auto-ID und welches Foto */
@@ -24,4 +24,3 @@ window.OCCASIONS = [
   { id: "porsche-911-gt3", img: 0, k: "Fahrerlebnis", t: "Pure Leidenschaft", p: "911 GT3 oder GT4 RS: Fahrspaß, der unter die Haut geht." }
 ];
 
-window.CONTACT_BG = { id: "lamborghini-revuelto-2026", img: 4 };

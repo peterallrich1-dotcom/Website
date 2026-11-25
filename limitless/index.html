@@ -216,8 +216,8 @@ img{max-width:100%;display:block}
 
 /* Kontakt */
 .contact{position:relative;padding:clamp(90px,12vw,160px) 0 60px;overflow:hidden;background:#000}
-.contact .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35;transform:scale(1.05)}
-.contact::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.4) 40%,#000 100%)}
+.contact .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8}
+.contact::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,rgba(0,0,0,.15) 30%,rgba(0,0,0,.35) 70%,#000 100%)}
 .contact .wrap{position:relative;z-index:2}
 .cgrid2{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
 .cgrid2 a,.cgrid2 div{display:block;text-decoration:none;padding:24px;border-radius:20px;border:1px solid var(--line);background:rgba(5,6,8,.6);backdrop-filter:blur(8px)}
@@ -250,9 +250,9 @@ footer a{text-decoration:none}footer nav{display:flex;gap:20px}
 </header>
 
 <main>
-<section class="film hero" id="hero" style="height:620vh">
+<section class="film hero" id="hero" style="height:700vh">
   <div class="stage">
-    <canvas id="c1" aria-label="Film: Supersportwagen von Limitless Performance in Berlin bei Nacht"></canvas>
+    <canvas id="c1" aria-label="Film: gelber Lamborghini Revuelto vor dem Berliner Olympiastadion"></canvas>
     <div class="shade"></div>
     <div class="logo" id="heroLogo"><div><img class="m" src="logo-mark.png" alt=""><img class="w" src="logo-word.png" alt="Limitless Performance"><p>Sportwagen &amp; Luxusautos · Berlin</p></div></div>
     <div class="cap" data-a=".24" data-b=".48"><p class="k">Berlin · Budapester Straße</p><h1 class="disp">Fahr, was<br><span class="chrome">andere träumen.</span></h1></div>
@@ -292,12 +292,12 @@ footer a{text-decoration:none}footer nav{display:flex;gap:20px}
   </div>
 </section>
 
-<section class="film drive" id="drive" style="height:420vh" aria-label="Film">
+<section class="film drive" id="drive" style="height:560vh" aria-label="Film">
   <div class="stage">
-    <canvas id="c2" aria-label="Film: Luxusauto bei Nacht in Berlin"></canvas>
+    <canvas id="c2" aria-label="Film: Rolls-Royce Cullinan Black Badge fährt abends durch Berlin"></canvas>
     <div class="shade"></div>
-    <div class="cap" data-a=".12" data-b=".46"><p class="k">Lieferung</p><h2 class="disp">Wir bringen ihn<br><span class="chrome">zu Ihnen.</span></h2><p class="sub">Schnelle Anlieferung in Berlin und auf Wunsch deutschlandweit, an Ihre Tür, ans Hotel oder zum Flughafen.</p></div>
-    <div class="cap" data-a=".5" data-b="1.1"><p class="k">Rund um die Uhr flexibel</p><h2 class="disp">Abholen, wann<br><span class="chrome">es Ihnen passt.</span></h2><p class="sub">Flexible Abhol- und Rückgabezeiten, auch außerhalb unserer Öffnungszeiten.</p></div>
+    <div class="cap" data-a=".1" data-b=".5"><p class="k">Rund um die Uhr flexibel</p><h2 class="disp">Abholen, wann<br><span class="chrome">es Ihnen passt.</span></h2><p class="sub">Flexible Abhol- und Rückgabezeiten, auch außerhalb unserer Öffnungszeiten.</p></div>
+    <div class="cap" data-a=".56" data-b="1.1"><p class="k">Lieferung</p><h2 class="disp">Wir bringen ihn<br><span class="chrome">zu Ihnen.</span></h2><p class="sub">Schnelle Anlieferung in Berlin und auf Wunsch deutschlandweit, an Ihre Tür, ans Hotel oder zum Flughafen.</p></div>
   </div>
 </section>
 
@@ -354,7 +354,7 @@ footer a{text-decoration:none}footer nav{display:flex;gap:20px}
 </section>
 
 <section class="contact" id="kontakt" aria-labelledby="kTitle">
-  <div class="bg" id="kBg"></div>
+  <video class="bg" id="kBg" src="clips/sf90.mp4" poster="clips/sf90.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
   <div class="wrap">
     <p class="k">Kontakt</p>
     <h2 class="disp" id="kTitle" style="font-size:clamp(44px,8vw,120px);margin-top:14px">Wir freuen<br><span class="chrome">uns auf Sie.</span></h2>
@@ -413,7 +413,8 @@ class Film {
     this.c = canvas; this.x = canvas.getContext("2d", { alpha: false }); this.f = f; this.imgs = []; this.last = -1; this.want = 0;
     const port = innerHeight > innerWidth * 1.1 && f.mob;
     const src = port ? f.mob : f;
-    this.dir = src.dir; this.n = src.n; this.fx = src.fx ?? .5; this.ext = src.ext || "webp";
+    const hd = Math.max(innerWidth, innerHeight) * DPR >= 1700 || !src.sd;
+    this.dir = port ? src.dir : (hd ? src.dir : src.sd); this.n = src.n; this.fx = src.fx ?? .5; this.ext = src.ext || "webp";
     const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${this.dir}/f${String(i + 1).padStart(3, "0")}.${this.ext}`; im.onload = () => { if (Math.abs(i - this.want) < 3) this.last = -1; }; this.imgs[i] = im; };
     load(0);
     const order = []; for (let st = 8; st >= 1; st >>= 1) for (let i = 0; i < this.n; i += st) if (!order.includes(i)) order.push(i);
@@ -440,7 +441,7 @@ function drawHero() {
   caps1.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
   heroLogo.style.opacity = 1 - clamp(p / .16); heroLogo.style.transform = `scale(${1 + p * .6})`;
   hint.style.opacity = p > .02 ? 0 : 1;
-  const v = ease(clamp((p - .3) / .45)); psEl.textContent = Math.round(v * 1015).toLocaleString("de-DE"); meter.classList.toggle("on", p > .28 && p < .98);
+  const v = ease(clamp((p - .3) / .45)); psEl.textContent = Math.round(v * 1015).toLocaleString("de-DE"); meter.classList.toggle("on", p > .34 && p < .98);
 }
 function drawDrive() { const p = progress(drive); f2.draw(p); caps2.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b)); }
 
@@ -522,7 +523,7 @@ $("#form").addEventListener("submit", e => {
 });
 
 /* Kontakt-Hintergrund */
-if (window.CONTACT_BG) { const c = byId(window.CONTACT_BG.id); if (c) $("#kBg").style.backgroundImage = `url(${img(c, window.CONTACT_BG.img ?? 0, false)})`; }
+const kBg = $("#kBg"); new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { kBg.preload = "auto"; kBg.play().catch(() => {}); } else kBg.pause(); }), { rootMargin: "200px" }).observe(kBg);
 
 /* Rechtliches */
 const LEGAL = {
