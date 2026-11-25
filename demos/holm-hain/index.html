@@ -590,13 +590,6 @@ dialog.legal::backdrop{background:rgba(6,9,7,.75)}
 @media (max-width:900px){.toast{bottom:calc(var(--tab) + var(--sb) + 90px);border-radius:14px}}
 
 @media (prefers-reduced-motion:reduce){
-  #hero,#anfahrt{height:auto}
-  .stage{position:relative;height:auto;min-height:88svh}
-  .stage canvas{display:none}
-  .beat{position:relative;opacity:1;transform:none;display:none}
-  .beat.rm{display:block}
-  .beats>.wrap{min-height:0}
-  .chapters,.cue{display:none}
   *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
 }
 </style>
@@ -1268,7 +1261,7 @@ class Seq {
       if (this.onTick) this.onTick(this.p);
     } else {
       const target = this.p * (this.count - 1), d = target - this.cur;
-      this.cur = Math.abs(d) < .01 ? target : this.cur + d * .16;
+      this.cur = Math.abs(d) < .01 ? target : this.cur + d * .28;
     }
     if (this.beats) this.beats.forEach(b => b.classList.toggle('on', this.p >= +b.dataset.from && this.p < +b.dataset.to));
     if (this.chap) { let on = 0; this.chap.forEach((b, k) => { if (this.p >= +b.dataset.at - .02) on = k; }); this.chap.forEach((b, k) => b.classList.toggle('on', k === on)); }
@@ -1295,16 +1288,17 @@ function heroTick(p){
   const el = $('#heroTicker'); el.classList.add('fade');
   setTimeout(() => { el.innerHTML = '<b>' + TICKS[k][1] + '</b> · ' + TICKS[k][2]; el.classList.remove('fade'); }, 300);
 }
-if (!RM) {
+/* Die Filme laufen immer: sie bewegen sich nur, wenn man selbst scrollt (auch bei "Bewegung reduzieren"). */
+{
   const hero = PHONE
-    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/am', count:120, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad'), sheet:{ cols:4, rows:3, w:360, h:640 } })
+    ? new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/m', count:181, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') })
     : new Seq({ section: $('#hero'), stage: $('#heroStage'), canvas: $('#heroCanvas'), base:'seq/a', count:226, dur:15, beats: $$('#hero .beat'), chap: $$('#heroChap button'), tc: $('#heroTc'), load: $('#heroLoad') });
   hero.start(); films.push(hero);
   $$('#heroChap button').forEach(b => b.addEventListener('click', () => hero.jump(+b.dataset.at)));
   films.push(PHONE
-    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/bm', count:80, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), sheet:{ cols:4, rows:3, w:360, h:640 } })
+    ? new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/n', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc') })
     : new Seq({ section: $('#anfahrt'), stage: $('#anStage'), canvas: $('#anCanvas'), base:'seq/b', count:121, dur:10, beats: $$('#anfahrt .beat'), tc: $('#anTc'), focus:.42 }));
-} else $('#heroLoad').classList.add('done');
+}
 
 /* ================= haltung ================= */
 const stmt = $('#statement'), warm = new Set(['Eiche,','millimetergenau','denselben']);
