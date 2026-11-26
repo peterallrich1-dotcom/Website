@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allrich-webdesign.com/sitemap.xml

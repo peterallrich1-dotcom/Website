@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Haarstudio Ramazotti · Plauen</title>
+<meta name="description" content="Haarstudio Ramazotti in Plauen: einzigartig unverblümt mit Marc &amp; Team. Schneiden, Färben, Föhnen und Styling für Damen, Herren und Kinder. Forststraße 31, 08523 Plauen.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d120f">
+<link rel="preload" href="img/salon.webp" as="image">
+<style>
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
+:root{
+  --ink:#0d120f;--ink2:#151c17;--paper:#f4efe6;--paper2:#ebe3d5;--text:#1d1a15;--mute:#7d756a;--mute-l:#b0a898;
+  --c:#d39a63;--c2:#ecc59a;--green:#24382c;--line:rgba(255,255,255,.14);--line-d:rgba(29,26,21,.14);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1280px
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#f3efe8;font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+
+/* Kopfzeile */
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:300 22px/1 var(--serif);letter-spacing:.02em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font:600 9px/1 var(--sans);letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 48%,rgba(0,0,0,.75) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(800px,88vw);pointer-events:none;visibility:hidden;opacity:0;transition:opacity .45s,visibility 0s linear .45s;transform:translateZ(0)}
+.cap.on{visibility:visible;opacity:1;transition:opacity .45s,visibility 0s}
+.cap .k{color:var(--c2);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.98 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.cap h1 em,.cap h2 em{font-style:italic;color:var(--c2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.cap.on .w{opacity:1;transform:none}
+.cap p{margin:18px 0 0;max-width:470px;color:rgba(255,255,255,.78);font-size:clamp(15px,1.3vw,18px);opacity:0;transition:opacity .6s .35s}
+.cap.on p{opacity:1}
+.meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);display:flex;flex-direction:column;align-items:flex-end;gap:10px;font:500 10px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.7)}
+.meter .bar{width:120px;height:1px;background:rgba(255,255,255,.25);position:relative}
+.meter .bar i{position:absolute;inset:0 auto 0 0;background:var(--c);width:0}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .4s}
+@media(max-width:700px){.meter{display:none}}
+
+/* Heller Erzählteil */
+.paper{background:var(--paper);color:var(--text)}
+.story{position:relative;height:300vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(1000px,60vw);padding:0 var(--gut)}
+@media(max-width:760px){.story .txt{max-width:none}}
+.story .k{color:#8a5a2e}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(29,26,21,.15);transition:color .25s}
+.story p.big span.on{color:var(--text)}
+.story p.big em{font-style:italic}
+.glide{position:absolute;z-index:1;left:0;top:50%;width:min(34vw,480px);aspect-ratio:4/3;border-radius:6px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(29,26,21,.45);will-change:transform}
+.glide img{width:100%;height:100%;object-fit:cover}
+.glide .tag{position:absolute;left:14px;bottom:12px;background:rgba(244,239,230,.92);color:var(--text);padding:8px 12px;border-radius:4px;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:760px){.glide{width:78vw;top:auto;bottom:6vh}.story .pin{align-items:flex-start;padding-top:18vh}}
+
+/* Salon mit Klickpunkten */
+.salon{padding:clamp(80px,11vw,140px) 0}
+.salon .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.salon h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 0}
+.salon h2 em{font-style:italic;color:#8a5a2e}
+.salon .k{color:#8a5a2e}
+.facts{display:flex;gap:clamp(18px,4vw,48px)}
+.facts div{border-left:1px solid var(--line-d);padding-left:14px}
+.facts b{display:block;font:300 34px/1 var(--serif)}
+.facts span{font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.plan{position:relative;border-radius:6px;overflow:hidden}
+.plan img{width:100%;aspect-ratio:16/9;object-fit:cover;animation:kb 18s ease-in-out infinite alternate}
+.pt{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border:0;padding:0;border-radius:50%;background:transparent;cursor:pointer;opacity:0;transform:scale(.4);transition:opacity .5s,transform .5s}
+.pt::before{content:"";position:absolute;inset:9px;border-radius:50%;background:var(--c);box-shadow:0 0 0 6px rgba(211,154,99,.3);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 11px rgba(211,154,99,.12)}}
+.pt .lb{position:absolute;left:30px;top:50%;transform:translateY(-50%) scale(.96);white-space:nowrap;background:rgba(244,239,230,.96);color:var(--text);padding:9px 12px;border-radius:4px;font:600 10px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 24px -10px rgba(0,0,0,.4);text-align:left;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.pt .lb small{display:block;font:400 12px/1.35 var(--sans);letter-spacing:0;text-transform:none;color:var(--mute);margin-top:4px;white-space:normal;width:190px}
+.pt.l .lb{left:auto;right:30px}
+.pt.open .lb,.pt:hover .lb,.pt:focus-visible .lb{opacity:1;transform:translateY(-50%)}
+.pt:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.plan.in .pt{opacity:1;transform:none}
+.plan .note{position:absolute;right:12px;top:12px;background:rgba(0,0,0,.5);color:#fff;font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;padding:7px 10px;border-radius:4px}
+@media(max-width:600px){.facts{gap:14px}.facts b{font-size:26px;white-space:nowrap}.facts div{padding-left:10px}}
+.tip{margin:14px 0 0;color:var(--mute);font-size:13px}
+@media(max-width:700px){.pt .lb small{width:150px}}
+
+/* Leistungen */
+.svc{position:relative;height:330vh;background:var(--ink)}
+.svc .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.svc .head{padding:0 var(--gut);margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.svc h2{font:300 clamp(36px,5vw,74px)/1 var(--serif);margin:12px 0 0;letter-spacing:-.02em}
+.svc h2 em{font-style:italic;color:var(--c2)}
+.svc .k{color:var(--c2)}
+.svc .cnt{font:500 12px/1 var(--sans);letter-spacing:.2em;color:var(--mute-l)}
+.track{display:flex;gap:clamp(12px,1.6vw,22px);padding:0 var(--gut);will-change:transform}
+.card{flex:0 0 auto;width:clamp(250px,30vw,420px)}
+.card .im{aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:#111;position:relative}
+.card img{width:100%;height:100%;object-fit:cover;animation:kb 14s ease-in-out infinite alternate}
+.card:nth-child(2n) img{animation-name:kb2;animation-duration:17s}
+.card:nth-child(3n) img{animation-name:kb3;animation-duration:15s}
+.card .n{position:absolute;left:14px;top:12px;font:300 40px/1 var(--serif);color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+@keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.18) translate(-3%,-2%)}}
+@keyframes kb2{from{transform:scale(1.16) translate(2%,1%)}to{transform:scale(1.04) translate(-2%,0)}}
+@keyframes kb3{from{transform:scale(1.05) translate(-2%,2%)}to{transform:scale(1.17) translate(2%,-2%)}}
+.card b{display:block;margin-top:14px;font:300 26px/1.15 var(--serif)}
+.card p{margin:6px 0 0;color:var(--mute-l);font-size:14px;max-width:360px}
+
+/* Öffnungszeiten mit Klapptafel */
+.hours{padding:clamp(80px,11vw,140px) 0}
+.hours .k{color:#8a5a2e}
+.hours h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 18px}
+.hours h2 em{font-style:italic;color:#8a5a2e}
+.now{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-d);border-radius:999px;padding:9px 16px;font:600 13px/1 var(--sans);margin-bottom:34px}
+.now i{width:9px;height:9px;border-radius:50%;background:#b9b1a3}
+.now.open i{background:#2f9e5b;box-shadow:0 0 0 5px rgba(47,158,91,.18)}
+.board{background:var(--ink);border-radius:12px;padding:clamp(18px,3vw,34px);color:#fff;box-shadow:0 40px 80px -40px rgba(29,26,21,.6)}
+.day{display:grid;grid-template-columns:minmax(90px,150px) 1fr;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.day:last-child{border-bottom:0}
+.day > span{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute-l)}
+.day.today > span{color:var(--c2)}
+.flap{display:flex;gap:3px;flex-wrap:nowrap;min-width:0}
+.flap .c{position:relative;width:min(26px,calc((100% - 12 * 3px) / 13));aspect-ratio:3/4.2;background:#1b231e;border-radius:3px;display:grid;place-items:center;font:500 clamp(10px,1.6vw,18px)/1 var(--sans);color:#f3efe8;overflow:hidden;font-variant-numeric:tabular-nums}
+.flap .c::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.55)}
+.flap .c.fl{animation:flip .09s linear}
+@keyframes flip{0%{transform:scaleY(1)}50%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
+.flap.closed .c{color:#8f877b}
+.extra{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.extra span{border:1px solid var(--line-d);border-radius:999px;padding:8px 14px;font-size:13px;color:#5d564c}
+
+/* Stimmen */
+.voice{background:var(--green);padding:clamp(80px,11vw,140px) 0;text-align:center}
+.voice .k{color:var(--c2)}
+.voice blockquote{font:300 clamp(30px,4.6vw,68px)/1.08 var(--serif);letter-spacing:-.02em;margin:18px auto 0;max-width:980px}
+.voice blockquote em{font-style:italic;color:var(--c2)}
+.voice p{color:rgba(243,239,232,.7);margin:22px 0 0}
+.stars{font-size:22px;letter-spacing:.2em;color:var(--c2);margin-top:30px}
+
+/* Kontakt */
+.contact{background:var(--ink);padding:clamp(80px,11vw,140px) 0}
+.contact h2{font:300 clamp(40px,6vw,92px)/.95 var(--serif);letter-spacing:-.025em;margin:12px 0 18px}
+.contact h2 em{font-style:italic;color:var(--c2)}
+.contact .k{color:var(--c2)}
+.contact .lede{color:var(--mute-l);max-width:560px;margin:0 0 34px}
+.rows{border-top:1px solid var(--line)}
+.rw{display:grid;grid-template-columns:180px 1fr auto;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.rw .k{color:var(--mute-l)}
+.rw .val{font:300 clamp(20px,2.4vw,32px)/1.2 var(--serif);letter-spacing:-.01em}
+.rw .go{font:600 11px/1 var(--sans);letter-spacing:.2em;color:var(--c)}
+@media(max-width:760px){.rw{grid-template-columns:1fr;gap:6px}.rw .go{display:none}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent}
+.btn.g{background:var(--c);color:#20140a}
+.btn.o{border-color:var(--line);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(80px + env(safe-area-inset-bottom));color:var(--mute-l);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .demo{flex-basis:100%;color:#8f877b;font-size:12px}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(13,18,15,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--c2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.w,.rv{transition:none;opacity:1;transform:none;filter:none}.card img,.plan img,.pt::before{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#">Ramazotti<small>HAARSTUDIO · PLAUEN</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#salon">Salon</a> · <a href="#leistungen">Leistungen</a> · <a href="#zeiten">Zeiten</a></div>
+    <div><b>Zu finden</b>Forststraße 31, Plauen</div>
+    <div><b>Termin</b><a href="tel:+4937412893489">03741 289 34 89</a></div>
+  </div>
+  <a class="call" href="tel:+4937412893489">Termin</a>
+</header>
+
+<section class="hero" id="hero">
+  <div class="stage">
+    <canvas id="film" aria-label="Kamerafahrt durch das Haarstudio"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".2"><p class="k">Haarstudio Ramazotti · Plauen</p><h1>Einzigartig.<br><em>Unverblümt.</em></h1><p>Mit Marc &amp; Team, mitten in Plauen in der Forststraße.</p></div>
+    <div class="cap" data-a=".22" data-b=".42"><p class="k">Schneiden</p><h2>Ein Schnitt,<br><em>der zu Ihnen passt.</em></h2><p>Erst zuhören, dann schneiden. Ehrlich beraten, sauber gearbeitet.</p></div>
+    <div class="cap" data-a=".44" data-b=".62"><p class="k">Föhnen &amp; Styling</p><h2>Glanz, der<br><em>mitgeht.</em></h2><p>Vom schnellen Föhnen bis zum Styling für den großen Tag.</p></div>
+    <div class="cap" data-a=".64" data-b=".8"><p class="k">Herren</p><h2>Klare Linien,<br><em>exakte Übergänge.</em></h2><p>Kurz, modern oder klassisch. Mit Maschine und Schere.</p></div>
+    <div class="cap" data-a=".82" data-b="1.1"><p class="k">Farbe</p><h2>Farbe mit<br><em>Gefühl.</em></h2><p>Strähnen, Ansatz oder ganz neu. Abgestimmt auf Ihren Typ.</p></div>
+    <div class="meter"><span id="shot">01 / 05</span><div class="bar"><i id="bar"></i></div></div>
+    <div class="hint" id="hint">SCROLLEN</div>
+  </div>
+</section>
+
+<section class="paper story">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Über uns</p>
+      <p class="big" id="big">Bei uns gibt es keine Floskeln. Wir sagen Ihnen <em>ehrlich</em>, was zu Ihnen passt, und nehmen uns Zeit dafür. Damen, Herren und Kinder sind willkommen. Kommen Sie vorbei, setzen Sie sich, und gehen Sie mit einem Schnitt nach Hause, der wirklich zu Ihnen gehört.</p>
+    </div>
+    <div class="glide" id="glide"><img src="img/tools.webp" alt="Scheren, Kamm und Bürste auf einer Holztheke" loading="lazy"><span class="tag">Handwerk · Plauen</span></div>
+  </div>
+</section>
+
+<section class="paper salon" id="salon">
+  <div class="wrap">
+    <div class="head rv">
+      <div><p class="k">Der Salon</p><h2>Willkommen in<br><em>der Forststraße.</em></h2></div>
+      <div class="facts"><div><b>4,9</b><span>Sterne bei Google</span></div><div><b>Di–Sa</b><span>geöffnet</span></div><div><b>Nr. 31</b><span>Forststraße</span></div></div>
+    </div>
+    <div class="plan" id="plan">
+      <img src="img/salon.webp" alt="Salon mit zwei Friseurstühlen, runden Spiegeln und grünen Wänden" loading="lazy">
+      <span class="note">Beispielbild</span>
+      <button class="pt" style="left:34%;top:62%" type="button" aria-label="Ihr Platz"><span class="lb">Ihr Platz<small>Bequem sitzen, entspannen und in Ruhe beraten werden.</small></span></button>
+      <button class="pt l" style="left:72%;top:28%" type="button" aria-label="Beratung"><span class="lb">Ehrliche Beratung<small>Wir schauen gemeinsam in den Spiegel und besprechen, was zu Ihnen passt.</small></span></button>
+      <button class="pt" style="left:6%;top:24%" type="button" aria-label="Pflege"><span class="lb">Pflege für zu Hause<small>Wir empfehlen Ihnen nur, was Ihr Haar wirklich braucht.</small></span></button>
+      <button class="pt l" style="left:82%;top:78%" type="button" aria-label="Kinder"><span class="lb">Kinderfreundlich<small>Auch die Kleinen sind bei uns herzlich willkommen.</small></span></button>
+    </div>
+    <p class="tip rv">Tippen Sie auf die Punkte im Bild.</p>
+  </div>
+</section>
+
+<section class="svc" id="leistungen">
+  <div class="pin">
+    <div class="head"><div><p class="k">Leistungen</p><h2>Was wir für<br><em>Sie tun.</em></h2></div><span class="cnt" id="cnt">01 / 05</span></div>
+    <div class="track" id="track">
+      <div class="card"><div class="im"><img src="img/cut.webp" alt="Haarschnitt mit Schere und Kamm" loading="lazy"><span class="n">01</span></div><b>Damen</b><p>Waschen, Schneiden, Föhnen. Vom Spitzenschnitt bis zur neuen Frisur.</p></div>
+      <div class="card"><div class="im"><img src="img/fade.webp" alt="Herrenschnitt mit Übergang" loading="lazy"><span class="n">02</span></div><b>Herren &amp; Kinder</b><p>Klassisch, kurz oder mit sauberem Übergang. Auch für die Kleinen.</p></div>
+      <div class="card"><div class="im"><img src="img/color.webp" alt="Farbe wird mit Pinsel aufgetragen" loading="lazy"><span class="n">03</span></div><b>Farbe &amp; Strähnen</b><p>Ansatz, Tönung, Strähnen oder eine ganz neue Farbe.</p></div>
+      <div class="card"><div class="im"><img src="img/blow.webp" alt="Langes Haar wird geföhnt" loading="lazy"><span class="n">04</span></div><b>Föhnen &amp; Styling</b><p>Für den Alltag oder den besonderen Anlass.</p></div>
+      <div class="card"><div class="im"><img src="img/tools.webp" alt="Friseurwerkzeug auf Holz" loading="lazy"><span class="n">05</span></div><b>Pflege &amp; Beratung</b><p>Ehrliche Tipps und die richtige Pflege für Ihr Haar zu Hause.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="paper hours" id="zeiten">
+  <div class="wrap">
+    <p class="k rv">Öffnungszeiten</p>
+    <h2 class="rv">Wann wir<br><em>für Sie da sind.</em></h2>
+    <div class="now rv" id="now"><i></i><span id="nowt">Öffnungszeiten</span></div>
+    <div class="board rv" id="board"></div>
+    <div class="extra rv"><span>Terminvereinbarung empfohlen</span><span>Kinderfreundlich</span><span>Mitten in Plauen</span></div>
+  </div>
+</section>
+
+<section class="voice">
+  <div class="wrap">
+    <p class="k rv">Unser Motto</p>
+    <blockquote class="rv">„Einzigartig unverblümt<br><em>mit Marc &amp; Team.</em>“</blockquote>
+    <p class="rv">Ehrliche Beratung, gutes Handwerk und ein Salon, in dem man sich wohlfühlt.</p>
+    <div class="stars rv" aria-label="4,9 von 5 Sternen bei Google">★★★★★ <span style="font:600 12px var(--sans);letter-spacing:.1em;color:rgba(243,239,232,.75)">4,9 BEI GOOGLE</span></div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <p class="k rv">Termin</p>
+    <h2 class="rv">Rufen Sie<br><em>einfach an.</em></h2>
+    <p class="lede rv">Am schnellsten bekommen Sie Ihren Termin telefonisch. Wir freuen uns auf Sie.</p>
+    <div class="rows">
+      <a class="rw" href="tel:+4937412893489"><span class="k">Telefon</span><span class="val">03741 289 34 89</span><span class="go">ANRUFEN →</span></a>
+      <a class="rw" href="mailto:info@haarstudio-ramazotti.de"><span class="k">E-Mail</span><span class="val">info@haarstudio-ramazotti.de</span><span class="go">SCHREIBEN →</span></a>
+      <a class="rw" href="https://maps.google.com/?q=Haarstudio+Ramazotti,+Forststra%C3%9Fe+31,+08523+Plauen" target="_blank" rel="noopener"><span class="k">Adresse</span><span class="val">Forststraße 31, 08523 Plauen</span><span class="go">KARTE →</span></a>
+    </div>
+    <div class="cta rv"><a class="btn g" href="tel:+4937412893489">Termin vereinbaren</a><a class="btn o" href="https://maps.google.com/?q=Haarstudio+Ramazotti,+Forststra%C3%9Fe+31,+08523+Plauen" target="_blank" rel="noopener">Route planen</a></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© Haarstudio Ramazotti · Marc Schröder · Forststraße 31, 08523 Plauen</span><span>Impressum · Datenschutz</span><span class="demo">Designentwurf, nicht die offizielle Website. Die Bilder sind Beispielbilder und werden durch Fotos aus Ihrem Salon ersetzt.</span></div></footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Kostenloser Entwurf</b> von Allrich Webdesign</a>
+
+<script>
+(() => {
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const mob = matchMedia("(max-width: 760px)").matches;
+
+/* Wörter für die Einblendung zerlegen */
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => {
+        if (!p) return;
+        if (/^\s+$/.test(p)) { f.append(p); return; }
+        const s = document.createElement("span"); s.className = "w"; s.textContent = p; s.style.transitionDelay = (i++ * 70) + "ms"; f.append(s);
+      });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(h);
+});
+
+/* Kamerafahrten: jede Einstellung hat Start und Ziel für Zoom, Position und Neigung */
+const SZ = mob ? "-sd" : "";
+const SHOTS = [
+  { src: "img/salon", a: { s: 1.5, x: -.12, y: .1, r: -.02 }, b: { s: 1.06, x: 0, y: 0, r: 0 } },
+  { src: "img/cut", a: { s: 1.08, x: .06, y: .02, r: .01 }, b: { s: 1.36, x: -.06, y: -.04, r: -.01 } },
+  { src: "img/blow", a: { s: 1.42, x: .05, y: -.1, r: -.015 }, b: { s: 1.1, x: -.03, y: .03, r: .006 } },
+  { src: "img/fade", a: { s: 1.1, x: -.06, y: .03, r: .012 }, b: { s: 1.38, x: .05, y: -.04, r: -.008 } },
+  { src: "img/color", a: { s: 1.45, x: .04, y: .1, r: .018 }, b: { s: 1.1, x: 0, y: 0, r: 0 } }
+];
+const imgs = SHOTS.map(s => { const im = new Image(); im.src = s.src + SZ + ".webp"; im.decoding = "async"; return im; });
+const cv = document.getElementById("film"), ctx = cv.getContext("2d");
+const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".cap")];
+const bar = document.getElementById("bar"), shotEl = document.getElementById("shot"), hint = document.getElementById("hint");
+let W = 0, H = 0, DPR = 1;
+function size() { DPR = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * DPR; cv.height = H * DPR; }
+function drawShot(i, t, alpha, blur) {
+  const im = imgs[i]; if (!im.complete || !im.naturalWidth) return;
+  const sh = SHOTS[i], e = ease(t);
+  const s = lerp(sh.a.s, sh.b.s, e), x = lerp(sh.a.x, sh.b.x, e), y = lerp(sh.a.y, sh.b.y, e), r = lerp(sh.a.r, sh.b.r, e);
+  const cover = Math.max(W / im.naturalWidth, H / im.naturalHeight) * s;
+  const dw = im.naturalWidth * cover, dh = im.naturalHeight * cover;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  if (blur > .2 && "filter" in ctx) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+  ctx.translate(W / 2 + x * W * .5, H / 2 + y * H * .5); ctx.rotate(r);
+  ctx.drawImage(im, -dw / 2, -dh / 2, dw, dh);
+  ctx.restore();
+}
+function heroP() { const r = hero.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); }
+function render() {
+  const p = heroP(), n = SHOTS.length, seg = 1 / n, ov = seg * .16;
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+  const i = Math.min(n - 1, Math.floor(p * n));
+  for (let j = 0; j < n; j++) {
+    const st = j * seg - ov, en = (j + 1) * seg + ov;
+    if (p < st || p > en) continue;
+    const t = (p - st) / (en - st), a = j === 0 ? 1 : ease(clamp((p - st) / (2 * ov)));
+    drawShot(j, t, a, (1 - a) * 10);
+  }
+  const g = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * .35, W / 2, H / 2, Math.max(W, H) * .75);
+  g.addColorStop(0, "rgba(0,0,0,0)"); g.addColorStop(1, "rgba(0,0,0,.45)");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  let cur = -1; caps.forEach((c, k) => { if (p >= +c.dataset.a && p < +c.dataset.b) cur = k; });
+  caps.forEach((c, k) => { const on = k === cur; if (c.classList.contains("on") !== on) c.classList.toggle("on", on); });
+  bar.style.width = (p * 100) + "%";
+  shotEl.textContent = String(i + 1).padStart(2, "0") + " / 05";
+  hint.style.opacity = p > .02 ? 0 : 1;
+}
+
+/* Heller Erzählteil: Wörter färben sich, Bild gleitet durchs Bild */
+const big = document.getElementById("big");
+(() => {
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); s.textContent = p; f.append(s); });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1) walk(c);
+  });
+  walk(big);
+})();
+const words = [...big.querySelectorAll("span")], story = document.querySelector(".story"), glide = document.getElementById("glide");
+function renderStory() {
+  const r = story.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
+  const k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const m = innerWidth < 760;
+  const q = p * p * (3 - 2 * p), x = m ? lerp(innerWidth * .9, -glide.offsetWidth * .9, q) : lerp(innerWidth * 1.02, innerWidth * .6, q);
+  const y = m ? 0 : -.5 * glide.offsetHeight + Math.sin(p * Math.PI) * -30;
+  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(4, -3, p)}deg)`;
+}
+
+/* Leistungen horizontal */
+const svc = document.querySelector(".svc"), track = document.getElementById("track"), cnt = document.getElementById("cnt");
+const NC = track.children.length;
+function renderSvc() {
+  const r = svc.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
+  const max = Math.max(0, track.scrollWidth - innerWidth);
+  track.style.transform = `translate3d(${-max * ease(p)}px,0,0)`;
+  cnt.textContent = String(Math.min(NC, 1 + Math.round(p * (NC - 1)))).padStart(2, "0") + " / " + String(NC).padStart(2, "0");
+}
+
+/* Klickpunkte */
+const pts = [...document.querySelectorAll(".pt")];
+pts.forEach(b => b.addEventListener("click", e => { e.stopPropagation(); const o = b.classList.contains("open"); pts.forEach(x => x.classList.remove("open")); if (!o) b.classList.add("open"); }));
+document.addEventListener("click", () => pts.forEach(x => x.classList.remove("open")));
+
+/* Öffnungszeiten als Klapptafel, mit Live-Status */
+const DAYS = [["Montag", null], ["Dienstag", [9.25, 18.25]], ["Mittwoch", [9.25, 18.25]], ["Donnerstag", [9.25, 18.25]], ["Freitag", [9.25, 18.25]], ["Samstag", [9.25, 12.25]], ["Sonntag", null]];
+const fmt = h => String(Math.floor(h)).padStart(2, "0") + ":" + String(Math.round(h % 1 * 60)).padStart(2, "0");
+const board = document.getElementById("board");
+const LEN = 13;
+const now = new Date(), wd = (now.getDay() + 6) % 7, hr = now.getHours() + now.getMinutes() / 60;
+DAYS.forEach(([d, t], i) => {
+  const txt = (t ? fmt(t[0]) + " – " + fmt(t[1]) : "GESCHLOSSEN").padEnd(LEN, " ").slice(0, LEN);
+  const row = document.createElement("div"); row.className = "day" + (i === wd ? " today" : "");
+  row.innerHTML = `<span>${d}</span><div class="flap${t ? "" : " closed"}" data-t="${txt}" aria-label="${t ? fmt(t[0]) + " bis " + fmt(t[1]) + " Uhr" : "geschlossen"}">${[...Array(LEN)].map(() => '<span class="c" aria-hidden="true"> </span>').join("")}</div>`;
+  board.append(row);
+});
+const today = DAYS[wd][1], isOpen = today && hr >= today[0] && hr < today[1];
+document.getElementById("now").classList.toggle("open", !!isOpen);
+document.getElementById("nowt").textContent = isOpen ? "Jetzt geöffnet bis " + fmt(today[1]) + " Uhr" : "Gerade geschlossen";
+const CH = " 0123456789:–ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function flipAll() {
+  board.querySelectorAll(".flap").forEach((f, r) => {
+    const target = f.dataset.t, cells = [...f.children];
+    cells.forEach((c, i) => {
+      const goal = target[i] || " ";
+      let steps = 6 + ((i * 3 + r * 5) % 9), n = 0;
+      const tick = () => {
+        if (n >= steps) { c.textContent = goal; c.classList.remove("fl"); return; }
+        c.textContent = CH[(Math.random() * CH.length) | 0];
+        c.classList.remove("fl"); void c.offsetWidth; c.classList.add("fl");
+        n++; setTimeout(tick, 55 + r * 6);
+      };
+      setTimeout(tick, i * 35 + r * 90);
+    });
+  });
+}
+
+/* Einblenden beim Scrollen */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("in");
+  if (e.target.id === "board") flipAll();
+  io.unobserve(e.target);
+}), { threshold: .2 });
+document.querySelectorAll(".rv,#plan").forEach(el => io.observe(el));
+
+let ticking = false;
+function frame() { ticking = false; render(); renderStory(); renderSvc(); }
+addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+addEventListener("resize", () => { size(); frame(); });
+imgs.forEach(im => im.addEventListener("load", frame));
+size(); frame();
+})();
+</script>
+</body>
+</html>

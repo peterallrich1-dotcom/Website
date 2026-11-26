@@ -1,0 +1,159 @@
+{
+ "name": "Architekt Dieter Ankerne",
+ "brand": "Ankerne",
+ "brandSub": "Architekt · Energieberater",
+ "accent": "#b9c6d6",
+ "accentDark": "#3c5670",
+ "source": "architekt-ankerne.de",
+ "sourceUrl": "https://www.architekt-ankerne.de",
+ "cta": "Projekt besprechen",
+ "hero": {
+  "eyebrow": "Architekt und Energieberater · Puchheim bei München",
+  "head": "Ihr Partner für\n*individuelles Bauen.*",
+  "intro": "Wohnanlagen, Einfamilienhäuser und öffentliche Bauten in München und Umgebung. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°09′N · 11°21′E · Puchheim",
+  "ch": [
+   [
+    "Wohnhäuser",
+    "Vom Einfamilienhaus bis zur Wohnanlage mit *140 Einheiten.*",
+    "Ihre Projekte als Rundgang, so wie Sie es auf Ihrer Seite ankündigen."
+   ],
+   [
+    "Räume",
+    "Individuell *geplant.*",
+    "Jedes Haus mit Bildern, Lage und Leistungsphasen."
+   ],
+   [
+    "Öffentliche Bauten",
+    "Für Kammern, Innungen und *Kommunen.*",
+    "Vom Bildungszentrum bis zum Lechtalbad in Kaufering."
+   ],
+   [
+    "Energie",
+    "Sanieren mit dem *Energieberater.*",
+    "Energetische Sanierung als eigener Schwerpunkt."
+   ],
+   [
+    "Architekt Dieter Ankerne",
+    "Ein Seminargebäude mit *BDA-Preis*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Das Büro",
+  "head": "Wohnhäuser, Geschäftshäuser, *öffentliche Bauten.*",
+  "text": [
+   "Dieter Ankerne plant als Architekt und Energieberater Wohnanlagen, Einfamilienhäuser und Bauten für öffentliche Bauherren, in München, im Umland und darüber hinaus.",
+   "Zu den Auftraggebern gehören die Handwerkskammer für München und Oberbayern und die Kaminkehrerinnung. Das Seminargebäude in München wurde mit einem BDA-Preis ausgezeichnet."
+  ],
+  "facts": [
+   [
+    "140",
+    "Einheiten in der Wohnanlage Appenzellerstraße, München"
+   ],
+   [
+    "107",
+    "Reihen- und Doppelhäuser an der Haffstraße, München"
+   ],
+   [
+    "BDA",
+    "Preis für das Seminargebäude in München"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Projekte",
+  "eyebrow": "Eine Auswahl",
+  "head": "Gebaut in *München und Umgebung*",
+  "lead": "Projektnamen und Orte laut architekt-ankerne.de.",
+  "items": [
+   {
+    "status": "Wohnen",
+    "name": "Wohnanlage mit 140 Einheiten",
+    "place": "Appenzellerstraße · München",
+    "text": "Eine der größten Wohnanlagen des Büros."
+   },
+   {
+    "status": "Wohnen",
+    "name": "107 Reihen- und Doppelhäuser",
+    "place": "Haffstraße / Wasserburger Landstraße · München",
+    "text": "Neubau eines ganzen Quartiers."
+   },
+   {
+    "status": "Wohnen",
+    "name": "Wohnanlage mit 42 Wohnungen und Tiefgarage",
+    "place": "Münchner Straße 61 · Kirchseeon",
+    "text": "Neubau."
+   },
+   {
+    "status": "Öffentlich",
+    "name": "Seminargebäude",
+    "place": "München",
+    "text": "Neubau, ausgezeichnet mit einem BDA-Preis."
+   },
+   {
+    "status": "Öffentlich",
+    "name": "Lechtalbad mit Sauna und Dampfbad",
+    "place": "Kaufering",
+    "text": "Ausbau des Bades."
+   },
+   {
+    "status": "Sanierung",
+    "name": "Sechsgeschossiges Bestandsgebäude",
+    "place": "Heimgartenstraße 21 · München",
+    "text": "Energetische Sanierung."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitsatz",
+  "quote": "Ihr Partner für *individuelles Bauen.*",
+  "points": [
+   [
+    "Wohnungsbau",
+    "Von der Doppelhaushälfte bis zur großen Wohnanlage."
+   ],
+   [
+    "Öffentliche Bauherren",
+    "Bildungszentren, Krankenhaus, Bad."
+   ],
+   [
+    "Energieberatung",
+    "Energetische Sanierung von Bestandsgebäuden."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Planen, bauen, *sanieren.*",
+  "lead": "Für private und öffentliche Bauherren.",
+  "items": [
+   [
+    "Wohnhäuser",
+    "Einfamilienhäuser, Doppel- und Reihenhäuser, Wohnanlagen."
+   ],
+   [
+    "Geschäftshäuser und öffentliche Bauten",
+    "Bildungszentren, Gewerbeparks, Seminargebäude."
+   ],
+   [
+    "Energieberatung",
+    "Sanierungskonzepte und energetische Sanierung."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Sprechen wir über Ihr *Projekt.*",
+  "address": [
+   "Birkenstraße 34 a",
+   "82178 Puchheim"
+  ],
+  "phone": "089 89 02 78 48",
+  "email": "Architekt-ankerne@t-online.de",
+  "topics": [
+   "Neubau Wohnhaus",
+   "Wohnanlage",
+   "Sanierung",
+   "Energieberatung"
+  ]
+ }
+}

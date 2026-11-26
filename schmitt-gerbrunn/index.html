@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Klaus Schmitt GmbH · Maler, Verputzer und Stuck in Gerbrunn bei Würzburg</title>
+<meta name="description" content="Klaus Schmitt GmbH aus Gerbrunn bei Würzburg: Malerarbeiten innen und außen, Fassaden, Verputz, Stuck und Tapezieren.">
+<meta name="theme-color" content="#0a0a0b">
+<style>
+@font-face{font-family:"Anton";src:url(/allrich/fonts/anton-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(/allrich/fonts/manrope-latin-400-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(/allrich/fonts/manrope-latin-500-normal.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(/allrich/fonts/manrope-latin-600-normal.woff2) format("woff2");font-display:swap}
+:root{
+  --bg:#0a0a0b;--bg2:#121214;--bg3:#1a1a1d;--white:#f5f4f1;--mute:#a3a3a8;--mute-d:#6b6b70;
+  --or:#ffb81c;--or2:#ffcd57;--or-soft:rgba(255,184,28,.13);--red:#e2453c;--blue:#3b82e6;--line:rgba(245,244,241,.12);
+  --f-h:"Anton","Impact","Arial Narrow",sans-serif;--f-b:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:clamp(16px,4.5vw,64px);--max:1240px;--r:18px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--white);font:16px/1.6 var(--f-b);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+/* Kopfzeile */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:12px;transition:background .3s,backdrop-filter .3s}
+.hdr.solid{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:2px;text-decoration:none;font-family:var(--f-h);font-size:26px;letter-spacing:.04em;line-height:1}
+.logo svg{width:16px;height:24px;margin:0 2px}
+.logo small{font-family:var(--f-b);font-weight:600;font-size:11px;letter-spacing:.32em;color:var(--mute);margin-left:10px}
+.hdr nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.hdr nav a{text-decoration:none;color:var(--mute);transition:color .2s}
+.hdr nav a:hover{color:var(--white)}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 22px;font:600 15px var(--f-b);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.or{background:var(--or);color:#140a02}
+.btn.or:hover{background:var(--or2)}
+.btn.ghost{border-color:var(--line);color:var(--white)}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn svg{width:18px;height:18px}
+@media(max-width:860px){.hdr nav{display:none}.logo small{display:none}.hdr .btn{padding:10px 16px;font-size:14px}}
+/* Film */
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(40px,9vh,96px);max-width:620px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cap.on{opacity:1;transform:none}
+.cap .k{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.cap h2,.cap h1{font-family:var(--f-h);font-weight:400;font-size:clamp(40px,6.4vw,84px);line-height:.98;margin:10px 0 0;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+.cap p{margin:14px 0 0;color:var(--mute);font-size:clamp(15px,1.4vw,18px);max-width:460px}
+.cap.end{pointer-events:auto}
+.cap .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute-d);transition:opacity .4s}
+.hint i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--or),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(orientation:portrait){.cap{bottom:clamp(64px,10vh,96px)}.hint{display:none}}
+.draft{transition:opacity .4s}.draft.hide{opacity:0;pointer-events:none}
+/* Abschnitte */
+section{padding:clamp(72px,11vw,140px) 0}
+.kick{font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--or)}
+.h{font-family:var(--f-h);font-weight:400;text-transform:uppercase;font-size:clamp(38px,5.6vw,72px);line-height:1;margin:12px 0 0;text-wrap:balance}
+.lead{color:var(--mute);font-size:clamp(16px,1.5vw,19px);max-width:620px;margin:18px 0 0}
+.grid{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.card:hover{border-color:rgba(255,184,28,.5);transform:translateY(-3px)}
+.card .ic{width:46px;height:46px;border-radius:12px;background:var(--or-soft);display:grid;place-items:center;margin-bottom:18px}
+.card .ic svg{width:24px;height:24px;stroke:var(--or)}
+.card h3{margin:0;font-size:20px;font-weight:600}
+.card p{margin:8px 0 0;color:var(--mute);font-size:15px}
+.card .n{position:absolute;right:18px;top:14px;font-family:var(--f-h);font-size:44px;color:rgba(255,255,255,.05)}
+/* Eine Hand */
+.one{background:linear-gradient(180deg,var(--bg),#0f0d07 50%,var(--bg))}
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,90px);align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.checks li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.checks svg{flex:none;width:24px;height:24px;margin-top:2px}
+.big{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,4vw,44px);text-align:center}
+.big .num{font-family:var(--f-h);font-size:clamp(84px,12vw,140px);line-height:1;color:var(--or)}
+.stars{display:flex;justify-content:center;gap:6px;margin:10px 0 6px}
+.stars svg{width:26px;height:26px;fill:var(--or)}
+.big p{margin:6px 0 0;color:var(--mute)}
+/* Stimmen */
+.quotes{display:grid;gap:16px;margin-top:44px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.q{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;display:flex;flex-direction:column;gap:16px}
+.q .stars{justify-content:flex-start;margin:0}
+.q .stars svg{width:18px;height:18px}
+.q blockquote{margin:0;font-size:18px;line-height:1.55}
+.q cite{font-style:normal;font-size:13px;color:var(--mute-d);margin-top:auto}
+.src{margin-top:18px;font-size:13px;color:var(--mute-d)}
+.src a{color:var(--mute)}
+/* Ablauf */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:44px;counter-reset:s}
+.step{border-top:2px solid var(--or);padding-top:18px}
+.step b{display:block;font-family:var(--f-h);font-weight:400;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.step span{color:var(--mute);font-size:15px}
+/* Kontakt */
+.contact{background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(255,184,28,.14),transparent 70%),var(--bg)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px}
+@media(max-width:860px){.cbox{grid-template-columns:1fr}}
+.tile{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;text-decoration:none;display:flex;gap:18px;align-items:center;transition:border-color .3s}
+a.tile:hover{border-color:var(--or)}
+.tile .ic{flex:none;width:52px;height:52px;border-radius:14px;background:var(--or);display:grid;place-items:center}
+.tile .ic svg{width:24px;height:24px;stroke:#140a02}
+.tile small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute-d);font-weight:600}
+.tile strong{display:block;font-size:clamp(19px,2vw,24px);font-weight:600;margin-top:2px;overflow-wrap:anywhere}
+.area{margin-top:16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--bg2);display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:860px){.area{grid-template-columns:1fr}}
+.area .map{min-height:280px;position:relative;background:#0e0e10}
+.area .map svg{position:absolute;inset:0;width:100%;height:100%}
+.area .txt{padding:28px 26px}
+.area h3{margin:0;font-size:22px}
+.area p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:34px 0 calc(34px + env(safe-area-inset-bottom));color:var(--mute-d);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+footer a{color:var(--mute);text-decoration:none}
+.draft{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom));z-index:60;background:rgba(18,18,20,.92);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:12.5px;color:var(--mute);backdrop-filter:blur(8px);white-space:nowrap}
+.draft b{color:var(--white);font-weight:600}
+.draft a{color:var(--or);text-decoration:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.cap{transition:none}html{scroll-behavior:auto}}
+</style>
+<style>
+.logo .sw{display:inline-block;width:30px;height:16px;margin-right:10px}
+.logo b{font-weight:400}
+.hl{background:linear-gradient(90deg,var(--red),var(--or),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <a class="logo" href="#top" aria-label="Klaus Schmitt GmbH, zum Anfang"><svg class="sw" viewBox="0 0 30 16" aria-hidden="true" fill="none" stroke-width="3" stroke-linecap="round"><path d="M2 14C6 4 24 4 28 14" stroke="#e2453c"/><path d="M7 14c3-6 13-6 16 0" stroke="#ffb81c"/><path d="M12 14c1.5-3 4.5-3 6 0" stroke="#3b82e6"/></svg><b>KLAUS SCHMITT</b><small>GMBH · GERBRUNN</small></a>
+  <nav aria-label="Hauptmenü"><a href="#leistungen">Leistungen</a><a href="#betrieb">Unternehmen</a><a href="#ablauf">Ablauf</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn or" href="tel:+49931706951"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+</header>
+
+<div class="hero" id="top">
+  <div class="stage">
+    <canvas id="film" aria-hidden="true"></canvas>
+    <div class="cap" data-a="0" data-b=".18"><div class="k">Klaus Schmitt GmbH · Gerbrunn bei Würzburg</div><h1>Farbe, die bleibt.</h1><p>Ihr Maler-, Verputzer- und Stuckbetrieb vor den Toren Würzburgs.</p></div>
+    <div class="cap" data-a=".22" data-b=".44"><div class="k">Verputz</div><h2>Erst der Grund. Dann die Farbe.</h2><p>Wir bereiten jede Fläche sorgfältig vor, damit das Ergebnis lange hält.</p></div>
+    <div class="cap" data-a=".47" data-b=".64"><div class="k">Malerarbeiten</div><h2>Innen wie außen.</h2><p>Wohnräume, Treppenhäuser und Fassaden, sauber und in Ihrer Wunschfarbe gestrichen.</p></div>
+    <div class="cap" data-a=".67" data-b=".8"><div class="k">Stuck</div><h2>Details, die man sieht.</h2><p>Gesimse, Faschen und Stuckelemente geben Ihrem Haus Charakter.</p></div>
+    <div class="cap end" data-a=".86" data-b="1.1"><div class="k">Jetzt anfragen</div><h2>Ihr Maler bei Würzburg.</h2><div class="row"><a class="btn or" href="tel:+49931706951">0931 70 69 51</a><a class="btn ghost" href="#leistungen">Leistungen ansehen</a></div></div>
+    <div class="hint" id="hint">Scrollen<i></i></div>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Leistungen</div><h2 class="h">Was wir für Sie machen</h2><p class="lead">Vom frischen Anstrich im Wohnzimmer bis zur kompletten Fassade: Wir übernehmen Maler-, Putz- und Stuckarbeiten aus einer Hand.</p></div>
+    <div class="grid">
+      <div class="card rv"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="6" rx="1.5"/><path d="M17 6h3v5h-8v3"/><rect x="10.5" y="14" width="3" height="7" rx="1"/></svg></div><h3>Malerarbeiten innen</h3><p>Wände, Decken, Türen und Treppenhäuser, ordentlich abgeklebt und sauber gestrichen.</p></div>
+      <div class="card rv"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21H3z"/><path d="M8 13h3v3H8zM13 13h3v3h-3z"/></svg></div><h3>Fassaden</h3><p>Ein neuer Anstrich schützt Ihr Haus und lässt es wieder wie neu aussehen.</p></div>
+      <div class="card rv"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15 15 4l5 5L9 20H4z"/><path d="M13 6l5 5"/></svg></div><h3>Verputz</h3><p>Innen- und Außenputz, Ausbesserungen und glatte Flächen als Grundlage für jeden Anstrich.</p></div>
+      <div class="card rv"><span class="n">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M5 6v3h14V6M7 9v2h10V9"/><circle cx="12" cy="17" r="3"/></svg></div><h3>Stuck</h3><p>Stuckarbeiten und Zierelemente, neu gestaltet oder fachgerecht ausgebessert.</p></div>
+      <div class="card rv"><span class="n">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="11" height="18" rx="1"/><path d="M15 6h3a2 2 0 0 1 2 2v12"/><path d="M7 8h5M7 12h5"/></svg></div><h3>Tapezieren</h3><p>Tapeten, Raufaser und Vlies, sauber verklebt und auf Stoß gesetzt.</p></div>
+      <div class="card rv"><span class="n">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18c1.5 0 2-1 2-2s-1-1.5-1-2.5S14 15 15 15h2a4 4 0 0 0 4-4"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7.5" r="1"/></svg></div><h3>Farbberatung</h3><p>Sie wissen noch nicht, welcher Ton passt? Wir beraten Sie gern vor Ort.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="one" id="betrieb">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="kick">Unternehmen</div>
+      <h2 class="h">Ihr Betrieb<br>aus Gerbrunn.</h2>
+      <p class="lead">Die Klaus Schmitt GmbH ist Ihr Maler-, Verputzer- und Stuckbetrieb in Gerbrunn, direkt vor den Toren Würzburgs. Ob Wohnung, Einfamilienhaus oder Gewerbe: Sie haben einen festen Ansprechpartner von der Beratung bis zur Abnahme.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffb81c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Maler, Putz und Stuck aus einer Hand</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffb81c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Persönliche Beratung vor Ort</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffb81c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Sauberes Arbeiten, auch in bewohnten Räumen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="#ffb81c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Kurze Wege in Würzburg und Umgebung</li>
+      </ul>
+    </div>
+    <div class="big rv">
+      <svg viewBox="0 0 120 64" style="width:150px;margin:0 auto 12px" fill="none" stroke-width="9" stroke-linecap="round" aria-hidden="true"><path d="M8 58C20 8 100 8 112 58" stroke="#e2453c"/><path d="M28 58c8-30 56-30 64 0" stroke="#ffb81c"/><path d="M48 58c3-12 21-12 24 0" stroke="#3b82e6"/></svg>
+      <div style="font-family:var(--f-h);font-size:clamp(38px,5vw,56px);line-height:1;text-transform:uppercase">Klaus Schmitt</div>
+      <p style="letter-spacing:.24em;text-transform:uppercase;font-size:12px;font-weight:600;margin-top:10px">Maler · Verputzer · Stuck</p>
+      <p>Gieshügeler Straße 75 · 97218 Gerbrunn</p>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="wrap">
+    <div class="rv"><div class="kick">So einfach geht's</div><h2 class="h">In drei Schritten</h2></div>
+    <div class="steps">
+      <div class="step rv"><b>1. Anrufen</b><span>Sie erzählen uns kurz, was gemacht werden soll.</span></div>
+      <div class="step rv"><b>2. Beratung</b><span>Wir schauen uns alles vor Ort an und erstellen Ihnen ein Angebot.</span></div>
+      <div class="step rv"><b>3. Fertig</b><span>Wir streichen, putzen oder stuckieren sauber und hinterlassen alles ordentlich.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv"><div class="kick">Kontakt</div><h2 class="h">Rufen Sie uns an</h2><p class="lead">Am schnellsten erreichen Sie uns telefonisch oder per E-Mail. Wir melden uns schnellstmöglich bei Ihnen.</p></div>
+    <div class="cbox">
+      <a class="tile rv" href="tel:+49931706951"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Telefon</small><strong>0931 70 69 51</strong></span></a>
+      <a class="tile rv" href="mailto:maler@schmitt-gerbrunn.de"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>E-Mail</small><strong>maler@schmitt-gerbrunn.de</strong></span></a>
+      <div class="tile rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg></span><span><small>Fax</small><strong>0931 70 12 52</strong></span></div>
+      <a class="tile rv" href="https://www.google.com/maps/dir/?api=1&destination=Giesh%C3%BCgeler+Stra%C3%9Fe+75,+97218+Gerbrunn" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Adresse</small><strong>Gieshügeler Str. 75, 97218 Gerbrunn</strong></span></a>
+    </div>
+    <div class="area rv">
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="g" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffb81c" stop-opacity=".3"/><stop offset="1" stop-color="#ffb81c" stop-opacity="0"/></radialGradient></defs>
+          <g stroke="rgba(245,244,241,.08)" fill="none"><path d="M0 80 600 60M0 160 600 190M0 260 600 240M120 0 90 340M260 0 300 340M430 0 400 340M520 0 560 340"/><path d="M0 230C120 210 160 120 240 150S360 280 600 250" stroke="rgba(120,170,255,.25)" stroke-width="6"/></g>
+          <circle cx="210" cy="190" r="8" fill="rgba(245,244,241,.5)"/><text x="160" y="222" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="13">Würzburg</text>
+          <circle cx="360" cy="150" r="130" fill="url(#g)"/>
+          <circle cx="360" cy="150" r="9" fill="#ffb81c"/><circle cx="360" cy="150" r="18" fill="none" stroke="#ffb81c" stroke-opacity=".5"/>
+          <text x="378" y="142" fill="#f5f4f1" font-family="Manrope,sans-serif" font-size="15" font-weight="600">Klaus Schmitt GmbH</text>
+          <text x="378" y="162" fill="#a3a3a8" font-family="Manrope,sans-serif" font-size="12">Gerbrunn</text>
+        </svg>
+      </div>
+      <div class="txt"><h3>Für Würzburg und Umgebung</h3><p>Unser Betrieb sitzt in Gerbrunn, nur wenige Minuten von Würzburg entfernt. Von hier aus sind wir schnell bei Ihnen.</p><p style="margin-top:18px"><a class="btn or" href="tel:+49931706951">Jetzt anrufen</a></p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Klaus Schmitt GmbH · Gieshügeler Straße 75 · 97218 Gerbrunn</span>
+    <span><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></span>
+  </div>
+</footer>
+
+<div class="draft hide">Kostenloser <b>Entwurf</b> von <a href="https://allrich-webdesign.com" target="_blank" rel="noopener">Allrich Webdesign</a></div>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>innerHeight*5.6),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* Scroll-Film: Fassade wird gezeichnet, verputzt, gestrichen und mit Stuck verziert */
+(()=>{
+const draft=document.querySelector('.draft'),cv=document.getElementById('film'),cx=cv.getContext('2d'),hero=document.querySelector('.hero'),caps=[...document.querySelectorAll('.cap')],hint=document.getElementById('hint');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,WH='rgba(245,244,241,';
+let W=0,H=0,D=1,S=1,OX=0,OY=0,cur=0,tgt=0;
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;const port=H>W;
+  S=Math.min(W*(port?1:.5),H*(port?.62:1))/1000*(port?1.05:.92);OX=W*(port||W<900?.5:.68)-500*S;OY=H*(port?.38:.5)-500*S;}
+size();addEventListener('resize',size);
+const cl=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),seg=(p,a,b)=>cl((p-a)/(b-a)),ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const X=x=>OX+x*S,Y=y=>OY+y*S;
+function poly(pts,f,col,w){if(f<=0)return;let L=0;const ls=[];for(let i=1;i<pts.length;i++){const l=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);ls.push(l);L+=l;}
+  let r=L*cl(f);cx.beginPath();cx.moveTo(X(pts[0][0]),Y(pts[0][1]));for(let i=1;i<pts.length&&r>0;i++){const k=Math.min(1,r/ls[i-1]);cx.lineTo(X(pts[i-1][0]+(pts[i][0]-pts[i-1][0])*k),Y(pts[i-1][1]+(pts[i][1]-pts[i-1][1])*k));r-=ls[i-1];}
+  cx.strokeStyle=col;cx.lineWidth=w*S;cx.lineCap='round';cx.lineJoin='round';cx.stroke();}
+// Fassade: Wand 250..750 x 380..780, Dach bis 230
+const FX=250,FY=380,FW=500,FH=400;
+const outline=[[150,780],[850,780],[750,780],[750,380],[500,230],[250,380],[250,780]];
+const wins=[[300,430,110,120],[445,430,110,120],[590,430,110,120],[300,610,110,120],[590,610,110,120]];
+const door=[452,610,96,170];
+// Putz-Rauschen vorbereiten
+const noise=document.createElement('canvas');noise.width=noise.height=160;{const n=noise.getContext('2d'),d=n.createImageData(160,160);for(let i=0;i<d.data.length;i+=4){const v=200+Math.random()*40|0;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=38;}n.putImageData(d,0,0);}
+function clipFacade(){cx.beginPath();cx.moveTo(X(250),Y(780));cx.lineTo(X(250),Y(380));cx.lineTo(X(500),Y(230));cx.lineTo(X(750),Y(380));cx.lineTo(X(750),Y(780));cx.closePath();
+  wins.forEach(([x,y,w,h])=>{cx.moveTo(X(x),Y(y));cx.lineTo(X(x),Y(y+h));cx.lineTo(X(x+w),Y(y+h));cx.lineTo(X(x+w),Y(y));cx.closePath();});
+  const [dx,dy,dw,dh]=door;cx.moveTo(X(dx),Y(dy));cx.lineTo(X(dx),Y(dy+dh));cx.lineTo(X(dx+dw),Y(dy+dh));cx.lineTo(X(dx+dw),Y(dy));cx.closePath();cx.clip('evenodd');}
+function roller(x,y,a){cx.save();cx.globalAlpha*=a;cx.translate(X(x),Y(y));cx.fillStyle='#ffb81c';cx.strokeStyle='rgba(20,14,4,.6)';cx.lineWidth=1.5*S;
+  cx.beginPath();cx.roundRect(-46*S,-12*S,92*S,24*S,10*S);cx.fill();cx.stroke();
+  cx.strokeStyle=WH+'.9)';cx.lineWidth=4*S;cx.beginPath();cx.moveTo(46*S,0);cx.lineTo(60*S,0);cx.lineTo(60*S,40*S);cx.lineTo(20*S,58*S);cx.lineTo(20*S,110*S);cx.stroke();
+  cx.fillStyle='#2a2a2e';cx.beginPath();cx.roundRect(12*S,100*S,16*S,60*S,6*S);cx.fill();cx.restore();}
+function draw(p,time){
+  cx.setTransform(D,0,0,D,0,0);cx.clearRect(0,0,W,H);
+  const pt=ease(seg(p,.47,.66)),fin=ease(seg(p,.8,.96));
+  const bg=cx.createRadialGradient(W/2,H*.48,0,W/2,H*.48,Math.max(W,H)*.75);bg.addColorStop(0,`rgba(${30+30*pt|0},${26+22*pt|0},${14+4*pt|0},1)`);bg.addColorStop(.55,'#0d0c0a');bg.addColorStop(1,'#060606');cx.fillStyle=bg;cx.fillRect(0,0,W,H);
+  cx.strokeStyle='rgba(255,255,255,.035)';cx.lineWidth=1;const gs=67*S;for(let x=OX%gs;x<W;x+=gs){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke();}for(let y=OY%gs;y<H;y+=gs){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();}
+  cx.save();const sc=1-.28*fin;cx.translate(X(500),Y(500));cx.scale(sc,sc);cx.translate(-X(500),-Y(500)-120*fin*S);cx.globalAlpha=1-.8*fin;
+  // 0 Skizze (gestrichelt, damit der Anfang nicht leer ist)
+  {const k=1-seg(p,.1,.22);if(k>0){cx.save();cx.setLineDash([6*S,8*S]);cx.globalAlpha*=.35*k;cx.strokeStyle=WH+'1)';cx.lineWidth=1.5*S;cx.beginPath();outline.forEach(([x,y],i)=>i?cx.lineTo(X(x),Y(y)):cx.moveTo(X(x),Y(y)));cx.stroke();wins.concat([door]).forEach(([x,y,w,h])=>cx.strokeRect(X(x),Y(y),w*S,h*S));cx.restore();}}
+  // 1 Umriss
+  poly(outline,ease(seg(p,.0,.16)),WH+'.85)',3,false);
+  const wf=ease(seg(p,.12,.24));wins.concat([door]).forEach(([x,y,w,h],i)=>{const f=cl(wf*1.7-i*.12);if(f<=0)return;cx.strokeStyle=WH+(.6*f)+')';cx.lineWidth=2*S;cx.strokeRect(X(x),Y(y),w*S,h*S);});
+  // 2 Putz: von unten nach oben
+  const pz=ease(seg(p,.22,.44));
+  if(pz>0){cx.save();clipFacade();const top=780-(780-230)*pz;cx.beginPath();cx.rect(X(240),Y(top),520*S,(790-top)*S);cx.clip();
+    cx.fillStyle='#9a958c';cx.fillRect(X(240),Y(220),520*S,570*S);cx.fillStyle=cx.createPattern(noise,'repeat');cx.fillRect(X(240),Y(220),520*S,570*S);
+    cx.restore();if(pz<1){cx.fillStyle=WH+'.95)';cx.save();cx.translate(X(500),Y(780-(780-230)*pz));cx.beginPath();cx.moveTo(-70*S,0);cx.lineTo(70*S,0);cx.lineTo(55*S,-10*S);cx.lineTo(-55*S,-10*S);cx.closePath();cx.fill();cx.fillRect(-6*S,-40*S,12*S,30*S);cx.restore();}}
+  // 3 Farbe: Rolle in Bahnen von oben nach unten
+  if(pt>0){const lanes=5,lw=FW/lanes;cx.save();clipFacade();
+    for(let i=0;i<lanes;i++){const f=cl(pt*lanes-i);if(f<=0)continue;const x=FX+i*lw,yTop=200,yb=yTop+(790-yTop)*f;
+      const g=cx.createLinearGradient(0,Y(230),0,Y(780));g.addColorStop(0,'#f3d9a4');g.addColorStop(1,'#e8c27a');cx.fillStyle=g;cx.fillRect(X(x)-1,Y(yTop),lw*S+2,(yb-yTop)*S);}
+    cx.fillStyle=cx.createPattern(noise,'repeat');cx.globalAlpha*=.5;cx.fillRect(X(240),Y(220),520*S,570*S);cx.restore();
+    const li=Math.min(lanes-1,Math.floor(pt*lanes)),lf=cl(pt*lanes-li);if(pt<1){roller(FX+li*lw+lw/2,200+(790-200)*lf-10,1);}
+    // Fenster bekommen warmes Glas
+    wins.forEach(([x,y,w,h])=>{cx.fillStyle=`rgba(255,200,110,${.18*pt})`;cx.fillRect(X(x)+1,Y(y)+1,w*S-2,h*S-2);});}
+  // 4 Stuck: Gesims, Faschen, Rosette
+  const st=ease(seg(p,.66,.8));
+  if(st>0){cx.strokeStyle=`rgba(255,250,240,${.95*st})`;cx.lineWidth=5*S;
+    poly([[240,384],[500,228],[760,384]],st,`rgba(255,250,240,${.95})`,7);poly([[245,560],[755,560]],st,'rgba(255,250,240,.9)',6);poly([[245,572],[755,572]],st,'rgba(255,250,240,.55)',2.5);
+    wins.forEach(([x,y,w,h],i)=>{const f=cl(st*1.6-i*.12);if(f<=0)return;cx.strokeStyle=`rgba(255,250,240,${.9*f})`;cx.lineWidth=7*S;cx.strokeRect(X(x-6),Y(y-6),(w+12)*S,(h+12)*S);
+      cx.fillStyle=`rgba(255,250,240,${.9*f})`;cx.fillRect(X(x-14),Y(y+h+6),(w+28)*S,8*S);cx.beginPath();cx.moveTo(X(x-14),Y(y-10));cx.lineTo(X(x+w/2),Y(y-30));cx.lineTo(X(x+w+14),Y(y-10));cx.closePath();cx.fill();});
+    cx.beginPath();cx.arc(X(500),Y(318),22*S*st,0,7);cx.fillStyle=`rgba(255,250,240,${.9*st})`;cx.fill();cx.beginPath();cx.arc(X(500),Y(318),12*S*st,0,7);cx.fillStyle='#e8c27a';cx.fill();}
+  cx.restore();
+  // 5 Logo mit Regenbogen
+  if(fin>0){cx.save();cx.globalAlpha=fin;const cxm=X(500),cy=Y(560)+(1-fin)*30,fs=Math.min(W*.11,S*120);
+    const R=fs*1.05;cx.lineCap='round';[['#e2453c',R,fs*.16],['#ffb81c',R*.72,fs*.16],['#3b82e6',R*.44,fs*.16]].forEach(([c,r,w],i)=>{const a=cl(fin*1.4-i*.15);cx.strokeStyle=c;cx.lineWidth=w;cx.beginPath();cx.arc(cxm,cy-fs*.72,r,Math.PI,Math.PI+Math.PI*a);cx.stroke();});
+    cx.font=`${fs}px Anton, Impact, sans-serif`;cx.textAlign='center';cx.textBaseline='middle';cx.fillStyle='#f5f4f1';cx.fillText('KLAUS SCHMITT',cxm,cy);
+    cx.font=`600 ${Math.max(12,fs*.17)}px Manrope, sans-serif`;cx.fillStyle='rgba(245,244,241,.75)';cx.fillText('M A L E R  ·  V E R P U T Z E R  ·  S T U C K',cxm,cy+fs*.7);cx.restore();}
+}
+function prog(){const r=hero.getBoundingClientRect(),tot=r.height-innerHeight;return cl(-r.top/tot);}
+function frame(now){tgt=prog();cur+=(tgt-cur)*(reduce?1:.1);draw(cur,now);caps.forEach(c=>c.classList.toggle('on',cur>=+c.dataset.a&&cur<+c.dataset.b));hint.style.opacity=cur>.02?0:1;draft.classList.toggle('hide',tgt<.995);requestAnimationFrame(frame);}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

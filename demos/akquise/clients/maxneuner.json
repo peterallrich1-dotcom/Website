@@ -1,0 +1,147 @@
+{
+ "name": "Max Neuner Immobilien",
+ "brand": "Max Neuner",
+ "brandSub": "Gewerbe- und Wohnimmobilien",
+ "accent": "#dccba4",
+ "accentDark": "#6e5a2c",
+ "source": "maxneuner-immobilien.de",
+ "sourceUrl": "https://maxneuner-immobilien.de",
+ "cta": "Vorhaben besprechen",
+ "hero": {
+  "eyebrow": "Grundstücke und Projektentwicklung · Großraum München",
+  "head": "Am Anfang war das\n*Grundstück.*",
+  "intro": "Spezialisiert auf die Vermittlung von Grundstücken und die Beratung bei der Projektentwicklung. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°29′N · 11°05′E · Garmisch-Partenkirchen",
+  "ch": [
+   [
+    "Entwicklung",
+    "Vom Rohbauland zum *Bauland.*",
+    "Was aus einem Grundstück werden kann, lässt sich zeigen."
+   ],
+   [
+    "Ankauf",
+    "Das geeignete Grundstück *finden.*",
+    "Anforderungen der Investoren klar aufgenommen."
+   ],
+   [
+    "Verkauf",
+    "Ein Netzwerk aus *25 Jahren.*",
+    "Diskret und doch überzeugend präsentiert."
+   ],
+   [
+    "Erfahrung",
+    "1,5 Millionen *Quadratmeter.*",
+    "Ihre stärkste Zahl, groß gezeigt."
+   ],
+   [
+    "Max Neuner Immobilien",
+    "Vertraulich, verlässlich, *verbindlich*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Erfolg durch *Erfahrung.*",
+  "text": [
+   "Über 1,5 Millionen Quadratmeter Geschossfläche in München und im Großraum München wurden erfolgreich vermittelt. Der hart umkämpfte Münchner Markt ist das Kerngebiet.",
+   "Inhaber Max Neuner, Diplom-Betriebswirt (FH), ist seit über 35 Jahren im Münchner Gewerbe-Immobilienmarkt tätig. Michaela Neuner ist als freie Maklerin auf Wohnungen und Appartements spezialisiert."
+  ],
+  "facts": [
+   [
+    "1,5 Mio. m²",
+    "Geschossfläche erfolgreich vermittelt"
+   ],
+   [
+    "35+",
+    "Jahre im Münchner Gewerbe-Immobilienmarkt"
+   ],
+   [
+    "25",
+    "Jahre gewachsenes Netzwerk"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Schwerpunkte",
+  "eyebrow": "Leistungen",
+  "head": "Vom Grundstück zum *Projekt*",
+  "lead": "In Abstimmung mit Eigentümern, Behörden und Projektentwicklern.",
+  "items": [
+   {
+    "status": "Entwicklung",
+    "name": "Vom Rohbauland zum Bauland",
+    "place": "Mit Behörden und Eigentümern",
+    "text": "Bessere Nutzung und damit ein besserer Kaufpreis."
+   },
+   {
+    "status": "Ankauf",
+    "name": "Grundstück oder Bestandsobjekt",
+    "place": "Nach Ihren Anforderungen",
+    "text": "Suche, Beratung bei der Planung und beim Ankauf."
+   },
+   {
+    "status": "Verkauf",
+    "name": "Liegenschaften verkaufen",
+    "place": "Mit gewachsenem Netzwerk",
+    "text": "Der Verkauf von Liegenschaften ist die Kernkompetenz."
+   },
+   {
+    "status": "Vermietung",
+    "name": "Gewerbe und Hotelflächen",
+    "place": "Mit führenden Maklerhäusern",
+    "text": "Für Hotelflächen bestehen eigene, sehr gute Kontakte."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Unser Versprechen",
+  "quote": "Vertraulich, verlässlich und *verbindlich.*",
+  "points": [
+   [
+    "Vertraulich",
+    "Vorhaben werden diskret behandelt."
+   ],
+   [
+    "Verlässlich",
+    "Ein Ansprechpartner mit Jahrzehnten Erfahrung."
+   ],
+   [
+    "Schnell",
+    "So schnell, wie es im Grundstücksmarkt möglich ist."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Für Investoren und *Eigentümer.*",
+  "lead": "Kerngebiet München und Großraum München.",
+  "items": [
+   [
+    "Grundstücksvermittlung",
+    "Grundstücke und Bestandsobjekte für Projektentwickler."
+   ],
+   [
+    "Projektberatung",
+    "Beratung bei Entwicklung, Planung und Ankauf."
+   ],
+   [
+    "Wohnen",
+    "Verkauf und Vermietung von Wohnungen und Appartements durch Michaela Neuner."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Teilen Sie uns Ihr *Vorhaben* mit.",
+  "address": [
+   "Schüsselkarweg 7",
+   "82467 Garmisch-Partenkirchen"
+  ],
+  "phone": "+49 8821 56 359",
+  "email": "info@maxneuner-immobilien.de",
+  "topics": [
+   "Grundstück verkaufen",
+   "Grundstück suchen",
+   "Projektentwicklung",
+   "Vermietung"
+  ]
+ }
+}

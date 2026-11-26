@@ -1,0 +1,147 @@
+{
+ "name": "Martin Weiß Immobilien",
+ "brand": "Martin Weiß",
+ "brandSub": "Immobilien · München",
+ "accent": "#b4bdec",
+ "accentDark": "#2a2f7a",
+ "source": "martin-weiss-immobilien.de",
+ "sourceUrl": "https://www.martin-weiss-immobilien.de",
+ "cta": "Immobilie anbieten",
+ "hero": {
+  "eyebrow": "Immobilienmakler · München · Maximilianstraße",
+  "head": "In besten\n*Händen.*",
+  "intro": "Ein inhabergeführtes Münchner Immobilienunternehmen mit Leidenschaft für Immobilien seit über 40 Jahren. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "48°08′N · 11°35′E · München",
+  "ch": [
+   [
+    "Verkauf",
+    "Die richtige Immobilie *finden.*",
+    "Ihre Objekte, so gezeigt, wie die Adresse Maximilianstraße es erwarten lässt."
+   ],
+   [
+    "Vermietung",
+    "Endlich genügend *Platz.*",
+    "Jede Wohnung als kleiner Rundgang statt als Bilderliste."
+   ],
+   [
+    "Anbieten",
+    "In gute Hände *geben.*",
+    "Eigentümer sehen sofort, wie ihre Immobilie präsentiert würde."
+   ],
+   [
+    "Persönlich",
+    "Als ob sie unsere *eigene* wäre.",
+    "Ihr Versprechen an Mandanten, gut sichtbar."
+   ],
+   [
+    "Martin Weiß Immobilien",
+    "Seit über *40 Jahren* in München"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Persönliche und *intensive Betreuung.*",
+  "text": [
+   "Als inhabergeführtes Münchner Immobilienunternehmen legt Martin Weiß Immobilien größten Wert darauf, Mandanten persönlich zu betreuen.",
+   "Ob Suche, Verkauf oder Vermietung: Der Abschluss des Kauf- oder Mietvertrages zu den bestmöglichen Konditionen ist das gemeinsame Ziel."
+  ],
+  "facts": [
+   [
+    "40+",
+    "Jahre Leidenschaft für Immobilien"
+   ],
+   [
+    "11",
+    "aktuelle Angebote auf der Startseite (November 2026)"
+   ],
+   [
+    "München",
+    "Inhabergeführt, Sitz in der Maximilianstraße 43"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Angebote",
+  "eyebrow": "Aktuelle Angebote",
+  "head": "Eine *Auswahl*",
+  "lead": "Beispiele von martin-weiss-immobilien.de, Stand November 2026.",
+  "items": [
+   {
+    "status": "Wohnung",
+    "name": "3-Zimmer-Wohnung am Schlosspark Nymphenburg",
+    "place": "München",
+    "text": "Sonnige Wohnung in einer der gefragtesten Lagen der Stadt."
+   },
+   {
+    "status": "Wohnung",
+    "name": "1,5-Zimmer-Wohnung mit Galerie",
+    "place": "München · Glockenbachviertel",
+    "text": "Top-Citylage, absolut ruhig."
+   },
+   {
+    "status": "Haus",
+    "name": "Split-Level-Haus",
+    "place": "Ebenhausen · Schäftlarn",
+    "text": "Sonniges Haus im Isartal."
+   },
+   {
+    "status": "Anlage",
+    "name": "Mehrfamilienhaus mit teilgewerblicher Nutzung",
+    "place": "Aying · Landkreis München",
+    "text": "Als Kapitalanlage."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Versprechen",
+  "quote": "Bei uns ist Ihre Immobilie in besten *Händen.*",
+  "points": [
+   [
+    "Inhabergeführt",
+    "Mandanten werden persönlich betreut."
+   ],
+   [
+    "Für Suchende",
+    "Wohnungen, Häuser, Grundstücke, Kapitalanlagen und Gewerbe."
+   ],
+   [
+    "Für Eigentümer",
+    "Verkauf und Vermietung zu den bestmöglichen Konditionen."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Verkauf, Vermietung, *Betreuung.*",
+  "lead": "Für Eigentümer und Suchende in München und im Umland.",
+  "items": [
+   [
+    "Verkauf",
+    "Wohnungen, Häuser, Grundstücke, Kapitalanlagen und Gewerbe."
+   ],
+   [
+    "Vermietung",
+    "Wohnungen und Büroflächen in München."
+   ],
+   [
+    "Immobilie anbieten",
+    "Eigentümer geben ihre Immobilie in gute Hände."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Kommen Sie zu *uns.*",
+  "address": [
+   "Maximilianstraße 43",
+   "80538 München"
+  ],
+  "phone": "+49 89 21 03 15 00",
+  "email": "info@martin-weiss-immobilien.de",
+  "topics": [
+   "Immobilie anbieten",
+   "Kaufangebote",
+   "Mietangebote",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Noctis · Luxury Car Rental Dubai (Beispielseite)</title>
+<meta name="description" content="Beispielseite von Allrich Webdesign: Scroll-Film-Website für eine fiktive Luxus-Autovermietung in Dubai.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#060608">
+
+<style>
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
+:root{--ink:#060608;--ink2:#0e0e12;--ink3:#16161c;--text:#efece6;--mute:#8d8a84;--amber:#e0a85c;--amber2:#f3c98b;--line:rgba(255,255,255,.12);--paper:#f2efe9;--ptext:#17161a;
+  --serif:"Fraunces",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:clamp(16px,4.5vw,64px);--max:1280px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.5em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font-size:9px;letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
+.film{position:relative}
+.film .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000}
+.film canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 52%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(820px,88vw);pointer-events:none}
+.cap .k{color:var(--amber);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.96 var(--serif);letter-spacing:-.025em;margin:14px 0 0}
+.cap em{font-style:italic;color:var(--amber2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cap.on .w{opacity:1;transform:none;filter:none}
+.cap.top2{bottom:auto;top:clamp(90px,15vh,150px)}
+.cap.top2 h2{font-size:clamp(32px,4.4vw,64px)}
+.gauge{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);width:140px;height:140px;pointer-events:none}
+.gauge canvas{position:static;width:140px;height:140px}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font:300 34px/1 var(--serif);padding-top:8px}
+.gauge span{position:absolute;left:0;right:0;bottom:30px;text-align:center;font:600 9px/1 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.65)}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font:500 10px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .4s}
+@media(max-width:700px){.gauge{display:none}}
+
+.paper{background:var(--paper);color:var(--ptext)}
+.story{position:relative;height:280vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(900px,50vw);padding:0 var(--gut)}
+.story .k{color:#8a5a1c}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(23,22,26,.14);transition:color .25s}
+.story p.big span.on{color:var(--ptext)}
+#train{position:absolute;left:52vw;right:0;top:50%;transform:translateY(-50%);overflow:hidden;padding:40px 0 70px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%);mask-image:linear-gradient(90deg,transparent,#000 12%);pointer-events:none;z-index:1}
+#track{display:flex;align-items:center;gap:18px;width:max-content;will-change:transform}
+#glide,.story .fl{flex:none;height:min(46vh,30vw);object-fit:cover;border-radius:10px;box-shadow:0 40px 70px -30px rgba(0,0,0,.55);background:#0b0b0f;display:block}
+#glide{aspect-ratio:16/10}
+.story .fl{aspect-ratio:9/16}
+@media(max-width:760px){.story{height:360vh}.story .txt{max-width:none}.story .pin{align-items:flex-start;padding-top:16vh}#train{left:0;top:auto;bottom:calc(5vh - 40px);transform:none;-webkit-mask-image:none;mask-image:none;overflow:visible}#track{gap:12px}#glide,.story .fl{height:min(46vw,34vh)}}
+
+.hot{position:absolute;z-index:4;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .5s}
+.hotson .hot{opacity:1;pointer-events:auto}
+.hot button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:rgba(6,6,8,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:300 22px/1 var(--sans);cursor:pointer;animation:pulse 2.4s infinite;transition:transform .3s}
+.hot.open button{transform:rotate(45deg);background:var(--amber);color:#1a1206;border-color:var(--amber)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(224,168,92,.6)}70%{box-shadow:0 0 0 16px rgba(224,168,92,0)}100%{box-shadow:0 0 0 0 rgba(224,168,92,0)}}
+.hot .card{position:absolute;left:50%;top:calc(100% + 12px);transform:translateX(-50%) translateY(6px);width:220px;background:rgba(242,239,233,.97);color:var(--ptext);border-radius:8px;padding:12px 14px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 20px 40px -14px rgba(0,0,0,.6)}
+.hot .card b{display:block;font:300 18px/1.2 var(--serif)}
+.hot .card p{margin:6px 0 0;font-size:13px;line-height:1.45;color:#57534c}
+.hot.open{z-index:6}.hot.open .card{opacity:1;transform:translateX(-50%)}
+
+/* Preisrechner */
+.calc{padding:clamp(80px,11vw,140px) 0}
+.calc h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 36px}
+.calc h2 em{font-style:italic;color:#8a5a1c}
+.calc .k{color:#8a5a1c}
+.cgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(18px,3vw,40px);align-items:start}
+.panel{background:#fbf9f5;border:1px solid rgba(23,22,26,.1);border-radius:14px;padding:clamp(20px,3vw,32px)}
+.panel h3{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 14px}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.seg button{border:1px solid rgba(23,22,26,.16);background:#fff;border-radius:999px;padding:11px 18px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ptext);transition:background .2s,color .2s,border-color .2s}
+.seg button[aria-pressed="true"]{background:var(--ptext);color:#fff;border-color:var(--ptext)}
+.range{margin:6px 0 28px}
+.range .row{display:flex;justify-content:space-between;align-items:baseline}
+.range b{font:300 40px/1 var(--serif)}
+.range input{width:100%;margin-top:14px;accent-color:#8a5a1c}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border:1px solid rgba(23,22,26,.12);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .t b{display:block;font-weight:600;font-size:15px}
+.opt .t span{font-size:13px;color:var(--mute)}
+.opt .pr{font-weight:600;font-size:14px;white-space:nowrap}
+.opt .sw{width:42px;height:24px;border-radius:999px;background:#ddd8cf;position:relative;flex:0 0 auto;transition:background .2s}
+.opt .sw::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.opt:has(input:checked){border-color:#8a5a1c;box-shadow:0 0 0 3px rgba(138,90,28,.1)}
+.opt:has(input:checked) .sw{background:#8a5a1c}
+.opt:has(input:checked) .sw::after{transform:translateX(18px)}
+.sum{position:sticky;top:90px;background:var(--ink);color:var(--text);border-radius:14px;padding:clamp(22px,3vw,34px);overflow:hidden}
+.sumvis{width:calc(100% + 2 * clamp(22px,3vw,34px));margin:calc(-1 * clamp(22px,3vw,34px)) calc(-1 * clamp(22px,3vw,34px)) 20px;aspect-ratio:16/9;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 85%,rgba(224,168,92,.2),rgba(0,0,0,0) 60%),#08080b;overflow:hidden}
+.sumvis img{width:100%;height:100%;object-fit:cover;display:block}
+.sumvis svg{width:90%;height:auto;overflow:visible}
+.sumvis svg .body{fill:url(#bodyG);stroke:rgba(243,201,139,.85);stroke-width:1.2}.sumvis svg .win{fill:rgba(20,22,30,.9);stroke:rgba(243,201,139,.4);stroke-width:.8}.sumvis svg .wheel{fill:#0a0a0d;stroke:rgba(243,201,139,.7);stroke-width:1.2}.sumvis svg .rim{fill:none;stroke:rgba(243,201,139,.45)}.sumvis svg .lamp{fill:#fff}.sumvis svg .tail{fill:#ff3b30}.sumvis svg .beam{fill:url(#beamG);opacity:.55}.sumvis svg .floor{fill:url(#floorG)}
+.sum .k{color:var(--amber)}
+.sum .total{font:300 clamp(48px,6vw,76px)/1 var(--serif);letter-spacing:-.03em;margin:10px 0 4px}
+.sum .per{color:var(--mute);font-size:14px}
+.sum ul{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+.sum li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.sum li span:last-child{color:var(--mute)}
+.sum .btn{margin-top:22px;width:100%;justify-content:center}
+.note{font-size:12px;color:var(--mute);margin-top:14px}
+@media(max-width:900px){.cgrid{grid-template-columns:1fr}.sum{position:relative;top:0}}
+
+/* Flotte */
+.fleet{padding:clamp(80px,11vw,140px) 0 clamp(60px,8vw,100px);background:var(--ink)}
+.ghead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:36px}
+.ghead h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 0}
+.ghead h2 em{font-style:italic;color:var(--amber2)}
+.ghead .k{color:var(--amber)}
+.ghead .lede{max-width:380px;color:var(--mute);margin:0}
+.frow{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px var(--gut) 24px;scrollbar-width:none}
+.frow::-webkit-scrollbar{display:none}
+.car{flex:0 0 clamp(270px,30vw,400px);scroll-snap-align:start;background:linear-gradient(180deg,#121218,#0b0b0f);border:1px solid var(--line);border-radius:14px;padding:18px;cursor:pointer;text-align:left;color:var(--text);transition:border-color .3s,transform .4s;position:relative;overflow:hidden}
+.car:hover{transform:translateY(-4px)}
+.car[aria-pressed="true"]{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 30px 60px -30px rgba(224,168,92,.45)}
+.car .vis{position:relative;aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:radial-gradient(ellipse at 50% 85%,rgba(224,168,92,.18),rgba(0,0,0,0) 60%),#08080b;display:grid;place-items:center}
+.car .vis video,.car .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.car .vis svg{width:92%;height:auto;overflow:visible}
+.car .vis svg .body{fill:url(#bodyG);stroke:rgba(243,201,139,.85);stroke-width:1.2}
+.car .vis svg .win{fill:rgba(20,22,30,.9);stroke:rgba(243,201,139,.4);stroke-width:.8}
+.car .vis svg .wheel{fill:#0a0a0d;stroke:rgba(243,201,139,.7);stroke-width:1.2}
+.car .vis svg .rim{fill:none;stroke:rgba(243,201,139,.45);stroke-width:1}
+.car .vis svg .lamp{fill:#fff;filter:drop-shadow(0 0 4px #fff)}
+.car .vis svg .tail{fill:#ff3b30;filter:drop-shadow(0 0 4px #ff3b30)}
+.car .vis svg .beam{fill:url(#beamG);opacity:.55}
+.car .vis svg .floor{fill:url(#floorG)}
+.car .vis .sweep{position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.07) 45%,transparent 60%);transform:translateX(-100%);animation:sweep 5s ease-in-out infinite}
+@keyframes sweep{60%,100%{transform:translateX(100%)}}
+.car .tag{position:absolute;top:28px;left:28px;z-index:2;font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;background:rgba(6,6,8,.7);border:1px solid var(--line);padding:6px 9px;border-radius:999px;color:var(--amber2)}
+.car h3{font:300 26px/1.1 var(--serif);margin:16px 0 4px}
+.car .cat{font:600 9px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.car dl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.car dt{font:600 8px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.car dd{margin:2px 0 0;font:300 clamp(16px,1.6vw,20px)/1.1 var(--serif);white-space:nowrap}
+.car .pr{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px}
+.car .pr b{font:300 28px/1 var(--serif);color:var(--amber2)}
+.car .pr span{font-size:12px;color:var(--mute)}
+/* Galerie */
+.show{padding:clamp(80px,11vw,140px) 0 clamp(40px,6vw,80px);background:var(--ink)}
+.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.reel{margin:0;position:relative;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line);aspect-ratio:9/16}
+.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 58%,rgba(0,0,0,.78));pointer-events:none}
+.reel figcaption{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.reel figcaption .k{color:var(--amber);font-size:9px}
+.reel figcaption b{display:block;font:300 clamp(22px,2.2vw,30px)/1.05 var(--serif);margin-top:6px}
+.reel figcaption span{display:block;font-size:13px;color:var(--mute);margin-top:6px}
+.reel button{flex:none;font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;background:rgba(6,6,8,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:var(--amber2);border:1px solid rgba(243,201,139,.5);border-radius:999px;padding:10px 13px;cursor:pointer;transition:background .3s,color .3s}
+.reel button:hover{background:var(--amber);color:#1a1206}
+@media(max-width:860px){.reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gut));padding:0 var(--gut) 10px}.reels::-webkit-scrollbar{display:none}.reel{flex:0 0 72vw;scroll-snap-align:center}}
+.gal{padding:clamp(80px,11vw,140px) 0;background:var(--ink)}
+.bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:14px}
+.bento figure{margin:0;position:relative;border-radius:12px;overflow:hidden;background:#000}
+.bento video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s}
+.bento figure:hover video{transform:scale(1.04)}
+.bento .b1{grid-row:span 2}
+.bento .b1 video{aspect-ratio:auto;min-height:100%}
+.bento .b2 video,.bento .b3 video{aspect-ratio:16/9}
+.bento .b4{grid-column:1/-1}
+.trio{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.trio video{aspect-ratio:3/4}
+@media(max-width:800px){.trio{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gut));padding:0 var(--gut)}.trio::-webkit-scrollbar{display:none}.trio figure{flex:0 0 62vw;scroll-snap-align:center}}
+.bento .b4 video{aspect-ratio:21/8}
+.bento figcaption{position:absolute;left:16px;bottom:14px;right:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.bento figcaption b{font:300 clamp(20px,2vw,28px)/1.1 var(--serif)}
+.bento figcaption span{font:600 9px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.bento figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.6));pointer-events:none}
+.bento figcaption{z-index:2}
+@media(max-width:800px){.bento{grid-template-columns:1fr}.bento .b1{grid-row:auto}.bento .b1 video{aspect-ratio:16/10}.bento .b4 video{aspect-ratio:16/9}}
+/* Ablauf + FAQ */
+.how{padding:clamp(80px,11vw,140px) 0}
+.how h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 40px}
+.how h2 em{font-style:italic;color:#8a5a1c}
+.how .k{color:#8a5a1c}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{border-top:1px solid rgba(23,22,26,.2);padding-top:18px}
+.step .n{font:300 54px/1 var(--serif);color:#8a5a1c}
+.step h3{font:300 28px/1.1 var(--serif);margin:14px 0 8px}
+.step p{margin:0;color:#57534c;font-size:15px}
+.faq{margin-top:70px;border-top:1px solid rgba(23,22,26,.16)}
+.faq details{border-bottom:1px solid rgba(23,22,26,.16)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:300 clamp(20px,2.2vw,28px)/1.2 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{font-style:normal;font:300 26px var(--sans);transition:transform .3s;color:#8a5a1c}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq p{margin:0 0 20px;color:#57534c;max-width:720px}
+@media(max-width:900px){.steps{grid-template-columns:1fr}}
+
+.end{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.end video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.14) translateY(-1%)}}
+.end::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,8,.2),rgba(6,6,8,.85))}
+.end .wrap{position:relative;z-index:2;padding-bottom:clamp(60px,10vh,110px);width:100%}
+.end h2{font:300 clamp(48px,8vw,128px)/.92 var(--serif);letter-spacing:-.035em;margin:12px 0 22px}
+.end h2 em{font-style:italic;color:var(--amber2)}
+.end .k{color:var(--amber)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.a{background:var(--amber);color:#1a1206}
+.btn.o{border-color:rgba(255,255,255,.3);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(6,6,8,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--amber2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#">NOCTIS<small>LUXURY CAR RENTAL · DUBAI</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#showroom">Showroom</a> · <a href="#flotte">Flotte</a> · <a href="#wagen">Der Wagen</a> · <a href="#preise">Preise</a></div>
+    <div><b>Standort</b>Dubai · Al Quoz</div>
+    <div><b>Lieferung</b>Rund um die Uhr</div>
+  </div>
+  <a class="call" href="#preise">Buchen</a>
+</header>
+
+<section class="film hero" id="hero" style="height:720vh">
+  <div class="stage">
+    <canvas id="c1" aria-label="Film: Hypercar bei Nacht auf dem Highway in Dubai"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a=".2" data-b=".42"><p class="k">Noctis · Dubai</p><h1>Die Stadt bei Nacht.<br><em>Gehört Ihnen.</em></h1></div>
+    <div class="cap" data-a=".44" data-b=".7"><p class="k">Hypercar</p><h2>1.500 PS.<br><em>Ein Schlüssel.</em></h2></div>
+    <div class="cap" data-a=".72" data-b="1.1"><p class="k">Lieferung</p><h2>Wir bringen ihn,<br><em>wohin Sie wollen.</em></h2></div>
+    <div class="gauge"><canvas id="gauge" width="280" height="280"></canvas><b id="kmh">0</b><span>KM/H</span></div>
+    <div class="hint" id="hint">SCROLLEN</div>
+  </div>
+</section>
+
+<section class="paper story">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Der Wagen</p>
+      <p class="big" id="big">Sechzehn Zylinder, vier Turbolader und eine Karosserie aus Sichtcarbon. Wir übergeben ihn vollgetankt und gereinigt an Ihrem Hotel, am Flughafen oder vor Ihrer Villa. Sie fahren. Wir kümmern uns um alles andere.</p>
+    </div>
+    <div id="train"><div id="track">
+      <img id="glide" src="film/drive-hd/f112.webp" alt="Das Hypercar von der Seite bei Nacht" decoding="async">
+      <video class="fl" src="clips/reel-rot.mp4" poster="clips/reel-rot.jpg" muted loop playsinline preload="none" aria-label="Video: roter Sportwagen"></video>
+      <video class="fl" src="clips/reel-grau.mp4" poster="clips/reel-grau.jpg" muted loop playsinline preload="none" aria-label="Video: titangrauer Supersportwagen"></video>
+      <video class="fl" src="clips/reel-schwarz.mp4" poster="clips/reel-schwarz.jpg" muted loop playsinline preload="none" aria-label="Video: schwarzes Sportcoupé"></video>
+    </div></div>
+  </div>
+</section>
+
+<section class="show" id="showroom">
+  <div class="wrap">
+    <div class="ghead"><div><p class="k rv">Showroom</p><h2 class="rv">Drei Neuzugänge.<br><em>Im Rampenlicht.</em></h2></div><p class="lede rv">Rot, Schwarz und Titangrau, frisch in der Flotte. Ein kurzer Blick auf jedes Detail, dann gehört der Wagen Ihnen.</p></div>
+    <div class="reels">
+      <figure class="reel rv"><video src="clips/reel-rot.mp4" poster="clips/reel-rot.jpg" muted loop playsinline preload="none" aria-label="Video: roter Sportwagen im Lichtstudio"></video><figcaption><div><p class="k">V8 Biturbo</p><b>Rosso</b><span>ab 1.900 € pro Tag</span></div><button type="button" data-pick="gt">Wählen</button></figcaption></figure>
+      <figure class="reel rv"><video src="clips/reel-schwarz.mp4" poster="clips/reel-schwarz.jpg" muted loop playsinline preload="none" aria-label="Video: schwarzes Sportcoupé im Lichtstudio"></video><figcaption><div><p class="k">Sechszylinder</p><b>Nero</b><span>ab 1.300 € pro Tag</span></div><button type="button" data-pick="cabrio">Wählen</button></figcaption></figure>
+      <figure class="reel rv"><video src="clips/reel-grau.mp4" poster="clips/reel-grau.jpg" muted loop playsinline preload="none" aria-label="Video: titangrauer Supersportwagen im Lichtstudio"></video><figcaption><div><p class="k">V10 Saugmotor</p><b>Titanio</b><span>ab 2.400 € pro Tag</span></div><button type="button" data-pick="super">Wählen</button></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="fleet" id="flotte">
+  <div class="wrap">
+    <div class="ghead"><div><p class="k rv">Die Flotte</p><h2 class="rv">Sechs Wagen.<br><em>Eine Nacht.</em></h2></div><p class="lede rv">Vom Hypercar bis zur Limousine mit Fahrer. Tippen Sie auf einen Wagen, der Preisrechner übernimmt ihn.</p></div>
+  </div>
+  <div class="frow" id="frow"></div>
+</section>
+
+<section class="film front" id="wagen" style="height:440vh">
+  <div class="stage">
+    <canvas id="c2" aria-label="Film: Das Hypercar fährt frontal auf die Kamera zu"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".38"><p class="k">Design</p><h2>Er kommt<br><em>auf Sie zu.</em></h2></div>
+    <div class="cap" data-a=".4" data-b=".76"><p class="k">Licht</p><h2>Acht Augen<br><em>für die Nacht.</em></h2></div>
+    <div class="cap top2" data-a=".78" data-b="1.1"><p class="k">Entdecken</p><h2>Tippen Sie auf<br><em>die Punkte.</em></h2></div>
+    <div class="hot" data-x=".35" data-y=".485"><button type="button" aria-label="Scheinwerfer">+</button><div class="card"><b>Scheinwerfer</b><p>Vier LED-Module je Seite, die Straße wird bei Nacht taghell.</p></div></div>
+    <div class="hot" data-x=".508" data-y=".59"><button type="button" aria-label="Kühlergrill">+</button><div class="card"><b>Kühlergrill</b><p>Das Erkennungszeichen der Marke, von Hand poliert.</p></div></div>
+    <div class="hot" data-x=".5" data-y=".38"><button type="button" aria-label="Haube">+</button><div class="card"><b>Sichtcarbon</b><p>Haube und Mittelteil aus Carbon, leicht und extrem steif.</p></div></div>
+    <div class="hot" data-x=".328" data-y=".34"><button type="button" aria-label="Spiegel">+</button><div class="card"><b>Außenspiegel</b><p>Schmal und aerodynamisch geformt, beheizt und elektrisch einstellbar.</p></div></div>
+    <div class="hot" data-x=".66" data-y=".61"><button type="button" aria-label="Lufteinlass">+</button><div class="card"><b>Lufteinlässe</b><p>Kühlen Motor und Bremsen, auch bei hohem Tempo.</p></div></div>
+  </div>
+</section>
+
+<section class="paper calc" id="preise">
+  <div class="wrap">
+    <p class="k rv">Preise</p>
+    <h2 class="rv">Ihr Wagen.<br><em>Ihr Preis.</em></h2>
+    <div class="cgrid">
+      <div class="panel rv">
+        <h3>Wagen</h3>
+        <div class="seg" id="carSeg"></div>
+        <h3>Abholung</h3>
+        <div class="seg" id="place">
+          <button type="button" aria-pressed="true" data-v="0">Hotel</button>
+          <button type="button" aria-pressed="false" data-v="0">Villa</button>
+          <button type="button" aria-pressed="false" data-v="350">Flughafen DXB</button>
+          <button type="button" aria-pressed="false" data-v="0">Unsere Garage</button>
+        </div>
+        <h3>Mietdauer</h3>
+        <div class="range"><div class="row"><b id="dLbl">3 Tage</b><span class="note" id="dDisc" style="margin:0"></span></div><input type="range" id="days" min="1" max="14" value="3" aria-label="Mietdauer in Tagen"></div>
+        <h3>Extras</h3>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" data-day="900"><div class="t"><b>Chauffeur</b><span>Ein Fahrer bringt Sie überall hin</span></div><span class="pr">+ 900 € / Tag</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-day="290" checked><div class="t"><b>Vollkasko ohne Selbstbeteiligung</b><span>Entspannt fahren, ohne Risiko</span></div><span class="pr">+ 290 € / Tag</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-once="450"><div class="t"><b>Fotoshooting bei Nacht</b><span>Ein Fotograf begleitet Ihre erste Fahrt</span></div><span class="pr">+ 450 €</span><span class="sw"></span></label>
+          <label class="opt"><input type="checkbox" data-day="120"><div class="t"><b>Zusatzfahrer</b><span>Eine zweite Person darf fahren</span></div><span class="pr">+ 120 € / Tag</span><span class="sw"></span></label>
+        </div>
+      </div>
+      <div class="sum rv">
+        <div class="sumvis" id="sumVis"><img src="film/drive-hd/f238.webp" alt="Das Hypercar von vorn" loading="lazy"></div>
+        <p class="k">Ihre Buchung</p>
+        <div class="total" id="total">0 €</div>
+        <div class="per" id="per">inkl. Lieferung</div>
+        <ul id="lines"></ul>
+        <a class="btn a" href="#kontakt">Jetzt anfragen</a>
+        <p class="note">Beispielpreise einer fiktiven Vermietung. Kaution 50.000 €, Mindestalter 25 Jahre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gal" id="nacht">
+  <div class="wrap">
+    <div class="ghead"><div><p class="k rv">Nachtfahrt</p><h2 class="rv">Jedes Detail.<br><em>In Zeitlupe.</em></h2></div><p class="lede rv">Kurze Szenen aus einer Nacht auf dem Sheikh Zayed Road und aus unserem Lichtstudio. So fühlt sich der Wagen an, bevor Sie einsteigen.</p></div>
+    <div class="bento">
+      <figure class="b1 rv"><video src="clips/seite.mp4" poster="clips/seite.jpg" muted loop playsinline preload="none"></video><figcaption><b>Die Linie</b><span>Seitenansicht · Zeitlupe</span></figcaption></figure>
+      <figure class="b2 rv"><video src="clips/licht.mp4" poster="clips/licht.jpg" muted loop playsinline preload="none"></video><figcaption><b>Acht Scheinwerfer</b><span>Front · Zeitlupe</span></figcaption></figure>
+      <figure class="b3 rv"><video src="clips/heck.mp4" poster="clips/heck.jpg" muted loop playsinline preload="none"></video><figcaption><b>Das Leuchtband</b><span>Heck · aus der Luft</span></figcaption></figure>
+      <div class="trio">
+        <figure class="rv"><video src="clips/detail-rot.mp4" poster="clips/detail-rot.jpg" muted loop playsinline preload="none"></video><figcaption><b>Rosso</b><span>Felge · Bremse</span></figcaption></figure>
+        <figure class="rv"><video src="clips/detail-schwarz.mp4" poster="clips/detail-schwarz.jpg" muted loop playsinline preload="none"></video><figcaption><b>Nero</b><span>Lichtspiel</span></figcaption></figure>
+        <figure class="rv"><video src="clips/detail-grau.mp4" poster="clips/detail-grau.jpg" muted loop playsinline preload="none"></video><figcaption><b>Titanio</b><span>Scheinwerfer</span></figcaption></figure>
+      </div>
+      <figure class="b4 rv"><video src="clips/skyline.mp4" poster="clips/skyline.jpg" muted loop playsinline preload="none"></video><figcaption><b>Downtown Dubai</b><span>Anflug bei Nacht</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="paper how">
+  <div class="wrap">
+    <p class="k rv">So einfach geht's</p>
+    <h2 class="rv">Drei Schritte<br><em>bis zur ersten Fahrt.</em></h2>
+    <div class="steps">
+      <div class="step rv"><span class="n">01</span><h3>Anfragen</h3><p>Wunschdatum und Ort nennen, per Formular, Telefon oder WhatsApp.</p></div>
+      <div class="step rv"><span class="n">02</span><h3>Übergabe</h3><p>Wir bringen den Wagen vollgetankt zu Ihnen und erklären alles in Ruhe.</p></div>
+      <div class="step rv"><span class="n">03</span><h3>Fahren</h3><p>Genießen Sie Dubai. Am Ende holen wir den Wagen wieder ab, wo Sie möchten.</p></div>
+    </div>
+    <div class="faq rv">
+      <details><summary>Welchen Führerschein brauche ich?<i>+</i></summary><p>Einen gültigen Führerschein aus Ihrem Heimatland und für viele Länder zusätzlich einen internationalen Führerschein. Wir prüfen das vorab für Sie.</p></details>
+      <details><summary>Wie hoch ist die Kaution?<i>+</i></summary><p>Die Kaution wird bei der Übergabe auf Ihrer Kreditkarte geblockt und nach der Rückgabe wieder freigegeben.</p></details>
+      <details><summary>Wie alt muss ich sein?<i>+</i></summary><p>Für dieses Fahrzeug mindestens 25 Jahre, mit mindestens drei Jahren Fahrpraxis.</p></details>
+      <details><summary>Kann ich den Wagen auch mit Fahrer buchen?<i>+</i></summary><p>Ja. Mit dem Extra „Chauffeur“ fährt Sie ein erfahrener Fahrer, wohin Sie möchten.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="kontakt">
+  <video src="clips/front.mp4" poster="clips/front.jpg" muted loop playsinline autoplay preload="none" aria-label="Das Hypercar fährt bei Nacht auf die Kamera zu"></video>
+  <div class="wrap">
+    <p class="k">Kontakt</p>
+    <h2>Heute Nacht<br><em>noch frei.</em></h2>
+    <div class="cta"><a class="btn a" href="https://allrich-webdesign.com/#kontakt">Solche Website anfragen</a><a class="btn o" href="https://allrich-webdesign.com">Allrich Webdesign</a></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>Noctis ist eine fiktive Vermietung. Beispielseite von Allrich Webdesign, Potsdam. Markennamen gehören ihren Inhabern.</span><span>Film aus KI-Video, im Browser abgespielt</span></div></footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="bodyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3632"/><stop offset=".45" stop-color="#1b1a19"/><stop offset="1" stop-color="#0c0c0d"/></linearGradient><linearGradient id="beamG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><radialGradient id="floorG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e0a85c" stop-opacity=".35"/><stop offset="1" stop-color="#e0a85c" stop-opacity="0"/></radialGradient></defs></svg>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Beispielseite</b> von Allrich Webdesign</a>
+
+<script>
+(() => {
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+const visible = el => { const r = el.getBoundingClientRect(); return r.bottom > -50 && r.top < innerHeight + 50; };
+const DPR = Math.min(2, devicePixelRatio || 1);
+const euro = n => Math.round(n).toLocaleString("de-DE") + " €";
+
+function splitWords(el, cls, delay) {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) { const f = document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); if (cls) s.className = cls; if (delay) s.style.transitionDelay = (i++ * delay) + "ms"; s.textContent = p; f.append(s); }); c.replaceWith(f); }
+    else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(el);
+}
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => splitWords(h, "w", 70));
+splitWords(document.getElementById("big"));
+
+/* Scroll-Film aus Videobildern */
+class Film {
+  constructor(canvas, dir, from, to, fx = .5, mobZoom = 0) {
+    this.mz = mobZoom; this.c = canvas; this.x = canvas.getContext("2d", { alpha: false }); this.x.imageSmoothingQuality = "high"; this.from = from; this.n = to - from + 1; this.fx = fx; this.imgs = []; this.last = -1; this.want = 0;
+    const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${dir}/f${String(from + i).padStart(3, "0")}.webp`; im.onload = () => { if (Math.abs(i - this.want) < 3) this.last = -1; }; this.imgs[i] = im; };
+    load(0);
+    const order = []; for (let st = 8; st >= 1; st >>= 1) for (let i = 0; i < this.n; i += st) if (!order.includes(i)) order.push(i);
+    let k = 0; const next = () => { for (let j = 0; j < 6 && k < order.length; j++, k++) if (!this.imgs[order[k]]) load(order[k]); if (k < order.length) setTimeout(next, 50); }; next();
+  }
+  near(i) { for (let d = 0; d < this.n; d++) for (const j of [i - d, i + d]) { const im = this.imgs[j]; if (im && im.complete && im.naturalWidth) return im; } return null; }
+  size() { const w = this.c.clientWidth, h = this.c.clientHeight; if (this.c.width !== Math.round(w * DPR) || this.c.height !== Math.round(h * DPR)) { this.c.width = Math.round(w * DPR); this.c.height = Math.round(h * DPR); this.last = -1; } return [w, h]; }
+  cover(w, h, im) { let s = Math.max(w / im.naturalWidth, h / im.naturalHeight); if (this.mz && h > w) s = Math.min(s, w / im.naturalWidth * this.mz); const dw = im.naturalWidth * s, dh = im.naturalHeight * s; return { ox: (w - dw) * this.fx, oy: (h - dh) / 2, dw, dh }; }
+  draw(p) {
+    const [w, h] = this.size(), i = Math.round(clamp(p) * (this.n - 1)); this.want = i;
+    if (i === this.last) return; const im = this.near(i); if (!im) return;
+    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); this.x.imageSmoothingQuality = "high"; const c = this.cover(w, h, im);
+    if (c.dh < h) { const s2 = Math.max(w / im.naturalWidth, h / im.naturalHeight); this.x.drawImage(im, (w - im.naturalWidth * s2) / 2, (h - im.naturalHeight * s2) / 2, im.naturalWidth * s2, im.naturalHeight * s2); this.x.fillStyle = "rgba(6,6,8,.78)"; this.x.fillRect(0, 0, w, h); }
+    this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
+    if (im === this.imgs[i]) this.last = i;
+  }
+}
+
+/* 1. Hauptfilm mit Tacho */
+const Q = Math.max(innerWidth, innerHeight) * DPR >= 1400 ? "hd" : "sd";
+const hero = document.getElementById("hero"), f1 = new Film(document.getElementById("c1"), "film/drive-" + Q, 1, 128, .5);
+const caps1 = [...hero.querySelectorAll(".cap")], kmh = document.getElementById("kmh"), hint = document.getElementById("hint");
+const gC = document.getElementById("gauge"), gx = gC.getContext("2d");
+function gauge(v) {
+  gx.clearRect(0, 0, 280, 280); const a0 = Math.PI * .75, a1 = Math.PI * 2.25, cx = 140, cy = 140, r = 120;
+  gx.lineCap = "round"; gx.lineWidth = 3; gx.strokeStyle = "rgba(255,255,255,.18)"; gx.beginPath(); gx.arc(cx, cy, r, a0, a1); gx.stroke();
+  for (let i = 0; i <= 40; i++) { const a = a0 + (a1 - a0) * i / 40, l = i % 5 ? 8 : 16; gx.strokeStyle = i / 40 <= v ? "rgba(243,201,139,.95)" : "rgba(255,255,255,.25)"; gx.lineWidth = i % 5 ? 2 : 3; gx.beginPath(); gx.moveTo(cx + Math.cos(a) * (r - 6), cy + Math.sin(a) * (r - 6)); gx.lineTo(cx + Math.cos(a) * (r - 6 - l), cy + Math.sin(a) * (r - 6 - l)); gx.stroke(); }
+  gx.strokeStyle = "#e0a85c"; gx.lineWidth = 6; gx.shadowColor = "rgba(224,168,92,.8)"; gx.shadowBlur = 14; gx.beginPath(); gx.arc(cx, cy, r, a0, a0 + (a1 - a0) * v); gx.stroke(); gx.shadowBlur = 0;
+}
+function drawHero() {
+  const p = progress(hero);
+  f1.draw(p);
+  caps1.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  const v = ease(clamp((p - .18) / .55)); gauge(v); kmh.textContent = Math.round(v * 320);
+  hint.style.opacity = p > .02 ? 0 : 1;
+}
+
+/* 2. Heller Erzählteil */
+const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], train = document.getElementById("train"), track = document.getElementById("track");
+function drawStory() {
+  const p = progress(story), k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const W = train.clientWidth, T = track.scrollWidth, q = clamp(p * 1.1);
+  track.style.transform = `translate3d(${lerp(W * (innerWidth < 760 ? 1 : .45), W - T - 20, q)}px,0,0)`;
+}
+
+/* 3. Frontfahrt mit Punkten zum Anklicken */
+const front = document.querySelector(".front"), c2 = document.getElementById("c2"), f2 = new Film(c2, "film/drive-" + Q, 129, 262, .5, 1.75);
+const caps2 = [...front.querySelectorAll(".cap")], hots = [...front.querySelectorAll(".hot")];
+function drawFront() {
+  const p = progress(front);
+  f2.draw(clamp(p / .78));
+  caps2.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  const im = f2.near(f2.n - 1); if (im) { const c = f2.cover(c2.clientWidth, c2.clientHeight, im); hots.forEach(el => { el.style.left = (c.ox + +el.dataset.x * c.dw) + "px"; el.style.top = (c.oy + +el.dataset.y * c.dh) + "px"; }); }
+  front.classList.toggle("hotson", p > .8);
+}
+hots.forEach(el => el.querySelector("button").addEventListener("click", () => { const o = el.classList.contains("open"); hots.forEach(x => x.classList.remove("open")); if (!o) el.classList.add("open"); }));
+
+/* 4. Flotte */
+// Seitenansichten als Linienzeichnung (Karosserie, Fenster, Radpositionen, Front- und Heckleuchte)
+const SIL = {
+  super: { body: "M22 101 Q24 90 42 86 L112 76 Q152 52 206 48 Q252 46 288 64 L344 74 Q374 80 381 93 L383 104 Q383 110 375 110 L331 110 A26 26 0 0 0 279 110 L131 110 A26 26 0 0 0 79 110 L31 110 Q22 110 22 101 Z", win: "M128 76 Q160 56 204 53 Q238 52 262 64 L250 76 Z", w: [105, 305], r: 23, lamp: [370, 88, 14, 4], tail: [24, 94, 8, 4] },
+  gt: { body: "M18 103 Q20 89 40 85 L128 75 Q170 50 222 46 Q270 44 302 64 Q342 71 372 81 Q384 87 384 99 L384 106 Q384 112 376 112 L336 112 A26 26 0 0 0 284 112 L128 112 A26 26 0 0 0 76 112 L26 112 Q18 112 18 103 Z", win: "M146 74 Q178 54 222 51 Q256 50 282 63 L272 75 Z", w: [102, 310], r: 24, lamp: [366, 84, 14, 4], tail: [20, 92, 8, 4] },
+  suv: { body: "M18 104 L20 82 Q24 71 44 69 L92 65 Q112 35 152 31 L290 31 Q318 33 334 61 L366 67 Q382 71 384 87 L384 104 Q384 112 376 112 L338 112 A28 28 0 0 0 282 112 L130 112 A28 28 0 0 0 74 112 L26 112 Q18 112 18 104 Z", win: "M104 64 Q120 40 154 37 L286 37 Q306 39 318 62 Z", w: [102, 310], r: 26, lamp: [370, 72, 12, 5], tail: [20, 74, 6, 8] },
+  cabrio: { body: "M18 101 Q20 89 40 87 L142 81 L168 63 L174 65 L156 81 L362 83 Q382 87 384 99 L384 106 Q384 112 376 112 L336 112 A26 26 0 0 0 284 112 L128 112 A26 26 0 0 0 76 112 L26 112 Q18 112 18 101 Z", win: "M200 81 Q214 72 236 72 Q252 72 260 81 Z", w: [102, 310], r: 24, lamp: [368, 88, 14, 4], tail: [20, 92, 8, 4] },
+  limo: { body: "M16 104 Q18 90 38 86 L100 80 Q130 52 172 48 L262 48 Q292 50 314 78 L366 82 Q384 86 386 98 L386 106 Q386 112 378 112 L340 112 A27 27 0 0 0 286 112 L128 112 A27 27 0 0 0 74 112 L24 112 Q16 112 16 104 Z", win: "M114 79 Q138 56 174 54 L260 54 Q282 56 298 78 Z", w: [101, 313], r: 25, lamp: [372, 86, 12, 4], tail: [18, 90, 7, 5] }
+};
+function silSVG(k) {
+  const d = SIL[k], [x1, x2] = d.w, R = d.r, y = 112 - (d.w ? 0 : 0);
+  const wheel = x => `<circle class="wheel" cx="${x}" cy="${110}" r="${R}"/><circle class="rim" cx="${x}" cy="110" r="${R * .62}"/><circle class="rim" cx="${x}" cy="110" r="${R * .2}"/>`;
+  const [lx, ly, lw, lh] = d.lamp, [tx, ty, tw, th] = d.tail;
+  return `<svg viewBox="0 22 400 124" aria-hidden="true"><ellipse class="floor" cx="200" cy="136" rx="210" ry="16"/><path class="beam" d="M${lx + lw - 2} ${ly} L400 ${ly - 10} L400 ${ly + 22} Z"/><path class="body" d="${d.body}"/><path class="win" d="${d.win}"/>${wheel(x1)}${wheel(x2)}<rect class="lamp" x="${lx}" y="${ly}" width="${lw}" height="${lh}" rx="2"/><rect class="tail" x="${tx}" y="${ty}" width="${tw}" height="${th}" rx="2"/></svg>`;
+}
+const CARS = [
+  { id: "hyper", name: "Hypercar W16", cat: "Hypersportwagen", ps: "1.500", acc: "2,4 s", vmax: "420", price: 4900, tag: "Im Film", video: true },
+  { id: "super", name: "Supersportwagen V10", cat: "Titangrau · Mittelmotor", ps: "640", acc: "2,9 s", vmax: "325", price: 2400, clip: "grau", tag: "Neu" },
+  { id: "gt", name: "Sportwagen V8", cat: "Rosso · Biturbo", ps: "670", acc: "3,0 s", vmax: "330", price: 1900, clip: "rot", tag: "Neu" },
+  { id: "cabrio", name: "Sportcoupé R6", cat: "Nero · Heckmotor", ps: "450", acc: "3,4 s", vmax: "308", price: 1300, clip: "schwarz", tag: "Neu" },
+  { id: "suv", name: "Luxus-SUV V8", cat: "Für Wüste und Stadt", ps: "600", acc: "3,9 s", vmax: "300", price: 1100, sil: "suv" },
+  { id: "limo", name: "Limousine mit Fahrer", cat: "Chauffeur inklusive", ps: "560", acc: "4,4 s", vmax: "250", price: 990, sil: "limo", tag: "Mit Fahrer" }
+];
+let CUR = CARS[0];
+const frow = document.getElementById("frow"), carSeg = document.getElementById("carSeg"), sumVis = document.getElementById("sumVis");
+frow.innerHTML = CARS.map(c => `<button type="button" class="car" data-id="${c.id}" aria-pressed="${c === CUR}">${c.tag ? `<span class="tag">${c.tag}</span>` : ""}<div class="vis">${c.video ? `<video src="clips/seite.mp4" poster="clips/seite.jpg" muted loop playsinline preload="none"></video>` : c.clip ? `<video src="clips/karte-${c.clip}.mp4" poster="clips/karte-${c.clip}.jpg" muted loop playsinline preload="none"></video>` : silSVG(c.sil)}<span class="sweep"></span></div><p class="cat" style="margin-top:16px">${c.cat}</p><h3>${c.name}</h3><dl><div><dt>Leistung</dt><dd>${c.ps} PS</dd></div><div><dt>0–100</dt><dd>${c.acc}</dd></div><div><dt>Spitze</dt><dd>${c.vmax}</dd></div></dl><div class="pr"><b>${euro(c.price)}</b><span>pro Tag</span></div></button>`).join("");
+carSeg.innerHTML = CARS.map(c => `<button type="button" data-id="${c.id}" aria-pressed="${c === CUR}">${c.name.replace(" mit Fahrer", "")}</button>`).join("");
+function pickCar(id, scroll) {
+  CUR = CARS.find(c => c.id === id);
+  document.querySelectorAll(".car,#carSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+  sumVis.innerHTML = CUR.video ? `<img src="film/drive-hd/f238.webp" alt="Das Hypercar von vorn">` : CUR.clip ? `<img src="clips/karte-${CUR.clip}.jpg" alt="${CUR.name}">` : silSVG(CUR.sil);
+  calc();
+  if (scroll) document.getElementById("preise").scrollIntoView({ behavior: "smooth" });
+}
+frow.addEventListener("click", e => { const b = e.target.closest(".car"); if (b) pickCar(b.dataset.id, true); });
+document.querySelector(".reels").addEventListener("click", e => { const b = e.target.closest("[data-pick]"); if (b) pickCar(b.dataset.pick, true); });
+carSeg.addEventListener("click", e => { const b = e.target.closest("button"); if (b) pickCar(b.dataset.id, false); });
+
+/* 5. Preisrechner */
+const days = document.getElementById("days"), dLbl = document.getElementById("dLbl"), dDisc = document.getElementById("dDisc");
+const total = document.getElementById("total"), per = document.getElementById("per"), lines = document.getElementById("lines");
+const place = document.getElementById("place"); let shown = 0, target = 0;
+place.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; place.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); calc(); });
+function calc() {
+  const d = +days.value, disc = d >= 7 ? .15 : d >= 3 ? .08 : 0;
+  dLbl.textContent = d + (d === 1 ? " Tag" : " Tage"); dDisc.textContent = disc ? `−${Math.round(disc * 100)} % Rabatt` : "";
+  const pl = place.querySelector('[aria-pressed="true"]');
+  const rows = [[`${CUR.name} · ${d} ${d === 1 ? "Tag" : "Tage"}`, CUR.price * d * (1 - disc)]];
+  if (+pl.dataset.v) rows.push([`Übergabe am Flughafen`, +pl.dataset.v]);
+  document.querySelectorAll(".opt input:checked").forEach(i => { const t = i.closest(".opt").querySelector("b").textContent; rows.push([t, i.dataset.day ? +i.dataset.day * d : +i.dataset.once]); });
+  target = rows.reduce((a, r) => a + r[1], 0);
+  lines.innerHTML = rows.map(r => `<li><span>${r[0]}</span><span>${euro(r[1])}</span></li>`).join("");
+  per.textContent = `entspricht ${euro(target / d)} pro Tag · Lieferung inklusive`;
+}
+days.addEventListener("input", calc); document.querySelectorAll(".opt input").forEach(i => i.addEventListener("change", calc)); calc();
+(function tick() { shown = lerp(shown, target, .12); if (Math.abs(shown - target) < 1) shown = target; total.textContent = euro(shown); requestAnimationFrame(tick); })();
+
+/* Videos nur abspielen, wenn sichtbar */
+const vio = new IntersectionObserver(es => es.forEach(e => { const v = e.target; if (e.isIntersecting) { v.preload = "auto"; v.play().catch(() => {}); } else v.pause(); }), { threshold: .25 });
+document.querySelectorAll("video").forEach(v => vio.observe(v));
+
+/* Einblenden */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+addEventListener("resize", () => { f1.last = -1; f2.last = -1; });
+function loop(now) {
+  if (visible(hero)) drawHero();
+  if (visible(story)) drawStory();
+  if (visible(front)) drawFront();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
