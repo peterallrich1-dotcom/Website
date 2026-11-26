@@ -237,6 +237,21 @@ img,canvas{display:block;max-width:100%}
 .plus li.all{color:var(--blue);font-weight:600}
 .plus li.all:before{display:none}
 .pbox .btn{margin-top:auto;align-self:flex-start}
+/* Jahresend-Aktion: blendet sich nach dem 31.12.2026 von selbst aus */
+[data-nopromo]{display:none}
+.promo-off [data-promo]{display:none!important}
+.promo-off [data-nopromo]{display:revert}
+.promo{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:clamp(30px,4vw,44px);padding:14px 20px;border-radius:999px;background:linear-gradient(90deg,rgba(61,123,255,.16),rgba(122,92,255,.16));border:1px solid rgba(61,123,255,.4);font-size:15px;text-align:center}
+.promo b{color:#fff}
+.promo i{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg,var(--blue),#7a5cff);color:#fff}
+.promo + .prices{margin-top:14px}
+@media (max-width:760px){.promo{border-radius:18px;font-size:14px}}
+.pbox .amt s{display:block;font-size:.42em;color:var(--mute);text-decoration-thickness:2px;margin-bottom:8px}
+.pbox .deal{display:inline-block;align-self:flex-start;margin-top:14px;padding:5px 12px;border-radius:999px;background:linear-gradient(90deg,var(--blue),#7a5cff);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.04em}
+.pbox li.gift b{color:#fff}
+.hcopy .hpromo{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;padding:8px 16px;border-radius:999px;background:rgba(10,10,11,.55);border:1px solid rgba(61,123,255,.5);font-size:14px;font-weight:600;color:#fff;backdrop-filter:blur(6px)}
+.hcopy .hpromo span{color:#9fbcff}
+@media (max-width:600px){.hcopy .hpromo{font-size:12.5px;padding:7px 13px;margin-bottom:16px;white-space:nowrap;max-width:100%}.hcopy .hpromo span{display:none}}
 @media (max-width:1100px){.prices{grid-template-columns:1fr 1fr}.prices .pbox:last-child{grid-column:1/-1}}
 @media (max-width:760px){.prices{grid-template-columns:1fr}}
 
@@ -270,6 +285,7 @@ img,canvas{display:block;max-width:100%}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
+<script>if(Date.now()>=Date.parse('2026-12-31T23:00:00Z'))document.documentElement.classList.add('promo-off');</script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "26d7010577e84ed5a8bb366f4ad75dd1"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
@@ -300,6 +316,7 @@ img,canvas{display:block;max-width:100%}
     <div class="hcopy" id="hcopy"><div class="wrap">
       <p class="hkick">Webdesign aus Potsdam · für ganz Deutschland</p>
       <h1>Websites, die bleiben.</h1>
+      <a class="hpromo" href="#preis" data-promo>Jahresend-Aktion: Premium 1.390 € statt 1.490 € <span>· bis 31.12. →</span></a><br data-promo>
       <a class="btn blue" href="#kontakt">Kostenlosen Entwurf anfragen <span class="arr">→</span></a>
     </div></div>
   </div>
@@ -419,12 +436,14 @@ img,canvas{display:block;max-width:100%}
       <div class="rv"><p class="kicker">Preis</p><h2 class="h h2">Klar kalkuliert.<br><em>Ohne Überraschung.</em></h2></div>
       <p class="lead2 rv">Sie wissen vorher, was Ihre Website kostet. Zwei feste Pakete, größere Projekte biete ich individuell an.</p>
     </div>
+    <p class="promo rv" data-promo><i>Jahresend-Aktion</i><span><b>Premium 100 € günstiger</b> und bei Start <b>Google-Profil und 3 Monate Hosting gratis</b>. Nur bis 31.12.2026.</span></p>
     <div class="prices">
       <div class="pbox rv">
         <p class="lbl">Start</p>
         <p class="amt">990 €<small>einmalig</small></p>
         <p class="sub">Die komplette Website. Das genaue Angebot erhalten Sie vorab schriftlich.</p>
         <ul>
+          <li class="gift" data-promo><span><b>Bis 31.12. gratis dazu:</b> Ich richte Ihr Google-Profil ein, und Sie bekommen 3 Monate Hosting und Pflege geschenkt.</span></li>
           <li>Ein Scroll-Film aus Ihrem Material</li>
           <li>Eigenes Design in Ihren Farben</li>
           <li>Optimiert für Handy, Tablet und Computer</li>
@@ -436,7 +455,8 @@ img,canvas{display:block;max-width:100%}
       </div>
       <div class="pbox main rv">
         <p class="lbl">Premium <span class="badge">Empfehlung</span></p>
-        <p class="amt">1.490 €<small>einmalig</small></p>
+        <p class="amt" data-promo><s aria-label="statt bisher 1.490 €">1.490 €</s>1.390 €<small>einmalig</small></p><p class="amt" data-nopromo>1.490 €<small>einmalig</small></p>
+        <p class="deal" data-promo>Jahresend-Aktion · nur bis 31.12.2026</p>
         <p class="sub">Für einen besonders hochwertigen Auftritt mit mehr Bewegung und mehr Inhalt.</p>
         <ul class="plus">
           <li class="all">Alles aus Start, dazu:</li>
