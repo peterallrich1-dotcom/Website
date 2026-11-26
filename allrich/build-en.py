@@ -126,7 +126,7 @@ T = [
 ('<h3>Ihr eigener KI-Assistent</h3>', '<h3>Your own AI assistant</h3>'),
 ('Ein Chat auf Ihrer Website, der Kundenfragen rund um die Uhr beantwortet: zu Leistungen, Preisen, Öffnungszeiten und Anfahrt. Er kennt nur Ihre Angaben und verweist sonst an Sie. So wie der Assistent hier auf meiner Seite.',
  'A chat on your website that answers customer questions around the clock: services, prices, opening hours and directions. It only knows your information and refers everything else to you. Just like the assistant on this site.'),
-('<p class="amt">95 €<small>einmalig</small></p>', '<p class="amt">€95<small>one-off</small></p>'),
+('<p class="amt">120 €<small>einmalig, dazu +10 €/Monat im Hosting</small></p>', '<p class="amt">€120<small>one-off, plus €10/month on hosting</small></p>'),
 ('<h3>Weitere Sprachen</h3>', '<h3>More languages</h3>'),
 ('Ihre Website zusätzlich auf Englisch, Polnisch oder in einer anderen Sprache. Mit KI übersetzt und von mir geprüft. Ihr KI-Assistent antwortet dann automatisch in der Sprache Ihrer Besucher.',
  'Your website also in English, Polish or any other language. Translated with AI and checked by me. Your AI assistant then automatically replies in your visitors\' language.'),
