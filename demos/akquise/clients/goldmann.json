@@ -1,0 +1,147 @@
+{
+ "name": "Goldmann & Partner",
+ "brand": "Goldmann & Partner",
+ "brandSub": "Wertermittlung und Immobilien",
+ "accent": "#dcc091",
+ "accentDark": "#7a5a24",
+ "source": "goldmann-partner.de",
+ "sourceUrl": "https://www.goldmann-partner.de",
+ "cta": "Gespräch vereinbaren",
+ "hero": {
+  "eyebrow": "Gewerbeimmobilien · München · Starnberg",
+  "head": "Für uns zählt Ihr\n*Ergebnis.*",
+  "intro": "Bewertung, Verkauf und Vermietung von gewerblich genutzten Immobilien und Grundstücken in und um München. Scrollen Sie durch ein Beispiel, wie Ihr Auftritt online wirken könnte.",
+  "geo": "47°59′N · 11°20′E · Starnberg",
+  "ch": [
+   [
+    "Standortsuche",
+    "Den richtigen Standort *finden.*",
+    "Büroflächen, die man beim Scrollen betritt."
+   ],
+   [
+    "Angebote",
+    "Lofts, Citybüros, *Altbauten.*",
+    "Jede Fläche mit ihrem eigenen Charakter gezeigt."
+   ],
+   [
+    "Wertermittlung",
+    "Plausible Fakten statt *Bauchgefühl.*",
+    "Ihre Gutachterkompetenz, klar sichtbar."
+   ],
+   [
+    "Vermarktung",
+    "Individuelle Strategien für den *Erfolg.*",
+    "Vom Konzept bis zum Vertragsabschluss."
+   ],
+   [
+    "Goldmann & Partner",
+    "Als Partner gemeinsam zum *Erfolg*"
+   ]
+  ]
+ },
+ "about": {
+  "eyebrow": "Über uns",
+  "head": "Fachwissen, Engagement und *Feingefühl.*",
+  "text": [
+   "Goldmann & Partner ist auf die Bewertung, den Verkauf und die Vermietung von gewerblich genutzten Immobilien und Grundstücken in und um München spezialisiert.",
+   "Als unabhängige, diplomierte und zertifizierte Sachverständige ermitteln die Partner den nachhaltigen Wert einer Immobilie."
+  ],
+  "facts": [
+   [
+    "3",
+    "Leistungsbereiche: Standortsuche, Wertermittlung, Vermarktung"
+   ],
+   [
+    "4",
+    "Objektarten: Gewerbe, Lofts, Citybüros, Altbauten"
+   ],
+   [
+    "2",
+    "Partner und Sachverständige"
+   ]
+  ]
+ },
+ "projects": {
+  "nav": "Angebote",
+  "eyebrow": "Angebote",
+  "head": "Flächen mit *Charakter*",
+  "lead": "Gewerbeimmobilien in und um München.",
+  "items": [
+   {
+    "status": "Gewerbe",
+    "name": "Gewerbe-Immobilien",
+    "place": "München und Umland",
+    "text": "Außergewöhnliche und attraktive Büroflächen."
+   },
+   {
+    "status": "Lofts",
+    "name": "Lofts",
+    "place": "Innovative Architektur",
+    "text": "Lofts mit innovativer Architektur."
+   },
+   {
+    "status": "Büro",
+    "name": "Citybüros",
+    "place": "Klares Design",
+    "text": "Citybüros mit klarem Design."
+   },
+   {
+    "status": "Altbau",
+    "name": "Altbauten",
+    "place": "Exklusives Ambiente",
+    "text": "Altbauten mit exklusivem Ambiente."
+   }
+  ]
+ },
+ "stance": {
+  "eyebrow": "Leitgedanke",
+  "quote": "Das Geheimnis des Erfolges ist, den Standpunkt des anderen zu *verstehen.*",
+  "points": [
+   [
+    "Standortsuche",
+    "Begleitung von der Vorauswahl bis zum Vertragsabschluss."
+   ],
+   [
+    "Wertermittlung",
+    "Kurz- und Vollgutachten, Mietwertgutachten."
+   ],
+   [
+    "Vermarktung",
+    "Individuelles Konzept und marktgerechte Preisfindung."
+   ]
+  ]
+ },
+ "services": {
+  "head": "Bewerten, verkaufen, *vermieten.*",
+  "lead": "Für Eigentümer und Unternehmen.",
+  "items": [
+   [
+    "Standortsuche",
+    "Vorselektion aus aktuellen Angeboten und enger Austausch mit den Auftraggebern."
+   ],
+   [
+    "Wertermittlung",
+    "Erstellung von Kurz- und Vollgutachten sowie Mietwertgutachten."
+   ],
+   [
+    "Vermarktung",
+    "Vermarktungskonzept, Preisfindung und Umsetzung bis zum Vertragsabschluss."
+   ]
+  ]
+ },
+ "contact": {
+  "head": "Als Partner gemeinsam zum *Erfolg.*",
+  "address": [
+   "Possenhofener Str. 23",
+   "82319 Starnberg"
+  ],
+  "phone": "+49 8151 556 75 74",
+  "email": "info@goldmann-partner.de",
+  "topics": [
+   "Standortsuche",
+   "Wertermittlung",
+   "Vermarktung",
+   "Allgemeine Anfrage"
+  ]
+ }
+}

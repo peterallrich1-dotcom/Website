@@ -1,0 +1,66 @@
+{
+ "name": "zbz Wohnen GmbH",
+ "brand": "zbz", "brandSub": "Wohnen · Benz & Ziegler",
+ "accent": "#b9d0ea", "accentDark": "#1f4a80",
+ "source": "zbz-wohnen.de", "sourceUrl": "https://www.zbz-wohnen.de",
+ "cta": "Kontakt aufnehmen",
+ "hero": {
+  "eyebrow": "Bauträger und Architekten · Germering",
+  "head": "Werte für die\nZukunft *schaffen.*",
+  "intro": "Architektenhäuser von Benz & Ziegler im Münchner Westen und Süden. Scrollen Sie durch ein Beispiel, wie Ihre Architektur online wirken könnte.",
+  "geo": "48°08′N · 11°22′E · Germering",
+  "chapters": [
+   {"a": 0.08, "b": 0.27, "k": "Idee", "h": "Architektur zuerst, dann der *Bauträger.*", "p": "Ihr Ansatz als Bauträger-Architekten-Team verdient eine Bühne, auf der man die Entwürfe wirklich sieht."},
+   {"a": 0.31, "b": 0.52, "k": "Architektur", "h": "Räume, die man *betreten* kann.", "p": "Ein Film, der beim Scrollen durch das Haus führt, ersetzt zehn Renderings."},
+   {"a": 0.55, "b": 0.70, "k": "Wohnkomfort", "h": "Ganzheitlich *gedacht.*", "p": "Architektur, Innenarchitektur und Produktdesign in einer Linie erzählt."},
+   {"a": 0.72, "b": 0.87, "k": "Lage", "h": "Jedes Projekt hat seinen *Ort.*", "p": "Lage, Idee und Architektur als eigene Kapitel, so wie Sie Ihre Projekte heute schon gliedern."},
+   {"a": 0.90, "b": 1.2, "k": "Aktuelles Projekt", "h": "Bergstraße 10, *Krailling*"}
+  ]
+ },
+ "about": {
+  "eyebrow": "Unternehmen",
+  "head": "Ihr Zuhause von *Benz & Ziegler.*",
+  "text": [
+   "Als Bauträger-Architekten-Team verbindet zbz Entwurf, Planung und Umsetzung. Mit Wurzeln in Architektur, Innenarchitektur und Produktdesign betrachtet das Team Häuser ganzheitlich.",
+   "Bauen ist Teamwork: Architekten, Fachplaner und lokale Handwerksbetriebe arbeiten zusammen. Geschäftsführer sind Christoph Ziegler und Matthias Benz."
+  ],
+  "facts": [["7", "Projekte und Referenzen auf der Website"], ["11", "altersgerechte Wohnungen im aktuellen Projekt"], ["2", "Geschäftsführer: Christoph Ziegler und Matthias Benz"]]
+ },
+ "projects": {
+  "nav": "Projekte", "eyebrow": "Projekte und Referenzen", "head": "Gebaut und *im Bau*",
+  "lead": "Jedes Projekt wird in den Kapiteln Idee, Lage und Architektur vorgestellt.",
+  "items": [
+   {"status": "Aktuell", "name": "Bergstraße 10", "place": "Krailling", "text": "Elf altersgerechte Zwei- bis Drei-Zimmer-Wohnungen."},
+   {"status": "Referenz", "name": "Hertwigplatz 1b", "place": "Idee · Lage · Architektur", "text": "Referenzprojekt von zbz Wohnen."},
+   {"status": "Referenz", "name": "Ensemble Goldener Stern", "place": "Idee · Architektur", "text": "Referenzprojekt von zbz Wohnen."},
+   {"status": "Referenz", "name": "Römerkessel 1A", "place": "Lage · Ökologie", "text": "Referenzprojekt mit ökologischem Schwerpunkt."},
+   {"status": "Referenz", "name": "Sollner Terrassen", "place": "Lage · Architektur · Wohnkomfort", "text": "Referenzprojekt von zbz Wohnen."},
+   {"status": "Referenz", "name": "Edelweiß 14", "place": "Lage · Architektur · Wohnen", "text": "Referenzprojekt von zbz Wohnen."},
+   {"status": "Referenz", "name": "Luitpold 31", "place": "Idee · Lage · Architektur", "text": "Referenzprojekt von zbz Wohnen."}
+  ]
+ },
+ "stance": {
+  "eyebrow": "Philosophie",
+  "quote": "Bauen ist *Teamwork.*",
+  "points": [
+   ["Zusammen", "Die Wünsche der Käufer fließen in ein Bauträgerobjekt mit hoher Werthaltigkeit und Wohnqualität."],
+   ["Ganzheitlich", "Architektur, Innenarchitektur und Produktdesign aus einem Team."],
+   ["Lokal", "Fachplaner und Handwerksbetriebe aus der Region."]
+  ]
+ },
+ "services": {
+  "head": "Entwurf, Planung, *Umsetzung.*",
+  "lead": "Eine Verbindung, die bei Bauträgern selten ist.",
+  "items": [
+   ["Architektenhäuser als Bauträger", "Entwurf, Planung und Umsetzung aus einer Hand, mit dem Anspruch eines Architekturbüros."],
+   ["Altersgerechtes Wohnen", "Aktuell elf altersgerechte Wohnungen in der Bergstraße 10 in Krailling."],
+   ["Grundstücke", "zbz ist stets auf der Suche nach neuen Grundstücken. Eigentümer können direkt Kontakt aufnehmen."]
+  ]
+ },
+ "contact": {
+  "head": "So erreichen Sie *uns.*",
+  "address": ["Bahnhofplatz 2", "82110 Germering"],
+  "phone": "089 30 74 75 90", "email": "info@zbz-wohnen.de",
+  "topics": ["Bergstraße 10, Krailling", "Grundstück anbieten", "Allgemeine Anfrage"]
+ }
+}

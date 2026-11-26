@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aurelis 8 · Private Aviation (Beispielseite)</title>
+<meta name="description" content="Beispielseite von Allrich Webdesign: eine 3D-Scroll-Website für eine fiktive Private-Jet-Marke.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0d14">
+<style>
+@font-face{font-family:"Manrope";font-weight:300;src:url(fonts/manrope-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:400;src:url(fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:500;src:url(fonts/manrope-500.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Manrope";font-weight:600;src:url(fonts/manrope-600.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;src:url(fonts/fraunces-300.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Fraunces";font-weight:300;font-style:italic;src:url(fonts/fraunces-300i.woff2) format("woff2");font-display:swap}
+:root{--ink:#0a0d14;--ink2:#111622;--paper:#f5f4f0;--text:#141a26;--mute:#7d8290;--mute-l:#a8adba;--navy:#16233d;--gold:#c8a86b;--gold2:#e2c993;--line:rgba(255,255,255,.14);--line-d:rgba(20,26,38,.13);
+  --serif:"Fraunces",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:clamp(16px,4.5vw,64px);--max:1280px}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:#eef0f4;font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.k{font:600 11px/1.2 var(--sans);letter-spacing:.26em;text-transform:uppercase}
+.top{position:fixed;inset:0 0 auto;z-index:60;padding:14px var(--gut);padding-top:max(14px,env(safe-area-inset-top));display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start;color:#fff;mix-blend-mode:difference}
+.brand{font:600 15px/1 var(--sans);letter-spacing:.42em;text-decoration:none}
+.brand small{display:block;margin-top:6px;font-size:9px;letter-spacing:.34em;opacity:.7}
+.cols{display:flex;gap:clamp(18px,4vw,56px);justify-content:center}
+.cols div{font:500 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.cols div b{display:block;font-weight:500;opacity:.55}
+.cols a{text-decoration:none}
+.call{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;border-radius:999px;padding:10px 16px}
+@media(max-width:860px){.cols{display:none}}
+
+.hero{position:relative;height:620vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#0a0d14}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 55%,rgba(5,8,14,.6) 100%);pointer-events:none}
+.cap{position:absolute;left:var(--gut);bottom:clamp(54px,11vh,120px);max-width:min(820px,88vw);pointer-events:none}
+.cap .k{color:var(--gold2);opacity:0;transition:opacity .5s}
+.cap.on .k{opacity:1}
+.cap h1,.cap h2{font:300 clamp(44px,7.6vw,112px)/.96 var(--serif);letter-spacing:-.025em;margin:14px 0 0}
+.cap em{font-style:italic;color:var(--gold2)}
+.w{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),filter .6s}
+.cap.on .w{opacity:1;transform:none;filter:none}
+.fade{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none}
+.meter{position:absolute;right:var(--gut);bottom:clamp(54px,11vh,120px);text-align:right;font:500 10px/1.8 var(--sans);letter-spacing:.22em;color:rgba(255,255,255,.75)}
+.meter b{display:block;font:300 28px/1 var(--serif);letter-spacing:0;color:#fff}
+.loading{position:absolute;inset:0;display:grid;place-items:center;font:500 11px/1 var(--sans);letter-spacing:.3em;color:rgba(255,255,255,.6);transition:opacity .6s}
+@media(max-width:700px){.meter{display:none}}
+
+.cabin{position:relative;height:420vh}
+.arrive{height:280vh}
+.cabin .stage{background:#1a140e}
+.cap.hint2{bottom:auto;top:clamp(90px,15vh,150px)}
+.cap.hint2 h2{font-size:clamp(32px,4.4vw,64px)}
+.hot{position:absolute;z-index:4;transform:translate(-50%,-50%);opacity:0;pointer-events:none;transition:opacity .5s}
+.cabin.hotson .hot{opacity:1;pointer-events:auto}
+.hot button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:rgba(10,13,20,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:300 22px/1 var(--sans);cursor:pointer;box-shadow:0 0 0 0 rgba(226,201,147,.6);animation:pulse 2.4s infinite;transition:transform .3s}
+.hot.open button{transform:rotate(45deg);background:var(--gold);color:#16120a;border-color:var(--gold)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(226,201,147,.55)}70%{box-shadow:0 0 0 16px rgba(226,201,147,0)}100%{box-shadow:0 0 0 0 rgba(226,201,147,0)}}
+.hot .card{position:absolute;left:50%;top:calc(100% + 12px);transform:translateX(-50%) translateY(6px);width:230px;background:rgba(245,244,240,.97);color:var(--text);border-radius:8px;padding:12px 14px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 20px 40px -14px rgba(0,0,0,.6)}
+.hot .card b{display:block;font:300 18px/1.2 var(--serif)}
+.hot .card p{margin:6px 0 0;font-size:13px;line-height:1.45;color:#525868}
+.hot.open .card{opacity:1;transform:translateX(-50%)}
+.hot{z-index:4}.hot.open{z-index:6}
+.paper{background:var(--paper);color:var(--text)}
+.story{position:relative;height:280vh}
+.story .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center}
+.story .txt{position:relative;z-index:2;max-width:min(980px,62vw);padding:0 var(--gut)}
+.story p.big{font:300 clamp(26px,3.3vw,50px)/1.14 var(--serif);letter-spacing:-.015em;margin:18px 0 0}
+.story p.big span{color:rgba(20,26,38,.15);transition:color .25s}
+.story p.big span.on{color:var(--text)}
+.story .k{color:var(--navy)}
+#glide{position:absolute;left:0;top:50%;width:min(40vw,600px);aspect-ratio:16/10;object-fit:cover;border-radius:8px;box-shadow:0 40px 80px -30px rgba(20,26,38,.5);will-change:transform;z-index:1}
+@media(max-width:760px){.story .txt{max-width:none}#glide{width:90vw;top:auto;bottom:8vh}.story .pin{align-items:flex-start;padding-top:16vh}}
+
+.routes{position:relative;height:520vh;background:var(--ink)}
+.routes .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#globe{position:absolute;inset:0;width:100%;height:100%}
+.routes .ov{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(80px,12vh,120px) var(--gut) clamp(40px,8vh,80px)}
+.routes .row1{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.routes .row1 .k{color:var(--mute-l)}
+.flap{display:flex;gap:3px;--n:10}
+.flap .c{width:min(34px,calc((100vw - 2 * var(--gut)) / (var(--n) + 4)));aspect-ratio:2/3;background:linear-gradient(180deg,#1b2130 0 49.5%,#121723 50.5% 100%);border-radius:3px;display:grid;place-items:center;font:500 clamp(12px,1.8vw,24px)/1 var(--sans);color:#eef0f4;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 2px 6px rgba(0,0,0,.4)}
+.flap .c::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.6)}
+.flap .c.f{animation:flip .09s linear}
+@keyframes flip{50%{transform:rotateX(70deg);filter:brightness(.6)}}
+.routes .stats{display:flex;gap:clamp(18px,3vw,40px);flex-wrap:wrap}
+.routes .stats div{border-left:1px solid var(--line);padding-left:12px}
+.routes .stats b{display:block;font:300 clamp(26px,3vw,40px)/1 var(--serif)}
+.routes .stats span{font:600 9px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute-l)}
+.routes .big{font:300 clamp(70px,16vw,240px)/.8 var(--serif);letter-spacing:-.04em;color:rgba(255,255,255,.08);position:absolute;left:var(--gut);bottom:2vh;z-index:1;pointer-events:none;white-space:nowrap}
+.ticket{position:absolute;z-index:3;right:var(--gut);top:50%;transform:translateY(-50%);width:min(280px,78vw);background:var(--paper);color:var(--text);border-radius:10px;padding:16px 18px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ticket .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.ticket .code{font:500 28px/1 var(--sans);letter-spacing:.03em}
+.ticket .code i{font-style:normal;color:var(--mute);font-size:16px;margin:0 6px}
+.ticket small{display:block;font:600 9px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.ticket hr{border:0;border-top:1px dashed var(--line-d);margin:12px 0}
+.ticket a{display:block;margin-top:12px;text-align:center;background:#b3262f;background:var(--navy);color:#fff;text-decoration:none;border-radius:6px;padding:10px;font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:760px){.ticket{top:auto;bottom:18vh;transform:none}}
+
+.spec{position:relative;height:420vh}
+.spec .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#spec{position:absolute;inset:0;width:100%;height:100%}
+.spec .info{position:absolute;left:var(--gut);top:clamp(80px,13vh,130px);z-index:2;max-width:380px;transition:opacity .5s}
+.spec h2{font:300 clamp(56px,9vw,140px)/.86 var(--serif);letter-spacing:-.04em;margin:10px 0 18px}
+.spec .k{color:var(--navy)}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-size:13px}
+.spec dt{font:600 9px/2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.spec dd{margin:0;font-weight:500}
+.spec .info2{position:absolute;right:var(--gut);top:clamp(80px,13vh,130px);z-index:2;max-width:340px;text-align:right;opacity:0;transition:opacity .5s}
+.spec .info2 h3{font:300 clamp(30px,3.6vw,52px)/1 var(--serif);margin:10px 0 10px;letter-spacing:-.02em}
+.spec .info2 p{color:#5b6170;margin:0;font-size:15px}
+.lbl{position:absolute;z-index:3;transform:translate(-50%,-100%);opacity:0;transition:opacity .4s;pointer-events:none;text-align:center}
+.lbl span{display:inline-block;background:rgba(245,244,240,.96);color:var(--text);padding:6px 9px;border-radius:4px;font:600 9px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;box-shadow:0 8px 20px -8px rgba(0,0,0,.35);white-space:nowrap}
+.lbl i{display:block;width:1px;height:26px;background:var(--navy);margin:0 auto}
+.dims{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .5s}
+.dims .d{position:absolute;font:600 9px/1 var(--sans);letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+@media(max-width:760px){.spec .info{max-width:none;right:var(--gut)}.spec dl{display:none}.spec .info2{left:var(--gut);text-align:left;top:auto;bottom:10vh}}
+
+.ways{padding:clamp(80px,11vw,140px) 0}
+.ways h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 40px}
+.ways h2 em{font-style:italic;color:var(--navy)}
+.ways .k{color:var(--navy)}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.way{border:1px solid var(--line-d);border-radius:10px;padding:26px 24px 28px;background:#fbfaf7;transition:transform .4s}
+.way:hover{transform:translateY(-4px)}
+.way .n{font:500 11px/1 var(--sans);letter-spacing:.22em;color:var(--mute)}
+.way h3{font:300 30px/1.1 var(--serif);margin:16px 0 8px}
+.way .pr{font:300 40px/1 var(--serif);margin:18px 0 4px;letter-spacing:-.02em}
+.way .pr small{font:500 12px var(--sans);color:var(--mute);letter-spacing:0;margin-left:6px}
+.way p{margin:0;color:#525868;font-size:15px}
+.way ul{list-style:none;padding:0;margin:18px 0 0;border-top:1px solid var(--line-d)}
+.way li{padding:10px 0;border-bottom:1px solid var(--line-d);font-size:14px}
+.way.main{background:var(--navy);color:#eef0f4;border-color:var(--navy)}
+.way.main p,.way.main .n,.way.main .pr small{color:rgba(238,240,244,.7)}
+.way.main ul,.way.main li{border-color:rgba(255,255,255,.16)}
+.way.main .pr{color:var(--gold2)}
+.note{margin-top:18px;font-size:12px;color:var(--mute)}
+@media(max-width:900px){.wgrid{grid-template-columns:1fr}}
+
+.board{background:var(--ink);padding:clamp(80px,11vw,140px) 0}
+.board h2{font:300 clamp(40px,6vw,96px)/.95 var(--serif);letter-spacing:-.03em;margin:12px 0 30px}
+.board h2 em{font-style:italic;color:var(--gold2)}
+.board .k{color:var(--gold2)}
+.dep{border-top:1px solid var(--line)}
+.dep .r{display:grid;grid-template-columns:1.6fr .7fr .7fr 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.dep .h{font:600 9px/1 var(--sans);letter-spacing:.22em;color:var(--mute-l);text-transform:uppercase}
+.dep .flap{min-width:0}
+.dep .flap .c{width:min(22px,calc((100% - (var(--n) - 1) * 3px) / var(--n)));font-size:clamp(9px,1.15vw,15px)}
+.dep .ok{color:#8fd19e}
+@media(max-width:760px){.dep .r{grid-template-columns:1.4fr .8fr}.dep .r>:nth-child(3),.dep .r>:nth-child(4){display:none}}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font:600 14px var(--sans);text-decoration:none;border:1px solid transparent}
+.btn.g{background:var(--gold);color:#16120a}
+.btn.o{border-color:var(--line);color:#fff}
+footer{background:var(--ink);border-top:1px solid var(--line);padding:26px 0 calc(26px + env(safe-area-inset-bottom));color:var(--mute-l);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(10,13,20,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--gold2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+</style>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#">AURELIS<small>PRIVATE AVIATION</small></a>
+  <div class="cols">
+    <div><b>Entdecken</b><a href="#routen">Routen</a> · <a href="#kabine">Kabine</a> · <a href="#eigentum">Eigentum</a></div>
+    <div><b>Basis</b>München · MUC</div>
+    <div><b>Charter</b>Rund um die Uhr</div>
+  </div>
+  <a class="call" href="#kontakt">Anfragen</a>
+</header>
+
+<section class="hero" id="hero">
+  <div class="stage">
+    <canvas id="sky" aria-label="Film: Business-Jet über den Wolken"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".22"><p class="k">Aurelis 8</p><h1>Ihr eigener Jet.<br><em>Ihre eigene Zeit.</em></h1></div>
+    <div class="cap" data-a=".24" data-b=".46"><p class="k">Reichweite</p><h2>8.000 km nonstop.<br><em>München bis überall.</em></h2></div>
+    <div class="cap" data-a=".48" data-b=".7"><p class="k">Reiseflug</p><h2>Über dem Wetter.<br><em>Mach 0,90.</em></h2></div>
+    <div class="cap" data-a=".72" data-b=".9"><p class="k">Kabine</p><h2>Leise wie ein Salon.<br><em>In 15.500 Metern.</em></h2></div>
+    <div class="meter"><span>Höhe</span><b id="alt">0 m</b><span style="margin-top:10px;display:block">Geschwindigkeit</span><b id="spd">Mach 0,00</b></div>
+    <div class="fade" id="fade"></div>
+    <div class="loading" id="loading">LÄDT</div>
+  </div>
+</section>
+
+<section class="paper story">
+  <div class="pin">
+    <div class="txt">
+      <p class="k">Das Flugzeug</p>
+      <p class="big" id="big">Dreißig Meter Rumpf, gepfeilte Flügel und zwei Triebwerke am Heck. So bleibt die Kabine ruhig, während Sie über Bergdörfern und Ozeanen reisen. Bis zu vierzehn Gäste, ein eigenes Schlafzimmer und eine Bordküche, die kocht, was Sie möchten.</p>
+    </div>
+    <img id="glide" src="film/ext-hd/f015.webp" alt="Der Jet über den Wolken" decoding="async">
+  </div>
+</section>
+
+<section class="cabin" id="innen">
+  <div class="stage">
+    <canvas id="cab" aria-label="Film: Fahrt durch die Kabine"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".3"><p class="k">Die Kabine</p><h2>Treten Sie ein.<br><em>Es ist still hier.</em></h2></div>
+    <div class="cap" data-a=".32" data-b=".58"><p class="k">Material</p><h2>Leder und Walnuss,<br><em>von Hand gefertigt.</em></h2></div>
+    <div class="cap" data-a=".6" data-b=".8"><p class="k">Ausblick</p><h2>Über den Wolken<br><em>gehört der Tag Ihnen.</em></h2></div>
+    <div class="cap hint2" data-a=".8" data-b="1.1"><p class="k">Entdecken</p><h2>Tippen Sie auf<br><em>die Punkte.</em></h2></div>
+    <div class="hot" data-x=".43" data-y=".56"><button type="button" aria-label="Sessel">+</button><div class="card"><b>Club-Sessel</b><p>Handgenähtes Leder, drehbar und bis zur Liegeposition verstellbar.</p></div></div>
+    <div class="hot" data-x=".25" data-y=".78"><button type="button" aria-label="Tisch">+</button><div class="card"><b>Tische aus Walnuss</b><p>Hochglanzpoliert und ausklappbar, für Essen oder Arbeit.</p></div></div>
+    <div class="hot" data-x=".89" data-y=".38"><button type="button" aria-label="Fenster">+</button><div class="card"><b>Große Fenster</b><p>Ovale Fenster in jeder Sitzreihe, mit elektrischer Abdunklung.</p></div></div>
+    <div class="hot" data-x=".5" data-y=".14"><button type="button" aria-label="Licht">+</button><div class="card"><b>Licht nach Tageszeit</b><p>Dimmbare Beleuchtung, die sich dem Flug und Ihrer Ankunftszeit anpasst.</p></div></div>
+    <div class="hot" data-x=".5" data-y=".42"><button type="button" aria-label="Hinterer Bereich">+</button><div class="card"><b>Schlafzimmer achtern</b><p>Hinter der Walnusstür liegt ein eigenes Schlafzimmer mit Bad.</p></div></div>
+  </div>
+</section>
+
+<section class="cabin arrive" id="ankunft">
+  <div class="stage">
+    <canvas id="arr" aria-label="Film: Jet und Limousine auf dem Rollfeld"></canvas>
+    <div class="shade"></div>
+    <div class="cap" data-a="0" data-b=".55"><p class="k">Ankunft</p><h2>Die Tür öffnet sich,<br><em>wo der Wagen hält.</em></h2></div>
+    <div class="cap" data-a=".55" data-b="1.1"><p class="k">Service</p><h2>Kein Terminal.<br><em>Keine Wartezeit.</em></h2></div>
+  </div>
+</section>
+
+<section class="routes" id="routen">
+  <div class="pin">
+    <canvas id="globe" aria-label="Erdkugel mit Flugrouten ab München"></canvas>
+    <div class="big" id="bigWord">Überall.</div>
+    <div class="ov">
+      <div>
+        <p class="k" style="color:var(--gold2)">Routen ab München</p>
+        <div class="row1" style="margin-top:14px"><span class="k">Fliegen Sie nach</span><div class="flap" id="dest"></div></div>
+      </div>
+      <div class="stats"><div><b id="sKm">0 km</b><span>Distanz</span></div><div><b id="sH">0 h 00</b><span>Flugzeit</span></div><div><b>14</b><span>Gäste</span></div></div>
+    </div>
+    <div class="ticket">
+      <div class="row"><small>Von</small><small>Nach</small></div>
+      <div class="row"><span class="code">MUC<i>→</i></span><span class="code" id="tCode">RAK</span></div>
+      <div class="row"><small>München</small><small id="tName">Marrakesch</small></div>
+      <hr>
+      <div class="row"><small>Flugzeug</small><small>Aurelis 8</small></div>
+      <div class="row"><small>Status</small><small style="color:#2e7d4f">Verfügbar</small></div>
+      <a href="#kontakt">Flug anfragen</a>
+    </div>
+  </div>
+</section>
+
+<section class="paper spec" id="kabine">
+  <div class="pin">
+    <canvas id="spec" aria-label="3D-Ansicht des Jets von oben und als Schnitt durch die Kabine"></canvas>
+    <div class="info" id="info">
+      <p class="k">Technische Daten</p>
+      <h2>Aurelis<br>8</h2>
+      <dl><dt>Reichweite</dt><dd>8.000 km</dd><dt>Reisegeschwindigkeit</dt><dd>Mach 0,90</dd><dt>Max. Flughöhe</dt><dd>15.500 m</dd><dt>Gäste</dt><dd>bis 14</dd><dt>Länge</dt><dd>30,0 m</dd><dt>Spannweite</dt><dd>27,8 m</dd></dl>
+    </div>
+    <div class="info2" id="info2"><p class="k">Kabine</p><h3>Fünf Räume.<br>Ein Flug.</h3><p>Cockpit, Bordküche, Club-Lounge, Speisebereich und ein Schlafzimmer mit eigenem Bad.</p></div>
+    <div class="dims" id="dims"><span class="d" id="dL">30,0 m Länge</span><span class="d" id="dW">27,8 m Spannweite</span></div>
+  </div>
+</section>
+
+<section class="paper ways" id="eigentum">
+  <div class="wrap">
+    <p class="k rv">Eigentum</p>
+    <h2 class="rv">Drei Wege, ihn<br><em>zu Ihrem zu machen.</em></h2>
+    <div class="wgrid">
+      <div class="way rv"><span class="n">01</span><h3>Charter</h3><p>Sie buchen einzelne Flüge, wann immer Sie möchten.</p><div class="pr">9.800 €<small>pro Flugstunde</small></div><ul><li>Kurzfristig verfügbar</li><li>Crew und Catering inklusive</li></ul></div>
+      <div class="way main rv"><span class="n">02</span><h3>Jet Card</h3><p>Ein festes Stundenkonto zu festen Preisen.</p><div class="pr">245.000 €<small>für 25 Stunden</small></div><ul><li>Garantierte Verfügbarkeit</li><li>Fester Stundenpreis</li></ul></div>
+      <div class="way rv"><span class="n">03</span><h3>Anteil</h3><p>Ein Achtel eines Aurelis 8, mit allen Rechten.</p><div class="pr">2,9 Mio. €<small>für ein Achtel</small></div><ul><li>Rund 100 Flugstunden im Jahr</li><li>Wiederverkauf möglich</li></ul></div>
+    </div>
+    <p class="note rv">Beispielwerte einer fiktiven Marke.</p>
+  </div>
+</section>
+
+<section class="board" id="kontakt">
+  <div class="wrap">
+    <p class="k rv">Abflüge</p>
+    <h2 class="rv">Wohin geht<br><em>Ihre Reise?</em></h2>
+    <div class="dep" id="dep">
+      <div class="r h"><span>Ziel</span><span>Code</span><span>Flugzeit</span><span>Status</span></div>
+    </div>
+    <div class="cta rv"><a class="btn g" href="https://allrich-webdesign.com/#kontakt">Solche Website anfragen</a><a class="btn o" href="https://allrich-webdesign.com">Allrich Webdesign</a></div>
+  </div>
+</section>
+<footer><div class="wrap"><span>Aurelis ist eine fiktive Marke. Beispielseite von Allrich Webdesign, Potsdam.</span><span>3D-Modell, Erdkugel und Animationen im Browser erzeugt</span></div></footer>
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Beispielseite</b> von Allrich Webdesign</a>
+
+<script type="module">
+import * as THREE from "three";
+import { RoomEnvironment } from "./vendor/RoomEnvironment.js";
+import { buildJet } from "./jet.js";
+
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const lerp = (a, b, t) => a + (b - a) * t;
+const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+const visible = el => { const r = el.getBoundingClientRect(); return r.bottom > -50 && r.top < innerHeight + 50; };
+const DPR = Math.min(2, devicePixelRatio || 1);
+
+/* Wörter zerlegen */
+function splitWords(el, cls, delay) {
+  let i = 0;
+  const walk = n => [...n.childNodes].forEach(c => {
+    if (c.nodeType === 3) {
+      const f = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(p => { if (!p) return; if (/^\s+$/.test(p)) { f.append(p); return; } const s = document.createElement("span"); if (cls) s.className = cls; if (delay) s.style.transitionDelay = (i++ * delay) + "ms"; s.textContent = p; f.append(s); });
+      c.replaceWith(f);
+    } else if (c.nodeType === 1 && c.tagName !== "BR") walk(c);
+  });
+  walk(el);
+}
+document.querySelectorAll(".cap h1,.cap h2").forEach(h => splitWords(h, "w", 70));
+splitWords(document.getElementById("big"));
+
+/* ---------- Scroll-Filme aus Videobildern ---------- */
+class Film {
+  constructor(canvas, dir, n, fx = .5) {
+    this.c = canvas; this.x = canvas.getContext("2d", { alpha: false }); this.x.imageSmoothingQuality = "high"; this.n = n; this.fx = fx; this.imgs = new Array(n); this.last = -1;
+    const load = i => { const im = new Image(); im.decoding = "async"; im.src = `${dir}/f${String(i + 1).padStart(3, "0")}.webp`; im.onload = () => { if (Math.abs(i - this.want) < 2) this.last = -1; }; this.imgs[i] = im; };
+    load(0); this.want = 0;
+    const order = []; for (let st = 8; st >= 1; st = st >> 1) for (let i = 0; i < n; i += st) if (!order.includes(i)) order.push(i);
+    let k = 0; const next = () => { for (let j = 0; j < 6 && k < order.length; j++, k++) if (!this.imgs[order[k]]) load(order[k]); if (k < order.length) setTimeout(next, 60); }; next();
+  }
+  near(i) { for (let d = 0; d < this.n; d++) { for (const j of [i - d, i + d]) { const im = this.imgs[j]; if (im && im.complete && im.naturalWidth) return im; } } return null; }
+  size() { const w = this.c.clientWidth, h = this.c.clientHeight; if (this.c.width !== Math.round(w * DPR) || this.c.height !== Math.round(h * DPR)) { this.c.width = Math.round(w * DPR); this.c.height = Math.round(h * DPR); this.last = -1; } return [w, h]; }
+  cover(w, h, im) { const s = Math.max(w / im.naturalWidth, h / im.naturalHeight), dw = im.naturalWidth * s, dh = im.naturalHeight * s; return { s, ox: (w - dw) * this.fx, oy: (h - dh) / 2, dw, dh }; }
+  draw(p) {
+    const [w, h] = this.size(), i = Math.round(clamp(p) * (this.n - 1)); this.want = i;
+    if (i === this.last) return; const im = this.near(i); if (!im) return;
+    this.x.setTransform(DPR, 0, 0, DPR, 0, 0); this.x.imageSmoothingQuality = "high"; const c = this.cover(w, h, im); this.x.drawImage(im, c.ox, c.oy, c.dw, c.dh);
+    if (im === this.imgs[i]) this.last = i;
+  }
+}
+const Q = Math.max(innerWidth, innerHeight) * DPR >= 1400 ? "hd" : "sd";
+const sky = document.getElementById("sky");
+const extFilm = new Film(sky, "film/ext-" + Q, 96, .42);
+const hero = document.getElementById("hero"), caps = [...document.querySelectorAll(".hero .cap")];
+const altEl = document.getElementById("alt"), spdEl = document.getElementById("spd"), fade = document.getElementById("fade");
+function sizeR(r, c, cam) { const w = c.clientWidth, h = c.clientHeight; r.setSize(w, h, false); if (cam) { cam.aspect = w / h; cam.updateProjectionMatrix(); } }
+function drawHero() {
+  const p = progress(hero);
+  extFilm.draw(clamp(p / .94));
+  caps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  altEl.textContent = Math.round(ease(clamp(p / .75)) * 15500).toLocaleString("de-DE") + " m";
+  spdEl.textContent = "Mach " + (ease(clamp(p / .6)) * .9).toFixed(2).replace(".", ",");
+  fade.style.opacity = clamp((p - .95) / .05);
+}
+
+/* Kabine: Fahrt durch den Innenraum, danach Punkte zum Anklicken */
+const cabC = document.getElementById("cab"), cabFilm = new Film(cabC, "film/cab-" + Q, 82, .5);
+const cabSec = document.querySelector(".cabin"), cabCaps = [...cabSec.querySelectorAll(".cap")], hots = [...cabSec.querySelectorAll(".hot")];
+function drawCab() {
+  const p = progress(cabSec);
+  cabFilm.draw(clamp(p / .78));
+  cabCaps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b));
+  const im = cabFilm.near(81), [w, h] = [cabC.clientWidth, cabC.clientHeight];
+  if (im) { const c = cabFilm.cover(w, h, im); hots.forEach(el => { el.style.left = (c.ox + +el.dataset.x * c.dw) + "px"; el.style.top = (c.oy + +el.dataset.y * c.dh) + "px"; }); }
+  cabSec.classList.toggle("hotson", p > .8);
+}
+/* Ankunft auf dem Rollfeld */
+const arrC = document.getElementById("arr"), arrFilm = new Film(arrC, "film/arr-" + Q, 66, .55), arrSec = document.querySelector(".arrive"), arrCaps = [...arrSec.querySelectorAll(".cap")];
+function drawArr() { const p = progress(arrSec); arrFilm.draw(clamp(p / .9)); arrCaps.forEach(c => c.classList.toggle("on", p >= +c.dataset.a && p < +c.dataset.b)); }
+hots.forEach(el => el.querySelector("button").addEventListener("click", () => { const o = el.classList.contains("open"); hots.forEach(x => x.classList.remove("open")); if (!o) el.classList.add("open"); }));
+
+/* ---------- Szene 2: Schnitt und Draufsicht ---------- */
+const specC = document.getElementById("spec");
+const r2 = new THREE.WebGLRenderer({ canvas: specC, antialias: true, alpha: true });
+r2.setPixelRatio(DPR); r2.outputColorSpace = THREE.SRGBColorSpace; r2.toneMapping = THREE.ACESFilmicToneMapping; r2.localClippingEnabled = true;
+const s2 = new THREE.Scene();
+s2.environment = new THREE.PMREMGenerator(r2).fromScene(new RoomEnvironment(), .04).texture;
+s2.add(new THREE.HemisphereLight(0xffffff, 0xe8e2d6, 1.1));
+const dl2 = new THREE.DirectionalLight(0xffffff, 1.6); dl2.position.set(10, 30, 15); s2.add(dl2);
+const cut = new THREE.Plane(new THREE.Vector3(0, -1, 0), 40);
+const jet2 = buildJet({ clippingPlanes: [cut], interior: true }); s2.add(jet2);
+const shadow = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.ShaderMaterial({ transparent: true, depthWrite: false, vertexShader: "varying vec2 vU; void main(){ vU = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }", fragmentShader: "varying vec2 vU; void main(){ float d = length((vU-.5)*vec2(1.,2.2)); gl_FragColor = vec4(.08,.1,.15, .22*smoothstep(.5,.0,d)); }" }));
+shadow.rotation.x = -Math.PI / 2; shadow.position.y = -3.2; s2.add(shadow);
+const cam2 = new THREE.PerspectiveCamera(30, 1, .1, 500);
+const LABELS = [["Cockpit", 12.3, 0], ["Bordküche", 10.2, .6], ["Club-Lounge", 7.6, 0], ["Speisebereich", 4.45, 0], ["Sofa", 1.0, .6], ["Schlafzimmer", -3.0, 0], ["Bad", -5.6, .3]];
+const lblEls = LABELS.map(([t]) => { const d = document.createElement("div"); d.className = "lbl"; d.innerHTML = `<span>${t}</span><i></i>`; specC.parentElement.append(d); return d; });
+const specSec = document.querySelector(".spec"), info = document.getElementById("info"), info2 = document.getElementById("info2"), dims = document.getElementById("dims");
+const dL = document.getElementById("dL"), dW = document.getElementById("dW");
+const v3 = new THREE.Vector3();
+function drawSpec() {
+  const p = progress(specSec);
+  const mob = specC.clientWidth < 760;
+  // 0–.35: Drehung von schräg zur Draufsicht, .35–.5 Maße, .5–1 Dach weg und Kabine
+  const a = ease(clamp(p / .35)), b = ease(clamp((p - .5) / .3));
+  const dist = (mob ? 74 : 58) - b * (mob ? 22 : 18);
+  const az = lerp(-.9, -Math.PI / 2, a) + lerp(0, .5, b);            // um die Hochachse
+  const el = lerp(.32, 1.52, a) - lerp(0, .62, b);                     // Höhenwinkel
+  cam2.position.set(Math.cos(az) * Math.cos(el) * dist, Math.sin(el) * dist, -Math.sin(az) * Math.cos(el) * dist);
+  cam2.lookAt(mob ? 0 : -3, 0, 0);
+  if (mob) cam2.up.set(0, 1, 0);
+  jet2.rotation.y = lerp(0, 0, a);
+  cut.constant = lerp(40, .45, b);
+  cam2.updateProjectionMatrix();
+  r2.render(s2, cam2);
+  info.style.opacity = 1 - clamp((p - .45) / .1);
+  info2.style.opacity = clamp((p - .62) / .1);
+  dims.style.opacity = clamp((p - .3) / .08) * (1 - clamp((p - .48) / .06));
+  // Maße über die projizierten Punkte legen
+  const w = specC.clientWidth, h = specC.clientHeight;
+  const pr = (x, y, z) => { v3.set(x, y, z).project(cam2); return [(v3.x + 1) / 2 * w, (1 - v3.y) / 2 * h]; };
+  const [ax, ay] = pr(15, 0, 0), [bx, by] = pr(-15, 0, 0); dL.style.left = Math.min(ax, bx) + "px"; dL.style.top = (Math.max(ay, by) + 30) + "px";
+  const [cx, cy] = pr(-1.5, 0, 11); dW.style.left = (cx + 10) + "px"; dW.style.top = cy + "px";
+  LABELS.forEach(([, x, z], i) => { const [lx, ly] = pr(x, .9, z); const e = lblEls[i]; e.style.left = lx + "px"; e.style.top = ly + "px"; e.style.opacity = clamp((p - .7 - i * .025) / .06); });
+}
+
+const story = document.querySelector(".story"), words = [...document.getElementById("big").querySelectorAll("span")], glide = document.getElementById("glide");
+function drawStory() {
+  const p = progress(story), k = Math.floor(clamp(p * 1.25) * words.length);
+  words.forEach((w, i) => w.classList.toggle("on", i < k));
+  const mob = innerWidth < 760, q = p * p * (3 - 2 * p);
+  const x = mob ? lerp(innerWidth, -glide.offsetWidth, q) : lerp(innerWidth * 1.02, innerWidth * .52, q);
+  const y = mob ? 0 : -glide.offsetHeight / 2 + lerp(60, -90, q);
+  glide.style.transform = `translate3d(${x}px,${y}px,0) rotate(${lerp(3, -4, q)}deg)`;
+}
+
+/* ---------- Erdkugel mit Routennetz ---------- */
+// Ziele, die beim Scrollen angeflogen werden
+const DEST = [["NCE", "Nizza", 43.66, 7.21], ["OLB", "Olbia", 40.9, 9.52], ["RAK", "Marrakesch", 31.6, -8.0], ["KEF", "Reykjavík", 63.98, -22.6], ["DXB", "Dubai", 25.25, 55.36], ["JFK", "New York", 40.64, -73.78], ["MLE", "Malediven", 4.19, 73.53], ["SEZ", "Seychellen", -4.67, 55.52], ["MIA", "Miami", 25.79, -80.29], ["HKT", "Phuket", 8.11, 98.31]];
+// weitere Ziele im Netz (nur Linien)
+const NET = [["LBG", 48.97, 2.44], ["LCY", 51.5, .05], ["GVA", 46.24, 6.11], ["ZRH", 47.46, 8.55], ["VIE", 48.11, 16.57], ["IBZ", 38.87, 1.37], ["PMI", 39.55, 2.74], ["JMK", 37.44, 25.35], ["ATH", 37.94, 23.94], ["IST", 41.26, 28.74], ["CAI", 30.12, 31.41], ["TLV", 32.01, 34.89], ["DOH", 25.27, 51.6], ["RUH", 24.96, 46.7], ["BOM", 19.09, 72.87], ["SIN", 1.36, 103.99], ["HKG", 22.31, 113.91], ["NRT", 35.77, 140.39], ["CPT", -33.97, 18.6], ["NBO", -1.32, 36.93], ["LOS", 6.58, 3.32], ["LIS", 38.77, -9.13], ["MAD", 40.47, -3.56], ["OSL", 60.19, 11.1], ["ARN", 59.65, 17.92], ["CPH", 55.62, 12.65], ["TEB", 40.85, -74.06], ["BOS", 42.36, -71.01], ["YUL", 45.47, -73.74], ["LAX", 33.94, -118.4], ["SFO", 37.62, -122.38], ["ASE", 39.22, -106.87], ["MEX", 19.44, -99.07], ["SXM", 18.04, -63.11], ["BGI", 13.07, -59.49], ["GRU", -23.43, -46.47], ["EZE", -34.82, -58.53], ["SYD", -33.94, 151.18], ["AKL", -37.0, 174.79], ["PEK", 40.08, 116.58], ["ICN", 37.46, 126.44], ["DEL", 28.56, 77.1], ["MRU", -20.43, 57.68], ["ZNZ", -6.22, 39.22]];
+const MUC = [48.35, 11.79];
+const HUBS = [MUC, [48.97, 2.44], [25.25, 55.36], [40.85, -74.06], [1.36, 103.99]];
+const gC = document.getElementById("globe"), gx = gC.getContext("2d");
+let LAND = [];
+fetch("land-dots.json").then(r => r.json()).then(d => LAND = d.map(([lo, la]) => toV(la, lo)));
+function toV(lat, lon) { const a = lat * Math.PI / 180, b = lon * Math.PI / 180; return [Math.cos(a) * Math.cos(b), Math.sin(a), Math.cos(a) * Math.sin(b)]; }
+function slerp(A, B, t) { const d = Math.acos(clamp(A[0] * B[0] + A[1] * B[1] + A[2] * B[2], -1, 1)); if (d < 1e-6) return A; const s = Math.sin(d), u = Math.sin((1 - t) * d) / s, v = Math.sin(t * d) / s; return [A[0] * u + B[0] * v, A[1] * u + B[1] * v, A[2] * u + B[2] * v]; }
+function gdist(a, b) { const A = toV(...a), B = toV(...b); return Math.acos(clamp(A[0] * B[0] + A[1] * B[1] + A[2] * B[2], -1, 1)) * 6371; }
+// Routennetz: München zu allen Zielen, dazu Verbindungen zwischen Drehkreuzen und Zielen
+const ROUTES = [];
+let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+[...DEST.map(d => [d[2], d[3]]), ...NET.map(n => [n[1], n[2]])].forEach(pt => ROUTES.push({ a: toV(...MUC), b: toV(...pt), sp: .05 + rnd() * .06, ph: rnd() }));
+NET.forEach(n => { const h = HUBS[1 + Math.floor(rnd() * 4)]; if (gdist(h, [n[1], n[2]]) > 400) ROUTES.push({ a: toV(...h), b: toV(n[1], n[2]), sp: .04 + rnd() * .06, ph: rnd(), dim: true }); });
+for (let i = 0; i < 26; i++) { const x = NET[Math.floor(rnd() * NET.length)], y = NET[Math.floor(rnd() * NET.length)]; if (x !== y) ROUTES.push({ a: toV(x[1], x[2]), b: toV(y[1], y[2]), sp: .03 + rnd() * .05, ph: rnd(), dim: true }); }
+const routesSec = document.querySelector(".routes"), destEl = document.getElementById("dest");
+const CH = " ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ0123456789.-→:";
+function makeFlap(el, n) { el.innerHTML = ""; el.style.setProperty("--n", n); for (let i = 0; i < n; i++) { const c = document.createElement("span"); c.className = "c"; c.textContent = " "; el.append(c); } return [...el.children]; }
+function flapTo(cells, text, speed = 26) {
+  text = text.toUpperCase().padEnd(cells.length, " ").slice(0, cells.length);
+  cells.forEach((c, i) => { const target = text[i]; if (c.textContent === target) return; let steps = 4 + Math.floor(Math.random() * 6) + i % 3;
+    const tick = () => { c.classList.remove("f"); void c.offsetWidth; c.classList.add("f"); c.textContent = steps-- > 0 ? CH[Math.floor(Math.random() * CH.length)] : target; if (steps >= 0) setTimeout(tick, speed); };
+    setTimeout(tick, i * 18); });
+}
+const destCells = makeFlap(destEl, 10);
+let curD = -1;
+const sKm = document.getElementById("sKm"), sH = document.getElementById("sH"), tCode = document.getElementById("tCode"), tName = document.getElementById("tName"), bigWord = document.getElementById("bigWord");
+const arc = (A, B, t) => { const v = slerp(A, B, t), d = Math.acos(clamp(A[0] * B[0] + A[1] * B[1] + A[2] * B[2], -1, 1)), lift = 1 + Math.sin(t * Math.PI) * Math.min(.22, d * .12); return [v[0] * lift, v[1] * lift, v[2] * lift]; };
+function drawGlobe(now) {
+  const p = progress(routesSec), W = gC.clientWidth, H = gC.clientHeight, T = now / 1000;
+  if (gC.width !== Math.round(W * DPR)) { gC.width = Math.round(W * DPR); gC.height = Math.round(H * DPR); }
+  gx.setTransform(DPR, 0, 0, DPR, 0, 0); gx.clearRect(0, 0, W, H);
+  const mob = W < 760, R = Math.min(W, H) * (mob ? .44 : .43), cx = W * .5, cy = H * (mob ? .46 : .55);
+  const di = Math.min(DEST.length - 1, Math.floor(p * DEST.length)), seg = p * DEST.length - di;
+  if (di !== curD) {
+    curD = di; const d = DEST[di]; flapTo(destCells, d[1]); tCode.textContent = d[0]; tName.textContent = d[1];
+    const km = gdist(MUC, [d[2], d[3]]), hrs = km / 880 + .4;
+    sKm.textContent = (Math.round(km / 10) * 10).toLocaleString("de-DE") + " km"; sH.textContent = Math.floor(hrs) + " h " + String(Math.round((hrs % 1) * 60)).padStart(2, "0");
+  }
+  const d = DEST[di], midLon = (MUC[1] + d[3]) / 2, midLat = (MUC[0] + d[2]) / 2 - 6;
+  drawGlobe.lon = lerp(drawGlobe.lon ?? midLon, midLon, .05); drawGlobe.lat = lerp(drawGlobe.lat ?? midLat, midLat, .05);
+  const lo = -drawGlobe.lon * Math.PI / 180 - Math.PI / 2, la = drawGlobe.lat * Math.PI / 180, cl = Math.cos(lo), sl = Math.sin(lo), ca = Math.cos(la), sa = Math.sin(la);
+  const proj = v => { const x1 = v[0] * cl + v[2] * sl, z1 = -v[0] * sl + v[2] * cl, y2 = v[1] * ca - z1 * sa, z2 = v[1] * sa + z1 * ca; return [cx + x1 * R, cy - y2 * R, z2]; };
+  // Atmosphäre und Kugel
+  const halo = gx.createRadialGradient(cx, cy, R * .95, cx, cy, R * 1.25); halo.addColorStop(0, "rgba(120,150,210,.18)"); halo.addColorStop(1, "rgba(120,150,210,0)");
+  gx.fillStyle = halo; gx.beginPath(); gx.arc(cx, cy, R * 1.25, 0, Math.PI * 2); gx.fill();
+  const g = gx.createRadialGradient(cx - R * .35, cy - R * .45, R * .1, cx, cy, R * 1.05); g.addColorStop(0, "#1d2740"); g.addColorStop(1, "#090c14");
+  gx.fillStyle = g; gx.beginPath(); gx.arc(cx, cy, R, 0, Math.PI * 2); gx.fill();
+  // Breiten- und Längengrade
+  gx.strokeStyle = "rgba(238,240,244,.05)"; gx.lineWidth = 1;
+  for (let lat = -60; lat <= 60; lat += 30) { gx.beginPath(); let st = false; for (let lon = -180; lon <= 180; lon += 4) { const [x, y, z] = proj(toV(lat, lon)); if (z < 0) { st = false; continue; } st ? gx.lineTo(x, y) : gx.moveTo(x, y); st = true; } gx.stroke(); }
+  for (let lon = -180; lon < 180; lon += 30) { gx.beginPath(); let st = false; for (let lat = -88; lat <= 88; lat += 4) { const [x, y, z] = proj(toV(lat, lon)); if (z < 0) { st = false; continue; } st ? gx.lineTo(x, y) : gx.moveTo(x, y); st = true; } gx.stroke(); }
+  for (const v of LAND) { const [x, y, z] = proj(v); if (z < 0) continue; gx.fillStyle = `rgba(238,240,244,${.14 + z * .62})`; gx.fillRect(x - .9, y - .9, 1.8, 1.8); }
+  // Routennetz mit fliegenden Punkten
+  const reveal = clamp(p * 6);
+  ROUTES.forEach((r, i) => {
+    if (i / ROUTES.length > reveal) return;
+    gx.strokeStyle = r.dim ? "rgba(226,201,147,.13)" : "rgba(226,201,147,.24)"; gx.lineWidth = 1; gx.beginPath();
+    let st = false; for (let k = 0; k <= 40; k++) { const [x, y, z] = proj(arc(r.a, r.b, k / 40)); if (z < -.05) { st = false; continue; } st ? gx.lineTo(x, y) : gx.moveTo(x, y); st = true; } gx.stroke();
+    const t = (T * r.sp + r.ph) % 1, [x, y, z] = proj(arc(r.a, r.b, t)); if (z > 0) { gx.fillStyle = "rgba(255,236,200,.9)"; gx.beginPath(); gx.arc(x, y, 1.5, 0, Math.PI * 2); gx.fill(); }
+  });
+  // aktuelle Route hell und wachsend
+  const A = toV(...MUC), B = toV(d[2], d[3]), k = ease(clamp(seg * 2.2));
+  gx.strokeStyle = "rgba(226,201,147,.98)"; gx.lineWidth = 2.2; gx.shadowColor = "rgba(226,201,147,.8)"; gx.shadowBlur = 10; gx.beginPath();
+  let st = false; for (let s = 0; s <= 80 * k; s++) { const [x, y, z] = proj(arc(A, B, s / 80)); if (z < -.05) { st = false; continue; } st ? gx.lineTo(x, y) : gx.moveTo(x, y); st = true; } gx.stroke(); gx.shadowBlur = 0;
+  { const [x, y, z] = proj(arc(A, B, k)); if (z > 0) { gx.fillStyle = "#fff"; gx.beginPath(); gx.arc(x, y, 3.2, 0, Math.PI * 2); gx.fill(); if (k >= 1) { const pu = (T % 1.6) / 1.6; gx.strokeStyle = `rgba(226,201,147,${1 - pu})`; gx.beginPath(); gx.arc(x, y, 4 + pu * 16, 0, Math.PI * 2); gx.stroke(); gx.font = "600 12px Manrope,sans-serif"; gx.fillStyle = "#fff"; gx.fillText(d[1].toUpperCase(), x + 10, y - 8); } } }
+  // Ziel-Punkte und Drehkreuze
+  [...DEST.map(x => [x[2], x[3]]), ...NET.map(n => [n[1], n[2]])].forEach(pt => { const [x, y, z] = proj(toV(...pt)); if (z > 0) { gx.fillStyle = "rgba(226,201,147,.75)"; gx.fillRect(x - 1.5, y - 1.5, 3, 3); } });
+  const [mx, my, mz] = proj(A); if (mz > 0) { const pu = (T % 2) / 2; gx.strokeStyle = `rgba(226,201,147,${1 - pu})`; gx.beginPath(); gx.arc(mx, my, 4 + pu * 20, 0, Math.PI * 2); gx.stroke(); gx.fillStyle = "#e2c993"; gx.beginPath(); gx.arc(mx, my, 4.5, 0, Math.PI * 2); gx.fill(); gx.font = "600 11px Manrope,sans-serif"; gx.fillStyle = "#fff"; gx.fillText("MÜNCHEN", mx + 9, my + 16); }
+  bigWord.style.transform = `translateX(${-p * 30}vw)`;
+}
+
+/* Abflugtafel */
+const dep = document.getElementById("dep");
+const ROWS = [0, 2, 4, 5, 6, 8].map(i => DEST[i]).map(d => { const km = gdist(MUC, [d[2], d[3]]), h = km / 880 + .4; return [d[1], d[0], Math.floor(h) + "H" + String(Math.round((h % 1) * 60)).padStart(2, "0"), "VERFÜGBAR"]; });
+const depCells = ROWS.map(r => { const row = document.createElement("div"); row.className = "r"; const cells = r.map((t, i) => { const f = document.createElement("div"); f.className = "flap" + (i === 3 ? " ok" : ""); f.dataset.t = t; row.append(f); return makeFlap(f, i === 0 ? 11 : i === 3 ? 9 : i === 1 ? 3 : 5); }); dep.append(row); return { cells, r }; });
+const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; e.target.classList.add("in"); io.unobserve(e.target); }), { threshold: .2 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+const io2 = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; depCells.forEach(({ cells, r }, k) => setTimeout(() => cells.forEach((c, i) => flapTo(c, r[i])), k * 220)); io2.disconnect(); }), { threshold: .3 });
+io2.observe(dep);
+
+/* Schleife */
+function resize() { extFilm.last = -1; cabFilm.last = -1; arrFilm.last = -1; sizeR(r2, specC, cam2); }
+addEventListener("resize", resize); resize();
+document.getElementById("loading").style.opacity = 0;
+function loop(now) {
+  if (visible(hero)) drawHero();
+  if (visible(cabSec)) drawCab();
+  if (visible(arrSec)) drawArr();
+  if (visible(story)) drawStory();
+  if (visible(routesSec)) drawGlobe(now);
+  if (visible(specSec)) drawSpec();
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

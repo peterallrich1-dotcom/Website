@@ -1,0 +1,536 @@
+in_liste_N,score,rubrik,ort,name,telefon,website,befund
+ja,5,kfz-werkstatt,erfurt,Steegmaier Service rund um Ihr Auto,0361 6 58 68 01,http://www.steegmaier-auto.de,"kein https, nicht mobil, FrontPage, kaum Inhalt"
+ja,5,physiotherapie,jena,Physiotherapie Wolf,03641 47 43 47,http://www.physiowolf.de,"kein https, nicht mobil, Stand 2016, kaum Inhalt"
+ja,5,elektriker,kiel,ETA Elektrotechnik GmbH,0431 66 51 09,http://www.eta-elektrotechnik.de,"kein https, nicht mobil, Stand 2018, kaum Inhalt"
+ja,5,fliesenleger,kiel,Uwe Schiller Fliesenleger,0431 2 00 45 67,http://www.schiller-fliesentechnik.de,"kein https, nicht mobil, Stand 2009, kaum Inhalt"
+ja,5,elektriker,bielefeld,K-S Elektro,0521 80 18 96 92,http://www.k-s-elektro.de,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,maler,wuerzburg,Klaus Schmitt GmbH,0931 70 69 51,http://schmitt-gerbrunn.de,"kein https, nicht mobil, im Aufbau, kaum Inhalt"
+ja,5,gartenbau,heilbronn,Tafa Sadrijaj Garten- und Landschaftsbau,0177 8 66 07 21,http://tafa-gartenbau.de,"kein https, nicht mobil, Stand 2013, kaum Inhalt"
+ja,5,maler,fulda,Schneemann,0661 94 52 90 60,http://www.maler-schneemann.de,"kein https, nicht mobil, Stand 2019, kaum Inhalt"
+ja,5,kosmetik,fulda,"Sabel-Görnert Antonie, Naturkosmetikerin",0661 67 92 66 20,http://www.ganzheitskosmetik-fulda.de,"kein https, nicht mobil, Stand 2019, kaum Inhalt"
+ja,5,kfz-werkstatt,zwickau,Meyer Chris KFZ-Meisterbetrieb,0375 2 00 07 30,http://www.chris-meyer.de,"kein https, nicht mobil, FrontPage, kaum Inhalt"
+ja,4,fahrschule,goettingen,Fahrschule Dünhöft,0551 9 00 39 39,http://www.fahrschule-duenhoeft.de/,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,erfurt,Lier Martina,0174 7 50 10 51,http://www.martina-lier.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,erfurt,Studio Balance Inh. Monika Schramm,0361 7 89 19 33,http://www.studio-balance-erfurt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,erfurt,Sebastian Anacker Malermeister,03628 5 27 94 99,http://malerbetrieb-anacker.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,erfurt,DOMSERV,0361 7 31 20 33,http://www.maler-domserv.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,erfurt,Maik Thinius Maler- und Lackiererunternehmen,0172 3 46 71 54,http://car-finish-design.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,erfurt,WHS Bauunternehmen GmbH,01522 5 62 04 79,http://www.whs-bauunternehmen.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,erfurt,Kahlo u. Schnorrer Tischlerei GmbH,0361 7 40 83-0,http://www.kahlo-schnorrer-tischlerei.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,erfurt,Weber Mirco,0361 66 02 74 44,https://www.schreinerhalle.de,"nicht mobil, FrontPage, kaum Inhalt"
+,4,tischler,erfurt,Tischlerei Fischer GmbH,036203 9 81-0,http://www.tischlereifischer.de,"kein https, nicht mobil, Stand 2014"
+,4,tischler,erfurt,Kulke Helmut,036203 5 09 83,http://www.tischlerei-kulke.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,erfurt,Heinz Renner Elektroinstallation Renner Rennt,0361 6 44 57 10,http://renner-erfurt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,erfurt,Electro-Consult Denner,0361 6 00 05 00,http://www.stromfux-denner.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,erfurt,Restaurant StefaDos GbR,0361 54 15 44 53,http://www.stefados-erfurt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,erfurt,UMS Autoservice,0361 4 23 03 50,http://www.umsautoservice.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,erfurt,Service Center Erfurt Gießler und Simon GbR,0361 42 84-0,http://www.giessler-simon.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,erfurt,Dressel Gunter,0361 7 91 78 00,http://www.gunterdressel.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,erfurt,Bätzoldt's Garten- u. Landschaftsbau,034671 7 29-0,http://www.baetzoldt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,erfurt,Paletti Haus- und Gartenservice,0361 6 00 76 93,http://www.paletti.net,"kein https, nicht mobil, Stand 2007"
+,4,sanitaer,erfurt,Raake Detlef,0361 7 46 45 45,http://www.raake-sanitaer.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,jena,Heubel GmbH Ihr Friseur in Jena,03641 66 55 25,http://www.friseur-heubel.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,jena,Pony Club - Image Hairstyle,0160 4 28 97 01,http://www.ponyclub-jena.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,jena,Krauß & Sohn Möbel- und Innenausbau GmbH,03641 60 69 99,http://www.tischlerei-krauss.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,jena,Kosmetik- u. Nagelstudio,03641 23 98 30,http://www.uta-gierschke-kosmetik.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,jena,Quergasse No.1 Gaststätte & Kneipe,03641 44 74 11,http://www.quere.de,"kein https, nicht mobil, NetObjects"
+,4,fahrschule,jena,Fahrschule Avanti Zweigniederlassung der Steffen Tobermann GmbH,03641 21 91 24,http://www.fahrschule-avanti.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,jena,Haralds KFZ-Werkstatt,03641 62 85 93,http://www.werkstatt-jena.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,jena,Autowerkstatt KFZ-Service M. Trillhof,03641 63 83 46,http://www.grossloebichau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,jena,Kallmeyer,036425 20 48 02,http://www.fliesen-kallmeyer.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,jena,Künzel Sanitär - Heizung - Klempnerei,03641 44 30 21,http://www.klempnerei-jena.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,gartenbau,halle-saale,Natur Pur GmbH,0345 6 81 35 50,http://www.natur-pur-halle.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,sanitaer,halle-saale,Jänicke Bernd Meister für Gas und Wasserinstallation,0345 7 70 52 69,http://www.jaenicke-heizung-gas-wasser.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,sanitaer,halle-saale,Baudienstleistung Becher,0345 1 71 74 30,http://www.baudienstleistung-becher.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,rostock,Maik Wagner und Jens Wagner Industrieanstrich,0381 6 86 27 95,http://wagner-gbr.net,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,rostock,Gaststätte Zum Froschkönig Party- u. Lieferservice,0381 8 17 25 72,http://www.zum-froschkoenig-rostock.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,fahrschule,rostock,Schröders Fahrschule,0381 69 89 32,https://www.fahrschule-schroeder-rostock.de/,"nicht mobil, Stand 2018, kaum Inhalt"
+,4,dachdecker,rostock,Lars Prahl Dachdeckerei,0381 4 92 29 22,http://dachdecker-prahl.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,rostock,Lootz GmbH,0381 6 86 12 02,http://www.schiffsersatzteile-lootz.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,rostock,Thomas Gerdinand und Sven Stemmwedel KFZ-Meisterbetrieb,0381 6 67 21 21,http://www.kfz-gs.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,luebeck,Tischlerei J. A. Neumann,0451 2 92 96 26,http://www.tischlerei-jan.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,elektriker,luebeck,Koop Elektrotechnik GmbH,0451 8 09 09 60,http://koop-elektrotechnik.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,dachdecker,luebeck,Kasper Steffen Dachdeckermeister,038872 52 77 39,http://www.kasper-dach.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,luebeck,Rolf Wickbold und Hinrik Henk Garten- und Landschaftsbau,0451 6 11 26 30,http://hiro-traumgarten.de,"kein https, nicht mobil, Stand 2008"
+,4,sanitaer,luebeck,OtterWasser IngenieurGmbH,0451 7 02 00 51,https://www.otterwasser.de,"nicht mobil, im Aufbau, kaum Inhalt"
+ja,4,elektriker,kiel,sltNORD GmbH,0431 70 57 45 99,http://www.sltnord.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,bielefeld,AKWA-BELL-AFRO-SHOP-SALON Inh. Anne Madleine Koum Kingue Friseur,0521 7 70 94 38,http://www.akwa-bell-afrosalon.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,friseur,bielefeld,Gotzmann-Coiffeure,0521 43 00 00,http://www.gotzmann-coiffeure.de,"kein https, nicht mobil, kaum Inhalt"
+,4,friseur,bielefeld,Weiss Friseurteam GmbH,0521 8 17 53,http://www.friseur-weiss.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,bielefeld,Schröder Frank,05202 99 48 80,http://www.malermeister-fs.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,bielefeld,Marko Ivicevic Malerbetrieb,0176 35 42 78 87,http://www.ideal-malerbetrieb.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,bielefeld,Berndt Andreas,0521 6 23 54,http://www.maler-andreas-berndt.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,bielefeld,Kühn Guido,0521 6 48 02,http://www.holzcreation.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,bielefeld,Voss Elektro-Retzlaff e. K. Ihr Hausgeräte-Spezialist,0521 9 64 11-0,http://www.voss-elektro-retzlaff.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,bielefeld,Fernsehdienst Uwe Fillies,0521 29 09 78,http://www.fillies.tv,"kein https, nicht mobil, NetObjects"
+,4,kosmetik,bielefeld,Gaia Naturkosmetik,0521 5 61 81 90,http://www.gaia-naturkosmetik.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,bielefeld,Institut Dr. Lorenz,0521 52 51 99 61,http://www.institut-lorenz.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,bielefeld,Quán Phú Gia,0521 39 96 11 74,http://phugia.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,bielefeld,Meierhof Gastronomie Im Tierpark Olderdissen,0521 5 20 21 12,http://www.meierhof-olderdissen.eu,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,bielefeld,Kipp Alexandra,0521 6 61 41,http://www.a-kipp.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,bielefeld,Sabri Othmann Fliesenleger,0521 9 87 24 07,http://bautenschutz-othmann.net,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,bielefeld,Der Naturgarten Jan Gehring GaLaBau,0521 28 73 95,http://www.x-on.de/naturgarten/web/impressum-x1.html,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,bielefeld,Schories-Respotechnik Spez.-Serv. f. Acryl-Einsätze,0521 29 58 77,http://badewannendoktor-bielefeld.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,bielefeld,Ongsiek's nicht nur Elektroseiten,0521 89 30 41,http://www.ongsiek.de,"kein https, nicht mobil, Stand 2016"
+,4,friseur,muenster,New Hair Forke Friseur,0251 2 52 73,http://www.new-hair-forke.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,muenster,Dissel Georg,0251 2 41 76,http://www.maler-dissel.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,muenster,"Korves Thorsten, Korves",0251 21 56 62,http://www.malermeister-korves.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,maler,muenster,BTG GmbH & Co.KG,02501 26 82 08,http://www.bs-tg.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,muenster,Physiotherapie-Praxis Christian Fuchs,0251 2 00 66 21,https://www.fuchsundfuchs.com,"nicht mobil, Stand 2013, kaum Inhalt"
+,4,kfz-werkstatt,muenster,Wessel und Gährken AG,02501 9 28 20,http://wessel-gaehrken-ag.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,wuerzburg,Scheder Ludwig GmbH,09306 12 50,http://www.ludwig-scheder.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,wuerzburg,Brückl GmbH & Co. KG,0931 2 99 21-0,https://www.brueckl.de,"nicht mobil, Stand 2008, kaum Inhalt"
+ja,4,elektriker,wuerzburg,Elektrotechnik Eck Michael,0931 66 22 50,http://www.eck-elektro.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,elektriker,wuerzburg,"Liepold D. Elektroinstallation, Liepold U.",0931 27 36 90,http://www.elektro-liepold.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kosmetik,wuerzburg,Institut für Kosmetik Vera Böhm,0931 2 99 54 88,http://vera-boehm-kosmetik.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,wuerzburg,Physiotherapie Klostermeier Alexander,0931 32 07 99 44,http://www.alexanderklostermeier.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,wuerzburg,Werth Martin Physiotherapie,0931 4 60 08 25,http://www.physiotherapie-werth.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,dachdecker,wuerzburg,BAUCO Baucooperation GmbH,09367 98 67 21,http://www.bauco-gmbh.de/,"kein https, nicht mobil, Stand 2012"
+,4,kfz-werkstatt,wuerzburg,Autohaus Mannert KFZ-Meister,09365 10 00,http://www.auto-mannert.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,wuerzburg,Fleischmann Jürgen Heizung Sanitär und Spenglerei,09365 16 41,http://www.sanitaer-fleischmann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,regensburg,Igor Sinn Malerbetrieb,0176 84 55 45 74,http://malermeister-sinn.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,restaurant,regensburg,Federico Secondo Restaurant,0941 56 55 88,https://osteria-federico2.de,"nicht mobil, Stand 2012, kaum Inhalt"
+ja,4,fahrschule,regensburg,WOWA's Fahrschule,0176 72 72 54 77,http://www.wowas-fahrschule.de/,"kein https, nicht mobil, kaum Inhalt"
+ja,4,gartenbau,regensburg,Renner Ihr Gartenparadies,0941 8 70 16 00,http://www.garten-renner.de,"kein https, nicht mobil, kaum Inhalt"
+,4,friseur,ulm,Haar Team 3 Inh. Birgit Näher,0731 38 45 38,http://www.haarteam3.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kfz-werkstatt,ulm,Autoservice Hargesheimer GmbH,0731 9 38 61 75,http://www.autoservice-ulm.de,"kein https, nicht mobil, Jimdo"
+ja,4,gartenbau,ulm,Hegenauer Garten- und Landschaftsbau GmbH,0731 3 89 04 43,http://hegenauergaerten.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,gartenbau,ulm,TH - ERDBAU,0173 7 02 59 71,http://www.th-erdbau.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,gartenbau,heilbronn,Jeton Lajqi Garten- und Landschaftsbau,01575 7 42 35 21,http://la-gartenbau.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,sanitaer,heilbronn,Vogel Heizungsbau,07131 58 91 00,https://www.vogel-heizungsbau.de/,"nicht mobil, Stand 2009, kaum Inhalt"
+,4,friseur,saarbruecken,Schwan Wolfgang Frisör,0681 9 58 15 99,http://www.friseur-schwan.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,saarbruecken,Thiebold Olaf Malerbetrieb,0681 9 97 76 16,http://www.saarmaler.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,tischler,saarbruecken,Graber Heiko Schreinereimeisterbetrieb,06897 60 06 57,http://www.heiko-graber.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,saarbruecken,Elektro Welschhans,0681 4 76 00,http://www.welschhans.de,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,saarbruecken,Elektro Jürgen Hertling GmbH,0681 81 52 56,http://elektro-hertling.de,"kein https, nicht mobil, Stand 2018"
+,4,elektriker,saarbruecken,Elektro Thome GmbH,0681 9 76 77 77,http://www.elektrothome.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,saarbruecken,Thalasso International,0681 3 06 38,http://www.thalasso-international.eu,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,saarbruecken,Zeynep El Annan Kosmetiksalon,0681 94 00 89 16,http://www.beautyskin-sb.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,saarbruecken,Bruchwiese Hotel Restaurant,0681 30 39 55 19,https://www.hotelbruchwiese.de,"nicht mobil, Jimdo, kaum Inhalt"
+,4,dachdecker,saarbruecken,Stephany Günter Dach-Bau,06898 8 24 66,http://www.stephany-dach-bau.de,"kein https, nicht mobil, NetObjects"
+,4,kfz-werkstatt,saarbruecken,Ludwig Seck GmbH,0681 85 10 51,http://www.autoteileseck.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,saarbruecken,"Massing Konrad, Garten- u. Landschaftsbau",06803 98 47 33,http://www.gartenbau-massing.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,saarbruecken,Menz Teich- und Gartenbau,06893 98 61 71,http://www.menz-gartenbau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,saarbruecken,Tzschaschel Diana Garten- u.Landschaftsbau,06893 80 05 78,http://www.dt-galabau.de,"kein https, nicht mobil, Jimdo, im Aufbau"
+,4,gartenbau,saarbruecken,Schwarz Grabpflege,0681 87 21 13,http://www.lv-gartenbau-saar.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,saarbruecken,Bernhard Fischer,06897 76 52 61,http://www.rewanu.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,saarbruecken,J. Knerr GmbH,0172 6 81 30 47,http://www.heizung-knerr.de,"kein https, nicht mobil, kaum Inhalt"
+,4,friseur,bayreuth,Salon Ferri Friseur,0921 6 45 85,http://www.friseur-ferri.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,bayreuth,FÖRSTER DIE MALERMEISTER,09201 4 58,http://www.foerster-diemalermeister.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,bayreuth,Belessa Bayreuth e.K. Kosmetikstudio,0921 1 51 30 32,http://www.belessa-bayreuth.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,physiotherapie,bayreuth,Pieper Yvonne Praxis für Physiotherapie,0921 2 00 21,https://enjoy-us.de,"nicht mobil, FrontPage, kaum Inhalt"
+,4,maler,fulda,Herber Sonja Malermeisterin,06659 91 95 20,http://www.maler-herber.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,fulda,Skindividuell Kosmetikstudios,0151 42 88 02 88,http://www.skindividuell.com,"kein https, nicht mobil, im Aufbau"
+,4,physiotherapie,fulda,Faber Christoph Praxis für Physiotherapie,0661 6 79 23 80,http://www.faber-physio.de,"kein https, nicht mobil, kaum Inhalt"
+,4,dachdecker,fulda,Dachwerk Diegelmann GmbH,0661 4 65 78,http://www.dachdecker-diegelmann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,fulda,"Nuspahic Autowerkstatt, KFZ-Meisterservice",06659 91 59 44,http://www.kfz-meisterservice-kerzell.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,fulda,Oswald Keramik und Stein GmbH & Co. KG,0661 94 15 10,http://www.waermeundwellness-fulda.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,fulda,Oerlicke Claus Sanitärtechnik,0661 9 42 74 16,http://www.oerlicke.de,"kein https, nicht mobil, kaum Inhalt"
+,4,friseur,paderborn,De Luxe Friseur,05251 7 09 17 76,http://deluxe-friseur.de,"kein https, nicht mobil, Stand 2016"
+,4,maler,paderborn,Hesse-Pawlak GmbH,05251 3 29 38,http://www.hesse-pawlak.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,kosmetik,paderborn,Med-Beauty GmbH,05251 2 53 56,http://med-beauty-paderborn.de,"kein https, nicht mobil, Stand 2013"
+ja,4,restaurant,paderborn,Billardcafe PARIS Paderborn,05251 8 78 74 00,http://www.billardcafe-paris.de,"kein https, nicht mobil, Stand 2010"
+ja,4,kfz-werkstatt,paderborn,Tank-Port Baumhögger GmbH,05251 7 55 02,http://www.baumhoegger.com,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,paderborn,Alfred Kolbe Garten- und Landschaftsbau,05254 6 52 97,http://kolbe-garten.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,paderborn,BADGALERIE Blome GmbH,05254 94 06 52,http://www.badgalerie.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,oldenburg,Der Maler,441 88 24 91,http://www.dermaler-oldenburg.de,"kein https, nicht mobil, kaum Inhalt"
+ja,4,dachdecker,oldenburg,Felix Schumacher Bedachungs-GmbH,0441 6 90 96,http://www.schumacher-bedachung.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,oldenburg,Kallmeier H. Dipl.-Ing.,0441 9 98 79 40,http://www.gartenkultur-ol.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,oldenburg,ender & panneitz Heizung-Sanitär GmbH,0441 9 35 77-0,http://www.ender-panneitz.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,oldenburg,Buttjes Sanitär- und Heizungstechnik GmbH,0441 7 77 98 82,http://buttjes.de,"kein https, nicht mobil, Stand 2018"
+,4,maler,gera,Maler Hartmann,0172 4 22 24 73,http://www.hartmann-team.com,"kein https, nicht mobil, kaum Inhalt"
+,4,elektriker,gera,Wendt Norbert,0365 7 11 74 09,http://www.elektro-wendt-gera.de,"kein https, nicht mobil, kaum Inhalt"
+,4,physiotherapie,gera,RC Gesundheitszentrum,0365 55 24 43 72,http://www.rc-gesundheitszentrum.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,dachdecker,gera,BJR Dach und Fassade GbR Inh. Jackob Matthias,0365 7 10 27 82,http://www.bjr-dach.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,gera,Autoservice Koch GmbH,0365 4 21 07 60,http://www.auto-service-koch.de,"kein https, nicht mobil, FrontPage"
+,4,kfz-werkstatt,gera,Kurve1 Reifenhändler,0365 77 33 33 28,http://www.kurve1.de,"kein https, nicht mobil, kaum Inhalt"
+,4,fliesenleger,gera,Ruhmer Ralf,0365 77 37 47 77,http://www.fliesen-ruhmer.de,"kein https, nicht mobil, kaum Inhalt"
+,4,maler,zwickau,Sven Gutknecht Maler- & Lackierermeister,0375 6 06 86 70,http://www.malermeister-gutknecht.de,"kein https, nicht mobil, kaum Inhalt"
+,4,tischler,zwickau,Tischlerei Schilb - Ideen aus Holz,03741 22 47 65,http://www.schilb-holzdesign.de,"nicht mobil, Stand 2018, im Aufbau"
+,4,restaurant,zwickau,"Ristorante "" Le Tre Perle""",0375 28 22 64,http://www.italiener-zwickau.de,"kein https, nicht mobil, kaum Inhalt"
+,4,restaurant,zwickau,PAULA Gastro GmbH,0375 4 60 07 70,https://www.paula-zwickau.de,"nicht mobil, im Aufbau, kaum Inhalt"
+,4,fahrschule,zwickau,Fahrschule Litzba,0375 8 19 79 18,http://www.fahrschulelitzba.de/,"kein https, nicht mobil, kaum Inhalt"
+,4,dachdecker,zwickau,Schlesier Dachbaubetrieb GmbH,0375 7 88 02 47,http://www.dachdecker-eschner.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,zwickau,KFZ Meister Uwe Bochmann KFZ-Werkstatt,0375 24 35 79,http://kfz-bochmann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,kfz-werkstatt,zwickau,Glück Auf Garage Zwickau UG (haftungsbeschränkt),0375 47 19 31 85,http://www.glueck-auf-garage-zwickau.de,"kein https, nicht mobil, Jimdo"
+,4,gartenbau,zwickau,BMT Zwickau Inh. Theilig Ramona,0375 24 23 15,http://www.landschaftsbau-theilig.de,"kein https, nicht mobil, kaum Inhalt"
+,4,gartenbau,zwickau,Pechmann G. und R. Gärtnerei,0375 47 55 75,http://www.gaertnerei-pechmann.de,"kein https, nicht mobil, kaum Inhalt"
+,4,sanitaer,zwickau,Merks Sylvia Klempnerei,0375 52 20 19,http://www.hartmut-merks.de,"kein https, nicht mobil, im Aufbau"
+,4,sanitaer,zwickau,Junghanns Andreas Klempner- u. InstallateurMstr. / Heiz.- u. LüftungsbauMstr.,037604 28 43,https://www.shd-junghanns.de,"nicht mobil, Stand 2010, FrontPage"
+,3,friseur,goettingen,Ihr Friseur Skiba,0551 4 27 16,http://www.friseur-skiba.de,"kein https, nicht mobil"
+,3,friseur,goettingen,Friseursalon Dohrmann,0551 4 28 74,https://www.friseursalon-dohrmann.de,"nicht mobil, Jimdo"
+,3,elektriker,goettingen,ELTKAUF Meisterservice,0551 6 14 74,http://www.elektroteileladen.de,"kein https, nicht mobil"
+,3,physiotherapie,goettingen,Krankengymnastik am Brauweg Juliana Wedekind,0551 3 81 89 59,http://www.physiotherapie-ergotherapie-goettingen.de,"kein https, nicht mobil"
+,3,physiotherapie,goettingen,Praxis für Physiotherapie Körperklang,0551 4 88 21 38,https://www.koerper-klang.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,goettingen,AKL-Wilder Klein GmbH,0551 9 71 71,http://akl-wilder-klein.de,"kein https, nicht mobil"
+,3,gartenbau,goettingen,Uhlendorff Friedhofsgärtnerei und Grünflächenpflege GmbH,0551 7 89 15 26,http://friedhofsgaertnerei-uhlendorff.de,"kein https, nicht mobil"
+,3,friseur,erfurt,"Friseursalon ""Hair-Desig'n""",0361 41 39 39,http://www.hair-design-erfurt.de,"kein https, nicht mobil"
+,3,maler,erfurt,Malerbetrieb K.-H. Plotzki Inh. Julia Plotzki,036201 59 80 50,https://www.malerplotzki.de,"nicht mobil, Jimdo"
+,3,maler,erfurt,Firma Timpel,036208 7 70 73,http://www.timpel.de,"kein https, nicht mobil"
+,3,tischler,erfurt,Wohnen & mehr GmbH,0361 4 42 28-0,http://www.wohnen-und-mehr-erfurt.de,"nicht mobil, kaum Inhalt"
+,3,tischler,erfurt,Tischlerei Norbert Raasch,0361 6 02 26 63,http://tischlerei-raasch.de,"kein https, nicht mobil"
+,3,tischler,erfurt,Tischlerei Roeder GbR,036601 8 53 88,http://www.roeder-treppen.de,"kein https, nicht mobil"
+,3,elektriker,erfurt,Löbel Oliver Elektro- u. Sicherheitstechnik,0361 2 21 90 00,http://www.elektrotechnik-erfurt.de,"kein https, nicht mobil"
+,3,kosmetik,erfurt,HAUTNAH - Ihre Kosmetik - e.K. Daniela Hüttig,0361 6 44 44 22,http://www.hautnah-ihrekosmetik.de,"kein https, nicht mobil"
+,3,physiotherapie,erfurt,Physio Aktiv am Anger Inh. Marc Frenzel,0361 6 43 18 01,http://www.physio-aktiv-frenzel.de/,"kein https, nicht mobil"
+,3,physiotherapie,erfurt,Physiotherapie Katrin Völker,0361 6 54 86 53,http://www.physiotherapie-voelker.de,"kein https, nicht mobil"
+,3,physiotherapie,erfurt,Physiotherapie Born,0361 7 52 02 08,http://www.physio-born.de,"kein https, nicht mobil"
+,3,fahrschule,erfurt,LEO'S FAHRSCHULE ERFURT,0361 2 25 09 59,http://www.leos-fahrschule.de/,"kein https, nicht mobil"
+,3,kfz-werkstatt,erfurt,CAR CHECK,0361 5 11 26 92,http://www.car-check-ef.de,"kein https, nicht mobil"
+,3,gartenbau,erfurt,"Hunstock, Frank Garten-, Landschafts- u. Straßenbau",036076 5 22 00,http://www.hunstock-galabau.de,"kein https, nicht mobil"
+,3,gartenbau,erfurt,Erfurter Garten- und Ausstellungs gGmbH (ega) egapark,0361 5 64 37 37,http://www.egapark-erfurt.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,erfurt,Marco John Heizung - Sanitär,0162 6 22 07 61,http://www.heizung-john.de,"kein https, nicht mobil"
+,3,friseur,jena,HAARFEIN,03641 23 30 86,https://www.haarfein-jena.de,"nicht mobil, FrontPage"
+,3,maler,jena,Kanapee Raumausstattung,03644 51 59 29,https://www.kanapee.biz/,"nicht mobil, kaum Inhalt"
+,3,elektriker,jena,Naumann Elektroinstallation,03641 82 91 61,http://www.elektronaumann.de,"kein https, nicht mobil"
+,3,elektriker,jena,Donath & Scherf - Elektronik Jena,03641 50 76 40,http://www.ds-elektronik.de,"kein https, nicht mobil"
+,3,dachdecker,jena,Bau Ausbau Koch GmbH,036454 59 91 42,https://www.bau-ausbau-koch.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,jena,Richter Ralf,03641 46 78-0,http://www.vip-car-jena.de,"kein https, nicht mobil"
+,3,sanitaer,jena,Württembergische Generalagentur Schmidt,03641 3 76 99 00,https://www.wuerttembergische.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,halle-saale,Weibring Elektrotechnik,0345 5 63 00 29,http://www.weibring.com,"kein https, nicht mobil"
+,3,elektriker,halle-saale,COMSERV Ingenieurges. mbH,0345 53 01 90,http://www.burgstrasse.tv,"kein https, nicht mobil"
+,3,physiotherapie,halle-saale,Physiotherapie am Marktplatz,0345 58 22 82 99,https://www.physiotherapie-am-marktplatz-halle.de,"nicht mobil, Jimdo"
+,3,physiotherapie,halle-saale,Physiotherapie Ankerstrasse UG,0345 78 23 90 13,https://www.physio-ankerstrasse3b.de,"nicht mobil, Stand 2015"
+,3,physiotherapie,halle-saale,Praxis für Physiotherapie Susan Willkommen,0345 1 22 96 97,https://www.physio-willkommen.de/,"nicht mobil, Stand 2018"
+,3,fahrschule,halle-saale,Fahrschule GangArt,0345 23 93 57 14,https://www.fahrschule-gangart.de/,"nicht mobil, Jimdo"
+,3,fahrschule,rostock,Fahrschule Schmock,0173 2 07 14 65,https://www.fahrschule-schmock.de/,"nicht mobil, kaum Inhalt"
+,3,dachdecker,rostock,René Dierberg Zimmerei,0175 5 35 91 98,http://zimmerei-dierberg.de,"kein https, nicht mobil"
+,3,gartenbau,rostock,"Ehlermann Heiko Garten-, Landschafts-, Sportplatzbau",03991 18 28 45,http://www.heikoehlermann.de,"kein https, nicht mobil"
+,3,sanitaer,rostock,Schulz Heizung und Sanitär,0381 69 83 23,https://www.schulz-rostock.de,"nicht mobil, Stand 2015"
+,3,sanitaer,rostock,"""Die Zwei"" Klempner Sanitär Elektro GmbH",0381 80 71 90,http://www.diezwei-gmbh.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,rostock,"Röhrich & Partner Ingenieurbüro für Sanitär-, Klima- und Heiztechnik GmbH",0381 51 95 40,http://www.roehrich-und-partner.de,"kein https, nicht mobil"
+,3,friseur,luebeck,Show Cut,0451 7 90 70 12,http://www.showcut.de,"kein https, Stand 2017, FrontPage"
+,3,tischler,luebeck,Heyden Thomas Tischlerei - Treppenbau,0451 2 03 66 60,http://www.heyden-treppenbau.de,"kein https, im Aufbau, kaum Inhalt"
+,3,elektriker,luebeck,Elektro Jüngling,0451 4 99 17 36,http://www.elektrotechnik-juengling.de,"kein https, nicht mobil"
+,3,elektriker,luebeck,Gebäudetechnik Bonczynski,0451 4 00 80 81,http://www.bonczynski.de,"kein https, Stand 2006, Jimdo"
+,3,sanitaer,luebeck,Thomas Wrütz,0451 3 19 90,https://www.wruetz.de,"nicht mobil, Jimdo"
+,3,elektriker,kiel,Ingenieurbüro Janshen,0431 5 15 85,https://www.ingenieurbuero-khj.de,"nicht mobil, Jimdo"
+,3,dachdecker,kiel,Dachdeckerei Jürgen Buss,0431 7 39 70 39,http://www.dachdeckerei-buss-kiel.de,"nicht mobil, Jimdo"
+,3,fliesenleger,kiel,Beck Putzfachbetrieb,0172 5 47 61 60,http://www.frank-beck-bau.de,"kein https, nicht mobil"
+,3,gartenbau,kiel,Servicedienstleistungen Hinz GmbH,0431 7 18 00 00,http://www.hinz-tiefbau-kiel.de,"kein https, nicht mobil"
+,3,maler,bielefeld,G. Siese GmbH,0521 20 01 33,http://farben-siese.de,"kein https, nicht mobil"
+,3,elektriker,bielefeld,Elektro Jesussek,0521 6 86 47,http://elektro-jesussek.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,bielefeld,Fritz Michel Gas Wasser Licht GmbH,0521 17 30 55,http://www.fritzmichel.de,"nicht mobil, Stand 2012"
+,3,elektriker,bielefeld,Mark Heuermann Elektrotechnik,0521 2 11 00,http://www.heuermann-elektrotechnik.de,"nicht mobil, Jimdo"
+,3,elektriker,bielefeld,Elektro Tiggemann,0521 3 54 51,http://www.elektro-tiggemann.de,"kein https, nicht mobil"
+,3,elektriker,bielefeld,Ipro-Elektronik GmbH,0521 3 29 24 90,http://www.ipro-elektronik.de,"kein https, nicht mobil"
+,3,restaurant,bielefeld,Sieker-Grill,0521 96 29 55 88,https://www.sieker-grill-bielefeld-detmolder-strasse.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,bielefeld,"Gameiro Pizza-Service, Jörg Lücke",0521 5 57 45 57,http://www.gameiro.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,bielefeld,Klötzer Delikatessen,0521 96 77 50,https://www.kloetzers.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,bielefeld,Physio Team Bissendorf Iris Campbell,05402 69 15 33,http://www.physioteambissendorf.de,"kein https, nicht mobil"
+,3,physiotherapie,bielefeld,Andreas Kröker Massage u. Physiotherapie,0521 13 17 77,https://www.physiokroeker.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,bielefeld,Riemann-Dach,0521 41 77 69 01,http://www.riemann-dach.de,"kein https, nicht mobil"
+,3,gartenbau,bielefeld,Valentin Lieneweg Landschaftsbau,0160 97 06 03 05,http://www.lieneweg-landschaftsbau.de,"kein https, nicht mobil"
+,3,friseur,muenster,Art Work,0251 66 34 04,http://art-work-friseur.de,"kein https, nicht mobil"
+,3,kosmetik,muenster,praxy GmbH,0251 13 34 84 50,http://vitaguide-magazin.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,muenster,Kneipe Buddenturm,0251 3 90 50 37,https://www.buddenturm.de,"nicht mobil, Stand 2011"
+,3,physiotherapie,muenster,"Beckmann-Niehueser, Heike Fischer, Werner Gerdemann, Scheherezad Haacke, Claudia",0251 5 41 93,https://www.physiotherapie-sonnenstrasse.de,"nicht mobil, Jimdo"
+,3,physiotherapie,muenster,Praxis für Physiotherapie & Manuelle Therapie,0251 4 22 47,https://physiotherapie-milic.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,muenster,LKW Service Münster An der Hansalinie GmbH Reparaturwerkstatt,0251 7 10 73,http://www.lkw-service-muenster.de,"nicht mobil, Jimdo"
+,3,friseur,wuerzburg,Friseur Haircut,0931 5 10 79,https://www.haircut-wuerzburg.com/,"nicht mobil, kaum Inhalt"
+,3,friseur,wuerzburg,Hype Saloon,0931 3 04 49 49,https://www.hype-saloon.de,"nicht mobil, kaum Inhalt"
+,3,maler,wuerzburg,Maler- und Lackierermeister Karlheinz Landeck,09307 7 84,http://www.malerbetrieb-landeck.de/,"kein https, nicht mobil"
+,3,tischler,wuerzburg,Habermann Harald Möbelschreinerei,0931 2 42 82,https://www.schreinerei-habermann.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,wuerzburg,ZAHN ELEKTROTECHNIK,0931 46 07 90 37,https://www.elektrotechnik-zahn.de,"nicht mobil, kaum Inhalt"
+,3,kosmetik,wuerzburg,Beautyform,09305 98 88 92 22,https://www.beautyform.org,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,wuerzburg,Hessberger Helge Physiotherapeut,0931 1 74 17,https://www.osteopathie-bayern.de,"nicht mobil, NetObjects"
+,3,fahrschule,wuerzburg,Fahrschule Badura,0931 7 38 60,http://www.fahrschule-badura.de/,"kein https, nicht mobil"
+,3,fahrschule,wuerzburg,Fahrschule Bauer,0931 70 77 71,https://www.rudibauer.de/unser-team/,"nicht mobil, Jimdo"
+,3,dachdecker,wuerzburg,Alldach GmbH,09391 50 72 95,http://www.alldach-msp.de,"nicht mobil, kaum Inhalt"
+,3,gartenbau,wuerzburg,Ihr Wunschgarten,09367 98 10 43,http://www.ihr-wunschgarten.homepage.t-online.de,"nicht mobil, FrontPage"
+,3,friseur,regensburg,Friseur Eisenherz Inh. Ramona Locher,0941 2 00 90 50,http://www.eisenherz-regensburg.de,"kein https, nicht mobil"
+,3,friseur,regensburg,Haarstudio Basel Friseursalon,0941 5 15 03,http://www.haarstudio-basel.de/,"nicht mobil, kaum Inhalt"
+,3,maler,regensburg,Widl Malermeister,09403 9 60 30,http://www.malermeister-widl.de,"nicht mobil, kaum Inhalt"
+,3,maler,regensburg,Eckert Malermeister,0941 8 48 32,http://www.eckert-malermeister.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,regensburg,Elektro-Service Seibel Evgenij,0941 3 07 88 99-0,https://www.elektro-seibel.de,"nicht mobil, Stand 2018"
+,3,elektriker,regensburg,Elektro Grünauer,0941 46 52 73 84,http://www.elektro-gruenauer-regensburg.de,"nicht mobil, Jimdo"
+,3,physiotherapie,regensburg,Lutz Maria Krankengymnastikpraxis,0941 59 82 21,https://www.maria-lutz.de,"nicht mobil, kaum Inhalt"
+,3,fahrschule,regensburg,Fahrschule SCHÖFL,0941 2 28 22,https://www.fahrschule-schoefl.de/,"nicht mobil, kaum Inhalt"
+,3,dachdecker,regensburg,Bedachungen Pyka,0941 9 13 26,https://www.bedachungen-pyka.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,regensburg,"Aukofer GmbH Zimmerei, Dachdeckerei, Holzbau",09405 22 82,http://www.aukofer.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,regensburg,PW Auto Service GmbH,0941 60 48 69-0,http://www.pwautoservice.de,"kein https, nicht mobil"
+,3,gartenbau,regensburg,Grüner Ulrike Natur+Abenteuer Projekte,0941 7 04 00 01,https://www.holz-garten-service.de/,"nicht mobil, kaum Inhalt"
+,3,sanitaer,regensburg,Klaus Kalteis :: Gas- und Wasserinstallation,0941 70 03 90,https://kalteis.net,"nicht mobil, kaum Inhalt"
+,3,sanitaer,regensburg,Tomahogh Bad-Service,0941 4 80 46,http://www.tomahogh-bad-service.de,"nicht mobil, kaum Inhalt"
+,3,sanitaer,regensburg,Kreuzpaintner GmbH,09403 86 06,https://www.fa-kreuzpaintner.de,"nicht mobil, kaum Inhalt"
+,3,friseur,ulm,Friseur am Platz,0731 2 46 76,http://www.friseur-am-platz.de,"kein https, nicht mobil"
+,3,tischler,ulm,Haas Berthold Schreinerei und Glaserei,07304 96 09-0,https://www.schreinerhaas.de,"nicht mobil, Jimdo"
+,3,elektriker,ulm,Süd Alfa,0731 97 73 95 72,https://www.suedalfa.de,"nicht mobil, im Aufbau"
+,3,elektriker,ulm,ESU electronic solutions ulm GmbH & Co. KG,0731 18 47 80,https://www.esu.eu,"nicht mobil, FrontPage"
+,3,sanitaer,ulm,Fesseler Sanitär,07305 75 78,http://www.fesseler-sanitaer.de,"kein https, nicht mobil"
+,3,friseur,heilbronn,Friseur Eulenspiegel Haut-Haar-Mode-Mehr,07131 90 06 42,http://www.eulenspiegels-beauty.de,"kein https, nicht mobil"
+,3,maler,heilbronn,Beitinger GmbH Stuckateur & Maler,07131 79 70 11,http://www.beitinger-gmbh.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,heilbronn,PEARLS AND DIAMOND,07131 5 91 92 44,http://pearls-diamond.de,"kein https, nicht mobil"
+,3,physiotherapie,heilbronn,Steigleder Simone Physiotherapie,07131 6 44 15 20,https://www.praxis-steigleder.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,heilbronn,Dachdeckerei Schrafft GmbH,07131 89 77 67,https://www.schrafft-dach.de,"nicht mobil, im Aufbau"
+,3,dachdecker,heilbronn,Holzbau Küppers GmbH,07133 9 01 43 79,http://lebensraeume-aus-holz.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,heilbronn,Thomas Bauer KFZ-Meisterbetrieb & Sachverständigen-Büro,07131 16 43 19,https://www.auto-bauer-hn.de/,"nicht mobil, Jimdo"
+,3,kfz-werkstatt,heilbronn,Ali Bilmez Kfz-Reparaturen,07132 8 98 94 34,http://atlas-car.de,"kein https, nicht mobil"
+,3,kfz-werkstatt,heilbronn,Autolaube GmbH,07131 90 03 03,http://www.autolaube.de,"nicht mobil, Stand 2019"
+,3,fliesenleger,heilbronn,Eddie Bässler Bauunternehmen GmbH,07141 2 98 76 69,https://www.baessler-bauunternehmen.de,"nicht mobil, Stand 2016"
+,3,sanitaer,heilbronn,Sanitäre Anlagen Herrmann GmbH,07131 57 93 66,https://www.sanitaer-herrmann.com,"nicht mobil, kaum Inhalt"
+,3,sanitaer,heilbronn,Helmut Kern Sanitäre Anlagen,07131 50 65 86,https://www.kern-flein.de,"nicht mobil, kaum Inhalt"
+,3,tischler,saarbruecken,Schumacher Norbert Montagebetrieb,06894 38 64 65,http://www.montage-schumacher.de,"nicht mobil, kaum Inhalt"
+,3,kosmetik,saarbruecken,MIBROWS | Microblading,0176 60 97 15 75,http://www.mibrows.de/,"nicht mobil, kaum Inhalt"
+,3,restaurant,saarbruecken,Pizza Imbiss,0681 37 64 90,http://www.bringbutler.de/index_Lokalinfobb_6611.php,"kein https, nicht mobil"
+,3,restaurant,saarbruecken,"Restaurant Tante Jenny, Cafe & Bar",0681 40 16 10 60,https://www.tante-jenny.de,"nicht mobil, kaum Inhalt"
+,3,fahrschule,saarbruecken,Fahrschule Jürgen Schäffler,0681 9 48 85 86,https://www.xn--fahrschule-schffler-twb.de/,"nicht mobil, Jimdo"
+,3,dachdecker,saarbruecken,Peter Marx GmbH,06897 9 52 40,http://www.marx-dach.de,"nicht mobil, Stand 2016"
+,3,kfz-werkstatt,saarbruecken,AUTO ZIMMER / KFZ-Meisterbetrieb,0681 8 31 90 08,https://www.reifen-zimmer-kfz.de/,"nicht mobil, kaum Inhalt"
+,3,fliesenleger,saarbruecken,Nawias Fliesenlegermeisterbetrieb,0681 96 85 39 39,http://www.fliesenleger-saarbruecken.de,"kein https, nicht mobil"
+,3,gartenbau,saarbruecken,Monzel Markus,0681 7 26 43,http://www.monzel.eu,"kein https, nicht mobil"
+,3,sanitaer,saarbruecken,Adolf Conrad GmbH Sanitär- Heizungs- und Klimainstallation,0681 70 21 61,https://www.adolfconrad.de/,"nicht mobil, kaum Inhalt"
+,3,friseur,bayreuth,Salon Christa Ernst,0921 2 42 90,https://www.friseur-christaernst.de,"nicht mobil, Stand 2010"
+,3,elektriker,bayreuth,Elektro-Herbeck Inh. Rudolf Bock,0921 5 25 20,https://www.elektro-herbeck.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,bayreuth,Technik Total,0921 1 63 98 45,http://www.technik-total.de,"kein https, nicht mobil"
+,3,restaurant,bayreuth,Kaiser Harald,0174 9 95 65 49,https://www.eule-bayreuth.de,"nicht mobil, Stand 2012"
+,3,physiotherapie,bayreuth,Otto Klaus Krankengymnast,0921 2 22 63,https://www.physiotherapie-otto-bayreuth.de,"nicht mobil, Jimdo"
+,3,kfz-werkstatt,bayreuth,Szam Helmut KFZ-Werkstatt,0921 4 31 11,http://www.kfz-szam.de,"kein https, nicht mobil"
+,3,kfz-werkstatt,bayreuth,Tech-Hemm UG (haftungsbeschränkt),0921 1 51 08 47,http://www.tech-hemm.de,"kein https, nicht mobil"
+,3,sanitaer,bayreuth,NÜRNBERGER Versicherung Eric Eckert in Bayreuth,0151 46 56 11 01,https://www.nuernberger.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,fulda,Elektro Zaar GbR,0173 5 82 40 57,http://elektro-zaar.de/,"nicht mobil, kaum Inhalt"
+,3,elektriker,fulda,Götz-Elektro-Technik,0661 5 48 55,https://www.goetzelektro.de,"nicht mobil, Jimdo"
+,3,kosmetik,fulda,MB Massage & Kosmetik,0176 60 37 08 32,http://mbmassagekosmetik.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,fulda,Tanzlokal Oberbayern Fulda,0661 7 37 83,https://www.tanzlokal-oberbayern.de,"nicht mobil, Jimdo"
+,3,gartenbau,fulda,Wehner Lars,0661 9 01 59 26,http://www.garten-wehner.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,paderborn,Wannagat U. Physiotherapie im Riemeke,05251 8 71 99 99,http://www.physiotherapie-im-riemeke.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,paderborn,Katharina Brachvogel Krankengymnastik,05251 67 09 50,http://www.krankengymnastik-brachvogel.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,paderborn,Physiotherapiepraxis Brachvogel,05251 67 09 50,https://www.physiotherapie-brachvogel.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,paderborn,Oliver Burow Dachdeckerbetrieb B.O.B. Bedachungen,05251 8 76 94 05,http://www.bob-pb.de,"nicht mobil, Jimdo"
+,3,sanitaer,paderborn,"Michael Multhaup - Heizung, Sanitär, Solar",05251 75 06 14,https://www.multhaup-heizung.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,oldenburg,Chi Binh Nguyen Salmon Coco Asia-Sushi-Bar,0441 68 32 02 72,http://salmon-coco.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,oldenburg,Teilhabe Arbeit & Bildung gGmbH,0441 3 40 55 70,https://www.machbar-kantine.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,oldenburg,Essing Helmut Praxis für Physiotherapie,0441 3 40 76 41,https://helmut-essing.de/,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,oldenburg,Physiotherapie-Praxis Susann Laue,0441 9 50 66 73,https://www.die-feldenkraispraxis.de,"nicht mobil, kaum Inhalt"
+,3,fahrschule,oldenburg,Fahrschule Beilken,0441 30 33 93,http://www.fahrschule-beilken.de/,"kein https, nicht mobil"
+,3,fahrschule,oldenburg,Fahrschule FS4U,0151 17 17 17 00,https://www.fs4u.de/,"nicht mobil, Stand 2011"
+,3,sanitaer,oldenburg,NACK - Heizungsbau,0441 6 04 87,http://www.nack-heizung.de,"kein https, nicht mobil"
+,3,sanitaer,oldenburg,Wöbken Sanitär + Heizung,0441 3 25 88,https://www.woebken.com,"nicht mobil, kaum Inhalt"
+,3,sanitaer,oldenburg,Ender u. Panneitz Heizung- Sanitär-GmbH,0441 93 57 70,http://heizung-oldenburg.de,"kein https, nicht mobil"
+,3,friseur,gera,ENGELSHAAR Ger handmade haircuts,0365 7 38 56 45,https://www.engelshaar-gera.com,"nicht mobil, Jimdo"
+,3,friseur,gera,Salon Frisurenliebe,0365 20 51 79 73,http://www.frisurenliebe.de,"kein https, nicht mobil"
+,3,friseur,gera,Friseursalon HAIR'zlich,0365 4 20 41 41,http://www.friseur-hairzlich.de,"nicht mobil, kaum Inhalt"
+,3,tischler,gera,Krötenheerdt,036602 3 78 38,http://www.tischlergera.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,gera,Kommunikations- u. Sicherungstechnik Mayer,0365 3 13 68,https://www.kousima.de,"nicht mobil, kaum Inhalt"
+,3,elektriker,gera,Elektro Bär GmbH,036603 4 61 00,http://www.elektro-baer-gmbh.de,"kein https, nicht mobil"
+,3,kosmetik,gera,"Wellness-Studio ,,beau visage""",0365 8 00 30 10,http://www.beau-visage.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,gera,Museumsstuben Gera,0365 2 10 80,https://www.museumsstuben-gera.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,gera,Auto Richter Bosch Car Service,0365 81 00 48,http://www.auto-richter-gera.de,"kein https, nicht mobil"
+,3,friseur,zwickau,Friseurgeschäft Anett Treimer,0375 6 06 87 59,https://www.barbier-zur-alten-baeckerei.de,"nicht mobil, kaum Inhalt"
+,3,maler,zwickau,Farben-Hölzel Maler GmbH,03761 1 81 50,http://farben-hoelzel.de,"nicht mobil, im Aufbau"
+,3,tischler,zwickau,Heyn Rainer Tischlerei,0375 21 39 03,https://www.tischlerei-glass.de,"nicht mobil, kaum Inhalt"
+,3,restaurant,zwickau,Mama's Eis,0375 4 40 06 38,https://www.eisdiele-zwickau.de,"nicht mobil, kaum Inhalt"
+,3,physiotherapie,zwickau,Maurin geb. Angioni Christina Physiotherapie,0375 60 60 67 06,https://www.physiotherapie-maurin.de,"nicht mobil, kaum Inhalt"
+,3,dachdecker,zwickau,Dachdeckerei Gruner Jens Dachdecker,037600 43 40,https://www.dachdeckerei-gruner.de,"nicht mobil, kaum Inhalt"
+,3,kfz-werkstatt,zwickau,Autoservice-Silberstrasse H.Käser-E.Riedel GbR Dienstleistungen für KFZ,037603 55 99 69,http://www.autoservice-silberstrasse.de,"kein https, nicht mobil"
+,3,gartenbau,zwickau,Grünland GmbH Baum- und Landschaftspflege,03723 66 85 70,https://www.gruenland-gmbh.de,"nicht mobil, Stand 2019"
+,3,sanitaer,zwickau,Innung für Sanitär- und Heizungstechnik Zwickau,0375 2 70 59 66,https://www.installateur.net/shkzwickau/,"nicht mobil, kaum Inhalt"
+,3,sanitaer,zwickau,Schuster Günter Installateur- und Klempnermeister,037604 27 92,http://www.klempnerei-schuster.de/,"kein https, nicht mobil"
+,2,friseur,goettingen,Jas Beauty,0551 9 00 38 09,https://www.jas-beauty.de,nicht mobil
+,2,maler,goettingen,MEGA eG Göttingen,0551 50 44 60,https://stores.mega.de/mega-eg-gottingen-754be55a25ba,"Stand 2018, im Aufbau"
+,2,elektriker,goettingen,Janssen Elektrotechnik GmbH,0551 6 33 89 98,http://www.janssen-elektrotechnik.de,nicht mobil
+,2,kosmetik,goettingen,EVITA Kosmetik & Nagelstudio,0551 29 13 84 11,https://www.evita-kosmetik.de,nicht mobil
+,2,restaurant,goettingen,APEX Göttingen,0551 4 68 86,https://www.apex-goe.de,nicht mobil
+,2,physiotherapie,goettingen,Das Team Hardy. Ergo. Logo. Physio.,0551 50 33 71 91,http://www.ergotherapie-hardy.de,nicht mobil
+,2,dachdecker,goettingen,Bosse Dach + Wand GmbH,05551 9 52 03-0,http://www.bosse-dach-wand.de,nicht mobil
+,2,dachdecker,goettingen,Hampel Bedachungs GmbH,0551 3 40 67,http://hampel-bedachungen.de,nicht mobil
+,2,kfz-werkstatt,goettingen,Bayer Karosserie und Lackierzentrum Kassel GmbH,0551 50 08 90,http://www.bayer-karosseriebau.de,nicht mobil
+,2,gartenbau,goettingen,"B & F Baumschule, Garten- und Landschaftsbau GmbH",0551 9 97 17 99,http://www.bierkoch.de,nicht mobil
+,2,sanitaer,goettingen,Rohrreinigung & Kanalsanierung - R.O.H.R. Abwassertechnik GmbH - Servicepartner RohrStar,0551 30 38 15 15,https://www.rohrstar.de,nicht mobil
+,2,sanitaer,goettingen,IB Heßmann,0551 37 87 28,https://www.ib-hessmann.de,nicht mobil
+,2,friseur,erfurt,Kopfsache,0361 2 62 56 88,http://www.hauptsache-kopfsache.de,"kein https, kaum Inhalt"
+,2,friseur,erfurt,Annica Duft - Schairenschnitt,0162 9 20 90 50,http://www.schairenschnitt.de,nicht mobil
+,2,kosmetik,erfurt,Friseur & Kosmetik relax,0361 6 02 86 90,https://www.kosmetikstudios-24.de/kosmetikinstitut-friseur-kosmetik-relax.215057.html,nicht mobil
+,2,restaurant,erfurt,Übersee - Restaurant Bar Cafe,0361 6 44 76 07,http://www.uebersee-erfurt.de,"kein https, Jimdo"
+,2,restaurant,erfurt,Havana Bar Erfurt,0361 21 85 55 23,https://www.havana-bar-erfurt.de,nicht mobil
+,2,dachdecker,erfurt,antignum Holzbau GmbH,036203 72 82 11,http://antignum.mobil-durchstarten.mobi,"kein https, kaum Inhalt"
+,2,fliesenleger,erfurt,Carsten Schicke,0361 6 02 53 29,https://www.schicke-fliesen.de,nicht mobil
+,2,gartenbau,erfurt,Wohlmann Grünanlagen GmbH,0361 65 39 85 60,http://www.wohlmann-gruenanlagen.de,nicht mobil
+,2,sanitaer,erfurt,Bäder mit Ideen Inh. Angelika Droemer,0361 5 66 21 94,http://www.baedermitideen-erfurt.de,nicht mobil
+,2,sanitaer,erfurt,Gräf Gebäudetechnik GmbH & Co. KG,036203 73 55 97,http://www.haustechnik-graef.de,"Stand 2018, im Aufbau"
+,2,sanitaer,erfurt,"Förster Heiz-, Kälte-, Klimatechnik GmbH & Co. KG",0361 42 05 40,https://www.foerster-gmbh.com,nicht mobil
+,2,elektriker,jena,Elektro Bergmann,03641 61 50 40,http://www.elektroeck-bergmann.de,nicht mobil
+,2,elektriker,jena,Mächler Elektroanlagen,03641 44 39 10,https://www.elektroanlagen-maechler.de,nicht mobil
+,2,elektriker,jena,Elfner,03641 44 44 91,http://www.elfner-elektro.de,"kein https, Stand 2015"
+,2,elektriker,jena,Solarautonomie,0173 8 29 36 06,https://www.solarautonomie.de,nicht mobil
+,2,elektriker,jena,Sunfried,0157 75 05 15 83,https://www.sunfried.de,nicht mobil
+,2,restaurant,jena,Grillteufel Mario Eschner,0172 7 93 40 35,http://www.grillteufel.de,"kein https, kaum Inhalt"
+,2,restaurant,jena,Musikkneipe Alster,03641 44 55 05,https://musikkneipealster.com,nicht mobil
+,2,physiotherapie,jena,Physiotherapie Katrin Trültzsch - Jena,03641 2 29 54 33,https://www.katrin-trueltzsch.de,nicht mobil
+,2,physiotherapie,jena,tiveras GmbH & Co KG Physiotherapie,03641 2 23 84 00,https://www.tiveras.de,"Stand 2017, FrontPage"
+,2,gartenbau,jena,Artes Agri Gartengestaltung GmbH,03641 21 48 00,http://www.artes-agri.de,"kein https, Jimdo"
+,2,maler,halle-saale,Malerbetrieb DUO GmbH,0345 5 22 80 86,http://www.malerbetrieb-duo.de,nicht mobil
+,2,elektriker,halle-saale,GIPA GmbH,0345 2 02 92 97,https://www.elektroplanung-halle.de,nicht mobil
+,2,elektriker,halle-saale,Peter Görmann,0345 97 73 11 77,https://www.sve.expert,nicht mobil
+,2,restaurant,halle-saale,MY HEALTH.,0345 51 57 22 76,https://myhealth-juicery.de,nicht mobil
+,2,restaurant,halle-saale,"Billard Lounge & Plain Cooking, Halle",0345 68 19 33 03,https://www.billardlounge-halle.de,nicht mobil
+,2,physiotherapie,halle-saale,Praxis für Physiotherapie & Naturheilkunde Kerstin Gilbrich,03461 20 16 86,https://www.physiotherapie-gilbrich.de/,nicht mobil
+,2,gartenbau,halle-saale,Diana Strübing D.S. Management,0345 3 88 04 99,http://www.ds-management.net,"kein https, kaum Inhalt"
+,2,sanitaer,halle-saale,Bose & Graul GbR,0345 6 84 49 64,http://www.haustechnik-halle.de,"Stand 2018, im Aufbau"
+,2,sanitaer,halle-saale,FA.Moses Heizung Sanitär,0345 5 51 17 30,https://moses-halle.de,"Stand 2018, im Aufbau"
+,2,sanitaer,halle-saale,"Fechner & Zinke GmbH Heizung, Lüftung, Sanitär",0345 5 20 00 56,http://www.fechnerundzinke.de,"kein https, Stand 2016"
+,2,elektriker,rostock,GeHaTec Haustechnik GmbH,0381 4 58 47 50,http://www.gehatec.de,"im Aufbau, kaum Inhalt"
+,2,elektriker,rostock,Taschenbrecker,0381 4 92 27 02,https://www.taschenbrecker.de,nicht mobil
+,2,elektriker,rostock,Elektroservice Buhrow,0381 69 98 60,https://www.elektroservicebuhrow.de,nicht mobil
+,2,kosmetik,rostock,Andre Gulow Vitalos,038208 80 99 60,http://vitalos.de,nicht mobil
+,2,restaurant,rostock,Pub Carolina,0381 29 49 96 91,http://www.pub-carolina.de/,"kein https, Stand 2016"
+,2,physiotherapie,rostock,Praxis für Physiotherapie Sandra Duske,0381 4 90 13 23,https://www.physiotherapie-duske.de,nicht mobil
+,2,fahrschule,rostock,Fahrschule Venz,0381 69 50 92,http://www.fahrschule-venz.de/,"kein https, Jimdo"
+,2,kfz-werkstatt,rostock,AUTOWERK Roggentin UG (haftungsbeschränkt),038204 76 09 70,http://www.autowerk-hro.de,"kein https, Jimdo"
+,2,gartenbau,rostock,"Garmshausen Stefan Dipl-Ing. Garten- und Landschaftsbau, Gartengestaltung",039934 8 73 34,http://www.gartengestaltung-garmshausen.de,"kein https, Stand 2004"
+,2,sanitaer,rostock,Rainer Wachtel Heizung Sanitär GmbH,0381 68 16 43,http://heizung-sanitaer-wachtel.de,"Stand 2018, im Aufbau"
+,2,tischler,luebeck,Tischlerei Baras Hans,0451 89 29 07,http://www.baras.de,nicht mobil
+,2,elektriker,luebeck,ALMA Betten,0451 3 88 21 53,http://www.almabetten.de,"kein https, Jimdo"
+,2,elektriker,luebeck,Wellach Elektromechanik,0451 4 94 60 34,https://www.elektromechanik.de,nicht mobil
+,2,fahrschule,luebeck,Fahrschule Hanfried Raeder,0451 47 65 15,http://www.fahrschule-raeder.de,"kein https, im Aufbau"
+,2,fahrschule,luebeck,fahrschule tina mobil,0451 98 96 00 23,https://www.fahrschule-luebeck.com/,nicht mobil
+,2,dachdecker,luebeck,Lutz & Partner Gut - Bedacht Dachdeckerei,040 18 16 42 69,http://www.dachspezialisten-hamburg.de,nicht mobil
+,2,gartenbau,luebeck,Baum- und Naturdienst Naggatz,0173 2 43 18 42,http://www.baumundnaturdienst.de,"kein https, Jimdo"
+,2,gartenbau,luebeck,E&M Gartenwelten Inh. Ewa Meloch,04621 48 95 72,http://www.em-gartenwelten.de,"Stand 2015, FrontPage"
+,2,friseur,kiel,Friseur SIEHT GUT AUS,0431 72 36 72,http://www.friseur-laboe-kiel.de,"kein https, Jimdo"
+,2,friseur,kiel,Mit Haar und Seele,0431 70 57 48 70,http://www.haarundseele-kiel.de,"kein https, kaum Inhalt"
+,2,tischler,kiel,Tischlerei Sindt GmbH u. Co. KG,04343 15 47,http://www.tischlerei-sindt.de,"kein https, kaum Inhalt"
+,2,tischler,kiel,Tischlerei Kühl GmbH,0431 7 17 59 90,http://www.tischlerei-kuehl.de,nicht mobil
+,2,tischler,kiel,Fenster Hübner GmbH,0431 7 80 33-0,http://www.fenster-huebner.de,nicht mobil
+,2,elektriker,kiel,Weitz Elektroanlagen,0431 73 16 68,https://www.weitz-elektro.de,nicht mobil
+,2,kosmetik,kiel,Angela Gennrich KleineWohlfühloase Kronsburg,0431 71 97 95 30,http://kiel-kosmetik-fusspflege.de,nicht mobil
+,2,physiotherapie,kiel,"Praxis Markhoff GbR, Physiotherapie & Osteopathie",04621 2 04 09,http://www.praxis-markhoff.de,nicht mobil
+,2,physiotherapie,kiel,baltic osteopathie,0431 88 70 34 33,https://www.baltic-osteopathie.de,nicht mobil
+,2,maler,bielefeld,Wolf Annette,0521 6 72 30,http://malermeisterin-wolf.de,nicht mobil
+,2,maler,bielefeld,Farbwerk Bielefeld,0151 75 00 28 86,https://www.farbwerk-bielefeld.de,"Stand 2019, FrontPage"
+,2,tischler,bielefeld,"Berkemeier, Bautischlerei - Zimmerei",05222 1 06 17,http://www.tischlerei-berkemeier.de,nicht mobil
+,2,tischler,bielefeld,Endler M.,0171 7 38 35 60,http://www.tischler-endler.de,"kein https, kaum Inhalt"
+,2,tischler,bielefeld,Tölke Achim Tischlerei,0521 20 04 51,http://www.tischlerei-toelke.de,nicht mobil
+,2,kosmetik,bielefeld,HautReich Kosmetikstudio,0521 6 80 05,http://www.hautreich.de,nicht mobil
+,2,physiotherapie,bielefeld,TheraVio,0571 40 51 96 58,http://www.theravio.de,"kein https, kaum Inhalt"
+,2,physiotherapie,bielefeld,Karsten Stolle Massage und Physiotherapie,0521 5 21 86 80,https://www.karsten-stolle.de,nicht mobil
+,2,fahrschule,bielefeld,Fahrschule Forys,0171 4 66 80 02,http://www.fahrschuleforys.eu/,"kein https, Jimdo"
+,2,dachdecker,bielefeld,Dachreinigung Bielefeld,0521 4 32 70 34,http://www.dachreinigung-bielefeld.de,nicht mobil
+,2,kfz-werkstatt,bielefeld,Rautenstrauch Kfz-Werkstatt GmbH,0521 10 48 96,http://www.kfz-rautenstrauch.de,"kein https, Jimdo"
+,2,fliesenleger,bielefeld,Kalinnowski Grzegorz,0521 5 84 94 64,http://www.TinyURL.com/KalinowskiBielefeld,nicht mobil
+,2,gartenbau,bielefeld,arborex GmbH,05231 96 22 06,http://www.arborex.de,"kein https, Jimdo"
+,2,gartenbau,bielefeld,Fischer,0521 88 11 29,http://www.fischer-gala.de,"kein https, kaum Inhalt"
+,2,gartenbau,bielefeld,Milsmann Garten- und Landschaftsbau GmbH,0521 88 37 48,http://www.gartenbau-milsmann.de,nicht mobil
+,2,sanitaer,bielefeld,ELSA-Haustechnik GmbH,0152 02 08 78 29,http://www.haustechnik-elsa.de,"Stand 2018, im Aufbau"
+,2,sanitaer,bielefeld,Sewing Ralf Dipl.-Ing. Haustechnik,0521 87 10 17,https://www.ralf-sewing.de/,nicht mobil
+,2,sanitaer,bielefeld,Herbst Eugen Heizung Klima,0521 89 61 48,http://herbst-bielefeld.de,"Stand 2018, im Aufbau"
+,2,friseur,muenster,Miss Sophie Münster,0251 20 88 38 28,https://www.miss-sophie-friseur.de,"Stand 2016, Jimdo"
+,2,friseur,muenster,Haarverlängerung Münster,0163 1 47 93 26,http://frasch-haarverlaengerung.de,"kein https, Jimdo"
+,2,friseur,muenster,B-M-O Friseurbedarf GmbH Münster,0251 4 42 76,https://www.bmo-friseurbedarf.de,nicht mobil
+,2,elektriker,muenster,Fibotech GmbH,0251 20 24 14 90,http://fibotech.de,"kein https, im Aufbau"
+,2,physiotherapie,muenster,Menne Astrid Praxis für Physiotherapie,0251 92 77 90 20,https://www.astridmenne.de,nicht mobil
+,2,physiotherapie,muenster,physiotherapie-ilgner,0251 5 14 44,https://www.physiotherapie-ilgner.de,nicht mobil
+,2,kfz-werkstatt,muenster,"Olaf Schlagheck Ford-Vertragswerkstatt, freie Tankstelle",02534 6 50 05,https://www.ford-schlagheck-muenster-roxel.de/,nicht mobil
+,2,gartenbau,muenster,Josef Schulte im Hof Garten u. Landschaftsbau,02506 31 31,http://www.schulte-im-hof.de,nicht mobil
+,2,gartenbau,muenster,Gartengestaltung Honermann GmbH,02504 9 84 92 29,http://www.honermann-gaerten.de,"kein https, kaum Inhalt"
+,2,gartenbau,muenster,GALABO Garten und Landschaftsbau GmbH,0251 20 24 14 50,http://galabo-muenster.de,"kein https, im Aufbau"
+,2,sanitaer,muenster,Gerhard Fischer,02534 4 15 95 20,https://www.gerhard-fischer-muenster.de,"Stand 2018, im Aufbau"
+,2,friseur,wuerzburg,Billi's Friseure,0931 32 91 90 09,https://www.billis-friseure.de/cms/website.php#!/pageSplash,nicht mobil
+,2,friseur,wuerzburg,Friseur Leicht,0931 5 91 47,https://www.friseurleicht.de,nicht mobil
+,2,elektriker,wuerzburg,Wiesen GmbH Elektrotechnische Anlagen,0931 4 83 68,http://www.elektro-wiesen.de,"kein https, Jimdo, im Aufbau"
+,2,physiotherapie,wuerzburg,Praxis Johanna Müller,0931 4 04 19 85,https://krankengymnastik-wuerzburg.de,nicht mobil
+,2,sanitaer,wuerzburg,Installation Breunig Inh. Michael Kohl,09305 2 37,https://installation-breunig.de/,"Stand 2018, im Aufbau"
+,2,sanitaer,wuerzburg,M. Flammersberger GmbH Sanitärservice,0931 2 87 82 50,https://www.sanitaer-heizung-wuerzburg.de,"Stand 2018, im Aufbau"
+,2,sanitaer,wuerzburg,Wahler Sanitär + Heizungstechnik,0931 9 17 15,https://www.wahler-sanitaer-heizung.de,"Stand 2018, im Aufbau"
+,2,friseur,regensburg,Green Nails & Beauty,0941 89 96 68 62,https://www.greennails.de,"Stand 2014, Jimdo"
+,2,friseur,regensburg,Eisele Regensburg,0941 5 84 06 35,https://www.eisele-hair.de,nicht mobil
+,2,friseur,regensburg,Scherenschwester,0941 59 93 52 22,https://www.scherenschwester.de,nicht mobil
+,2,elektriker,regensburg,Psychotherapie Cecilia Leinhofer,0941 46 02 68 24,https://www.psychotherapie-cecilialeinhofer.de,nicht mobil
+,2,kosmetik,regensburg,Domurath Christiane u. Wolfgang Kosmetik- und Fußpflege,0941 9 50 57,https://www.cd-kosmetik.de,nicht mobil
+,2,gartenbau,regensburg,Wiesnet Thomas Gartengestaltung,0941 7 50 11 44,https://finkbeiner-wiesnet.de,nicht mobil
+,2,friseur,ulm,BENESSERE - by Jota,0731 60 31 99 50,https://www.benessere-jota.de,nicht mobil
+,2,elektriker,ulm,Elektro Schmid Ulm GmbH,0731 1 76 69 47,https://www.elektroschmid-ulm.de,"Stand 2018, im Aufbau"
+,2,elektriker,ulm,Walter Consulting Gebäudetechnik GmbH,0731 40 16 20,http://www.walter-bad-raum.de,"kein https, FrontPage"
+,2,kosmetik,ulm,Schwaben Nails Ltd.,0731 3 88 57 54,http://schwabennails.de,nicht mobil
+,2,restaurant,ulm,fruchtrausch,0731 71 88 86 60,https://www.fruchtrausch.de,nicht mobil
+,2,physiotherapie,ulm,Schefold Christine Physiotherapie,0731 40 30 07 73,https://ulmer-osteopathie-praxis.de/,nicht mobil
+,2,dachdecker,ulm,Dittmar GmbH,0731 8 16 62,http://www.dittmar-dach.de,nicht mobil
+,2,dachdecker,ulm,Hecla-Dachteam UG (haftungsbeschränkt),0731 60 28 48 29,http://www.hecla-ulm.de,"kein https, Jimdo"
+,2,sanitaer,ulm,SHM Sanitär-Heizung-Modernisierung,0731 96 91 24 73,http://www.shm-heizungsbau.de,"kein https, Jimdo"
+,2,sanitaer,ulm,Luppold Stuckateure,07348 92 88 22,https://www.luppold-gmbh.de,nicht mobil
+,2,elektriker,heilbronn,Helmut Soldan Solartechnik Mannheim,07131 1 37 22 73,http://solar-mannheim.de,"kein https, kaum Inhalt"
+,2,restaurant,heilbronn,Gasthof Zum Lamm,07132 4 22 10,https://gasthof-lamm-nsu.de/,nicht mobil
+,2,physiotherapie,heilbronn,Villinger-Linhart Barbara Massage & Krankengymnastik,07131 8 87 70 82,https://www.praxis-villinger.de,nicht mobil
+,2,physiotherapie,heilbronn,Praxis für Krankengymnastik Sportphysiotherapie Med. Trainingstherapie Rehabilitation,07131 16 35 98,https://www.sauerphysio.de,nicht mobil
+,2,physiotherapie,heilbronn,Therapiezentrum Grauer Anatoli Grauer,07131 6 44 25 88,https://therapiezentrum-grauer.de,nicht mobil
+,2,kfz-werkstatt,heilbronn,Schneider GmbH,07139 9 37 65 25,http://www.kfz-schneider.de,"kein https, Jimdo"
+,2,kfz-werkstatt,heilbronn,Ideal-Reifen GmbH,07131 5 98 89 20,http://www.ideal-reifen.com,"kein https, Stand 2017"
+,2,gartenbau,heilbronn,R. Selle GmbH,07132 74 74,http://www.rselle-gmbh.de,nicht mobil
+,2,sanitaer,heilbronn,Hackert Sanitär und Heizung,07131 3 88 90,https://www.hackert-shk.de,nicht mobil
+,2,maler,saarbruecken,ALLENFORT CHRISTIAN / Maler- u. Lackierermeister,0681 5 27 38,https://www.allenfort.de/5/startseite,nicht mobil
+,2,maler,saarbruecken,Kraus Elke Malerbetrieb,0681 9 38 54 98,http://www.maler-kraus-sb.de,"kein https, kaum Inhalt"
+,2,maler,saarbruecken,Schmitt Jürgen Malerfachbetrieb,0681 3 95 19,http://www.malerbetrieb-saarland.de,"kein https, kaum Inhalt"
+,2,elektriker,saarbruecken,Danopoulos & Wilhelm GmbH,0681 37 15 46,http://danopoulos-wilhelm.de,nicht mobil
+,2,elektriker,saarbruecken,"Elektroinstallation ""Nasser"" GmbH",0681 3 90 46 10,http://elektro-nasser.de,"kein https, Stand 2001"
+,2,kosmetik,saarbruecken,Kliebenstein Brigitte Institut für Kosmetik,0681 9 68 19 61,http://www.instituthaut.de,"kein https, kaum Inhalt"
+,2,restaurant,saarbruecken,Pizzaheimservice Anna,0681 5 89 65 00,https://www.restaurant-anna.de,nicht mobil
+,2,physiotherapie,saarbruecken,Physiotherapie-Praxis Christine Lorreng,0681 95 42 98 88,https://www.lorreng.de,nicht mobil
+,2,physiotherapie,saarbruecken,"Kajdi,Lorand (Herr) Praxis für Physiotherapie",0681 36 30,https://neufang.de,nicht mobil
+,2,fahrschule,saarbruecken,Fahrschule Vogelgesang,0681 98 80 05 63,http://fahrschule-vogelgesang.de/,nicht mobil
+,2,dachdecker,saarbruecken,RAINER BEHREND Dächer & Fassaden,0681 87 61 72 74,https://www.dach-behrend.de,nicht mobil
+,2,kfz-werkstatt,saarbruecken,ACH Auto Center Hame GmbH,0681 85 12 58,http://auto-center-hame.de,"kein https, NetObjects"
+,2,kfz-werkstatt,saarbruecken,Ingenieurgesellschaft für Fahrzeugtechnik Priester GmbH,0681 96 86 70,http://crashanalyse.de,"kein https, Stand 2018"
+,2,kfz-werkstatt,saarbruecken,Hans-Jörg Roa Smart-Repairzentrum,0681 5 02 82 28,http://www.kratzerdoc.de,"kein https, Jimdo"
+,2,fliesenleger,saarbruecken,Reis & Steinmann GdbR,0681 97 03 94 79,http://www.el-bano-moderno.de,"kein https, im Aufbau"
+,2,fliesenleger,saarbruecken,Degel Tibor Fliesenarbeiten,06897 76 83 86,http://www.fliesen-degel.de,"kein https, Jimdo"
+,2,fliesenleger,saarbruecken,Fliesaik Fliesenverlegungen,0681 4 01 12 23,http://www.fliesaik.de,"kein https, Stand 2016"
+,2,sanitaer,saarbruecken,Agesa Sanitätshaus GmbH,0681 3 50 31,https://www.agesa.de,nicht mobil
+,2,sanitaer,saarbruecken,Gimmilaro Emilio Heizung & Sanitär GmbH,0681 87 88 34,http://www.gimmillaro.de,"Stand 2018, im Aufbau"
+,2,sanitaer,saarbruecken,Lelle Heizungsbau GmbH & Co. KG,06893 62 70,http://www.michael-lelle.de,nicht mobil
+,2,sanitaer,saarbruecken,Heizung und Sanitär Patrik König GmbH,0681 94 78 00,http://www.koenig-heizung.de,"Stand 2018, im Aufbau"
+,2,elektriker,bayreuth,Fritz Schindler - Sachverständiger Elektrotechnik,09201 93 17,https://www.sv-fschindler.de,nicht mobil
+,2,kosmetik,bayreuth,Jahna Heike Kosmetikstudio,0921 5 88 68,https://www.beauty-treff.com,nicht mobil
+,2,restaurant,bayreuth,CLOUD Bar & Lounge,0921 16 31 42 88,https://www.cloud-bar-lounge.de,nicht mobil
+,2,restaurant,bayreuth,"Pizza-Express, Rabatt bei Abholung, Lieferservice frei Haus",0921 51 23 11,https://pizzaexpressbayreuth.de/,nicht mobil
+,2,restaurant,bayreuth,Herpichs,0921 2 21 00,https://www.herpichs.de,nicht mobil
+,2,physiotherapie,bayreuth,Strohmer Heinrich Krankengymnastik,0921 15 08 44 80,https://www.physiostrohmer.de,nicht mobil
+,2,dachdecker,bayreuth,Meisel Dachtechnik GmbH,0921 79 31 11 50,http://www.meisel-flaschnerei.de,"kein https, im Aufbau"
+,2,sanitaer,bayreuth,Sonntag Haustechnik Heizung- und Sanitärservice,0921 7 45 48 88,http://www.haustechnik-sonntag.de/,"kein https, kaum Inhalt"
+,2,sanitaer,bayreuth,Herrmann GmbH,0921 78 77 48 38,https://www.herrmann-bayreuth.de,"Stand 2018, im Aufbau"
+,2,friseur,fulda,SchnittLounge Fulda,0661 2 50 28 72,https://www.schnittlounge-fulda.de,nicht mobil
+,2,tischler,fulda,Seng Dieter Schreinerei,0661 6 64 09,http://www.schreinerei-seng.de,nicht mobil
+,2,tischler,fulda,Weber Joachim,0661 5 11 06,http://www.weber-schreiner.de,nicht mobil
+,2,kosmetik,fulda,beauty moments Patricia Hosenfeld UG (haftungsbeschränkt),0661 96 59 89 24,http://www.beauty-moments.de,"kein https, Jimdo"
+,2,kosmetik,fulda,Scholz P. Kosmetikstudio,0661 3 48 53,http://www.cosmetic-scholz.de,"kein https, Stand 2014"
+,2,kosmetik,fulda,Golden Swan,0661 25 12 11 15,http://www.goldenswan-beautysalon.de,"kein https, Jimdo"
+,2,kfz-werkstatt,fulda,Automarkt Heger GmbH,06657 61 00,http://automarkt-heger.de,nicht mobil
+,2,gartenbau,fulda,Hartmann Wilhelm,0661 90 19 52 00,http://www.garten-fulda.de,"kein https, Stand 2015"
+,2,gartenbau,fulda,Fillauer GmbH & Co. KG Garten- und Landschaftsbau,0661 9 68 80,http://www.fillauer-fulda.de,"kein https, kaum Inhalt"
+,2,gartenbau,fulda,Neuhann ABC-Florist Gärtnerei u. Friedhofsgartenbau,0661 90 28 70,http://www.abc-florist-neuhann.de,nicht mobil
+,2,sanitaer,fulda,Dannemann GmbH & Co. KG,0661 94 11 00,http://www.heizung-dannemann.de,"Stand 2018, im Aufbau"
+,2,elektriker,paderborn,Matthias Kluthe Elektrotechnik,05251 3 80 06,http://s609718947.website-start.de,"kein https, Jimdo"
+,2,elektriker,paderborn,Romberg Elektrotechnik GmbH,05254 9 77 70,http://romberg-group.de,"kein https, im Aufbau"
+,2,elektriker,paderborn,Kluthe Elektro GmbH,05251 3 80 06,http://www.elektriker-borchen.de,"kein https, Jimdo"
+,2,physiotherapie,paderborn,Pasdzior Manuel Praxis für Physiotherapie,05254 6 09 17,http://www.pasdzior.elsen-aktuell.de,"kein https, kaum Inhalt"
+,2,fahrschule,paderborn,Fahrschule Frank Hoffmann,05254 6 50 51,https://fahrschule-frank-hoffmann.de/,nicht mobil
+,2,fahrschule,paderborn,City Fahrschule,05252 97 75 55,https://www.cityfs.de/,nicht mobil
+,2,sanitaer,paderborn,Franz Brocke GmbH & Co. KG Installationen Sanitär Heizung,05251 52 71 71,http://www.brocke-shk.de,nicht mobil
+,2,maler,oldenburg,Die Maleristen,0441 2 09 79 19,http://www.die-maleristen.de,nicht mobil
+,2,elektriker,oldenburg,Robert Jentson Nachrichtentechnik,0441 21 71 37 75,https://www.jentson.de,nicht mobil
+,2,elektriker,oldenburg,Elektro Partner Hille,0441 4 76 54,http://www.elektro-partner-hille.de,"kein https, Jimdo"
+,2,elektriker,oldenburg,Elektro-Partner-Jakubowski,0441 5 04 02 01,http://www.elektro-partner-jakubowski.de,"kein https, Jimdo"
+,2,kosmetik,oldenburg,Birgit Syga – Kosmetik Fußpflege Massage,0441 4 65 99,https://www.syga-oldenburg.de,nicht mobil
+,2,kfz-werkstatt,oldenburg,Tucholke Auto Partner GmbH,0441 5 94 80 66,http://www.kfz-tucholke.de,"Stand 2019, FrontPage"
+,2,sanitaer,oldenburg,Meier Sanitär Heizung Solar GmbH,0441 4 17 24,https://www.meier-shk-ol.de,"Stand 2018, im Aufbau"
+,2,sanitaer,oldenburg,Athner Sanitär- u. Heizungstechnik GmbH,0441 30 11 06,http://athner-heizungsbau.de/,"Stand 2018, im Aufbau"
+,2,sanitaer,oldenburg,Schoon Sanitär & Heizung GmbH,0441 1 73 85,http://www.schoonda.com,"Stand 2018, im Aufbau"
+,2,sanitaer,oldenburg,Karsten Hagelstein Sanitär- und Heizungstechnik e.K. Inh. Benjamin Buschbeck,0441 3 50 76 50,http://www.oldenburg-heizung-sanitaer.de,"Stand 2018, im Aufbau"
+,2,tischler,gera,Schumann Chris,036602 9 37 35,http://www.tischler-meister.com,nicht mobil
+,2,elektriker,gera,IRATA Computer & Elektronik,0365 7 10 60 39,https://www.irata.de,nicht mobil
+,2,elektriker,gera,AFORMA Automatisierungs GmbH,0365 8 30 17 70,https://www.aforma.de,nicht mobil
+,2,elektriker,gera,Paul Detzner Motorsport,0365 3 52 69,https://www.fulmax.de,nicht mobil
+,2,kosmetik,gera,Katrin Hempfling Cosmetique & Wellness Studio Katrin,0365 77 31 59 11,https://www.cwsk.de,nicht mobil
+,2,kosmetik,gera,Zunkel Sabine,0365 7 12 79 55,http://auszeit-zunkel.de,"kein https, Jimdo"
+,2,restaurant,gera,Klimperkasten Gera,0365 8 00 80 89,https://www.klimperkasten-gera.de,nicht mobil
+,2,restaurant,gera,Gaststätte Waldhaus,0365 81 16 59,http://www.waldhaus-gera.de,"kein https, kaum Inhalt"
+,2,restaurant,gera,Küchen-Thurm,0365 8 31 00 44,https://www.gastronomiebedarf-thurm.de,nicht mobil
+,2,physiotherapie,gera,Physiotherapie/GZG GmbH Gesundheitszentrum Gera,0365 5 52 80 56,http://www.gesundheits-zentrum-gera.de,nicht mobil
+,2,gartenbau,gera,Grimm Landschaftsbau GmbH,0365 4 20 01 68,http://grimm-landschaftsbau.com,nicht mobil
+,2,elektriker,zwickau,Elektroanlagen M & W GmbH Zwickau,0375 27 70 80,http://www.elektro-mw.de,nicht mobil
+,2,elektriker,zwickau,TCE Elektro-Anlagenbau GmbH,0375 44 44 90,https://www.tce-elektro.de,nicht mobil
+,2,elektriker,zwickau,der sichere Windenstart,0375 6 19 70,https://www.windenstart.com,nicht mobil
+,2,kosmetik,zwickau,Kosmetik und Fußpflege Nicole Küttner,01522 1 51 76 44,http://www.kosmetik-wilkau-hasslau.de,nicht mobil
+,2,physiotherapie,zwickau,VITALIS Physiotherapie Täntzer-Pinkes und Murawski GbR,0375 78 81 93 38,http://www.praxis-vitalis-zwickau.de,"kein https, Jimdo"
+,2,kfz-werkstatt,zwickau,ADH Dienstleistung und Handelsunternehmen e.G.,037607 8 60-0,http://www.adh-direct.de/,"kein https, im Aufbau"
+,2,sanitaer,zwickau,BK Haustechnik Sachsen GmbH & Co. KG Sanitärbetrieb,0375 20 03 72 28,http://www.bk-haustechnik.com,"kein https, im Aufbau"
+,2,sanitaer,zwickau,Gründer GmbH & Co KG Sanitär Heizung und Bauklempnerei,037603 27 26,http://www.gruender-klempnerei.de,"Stand 2018, im Aufbau"
