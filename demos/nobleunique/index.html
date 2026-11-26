@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>nobleunique®</title>
+<meta name="description" content="nobleunique® – Luxusfahrzeuge, Jets, Helikopter und Yachten für ausgewählte Kunden. Aus Starnberg nach München, Wien, Mailand, Nizza, Marbella und mehr.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0a08">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-tight-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-tight-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-tight-latin-600-normal.woff2) format("woff2")}
+
+/* Konzept: Schwarz wie das Instagram-Profil, Gold aus der eingetragenen Krone (#b59900),
+   die eigenen Fotos von @nobleunique_group als Bildsprache. Bewusst nur dunkel. */
+:root{
+  --bg:#0b0a08;
+  --bg-2:#12110e;
+  --bg-3:#1a1814;
+  --ink:#f2ede3;
+  --ink-2:#c9c2b4;
+  --muted:#8d877b;
+  --line:rgba(242,237,227,.12);
+  --gold:#b59900;
+  --gold-hi:#d9bd3a;
+  --gold-soft:rgba(217,189,58,.14);
+  --f-display:"Instrument Serif","Didot","Bodoni 72","Times New Roman",serif;
+  --f-body:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gl:max(20px,env(safe-area-inset-left,0px));
+  --gr:max(20px,env(safe-area-inset-right,0px));
+  --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--gold);color:#000}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.kicker{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-hi);font-weight:500}
+.display{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em;line-height:1.02;margin:0}
+.display em{font-style:italic;color:var(--gold-hi)}
+.lead{color:var(--ink-2);font-size:clamp(17px,1.6vw,19px);max-width:56ch}
+.btn{display:inline-flex;align-items:center;gap:.7em;padding:16px 26px;border-radius:0;border:1px solid var(--gold);background:var(--gold);color:#0b0a08;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:rgba(242,237,227,.35)}
+.btn.ghost:hover{border-color:var(--gold-hi);color:var(--gold-hi)}
+.btn svg{width:16px;height:16px}
+
+/* ---------- Header ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent;padding-top:env(safe-area-inset-top,0px)}
+.top.solid{background:rgba(11,10,8,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:44px;height:auto}
+.brand span{font-family:var(--f-display);font-size:26px;letter-spacing:.01em;line-height:1}
+.brand sup{font-family:var(--f-body);font-size:10px;color:var(--gold-hi);margin-left:1px}
+.nav{display:flex;gap:34px;align-items:center}
+.nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);transition:color .2s}
+.nav a:hover{color:var(--gold-hi)}
+.nav .btn{padding:11px 18px;font-size:11px;color:#0b0a08}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:28px}
+body.menu .burger i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.menu .burger i:nth-child(2){opacity:0}
+body.menu .burger i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:40px;padding-top:110px;padding-bottom:60px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 45%,rgba(181,153,0,.10),transparent 70%);pointer-events:none}
+.hero-copy{position:relative;z-index:2}
+.hero h1{font-size:clamp(58px,8.6vw,132px);margin:22px 0 26px}
+.hero .lead{margin:0 0 36px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:44px;margin-top:54px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.hero-meta div{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.hero-meta b{display:block;font-family:var(--f-display);font-weight:400;font-size:34px;letter-spacing:0;text-transform:none;color:var(--ink);line-height:1.1}
+.collage{position:relative;height:min(78vh,720px);z-index:1}
+.collage figure{position:absolute;margin:0;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);will-change:transform}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage figure::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);pointer-events:none}
+.collage figcaption{position:absolute;z-index:2;left:12px;bottom:10px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 8px rgba(0,0,0,.7)}
+.c1{width:58%;aspect-ratio:4/3;top:4%;right:0}
+.c2{width:50%;aspect-ratio:1/1;top:38%;left:0}
+.c3{width:40%;aspect-ratio:4/3;bottom:2%;right:6%}
+.collage .frame{position:absolute;width:58%;aspect-ratio:4/3;top:calc(4% + 16px);right:-16px;border:1px solid rgba(217,189,58,.45);z-index:-1}
+
+/* ---------- Brand ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg-2)}
+.ticker-track{display:flex;gap:56px;width:max-content;animation:tick 42s linear infinite}
+.ticker span{font-family:var(--f-display);font-size:30px;white-space:nowrap;color:var(--ink-2)}
+.ticker span::after{content:"♛";font-size:13px;color:var(--gold);margin-left:56px;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{position:relative}
+.sec{padding:clamp(90px,12vw,150px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(44px,6vw,84px);margin-top:16px}
+.sec-head p{margin:0;color:var(--ink-2);max-width:42ch}
+
+/* Fleet */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.chip{background:transparent;border:1px solid var(--line);padding:10px 18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);cursor:pointer;transition:all .2s}
+.chip:hover{border-color:rgba(217,189,58,.5);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--gold-soft);border-color:var(--gold);color:var(--gold-hi)}
+.fleet{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.car{background:var(--bg-2);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .3s,transform .4s}
+.car:hover{border-color:rgba(217,189,58,.45)}
+.car[hidden]{display:none}
+.car .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
+.car .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.car:hover .ph img{transform:scale(1.05)}
+.car .tag{position:absolute;top:14px;left:14px;background:rgba(11,10,8,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:6px 10px;color:var(--gold-hi)}
+.car .bd{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.car .mk{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.car h3{font-family:var(--f-display);font-weight:400;font-size:32px;line-height:1.05;margin:6px 0 18px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px}
+.specs div{padding:12px 0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.specs div+div{border-left:1px solid var(--line);padding-left:14px}
+.specs b{display:block;font-family:var(--f-display);font-weight:400;font-size:22px;letter-spacing:0;text-transform:none;color:var(--ink)}
+.car .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.car .price{font-size:13px;color:var(--ink-2)}
+.car .ask{background:none;border:0;padding:8px 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-hi);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.car .ask:hover{color:var(--ink)}
+.car .ask svg{width:14px;height:14px;transition:transform .25s}
+.car .ask:hover svg{transform:translateX(4px)}
+.car.more{grid-column:span 2;justify-content:center;align-items:flex-start;padding:34px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2))}
+.car.more h3{font-size:38px;margin:14px 0 14px}
+.car.more p{color:var(--ink-2);margin:0 0 26px}
+.fine{margin-top:22px;font-size:12px;color:var(--muted)}
+
+/* Riviera story */
+.story{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;align-items:start}
+.story-copy{grid-column:1/6;position:sticky;top:120px}
+.story-copy h2{font-size:clamp(44px,5.6vw,80px);margin:16px 0 24px}
+.story-copy p{color:var(--ink-2);margin:0 0 18px}
+.story-copy ul{list-style:none;padding:0;margin:30px 0 34px;border-top:1px solid var(--line)}
+.story-copy li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px}
+.story-copy li span:last-child{color:var(--muted)}
+.story-pics{grid-column:7/13;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.story-pics figure{margin:0;position:relative;overflow:hidden}
+.story-pics img{width:100%;height:100%;object-fit:cover}
+.story-pics figcaption{font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:.04em}
+.sp1{grid-column:1/3}.sp1 .im{aspect-ratio:1/1}
+.sp2 .im{aspect-ratio:3/4}
+.sp3{margin-top:70px!important}.sp3 .im{aspect-ratio:3/4}
+.sp4{grid-column:1/3}.sp4 .im{aspect-ratio:16/10}
+.story-pics .im{overflow:hidden}
+.quote{grid-column:1/3;border-left:2px solid var(--gold);padding:6px 0 6px 24px;font-family:var(--f-display);font-size:28px;line-height:1.25;font-style:italic;color:var(--ink)}
+
+/* Beyond cars */
+.beyond{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:22px}
+.bcard{border:1px solid var(--line);background:var(--bg-2);padding:34px;display:flex;flex-direction:column;min-height:420px;position:relative;overflow:hidden}
+.bcard.img{padding:0;justify-content:flex-end}
+.bcard.img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bcard.img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(11,10,8,.95) 8%,rgba(11,10,8,.25) 60%,transparent)}
+.bcard.img .in{position:relative;z-index:2;padding:34px}
+.bcard .ico{width:56px;height:56px;color:var(--gold-hi);margin-bottom:auto}
+.bcard h3{font-family:var(--f-display);font-weight:400;font-size:40px;margin:30px 0 10px;line-height:1}
+.bcard p{color:var(--ink-2);margin:0;font-size:15px}
+.bcard .num{position:absolute;top:26px;right:30px;font-family:var(--f-display);font-size:16px;color:var(--muted)}
+
+/* Keys interlude */
+.keys{position:relative;min-height:78vh;display:flex;align-items:center;overflow:hidden}
+.keys img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;filter:saturate(.85) brightness(.55);will-change:transform}
+.keys::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,8,.9),rgba(11,10,8,.2) 70%)}
+.keys .wrap{position:relative;z-index:2;width:100%}
+.keys h2{font-size:clamp(48px,7vw,104px);max-width:12ch;margin:18px 0 26px}
+.keys p{color:var(--ink-2);max-width:44ch;margin:0 0 34px}
+
+/* Destinations */
+.dest{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center}
+.dest-list{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid var(--line)}
+.dest-list li{display:grid;grid-template-columns:40px 1fr auto;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);cursor:default;transition:padding .3s}
+.dest-list li:hover,.dest-list li.on{padding-left:10px}
+.dest-list .n{font-size:12px;color:var(--muted)}
+.dest-list .c{font-family:var(--f-display);font-size:30px;line-height:1.1}
+.dest-list li.on .c,.dest-list li:hover .c{color:var(--gold-hi)}
+.dest-list .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.map{width:100%;height:auto;overflow:visible}
+.map .grid line{stroke:rgba(242,237,227,.06);stroke-width:.5}
+.map .route{fill:none;stroke:rgba(217,189,58,.35);stroke-width:1;stroke-dasharray:3 4}
+.map .route.on{stroke:var(--gold-hi);stroke-dasharray:none;stroke-width:1.4}
+.map .dot{fill:var(--ink)}
+.map .dot.on{fill:var(--gold-hi)}
+.map .hq{fill:var(--gold-hi)}
+.map .ring{fill:none;stroke:var(--gold-hi);stroke-width:1;transform-box:fill-box;transform-origin:center;animation:ping 2.6s ease-out infinite}
+@keyframes ping{from{transform:scale(.4);opacity:1}to{transform:scale(2.6);opacity:0}}
+.map text{font-family:var(--f-body);font-size:11px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink-2)}
+.map text.hqt{fill:var(--gold-hi)}
+
+/* Process */
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:34px 28px 10px 0}
+.step+.step{padding-left:28px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--f-display);font-size:56px;line-height:1;color:var(--gold-hi)}
+.step h3{font-size:15px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin:22px 0 10px}
+.step p{color:var(--ink-2);margin:0;font-size:15px}
+.conds{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:60px}
+.cond{background:var(--bg-2);border:1px solid var(--line);padding:24px}
+.cond b{display:block;font-family:var(--f-display);font-weight:400;font-size:40px;line-height:1;color:var(--ink)}
+.cond span{display:block;margin-top:10px;font-size:13px;color:var(--ink-2)}
+
+/* Inquiry */
+.inq{background:var(--bg-2);border-top:1px solid var(--line)}
+.inq-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}
+.inq h2{font-size:clamp(46px,6vw,86px);margin:16px 0 24px}
+.contact-lines{margin-top:40px;border-top:1px solid var(--line)}
+.contact-lines a,.contact-lines div{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:15px}
+.contact-lines span:first-child{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.contact-lines a:hover span:last-child{color:var(--gold-hi)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;align-content:start}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.full{grid-column:1/-1}
+.f label{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.f input,.f select,.f textarea{background:transparent;border:0;border-bottom:1px solid rgba(242,237,227,.25);padding:12px 0;font-size:17px;border-radius:0;transition:border-color .2s;width:100%}
+.f select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold-hi) 50%),linear-gradient(135deg,var(--gold-hi) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.f select option{background:var(--bg-2);color:var(--ink)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--gold-hi)}
+.f textarea{resize:vertical;min-height:90px}
+.f input::-webkit-calendar-picker-indicator{filter:invert(.8)}
+.services{display:flex;gap:8px;flex-wrap:wrap}
+.services label{font-size:13px;letter-spacing:.06em;text-transform:none;color:var(--ink-2);border:1px solid var(--line);padding:9px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s}
+.services input{accent-color:var(--gold);width:auto;margin:0}
+.services label:has(input:checked){border-color:var(--gold);color:var(--gold-hi);background:var(--gold-soft)}
+.form-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:12px}
+.form-foot small{color:var(--muted);font-size:12px;max-width:38ch}
+.sent{grid-column:1/-1;border:1px solid var(--gold);background:var(--gold-soft);padding:18px 20px;font-size:15px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:70px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot h4{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 16px}
+.foot p,.foot a{font-size:14px;color:var(--ink-2);margin:0 0 8px;display:block;text-decoration:none}
+.foot a:hover{color:var(--gold-hi)}
+.foot .brand{display:flex;margin:0}
+.foot .slogan{font-family:var(--f-display);font-size:30px;color:var(--ink);line-height:1.15;margin:20px 0 0}
+.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:60px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.legal button{background:none;border:0;padding:0;color:var(--muted);cursor:pointer;font-size:12px;margin-left:20px}
+.legal button:hover{color:var(--gold-hi)}
+
+/* Dialog */
+dialog{background:var(--bg-2);color:var(--ink);border:1px solid var(--line);max-width:640px;width:calc(100% - 32px);padding:40px;max-height:86vh}
+dialog::backdrop{background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
+dialog h3{font-family:var(--f-display);font-weight:400;font-size:40px;margin:0 0 20px}
+dialog p{color:var(--ink-2);font-size:15px;margin:0 0 12px}
+dialog .x{position:absolute;top:14px;right:14px;background:none;border:0;font-size:26px;color:var(--muted);cursor:pointer;width:44px;height:44px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.hero .rv{transition-duration:1.3s}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .ticker-track,.map .ring{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .fleet{grid-template-columns:repeat(2,1fr)}
+  .beyond{grid-template-columns:1fr 1fr}
+  .beyond .bcard.img{grid-column:1/-1;min-height:460px}
+  .conds{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .nav{position:fixed;inset:0;background:rgba(11,10,8,.97);flex-direction:column;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav a{font-size:15px}
+  body.menu .nav{opacity:1;pointer-events:auto}
+  .burger{display:block;z-index:60}
+  .hero{grid-template-columns:1fr;padding-top:120px;gap:50px;min-height:auto}
+  .collage{height:auto;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 10px var(--gl);scrollbar-width:none}
+  .collage::-webkit-scrollbar{display:none}
+  .collage figure{position:relative;inset:auto;flex:0 0 78%;aspect-ratio:4/3;width:auto;transform:none!important;scroll-snap-align:start;box-shadow:none}
+  .collage .frame{display:none}
+  .story-grid{grid-template-columns:1fr}
+  .story-copy,.story-pics{grid-column:1/-1;position:static}
+  .dest{grid-template-columns:1fr;gap:30px}
+  .process{grid-template-columns:1fr 1fr}
+  .step:nth-child(3){border-left:0;padding-left:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .inq-grid{grid-template-columns:1fr;gap:50px}
+}
+@media (max-width:640px){
+  body{font-size:15px}
+  .top .wrap{height:66px}
+  .brand img{width:38px}
+  .brand span{font-size:22px}
+  .hero h1{font-size:clamp(52px,15vw,72px)}
+  .hero-meta{display:grid;grid-template-columns:repeat(3,auto);justify-content:space-between;gap:14px}
+  .hero-meta div{font-size:10px;letter-spacing:.12em}
+  .hero-meta b{font-size:28px}
+  .btn{padding:15px 20px}
+  .fleet{grid-template-columns:1fr}
+  .car.more{grid-column:auto}
+  .beyond{grid-template-columns:1fr}
+  .bcard{min-height:300px;padding:28px}
+  .bcard.img .in{padding:28px}
+  .story-pics{gap:12px}
+  .sp3{margin-top:40px!important}
+  .quote{font-size:23px}
+  .process{grid-template-columns:1fr}
+  .step,.step+.step{padding:26px 0 20px;border-left:0}
+  .step+.step{border-top:1px solid var(--line)}
+  .step .n{font-size:44px}
+  .conds{grid-template-columns:1fr 1fr;gap:12px}
+  .cond{padding:18px}
+  .cond b{font-size:32px}
+  form{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .legal button{margin:0 20px 0 0}
+  .dest-list .c{font-size:26px}
+  dialog{padding:30px 22px}
+  .keys{min-height:68vh}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#start" aria-label="nobleunique Startseite">
+      <img src="assets/crown.png" alt="" width="44" height="28">
+      <span>nobleunique<sup>®</sup></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <a href="#flotte">Flotte</a>
+      <a href="#riviera">Erlebnisse</a>
+      <a href="#jets">Jets &amp; Yachten</a>
+      <a href="#stationen">Stationen</a>
+      <a class="btn" href="#anfrage">Anfragen</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="start">
+
+<!-- HERO -->
+<section class="wrap hero" aria-label="Einleitung">
+  <div class="hero-copy">
+    <div class="kicker rv">Starnberg · München · Côte d'Azur</div>
+    <h1 class="display rv d1">Taste it<em>.</em></h1>
+    <p class="lead rv d2">The ultimate movement and experiences for an extraordinary life. Ferrari, Porsche, Lamborghini und Aston Martin – dazu Jets, Helikopter und Yachten für ausgewählte Kunden. Zugestellt dorthin, wo Sie gerade sind.</p>
+    <div class="hero-ctas rv d3">
+      <a class="btn" href="#anfrage">Fahrzeug anfragen
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      <a class="btn ghost" href="#flotte">Flotte ansehen</a>
+    </div>
+    <div class="hero-meta rv d4">
+      <div><b>8</b>Stationen in Europa</div>
+      <div><b>4</b>Auto · Jet · Heli · Yacht</div>
+      <div><b>24 h</b>Mindestmiete</div>
+    </div>
+  </div>
+  <div class="collage" id="collage" aria-hidden="false">
+    <div class="frame"></div>
+    <figure class="c1" data-speed="-0.06"><img src="assets/porsche-911-turbo-riviera.jpg" alt="Weißer Porsche 911 Cabriolet an einer Küstenstraße mit Oleander" width="640" height="480"><figcaption>Côte d'Azur</figcaption></figure>
+    <figure class="c2" data-speed="0.05"><img src="assets/ferrari-812-gts.jpg" alt="Silberner Ferrari 812 GTS unter Wolkenhimmel" width="640" height="640"><figcaption>Ferrari 812 GTS</figcaption></figure>
+    <figure class="c3" data-speed="-0.12"><img src="assets/monaco-hermitage.jpg" alt="Roter Ferrari vor dem weihnachtlich beleuchteten Hôtel Hermitage in Monaco" width="604" height="640"><figcaption>Monte-Carlo</figcaption></figure>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Marken in der Flotte">
+  <div class="ticker-track">
+    <span>Ferrari</span><span>Lamborghini</span><span>Porsche</span><span>Aston Martin</span><span>Mercedes-AMG</span><span>Range Rover</span><span>Maserati</span><span>Audi Sport</span>
+    <span aria-hidden="true">Ferrari</span><span aria-hidden="true">Lamborghini</span><span aria-hidden="true">Porsche</span><span aria-hidden="true">Aston Martin</span><span aria-hidden="true">Mercedes-AMG</span><span aria-hidden="true">Range Rover</span><span aria-hidden="true">Maserati</span><span aria-hidden="true">Audi Sport</span>
+  </div>
+</div>
+
+<!-- FLEET -->
+<section class="sec" id="flotte">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker rv">Die Flotte</div>
+        <h2 class="display rv d1">Ausgewählt,<br>nicht <em>aufgereiht.</em></h2>
+      </div>
+      <p class="rv d2">Jedes Fahrzeug gepflegt, versichert und vollgetankt übergeben. Ob Wochenende am Starnberger See oder zwei Wochen Riviera – wir stellen zusammen, was zu Ihrer Reise passt.</p>
+    </div>
+
+    <div class="filters rv" role="group" aria-label="Flotte filtern">
+      <button class="chip" aria-pressed="true" data-f="all">Alle</button>
+      <button class="chip" aria-pressed="false" data-f="cabrio">Cabrio</button>
+      <button class="chip" aria-pressed="false" data-f="sport">Sportwagen</button>
+      <button class="chip" aria-pressed="false" data-f="suv">SUV</button>
+    </div>
+
+    <div class="fleet" id="fleet">
+      <article class="car rv" data-c="cabrio sport">
+        <div class="ph"><img src="assets/ferrari-812-gts.jpg" alt="Ferrari 812 GTS in Silber" loading="lazy" width="640" height="640"><span class="tag">V12 · Cabrio</span></div>
+        <div class="bd">
+          <div class="mk">Ferrari</div>
+          <h3>812 GTS</h3>
+          <div class="specs"><div><b>800</b>PS</div><div><b>3,0 s</b>0–100</div><div><b>2</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Ferrari 812 GTS">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv d1" data-c="cabrio sport">
+        <div class="ph"><img src="assets/porsche-911-turbo-riviera.jpg" alt="Weißer Porsche 911 Turbo Cabriolet" loading="lazy" width="640" height="480"><span class="tag">Cabrio</span></div>
+        <div class="bd">
+          <div class="mk">Porsche</div>
+          <h3>911 Turbo Cabriolet</h3>
+          <div class="specs"><div><b>580</b>PS</div><div><b>2,9 s</b>0–100</div><div><b>2+2</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Porsche 911 Turbo Cabriolet">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv d2" data-c="cabrio sport">
+        <div class="ph"><img src="assets/monaco-cockpit.jpg" alt="Cockpit eines Ferrari Portofino mit Blick auf die Strecke in Monaco" loading="lazy" width="640" height="640"><span class="tag">GT · Cabrio</span></div>
+        <div class="bd">
+          <div class="mk">Ferrari</div>
+          <h3>Portofino</h3>
+          <div class="specs"><div><b>600</b>PS</div><div><b>3,5 s</b>0–100</div><div><b>2+2</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Ferrari Portofino">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv" data-c="suv">
+        <div class="ph"><img src="assets/mercedes-g63.jpg" alt="Mercedes-AMG G 63 in Blau mit geöffneter Tür" loading="lazy" width="640" height="480"><span class="tag">SUV</span></div>
+        <div class="bd">
+          <div class="mk">Mercedes-AMG</div>
+          <h3>G 63</h3>
+          <div class="specs"><div><b>585</b>PS</div><div><b>4,4 s</b>0–100</div><div><b>5</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Mercedes-AMG G 63">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv d1" data-c="suv">
+        <div class="ph"><img src="assets/audi-rsq8-yacht.jpg" alt="Weißer Audi RS Q8 vor einer Motoryacht im Hafen" loading="lazy" width="640" height="640"><span class="tag">SUV</span></div>
+        <div class="bd">
+          <div class="mk">Audi Sport</div>
+          <h3>RS Q8</h3>
+          <div class="specs"><div><b>600</b>PS</div><div><b>3,8 s</b>0–100</div><div><b>5</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Audi RS Q8">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv d2" data-c="cabrio sport">
+        <div class="ph"><img src="assets/porsche-911-villa.jpg" alt="Grauer Porsche 911 Cabriolet vor moderner Villa" loading="lazy" width="640" height="480"><span class="tag">Cabrio</span></div>
+        <div class="bd">
+          <div class="mk">Porsche</div>
+          <h3>911 Carrera Cabriolet</h3>
+          <div class="specs"><div><b>ab 394</b>PS</div><div><b>4,4 s</b>0–100</div><div><b>2+2</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Porsche 911 Carrera Cabriolet">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car rv" data-c="cabrio sport">
+        <div class="ph"><img src="assets/porsche-718-white.jpg" alt="Weißer Porsche 718 Boxster mit braunem Verdeck am Feldrand" loading="lazy" width="640" height="640"><span class="tag">Roadster</span></div>
+        <div class="bd">
+          <div class="mk">Porsche</div>
+          <h3>718 Boxster</h3>
+          <div class="specs"><div><b>ab 300</b>PS</div><div><b>5,1 s</b>0–100</div><div><b>2</b>Sitze</div></div>
+          <div class="row"><span class="price">Preis auf Anfrage</span><button class="ask" data-car="Porsche 718 Boxster">Anfragen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button></div>
+        </div>
+      </article>
+      <article class="car more rv d1" data-c="cabrio sport suv">
+        <div class="kicker">Ihr Wunschfahrzeug</div>
+        <h3>Lamborghini, Aston Martin, Range Rover …</h3>
+        <p>Nicht dabei, was Sie suchen? Über unser Netzwerk beschaffen wir nahezu jedes Fahrzeug – auch kurzfristig.</p>
+        <a class="btn ghost" href="#anfrage" data-car="Wunschfahrzeug">Wunsch nennen</a>
+      </article>
+    </div>
+    <p class="fine">Leistungsdaten: Herstellerangaben, je nach Modelljahr und Ausführung. Verfügbarkeit auf Anfrage.</p>
+  </div>
+</section>
+
+<!-- RIVIERA STORY -->
+<section class="sec story" id="riviera">
+  <div class="wrap story-grid">
+    <div class="story-copy">
+      <div class="kicker rv">Erlebnisse</div>
+      <h2 class="display rv d1">Von Starnberg an die <em>Riviera.</em></h2>
+      <p class="rv d2">Die Basse Corniche bei Sonnenaufgang, Mittagessen in Èze, abends vorfahren am Casino-Platz. Wir planen die Route, reservieren die Hotels und stellen das Fahrzeug dort bereit, wo Ihre Reise beginnt – am Flughafen Nizza, am Hotel oder am Hafen.</p>
+      <p class="rv d2">Auch zum Grand Prix de Monaco: mit dem passenden Wagen und den Plätzen, die man nicht im Internet bucht.</p>
+      <ul class="rv d3">
+        <li><span>Riviera-Tour, Nizza – Monaco – Menton</span><span>3–7 Tage</span></li>
+        <li><span>Grand Prix de Monaco</span><span>Mai</span></li>
+        <li><span>Alpenpässe ab München</span><span>1–3 Tage</span></li>
+        <li><span>Hochzeit &amp; besondere Anlässe</span><span>individuell</span></li>
+      </ul>
+      <a class="btn rv d4" href="#anfrage" data-car="Riviera-Erlebnis">Erlebnis planen</a>
+    </div>
+    <div class="story-pics">
+      <figure class="sp1 rv"><div class="im"><img src="assets/riviera-convoy.jpg" alt="Zwei rote Ferrari im Konvoi an der Küstenstraße der Côte d'Azur" loading="lazy" width="640" height="640"></div><figcaption>Basse Corniche, Richtung Monaco</figcaption></figure>
+      <figure class="sp2 rv"><div class="im"><img src="assets/monaco-hermitage.jpg" alt="Roter Ferrari vor dem Hôtel Hermitage in Monte-Carlo" loading="lazy" width="604" height="640"></div><figcaption>Hôtel Hermitage, Monte-Carlo</figcaption></figure>
+      <figure class="sp3 rv d1"><div class="im"><img src="assets/monaco-cockpit.jpg" alt="Blick aus dem Ferrari-Cockpit auf die Grand-Prix-Strecke von Monaco" loading="lazy" width="640" height="640"></div><figcaption>Auf der Strecke des Grand Prix</figcaption></figure>
+      <blockquote class="quote rv">„Und manchmal ist das schönste Auto an der Riviera ein Fiat 126.“</blockquote>
+      <figure class="sp4 rv"><div class="im"><img src="assets/fiat-126-riviera.jpg" alt="Gelbgrüner Fiat 126 vor einer Strandbar an der Riviera" loading="lazy" width="640" height="443"></div><figcaption>Wir lieben Autos. Alle.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND CARS -->
+<section class="sec" id="jets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker rv">Mehr als Autos</div>
+        <h2 class="display rv d1">Zu Land, in der Luft,<br>auf dem <em>Wasser.</em></h2>
+      </div>
+      <p class="rv d2">Ein Ansprechpartner für die ganze Reise: Privatjet nach Nizza, Helikopter nach Monaco, Yacht für die Woche – und der Wagen wartet schon am Steg.</p>
+    </div>
+    <div class="beyond">
+      <article class="bcard img rv">
+        <img src="assets/audi-rsq8-yacht.jpg" alt="Motoryacht im Hafen, davor ein weißer Audi RS Q8" loading="lazy" width="640" height="640">
+        <div class="in">
+          <div class="kicker">Yachten</div>
+          <h3 class="display">Ankern, wo andere parken.</h3>
+          <p>Motoryachten mit Crew an der Côte d'Azur, in Ligurien und an der Costa del Sol – tageweise oder für die ganze Saison.</p>
+        </div>
+      </article>
+      <article class="bcard rv d1">
+        <span class="num">02</span>
+        <svg class="ico" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 33l44-13c2.5-.7 4 1.6 1.8 3.2L40 31l-6 15-4 1 2-13-11 4-4 6-3 .8 1.5-8.5L6 33z"/><path d="M16 30l-4-9 3-.9 9 6"/></svg>
+        <h3 class="display">Privatjets</h3>
+        <p>Von Light Jet bis Long Range. Abflug ab München, Oberpfaffenhofen oder Salzburg – ohne Terminal, ohne Warten.</p>
+      </article>
+      <article class="bcard rv d2">
+        <span class="num">03</span>
+        <svg class="ico" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 14h44M28 14v6"/><path d="M14 32c0-6.6 5.4-12 12-12h6c5.5 0 10 4.5 10 10v4H22c-4.4 0-8-.9-8-2z"/><path d="M42 30h8M24 34l-2 8M36 34l2 8M16 44h28"/></svg>
+        <h3 class="display">Helikopter</h3>
+        <p>Nizza – Monaco in sieben Minuten. Transfers in die Alpen, zum Golfplatz oder direkt aufs Schiff.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- KEYS INTERLUDE -->
+<section class="keys" aria-label="Schlüsselübergabe">
+  <img src="assets/keys.jpg" alt="Eine Reihe Fahrzeugschlüssel verschiedener Luxusmarken auf Schiefer" loading="lazy" id="keysimg" width="640" height="443">
+  <div class="wrap">
+    <div class="kicker rv">Zustellung</div>
+    <h2 class="display rv d1">Ihr Schlüssel liegt <em>schon bereit.</em></h2>
+    <p class="rv d2">Wir bringen den Wagen zu Ihnen: nach Hause, ins Hotel, ans Rollfeld. Übergabe mit Einweisung, Rückgabe wo es Ihnen passt.</p>
+    <a class="btn rv d3" href="#anfrage">Übergabe vereinbaren</a>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="sec" id="stationen">
+  <div class="wrap dest">
+    <div>
+      <div class="kicker rv">Stationen</div>
+      <h2 class="display rv d1" style="font-size:clamp(44px,6vw,84px);margin-top:16px">Zuhause in Starnberg.<br>Unterwegs in <em>Europa.</em></h2>
+      <ul class="dest-list" id="destlist">
+        <li class="rv" data-city="muc"><span class="n">01</span><span class="c">München</span><span class="k">Deutschland</span></li>
+        <li class="rv" data-city="fra"><span class="n">02</span><span class="c">Frankfurt</span><span class="k">Deutschland</span></li>
+        <li class="rv" data-city="str"><span class="n">03</span><span class="c">Stuttgart</span><span class="k">Deutschland</span></li>
+        <li class="rv" data-city="szg"><span class="n">04</span><span class="c">Salzburg</span><span class="k">Österreich</span></li>
+        <li class="rv" data-city="vie"><span class="n">05</span><span class="c">Wien</span><span class="k">Österreich</span></li>
+        <li class="rv" data-city="mil"><span class="n">06</span><span class="c">Mailand</span><span class="k">Italien</span></li>
+        <li class="rv" data-city="nce"><span class="n">07</span><span class="c">Nizza</span><span class="k">Frankreich</span></li>
+        <li class="rv" data-city="mrb"><span class="n">08</span><span class="c">Marbella</span><span class="k">Spanien</span></li>
+      </ul>
+    </div>
+    <svg class="map rv d2" id="map" viewBox="0 0 520 470" role="img" aria-label="Karte der Stationen: von Starnberg nach München, Frankfurt, Stuttgart, Salzburg, Wien, Mailand, Nizza und Marbella"></svg>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker rv">So einfach geht's</div>
+        <h2 class="display rv d1">In vier Schritten <em>am Steuer.</em></h2>
+      </div>
+    </div>
+    <div class="process">
+      <div class="step rv"><div class="n">01</div><h3>Anfrage</h3><p>Wunschfahrzeug, Zeitraum, Ort. Per Formular, Telefon oder Instagram-Nachricht.</p></div>
+      <div class="step rv d1"><div class="n">02</div><h3>Angebot</h3><p>Sie erhalten ein persönliches Angebot – in der Regel noch am selben Tag.</p></div>
+      <div class="step rv d2"><div class="n">03</div><h3>Übergabe</h3><p>Wir liefern vollgetankt und gereinigt, mit kurzer Einweisung ins Fahrzeug.</p></div>
+      <div class="step rv d3"><div class="n">04</div><h3>Rückgabe</h3><p>Am vereinbarten Ort. Wir holen den Wagen ab, Sie fahren entspannt weiter.</p></div>
+    </div>
+    <div class="conds">
+      <div class="cond rv"><b>25+</b><span>Mindestalter der Fahrer</span></div>
+      <div class="cond rv d1"><b>2 Jahre</b><span>im Besitz des Führerscheins</span></div>
+      <div class="cond rv d2"><b>24 h</b><span>Mindestmietdauer</span></div>
+      <div class="cond rv d3"><b>∞</b><span>unbegrenzte Haftpflicht­versicherung</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY -->
+<section class="sec inq" id="anfrage">
+  <div class="wrap inq-grid">
+    <div>
+      <div class="kicker rv">Anfrage</div>
+      <h2 class="display rv d1">Ihre Reise beginnt <em>hier.</em></h2>
+      <p class="lead rv d2">Sagen Sie uns, wann und wohin. Wir melden uns persönlich – diskret und meist innerhalb weniger Stunden.</p>
+      <div class="contact-lines rv d3">
+        <a href="tel:+4981519503048"><span>Telefon</span><span>08151 9503048</span></a>
+        <a href="mailto:go@nobleunique.group"><span>E-Mail</span><span>go@nobleunique.group</span></a>
+        <a href="https://www.instagram.com/nobleunique_group/" target="_blank" rel="noopener"><span>Instagram</span><span>@nobleunique_group</span></a>
+        <div><span>Sitz</span><span>Enzianstraße 2, 82319 Starnberg</span></div>
+      </div>
+    </div>
+    <form id="form" class="rv d2" novalidate>
+      <div class="f full">
+        <label>Was dürfen wir organisieren?</label>
+        <div class="services">
+          <label><input type="checkbox" name="svc" value="Fahrzeug" checked> Fahrzeug</label>
+          <label><input type="checkbox" name="svc" value="Privatjet"> Privatjet</label>
+          <label><input type="checkbox" name="svc" value="Helikopter"> Helikopter</label>
+          <label><input type="checkbox" name="svc" value="Yacht"> Yacht</label>
+        </div>
+      </div>
+      <div class="f full">
+        <label for="car">Wunschfahrzeug</label>
+        <select id="car" name="car">
+          <option>Noch offen – bitte beraten</option>
+          <option>Ferrari 812 GTS</option>
+          <option>Ferrari Portofino</option>
+          <option>Porsche 911 Turbo Cabriolet</option>
+          <option>Porsche 911 Carrera Cabriolet</option>
+          <option>Porsche 718 Boxster</option>
+          <option>Mercedes-AMG G 63</option>
+          <option>Audi RS Q8</option>
+          <option>Wunschfahrzeug</option>
+          <option>Riviera-Erlebnis</option>
+        </select>
+      </div>
+      <div class="f"><label for="from">Von</label><input id="from" name="from" type="date"></div>
+      <div class="f"><label for="to">Bis</label><input id="to" name="to" type="date"></div>
+      <div class="f full"><label for="where">Übergabeort</label><input id="where" name="where" type="text" placeholder="z. B. Hotel Vier Jahreszeiten, Flughafen Nizza …"></div>
+      <div class="f"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div class="f"><label for="contact">Telefon oder E-Mail</label><input id="contact" name="contact" type="text" autocomplete="email" required></div>
+      <div class="f full"><label for="msg">Nachricht</label><textarea id="msg" name="msg" placeholder="Anlass, Anzahl Personen, besondere Wünsche …"></textarea></div>
+      <div class="form-foot">
+        <small>Ihre Angaben werden ausschließlich zur Bearbeitung der Anfrage verwendet.</small>
+        <button class="btn" type="submit">Anfrage senden
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#start"><img src="assets/crown.png" alt="" width="44" height="28"><span>nobleunique<sup>®</sup></span></a>
+        <p class="slogan">The ultimate movement and experiences for an extraordinary life.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <a href="tel:+4981519503048">08151 9503048</a>
+        <a href="mailto:go@nobleunique.group">go@nobleunique.group</a>
+        <a href="https://www.instagram.com/nobleunique_group/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <div>
+        <h4>Angebot</h4>
+        <a href="#flotte">Luxusfahrzeuge</a>
+        <a href="#jets">Privatjets &amp; Helikopter</a>
+        <a href="#jets">Yachten</a>
+        <a href="#riviera">Erlebnisse</a>
+      </div>
+      <div>
+        <h4>Stationen</h4>
+        <p>München · Frankfurt · Stuttgart<br>Salzburg · Wien · Mailand<br>Nizza · Marbella</p>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> nobleunique GmbH · Starnberg</span>
+      <span><button data-dlg="imprint">Impressum</button><button data-dlg="privacy">Datenschutz</button><button data-dlg="terms">AGB</button></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="imprint">
+  <button class="x" aria-label="Schließen">×</button>
+  <h3>Impressum</h3>
+  <p><strong>nobleunique GmbH</strong><br>Enzianstraße 2<br>82319 Starnberg<br>Deutschland</p>
+  <p>Telefon: 08151 9503048<br>E-Mail: go@nobleunique.group</p>
+  <p>Vertreten durch: Markus Stempfer<br>Registergericht: Amtsgericht München</p>
+  <p>„nobleunique“ ist eine eingetragene Wortmarke, die „Krone“ eine eingetragene Bildmarke.</p>
+</dialog>
+<dialog id="privacy">
+  <button class="x" aria-label="Schließen">×</button>
+  <h3>Datenschutz</h3>
+  <p>Platzhalter im Entwurf: Hier steht die vollständige Datenschutzerklärung von nobleunique.</p>
+</dialog>
+<dialog id="terms">
+  <button class="x" aria-label="Schließen">×</button>
+  <h3>AGB</h3>
+  <p>Mindestalter 25 Jahre, Führerschein seit mindestens zwei Jahren, Mindestmietdauer 24 Stunden. Die vollständigen Mietbedingungen werden hier eingebunden.</p>
+</dialog>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  $('#yr').textContent = new Date().getFullYear();
+
+  // Header
+  const top = $('#top');
+  const onScroll = () => top.classList.toggle('solid', scrollY > 40);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Mobile menu
+  const burger = $('#burger');
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu');
+    burger.setAttribute('aria-expanded', open);
+  });
+  $$('#nav a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('menu'); burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // Parallax (hero collage + keys)
+  const figs = $$('#collage figure');
+  const keys = $('#keysimg');
+  const wide = matchMedia('(min-width: 901px)');
+  let ticking = false;
+  const par = () => {
+    ticking = false;
+    if (reduce) return;
+    const y = scrollY;
+    if (wide.matches) figs.forEach(f => f.style.transform = `translate3d(0,${y * f.dataset.speed}px,0)`);
+    if (keys) {
+      const r = keys.parentElement.getBoundingClientRect();
+      const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      keys.style.transform = `translate3d(0,${p * -60}px,0)`;
+    }
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(par); } }, { passive: true });
+  par();
+
+  // Fleet filter
+  const chips = $$('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.setAttribute('aria-pressed', x === c));
+    const f = c.dataset.f;
+    $$('#fleet .car').forEach(card => {
+      card.hidden = !(f === 'all' || card.dataset.c.split(' ').includes(f));
+    });
+  }));
+
+  // "Anfragen" buttons preselect the car
+  const sel = $('#car');
+  $$('[data-car]').forEach(b => b.addEventListener('click', e => {
+    const v = b.dataset.car;
+    const opt = [...sel.options].find(o => o.text === v);
+    if (opt) sel.value = opt.text;
+    if (b.tagName === 'BUTTON') { e.preventDefault(); $('#anfrage').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+    setTimeout(() => $('#from').focus({ preventScroll: true }), 700);
+  }));
+
+  // Dates: no past, "to" >= "from"
+  const today = new Date().toISOString().slice(0, 10);
+  const from = $('#from'), to = $('#to');
+  from.min = to.min = today;
+  from.addEventListener('change', () => { to.min = from.value || today; if (to.value && to.value < from.value) to.value = from.value; });
+
+  // Form -> prepared e-mail
+  const form = $('#form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = $('#name'), contact = $('#contact');
+    [name, contact].forEach(i => i.style.borderColor = i.value.trim() ? '' : '#d26a4a');
+    if (!name.value.trim() || !contact.value.trim()) { (name.value.trim() ? contact : name).focus(); return; }
+    const svc = $$('input[name=svc]:checked').map(i => i.value).join(', ') || '–';
+    const fmt = d => d ? d.split('-').reverse().join('.') : 'offen';
+    const body = [
+      `Leistung: ${svc}`,
+      `Fahrzeug: ${sel.value}`,
+      `Zeitraum: ${fmt(from.value)} – ${fmt(to.value)}`,
+      `Übergabeort: ${$('#where').value || 'offen'}`,
+      '',
+      $('#msg').value,
+      '',
+      `${name.value}`,
+      `${contact.value}`
+    ].join('\n');
+    location.href = `mailto:go@nobleunique.group?subject=${encodeURIComponent('Anfrage: ' + sel.value)}&body=${encodeURIComponent(body)}`;
+    let n = $('.sent', form);
+    if (!n) { n = document.createElement('div'); n.className = 'sent'; form.append(n); }
+    n.textContent = `Danke, ${name.value.split(' ')[0]}. Ihr E-Mail-Programm öffnet sich mit der vorbereiteten Anfrage.`;
+  });
+
+  // Dialogs
+  $$('[data-dlg]').forEach(b => b.addEventListener('click', () => $('#' + b.dataset.dlg).showModal()));
+  $$('dialog').forEach(d => {
+    $('.x', d).addEventListener('click', () => d.close());
+    d.addEventListener('click', e => { if (e.target === d) d.close(); });
+  });
+
+  // Destinations map (equirectangular, cos 45° correction)
+  const cities = {
+    hq:  { n: 'Starnberg', lat: 47.998, lon: 11.341 },
+    muc: { n: 'München',   lat: 48.137, lon: 11.575, dx: 6,  dy: -10 },
+    fra: { n: 'Frankfurt', lat: 50.110, lon: 8.682,  dx: 8,  dy: -6 },
+    str: { n: 'Stuttgart', lat: 48.776, lon: 9.183,  dx: -10, dy: -8, a: 'end' },
+    szg: { n: 'Salzburg',  lat: 47.809, lon: 13.055, dx: 8,  dy: 14 },
+    vie: { n: 'Wien',      lat: 48.208, lon: 16.373, dx: 0,  dy: -12, a: 'middle' },
+    mil: { n: 'Mailand',   lat: 45.464, lon: 9.190,  dx: 9,  dy: 4 },
+    nce: { n: 'Nizza',     lat: 43.710, lon: 7.262,  dx: 9,  dy: 4 },
+    mrb: { n: 'Marbella ↙ 1.600 km', lat: 42.9, lon: 4.75, dx: 9, dy: 4 }
+  };
+  const L0 = 4.3, L1 = 17.6, B0 = 42.6, B1 = 51, k = Math.cos(45 * Math.PI / 180);
+  const W = 520, H = 470, pad = 24;
+  const sx = (W - 2 * pad) / ((L1 - L0) * k), sy = (H - 2 * pad) / (B1 - B0), s = Math.min(sx, sy);
+  const P = c => [pad + (c.lon - L0) * k * s, H - pad - (c.lat - B0) * s];
+  const NS = 'http://www.w3.org/2000/svg';
+  const map = $('#map');
+  const el = (t, a, p = map) => { const e = document.createElementNS(NS, t); for (const x in a) e.setAttribute(x, a[x]); p.append(e); return e; };
+  const g = el('g', { class: 'grid' });
+  for (let lon = 5; lon <= 17; lon += 2) { const [x] = P({ lon, lat: 0 }); el('line', { x1: x, x2: x, y1: 0, y2: H }, g); }
+  for (let lat = 43; lat <= 51; lat += 1) { const [, y] = P({ lon: 0, lat }); el('line', { x1: 0, x2: W, y1: y, y2: y }, g); }
+  const [hx, hy] = P(cities.hq);
+  const routes = {}, dots = {};
+  Object.entries(cities).forEach(([id, c]) => {
+    if (id === 'hq') return;
+    const [x, y] = P(c);
+    const mx = (hx + x) / 2, my = (hy + y) / 2, dist = Math.hypot(x - hx, y - hy);
+    const cx = mx - (y - hy) * .18, cy = my + (x - hx) * .18 - dist * .05;
+    routes[id] = el('path', { class: 'route', d: `M${hx},${hy} Q${cx},${cy} ${x},${y}` });
+  });
+  Object.entries(cities).forEach(([id, c]) => {
+    if (id === 'hq') return;
+    const [x, y] = P(c);
+    dots[id] = el('circle', { class: 'dot', cx: x, cy: y, r: 3.2 });
+    const t = el('text', { x: x + c.dx, y: y + c.dy, 'text-anchor': c.a || 'start' }); t.textContent = c.n;
+  });
+  el('circle', { class: 'ring', cx: hx, cy: hy, r: 6 });
+  el('circle', { class: 'hq', cx: hx, cy: hy, r: 4.5 });
+  const ht = el('text', { class: 'hqt', x: hx - 10, y: hy + 18, 'text-anchor': 'end' }); ht.textContent = 'Starnberg ♛';
+
+  const setOn = id => {
+    Object.keys(routes).forEach(k2 => { routes[k2].classList.toggle('on', k2 === id); dots[k2].classList.toggle('on', k2 === id); });
+    $$('#destlist li').forEach(li => li.classList.toggle('on', li.dataset.city === id));
+  };
+  $$('#destlist li').forEach(li => {
+    li.addEventListener('mouseenter', () => setOn(li.dataset.city));
+    li.addEventListener('click', () => setOn(li.dataset.city));
+  });
+  // Cycle through stations until the visitor interacts
+  let auto = 0, stop = false;
+  const ids = Object.keys(routes);
+  $('#destlist').addEventListener('mouseenter', () => stop = true);
+  $('#destlist').addEventListener('touchstart', () => stop = true, { passive: true });
+  if (!reduce) setInterval(() => { if (!stop) setOn(ids[auto++ % ids.length]); }, 1800);
+  setOn('nce');
+})();
+</script>
+</body>
+</html>
