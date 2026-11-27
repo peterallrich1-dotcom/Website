@@ -121,9 +121,10 @@ T = [
 ('<span class="py">/Monat, jährliche<br>Abrechnung</span><span class="pm">/Monat,<br>monatlich kündbar</span>', '<span class="py">/month, billed<br>yearly</span><span class="pm">/month,<br>cancel monthly</span>'),
 ('<span class="py">Jährlich buchen</span><span class="pm">Monatlich buchen</span><span class="hdisc py">−17 %<em></em>Spare 98 €</span>', '<span class="py">Book yearly</span><span class="pm">Book monthly</span><span class="hdisc py">−17%<em></em>Save €98</span>'),
 ('<span class="py">490 € pro Jahr statt 588 €. Optional.</span><span class="pm">Optional. Jährlich sparen Sie 98 €.</span>', '<span class="py">€490 per year instead of €588. Optional.</span><span class="pm">Optional. Save €98 with yearly billing.</span>'),
-('<li>Hosting und Domain inklusive</li>', '<li>Hosting and domain included</li>'),
-('<li>Kleine Änderungen an Texten und Bildern</li>', '<li>Small changes to texts and images</li>'),
-('<li>Ihre Seite bleibt schnell und erreichbar</li>', '<li>Your site stays fast and online</li>'),
+('<li>Hosting, Domain und SSL-Sicherheit inklusive</li>', '<li>Hosting, domain and SSL security included</li>'),
+('<li><span><b>Bis zu 1 Stunde Änderungen pro Monat</b> (Texte, Bilder, Preise, Öffnungszeiten)</span></li>', '<li><span><b>Up to 1 hour of changes per month</b> (texts, images, prices, opening hours)</span></li>'),
+('<li>Updates und Backups, Ihre Seite bleibt schnell und sicher</li>', '<li>Updates and backups, your site stays fast and secure</li>'),
+('<p class="hnote" style="margin-bottom:18px">Neue Seiten oder Funktionen nach Absprache zum Festpreis.</p>', '<p class="hnote" style="margin-bottom:18px">New pages or features at a fixed price, agreed in advance.</p>'),
 ('>KI-Assistent fragen</a>', '>Ask the AI assistant</a>'),
 # extras
 ('<summary class="xbtn">Extras ansehen<span class="xplus">+</span></summary>', '<summary class="xbtn">See extras<span class="xplus">+</span></summary>'),
