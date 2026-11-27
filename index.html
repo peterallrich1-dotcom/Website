@@ -34,7 +34,7 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="preload" href="allrich/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net" crossorigin>
-<link rel="preload" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/af9c4e6c-a961-4551-9648-4df883a29687.jpg" as="image" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/84aa8ae1-16af-4587-a1d7-0c63867607b1.jpg" as="image" media="(min-aspect-ratio: 1/1)">
 <link rel="preload" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/9c1b5810-9c0f-43b3-a97e-1353492eb9f0.jpg" as="image" media="(max-aspect-ratio: 1/1)">
 <style>
 @font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(allrich/fonts/anton-latin-400-normal.woff2) format("woff2")}
@@ -576,7 +576,7 @@ if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserv
 
 /* hero scroll film v4 (Entwurf): ein Video, in dem jedes Bild ein Keyframe ist (all-intra),
    wird beim Scrollen Bild fuer Bild angefahren und auf das Canvas gezeichnet.
-   1920x1080 fuer Laptop/Monitor, eigener Hochformat-Film 720x1280 fuer Handys, 30 fps, 2x Tempo (24 s, 720 Bilder).
+   1280x720 nativ fuer Laptop/Monitor (hohe Bitrate, kein kuenstliches Hochskalieren), eigener Hochformat-Film 720x1280 fuer Handys, 30 fps, 2x Tempo (24 s, 720 Bilder).
    TODO vor Livegang: Dateien aus dem Higgsfield-CDN nach allrich/film/v4/ ins Repo holen. */
 const FILM = "https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/";
 const portrait = innerWidth / innerHeight < 1;
@@ -584,8 +584,8 @@ const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcop
 const vid = document.createElement("video");
 vid.muted = true; vid.playsInline = true; vid.preload = "auto";
 vid.setAttribute("muted", ""); vid.setAttribute("playsinline", ""); vid.setAttribute("webkit-playsinline", "");
-vid.src = FILM + (portrait ? "a5b047ef-6b3f-4b56-85d9-59aa565a84e6.mp4" : "0f055f5c-be19-4972-898e-7da92de133de.mp4");
-const poster = new Image(); poster.decoding = "async"; poster.src = FILM + (portrait ? "9c1b5810-9c0f-43b3-a97e-1353492eb9f0.jpg" : "af9c4e6c-a961-4551-9648-4df883a29687.jpg");
+vid.src = FILM + (portrait ? "a5b047ef-6b3f-4b56-85d9-59aa565a84e6.mp4" : "6ab2c540-20af-4f02-8e71-927bb45df0f9.mp4");
+const poster = new Image(); poster.decoding = "async"; poster.src = FILM + (portrait ? "9c1b5810-9c0f-43b3-a97e-1353492eb9f0.jpg" : "84aa8ae1-16af-4587-a1d7-0c63867607b1.jpg");
 let W = 0, H = 0, cur = 0, tgt = 0, D = 0, ready = false, dirty = true;
 function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; dirty = true; }
 function cover(im, iw, ih) { if (!iw || !ih) return; const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s); }
