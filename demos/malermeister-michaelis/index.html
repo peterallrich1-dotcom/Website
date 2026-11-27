@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Malermeister Jörn Michaelis · Neubrandenburg</title>
+<meta name="description" content="Malermeister Jörn Michaelis in Neubrandenburg: Innenanstrich, Fassade, Tapezieren, kreative Maltechniken und Farbberatung. Meisterbetrieb für Neubrandenburg und die Mecklenburgische Seenplatte.">
+<meta property="og:title" content="Malermeister Jörn Michaelis · Bekennen Sie Farbe!">
+<meta property="og:description" content="Kreative Maltechniken, ehrliche Beratung und saubere Arbeit, innen wie außen. Meisterbetrieb in Neubrandenburg.">
+<meta name="theme-color" content="#F3EEE4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23D2A042'/%3E%3Cpath d='M14 46V18l18 16 18-16v28' fill='none' stroke='%231B1A17' stroke-width='6' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HousePainter","name":"Malermeister Jörn Michaelis","slogan":"Bekennen Sie Farbe!","telephone":["+491723243808","+493953599899"],"email":"malermeister-jm@web.de","address":{"@type":"PostalAddress","streetAddress":"Philipp-Müller-Straße 7","postalCode":"17033","addressLocality":"Neubrandenburg","addressCountry":"DE"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],"areaServed":["Neubrandenburg","Mecklenburg-Strelitz","Müritz","Uecker-Randow","Uckermark"]}
+</script>
+<style>
+@font-face{font-family:"Bricolage";font-weight:400;font-display:swap;src:url(fonts/bricolage-grotesque-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage";font-weight:500;font-display:swap;src:url(fonts/bricolage-grotesque-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage";font-weight:700;font-display:swap;src:url(fonts/bricolage-grotesque-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage";font-weight:800;font-display:swap;src:url(fonts/bricolage-grotesque-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2")}
+
+:root{
+  --paper:#F3EEE4;--paper-2:#EAE3D6;--ink:#1B1A17;--ink-2:#55514A;--line:#D8CFBF;
+  --ocker:#D2A042;--salbei:#93A68C;--terra:#C2653F;--petrol:#2F5D62;
+  --sans:"Bricolage",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --r:18px;--gut:clamp(16px,4vw,48px);--max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font:500 13px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:8px;border-radius:4px;background:var(--dot,var(--ocker))}
+.h2{font:800 clamp(36px,6vw,76px)/.98 var(--sans);letter-spacing:-.035em;margin-top:18px}
+.h2 em{font:400 italic 1.08em/1 var(--serif);letter-spacing:-.01em}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--ink-2);max-width:62ch}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 24px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:#000}
+.btn-line{border:1.5px solid var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+section{position:relative}
+:focus-visible{outline:3px solid var(--petrol);outline-offset:3px;border-radius:6px}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(243,238,228,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:40px;height:40px;border-radius:11px;background:var(--ink);display:grid;place-items:center;flex:none}
+.logo-mark svg{width:24px;height:24px}
+.logo b{display:block;font:800 19px/1 var(--sans);letter-spacing:-.02em}
+.logo small{display:block;font:500 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:4px}
+.nav ul{display:flex;list-style:none;gap:30px;font-weight:500;font-size:15px}
+.nav ul a{text-decoration:none;position:relative}
+.nav ul a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:3px;border-radius:2px;background:var(--ocker);transition:right .25s}
+.nav ul a:hover::after{right:0}
+.nav .btn{height:44px;padding:0 18px;font-size:15px}
+@media (max-width:900px){.nav ul{display:none}}
+@media (max-width:520px){.nav .btn span{display:none}.nav .btn{width:44px;padding:0;justify-content:center}}
+
+/* ---------- HERO ---------- */
+.hero{height:260vh}
+.hero-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#paint{position:absolute;inset:0;width:100%;height:100%}
+.hero-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
+.draft{display:inline-block;font:500 12px/1.4 var(--sans);letter-spacing:.03em;background:var(--paper);border:1px solid var(--line);padding:6px 12px;border-radius:8px;margin-bottom:22px}
+.hero h1{font:800 clamp(58px,12.5vw,188px)/.86 var(--sans);letter-spacing:-.05em}
+.hero h1 span{display:inline-block}
+.hero h1 .serif{font:400 italic 1.12em/.8 var(--serif);letter-spacing:-.02em;padding-right:.05em}
+.hero-sub{margin-top:34px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
+.hero-sub p{max-width:440px;font-size:clamp(17px,1.5vw,20px);line-height:1.5;background:var(--paper);box-shadow:0 0 0 10px var(--paper);border-radius:2px}
+.hero-sub .actions{display:flex;flex-wrap:wrap;gap:12px}
+.layer{position:absolute;right:var(--gut);bottom:max(24px,env(safe-area-inset-bottom));z-index:3;display:flex;align-items:center;gap:12px;font:500 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;background:var(--paper);padding:10px 14px;border-radius:999px;border:1px solid var(--line)}
+.layer i{width:14px;height:14px;border-radius:50%;background:var(--c,var(--ocker));transition:background .3s}
+.scrollhint{position:absolute;left:var(--gut);bottom:max(28px,env(safe-area-inset-bottom));z-index:3;font:500 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px;background:var(--paper);padding:10px 14px;border-radius:999px;transition:opacity .4s}
+.scrollhint svg{width:14px;height:14px;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+@media (max-width:640px){.layer{display:none}}
+
+/* ---------- ÜBER ---------- */
+.about{padding:clamp(90px,12vw,160px) 0}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,90px);align-items:start}
+.about .lead+.lead{margin-top:18px}
+.sign{margin-top:34px;display:flex;align-items:center;gap:16px}
+.sign .ini{width:58px;height:58px;border-radius:50%;background:var(--salbei);display:grid;place-items:center;font:800 20px/1 var(--sans);letter-spacing:-.03em}
+.sign b{display:block;font:400 italic 28px/1 var(--serif)}
+.sign small{color:var(--ink-2);font-size:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.fact{background:var(--paper-2);border-radius:var(--r);padding:24px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.fact b{font:800 clamp(30px,3.6vw,44px)/1 var(--sans);letter-spacing:-.04em}
+.fact span{font-size:15px;color:var(--ink-2);line-height:1.35}
+.fact::after{content:"";position:absolute;right:-20px;top:-20px;width:70px;height:70px;border-radius:50%;background:var(--c);opacity:.9}
+.quote{grid-column:1/-1;background:var(--ink);color:var(--paper);border-radius:var(--r);padding:28px}
+.quote::after{display:none}
+.quote .stars{color:var(--ocker);letter-spacing:3px;font-size:18px}
+.quote p{font:400 italic 23px/1.3 var(--serif);margin:14px 0 16px}
+.quote span{color:#B9B2A5}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}}
+
+/* ---------- RAUMPROBE ---------- */
+.probe{padding:clamp(80px,10vw,140px) 0;background:var(--ink);color:var(--paper)}
+.probe .eyebrow{color:#B9B2A5}
+.probe .lead{color:#C9C2B5}
+.probe-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+.probe-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,3vw,44px);align-items:start}
+.room{border-radius:22px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.room svg{width:100%;height:auto}
+.ctrl h3{font:500 13px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#B9B2A5;margin:0 0 12px}
+.ctrl .block{margin-bottom:28px}
+.seg{display:flex;background:#2A2824;border-radius:999px;padding:4px;gap:4px}
+.seg button{flex:1;height:42px;border-radius:999px;font-size:14px;font-weight:500;color:#C9C2B5;transition:background .2s,color .2s;white-space:nowrap;padding:0 8px}
+.seg button[aria-pressed=true]{background:var(--paper);color:var(--ink)}
+.swatches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sw{display:flex;align-items:center;gap:10px;padding:8px;border-radius:14px;background:#24221F;text-align:left;transition:background .2s,box-shadow .2s;min-height:52px}
+.sw:hover{background:#2E2C28}
+.sw i{width:34px;height:34px;border-radius:10px;background:var(--c);flex:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.sw b{display:block;font-size:14px;font-weight:600;line-height:1.1}
+.sw small{display:block;font-size:11px;color:#9C9588;letter-spacing:.05em;margin-top:2px}
+.sw[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--paper)}
+.readout{background:#24221F;border-radius:16px;padding:18px 20px;font-size:15px;color:#C9C2B5;line-height:1.5}
+.readout strong{color:var(--paper);font-weight:600}
+.probe .btn{margin-top:16px;background:var(--paper);color:var(--ink);width:100%;justify-content:center}
+.probe .btn:hover{background:#fff}
+.probe-note{margin-top:14px;font-size:13px;color:#8F887C}
+@media (max-width:980px){.probe-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.swatches{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- LEISTUNGEN ---------- */
+.services{padding:clamp(90px,12vw,160px) 0}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.chip{background:#FBF8F2;border-radius:var(--r);overflow:hidden;box-shadow:0 1px 0 var(--line),0 12px 30px -18px rgba(40,30,10,.25);display:flex;flex-direction:column;transition:transform .3s}
+.chip:hover{transform:translateY(-6px) rotate(-.6deg)}
+.chip-c{height:150px;background:var(--c);padding:16px 18px;display:flex;justify-content:space-between;align-items:flex-start;font:600 12px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;transition:height .35s;color:rgba(27,26,23,.75)}
+.chip.dk .chip-c{color:rgba(255,255,255,.85)}
+.chip:hover .chip-c{height:180px}
+.chip-b{padding:20px 18px 24px}
+.chip h3{font:700 21px/1.15 var(--sans);letter-spacing:-.02em}
+.chip p{font-size:15px;line-height:1.5;color:var(--ink-2);margin-top:8px}
+@media (max-width:1040px){.chips{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.chips{grid-template-columns:1fr}.chip{flex-direction:row}.chip-c{width:64px;height:auto!important;flex:none;writing-mode:vertical-rl;transform:rotate(180deg);justify-content:flex-end}.chip-c span:last-child{display:none}}
+
+/* ---------- ABLAUF ---------- */
+.steps-sec{padding:0 0 clamp(90px,12vw,160px)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;border-top:2px solid var(--ink)}
+.step{padding:26px 24px 0 0;position:relative}
+.step b{font:400 italic 64px/1 var(--serif);color:var(--c)}
+.step h3{font:700 22px/1.2 var(--sans);letter-spacing:-.02em;margin-top:10px}
+.step p{font-size:15px;color:var(--ink-2);margin-top:8px;max-width:30ch}
+.step::before{content:"";position:absolute;top:-8px;left:0;width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px var(--paper)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr;row-gap:40px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr;border-top:0;border-left:2px solid var(--ink);margin-left:6px}.step{padding:0 0 0 28px}.step::before{left:-8px;top:24px}}
+
+/* ---------- REGION ---------- */
+.region{background:var(--paper-2);padding:clamp(80px,10vw,140px) 0;overflow:hidden}
+.region-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center}
+.region ul{list-style:none;margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.region li{background:var(--paper);border-radius:999px;padding:10px 18px;font-weight:500;font-size:15px;display:flex;align-items:center;gap:8px}
+.region li i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.rings{width:100%;max-width:520px;margin:0 auto;overflow:visible}
+.rings text{font:500 15px var(--sans);fill:var(--ink)}
+.rings .big{font:800 20px var(--sans);letter-spacing:-.02em}
+@media (max-width:900px){.region-grid{grid-template-columns:1fr}}
+
+/* ---------- KONTAKT ---------- */
+.contact{padding:clamp(90px,12vw,160px) 0 clamp(100px,12vw,160px)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:50px}
+.tel{display:block;text-decoration:none;font:800 clamp(38px,5.4vw,68px)/1 var(--sans);letter-spacing:-.04em;margin:8px 0 6px;transition:color .2s}
+.tel:hover{color:var(--terra)}
+.cinfo{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;margin-top:40px;font-size:16px}
+.cinfo h4{font:500 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
+.cinfo a{text-decoration-thickness:1px;text-underline-offset:3px}
+.open-now{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-size:14px;font-weight:600}
+.open-now i{width:9px;height:9px;border-radius:50%;background:#9A958C}
+.open-now.on i{background:#3E9B5B;box-shadow:0 0 0 4px rgba(62,155,91,.18)}
+form{background:#FBF8F2;border-radius:24px;padding:clamp(22px,3vw,36px);box-shadow:0 1px 0 var(--line),0 20px 50px -30px rgba(40,30,10,.35)}
+form h3{font:700 24px/1.2 var(--sans);letter-spacing:-.02em;margin-bottom:20px}
+label{display:block;font-size:14px;font-weight:600;margin:16px 0 6px}
+input,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;transition:border-color .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:120px;resize:vertical}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags button{padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);font-size:14px;font-weight:500;transition:all .2s}
+.tags button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+form .btn{margin-top:22px;width:100%;justify-content:center}
+.form-note{font-size:13px;color:var(--ink-2);margin-top:12px}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.cinfo{grid-template-columns:1fr}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:#C9C2B5;padding:60px 0 calc(40px + env(safe-area-inset-bottom));font-size:14px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-end}
+.foot .slogan{font:400 italic clamp(40px,6vw,72px)/1 var(--serif);color:var(--paper)}
+.foot nav{display:flex;gap:20px;flex-wrap:wrap}
+.foot nav button,.foot nav a{text-decoration:underline;text-underline-offset:3px}
+.foot .small{margin-top:30px;font-size:12px;color:#8F887C;width:100%}
+
+/* ---------- MOBILE BAR ---------- */
+.mbar{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:60;display:none;gap:8px;transform:translateY(130%);transition:transform .35s}
+.mbar.show{transform:none}
+.mbar a{flex:1;height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.mbar .a1{background:var(--ink);color:var(--paper)}
+.mbar .a2{background:var(--ocker);color:var(--ink)}
+.mbar svg{width:18px;height:18px}
+@media (max-width:760px){.mbar{display:flex}footer{padding-bottom:110px}}
+
+/* ---------- DIALOG ---------- */
+dialog{border:0;border-radius:22px;max-width:640px;width:calc(100% - 32px);padding:0;background:var(--paper);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(20,18,15,.55);backdrop-filter:blur(3px)}
+dialog .in{padding:32px;max-height:80vh;overflow:auto;font-size:15px}
+dialog h3{font:800 28px/1.1 var(--sans);letter-spacing:-.03em;margin-bottom:14px}
+dialog h4{font-size:15px;margin:18px 0 4px}
+dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;background:var(--paper-2);font-size:22px;line-height:1}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.hero{height:100vh}.rv{opacity:1;transform:none;transition:none}.scrollhint svg{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Malermeister Jörn Michaelis, zum Anfang">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19V6l8 7 8-7v13" stroke="#D2A042" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+      <span><b>Michaelis</b><small>Malermeister</small></span>
+    </a>
+    <ul>
+      <li><a href="#ueber">Über mich</a></li>
+      <li><a href="#raumprobe">Raumprobe</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn-ink" href="tel:+491723243808" aria-label="Anrufen: 0172 3 24 38 08"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>0172 3 24 38 08</span></a>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO: scroll-scrubbed paint roller -->
+<section class="hero" id="hero" aria-label="Start">
+  <div class="hero-stage">
+    <canvas id="paint" aria-hidden="true"></canvas>
+    <div class="wrap hero-copy">
+      <div><span class="draft">Entwurf · Vorschlag für eine neue Website, keine offizielle Seite</span></div>
+      <h1><span id="l1">Bekennen Sie</span><br><span id="l2" class="serif">Farbe.</span></h1>
+      <div class="hero-sub">
+        <p>Malermeister Jörn Michaelis aus Neubrandenburg: kreative Maltechniken, ehrliche Beratung und saubere Arbeit. Innen wie außen.</p>
+        <div class="actions">
+          <a class="btn btn-ink" href="#kontakt">Termin anfragen</a>
+          <a class="btn btn-line" href="#raumprobe">Farben ausprobieren</a>
+        </div>
+      </div>
+    </div>
+    <div class="scrollhint" id="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>Scrollen, ich streiche weiter</div>
+    <div class="layer" id="layer" aria-live="polite"><i></i><span>Anstrich 1 von 4 · Ocker</span></div>
+  </div>
+</section>
+
+<!-- ÜBER -->
+<section class="about" id="ueber">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <div class="eyebrow" style="--dot:var(--salbei)">Meisterbetrieb in Neubrandenburg</div>
+      <h2 class="h2">Ich streiche nicht einfach Wände. Ich gebe Räumen <em>Charakter.</em></h2>
+      <p class="lead" style="margin-top:28px">Als Malermeister überzeuge ich am liebsten mit kreativen Maltechniken, kompetenter Beratung und neuen Ideen. Ob Wohnung, Geschäft oder Objekt, innen oder außen: Ich übernehme den gesamten Malerbereich, von der Renovierung eines Zimmers bis zur kompletten Fassade.</p>
+      <p class="lead">Genauso wichtig wie die Verschönerung ist mir der Werterhalt. Vom modernen Wohnbau bis zum denkmalgeschützten Haus: Regelmäßige, fachgerechte Pflege schützt die Bausubstanz und damit Ihr Vermögen.</p>
+      <div class="sign"><span class="ini">JM</span><span><b>Jörn Michaelis</b><small>Malermeister, Inhaber</small></span></div>
+    </div>
+    <div class="facts rv">
+      <div class="fact" style="--c:var(--ocker)"><b>Meister</b><span>Meisterbetrieb mit Erfahrung im Privat-, Geschäfts- und Objektbereich</span></div>
+      <div class="fact" style="--c:var(--salbei)"><b>4,8 ★</b><span>Durchschnitt aus Kundenbewertungen</span></div>
+      <div class="fact" style="--c:var(--terra)"><b>5 Kreise</b><span>Neubrandenburg bis Müritz und Uckermark</span></div>
+      <div class="fact" style="--c:var(--petrol)"><b>8–17</b><span>Montag bis Freitag erreichbar, auch mobil</span></div>
+      <div class="fact quote">
+        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p>„Absolute Empfehlung! Kompetent, präzise und sympathisch. Schon in der Beratung merkt man seine große Erfahrung.“</p>
+        <span>E. M., Google-Bewertung · Tapezier- und Streicharbeiten</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RAUMPROBE -->
+<section class="probe" id="raumprobe">
+  <div class="wrap">
+    <div class="probe-head">
+      <div class="rv">
+        <div class="eyebrow" style="--dot:var(--terra)">Raumprobe</div>
+        <h2 class="h2">Probieren Sie Farbe, <em>bevor ich streiche.</em></h2>
+      </div>
+      <p class="lead rv" style="max-width:420px">Wählen Sie Wand, Farbton und Technik. Ihre Kombination nehme ich gern als Startpunkt für die Beratung vor Ort mit echten Mustern.</p>
+    </div>
+    <div class="probe-grid">
+      <div class="room rv">
+        <svg id="roomSvg" viewBox="0 0 1000 640" role="img" aria-label="Illustriertes Wohnzimmer, dessen Wände in der gewählten Farbe erscheinen">
+          <defs>
+            <clipPath id="cBack"><path d="M220 90H780V470H220Z"/></clipPath>
+            <clipPath id="cLeft"><path d="M0 0L220 90V470L0 640Z"/></clipPath>
+            <clipPath id="cRight"><path d="M1000 0L780 90V470L1000 640Z"/></clipPath>
+            <clipPath id="cWalls"><path d="M220 90H780V470H220Z"/><path d="M0 0L220 90V470L0 640Z"/><path d="M1000 0L780 90V470L1000 640Z"/></clipPath>
+            <filter id="fKalk" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.011 0.016" numOctaves="5" seed="4"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -0.62"/></filter>
+            <filter id="fKalkHi" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.03" numOctaves="4" seed="9"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.6 0 0 0 -0.78"/></filter>
+            <filter id="fWisch" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0035 0.028" numOctaves="3" seed="2"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 -0.75"/></filter>
+            <filter id="fWischHi" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.028 0.004" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  1.7 0 0 0 -0.8"/></filter>
+            <radialGradient id="gLight" cx="0.86" cy="0.45" r="0.75"><stop offset="0" stop-color="#FFF6E2" stop-opacity=".38"/><stop offset="1" stop-color="#FFF6E2" stop-opacity="0"/></radialGradient>
+            <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD6E6"/><stop offset="1" stop-color="#EAF1F2"/></linearGradient>
+            <linearGradient id="gFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A97D55"/><stop offset="1" stop-color="#C79A6B"/></linearGradient>
+          </defs>
+          <!-- ceiling + floor -->
+          <path d="M0 0H1000L780 90H220Z" fill="#F7F4EE"/>
+          <path d="M0 640L220 470H780L1000 640Z" fill="url(#gFloor)"/>
+          <g id="planks" stroke="#8E6542" stroke-opacity=".45" stroke-width="1.5"></g>
+          <!-- walls: base + wet layer -->
+          <g clip-path="url(#cBack)"><path id="wBack" d="M220 90H780V470H220Z" fill="#93A68C"/><rect id="wetBack" x="220" y="80" width="0" height="400"/></g>
+          <g clip-path="url(#cLeft)"><path id="wLeft" d="M0 0L220 90V470L0 640Z" fill="#EEEAE1"/><rect id="wetLeft" x="0" y="0" width="0" height="640"/></g>
+          <g clip-path="url(#cRight)"><path id="wRight" d="M1000 0L780 90V470L1000 640Z" fill="#EEEAE1"/><rect id="wetRight" x="780" y="0" width="0" height="640"/></g>
+          <!-- technique overlay -->
+          <g clip-path="url(#cWalls)" id="tex" style="transition:opacity .5s" opacity="0">
+            <rect id="texA" width="1000" height="640" filter="url(#fKalk)" opacity=".5"/>
+            <rect id="texB" width="1000" height="640" filter="url(#fKalkHi)" opacity=".45"/>
+          </g>
+          <!-- shading -->
+          <path d="M0 0L220 90V470L0 640Z" fill="#000" opacity=".07"/>
+          <path d="M1000 0L780 90V470L1000 640Z" fill="#000" opacity=".16"/>
+          <path d="M220 90H780V470H220Z" fill="url(#gLight)"/>
+          <!-- skirting -->
+          <path d="M220 458H780V470H220Z" fill="#FBF9F4"/>
+          <path d="M0 625L220 458V470L0 640Z" fill="#F1EEE8"/>
+          <path d="M1000 625L780 458V470L1000 640Z" fill="#E2DED7"/>
+          <!-- window on right wall -->
+          <path d="M840 150L940 112V474L840 430Z" fill="#F4F1EA"/>
+          <path d="M850 160L930 130V458L850 420Z" fill="url(#gSky)"/>
+          <path d="M850 330L930 340V458L850 420Z" fill="#9DB59A" opacity=".7"/>
+          <path d="M890 145V439" stroke="#F4F1EA" stroke-width="6"/>
+          <path d="M850 290L930 288" stroke="#F4F1EA" stroke-width="6"/>
+          <!-- sunlight on floor -->
+          <path d="M700 520L860 470L1000 560L840 640Z" fill="#FFF3D6" opacity=".22"/>
+          <!-- picture -->
+          <rect x="430" y="150" width="140" height="104" fill="#F7F3EC" rx="2"/>
+          <rect x="440" y="160" width="120" height="84" fill="#E9E0D0"/>
+          <circle cx="478" cy="196" r="22" fill="#C2653F"/>
+          <rect x="500" y="186" width="48" height="48" fill="#2F5D62"/>
+          <rect x="452" y="222" width="56" height="12" fill="#D2A042"/>
+          <!-- lamp -->
+          <path d="M282 455V215" stroke="#2A2824" stroke-width="5"/>
+          <ellipse cx="282" cy="458" rx="26" ry="6" fill="#2A2824"/>
+          <path d="M252 214H312L298 168H266Z" fill="#E9DFCD"/>
+          <ellipse cx="282" cy="214" rx="30" ry="5" fill="#D9CBB2"/>
+          <!-- sofa -->
+          <ellipse cx="500" cy="470" rx="230" ry="16" fill="#000" opacity=".18"/>
+          <rect x="336" y="318" width="328" height="80" rx="22" fill="#5E5A54"/>
+          <rect x="350" y="300" width="146" height="78" rx="20" fill="#6E6A64"/>
+          <rect x="504" y="300" width="146" height="78" rx="20" fill="#6E6A64"/>
+          <rect x="318" y="372" width="364" height="70" rx="18" fill="#666159"/>
+          <rect x="300" y="336" width="54" height="112" rx="20" fill="#5A564F"/>
+          <rect x="646" y="336" width="54" height="112" rx="20" fill="#5A564F"/>
+          <rect x="378" y="320" width="64" height="52" rx="14" fill="#D2A042" transform="rotate(-8 410 346)"/>
+          <rect x="336" y="440" width="10" height="20" fill="#2A2824"/><rect x="654" y="440" width="10" height="20" fill="#2A2824"/>
+          <!-- plant -->
+          <path d="M716 466H756L762 420H710Z" fill="#C2653F"/>
+          <path d="M736 420C730 380 700 360 690 330M736 420C740 370 760 350 772 318M736 420C736 380 734 350 738 300M736 420C722 395 712 392 700 380" stroke="#4E6B47" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <g fill="#5F7F57"><ellipse cx="690" cy="330" rx="16" ry="8" transform="rotate(-40 690 330)"/><ellipse cx="772" cy="318" rx="16" ry="8" transform="rotate(40 772 318)"/><ellipse cx="738" cy="300" rx="8" ry="17"/><ellipse cx="700" cy="380" rx="14" ry="7" transform="rotate(-20 700 380)"/><ellipse cx="752" cy="360" rx="14" ry="7" transform="rotate(30 752 360)"/></g>
+          <!-- rug -->
+          <path d="M330 520L670 520L740 600L260 600Z" fill="#E9DFCD" opacity=".9"/>
+          <path d="M350 532L652 532L708 588L292 588Z" fill="none" stroke="#C2653F" stroke-opacity=".5" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="ctrl rv">
+        <div class="block">
+          <h3>1 · Welche Wand?</h3>
+          <div class="seg" id="target">
+            <button aria-pressed="true" data-t="back">Akzentwand</button>
+            <button aria-pressed="false" data-t="side">Seitenwände</button>
+            <button aria-pressed="false" data-t="all">Alle Wände</button>
+          </div>
+        </div>
+        <div class="block">
+          <h3>2 · Welcher Farbton?</h3>
+          <div class="swatches" id="swatches"></div>
+        </div>
+        <div class="block">
+          <h3>3 · Welche Technik?</h3>
+          <div class="seg" id="tech">
+            <button aria-pressed="true" data-x="glatt">Glatt</button>
+            <button aria-pressed="false" data-x="kalk">Kalkputz-Optik</button>
+            <button aria-pressed="false" data-x="wisch">Wischtechnik</button>
+          </div>
+        </div>
+        <div class="readout" id="readout" aria-live="polite"></div>
+        <a class="btn" href="#kontakt" id="takeCombo">Diese Kombination anfragen</a>
+        <p class="probe-note">Bildschirmfarben weichen von echten Farben ab. Die Entscheidung treffen wir vor Ort mit Musterkarten im Licht Ihres Raumes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow">Leistungen</div>
+      <h2 class="h2">Alles rund um den Pinsel. <em>Innen wie außen.</em></h2>
+    </div>
+    <div class="chips">
+      <article class="chip rv" style="--c:#93A68C"><div class="chip-c"><span>Nr. 01</span><span>Salbei</span></div><div class="chip-b"><h3>Innenanstrich &amp; Renovierung</h3><p>Wände, Decken und Trennwände: sorgfältig abgedeckt, sauber gestrichen und ordentlich übergeben.</p></div></article>
+      <article class="chip rv" style="--c:#D8C3A0"><div class="chip-c"><span>Nr. 02</span><span>Sandstein</span></div><div class="chip-b"><h3>Fassade &amp; Außenanstrich</h3><p>Schutz vor Wind und Wetter und ein frisches Gesicht für Ihr Haus, mit gründlicher Prüfung des Untergrunds.</p></div></article>
+      <article class="chip rv" style="--c:#D3A29A"><div class="chip-c"><span>Nr. 03</span><span>Altrosa</span></div><div class="chip-b"><h3>Tapezierarbeiten</h3><p>Von Raufaser bis Mustertapete: exakt auf Stoß, ohne Blasen, mit Blick fürs Detail.</p></div></article>
+      <article class="chip rv" style="--c:#D2A042"><div class="chip-c"><span>Nr. 04</span><span>Ocker</span></div><div class="chip-b"><h3>Kreative Maltechniken</h3><p>Wischtechnik, Kalkputz-Optik, Lasuren und Effekte, die Ihren Räumen eine eigene Handschrift geben.</p></div></article>
+      <article class="chip rv" style="--c:#C2653F"><div class="chip-c"><span>Nr. 05</span><span>Terrakotta</span></div><div class="chip-b"><h3>Farbberatung</h3><p>Ich bringe Muster mit, und wir entscheiden gemeinsam vor Ort, im echten Licht Ihres Raumes.</p></div></article>
+      <article class="chip dk rv" style="--c:#3B3D3F"><div class="chip-c"><span>Nr. 06</span><span>Anthrazit</span></div><div class="chip-b"><h3>Lackierarbeiten</h3><p>Türen, Fenster, Heizkörper und Geländer bekommen glatte, strapazierfähige Oberflächen.</p></div></article>
+      <article class="chip rv" style="--c:#7E95AE"><div class="chip-c"><span>Nr. 07</span><span>Taubenblau</span></div><div class="chip-b"><h3>Bodenbeläge</h3><p>Der neue Boden passend zum frisch gestrichenen Raum, alles aus einer Hand.</p></div></article>
+      <article class="chip dk rv" style="--c:#2F5D62"><div class="chip-c"><span>Nr. 08</span><span>Petrol</span></div><div class="chip-b"><h3>Denkmal &amp; Werterhalt</h3><p>Behutsame Pflege alter Bausubstanz, damit Ihr Gebäude seinen Wert über Jahrzehnte behält.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" style="--dot:var(--petrol)">So arbeiten wir zusammen</div>
+      <h2 class="h2">Vier Schritte <em>zum neuen Raum.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step rv" style="--c:var(--ocker)"><b>01</b><h3>Anrufen</h3><p>Kurz schildern, worum es geht, mobil oder im Büro.</p></div>
+      <div class="step rv" style="--c:var(--salbei)"><b>02</b><h3>Termin vor Ort</h3><p>Ich schaue mir alles an, messe aus und bringe Farbmuster mit.</p></div>
+      <div class="step rv" style="--c:var(--terra)"><b>03</b><h3>Klares Angebot</h3><p>Schriftlich und nachvollziehbar, damit Sie wissen, woran Sie sind.</p></div>
+      <div class="step rv" style="--c:var(--petrol)"><b>04</b><h3>Saubere Ausführung</h3><p>Abdecken, streichen, aufräumen. Sie bekommen Ihren Raum fertig zurück.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGION -->
+<section class="region" id="region">
+  <div class="wrap region-grid">
+    <div class="rv">
+      <div class="eyebrow" style="--dot:var(--terra)">Einsatzgebiet</div>
+      <h2 class="h2">Zuhause in Neubrandenburg. <em>Unterwegs in der Region.</em></h2>
+      <p class="lead" style="margin-top:24px">Mein Einsatzgebiet hört nicht an der Stadtgrenze auf. Durch zahlreiche Referenzen ist in der ganzen Region ein fester und treuer Kundenstamm gewachsen.</p>
+      <ul>
+        <li><i style="--c:var(--ocker)"></i>Neubrandenburg &amp; Umgebung</li>
+        <li><i style="--c:var(--salbei)"></i>Mecklenburg-Strelitz</li>
+        <li><i style="--c:var(--terra)"></i>Müritz</li>
+        <li><i style="--c:var(--petrol)"></i>Uecker-Randow</li>
+        <li><i style="--c:#7E95AE"></i>Uckermark</li>
+      </ul>
+    </div>
+    <svg class="rings rv" viewBox="0 0 520 520" aria-hidden="true">
+      <circle cx="260" cy="260" r="236" fill="none" stroke="#2F5D62" stroke-width="26" stroke-opacity=".14"/>
+      <circle cx="260" cy="260" r="170" fill="none" stroke="#C2653F" stroke-width="30" stroke-opacity=".18"/>
+      <circle cx="260" cy="260" r="104" fill="none" stroke="#93A68C" stroke-width="34" stroke-opacity=".35"/>
+      <circle cx="260" cy="260" r="44" fill="#D2A042"/>
+      <path d="M249 271V250l11 10 11-10v21" fill="none" stroke="#1B1A17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="260" y="330" text-anchor="middle" class="big">Neubrandenburg</text>
+      <circle cx="210" cy="390" r="7" fill="#93A68C"/><text x="222" y="395">Mecklenburg-Strelitz</text>
+      <circle cx="98" cy="222" r="7" fill="#C2653F"/><text x="84" y="250" text-anchor="middle">Müritz</text>
+      <circle cx="418" cy="168" r="7" fill="#2F5D62"/><text x="418" y="150" text-anchor="middle">Uecker-Randow</text>
+      <circle cx="400" cy="440" r="7" fill="#7E95AE"/><text x="400" y="470" text-anchor="middle">Uckermark</text>
+    </svg>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" style="--dot:var(--ocker)">Kontakt</div>
+      <h2 class="h2">Welche Farbe <em>darf’s sein?</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="rv">
+        <p class="lead">Am schnellsten geht es per Telefon. Wenn ich gerade auf der Baustelle bin, rufe ich zurück.</p>
+        <a class="tel" href="tel:+491723243808">0172 3 24 38 08</a>
+        <span class="open-now" id="openNow"><i></i><span>Mo–Fr 8–17 Uhr</span></span>
+        <div class="cinfo">
+          <div><h4>Büro</h4><a href="tel:+493953599899">0395 3 59 98 99</a></div>
+          <div><h4>E-Mail</h4><a href="mailto:malermeister-jm@web.de">malermeister-jm@web.de</a></div>
+          <div><h4>Adresse</h4>Philipp-Müller-Straße 7<br>17033 Neubrandenburg</div>
+          <div><h4>Erreichbar</h4>Montag bis Freitag<br>8:00 bis 17:00 Uhr</div>
+        </div>
+      </div>
+      <form id="form" class="rv" novalidate>
+        <h3>Anfrage schicken</h3>
+        <label>Worum geht es?</label>
+        <div class="tags" id="tags">
+          <button type="button" aria-pressed="false">Innenräume</button>
+          <button type="button" aria-pressed="false">Fassade</button>
+          <button type="button" aria-pressed="false">Tapezieren</button>
+          <button type="button" aria-pressed="false">Kreative Technik</button>
+          <button type="button" aria-pressed="false">Lackieren</button>
+          <button type="button" aria-pressed="false">Farbberatung</button>
+        </div>
+        <label for="fName">Ihr Name</label>
+        <input id="fName" autocomplete="name" required>
+        <label for="fTel">Telefon für Rückruf</label>
+        <input id="fTel" type="tel" autocomplete="tel" inputmode="tel">
+        <label for="fMsg">Nachricht</label>
+        <textarea id="fMsg" placeholder="z. B. Wohnzimmer, ca. 25 m², Decke und Wände, Wunschtermin im Frühjahr"></textarea>
+        <button class="btn btn-ink" type="submit">Anfrage per E-Mail öffnen</button>
+        <p class="form-note">Öffnet Ihr E-Mail-Programm mit der fertigen Nachricht. Es werden keine Daten auf dieser Seite gespeichert.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="slogan">Bekennen Sie Farbe!</div>
+    <nav>
+      <button data-dlg="impressum">Impressum</button>
+      <button data-dlg="datenschutz">Datenschutz</button>
+      <a href="#top">Nach oben</a>
+    </nav>
+    <p class="small">© Malermeister Jörn Michaelis, Neubrandenburg · Website-Entwurf, keine offizielle Seite des Betriebs · Schriften: Bricolage Grotesque, Instrument Serif (SIL Open Font License), lokal eingebunden</p>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="a1" href="tel:+491723243808"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Anrufen</a>
+  <a class="a2" href="#kontakt">Anfragen</a>
+</div>
+
+<dialog id="impressum"><div class="in"><button class="x" aria-label="Schließen">×</button>
+  <h3>Impressum</h3>
+  <p><em>Muster, die vollständigen Angaben trägt der Betreiber vor Veröffentlichung ein.</em></p>
+  <h4>Angaben gemäß § 5 DDG</h4><p>Malermeister Jörn Michaelis<br>Philipp-Müller-Straße 7<br>17033 Neubrandenburg</p>
+  <h4>Kontakt</h4><p>Telefon: 0395 3 59 98 99<br>Mobil: 0172 3 24 38 08<br>E-Mail: malermeister-jm@web.de</p>
+  <h4>Berufsbezeichnung und Kammer</h4><p>Maler- und Lackierermeister (verliehen in Deutschland)<br>Zuständige Kammer: [Handwerkskammer eintragen]</p>
+  <h4>Umsatzsteuer-ID</h4><p>[falls vorhanden eintragen]</p>
+</div></dialog>
+<dialog id="datenschutz"><div class="in"><button class="x" aria-label="Schließen">×</button>
+  <h3>Datenschutz</h3>
+  <p><em>Muster, wird vor Livegang rechtlich geprüft.</em></p>
+  <h4>Verantwortlicher</h4><p>Malermeister Jörn Michaelis, Philipp-Müller-Straße 7, 17033 Neubrandenburg</p>
+  <h4>Keine Cookies, keine Tracker</h4><p>Diese Website setzt keine Cookies, nutzt keine Analyse-Werkzeuge und lädt keine Inhalte von Drittanbietern. Schriften werden vom eigenen Server geladen.</p>
+  <h4>Kontaktformular</h4><p>Das Formular speichert nichts. Es öffnet Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht. Ihre Angaben verarbeiten wir nur zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b DSGVO).</p>
+  <h4>Hosting</h4><p>[Hosting-Anbieter und Server-Logfiles ergänzen]</p>
+  <h4>Ihre Rechte</h4><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Beschwerde bei einer Aufsichtsbehörde.</p>
+</div></dialog>
+
+<script>
+(()=>{
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = s=>document.querySelector(s);
+
+/* ================= HERO PAINT ROLLER ================= */
+const cv = $("#paint"), ctx = cv.getContext("2d");
+const hero = $("#hero"), layerEl = $("#layer"), hint = $("#hint");
+const STROKES = [
+  {c:"#D2A042", name:"Ocker",      el:"#l2", dir: 1, up: 1, seed:11},
+  {c:"#93A68C", name:"Salbei",     el:"#l1", dir:-1, up: 1, seed:23},
+  {c:"#C2653F", name:"Terrakotta", top:.115, hf:.085, dir: 1, up:-1, seed:37},
+  {c:"#2F5D62", name:"Petrol",     top:.94, hf:.10, dir:-1, up: 1, seed:51},
+];
+let W=0,H=0,DPR=1, intro = RM?1:0, scrollP = RM?1:0, need=true;
+
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function shade(hex,amt){const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b=n&255;const f=v=>Math.max(0,Math.min(255,Math.round(amt<0?v*(1+amt):v+(255-v)*amt)));return`rgb(${f(r)},${f(g)},${f(b)})`}
+
+function layout(){
+  DPR = Math.min(2, window.devicePixelRatio||1);
+  const r = cv.getBoundingClientRect(); W=r.width; H=r.height;
+  cv.width = Math.round(W*DPR); cv.height = Math.round(H*DPR);
+  const cr = cv.getBoundingClientRect();
+  STROKES.forEach(s=>{
+    if(s.el){const b=$(s.el).getBoundingClientRect(); s.cy=b.top-cr.top+b.height*.55; s.h=Math.min(b.height*.78, H*.22);}
+    else{ s.h=Math.max(46,H*s.hf*(W<700?.8:1)); s.cy = s.top<.5 ? Math.max(H*s.top, 72+s.h/2+8) : H*s.top; }
+    s.xa = s.dir>0 ? -60 : W+60; s.xb = s.dir>0 ? W+60 : -60;
+    const R = rng(s.seed), n = Math.ceil((W+140)/3)+2;
+    const p1=R()*6.28,p2=R()*6.28,p3=R()*6.28,p4=R()*6.28;
+    s.tj = new Float32Array(n); s.bj = new Float32Array(n);
+    for(let i=0;i<n;i++){
+      const x=i*3;
+      s.tj[i]= s.h*(.05*Math.sin(x/170+p1)+.03*Math.sin(x/47+p2)) + (R()-.5)*2.2;
+      s.bj[i]= s.h*(.05*Math.sin(x/150+p3)+.03*Math.sin(x/39+p4)) + (R()-.5)*2.2;
+    }
+    s.streaks = Array.from({length:16},()=>({y:R(), w:.6+R()*2.6, a:.04+R()*.1, light:R()>.45, ph:R()*6.28}));
+    s.specks = Array.from({length:90},()=>({x:R(), y:R(), r:.4+R()*1.3}));
+  });
+  need=true;
+}
+
+function drawStroke(s,f){
+  if(f<=0) return;
+  const len = s.xb - s.xa, head = s.xa + len*f, d=s.dir;
+  const x0 = Math.min(s.xa,head), x1 = Math.max(s.xa,head);
+  const top=s.cy-s.h/2, bot=s.cy+s.h/2;
+  const idx = x => Math.max(0,Math.min(s.tj.length-1, Math.round((x+70)/3)));
+  ctx.beginPath();
+  ctx.moveTo(x0, top+s.tj[idx(x0)]);
+  for(let x=x0; x<=x1; x+=3) ctx.lineTo(x, top+s.tj[idx(x)]);
+  // ragged head edge (right side when painting rightwards, left side otherwise)
+  const steps=10, jag=k=>Math.sin(k*1.7+s.seed)*3;
+  if(d>0) for(let k=0;k<=steps;k++) ctx.lineTo(x1 + jag(k), top+(bot-top)*k/steps);
+  for(let x=x1; x>=x0; x-=3) ctx.lineTo(x, bot+s.bj[idx(x)]);
+  if(d<0) for(let k=steps;k>=0;k--) ctx.lineTo(x0 - jag(k), top+(bot-top)*k/steps);
+  ctx.closePath();
+  ctx.fillStyle = s.c; ctx.fill();
+  ctx.save(); ctx.clip();
+  // roller streaks
+  for(const st of s.streaks){
+    ctx.strokeStyle = st.light?`rgba(255,255,255,${st.a})`:`rgba(0,0,0,${st.a*.8})`;
+    ctx.lineWidth = st.w;
+    ctx.beginPath();
+    const y = top + s.h*st.y;
+    for(let x=x0; x<=x1; x+=24){ctx.lineTo(x, y+Math.sin(x/90+st.ph)*1.6);}
+    ctx.stroke();
+  }
+  // speckle texture
+  ctx.fillStyle="rgba(255,255,255,.18)";
+  for(const p of s.specks){const x=s.xa+len*p.x; if((d>0&&x<head)||(d<0&&x>head)){ctx.beginPath();ctx.arc(x,top+s.h*p.y,p.r,0,6.28);ctx.fill();}}
+  // wet edge near the head
+  const g = ctx.createLinearGradient(head - d*80, 0, head, 0);
+  g.addColorStop(0,"rgba(255,255,255,0)"); g.addColorStop(1,"rgba(255,255,255,.14)");
+  ctx.fillStyle=g; ctx.fillRect(Math.min(head,head-d*80), top-10, 80, s.h+20);
+  ctx.restore();
+  if(f<1) drawRoller(s, head);
+}
+
+function drawRoller(s, x){
+  const h=s.h, d=s.dir, u=s.up, rw=Math.max(14,h*.2);
+  const yTop = s.cy-h/2-5, yBot = s.cy+h/2+5;
+  const yEnd = u>0 ? yTop : yBot;
+  // frame
+  ctx.lineCap="round"; ctx.lineJoin="round";
+  ctx.strokeStyle="#7D8388"; ctx.lineWidth=Math.max(3,h*.035);
+  const ax = x - d*rw*.1, ay = yEnd - u*Math.max(10,h*.1);
+  const bx = x - d*h*.42, by = yEnd - u*h*.55;
+  ctx.beginPath(); ctx.moveTo(x, yEnd); ctx.lineTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke();
+  // grip
+  ctx.strokeStyle="#2A2622"; ctx.lineWidth=Math.max(7,h*.1);
+  ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx - d*h*.28, by - u*h*.5); ctx.stroke();
+  // roller cylinder
+  const gx = ctx.createLinearGradient(x-rw/2,0,x+rw/2,0);
+  gx.addColorStop(0, shade(s.c,-.25)); gx.addColorStop(.45, shade(s.c,.18)); gx.addColorStop(1, shade(s.c,-.35));
+  ctx.fillStyle=gx;
+  roundRect(x-rw/2, yTop, rw, yBot-yTop, rw/2); ctx.fill();
+  ctx.fillStyle="rgba(0,0,0,.12)"; roundRect(x-rw/2, yTop, rw, 6, 3); ctx.fill(); roundRect(x-rw/2, yBot-6, rw, 6, 3); ctx.fill();
+}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+
+const clamp=v=>Math.max(0,Math.min(1,v));
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+function fractions(){
+  return [intro, ease(clamp(scrollP/.3)), ease(clamp((scrollP-.3)/.3)), ease(clamp((scrollP-.6)/.32))];
+}
+let lastLayer=-1;
+function render(){
+  if(!need) return; need=false;
+  ctx.setTransform(DPR,0,0,DPR,0,0); ctx.clearRect(0,0,W,H);
+  const fr = fractions();
+  // paint order: bottom layers first so the roller of the active stroke sits on top
+  [3,2,1,0].forEach(i=>{ if(fr[i]>=1) drawStroke(STROKES[i],1); });
+  fr.forEach((f,i)=>{ if(f>0&&f<1) drawStroke(STROKES[i],f); });
+  let li = 0; fr.forEach((f,i)=>{ if(f>0) li=i; });
+  if(li!==lastLayer){ lastLayer=li; layerEl.style.setProperty("--c",STROKES[li].c);
+    layerEl.querySelector("span").textContent = fr[3]>=1 ? "Fertig gestrichen · 4 von 4" : `Anstrich ${li+1} von 4 · ${STROKES[li].name}`; }
+  if(fr[3]>=1 && layerEl.dataset.done!=="1"){layerEl.dataset.done="1";layerEl.querySelector("span").textContent="Fertig gestrichen · 4 von 4";}
+  if(fr[3]<1) layerEl.dataset.done="";
+  hint.style.opacity = scrollP>.05 ? 0 : 1;
+}
+function onScroll(){
+  const r = hero.getBoundingClientRect(), span = r.height - innerHeight;
+  const p = span>0 ? clamp(-r.top/span) : 1;
+  if(!RM && p!==scrollP){scrollP=p; need=true;}
+  $("#nav").classList.toggle("solid", r.bottom < 80);
+  $("#mbar").classList.toggle("show", scrollY > innerHeight*.6);
+}
+function loop(){ render(); requestAnimationFrame(loop); }
+function startIntro(){
+  if(RM){need=true;return;}
+  const t0=performance.now(), dur=1700;
+  const step=t=>{intro=ease(clamp((t-t0)/dur)); need=true; if(intro<1) requestAnimationFrame(step);};
+  setTimeout(()=>requestAnimationFrame(step),350);
+}
+let rt; addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(layout,120)});
+addEventListener("scroll",onScroll,{passive:true});
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{layout();onScroll();startIntro();});
+layout(); onScroll(); loop();
+
+/* ================= RAUMPROBE ================= */
+const COLORS = [
+  ["Kalkweiß","#EEEAE1","MJ 01"],["Sandstein","#D8C3A0","MJ 02"],["Ocker","#D2A042","MJ 03"],
+  ["Salbei","#93A68C","MJ 04"],["Altrosa","#D3A29A","MJ 05"],["Terrakotta","#C2653F","MJ 06"],
+  ["Taubenblau","#7E95AE","MJ 07"],["Petrol","#2F5D62","MJ 08"],["Anthrazit","#3B3D3F","MJ 09"],
+];
+const st = {target:"back", back:"Salbei", side:"Kalkweiß", tech:"glatt"};
+const TECH = {glatt:"glatt", kalk:"Kalkputz-Optik", wisch:"Wischtechnik"};
+const hexOf = n => COLORS.find(c=>c[0]===n)[1];
+// floor planks converge to the vanishing point
+const pl=$("#planks"); for(let i=-6;i<=16;i++){const xb=i*72; const xt=500+(xb-500)*.5278; const l=document.createElementNS("http://www.w3.org/2000/svg","line"); l.setAttribute("x1",xb);l.setAttribute("y1",640);l.setAttribute("x2",xt);l.setAttribute("y2",470); pl.appendChild(l);}
+pl.setAttribute("clip-path","url(#cFloor)");
+const defs=$("#roomSvg defs"); defs.insertAdjacentHTML("beforeend",'<clipPath id="cFloor"><path d="M0 640L220 470H780L1000 640Z"/></clipPath>');
+
+const sw=$("#swatches");
+COLORS.forEach(([n,h,code])=>{const b=document.createElement("button");b.className="sw";b.type="button";b.dataset.n=n;b.style.setProperty("--c",h);b.innerHTML=`<i></i><span><b>${n}</b><small>${code}</small></span>`;b.onclick=()=>pick(n);sw.appendChild(b);});
+
+const WALLS = {back:{base:"#wBack",wet:"#wetBack",x:220,w:560,dir:1}, left:{base:"#wLeft",wet:"#wetLeft",x:0,w:220,dir:1}, right:{base:"#wRight",wet:"#wetRight",x:780,w:220,dir:-1}};
+function paintWall(key,hex){
+  const wl=WALLS[key], base=$(wl.base), wet=$(wl.wet);
+  if(base.getAttribute("fill")===hex) return;
+  wet.setAttribute("fill",hex);
+  if(RM){base.setAttribute("fill",hex);wet.setAttribute("width",0);return;}
+  const t0=performance.now(), dur=key==="back"?750:560;
+  cancelAnimationFrame(wl.raf);
+  const step=t=>{const k=ease(clamp((t-t0)/dur)), w=wl.w*k;
+    wet.setAttribute("width",w); wet.setAttribute("x", wl.dir>0 ? wl.x : wl.x+wl.w-w);
+    if(k<1) wl.raf=requestAnimationFrame(step); else {base.setAttribute("fill",hex); wet.setAttribute("width",0);} };
+  wl.raf=requestAnimationFrame(step);
+}
+function applyWalls(){ paintWall("back",hexOf(st.back)); setTimeout(()=>{paintWall("left",hexOf(st.side)); paintWall("right",hexOf(st.side));}, 0); }
+function pick(n){
+  if(st.target==="back"||st.target==="all") st.back=n;
+  if(st.target==="side"||st.target==="all") st.side=n;
+  applyWalls(); sync();
+}
+function sync(){
+  const cur = st.target==="side" ? st.side : st.back;
+  sw.querySelectorAll(".sw").forEach(b=>b.setAttribute("aria-pressed", b.dataset.n===cur));
+  $("#readout").innerHTML = st.back===st.side
+    ? `Alle Wände in <strong>${st.back}</strong>, ${st.tech==="glatt"?"glatt gestrichen":"in <strong>"+TECH[st.tech]+"</strong>"}.`
+    : `Akzentwand <strong>${st.back}</strong>, Seitenwände <strong>${st.side}</strong>, ${st.tech==="glatt"?"glatt gestrichen":"Technik <strong>"+TECH[st.tech]+"</strong>"}.`;
+}
+document.querySelectorAll("#target button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#target button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  st.target=b.dataset.t; sync();
+});
+document.querySelectorAll("#tech button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#tech button").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  st.tech=b.dataset.x;
+  const tex=$("#tex");
+  if(st.tech==="glatt"){tex.setAttribute("opacity",0);}
+  else{
+    $("#texA").setAttribute("filter", st.tech==="kalk"?"url(#fKalk)":"url(#fWisch)");
+    $("#texB").setAttribute("filter", st.tech==="kalk"?"url(#fKalkHi)":"url(#fWischHi)");
+    tex.setAttribute("opacity",1);
+  }
+  sync();
+});
+sync();
+
+/* ================= KONTAKT ================= */
+const tags=document.querySelectorAll("#tags button");
+tags.forEach(b=>b.onclick=()=>b.setAttribute("aria-pressed", b.getAttribute("aria-pressed")!=="true"));
+$("#takeCombo").addEventListener("click",()=>{
+  const m=$("#fMsg"); const line="Meine Raumprobe: "+$("#readout").textContent;
+  if(!m.value.includes("Raumprobe")) m.value = (m.value?m.value+"\n":"") + line;
+  tags.forEach(b=>{ if(b.textContent==="Farbberatung"||(st.tech!=="glatt"&&b.textContent==="Kreative Technik")) b.setAttribute("aria-pressed","true"); });
+});
+$("#form").addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=$("#fName"); if(!name.value.trim()){name.focus();name.style.borderColor="#C2653F";return;}
+  const sel=[...tags].filter(b=>b.getAttribute("aria-pressed")==="true").map(b=>b.textContent);
+  const body=`Guten Tag Herr Michaelis,\n\n${$("#fMsg").value||"ich interessiere mich für Malerarbeiten."}\n\nThema: ${sel.join(", ")||"–"}\nRückruf unter: ${$("#fTel").value||"–"}\n\nViele Grüße\n${name.value}`;
+  location.href=`mailto:malermeister-jm@web.de?subject=${encodeURIComponent("Anfrage über die Website"+(sel.length?": "+sel.join(", "):""))}&body=${encodeURIComponent(body)}`;
+});
+// open-now indicator (Berlin time)
+try{
+  const parts=new Intl.DateTimeFormat("de-DE",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+  const g=t=>parts.find(p=>p.type===t).value, wd=g("weekday"), mins=+g("hour")*60+ +g("minute");
+  const open=!["Sa","So"].includes(wd.replace(".",""))&&mins>=480&&mins<1020;
+  const el=$("#openNow"); el.classList.toggle("on",open); el.querySelector("span").textContent= open?"Jetzt erreichbar · bis 17 Uhr":"Mo–Fr 8–17 Uhr · gern Nachricht hinterlassen";
+}catch(e){}
+
+/* ================= MISC ================= */
+document.querySelectorAll("[data-dlg]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.dlg).showModal());
+document.querySelectorAll("dialog").forEach(d=>{d.querySelector(".x").onclick=()=>d.close();d.addEventListener("click",e=>{if(e.target===d)d.close();});});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(el.parentElement.classList.contains("chips")||el.parentElement.classList.contains("steps")?(i%4)*80:0)+"ms";io.observe(el);});
+})();
+</script>
+</body>
+</html>
