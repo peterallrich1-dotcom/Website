@@ -221,6 +221,17 @@ img,canvas{display:block;max-width:100%}
 .extras .xs{color:var(--mute);font-size:14.5px;margin-top:22px}
 .extras .xgrid{text-align:left}
 .xgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.xgrid .xcard:last-child:nth-child(odd){grid-column:1/-1}
+.xadm{margin-top:18px;text-align:left;background:linear-gradient(150deg,#14213f 0%,var(--black-2) 65%);border-color:rgba(61,123,255,.45);display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(22px,4vw,52px);align-items:center}
+.xadm .lbl i{font-style:normal;display:inline-block;margin-right:8px;padding:3px 9px;border-radius:999px;background:linear-gradient(90deg,var(--blue),#7a5cff);color:#fff;font-size:11px;letter-spacing:.08em;vertical-align:1px}
+.xadm h3{font-family:var(--f-h);font-size:clamp(26px,2.5vw,38px);line-height:1.05;margin-top:12px}
+.xadm .t{color:var(--mute);font-size:15px;margin-top:12px}
+.xadm ul{margin:20px 0 0}
+.xadm .pr{border-left:1px solid var(--line);padding-left:clamp(22px,3vw,44px)}
+.xadm .pr .amt{margin-top:0}
+.xadm .req{margin-top:16px;font-size:14px;line-height:1.45;color:var(--mute)}
+.xadm .req b{color:var(--white,#fff);font-weight:600}
+.xadm .pr .btn{margin-top:22px;display:inline-flex}
+@media (max-width:760px){.xadm{grid-template-columns:1fr}.xadm .pr{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:22px}}
 .xcard{border-radius:var(--r);padding:clamp(22px,2.8vw,32px);background:var(--black-2);border:1px solid var(--line);display:flex;flex-direction:column}
 .xcard h3{font-family:var(--f-h);font-size:clamp(21px,1.8vw,26px)}
 .xcard p{color:var(--mute);font-size:14.5px;margin-top:10px;flex:1}
@@ -496,6 +507,24 @@ img,canvas{display:block;max-width:100%}
     <details class="extras rv">
       <summary class="xbtn">Extras ansehen<span class="xplus">+</span></summary>
       <p class="xs">Zu jedem Paket dazubuchbar.</p>
+      <div class="pbox xadm" id="verwaltung">
+        <div>
+          <p class="lbl"><i>Neu</i>Eigene Verwaltung</p>
+          <h3>Ändern Sie Ihre Website selbst. Ganz einfach am Handy.</h3>
+          <p class="t">Sie bekommen eine eigene Verwaltungsseite mit Login. Dort pflegen Sie Ihre Fahrzeuge, Objekte oder Angebote selbst, ohne Technikwissen.</p>
+          <ul>
+            <li>Neu anlegen, ausblenden oder löschen</li>
+            <li>Fotos hochladen und tauschen</li>
+            <li>Preise und Angaben ändern</li>
+            <li>Sofort online, ohne auf mich zu warten</li>
+          </ul>
+        </div>
+        <div class="pr">
+          <p class="amt">390 €<small>einmalig</small></p>
+          <p class="req">Nur mit <b>Hosting und Pflege</b>: 49 €/Monat oder 490 €/Jahr, Mindestlaufzeit 12 Monate.</p>
+          <a class="btn ghost" href="#kontakt">Jetzt anfragen <span class="arr">→</span></a>
+        </div>
+      </div>
       <div class="xgrid">
         <div class="xcard">
           <h3>Ihr eigener KI-Assistent</h3>
