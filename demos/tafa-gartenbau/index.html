@@ -7,6 +7,9 @@
 <meta name="description" content="TAFA Garten- & Landschaftsbau in Heilbronn: Gartengestaltung, Natursteinbau, Wegebau, Terrassenbau, Brunnen- und Teichbau. Alles aus einer Hand. Mobil 0177 866 07 21.">
 <meta name="theme-color" content="#1f2e24">
 <meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="TAFA Garten- &amp; Landschaftsbau · Entwurf">
+<meta property="og:description" content="Gärten aus Stein und Grün in Heilbronn. Neuer Website-Entwurf.">
+<meta property="og:image" content="https://allrich-webdesign.com/tafa/video/film.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f2e24'/%3E%3Cpath d='M32 12c10 8 14 16 14 24a14 14 0 0 1-28 0c0-8 4-16 14-24z' fill='%23c98a5b'/%3E%3Cpath d='M32 22v32' stroke='%231f2e24' stroke-width='3'/%3E%3C/svg%3E">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"TAFA Garten- & Landschaftsbau","founder":"Tafa Sadrijaj","telephone":"+49 177 8660721","faxNumber":"+49 7131 2791718","email":"info@tafa-gartenbau.de","address":{"@type":"PostalAddress","streetAddress":"Viktor-Scheffel-Straße 22","postalCode":"74076","addressLocality":"Heilbronn","addressCountry":"DE"},"areaServed":"Heilbronn und Umgebung","url":"https://tafa-gartenbau.de"}
@@ -67,8 +70,7 @@ section{padding:clamp(76px,10vw,130px) 0;scroll-margin-top:56px}
 /* ---------- Hero: Film aus echten Projekten ---------- */
 .hero{position:relative;color:var(--paper);background:var(--moss);min-height:clamp(620px,94svh,940px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .film{position:absolute;inset:0;z-index:-2}
-.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.02)}
-.film video.on{opacity:1}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--moss)}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(90deg,rgba(17,26,20,.86) 0%,rgba(17,26,20,.55) 38%,rgba(17,26,20,.08) 70%),
   linear-gradient(0deg,rgba(17,26,20,.92) 0%,rgba(17,26,20,0) 46%),
@@ -106,10 +108,11 @@ section{padding:clamp(76px,10vw,130px) 0;scroll-margin-top:56px}
 @media (max-width:900px){
   .hero{min-height:auto}
   .hero .wrap{grid-template-columns:1fr;padding-top:104px}
-  .film{bottom:auto;height:62svh;-webkit-mask-image:linear-gradient(#000 55%,transparent 98%);mask-image:linear-gradient(#000 55%,transparent 98%)}
+  .film{bottom:auto;height:62svh}
+  .film::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:45%;background:linear-gradient(to top,var(--moss),rgba(31,46,36,0))}
   .hero::before{background:linear-gradient(0deg,var(--moss) 38%,rgba(31,46,36,.6) 62%,rgba(31,46,36,.15) 80%,rgba(31,46,36,.5) 100%)}
   .hero-copy{padding-top:28svh}
-  .chapters{min-width:0;grid-template-columns:repeat(4,1fr);gap:6px}
+  .chapters{display:none}
   .chapters-head{grid-column:1/-1;margin-bottom:2px}
   .chapters button{grid-template-columns:1fr;padding:8px 6px;text-align:left}
   .chapters button[aria-current="true"]{background:rgba(255,255,255,.08)}
@@ -256,6 +259,9 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
 .callbar a{flex:1;justify-content:center;padding:13px 10px;font-size:15px}
 @media (max-width:880px){.callbar{display:flex}}
 
+.badge{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;background:rgba(31,46,36,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:9px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.06em;text-decoration:none}
+.badge b{color:var(--terra)}
+@media (max-width:880px){.badge{position:static;display:block;width:max-content;margin:-100px auto 0;transform:translateY(-22px);background:var(--moss-2)}}
 /* ---------- Reveal ---------- */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -297,10 +303,7 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
 <main id="top">
 <section class="hero" aria-label="TAFA Garten- und Landschaftsbau">
   <div class="film" id="film" aria-hidden="true">
-    <video muted playsinline preload="auto" poster="video/terrasse.webp" data-src="video/terrasse.mp4" data-src-sm="video/terrasse-sm.mp4"></video>
-    <video muted playsinline preload="none" poster="video/eingang.webp" data-src="video/eingang.mp4" data-src-sm="video/eingang-sm.mp4"></video>
-    <video muted playsinline preload="none" poster="video/trittsteine.webp" data-src="video/trittsteine.mp4" data-src-sm="video/trittsteine-sm.mp4"></video>
-    <video muted playsinline preload="none" poster="video/mauer.webp" data-src="video/mauer.mp4" data-src-sm="video/mauer-sm.mp4"></video>
+    <video id="filmVideo" muted autoplay loop playsinline disablepictureinpicture preload="auto" poster="video/film.webp"></video>
   </div>
   <div class="wrap">
     <div class="hero-copy">
@@ -343,15 +346,15 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
     </div>
     <div class="svc-grid">
       <article class="svc rv">
-        <video data-inview muted loop playsinline preload="none" poster="video/terrasse.webp" data-src="video/terrasse.mp4" data-src-sm="video/terrasse-sm.mp4" aria-label="Kamerafahrt über eine fertige Terrasse mit Blockstufen und Gabionen"></video>
+        <video data-inview muted loop playsinline preload="none" poster="video/terrasse.webp" data-src="video/terrasse.mp4" aria-label="Kamerafahrt über eine fertige Terrasse mit Blockstufen und Gabionen"></video>
         <div class="svc-body"><div class="svc-num">01</div><h3>Terrassenbau</h3><p>Terrassen aus Granit, Naturstein oder Betonplatten, mit sauberem Unterbau, Gefälle und passenden Stufen.</p></div>
       </article>
       <article class="svc rv">
-        <video data-inview muted loop playsinline preload="none" poster="video/mauer.webp" data-src="video/mauer.mp4" data-src-sm="video/mauer-sm.mp4" aria-label="Kamerafahrt an einer Mauer aus Sandsteinblöcken entlang"></video>
+        <video data-inview muted loop playsinline preload="none" poster="video/mauer.webp" data-src="video/mauer.mp4" aria-label="Kamerafahrt an einer Mauer aus Sandsteinblöcken entlang"></video>
         <div class="svc-body"><div class="svc-num">02</div><h3>Natursteinbau</h3><p>Trockenmauern, Blocksteine, Gabionen und Treppen. Hänge werden zu nutzbaren Flächen.</p></div>
       </article>
       <article class="svc rv">
-        <video data-inview muted loop playsinline preload="none" poster="video/trittsteine.webp" data-src="video/trittsteine.mp4" data-src-sm="video/trittsteine-sm.mp4" aria-label="Kamerafahrt über einen Trittsteinweg im Rasen"></video>
+        <video data-inview muted loop playsinline preload="none" poster="video/trittsteine.webp" data-src="video/trittsteine.mp4" aria-label="Kamerafahrt über einen Trittsteinweg im Rasen"></video>
         <div class="svc-body"><div class="svc-num">03</div><h3>Wegebau</h3><p>Wege, Einfahrten und Trittsteine, die zum Haus passen und lange halten.</p></div>
       </article>
       <article class="svc rv">
@@ -502,6 +505,8 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
   <p>Muster für den Entwurf. Die vollständige Datenschutzerklärung wird vor dem Livegang erstellt.</p>
 </div></dialog>
 
+<a class="badge" href="https://allrich-webdesign.com" target="_blank" rel="noopener"><b>Kostenloser Entwurf</b> von Allrich Webdesign</a>
+
 <div class="callbar" id="callbar">
   <a class="btn btn-terra" href="tel:+491778660721"><svg><use href="#i-phone"/></svg>Anrufen</a>
   <a class="btn btn-line" href="#kontakt">Anfrage</a>
@@ -524,35 +529,33 @@ const nav=$('#nav'), bar=$('#callbar');
 const onScroll=()=>{const y=scrollY;nav.classList.toggle('solid',y>40);bar.classList.toggle('show',y>innerHeight*.6)};
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-/* Hero film: vier echte Projekte nacheinander, weich überblendet */
-const vids=$$('#film video'), chap=$$('#chapters button');
+/* Hero film: ein durchgehendes Video (4 Projekte, weich überblendet), läuft in Schleife.
+   Handy bekommt eine eigene Hochformat-Fassung. Kapitel folgen der Abspielzeit. */
+const fv=$('#filmVideo'), chap=$$('#chapters button');
 const small=matchMedia('(max-width:900px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const load=v=>{if(!v.src){v.src=small?v.dataset.srcSm:v.dataset.src;v.preload='auto'}};
-let at=0,fading=false;
-const go=i=>{
-  const prev=vids[at];at=i;fading=false;
-  const v=vids[i];load(v);load(vids[(i+1)%vids.length]);
-  chap.forEach((b,k)=>{b.setAttribute('aria-current',k===i);b.style.setProperty('--p',0)});
-  if(still){vids.forEach((x,k)=>x.classList.toggle('on',k===i));return}
-  try{v.currentTime=0}catch(e){}
-  const pr=v.play();if(pr)pr.catch(()=>{});
-  v.classList.add('on');
-  if(prev!==v)setTimeout(()=>{prev.classList.remove('on');prev.pause()},1600);
-};
-vids.forEach((v,i)=>v.addEventListener('timeupdate',()=>{
-  if(i!==at||!v.duration)return;
-  chap[i].style.setProperty('--p',Math.min(1,v.currentTime/(v.duration-1.2)));
-  if(!fading&&v.currentTime>v.duration-1.25){fading=true;go((i+1)%vids.length)}
-}));
-chap.forEach((b,i)=>b.addEventListener('click',()=>{if(i!==at)go(i)}));
-load(vids[0]);vids[0].classList.add('on');
-if(!still){const p=vids[0].play();if(p)p.catch(()=>{});load(vids[1])}
+fv.poster=small?'video/film-m.webp':'video/film.webp';
+fv.src=small?'video/film-m.mp4':'video/film.mp4';
+const CH=[0,4.54,9.58,14.62,19.66];             // Kapitelgrenzen in Sekunden
+const chapterAt=t=>t>=CH[4]?0:Math.max(0,CH.findIndex((c,i)=>t>=c&&t<CH[i+1]));
+let shown=-1;
+const tick=()=>{const t=fv.currentTime||0, i=chapterAt(t), wrap=t>=CH[4];
+  if(i!==shown){chap.forEach((b,k)=>b.setAttribute('aria-current',k===i));shown=i}
+  const st=wrap?CH[4]:CH[i], en=wrap?CH[4]+5.04:CH[i+1];
+  chap.forEach((b,k)=>b.style.setProperty('--p',k===i?Math.min(1,(t-st)/(en-st)):0));
+  requestAnimationFrame(tick)};
+const play=()=>{if(still)return;const p=fv.play();if(p)p.catch(()=>{})};
+if(still){fv.removeAttribute('autoplay');fv.preload='metadata'}
+else{play();requestAnimationFrame(tick)}
+chap.forEach((b,i)=>b.addEventListener('click',()=>{try{fv.currentTime=CH[i]+(i?0.6:0.1)}catch(e){};play();if(still){chap.forEach((x,k)=>x.setAttribute('aria-current',k===i))}}));
+/* iOS: nach dem ersten Antippen sicher starten, falls Autoplay blockiert war */
+addEventListener('touchstart',()=>{if(fv.paused)play()},{once:true,passive:true});
 /* Film pausieren, wenn nicht sichtbar */
-new IntersectionObserver(([e])=>{const v=vids[at];if(still)return;if(e.isIntersecting){const p=v.play();if(p)p.catch(()=>{})}else v.pause()}).observe($('#film'));
-/* Videos in den Leistungen: nur abspielen, wenn im Bild */
-const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=small?v.dataset.srcSm:v.dataset.src;if(!still){const p=v.play();if(p)p.catch(()=>{})}}else v.pause()}),{rootMargin:'200px 0px'});
-$$('video[data-inview]').forEach(v=>vio.observe(v));
-
+new IntersectionObserver(([e])=>{if(e.isIntersecting)play();else fv.pause()}).observe($('#film'));
+/* Leistungskarten: Videos nur am Desktop, auf dem Handy reicht das Standbild */
+if(!small&&!still){
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;const p=v.play();if(p)p.catch(()=>{})}else v.pause()}),{rootMargin:'200px 0px'});
+  $$('video[data-inview]').forEach(v=>vio.observe(v));
+}
 /* Gallery */
 const P=[
 ['eingang-rundtreppe','Eingang mit Sandstein-Rundtreppe','eingang'],
