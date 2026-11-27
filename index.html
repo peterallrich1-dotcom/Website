@@ -33,8 +33,8 @@
 <meta name="theme-color" content="#0a0a0b">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="preload" href="allrich/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="allrich/film/v3/f001.webp" as="image" media="(min-aspect-ratio: 1/1)">
-<link rel="preload" href="allrich/film/v3p/f001.webp" as="image" media="(max-aspect-ratio: 1/1)">
+<link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net" crossorigin>
+<link rel="preload" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/af9c4e6c-a961-4551-9648-4df883a29687.jpg" as="image">
 <style>
 @font-face{font-family:"Anton";font-weight:400;font-display:swap;src:url(allrich/fonts/anton-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Manrope";font-weight:400;font-display:swap;src:url(allrich/fonts/manrope-latin-400-normal.woff2) format("woff2")}
@@ -573,65 +573,35 @@ bg.onclick = () => set(true); $("#drawerX").onclick = () => set(false); $$("#dra
 /* reveal */
 if (!RM && "IntersectionObserver" in window) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" }); $$(".rv").forEach(el => io.observe(el)); } else $$(".rv").forEach(el => el.classList.add("in"));
 
-/* hero scroll film. On phones the opening close-up (frames < K) uses the landscape frames
-   and zooms from "whole ALLRICH sign visible" to full screen, then the portrait crop takes over. */
-const portrait = innerWidth / innerHeight < 1, N = 180, K = 0, NE = N - 1;
+/* hero scroll film v4 (Entwurf): ein Video, in dem jedes Bild ein Keyframe ist (all-intra),
+   wird beim Scrollen Bild fuer Bild angefahren und auf das Canvas gezeichnet.
+   1920x1080 fuer Laptop/Monitor, 608x1080 Hochformat-Ausschnitt fuer Handys, 30 fps, 2x Tempo (24 s, 720 Bilder).
+   TODO vor Livegang: Dateien aus dem Higgsfield-CDN nach allrich/film/v4/ ins Repo holen. */
+const FILM = "https://d2ol7oe51mr4n9.cloudfront.net/user_3MY2PNxde3IRqBP7BvrNtun5K24/";
+const portrait = innerWidth / innerHeight < 1;
 const cv = $("#cv"), ctx = cv.getContext("2d"), hero = $("#hero"), hc = $("#hcopy");
-let SC = null; /* no tracked object in this film: phones keep the centre */
-
-const fr = new Array(N), ok = new Uint8Array(N); let W = 0, H = 0, cur = 0, tgt = 0, drawn = -1;
-function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; drawn = -1; }
-function near(i) { if (ok[i]) return i; for (let k = 1; k < N; k++) { if (i - k >= 0 && ok[i - k]) return i - k; if (i + k < N && ok[i + k]) return i + k; } return -1; }
-const ease = t => t * t * (3 - 2 * t);
-function band(im, ox, y0, w, bh) {
-  /* sharp frame as a band, soft edges into the dimmed background */
-  ctx.drawImage(im, ox, y0, w, bh);
-  const f = Math.min(110, bh * .28);
-  if (y0 > 1) for (const [a, b] of [[y0, y0 + f], [y0 + bh, y0 + bh - f]]) { const g = ctx.createLinearGradient(0, a, 0, b); g.addColorStop(0, "rgba(7,8,10,1)"); g.addColorStop(1, "rgba(7,8,10,0)"); ctx.fillStyle = g; ctx.fillRect(0, Math.min(a, b), W, f); }
-}
-function scrInfo(k) {
-  const q = SC && SC[k]; if (!q) return null;
-  const xs = q.map(p => p[0]), ys = q.map(p => p[1]);
-  return { cx: (Math.min(...xs) + Math.max(...xs)) / 2, cy: (Math.min(...ys) + Math.max(...ys)) / 2, w: Math.max(...xs) - Math.min(...xs) };
-}
-const clampX = (x, w) => Math.min(0, Math.max(W - w, x));
-function draw(x) {
-  if (true) {
-    /* laptop, tablet, monitor: blend the two neighbouring frames for smooth motion between film frames */
-    const i0 = Math.floor(x), f = x - i0, i1 = Math.min(N - 1, i0 + 1), key = i0 + Math.round(f * 16) / 16;
-    const k = near(i0); if (k < 0 || key === drawn) return;
-    const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
-    const s = Math.max(W / iw, H / ih), ox = (W - iw * s) / 2, oy = (H - ih * s) / 2;
-    ctx.globalAlpha = 1; ctx.drawImage(im, ox, oy, iw * s, ih * s);
-    if (k === i0 && f > .03 && ok[i1]) { ctx.globalAlpha = f; ctx.drawImage(fr[i1], ox, oy, iw * s, ih * s); ctx.globalAlpha = 1; }
-    drawn = k === i0 ? key : k; return;
-  }
-  const k = near(Math.round(x)); if (k < 0 || k === drawn) return;
-  const im = fr[k], iw = im.naturalWidth, ih = im.naturalHeight;
-  {
-    /* phone: full-screen, the camera follows the monitor */
-    const sC = H / ih, info = scrInfo(k), endCx = (scrInfo(K) || { cx: .5 }).cx;
-    let s, cx, cy = .5;
-    if (k < K) { const e = ease(k / K), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = s0 + (sC - s0) * e; cx = .5 + (endCx - .5) * e; }
-    else { cx = info ? info.cx : endCx; s = sC; }
-    ctx.fillStyle = "#07080a"; ctx.fillRect(0, 0, W, H);
-    if (k >= K) s = sC;
-    /* end: zoom back out so the whole logo is visible again */
-    const KE = 22; if (k > N - 1 - KE) { const e = ease((k - (N - 1 - KE)) / KE), s0 = Math.min(sC, .92 * W / (.76 * iw)); s = sC + (s0 - sC) * e; cx = .5; }
-    const w = iw * s, bh = ih * s, ox = clampX(W / 2 - cx * w, w), y0 = (H - bh) / 2;
-    band(im, ox, y0, w, bh);
-  }
-  drawn = k;
-}
-const src = i => (portrait ? "allrich/film/v3p/f" : "allrich/film/v3/f") + String(i + 1).padStart(3, "0") + ".webp";
-const order = [], seen = new Uint8Array(N); for (const st of [40, 20, 10, 5, 2, 1]) for (let i = 0; i < N; i += st) if (!seen[i]) { seen[i] = 1; order.push(i); }
-let q = 0; function pump() { if (q >= order.length) return; const i = order[q++], im = new Image(); im.decoding = "async"; im.onload = () => { fr[i] = im; ok[i] = 1; drawn = -1; pump(); }; im.onerror = pump; im.src = src(i); }
-for (let c = 0; c < 5; c++) pump();
+const vid = document.createElement("video");
+vid.muted = true; vid.playsInline = true; vid.preload = "auto";
+vid.setAttribute("muted", ""); vid.setAttribute("playsinline", ""); vid.setAttribute("webkit-playsinline", "");
+vid.src = FILM + (portrait ? "3f9a718f-3d06-4ba8-ae69-13223891b5f2.mp4" : "0f055f5c-be19-4972-898e-7da92de133de.mp4");
+const poster = new Image(); poster.decoding = "async"; poster.src = FILM + "af9c4e6c-a961-4551-9648-4df883a29687.jpg";
+let W = 0, H = 0, cur = 0, tgt = 0, D = 0, ready = false, dirty = true;
+function size() { const d = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); ctx.imageSmoothingQuality = "high"; dirty = true; }
+function cover(im, iw, ih) { if (!iw || !ih) return; const s = Math.max(W / iw, H / ih); ctx.drawImage(im, (W - iw * s) / 2, (H - ih * s) / 2, iw * s, ih * s); }
+vid.addEventListener("loadedmetadata", () => { D = vid.duration; });
+vid.addEventListener("loadeddata", () => { ready = true; dirty = true; });
+vid.addEventListener("seeked", () => { dirty = true; });
+poster.onload = () => { dirty = true; };
+/* iOS decodiert Videobilder erst nach einer Nutzergeste: einmal kurz play/pause beim ersten Beruehren */
+addEventListener("touchstart", () => { const p = vid.play(); if (p && p.then) p.then(() => vid.pause()).catch(() => {}); }, { passive: true, once: true });
+vid.load();
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1) * NE; }
+function onScroll() { const r = hero.getBoundingClientRect(); tgt = clamp(-r.top / (hero.offsetHeight - innerHeight), 0, 1); }
 function tick() {
-  cur += (tgt - cur) * (RM ? 1 : .09); if (Math.abs(tgt - cur) < .01) cur = tgt; draw(cur);
-  const a = clamp(cur / NE / .25, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
+  cur += (tgt - cur) * (RM ? 1 : .12); if (Math.abs(tgt - cur) < .0005) cur = tgt;
+  if (ready && D) { const t = Math.min(D - .05, cur * D); if (!vid.seeking && Math.abs(vid.currentTime - t) > .02) vid.currentTime = t; }
+  if (dirty) { dirty = false; if (ready) cover(vid, vid.videoWidth, vid.videoHeight); else if (poster.naturalWidth) cover(poster, poster.naturalWidth, poster.naturalHeight); }
+  const a = clamp(cur / .2, 0, 1); hc.style.opacity = 1 - a; hc.style.transform = "translateY(" + (-a * 30) + "px)"; hc.style.pointerEvents = a > .9 ? "none" : "";
   requestAnimationFrame(tick);
 }
 addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", () => { size(); onScroll(); });
