@@ -64,44 +64,58 @@ section{padding:clamp(76px,10vw,130px) 0;scroll-margin-top:56px}
 .nav .btn{padding:11px 18px;font-size:14px}
 @media (max-width:880px){.nav ul{display:none}.nav .btn span{display:none}.nav .btn{padding:11px}}
 
-/* ---------- Hero ---------- */
-.hero{background:var(--moss);color:var(--paper);padding:130px 0 90px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:auto -10% -40% 40%;height:80%;background:radial-gradient(closest-side,rgba(201,138,91,.18),transparent);pointer-events:none}
-.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(32px,5vw,72px);align-items:center;position:relative}
-.hero .eyebrow{color:var(--sage)}
-.hero h1{font-size:clamp(44px,7vw,86px);margin:.3em 0 .35em}
+/* ---------- Hero: Film aus echten Projekten ---------- */
+.hero{position:relative;color:var(--paper);background:var(--moss);min-height:clamp(620px,94svh,940px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.film{position:absolute;inset:0;z-index:-2}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;transform:scale(1.02)}
+.film video.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(17,26,20,.86) 0%,rgba(17,26,20,.55) 38%,rgba(17,26,20,.08) 70%),
+  linear-gradient(0deg,rgba(17,26,20,.92) 0%,rgba(17,26,20,0) 46%),
+  linear-gradient(180deg,rgba(17,26,20,.55) 0%,rgba(17,26,20,0) 22%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero .wrap{width:100%;padding-top:120px;padding-bottom:clamp(28px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:end}
+.hero-copy{max-width:660px;min-width:0}
+.hero .eyebrow{color:var(--sage);display:flex;align-items:center;gap:10px}
+.hero .eyebrow::before{content:"";width:28px;height:1.5px;background:var(--terra)}
+.hero h1{font-size:clamp(46px,7.4vw,96px);margin:.28em 0 .32em;text-wrap:balance}
 .hero h1 em{color:var(--terra)}
-.hero .lead{color:rgba(246,242,234,.75)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(246,242,234,.14);font-size:14.5px;color:rgba(246,242,234,.72)}
+.hero .lead{color:rgba(246,242,234,.82)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;font-size:14.5px;color:rgba(246,242,234,.78)}
 .hero-facts span{display:flex;align-items:center;gap:8px}
 .hero-facts svg{width:16px;height:16px;color:var(--sage)}
+.hero h1,.hero .lead,.hero-cta,.hero-facts,.hero .eyebrow{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.12s}.hero .lead{animation-delay:.24s}.hero-cta{animation-delay:.36s}.hero-facts{animation-delay:.48s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
 
-.reel{position:relative;aspect-ratio:4/4.6;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);background:var(--moss-2)}
-.reel figure{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
-.reel figure.on{opacity:1}
-.reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
-.reel figure.on img{animation:kb 7.5s ease-out forwards}
-.reel figure:nth-child(even).on img{animation-name:kb2}
-@keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.16) translate(-2%,-2%)}}
-@keyframes kb2{from{transform:scale(1.16) translate(2%,1%)}to{transform:scale(1.04) translate(0,0)}}
-.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,30,23,.75),transparent 45%);pointer-events:none}
-.reel-cap{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
-.reel-cap b{display:block;font:600 21px/1.15 var(--serif)}
-.reel-cap small{font-size:13px;opacity:.75}
-.reel-dots{display:flex;gap:6px}
-.reel-dots i{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden;position:relative}
-.reel-dots i.on::after{content:"";position:absolute;inset:0;background:var(--terra);animation:bar 6s linear forwards;transform-origin:left}
-@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.stamp{position:absolute;top:-18px;left:-18px;z-index:3;width:116px;height:116px;border-radius:50%;background:var(--terra);color:#1b140e;display:grid;place-items:center;text-align:center;font:700 11px/1.25 var(--sans);letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transform:rotate(-10deg)}
-.stamp b{display:block;font:900 30px/1 var(--serif);letter-spacing:0}
-.reel-wrap{position:relative}
+.chapters{list-style:none;padding:0;display:grid;gap:4px;min-width:250px;animation:rise 1.1s .6s cubic-bezier(.2,.7,.2,1) both}
+.chapters-head{font:700 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(246,242,234,.6);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.chapters-head i{width:7px;height:7px;border-radius:50%;background:#e2554a;box-shadow:0 0 0 0 rgba(226,85,74,.6);animation:rec 1.8s infinite}
+@keyframes rec{70%{box-shadow:0 0 0 8px rgba(226,85,74,0)}}
+.chapters button{all:unset;cursor:pointer;display:grid;grid-template-columns:28px 1fr;gap:2px 10px;align-items:center;padding:10px 12px;border-radius:12px;color:rgba(246,242,234,.6);transition:background .25s,color .25s}
+.chapters button:hover{background:rgba(255,255,255,.06);color:var(--paper)}
+.chapters button:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+.chapters button[aria-current="true"]{color:var(--paper);background:rgba(17,26,20,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.chapters b{font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--terra)}
+.chapters span{font:600 17px/1.2 var(--serif)}
+.chapters s{grid-column:2;height:2px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden;text-decoration:none;margin-top:6px}
+.chapters s::after{content:"";display:block;height:100%;width:calc(var(--p,0)*100%);background:var(--terra)}
+.film-note{grid-column:1/-1;font-size:12.5px;color:rgba(246,242,234,.55);display:flex;align-items:center;gap:8px}
+.film-note svg{width:14px;height:14px}
 @media (max-width:900px){
-  .hero{padding:104px 0 64px}
-  .hero .wrap{grid-template-columns:1fr}
-  .reel{aspect-ratio:4/3.4}
-  .stamp{width:92px;height:92px;top:-14px;left:auto;right:-6px;font-size:9.5px}
-  .stamp b{font-size:24px}
+  .hero{min-height:auto}
+  .hero .wrap{grid-template-columns:1fr;padding-top:104px}
+  .film{bottom:auto;height:62svh;-webkit-mask-image:linear-gradient(#000 55%,transparent 98%);mask-image:linear-gradient(#000 55%,transparent 98%)}
+  .hero::before{background:linear-gradient(0deg,var(--moss) 38%,rgba(31,46,36,.6) 62%,rgba(31,46,36,.15) 80%,rgba(31,46,36,.5) 100%)}
+  .hero-copy{padding-top:28svh}
+  .chapters{min-width:0;grid-template-columns:repeat(4,1fr);gap:6px}
+  .chapters-head{grid-column:1/-1;margin-bottom:2px}
+  .chapters button{grid-template-columns:1fr;padding:8px 6px;text-align:left}
+  .chapters button[aria-current="true"]{background:rgba(255,255,255,.08)}
+  .chapters span{font-size:13px}
+  .chapters b{display:none}
+  .chapters s{grid-column:1}
 }
 
 /* ---------- Material marquee ---------- */
@@ -116,8 +130,8 @@ section{padding:clamp(76px,10vw,130px) 0;scroll-margin-top:56px}
 .svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .svc{position:relative;border-radius:var(--r);overflow:hidden;background:var(--moss);color:var(--paper);min-height:330px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;grid-column:span 2}
 .svc:nth-child(1),.svc:nth-child(2){grid-column:span 3;min-height:400px}
-.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.svc:hover img{transform:scale(1.06)}
+.svc img,.svc video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.svc:hover img,.svc:hover video{transform:scale(1.06)}
 .svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,30,23,.92) 0%,rgba(20,30,23,.35) 55%,rgba(20,30,23,.05))}
 .svc-body{padding:26px}
 .svc-num{font:600 13px/1 var(--sans);letter-spacing:.14em;color:var(--terra);margin-bottom:10px}
@@ -281,14 +295,20 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
 </header>
 
 <main id="top">
-<section class="hero">
+<section class="hero" aria-label="TAFA Garten- und Landschaftsbau">
+  <div class="film" id="film" aria-hidden="true">
+    <video muted playsinline preload="auto" poster="video/terrasse.webp" data-src="video/terrasse.mp4" data-src-sm="video/terrasse-sm.mp4"></video>
+    <video muted playsinline preload="none" poster="video/eingang.webp" data-src="video/eingang.mp4" data-src-sm="video/eingang-sm.mp4"></video>
+    <video muted playsinline preload="none" poster="video/trittsteine.webp" data-src="video/trittsteine.mp4" data-src-sm="video/trittsteine-sm.mp4"></video>
+    <video muted playsinline preload="none" poster="video/mauer.webp" data-src="video/mauer.mp4" data-src-sm="video/mauer-sm.mp4"></video>
+  </div>
   <div class="wrap">
-    <div class="rv">
+    <div class="hero-copy">
       <p class="eyebrow">Garten- &amp; Landschaftsbau in Heilbronn</p>
       <h1>Ihr Garten,<br>aus <em>Stein und Grün</em> gebaut.</h1>
       <p class="lead">Terrassen, Wege, Natursteinmauern und Bepflanzung, sauber geplant und mit eigener Hand umgesetzt. Vom ersten Gespräch bis zur letzten Pflanze haben Sie einen Ansprechpartner: Tafa Sadrijaj.</p>
       <div class="hero-cta">
-        <a class="btn btn-terra" href="tel:+491778660721"><svg><use href="#i-phone"/></svg>Jetzt anrufen</a>
+        <a class="btn btn-terra" href="tel:+491778660721"><svg><use href="#i-phone"/></svg>0177 866 07 21</a>
         <a class="btn btn-line" href="#projekte">Projekte ansehen <svg><use href="#i-arrow"/></svg></a>
       </div>
       <div class="hero-facts">
@@ -297,20 +317,13 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
         <span><svg><use href="#i-check"/></svg>Heilbronn &amp; Umgebung</span>
       </div>
     </div>
-    <div class="reel-wrap rv">
-      <div class="stamp"><div><b>5</b>Gewerke<br>ein Team</div></div>
-      <div class="reel" id="reel" aria-label="Bilder aus aktuellen Projekten">
-        <figure class="on"><img src="img/terrasse-treppe-2.webp" alt="Terrasse mit Granitplatten, Blockstufen und Gabionen" data-cap="Terrasse mit Blockstufen"></figure>
-        <figure><img src="img/eingang-rundtreppe.webp" alt="Runde Eingangstreppe aus Sandstein mit Zypressen" data-cap="Eingang mit Rundtreppe"></figure>
-        <figure><img src="img/trittsteine-rasen.webp" alt="Geschwungener Trittsteinweg durch frischen Rasen" data-cap="Trittsteinweg im Rasen"></figure>
-        <figure><img src="img/polygonalweg.webp" alt="Weg aus Polygonalplatten mit Pflanzbeeten" data-cap="Polygonalweg im Vorgarten"></figure>
-        <figure><img src="img/natursteinmauer.webp" alt="Natursteinmauer aus großen Sandsteinblöcken" data-cap="Natursteinmauer aus Blocksteinen"></figure>
-        <div class="reel-cap">
-          <div><small>Aus unseren Projekten</small><b id="reelCap">Terrasse mit Blockstufen</b></div>
-          <div class="reel-dots" id="reelDots"></div>
-        </div>
-      </div>
-    </div>
+    <ol class="chapters" id="chapters" aria-label="Projekte im Film">
+      <li class="chapters-head"><i></i>Unsere Projekte</li>
+      <li><button type="button" aria-current="true"><b>01</b><span>Terrasse &amp; Stufen</span><s></s></button></li>
+      <li><button type="button"><b>02</b><span>Rundtreppe</span><s></s></button></li>
+      <li><button type="button"><b>03</b><span>Trittsteinweg</span><s></s></button></li>
+      <li><button type="button"><b>04</b><span>Natursteinmauer</span><s></s></button></li>
+    </ol>
   </div>
 </section>
 
@@ -330,15 +343,15 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
     </div>
     <div class="svc-grid">
       <article class="svc rv">
-        <img src="img/terrasse-fertig.webp" alt="Fertige Terrasse mit dunklen Granitplatten, Gabionen und Formschnitt" loading="lazy">
+        <video data-inview muted loop playsinline preload="none" poster="video/terrasse.webp" data-src="video/terrasse.mp4" data-src-sm="video/terrasse-sm.mp4" aria-label="Kamerafahrt über eine fertige Terrasse mit Blockstufen und Gabionen"></video>
         <div class="svc-body"><div class="svc-num">01</div><h3>Terrassenbau</h3><p>Terrassen aus Granit, Naturstein oder Betonplatten, mit sauberem Unterbau, Gefälle und passenden Stufen.</p></div>
       </article>
       <article class="svc rv">
-        <img src="img/natursteinmauer-2.webp" alt="Mauer aus großen Sandsteinblöcken mit Gabionen" loading="lazy">
+        <video data-inview muted loop playsinline preload="none" poster="video/mauer.webp" data-src="video/mauer.mp4" data-src-sm="video/mauer-sm.mp4" aria-label="Kamerafahrt an einer Mauer aus Sandsteinblöcken entlang"></video>
         <div class="svc-body"><div class="svc-num">02</div><h3>Natursteinbau</h3><p>Trockenmauern, Blocksteine, Gabionen und Treppen. Hänge werden zu nutzbaren Flächen.</p></div>
       </article>
       <article class="svc rv">
-        <img src="img/trittsteinweg-hang.webp" alt="Trittsteinweg aus Granit am Hang" loading="lazy">
+        <video data-inview muted loop playsinline preload="none" poster="video/trittsteine.webp" data-src="video/trittsteine.mp4" data-src-sm="video/trittsteine-sm.mp4" aria-label="Kamerafahrt über einen Trittsteinweg im Rasen"></video>
         <div class="svc-body"><div class="svc-num">03</div><h3>Wegebau</h3><p>Wege, Einfahrten und Trittsteine, die zum Haus passen und lange halten.</p></div>
       </article>
       <article class="svc rv">
@@ -511,13 +524,34 @@ const nav=$('#nav'), bar=$('#callbar');
 const onScroll=()=>{const y=scrollY;nav.classList.toggle('solid',y>40);bar.classList.toggle('show',y>innerHeight*.6)};
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-/* Hero reel */
-const figs=$$('#reel figure'), dots=$('#reelDots'), cap=$('#reelCap');
-figs.forEach(()=>dots.appendChild(document.createElement('i')));
-let cur=0;
-const show=i=>{figs.forEach((f,k)=>f.classList.toggle('on',k===i));[...dots.children].forEach((d,k)=>{d.classList.remove('on');if(k===i){void d.offsetWidth;d.classList.add('on')}});cap.textContent=figs[i].querySelector('img').dataset.cap};
-show(0);
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(()=>{cur=(cur+1)%figs.length;show(cur)},6000);
+/* Hero film: vier echte Projekte nacheinander, weich überblendet */
+const vids=$$('#film video'), chap=$$('#chapters button');
+const small=matchMedia('(max-width:900px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const load=v=>{if(!v.src){v.src=small?v.dataset.srcSm:v.dataset.src;v.preload='auto'}};
+let at=0,fading=false;
+const go=i=>{
+  const prev=vids[at];at=i;fading=false;
+  const v=vids[i];load(v);load(vids[(i+1)%vids.length]);
+  chap.forEach((b,k)=>{b.setAttribute('aria-current',k===i);b.style.setProperty('--p',0)});
+  if(still){vids.forEach((x,k)=>x.classList.toggle('on',k===i));return}
+  try{v.currentTime=0}catch(e){}
+  const pr=v.play();if(pr)pr.catch(()=>{});
+  v.classList.add('on');
+  if(prev!==v)setTimeout(()=>{prev.classList.remove('on');prev.pause()},1600);
+};
+vids.forEach((v,i)=>v.addEventListener('timeupdate',()=>{
+  if(i!==at||!v.duration)return;
+  chap[i].style.setProperty('--p',Math.min(1,v.currentTime/(v.duration-1.2)));
+  if(!fading&&v.currentTime>v.duration-1.25){fading=true;go((i+1)%vids.length)}
+}));
+chap.forEach((b,i)=>b.addEventListener('click',()=>{if(i!==at)go(i)}));
+load(vids[0]);vids[0].classList.add('on');
+if(!still){const p=vids[0].play();if(p)p.catch(()=>{});load(vids[1])}
+/* Film pausieren, wenn nicht sichtbar */
+new IntersectionObserver(([e])=>{const v=vids[at];if(still)return;if(e.isIntersecting){const p=v.play();if(p)p.catch(()=>{})}else v.pause()}).observe($('#film'));
+/* Videos in den Leistungen: nur abspielen, wenn im Bild */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=small?v.dataset.srcSm:v.dataset.src;if(!still){const p=v.play();if(p)p.catch(()=>{})}}else v.pause()}),{rootMargin:'200px 0px'});
+$$('video[data-inview]').forEach(v=>vio.observe(v));
 
 /* Gallery */
 const P=[
