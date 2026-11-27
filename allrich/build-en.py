@@ -136,10 +136,6 @@ T = [
 ('Ihre Website zusätzlich auf Englisch, Polnisch oder in einer anderen Sprache. Mit KI übersetzt und von mir geprüft. Ihr KI-Assistent antwortet dann automatisch in der Sprache Ihrer Besucher.',
  'Your website also in English, Polish or any other language. Translated with AI and checked by me. Your AI assistant then automatically replies in your visitors\' language.'),
 ('<p class="amt">149 €<small>pro Sprache</small></p>', '<p class="amt">€149<small>per language</small></p>'),
-('<h3>Monatlicher Beitrag</h3>', '<h3>Monthly post</h3>'),
-('Jeden Monat ein neuer Beitrag auf Ihrer Website, zum Beispiel ein neues Objekt, ein Projekt oder ein Angebot. Auf Wunsch auch in Ihrem Google-Profil. Das hält Ihre Seite aktuell und hilft bei Google.',
- 'A new post on your website every month, for example a new property, a project or an offer. On request also on your Google profile. Keeps your site fresh and helps on Google.'),
-('<p class="amt">39 €<small>pro Monat</small></p>', '<p class="amt">€39<small>per month</small></p>'),
 # contact
 ('<p class="kicker">Kontakt</p>', '<p class="kicker">Contact</p>'),
 ('<h2 class="h h2">Ihr Entwurf.<br><em>Kostenlos.</em></h2>', '<h2 class="h h2">Your draft.<br><em>Free.</em></h2>'),
