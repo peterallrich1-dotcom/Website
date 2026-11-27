@@ -69,8 +69,16 @@ section{padding:clamp(76px,10vw,130px) 0;scroll-margin-top:56px}
 
 /* ---------- Hero: Film aus echten Projekten ---------- */
 .hero{position:relative;color:var(--paper);background:var(--moss);min-height:clamp(620px,94svh,940px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
-.film{position:absolute;inset:0;z-index:-2}
+.film{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--moss)}
+.slides{position:absolute;inset:0;display:none}
+.film.fallback .slides{display:block}
+.film.fallback video{visibility:hidden}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:slide 20s linear infinite}
+.slides img:nth-child(2){animation-delay:5s}.slides img:nth-child(3){animation-delay:10s}.slides img:nth-child(4){animation-delay:15s}
+@keyframes slide{0%{opacity:0;transform:scale(1.02)}5%{opacity:1}25%{opacity:1}30%{opacity:0;transform:scale(1.15) translate(-2%,-1.5%)}100%{opacity:0;transform:scale(1.15) translate(-2%,-1.5%)}}
+.svc video{animation:sway 14s ease-in-out infinite alternate}
+@keyframes sway{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(90deg,rgba(17,26,20,.86) 0%,rgba(17,26,20,.55) 38%,rgba(17,26,20,.08) 70%),
   linear-gradient(0deg,rgba(17,26,20,.92) 0%,rgba(17,26,20,0) 46%),
@@ -266,8 +274,7 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
 .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv{opacity:1;transform:none}
+  .rv{opacity:1;transform:none;transition:none}
   html{scroll-behavior:auto}
 }
 </style>
@@ -304,6 +311,7 @@ dialog .close{float:right;border:0;background:var(--sand);width:38px;height:38px
 <section class="hero" aria-label="TAFA Garten- und Landschaftsbau">
   <div class="film" id="film" aria-hidden="true">
     <video id="filmVideo" muted autoplay loop playsinline disablepictureinpicture preload="auto" poster="video/film.webp"></video>
+    <div class="slides" id="slides"></div>
   </div>
   <div class="wrap">
     <div class="hero-copy">
@@ -530,32 +538,42 @@ const onScroll=()=>{const y=scrollY;nav.classList.toggle('solid',y>40);bar.class
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 /* Hero film: ein durchgehendes Video (4 Projekte, weich überblendet), läuft in Schleife.
-   Handy bekommt eine eigene Hochformat-Fassung. Kapitel folgen der Abspielzeit. */
-const fv=$('#filmVideo'), chap=$$('#chapters button');
-const small=matchMedia('(max-width:900px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+   Handy bekommt eine Hochformat-Fassung. Blockiert das Gerät Videos (z. B. iPhone im
+   Stromsparmodus), übernimmt eine reine CSS-Diashow mit Kamerabewegung. */
+const film=$('#film'), fv=$('#filmVideo'), chap=$$('#chapters button'), slides=$('#slides');
+const small=matchMedia('(max-width:900px)').matches, sfx=small?'m':'d';
 fv.poster=small?'video/film-m.webp':'video/film.webp';
 fv.src=small?'video/film-m.mp4':'video/film.mp4';
-const CH=[0,4.54,9.58,14.62,19.66];             // Kapitelgrenzen in Sekunden
-const chapterAt=t=>t>=CH[4]?0:Math.max(0,CH.findIndex((c,i)=>t>=c&&t<CH[i+1]));
-let shown=-1;
-const tick=()=>{const t=fv.currentTime||0, i=chapterAt(t), wrap=t>=CH[4];
-  if(i!==shown){chap.forEach((b,k)=>b.setAttribute('aria-current',k===i));shown=i}
-  const st=wrap?CH[4]:CH[i], en=wrap?CH[4]+5.04:CH[i+1];
-  chap.forEach((b,k)=>b.style.setProperty('--p',k===i?Math.min(1,(t-st)/(en-st)):0));
-  requestAnimationFrame(tick)};
-const play=()=>{if(still)return;const p=fv.play();if(p)p.catch(()=>{})};
-if(still){fv.removeAttribute('autoplay');fv.preload='metadata'}
-else{play();requestAnimationFrame(tick)}
-chap.forEach((b,i)=>b.addEventListener('click',()=>{try{fv.currentTime=CH[i]+(i?0.6:0.1)}catch(e){};play();if(still){chap.forEach((x,k)=>x.setAttribute('aria-current',k===i))}}));
-/* iOS: nach dem ersten Antippen sicher starten, falls Autoplay blockiert war */
+const CH=[0,4.54,9.58,14.62,19.66];             // Kapitelgrenzen im Video (Sekunden)
+let mode='video', t0=performance.now();
+const fallback=()=>{if(mode==='slides')return;mode='slides';t0=performance.now();
+  slides.innerHTML=[1,2,3,4].map(i=>`<img src="video/slide-${sfx}${i}.webp" alt="">`).join('');
+  film.classList.add('fallback')};
+const toVideo=()=>{if(mode==='video')return;mode='video';film.classList.remove('fallback');slides.innerHTML=''};
+const play=()=>{const p=fv.play();if(p)p.catch(fallback)};
+fv.addEventListener('playing',toVideo);
+play();
+setTimeout(()=>{if(fv.paused||fv.currentTime<0.05)fallback()},2200);
+/* iOS: beim ersten Antippen erneut versuchen, das echte Video zu starten */
 addEventListener('touchstart',()=>{if(fv.paused)play()},{once:true,passive:true});
+let shown=-1;
+const tick=()=>{let i,p;
+  if(mode==='video'){const t=fv.currentTime||0, wrap=t>=CH[4];
+    i=wrap?0:Math.max(0,CH.findIndex((c,k)=>t>=c&&t<CH[k+1]));
+    const st=wrap?CH[4]:CH[i], en=wrap?CH[4]+5.04:CH[i+1]; p=Math.min(1,(t-st)/(en-st));}
+  else{const t=((performance.now()-t0)/1000)%20; i=Math.floor(t/5); p=(t%5)/5;}
+  if(i!==shown){chap.forEach((b,k)=>b.setAttribute('aria-current',k===i));shown=i}
+  chap.forEach((b,k)=>b.style.setProperty('--p',k===i?p:0));
+  requestAnimationFrame(tick)};
+requestAnimationFrame(tick);
+chap.forEach((b,i)=>b.addEventListener('click',()=>{
+  if(mode==='video'){try{fv.currentTime=CH[i]+(i?0.6:0.1)}catch(e){};play()}
+  else{t0=performance.now()-i*5000;slides.querySelectorAll('img').forEach((im,k)=>{im.style.animationDelay=`${((k-i+4)%4)*5}s`})}}));
 /* Film pausieren, wenn nicht sichtbar */
-new IntersectionObserver(([e])=>{if(e.isIntersecting)play();else fv.pause()}).observe($('#film'));
-/* Leistungskarten: Videos nur am Desktop, auf dem Handy reicht das Standbild */
-if(!small&&!still){
-  const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;const p=v.play();if(p)p.catch(()=>{})}else v.pause()}),{rootMargin:'200px 0px'});
-  $$('video[data-inview]').forEach(v=>vio.observe(v));
-}
+new IntersectionObserver(([e])=>{if(mode!=='video')return;if(e.isIntersecting)play();else fv.pause()}).observe(film);
+/* Leistungskarten: Video abspielen, wenn im Bild (die Karte bewegt sich zusätzlich per CSS) */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;const p=v.play();if(p)p.catch(()=>{})}else v.pause()}),{rootMargin:'200px 0px'});
+$$('video[data-inview]').forEach(v=>vio.observe(v));
 /* Gallery */
 const P=[
 ['eingang-rundtreppe','Eingang mit Sandstein-Rundtreppe','eingang'],
