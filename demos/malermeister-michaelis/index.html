@@ -66,7 +66,7 @@ section{position:relative}
 @media (max-width:520px){.nav .btn span{display:none}.nav .btn{width:44px;padding:0;justify-content:center}}
 
 /* ---------- HERO ---------- */
-.hero{height:260vh}
+.hero{height:210vh}
 .hero-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 #paint{position:absolute;inset:0;width:100%;height:100%}
 .hero-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:40px}
@@ -83,6 +83,44 @@ section{position:relative}
 .scrollhint svg{width:14px;height:14px;animation:bob 1.6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(4px)}}
 @media (max-width:640px){.layer{display:none}}
+
+/* ---------- FILM (scroll-scrubbed room) ---------- */
+.film{height:420vh}
+.film-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:22px;padding:88px 0 24px}
+.film-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 40px;flex-wrap:wrap}
+.film-head .h2{font-size:clamp(32px,4.6vw,62px);margin-top:12px}
+.film-head p{max-width:360px;color:var(--ink-2);font-size:16px;line-height:1.5}
+.film-card{position:relative;width:100%;flex:1;min-height:0;max-height:min(680px,calc(100svh - 250px));border-radius:28px;overflow:hidden;background:#D9D3C8;box-shadow:0 30px 70px -34px rgba(40,30,10,.5)}
+#film{position:absolute;inset:0;width:100%;height:100%}
+.film-card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 72%,rgba(0,0,0,.22))}
+.film-bar{position:absolute;left:20px;right:20px;top:18px;display:flex;gap:6px;z-index:2}
+.film-bar span{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.4);overflow:hidden}
+.film-bar b{display:block;height:100%;width:0;background:var(--paper)}
+.film-cap{position:absolute;left:20px;bottom:20px;z-index:2;display:flex;align-items:center;gap:10px;background:var(--paper);border-radius:999px;padding:11px 18px 11px 12px;font:600 15px/1 var(--sans)}
+.film-cap i{width:18px;height:18px;border-radius:50%;background:var(--c,var(--ocker));transition:background .35s}
+.film-no{position:absolute;right:20px;bottom:20px;z-index:2;font:400 italic 40px/1 var(--serif);color:var(--paper);text-shadow:0 2px 14px rgba(0,0,0,.35)}
+@media (max-width:760px){.film-stage{padding-bottom:84px}}
+@media (max-width:640px){.film-head p{display:none}.film-cap{font-size:13px}.film-no{font-size:30px}}
+
+/* ---------- VIDEO CARDS ---------- */
+.vcard{position:relative;border-radius:24px;overflow:hidden;background:#D9D3C8;box-shadow:0 30px 70px -34px rgba(40,30,10,.5)}
+.vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:16px;z-index:2;border-radius:999px;padding:9px 14px;font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;background:var(--paper);color:var(--ink)}
+.badge.l{left:16px}.badge.r{right:16px;background:var(--salbei)}
+.facade{padding:0 0 clamp(90px,12vw,160px)}
+.facade-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:clamp(28px,4vw,64px);align-items:center;margin-top:50px}
+.facade .vcard{aspect-ratio:16/9}
+.checks{list-style:none;margin-top:22px;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.45}
+.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;background:var(--salbei) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%231B1A17' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+@media (max-width:900px){.facade-grid{grid-template-columns:1fr}}
+.steps-wrap{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:clamp(30px,5vw,70px);margin-top:50px;align-items:center}
+.steps-wrap .steps{grid-template-columns:1fr 1fr;row-gap:46px;margin-top:0}
+.pinsel{aspect-ratio:9/16}
+.pinsel figcaption{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;background:var(--paper);border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.35}
+.pinsel figcaption b{display:block;font-size:15px}
+@media (max-width:900px){.steps-wrap{grid-template-columns:1fr}.pinsel{aspect-ratio:4/5;max-width:420px}}
+@media (max-width:520px){.steps-wrap .steps{grid-template-columns:1fr}}
 
 /* ---------- ÜBER ---------- */
 .about{padding:clamp(90px,12vw,160px) 0}
@@ -222,7 +260,7 @@ dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}.hero{height:100vh}.rv{opacity:1;transform:none;transition:none}.scrollhint svg{animation:none}
+  html{scroll-behavior:auto}.hero{height:100vh}.film{height:auto}.film-stage{position:relative;height:auto;min-height:100svh}.rv{opacity:1;transform:none;transition:none}.scrollhint svg{animation:none}
 }
 </style>
 </head>
@@ -284,6 +322,27 @@ dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <p>„Absolute Empfehlung! Kompetent, präzise und sympathisch. Schon in der Beratung merkt man seine große Erfahrung.“</p>
         <span>E. M., Google-Bewertung · Tapezier- und Streicharbeiten</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="film" id="film-sec" aria-label="Ein Raum entsteht">
+  <div class="film-stage">
+    <div class="wrap film-head">
+      <div>
+        <div class="eyebrow" style="--dot:var(--ocker)">Ein Raum entsteht</div>
+        <h2 class="h2">Vom grauen Putz <em>zum Lieblingsraum.</em></h2>
+      </div>
+      <p>Scrollen Sie weiter: Bahn für Bahn kommt Farbe an die Wand, bis der Raum fertig ist.</p>
+    </div>
+    <div class="wrap" style="flex:1;min-height:0;display:flex;width:100%">
+      <div class="film-card">
+        <canvas id="film" role="img" aria-label="Eine Farbrolle streicht Bahnen in Ocker, Salbei und Terrakotta auf eine graue Altbauwand, dann zeigt die Kamera das fertige Zimmer"></canvas>
+        <div class="film-bar" id="filmBar"><span><b></b></span><span><b></b></span><span><b></b></span><span><b></b></span></div>
+        <div class="film-cap" id="filmCap"><i></i><span>Anstrich 1 · Ocker</span></div>
+        <div class="film-no" id="filmNo">01</div>
       </div>
     </div>
   </div>
@@ -423,6 +482,30 @@ dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius
   </div>
 </section>
 
+<!-- FASSADE -->
+<section class="facade" id="fassade">
+  <div class="wrap">
+    <div class="rv">
+      <div class="eyebrow" style="--dot:var(--salbei)">Fassade &amp; Werterhalt</div>
+      <h2 class="h2">Damit Ihr Haus <em>wieder strahlt.</em></h2>
+    </div>
+    <div class="facade-grid">
+      <div class="vcard rv">
+        <video src="media/fassade.mp4" poster="media/fassade-poster.jpg" muted playsinline loop autoplay preload="metadata" aria-label="Kamerafahrt an einer Häuserzeile: links eine graue, verwitterte Fassade, rechts frisch gestrichen in warmem Grün mit weißen Fenstern"></video>
+        <span class="badge l">Vorher</span><span class="badge r">Nachher</span>
+      </div>
+      <div class="rv">
+        <p class="lead">Eine Fassade ist mehr als ein schönes Gesicht. Der Anstrich schützt Putz und Mauerwerk vor Regen, Frost und Sonne und erhält so den Wert Ihres Hauses.</p>
+        <ul class="checks">
+          <li>Prüfung und Vorbereitung des Untergrunds</li>
+          <li>Farbtöne, die zum Haus und zur Straße passen</li>
+          <li>Vom Einfamilienhaus bis zum denkmalgeschützten Altbau</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABLAUF -->
 <section class="steps-sec">
   <div class="wrap">
@@ -430,11 +513,17 @@ dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius
       <div class="eyebrow" style="--dot:var(--petrol)">So arbeiten wir zusammen</div>
       <h2 class="h2">Vier Schritte <em>zum neuen Raum.</em></h2>
     </div>
+    <div class="steps-wrap">
+    <figure class="vcard pinsel rv">
+      <video src="media/pinsel.mp4" poster="media/pinsel-poster.jpg" muted playsinline loop autoplay preload="metadata" aria-label="Nahaufnahme: Ein Pinsel zieht eine exakte Kante mit petrolfarbener Farbe an einem weißen Fensterrahmen"></video>
+      <figcaption><b>Saubere Kanten</b>Mit ruhiger Hand und dem richtigen Pinsel, auch dort, wo es eng wird.</figcaption>
+    </figure>
     <div class="steps">
       <div class="step rv" style="--c:var(--ocker)"><b>01</b><h3>Anrufen</h3><p>Kurz schildern, worum es geht, mobil oder im Büro.</p></div>
       <div class="step rv" style="--c:var(--salbei)"><b>02</b><h3>Termin vor Ort</h3><p>Ich schaue mir alles an, messe aus und bringe Farbmuster mit.</p></div>
       <div class="step rv" style="--c:var(--terra)"><b>03</b><h3>Klares Angebot</h3><p>Schriftlich und nachvollziehbar, damit Sie wissen, woran Sie sind.</p></div>
       <div class="step rv" style="--c:var(--petrol)"><b>04</b><h3>Saubere Ausführung</h3><p>Abdecken, streichen, aufräumen. Sie bekommen Ihren Raum fertig zurück.</p></div>
+    </div>
     </div>
   </div>
 </section>
@@ -521,7 +610,7 @@ dialog .x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius
       <button data-dlg="datenschutz">Datenschutz</button>
       <a href="#top">Nach oben</a>
     </nav>
-    <p class="small">© Malermeister Jörn Michaelis, Neubrandenburg · Website-Entwurf, keine offizielle Seite des Betriebs · Schriften: Bricolage Grotesque, Instrument Serif (SIL Open Font License), lokal eingebunden</p>
+    <p class="small">© Malermeister Jörn Michaelis, Neubrandenburg · Website-Entwurf, keine offizielle Seite des Betriebs · Videos: KI-generierte Beispielaufnahmen, werden vor dem Livegang durch echte Projektaufnahmen ersetzt · Schriften: Bricolage Grotesque, Instrument Serif (SIL Open Font License), lokal eingebunden</p>
   </div>
 </footer>
 
@@ -687,6 +776,38 @@ let rt; addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(layout,120
 addEventListener("scroll",onScroll,{passive:true});
 (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(()=>{layout();onScroll();startIntro();});
 layout(); onScroll(); loop();
+
+/* ================= FILM (scroll-scrubbed frames) ================= */
+const fc=$("#film"), fx=fc.getContext("2d"), fsec=$("#film-sec");
+const FN=121, frames=new Array(FN); let fW=0,fH=0,fP=RM?1:0,fNeed=true;
+const FSTAGES=[[0,.24,"Anstrich 1 · Ocker","#D2A042"],[.24,.48,"Anstrich 2 · Salbei","#93A68C"],[.48,.64,"Anstrich 3 · Terrakotta","#C2653F"],[.64,1,"Fertig. Ihr Raum, Ihre Farbe.","#2F5D62"]];
+const order=[]; for(let st=16;st>=1;st=st/2|0){for(let i=0;i<FN;i+=st) if(!order.includes(i)) order.push(i); if(st===1)break;}
+if(!order.includes(FN-1)) order.push(FN-1);
+let loadedAny=false;
+function loadFrames(){ let k=0; const next=()=>{ if(k>=order.length) return; const i=order[k++]; const im=new Image(); im.decoding="async";
+  im.onload=()=>{frames[i]=im; fNeed=true; next();}; im.onerror=next; im.src=`media/film/f${String(i+1).padStart(3,"0")}.webp`; };
+  for(let c=0;c<4;c++) next(); }
+function fLayout(){ const r=fc.getBoundingClientRect(); fW=r.width; fH=r.height; const d=Math.min(2,devicePixelRatio||1); fc.width=Math.round(fW*d); fc.height=Math.round(fH*d); fx.setTransform(d,0,0,d,0,0); fNeed=true; }
+function nearest(i){ for(let o=0;o<FN;o++){ if(frames[i-o]) return frames[i-o]; if(frames[i+o]) return frames[i+o]; } return null; }
+let lastStage=-1;
+function fRender(){
+  if(!fNeed) return; fNeed=false;
+  const img=nearest(Math.round(clamp(fP/.94)*(FN-1)));
+  if(img){ const s=Math.max(fW/img.width,fH/img.height), w=img.width*s, h=img.height*s; fx.drawImage(img,(fW-w)/2,(fH-h)/2,w,h); }
+  let si=FSTAGES.findIndex(s=>fP<s[1]); if(si<0) si=3;
+  document.querySelectorAll("#filmBar b").forEach((b,i)=>{const s=FSTAGES[i]; b.style.width=(clamp((fP-s[0])/(s[1]-s[0]))*100)+"%";});
+  if(si!==lastStage){ lastStage=si; const cap=$("#filmCap"); cap.style.setProperty("--c",FSTAGES[si][3]); cap.querySelector("span").textContent=FSTAGES[si][2]; $("#filmNo").textContent=String(si+1).padStart(2,"0"); }
+}
+function fScroll(){ if(RM) return; const r=fsec.getBoundingClientRect(), span=r.height-innerHeight; const p=span>0?clamp(-r.top/span):1; if(p!==fP){fP=p;fNeed=true;} }
+// start loading once the visitor is near the film
+const fio=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ loadFrames(); fio.disconnect(); } },{rootMargin:"150% 0px"}); fio.observe(fsec);
+addEventListener("scroll",fScroll,{passive:true}); addEventListener("resize",()=>{fLayout();});
+fLayout(); fScroll(); (function fl(){ fRender(); requestAnimationFrame(fl); })();
+
+/* ================= VIDEOS: play only when visible ================= */
+const vids=document.querySelectorAll(".vcard video");
+if(RM) vids.forEach(v=>{v.removeAttribute("autoplay");v.pause();});
+else { const vio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ const pr=e.target.play(); pr&&pr.catch(()=>{}); } else e.target.pause(); }),{threshold:.15}); vids.forEach(v=>vio.observe(v)); }
 
 /* ================= RAUMPROBE ================= */
 const COLORS = [
