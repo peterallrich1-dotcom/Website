@@ -64,7 +64,10 @@ header button{font-size:13px;color:var(--mute)}
 .sheet .top button{color:var(--mute);font-size:14px}
 .sheet .wrap{padding-top:8px}
 .pics{display:flex;gap:8px;flex-wrap:wrap}
-.pics img,.pics label{width:84px;height:62px;border-radius:9px;object-fit:cover}
+.pic{position:relative;width:84px;height:62px}.pic>button:first-child{display:block;width:100%;height:100%;padding:0}
+.pics img,.pics label{width:84px;height:62px;border-radius:9px;object-fit:cover;display:block}
+.pic .x{position:absolute;top:-7px;right:-7px;width:26px;height:26px;border-radius:50%;background:#2a2f38;color:#fff;font-size:15px;line-height:26px;border:1px solid var(--line)}
+.pic .t1{position:absolute;left:4px;bottom:4px;background:rgba(0,0,0,.7);color:#fff;font-size:10.5px;padding:1px 6px;border-radius:6px;pointer-events:none}
 .pics label{border:1px dashed var(--steel);color:var(--steel);display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
 .pics input{display:none}
 .hint{font-size:13px;color:var(--mute);margin-top:6px}
@@ -136,7 +139,7 @@ const CATS = ["Sportwagen", "Supersportwagen", "Cabrio", "Coupé", "SUV", "Limou
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} } };
-let TOKEN = store.get("lp_token"), CARS = [], CUR = null, NEWPICS = [];
+let TOKEN = store.get("lp_token"), CARS = [], CUR = null, PICS = [], PCH = false;
 
 function toast(msg, err) { const t = $("#toast"); t.textContent = msg; t.className = "on" + (err ? " err" : ""); clearTimeout(t._h); t._h = setTimeout(() => t.className = "", err ? 4500 : 2600); }
 async function api(path, opt = {}) {
@@ -146,7 +149,10 @@ async function api(path, opt = {}) {
   if (!r.ok) throw new Error(d.error || "Fehler " + r.status);
   return d;
 }
-const thumb = c => c.up ? `${API}/img/${c.id}/t0.${c.ext || "webp"}` : `../img/${c.id}/t0.webp`;
+const folder = c => c.id + (c.pv ? "-" + c.pv : "");
+const picUrl = (c, i, t) => c.up ? `${API}/img/${folder(c)}/${t ? "t" : ""}${i}.${c.ext || "webp"}` : `../img/${c.id}/${t ? "t" : ""}${i}.webp`;
+const thumb = c => picUrl(c, 0, true);
+const MAXP = 20;
 
 /* Anmelden */
 $("#lForm").addEventListener("submit", async e => {
@@ -193,23 +199,36 @@ $("#list").addEventListener("click", async e => {
 /* Bearbeiten / Neu */
 $("#sCat").innerHTML = CATS.map(c => `<option>${c}</option>`).join("");
 function edit(c) {
-  CUR = c; NEWPICS = [];
+  CUR = c; PICS = c ? Array.from({ length: c.n }, (_, i) => ({ url: picUrl(c, i, true), full: picUrl(c, i, false) })) : []; PCH = false;
   $("#sTitle").textContent = c ? "Auto bearbeiten" : "Neues Auto";
   $("#sName").value = c ? c.name : ""; $("#sBrand").value = c ? c.brand : "";
   const cat = c ? c.cat : "Sportwagen"; if (![...$("#sCat").options].some(o => o.value === cat)) $("#sCat").insertAdjacentHTML("beforeend", `<option>${esc(cat)}</option>`); $("#sCat").value = cat;
   $("#sPrice").value = c && c.price != null ? c.price : ""; $("#sPs").value = c && c.ps != null ? c.ps : ""; $("#sCyl").value = c && c.cyl ? c.cyl : "";
   $("#sVis").value = c && c.hidden ? "0" : "1";
   $("#sDel").hidden = !c;
-  $("#picHint").textContent = c ? "Fotos ändern: bitte kurz bei Peter melden." : "Bis zu 12 Fotos. Das erste Foto ist das Titelbild.";
+  $("#picHint").textContent = `Bis zu ${MAXP} Fotos. Foto antippen = Titelbild, × = entfernen.`;
   drawPics();
   $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden";
 }
 function drawPics() {
-  if (CUR) { $("#pics").innerHTML = Array.from({ length: Math.min(CUR.n, 8) }, (_, i) => `<img src="${CUR.up ? `${API}/img/${CUR.id}/t${i}.${CUR.ext || "webp"}` : `../img/${CUR.id}/t${i}.webp`}" alt="">`).join(""); return; }
-  $("#pics").innerHTML = NEWPICS.map(p => `<img src="${p.url}" alt="">`).join("") + (NEWPICS.length < 12 ? `<label aria-label="Fotos hinzufügen">+<input type="file" id="pIn" accept="image/*" multiple></label>` : "");
-  const pin = $("#pIn"); if (pin) pin.onchange = () => { for (const f of [...pin.files].slice(0, 12 - NEWPICS.length)) NEWPICS.push({ file: f, url: URL.createObjectURL(f) }); drawPics(); };
+  $("#pics").innerHTML = PICS.map((p, i) => `<div class="pic"><button type="button" data-first="${i}" aria-label="Foto ${i + 1} als Titelbild"><img src="${p.url}" alt=""></button><button type="button" class="x" data-rm="${i}" aria-label="Foto ${i + 1} entfernen">×</button>${i ? "" : '<span class="t1">Titelbild</span>'}</div>`).join("") + (PICS.length < MAXP ? `<label aria-label="Fotos hinzufügen">+<input type="file" id="pIn" accept="image/*" multiple></label>` : "");
+  const pin = $("#pIn"); if (pin) pin.onchange = () => { for (const f of [...pin.files].slice(0, MAXP - PICS.length)) PICS.push({ file: f, url: URL.createObjectURL(f) }); PCH = true; drawPics(); };
 }
-function close() { $("#sheet").classList.remove("open"); document.body.style.overflow = ""; NEWPICS.forEach(p => URL.revokeObjectURL(p.url)); }
+$("#pics").addEventListener("click", e => {
+  const rm = e.target.closest("[data-rm]"), fi = e.target.closest("[data-first]");
+  if (rm) { const [p] = PICS.splice(+rm.dataset.rm, 1); if (p.file) URL.revokeObjectURL(p.url); PCH = true; drawPics(); }
+  else if (fi && +fi.dataset.first > 0) { PICS.unshift(...PICS.splice(+fi.dataset.first, 1)); PCH = true; drawPics(); }
+});
+async function uploadPics(id, btn) {
+  const pv = Math.random().toString(36).slice(2, 7);
+  for (let i = 0; i < PICS.length; i++) {
+    btn.textContent = `Foto ${i + 1} von ${PICS.length} wird hochgeladen …`;
+    const src = PICS[i].file || await fetch(PICS[i].full).then(r => { if (!r.ok) throw new Error("Altes Foto nicht gefunden"); return r.blob(); });
+    for (const [pre, max] of [["", 1600], ["t", 640]]) await api(`/img/${id}-${pv}/${pre}${i}.jpg`, { method: "PUT", headers: { "Content-Type": "image/jpeg" }, body: await shrink(src, max) });
+  }
+  return { up: true, ext: "jpg", pv, n: PICS.length };
+}
+function close() { $("#sheet").classList.remove("open"); document.body.style.overflow = ""; PICS.forEach(p => p.file && URL.revokeObjectURL(p.url)); }
 $("#sBack").onclick = close;
 $("#add").onclick = () => edit(null);
 
@@ -226,21 +245,17 @@ $("#sForm").addEventListener("submit", async e => {
   e.preventDefault();
   const name = $("#sName").value.trim(), brand = $("#sBrand").value.trim();
   if (!name || !brand) return toast("Bitte Name und Marke eintragen.", true);
-  if (!CUR && !NEWPICS.length) return toast("Bitte mindestens ein Foto auswählen.", true);
+  if (!PICS.length) return toast("Bitte mindestens ein Foto auswählen.", true);
   const btn = $("#sSave"); btn.disabled = true;
   const data = { name, brand, cat: $("#sCat").value, price: $("#sPrice").value === "" ? null : +$("#sPrice").value, ps: $("#sPs").value === "" ? null : +$("#sPs").value, cyl: $("#sCyl").value.trim() || undefined };
   const hide = $("#sVis").value === "0";
   try {
     if (CUR) {
-      const old = { ...CUR }; Object.assign(CUR, data); if (!CUR.cyl) delete CUR.cyl; hide ? CUR.hidden = true : delete CUR.hidden;
-      if (!await save(`${name} gespeichert.`)) { Object.keys(CUR).forEach(k => delete CUR[k]); Object.assign(CUR, old); btn.disabled = false; return; }
+      const old = { ...CUR }; if (PCH) Object.assign(data, await uploadPics(CUR.id, btn)); Object.assign(CUR, data); if (!CUR.cyl) delete CUR.cyl; hide ? CUR.hidden = true : delete CUR.hidden;
+      if (!await save(`${name} gespeichert.`)) { Object.keys(CUR).forEach(k => delete CUR[k]); Object.assign(CUR, old); btn.disabled = false; btn.textContent = "Speichern"; return; }
     } else {
       const id = slug(name) + "-" + Math.random().toString(36).slice(2, 6);
-      for (let i = 0; i < NEWPICS.length; i++) {
-        btn.textContent = `Foto ${i + 1} von ${NEWPICS.length} wird hochgeladen …`;
-        for (const [pre, max] of [["", 1600], ["t", 640]]) await api(`/img/${id}/${pre}${i}.jpg`, { method: "PUT", headers: { "Content-Type": "image/jpeg" }, body: await shrink(NEWPICS[i].file, max) });
-      }
-      const car = { id, ...data, n: NEWPICS.length, up: true, ext: "jpg" }; if (!car.cyl) delete car.cyl; if (hide) car.hidden = true;
+      const car = { id, ...data, ...await uploadPics(id, btn) }; if (!car.cyl) delete car.cyl; if (hide) car.hidden = true;
       CARS.push(car);
       if (!await save(`${name} ist ${hide ? "gespeichert (ausgeblendet)" : "jetzt auf Ihrer Website"}.`)) { CARS.pop(); btn.disabled = false; btn.textContent = "Speichern"; return; }
     }

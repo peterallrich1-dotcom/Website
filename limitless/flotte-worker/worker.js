@@ -79,6 +79,7 @@ function clean(list) {
     if (c.hidden) o.hidden = true;
     if (c.up) o.up = true; // Fotos liegen im Worker statt auf der Website
     if (c.ext === 'jpg') o.ext = 'jpg';
+    if (/^[a-z0-9]{1,12}$/.test(c.pv || '')) o.pv = c.pv;
     for (const k of Object.keys(o)) if (o[k] === undefined || o[k] === null && !['price', 'ps'].includes(k)) delete o[k];
     return o;
   });
@@ -93,7 +94,7 @@ export default {
       const all = JSON.parse(await env.DB.get('cars') || 'null');
       const base = url.origin + '/img/';
       const vis = all ? all.filter(c => !c.hidden).map(c => {
-        const { hidden, up, ...rest } = c; return up ? { ...rest, base: base + c.id + '/' } : rest;
+        const { hidden, up, ...rest } = c; const { pv, ...r2 } = rest; return up ? { ...r2, base: base + c.id + (pv ? '-' + pv : '') + '/' } : r2;
       }) : null;
       return new Response(vis ? 'window.CARS=' + JSON.stringify(vis) + ';' : '/* noch keine Daten */', {
         headers: { 'Content-Type': 'application/javascript; charset=utf-8', 'Cache-Control': 'public, max-age=30', 'Access-Control-Allow-Origin': '*' },
