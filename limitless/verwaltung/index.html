@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#050608">
+<title>Flotte verwalten · Limitless Performance</title>
+<link rel="icon" href="../logo-mark.png">
+<style>
+@font-face{font-family:Archivo;src:url(../fonts/archivo-wdth.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;font-weight:400;src:url(../fonts/manrope-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Manrope;font-weight:600;src:url(../fonts/manrope-600.woff2) format("woff2");font-display:swap}
+:root{--ink:#050608;--ink2:#0b0e12;--ink3:#121720;--text:#eef2f6;--mute:#8b95a3;--line:rgba(255,255,255,.11);--steel:#4ea3e6;--ok:#7be3a4;--bad:#ff8a8a}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--text);font:15px/1.45 Manrope,system-ui,-apple-system,sans-serif;min-height:100vh}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.wrap{max-width:640px;margin:0 auto;padding:0 16px calc(100px + env(safe-area-inset-bottom))}
+h1,h2{font-family:Archivo,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
+h1{font-size:28px}h2{font-size:22px}
+.mute{color:var(--mute)}
+.btn{display:block;width:100%;padding:14px 16px;border-radius:12px;background:var(--steel);color:#fff;font-weight:600;text-align:center}
+.btn:disabled{opacity:.5}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.2)}
+.btn.red{background:transparent;border:1px solid rgba(255,138,138,.4);color:var(--bad)}
+.field{margin-top:14px}
+.field label{display:block;font-size:12px;color:var(--mute);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em}
+.field input,.field select{width:100%;background:var(--ink3);border:1px solid var(--line);border-radius:10px;padding:13px 12px;font-size:16px;outline:none;appearance:none}
+.field input:focus,.field select:focus{border-color:var(--steel)}
+.row2{display:flex;gap:10px}.row2>.field{flex:1;min-width:0}
+/* Login */
+#login{max-width:400px;margin:0 auto;padding:12vh 20px 40px}
+#login img{display:block;max-width:100%;max-height:30px;margin:0 auto 40px}
+#login h1{text-align:center}
+#login p.mute{text-align:center;margin:6px 0 20px}
+#lErr{color:var(--bad);font-size:14px;min-height:20px;margin-top:10px;text-align:center}
+/* Liste */
+header{position:sticky;top:0;z-index:5;background:rgba(5,6,8,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .in{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;gap:12px}
+header img{height:15px;max-width:60vw;object-fit:contain;object-position:left}
+header button{font-size:13px;color:var(--mute)}
+.head{padding:22px 0 12px}
+.head p{margin-top:4px}
+#q{width:100%;background:var(--ink3);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:16px;margin:4px 0 14px;outline:none}
+.car{display:flex;gap:12px;align-items:center;background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:8px;margin-bottom:10px}
+.car .open{display:flex;gap:12px;align-items:center;flex:1;min-width:0;text-align:left}
+.car img{width:84px;height:58px;object-fit:cover;border-radius:9px;flex:none;background:var(--ink3)}
+.car .n{min-width:0}
+.car .n b{display:block;font-weight:600;font-size:14.5px;line-height:1.25;overflow:hidden;text-overflow:ellipsis}
+.car .n small{display:block;color:var(--mute);font-size:12.5px;margin-top:2px}
+.car.off img{filter:grayscale(1);opacity:.4}.car.off .n{opacity:.55}
+.tg{width:50px;height:30px;border-radius:15px;background:var(--steel);position:relative;flex:none;transition:background .2s}
+.tg:after{content:"";position:absolute;top:3px;left:23px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .2s}
+.off .tg{background:#333}.off .tg:after{left:3px}
+.tg:focus-visible,.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--ink) 30%)}
+.bar .btn{max-width:608px;margin:0 auto}
+/* Formular */
+.sheet{position:fixed;inset:0;z-index:10;background:var(--ink);overflow-y:auto;display:none}
+.sheet.open{display:block}
+.sheet .top{position:sticky;top:0;z-index:2;background:rgba(5,6,8,.95);display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.sheet .top button{color:var(--mute);font-size:14px}
+.sheet .wrap{padding-top:8px}
+.pics{display:flex;gap:8px;flex-wrap:wrap}
+.pics img,.pics label{width:84px;height:62px;border-radius:9px;object-fit:cover}
+.pics label{border:1px dashed var(--steel);color:var(--steel);display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
+.pics input{display:none}
+.hint{font-size:13px;color:var(--mute);margin-top:6px}
+.acts{margin-top:24px;display:grid;gap:10px}
+#toast{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:20;max-width:600px;margin:0 auto;background:#1d3b2a;color:var(--ok);border-radius:12px;padding:12px 14px;text-align:center;font-size:14px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}
+#toast.on{opacity:1;transform:none}#toast.err{background:#3b1d1d;color:var(--bad)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<section id="login" hidden>
+  <img src="../logo-word.png" alt="Limitless Performance">
+  <h1>Flotte verwalten</h1>
+  <p class="mute">Nur für Limitless Performance</p>
+  <form id="lForm">
+    <div class="field"><label for="lMail">E-Mail</label><input id="lMail" type="email" autocomplete="username" required></div>
+    <div class="field"><label for="lPw">Passwort</label><input id="lPw" type="password" autocomplete="current-password" required></div>
+    <button class="btn" style="margin-top:20px" id="lBtn">Anmelden</button>
+    <p id="lErr" role="alert"></p>
+  </form>
+</section>
+
+<section id="app" hidden>
+  <header><div class="in"><img src="../logo-word.png" alt="Limitless Performance"><button type="button" id="out">Abmelden</button></div></header>
+  <div class="wrap">
+    <div class="head"><h1>Ihre Flotte</h1><p class="mute" id="sum"></p></div>
+    <input id="q" type="search" placeholder="Auto suchen …" aria-label="Auto suchen">
+    <div id="list"></div>
+    <p class="hint" style="text-align:center;margin-top:18px">Änderungen sind nach etwa einer Minute auf der Website zu sehen.<br><a href="../" style="color:var(--steel)">Zur Website →</a></p>
+  </div>
+  <div class="bar"><button class="btn" type="button" id="add">+ Neues Auto anlegen</button></div>
+</section>
+
+<section class="sheet" id="sheet" aria-modal="true" role="dialog" aria-labelledby="sTitle">
+  <div class="top"><button type="button" id="sBack">← Zurück</button><span id="sTitle">Auto bearbeiten</span><span style="width:52px"></span></div>
+  <form class="wrap" id="sForm">
+    <div class="field" id="picBox"><label>Fotos</label>
+      <div class="pics" id="pics"></div>
+      <p class="hint" id="picHint">Das erste Foto ist das Titelbild.</p>
+    </div>
+    <div class="field"><label for="sName">Name</label><input id="sName" required placeholder="z. B. Ferrari Roma Coupé"></div>
+    <div class="row2">
+      <div class="field"><label for="sBrand">Marke</label><input id="sBrand" required list="brands" placeholder="Ferrari"></div>
+      <div class="field"><label for="sCat">Kategorie</label><select id="sCat"></select></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="sPrice">Preis / Tag (€)</label><input id="sPrice" type="number" inputmode="numeric" min="0" placeholder="leer = auf Anfrage"></div>
+      <div class="field"><label for="sPs">PS</label><input id="sPs" type="number" inputmode="numeric" min="0"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="sCyl">Zylinder</label><input id="sCyl" placeholder="8"></div>
+      <div class="field"><label for="sVis">Auf der Website</label><select id="sVis"><option value="1">sichtbar</option><option value="0">ausgeblendet</option></select></div>
+    </div>
+    <datalist id="brands"></datalist>
+    <div class="acts">
+      <button class="btn" id="sSave">Speichern</button>
+      <button class="btn red" type="button" id="sDel">Auto löschen</button>
+    </div>
+  </form>
+</section>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+const API = "https://limitless-flotte.allrich.workers.dev";
+const CATS = ["Sportwagen", "Supersportwagen", "Cabrio", "Coupé", "SUV", "Limousine", "Kombi", "Van"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} } };
+let TOKEN = store.get("lp_token"), CARS = [], CUR = null, NEWPICS = [];
+
+function toast(msg, err) { const t = $("#toast"); t.textContent = msg; t.className = "on" + (err ? " err" : ""); clearTimeout(t._h); t._h = setTimeout(() => t.className = "", err ? 4500 : 2600); }
+async function api(path, opt = {}) {
+  const r = await fetch(API + path, { ...opt, headers: { ...(opt.headers || {}), ...(TOKEN ? { Authorization: "Bearer " + TOKEN } : {}) } });
+  const d = await r.json().catch(() => ({}));
+  if (r.status === 401 && path !== "/login") { logout(); throw new Error("Bitte neu anmelden."); }
+  if (!r.ok) throw new Error(d.error || "Fehler " + r.status);
+  return d;
+}
+const thumb = c => c.up ? `${API}/img/${c.id}/t0.${c.ext || "webp"}` : `../img/${c.id}/t0.webp`;
+
+/* Anmelden */
+$("#lForm").addEventListener("submit", async e => {
+  e.preventDefault(); $("#lErr").textContent = ""; $("#lBtn").disabled = true;
+  try { const d = await api("/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: $("#lMail").value, pw: $("#lPw").value }) }); TOKEN = d.token; store.set("lp_token", TOKEN); $("#lPw").value = ""; start(); }
+  catch (err) { $("#lErr").textContent = err.message === "Failed to fetch" ? "Keine Verbindung. Bitte später erneut versuchen." : err.message; }
+  $("#lBtn").disabled = false;
+});
+function logout() { TOKEN = null; store.set("lp_token", null); $("#app").hidden = true; $("#sheet").classList.remove("open"); $("#login").hidden = false; }
+$("#out").onclick = logout;
+
+async function start() {
+  $("#login").hidden = true; $("#app").hidden = false;
+  try {
+    const d = await api("/cars");
+    CARS = d.cars || await fetch("../cars.js").then(r => r.text()).then(t => JSON.parse(t.slice(t.indexOf("["), t.lastIndexOf("]") + 1)));
+    render();
+  } catch (err) { toast(err.message, true); }
+}
+
+/* Liste */
+function render() {
+  const q = $("#q").value.trim().toLowerCase();
+  const L = [...CARS].sort((a, b) => a.name.localeCompare(b.name, "de")).filter(c => !q || c.name.toLowerCase().includes(q));
+  const vis = CARS.filter(c => !c.hidden).length;
+  $("#sum").textContent = `${CARS.length} Autos · ${vis} sichtbar`;
+  $("#list").innerHTML = L.map(c => `<div class="car${c.hidden ? " off" : ""}"><button type="button" class="open" data-edit="${c.id}"><img src="${thumb(c)}" alt="" loading="lazy"><span class="n"><b>${esc(c.name)}</b><small>${c.hidden ? "ausgeblendet" : (c.price ? c.price.toLocaleString("de-DE") + " € / Tag" : "Preis auf Anfrage") + " · sichtbar"}</small></span></button><button type="button" class="tg" role="switch" aria-checked="${!c.hidden}" aria-label="${esc(c.name)} auf der Website zeigen" data-tg="${c.id}"></button></div>`).join("") || `<p class="mute" style="text-align:center;padding:20px">Kein Auto gefunden.</p>`;
+  $("#brands").innerHTML = [...new Set(CARS.map(c => c.brand))].sort().map(b => `<option value="${esc(b)}">`).join("");
+}
+$("#q").addEventListener("input", render);
+async function save(msg) {
+  try { await api("/cars", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ cars: CARS }) }); toast(msg); return true; }
+  catch (err) { toast("Nicht gespeichert: " + err.message, true); return false; }
+}
+$("#list").addEventListener("click", async e => {
+  const t = e.target.closest("[data-tg]"), o = e.target.closest("[data-edit]");
+  if (t) {
+    const c = CARS.find(x => x.id === t.dataset.tg), before = !!c.hidden;
+    c.hidden = !before; if (!c.hidden) delete c.hidden; render();
+    if (!await save(c.hidden ? `${c.name} ist ausgeblendet.` : `${c.name} ist wieder sichtbar.`)) { c.hidden = before; if (!before) delete c.hidden; render(); }
+  } else if (o) edit(CARS.find(x => x.id === o.dataset.edit));
+});
+
+/* Bearbeiten / Neu */
+$("#sCat").innerHTML = CATS.map(c => `<option>${c}</option>`).join("");
+function edit(c) {
+  CUR = c; NEWPICS = [];
+  $("#sTitle").textContent = c ? "Auto bearbeiten" : "Neues Auto";
+  $("#sName").value = c ? c.name : ""; $("#sBrand").value = c ? c.brand : "";
+  const cat = c ? c.cat : "Sportwagen"; if (![...$("#sCat").options].some(o => o.value === cat)) $("#sCat").insertAdjacentHTML("beforeend", `<option>${esc(cat)}</option>`); $("#sCat").value = cat;
+  $("#sPrice").value = c && c.price != null ? c.price : ""; $("#sPs").value = c && c.ps != null ? c.ps : ""; $("#sCyl").value = c && c.cyl ? c.cyl : "";
+  $("#sVis").value = c && c.hidden ? "0" : "1";
+  $("#sDel").hidden = !c;
+  $("#picHint").textContent = c ? "Fotos ändern: bitte kurz bei Peter melden." : "Bis zu 12 Fotos. Das erste Foto ist das Titelbild.";
+  drawPics();
+  $("#sheet").classList.add("open"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden";
+}
+function drawPics() {
+  if (CUR) { $("#pics").innerHTML = Array.from({ length: Math.min(CUR.n, 8) }, (_, i) => `<img src="${CUR.up ? `${API}/img/${CUR.id}/t${i}.${CUR.ext || "webp"}` : `../img/${CUR.id}/t${i}.webp`}" alt="">`).join(""); return; }
+  $("#pics").innerHTML = NEWPICS.map(p => `<img src="${p.url}" alt="">`).join("") + (NEWPICS.length < 12 ? `<label aria-label="Fotos hinzufügen">+<input type="file" id="pIn" accept="image/*" multiple></label>` : "");
+  const pin = $("#pIn"); if (pin) pin.onchange = () => { for (const f of [...pin.files].slice(0, 12 - NEWPICS.length)) NEWPICS.push({ file: f, url: URL.createObjectURL(f) }); drawPics(); };
+}
+function close() { $("#sheet").classList.remove("open"); document.body.style.overflow = ""; NEWPICS.forEach(p => URL.revokeObjectURL(p.url)); }
+$("#sBack").onclick = close;
+$("#add").onclick = () => edit(null);
+
+async function shrink(file, max) {
+  const bmp = await new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = () => rej(new Error("Foto konnte nicht gelesen werden")); im.src = URL.createObjectURL(file); });
+  const s = Math.min(1, max / Math.max(bmp.naturalWidth, bmp.naturalHeight));
+  const cv = document.createElement("canvas"); cv.width = Math.round(bmp.naturalWidth * s); cv.height = Math.round(bmp.naturalHeight * s);
+  cv.getContext("2d").drawImage(bmp, 0, 0, cv.width, cv.height); URL.revokeObjectURL(bmp.src);
+  return new Promise(res => cv.toBlob(res, "image/jpeg", .84));
+}
+const slug = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60) || "auto";
+
+$("#sForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const name = $("#sName").value.trim(), brand = $("#sBrand").value.trim();
+  if (!name || !brand) return toast("Bitte Name und Marke eintragen.", true);
+  if (!CUR && !NEWPICS.length) return toast("Bitte mindestens ein Foto auswählen.", true);
+  const btn = $("#sSave"); btn.disabled = true;
+  const data = { name, brand, cat: $("#sCat").value, price: $("#sPrice").value === "" ? null : +$("#sPrice").value, ps: $("#sPs").value === "" ? null : +$("#sPs").value, cyl: $("#sCyl").value.trim() || undefined };
+  const hide = $("#sVis").value === "0";
+  try {
+    if (CUR) {
+      const old = { ...CUR }; Object.assign(CUR, data); if (!CUR.cyl) delete CUR.cyl; hide ? CUR.hidden = true : delete CUR.hidden;
+      if (!await save(`${name} gespeichert.`)) { Object.keys(CUR).forEach(k => delete CUR[k]); Object.assign(CUR, old); btn.disabled = false; return; }
+    } else {
+      const id = slug(name) + "-" + Math.random().toString(36).slice(2, 6);
+      for (let i = 0; i < NEWPICS.length; i++) {
+        btn.textContent = `Foto ${i + 1} von ${NEWPICS.length} wird hochgeladen …`;
+        for (const [pre, max] of [["", 1600], ["t", 640]]) await api(`/img/${id}/${pre}${i}.jpg`, { method: "PUT", headers: { "Content-Type": "image/jpeg" }, body: await shrink(NEWPICS[i].file, max) });
+      }
+      const car = { id, ...data, n: NEWPICS.length, up: true, ext: "jpg" }; if (!car.cyl) delete car.cyl; if (hide) car.hidden = true;
+      CARS.push(car);
+      if (!await save(`${name} ist ${hide ? "gespeichert (ausgeblendet)" : "jetzt auf Ihrer Website"}.`)) { CARS.pop(); btn.disabled = false; btn.textContent = "Speichern"; return; }
+    }
+    close(); render();
+  } catch (err) { toast(err.message, true); }
+  btn.disabled = false; btn.textContent = "Speichern";
+});
+$("#sDel").onclick = async () => {
+  if (!CUR || !confirm(`${CUR.name} wirklich löschen? Tipp: Ausblenden geht auch und lässt sich rückgängig machen.`)) return;
+  const i = CARS.indexOf(CUR), c = CUR; CARS.splice(i, 1);
+  if (await save(`${c.name} gelöscht.`)) { close(); render(); } else CARS.splice(i, 0, c);
+};
+
+TOKEN ? start() : ($("#login").hidden = false);
+})();
+</script>
+</body>
+</html>

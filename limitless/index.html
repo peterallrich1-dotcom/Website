@@ -393,7 +393,8 @@ footer a{text-decoration:none}footer nav{display:flex;gap:20px}
 </div>
 
 <script src="films.js"></script>
-<script src="cars.js"></script>
+<script src="https://limitless-flotte.allrich.workers.dev/cars.js"></script>
+<script>window.CARS || document.write('<script src="cars.js"><\/script>')</script>
 <script>
 (() => {
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
@@ -403,7 +404,7 @@ const progress = el => { const r = el.getBoundingClientRect(); return clamp(-r.t
 const vis = el => { const r = el.getBoundingClientRect(); return r.bottom > -60 && r.top < innerHeight + 60; };
 const DPR = Math.min(2, devicePixelRatio || 1);
 const euro = n => n == null ? "auf Anfrage" : n.toLocaleString("de-DE") + " €";
-const CARS = window.CARS, img = (c, i = 0, t = true) => `img/${c.id}/${t ? "t" : ""}${i}.webp`;
+const CARS = window.CARS, img = (c, i = 0, t = true) => `${c.base || "img/" + c.id + "/"}${t ? "t" : ""}${i}.${c.ext || "webp"}`;
 const byId = id => CARS.find(c => c.id === id);
 const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
 
